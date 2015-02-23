@@ -1,0 +1,18 @@
+{
+    "name": "KLVTZ/kaltura-generated-api-clients-php53",
+    "description": "PHP53 auto generated clients libs for Kaltura API client library",
+	"keywords": ["kaltura", "client library", "video", "api", "client", "video platform"],
+	"minimum-stability": "dev",
+    "license": "GNU",
+    "authors": [
+        {
+            "name": "Jess Portnoy",
+            "email": "kernel01@gmail.com"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"Kaltura\\Client\\": "src"
+		}
+	}
+}
