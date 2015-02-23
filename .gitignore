@@ -1,6 +1,5 @@
-ruby-version
-composer.lock
 build
+composer.lock
+docs
 vendor
-Gemfile.lock
-coverage
+tags
