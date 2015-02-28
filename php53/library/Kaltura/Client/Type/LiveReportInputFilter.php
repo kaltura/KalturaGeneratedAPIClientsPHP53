@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -57,6 +57,7 @@ class LiveReportInputFilter extends \Kaltura\Client\ObjectBase
 			$this->toTime = (int)$xml->toTime;
 		if(count($xml->live))
 			$this->live = (int)$xml->live;
+		$this->orderBy = (string)$xml->orderBy;
 	}
 	/**
 	 * 
@@ -81,5 +82,11 @@ class LiveReportInputFilter extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $live = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\LiveReportOrderBy
+	 */
+	public $orderBy = null;
 
 }

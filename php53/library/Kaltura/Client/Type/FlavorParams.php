@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -97,6 +97,10 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->anamorphicPixels = (float)$xml->anamorphicPixels;
 		if(count($xml->isAvoidForcedKeyFrames))
 			$this->isAvoidForcedKeyFrames = (int)$xml->isAvoidForcedKeyFrames;
+		if(count($xml->isCropIMX))
+			$this->isCropIMX = (int)$xml->isCropIMX;
+		if(count($xml->optimizationPolicy))
+			$this->optimizationPolicy = (int)$xml->optimizationPolicy;
 		if(count($xml->maxFrameRate))
 			$this->maxFrameRate = (int)$xml->maxFrameRate;
 		if(count($xml->videoConstantBitrate))
@@ -283,6 +287,18 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 	 * @var int
 	 */
 	public $isAvoidForcedKeyFrames = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $isCropIMX = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $optimizationPolicy = null;
 
 	/**
 	 * 

@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -41,5 +41,6 @@ class CuePointStatus
 	const READY = 1;
 	const DELETED = 2;
 	const HANDLED = 3;
+	const PENDING = 4;
 }
 

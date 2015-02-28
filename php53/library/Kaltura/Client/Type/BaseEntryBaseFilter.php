@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -139,6 +139,8 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\Filter
 		$this->rootEntryIdEqual = (string)$xml->rootEntryIdEqual;
 		$this->rootEntryIdIn = (string)$xml->rootEntryIdIn;
 		$this->parentEntryIdEqual = (string)$xml->parentEntryIdEqual;
+		$this->entitledUsersEditMatchAnd = (string)$xml->entitledUsersEditMatchAnd;
+		$this->entitledUsersPublishMatchAnd = (string)$xml->entitledUsersPublishMatchAnd;
 		$this->tagsNameMultiLikeOr = (string)$xml->tagsNameMultiLikeOr;
 		$this->tagsAdminTagsMultiLikeOr = (string)$xml->tagsAdminTagsMultiLikeOr;
 		$this->tagsAdminTagsNameMultiLikeOr = (string)$xml->tagsAdminTagsNameMultiLikeOr;
@@ -569,6 +571,18 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var string
 	 */
 	public $parentEntryIdEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entitledUsersEditMatchAnd = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entitledUsersPublishMatchAnd = null;
 
 	/**
 	 * 

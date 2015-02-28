@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -39,8 +39,5 @@ namespace Kaltura\Client\Plugin\VirusScan\Enum;
 class VirusScanEngineType
 {
 	const CLAMAV_SCAN_ENGINE = "clamAVScanEngine.ClamAV";
-	const SYMANTEC_SCAN_DIRECT_ENGINE = "symantecScanEngine.SymantecScanDirectEngine";
-	const SYMANTEC_SCAN_ENGINE = "symantecScanEngine.SymantecScanEngine";
-	const SYMANTEC_SCAN_JAVA_ENGINE = "symantecScanEngine.SymantecScanJavaEngine";
 }
 

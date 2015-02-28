@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -53,6 +53,7 @@ class EndUserReportInputFilter extends \Kaltura\Client\Type\ReportInputFilter
 		$this->application = (string)$xml->application;
 		$this->userIds = (string)$xml->userIds;
 		$this->playbackContext = (string)$xml->playbackContext;
+		$this->ancestorPlaybackContext = (string)$xml->ancestorPlaybackContext;
 	}
 	/**
 	 * 
@@ -71,5 +72,11 @@ class EndUserReportInputFilter extends \Kaltura\Client\Type\ReportInputFilter
 	 * @var string
 	 */
 	public $playbackContext = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $ancestorPlaybackContext = null;
 
 }

@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -45,6 +45,8 @@ class EventNotificationEventObjectType
 	const DISTRIBUTION_PROFILE = "contentDistributionEventNotifications.DistributionProfile";
 	const ENTRY_DISTRIBUTION = "contentDistributionEventNotifications.EntryDistribution";
 	const CUE_POINT = "cuePointEventNotifications.CuePoint";
+	const DROP_FOLDER = "dropFolderEventNotifications.DropFolder";
+	const DROP_FOLDER_FILE = "dropFolderEventNotifications.DropFolderFile";
 	const METADATA = "metadataEventNotifications.Metadata";
 	const ENTRY = "1";
 	const CATEGORY = "2";

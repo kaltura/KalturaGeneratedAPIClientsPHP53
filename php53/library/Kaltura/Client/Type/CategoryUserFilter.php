@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -53,6 +53,7 @@ class CategoryUserFilter extends \Kaltura\Client\Type\CategoryUserBaseFilter
 		if(!empty($xml->categoryDirectMembers))
 			$this->categoryDirectMembers = true;
 		$this->freeText = (string)$xml->freeText;
+		$this->relatedGroupsByUserId = (string)$xml->relatedGroupsByUserId;
 	}
 	/**
 	 * Return the list of categoryUser that are not inherited from parent category - only the direct categoryUsers.
@@ -67,5 +68,12 @@ class CategoryUserFilter extends \Kaltura\Client\Type\CategoryUserBaseFilter
 	 * @var string
 	 */
 	public $freeText = null;
+
+	/**
+	 * Return a list of categoryUser that related to the userId in this field by groups
+	 * 	 
+	 * @var string
+	 */
+	public $relatedGroupsByUserId = null;
 
 }

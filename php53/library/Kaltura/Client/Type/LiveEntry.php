@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -76,6 +76,8 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 			$this->lastBroadcast = (int)$xml->lastBroadcast;
 		if(count($xml->currentBroadcastStartTime))
 			$this->currentBroadcastStartTime = (float)$xml->currentBroadcastStartTime;
+		if(!empty($xml->recordingOptions))
+			$this->recordingOptions = \Kaltura\Client\ParseUtils::unmarshalObject($xml->recordingOptions, "KalturaLiveEntryRecordingOptions");
 	}
 	/**
 	 * The message to be presented when the stream is offline
@@ -165,5 +167,12 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	 * @var float
 	 */
 	public $currentBroadcastStartTime = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\LiveEntryRecordingOptions
+	 * @insertonly
+	 */
+	public $recordingOptions;
 
 }

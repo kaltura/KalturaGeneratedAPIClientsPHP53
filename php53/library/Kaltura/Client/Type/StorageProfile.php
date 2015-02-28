@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -102,6 +102,9 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->deliveryProfileIds = array();
 		else
 			$this->deliveryProfileIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryProfileIds, "KalturaKeyValue");
+		$this->privateKey = (string)$xml->privateKey;
+		$this->publicKey = (string)$xml->publicKey;
+		$this->passPhrase = (string)$xml->passPhrase;
 	}
 	/**
 	 * 
@@ -280,5 +283,23 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	 * @var array of KalturaKeyValue
 	 */
 	public $deliveryProfileIds;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $privateKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $publicKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $passPhrase = null;
 
 }

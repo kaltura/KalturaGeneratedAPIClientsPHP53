@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -38,32 +38,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  */
 class DistributionProviderType
 {
-	const ATT_UVERSE = "attUverseDistribution.ATT_UVERSE";
-	const AVN = "avnDistribution.AVN";
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
 	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const NDN = "ndnDistribution.NDN";
-	const PODCAST = "podcastDistribution.PODCAST";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const SYNACOR_HBO = "synacorHboDistribution.SYNACOR_HBO";
-	const TIME_WARNER = "timeWarnerDistribution.TIME_WARNER";
-	const TVCOM = "tvComDistribution.TVCOM";
-	const TVINCI = "tvinciDistribution.TVINCI";
-	const UVERSE_CLICK_TO_ORDER = "uverseClickToOrderDistribution.UVERSE_CLICK_TO_ORDER";
-	const UVERSE = "uverseDistribution.UVERSE";
-	const VERIZON_VCAST = "verizonVcastDistribution.VERIZON_VCAST";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
 	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
 	const GENERIC = "1";
 	const SYNDICATION = "2";

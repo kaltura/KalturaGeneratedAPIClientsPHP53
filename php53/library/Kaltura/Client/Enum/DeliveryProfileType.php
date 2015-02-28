@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -41,8 +41,6 @@ class DeliveryProfileType
 	const EDGE_CAST_HTTP = "edgeCast.EDGE_CAST_HTTP";
 	const EDGE_CAST_RTMP = "edgeCast.EDGE_CAST_RTMP";
 	const KONTIKI_HTTP = "kontiki.KONTIKI_HTTP";
-	const UPLYNK_HTTP = "uplynk.UPLYNK_HTTP";
-	const UPLYNK_RTMP = "uplynk.UPLYNK_RTMP";
 	const VELOCIX_HDS = "velocix.VELOCIX_HDS";
 	const VELOCIX_HLS = "velocix.VELOCIX_HLS";
 	const APPLE_HTTP = "1";
@@ -80,6 +78,7 @@ class DeliveryProfileType
 	const VOD_PACKAGER_DASH = "68";
 	const LIVE_HLS = "1001";
 	const LIVE_HDS = "1002";
+	const LIVE_DASH = "1003";
 	const LIVE_RTMP = "1005";
 	const LIVE_AKAMAI_HDS = "1013";
 }

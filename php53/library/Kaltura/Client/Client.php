@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -134,6 +134,11 @@ class Client extends Base
 	protected $flavorParams = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\GroupUserService
+	 */
+	protected $groupUser = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\LiveChannelSegmentService
 	 */
 	protected $liveChannelSegment = null;
@@ -149,9 +154,9 @@ class Client extends Base
 	protected $liveReports = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\StatsService
+	 * @var \Kaltura\Client\Service\LiveStatsService
 	 */
-	protected $stats = null;
+	protected $liveStats = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\LiveStreamService
@@ -222,6 +227,11 @@ class Client extends Base
 	 * @var \Kaltura\Client\Service\SessionService
 	 */
 	protected $session = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\StatsService
+	 */
+	protected $stats = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\StorageProfileService
@@ -461,6 +471,15 @@ class Client extends Base
 		return $this->flavorParams;
 	}
 	/**
+	 * @return \Kaltura\Client\Service\GroupUserService
+	 */
+	public function getGroupUserService()
+	{
+		if (is_null($this->groupUser))
+			$this->groupUser = new \Kaltura\Client\Service\GroupUserService($this);
+		return $this->groupUser;
+	}
+	/**
 	 * @return \Kaltura\Client\Service\LiveChannelSegmentService
 	 */
 	public function getLiveChannelSegmentService()
@@ -488,13 +507,13 @@ class Client extends Base
 		return $this->liveReports;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\StatsService
+	 * @return \Kaltura\Client\Service\LiveStatsService
 	 */
-	public function getStatsService()
+	public function getLiveStatsService()
 	{
-		if (is_null($this->stats))
-			$this->stats = new \Kaltura\Client\Service\StatsService($this);
-		return $this->stats;
+		if (is_null($this->liveStats))
+			$this->liveStats = new \Kaltura\Client\Service\LiveStatsService($this);
+		return $this->liveStats;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\LiveStreamService
@@ -621,6 +640,15 @@ class Client extends Base
 		if (is_null($this->session))
 			$this->session = new \Kaltura\Client\Service\SessionService($this);
 		return $this->session;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\StatsService
+	 */
+	public function getStatsService()
+	{
+		if (is_null($this->stats))
+			$this->stats = new \Kaltura\Client\Service\StatsService($this);
+		return $this->stats;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\StorageProfileService

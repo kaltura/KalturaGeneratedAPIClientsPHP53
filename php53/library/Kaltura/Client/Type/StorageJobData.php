@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -53,6 +53,9 @@ class StorageJobData extends \Kaltura\Client\Type\JobData
 		$this->serverUrl = (string)$xml->serverUrl;
 		$this->serverUsername = (string)$xml->serverUsername;
 		$this->serverPassword = (string)$xml->serverPassword;
+		$this->serverPrivateKey = (string)$xml->serverPrivateKey;
+		$this->serverPublicKey = (string)$xml->serverPublicKey;
+		$this->serverPassPhrase = (string)$xml->serverPassPhrase;
 		if(!empty($xml->ftpPassiveMode))
 			$this->ftpPassiveMode = true;
 		$this->srcFileSyncLocalPath = (string)$xml->srcFileSyncLocalPath;
@@ -76,6 +79,24 @@ class StorageJobData extends \Kaltura\Client\Type\JobData
 	 * @var string
 	 */
 	public $serverPassword = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $serverPrivateKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $serverPublicKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $serverPassPhrase = null;
 
 	/**
 	 * 

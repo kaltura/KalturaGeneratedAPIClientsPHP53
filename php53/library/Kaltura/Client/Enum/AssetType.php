@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -44,8 +44,6 @@ class AssetType
 	const IMAGE = "document.Image";
 	const PDF = "document.PDF";
 	const SWF = "document.SWF";
-	const TIMED_THUMB_ASSET = "thumbCuePoint.timedThumb";
-	const WIDEVINE_FLAVOR = "widevine.WidevineFlavor";
 	const FLAVOR = "1";
 	const THUMBNAIL = "2";
 	const LIVE = "3";
