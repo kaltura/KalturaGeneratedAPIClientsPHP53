@@ -56,7 +56,7 @@ class Configuration
 	/**
 	 * @var string
 	 */
-	private $clientTag 	  				= "php53:15-02-28";
+	private $clientTag 	  				= "php53:15-03-01";
 	
 	/**
 	 * @var int
