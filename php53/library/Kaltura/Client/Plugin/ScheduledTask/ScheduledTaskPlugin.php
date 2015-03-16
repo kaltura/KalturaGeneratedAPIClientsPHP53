@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -38,11 +38,6 @@ namespace Kaltura\Client\Plugin\ScheduledTask;
  */
 class ScheduledTaskPlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\ScheduledTaskProfileService
-	 */
-	protected $scheduledTaskProfile = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -62,7 +57,6 @@ class ScheduledTaskPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'scheduledTaskProfile' => $this->getScheduledTaskProfileService(),
 		);
 		return $services;
 	}
@@ -73,15 +67,6 @@ class ScheduledTaskPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'scheduledTask';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\ScheduledTask\Service\ScheduledTaskProfileService
-	 */
-	public function getScheduledTaskProfileService()
-	{
-		if (is_null($this->scheduledTaskProfile))
-			$this->scheduledTaskProfile = new Service\ScheduledTaskProfileService($this->_client);
-		return $this->scheduledTaskProfile;
 	}
 }
 

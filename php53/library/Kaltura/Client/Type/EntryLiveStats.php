@@ -53,6 +53,8 @@ class EntryLiveStats extends \Kaltura\Client\Type\LiveStats
 		$this->entryId = (string)$xml->entryId;
 		if(count($xml->peakAudience))
 			$this->peakAudience = (int)$xml->peakAudience;
+		if(count($xml->peakDvrAudience))
+			$this->peakDvrAudience = (int)$xml->peakDvrAudience;
 	}
 	/**
 	 * 
@@ -65,5 +67,11 @@ class EntryLiveStats extends \Kaltura\Client\Type\LiveStats
 	 * @var int
 	 */
 	public $peakAudience = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $peakDvrAudience = null;
 
 }

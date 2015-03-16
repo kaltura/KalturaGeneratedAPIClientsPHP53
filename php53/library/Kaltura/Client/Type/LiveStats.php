@@ -52,6 +52,8 @@ class LiveStats extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->audience))
 			$this->audience = (int)$xml->audience;
+		if(count($xml->dvrAudience))
+			$this->dvrAudience = (int)$xml->dvrAudience;
 		if(count($xml->avgBitrate))
 			$this->avgBitrate = (float)$xml->avgBitrate;
 		if(count($xml->bufferTime))
@@ -70,6 +72,12 @@ class LiveStats extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 */
 	public $audience = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $dvrAudience = null;
 
 	/**
 	 * 

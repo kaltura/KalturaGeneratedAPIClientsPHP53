@@ -39,6 +39,7 @@ namespace Kaltura\Client\Enum;
 class RecordStatus
 {
 	const DISABLED = 0;
-	const ENABLED = 1;
+	const APPENDED = 1;
+	const PER_SESSION = 2;
 }
 
