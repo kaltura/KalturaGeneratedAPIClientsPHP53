@@ -70,6 +70,7 @@ class DeliveryProfileType
 	const LIMELIGHT_HTTP = "44";
 	const LIMELIGHT_RTMP = "45";
 	const LOCAL_PATH_APPLE_HTTP = "51";
+	const LOCAL_PATH_HDS = "53";
 	const LOCAL_PATH_HTTP = "54";
 	const LOCAL_PATH_RTMP = "55";
 	const VOD_PACKAGER_HLS = "61";

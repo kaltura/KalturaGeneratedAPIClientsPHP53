@@ -67,6 +67,7 @@ class LiveStatsEvent extends \Kaltura\Client\ObjectBase
 		$this->referrer = (string)$xml->referrer;
 		if(!empty($xml->isLive))
 			$this->isLive = true;
+		$this->startTime = (string)$xml->startTime;
 		$this->deliveryType = (string)$xml->deliveryType;
 	}
 	/**
@@ -82,8 +83,9 @@ class LiveStatsEvent extends \Kaltura\Client\ObjectBase
 	public $entryId = null;
 
 	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\StatsEventType
+	 * an integer representing the type of event being sent from the player
+	 * 	 
+	 * @var \Kaltura\Client\Enum\LiveStatsEventType
 	 */
 	public $eventType = null;
 
@@ -127,6 +129,13 @@ class LiveStatsEvent extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $isLive = null;
+
+	/**
+	 * the event start time as string
+	 * 	 
+	 * @var string
+	 */
+	public $startTime = null;
 
 	/**
 	 * delivery type used for this stream

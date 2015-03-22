@@ -30,56 +30,43 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\ScheduledTaskContentDistribution;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class LiveReportExportParams extends \Kaltura\Client\ObjectBase
+class ScheduledTaskContentDistributionPlugin extends \Kaltura\Client\Plugin
 {
-	public function getKalturaObjectType()
+	protected function __construct(\Kaltura\Client\Client $client)
 	{
-		return 'KalturaLiveReportExportParams';
+		parent::__construct($client);
 	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
+
+	/**
+	 * @return ScheduledTaskContentDistributionPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
 	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		$this->entryIds = (string)$xml->entryIds;
-		$this->recpientEmail = (string)$xml->recpientEmail;
-		if(count($xml->timeZoneOffset))
-			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		$this->applicationUrlTemplate = (string)$xml->applicationUrlTemplate;
+		return new ScheduledTaskContentDistributionPlugin($client);
 	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $entryIds = null;
 
 	/**
-	 * 
-	 * @var string
+	 * @return array<\Kaltura\Client\ServiceBase>
 	 */
-	public $recpientEmail = null;
+	public function getServices()
+	{
+		$services = array(
+		);
+		return $services;
+	}
 
 	/**
-	 * Time zone offset in minutes (between client to UTC)
-	 * 	 
-	 * @var int
+	 * @return string
 	 */
-	public $timeZoneOffset = null;
-
-	/**
-	 * Optional argument that allows controlling the prefix of the exported csv url
-	 * 	 
-	 * @var string
-	 */
-	public $applicationUrlTemplate = null;
-
+	public function getName()
+	{
+		return 'scheduledTaskContentDistribution';
+	}
 }
+

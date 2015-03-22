@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\ScheduledTaskContentDistribution\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class LiveReportExportParams extends \Kaltura\Client\ObjectBase
+class DistributeObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\ObjectTask
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaLiveReportExportParams';
+		return 'KalturaDistributeObjectTask';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,36 +50,13 @@ class LiveReportExportParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->entryIds = (string)$xml->entryIds;
-		$this->recpientEmail = (string)$xml->recpientEmail;
-		if(count($xml->timeZoneOffset))
-			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		$this->applicationUrlTemplate = (string)$xml->applicationUrlTemplate;
+		$this->distributionProfileId = (string)$xml->distributionProfileId;
 	}
 	/**
-	 * 
-	 * @var string
-	 */
-	public $entryIds = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $recpientEmail = null;
-
-	/**
-	 * Time zone offset in minutes (between client to UTC)
-	 * 	 
-	 * @var int
-	 */
-	public $timeZoneOffset = null;
-
-	/**
-	 * Optional argument that allows controlling the prefix of the exported csv url
+	 * Distribution profile id
 	 * 	 
 	 * @var string
 	 */
-	public $applicationUrlTemplate = null;
+	public $distributionProfileId = null;
 
 }

@@ -30,56 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class LiveReportExportParams extends \Kaltura\Client\ObjectBase
+class LiveStatsEventType
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaLiveReportExportParams';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		$this->entryIds = (string)$xml->entryIds;
-		$this->recpientEmail = (string)$xml->recpientEmail;
-		if(count($xml->timeZoneOffset))
-			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		$this->applicationUrlTemplate = (string)$xml->applicationUrlTemplate;
-	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $entryIds = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $recpientEmail = null;
-
-	/**
-	 * Time zone offset in minutes (between client to UTC)
-	 * 	 
-	 * @var int
-	 */
-	public $timeZoneOffset = null;
-
-	/**
-	 * Optional argument that allows controlling the prefix of the exported csv url
-	 * 	 
-	 * @var string
-	 */
-	public $applicationUrlTemplate = null;
-
+	const LIVE = 1;
+	const DVR = 2;
 }
+

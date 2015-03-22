@@ -170,14 +170,14 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	public $adminTags = null;
 
 	/**
-	 * Categories with no entitlement that this entry belongs to.
+	 * Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action. 
 	 * 	 
 	 * @var string
 	 */
 	public $categories = null;
 
 	/**
-	 * Categories Ids of categories with no entitlement that this entry belongs to
+	 * Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action. 
 	 * 	 
 	 * @var string
 	 */
