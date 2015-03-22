@@ -30,13 +30,13 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ScheduledTaskEventNotification;
+namespace Kaltura\Client\Plugin\ScheduledTaskContentDistribution;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduledTaskEventNotificationPlugin extends \Kaltura\Client\Plugin
+class ScheduledTaskContentDistributionPlugin extends \Kaltura\Client\Plugin
 {
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
@@ -44,11 +44,11 @@ class ScheduledTaskEventNotificationPlugin extends \Kaltura\Client\Plugin
 	}
 
 	/**
-	 * @return ScheduledTaskEventNotificationPlugin
+	 * @return ScheduledTaskContentDistributionPlugin
 	 */
 	public static function get(\Kaltura\Client\Client $client)
 	{
-		return new ScheduledTaskEventNotificationPlugin($client);
+		return new ScheduledTaskContentDistributionPlugin($client);
 	}
 
 	/**
@@ -66,7 +66,7 @@ class ScheduledTaskEventNotificationPlugin extends \Kaltura\Client\Plugin
 	 */
 	public function getName()
 	{
-		return 'scheduledTaskEventNotification';
+		return 'scheduledTaskContentDistribution';
 	}
 }
 

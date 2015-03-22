@@ -30,43 +30,33 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ScheduledTaskEventNotification;
+namespace Kaltura\Client\Plugin\ScheduledTaskContentDistribution\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduledTaskEventNotificationPlugin extends \Kaltura\Client\Plugin
+class DistributeObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\ObjectTask
 {
-	protected function __construct(\Kaltura\Client\Client $client)
+	public function getKalturaObjectType()
 	{
-		parent::__construct($client);
+		return 'KalturaDistributeObjectTask';
 	}
-
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		$this->distributionProfileId = (string)$xml->distributionProfileId;
+	}
 	/**
-	 * @return ScheduledTaskEventNotificationPlugin
+	 * Distribution profile id
+	 * 	 
+	 * @var string
 	 */
-	public static function get(\Kaltura\Client\Client $client)
-	{
-		return new ScheduledTaskEventNotificationPlugin($client);
-	}
+	public $distributionProfileId = null;
 
-	/**
-	 * @return array<\Kaltura\Client\ServiceBase>
-	 */
-	public function getServices()
-	{
-		$services = array(
-		);
-		return $services;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName()
-	{
-		return 'scheduledTaskEventNotification';
-	}
 }
-

@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -38,6 +38,7 @@ namespace Kaltura\Client\Plugin\ScheduledTask\Enum;
  */
 class ObjectTaskType
 {
+	const DISTRIBUTE = "scheduledTaskContentDistribution.Distribute";
 	const DISPATCH_EVENT_NOTIFICATION = "scheduledTaskEventNotification.DispatchEventNotification";
 	const EXECUTE_METADATA_XSLT = "scheduledTaskMetadata.ExecuteMetadataXslt";
 	const DELETE_ENTRY = "1";
@@ -45,5 +46,6 @@ class ObjectTaskType
 	const DELETE_ENTRY_FLAVORS = "3";
 	const CONVERT_ENTRY_FLAVORS = "4";
 	const DELETE_LOCAL_CONTENT = "5";
+	const STORAGE_EXPORT = "6";
 }
 

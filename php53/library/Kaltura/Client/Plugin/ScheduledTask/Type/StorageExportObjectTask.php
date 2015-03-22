@@ -30,43 +30,33 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ScheduledTaskEventNotification;
+namespace Kaltura\Client\Plugin\ScheduledTask\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduledTaskEventNotificationPlugin extends \Kaltura\Client\Plugin
+class StorageExportObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\ObjectTask
 {
-	protected function __construct(\Kaltura\Client\Client $client)
+	public function getKalturaObjectType()
 	{
-		parent::__construct($client);
+		return 'KalturaStorageExportObjectTask';
 	}
-
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		$this->storageId = (string)$xml->storageId;
+	}
 	/**
-	 * @return ScheduledTaskEventNotificationPlugin
+	 * Storage profile id
+	 * 	 
+	 * @var string
 	 */
-	public static function get(\Kaltura\Client\Client $client)
-	{
-		return new ScheduledTaskEventNotificationPlugin($client);
-	}
+	public $storageId = null;
 
-	/**
-	 * @return array<\Kaltura\Client\ServiceBase>
-	 */
-	public function getServices()
-	{
-		$services = array(
-		);
-		return $services;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName()
-	{
-		return 'scheduledTaskEventNotification';
-	}
 }
-
