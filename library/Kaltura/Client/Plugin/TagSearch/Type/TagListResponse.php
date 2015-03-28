@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\TagSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class TagListResponse extends \Kaltura\Client\ObjectBase
+class TagListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class TagListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaTag");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaTag
+	 * @var array<KalturaTag>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

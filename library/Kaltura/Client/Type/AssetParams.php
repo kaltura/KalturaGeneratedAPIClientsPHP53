@@ -134,7 +134,7 @@ class AssetParams extends \Kaltura\Client\ObjectBase
 	/**
 	 * Array of partner permisison names that required for using this asset params
 	 * 	 
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $requiredPermissions;
 

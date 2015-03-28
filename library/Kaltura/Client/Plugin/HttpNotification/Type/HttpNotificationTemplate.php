@@ -202,7 +202,7 @@ class HttpNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification\
 	/**
 	 * Adds a e-mail custom header
 	 * 	 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $customHeaders;
 

@@ -66,7 +66,7 @@ class EventNotificationDispatchJobData extends \Kaltura\Client\Type\JobData
 	/**
 	 * Define the content dynamic parameters
 	 * 	 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $contentParameters;
 

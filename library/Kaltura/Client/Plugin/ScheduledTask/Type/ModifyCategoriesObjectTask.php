@@ -67,7 +67,7 @@ class ModifyCategoriesObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Ty
 	/**
 	 * The list of category ids to add or remove
 	 * 	 
-	 * @var array of KalturaIntegerValue
+	 * @var array<KalturaIntegerValue>
 	 */
 	public $categoryIds;
 

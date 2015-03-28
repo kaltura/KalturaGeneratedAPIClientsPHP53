@@ -58,7 +58,7 @@ class AuthenticatedCondition extends \Kaltura\Client\Type\Condition
 	/**
 	 * The privelege needed to remove the restriction
 	 * 	 
-	 * @var array of KalturaStringValue
+	 * @var array<KalturaStringValue>
 	 */
 	public $privileges;
 

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class GenericDistributionProviderActionListResponse extends \Kaltura\Client\ObjectBase
+class GenericDistributionProviderActionListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class GenericDistributionProviderActionListResponse extends \Kaltura\Client\Obje
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaGenericDistributionProviderAction");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaGenericDistributionProviderAction
+	 * @var array<KalturaGenericDistributionProviderAction>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

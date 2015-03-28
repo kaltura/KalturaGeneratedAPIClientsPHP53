@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class FlavorParamsOutputListResponse extends \Kaltura\Client\ObjectBase
+class FlavorParamsOutputListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class FlavorParamsOutputListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaFlavorParamsOutput");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaFlavorParamsOutput
+	 * @var array<KalturaFlavorParamsOutput>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

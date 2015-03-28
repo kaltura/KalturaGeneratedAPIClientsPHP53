@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ExternalMedia\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ExternalMediaEntryListResponse extends \Kaltura\Client\ObjectBase
+class ExternalMediaEntryListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class ExternalMediaEntryListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaExternalMediaEntry");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaExternalMediaEntry
+	 * @var array<KalturaExternalMediaEntry>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

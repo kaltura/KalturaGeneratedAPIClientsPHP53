@@ -88,7 +88,7 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 	/**
 	 * Array of supported bitrates
 	 * 	 
-	 * @var array of KalturaLiveStreamBitrate
+	 * @var array<KalturaLiveStreamBitrate>
 	 */
 	public $bitrates;
 

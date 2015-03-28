@@ -66,7 +66,7 @@ class AssetDistributionRule extends \Kaltura\Client\ObjectBase
 	/**
 	 * An array of asset distribution conditions
 	 * 	 
-	 * @var array of KalturaAssetDistributionCondition
+	 * @var array<KalturaAssetDistributionCondition>
 	 */
 	public $assetDistributionConditions;
 

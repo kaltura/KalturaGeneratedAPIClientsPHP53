@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class MetadataProfileFieldListResponse extends \Kaltura\Client\ObjectBase
+class MetadataProfileFieldListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class MetadataProfileFieldListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaMetadataProfileField");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaMetadataProfileField
+	 * @var array<KalturaMetadataProfileField>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

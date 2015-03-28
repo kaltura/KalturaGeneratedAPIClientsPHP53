@@ -74,7 +74,7 @@ class PlayerDeliveryType extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $flashvars;
 

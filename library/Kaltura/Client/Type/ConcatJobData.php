@@ -64,7 +64,7 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 	/**
 	 * Source files to be concatenated
 	 * 	 
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $srcFiles;
 

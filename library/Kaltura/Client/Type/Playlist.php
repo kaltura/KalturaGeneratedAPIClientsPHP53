@@ -79,7 +79,7 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * 
-	 * @var array of KalturaMediaEntryFilterForPlaylist
+	 * @var array<KalturaMediaEntryFilterForPlaylist>
 	 */
 	public $filters;
 

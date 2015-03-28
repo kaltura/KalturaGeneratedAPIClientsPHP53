@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ShortLink\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ShortLinkListResponse extends \Kaltura\Client\ObjectBase
+class ShortLinkListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class ShortLinkListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaShortLink");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaShortLink
+	 * @var array<KalturaShortLink>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

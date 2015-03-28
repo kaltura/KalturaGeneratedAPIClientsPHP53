@@ -76,21 +76,21 @@ class Rule extends \Kaltura\Client\ObjectBase
 	/**
 	 * Actions to be performed by the player in case the rule is fulfilled
 	 * 	 
-	 * @var array of KalturaRuleAction
+	 * @var array<KalturaRuleAction>
 	 */
 	public $actions;
 
 	/**
 	 * Conditions to validate the rule
 	 * 	 
-	 * @var array of KalturaCondition
+	 * @var array<KalturaCondition>
 	 */
 	public $conditions;
 
 	/**
 	 * Indicates what contexts should be tested by this rule 
 	 * 	 
-	 * @var array of KalturaContextTypeHolder
+	 * @var array<KalturaContextTypeHolder>
 	 */
 	public $contexts;
 

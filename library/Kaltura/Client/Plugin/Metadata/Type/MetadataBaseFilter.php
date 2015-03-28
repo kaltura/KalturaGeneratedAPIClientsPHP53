@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class MetadataBaseFilter extends \Kaltura\Client\Type\Filter
+abstract class MetadataBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 {
 	public function getKalturaObjectType()
 	{

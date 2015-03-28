@@ -60,7 +60,7 @@ class RemoteStorageResources extends \Kaltura\Client\Type\ContentResource
 	/**
 	 * Array of remote stoage resources 
 	 * 	 
-	 * @var array of KalturaRemoteStorageResource
+	 * @var array<KalturaRemoteStorageResource>
 	 */
 	public $resources;
 

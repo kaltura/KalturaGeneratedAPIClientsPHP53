@@ -287,7 +287,7 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaPermission
+	 * @var array<KalturaPermission>
 	 */
 	public $permissions;
 
@@ -341,7 +341,7 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaSystemPartnerLimit
+	 * @var array<KalturaSystemPartnerLimit>
 	 */
 	public $limits;
 
@@ -494,7 +494,7 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaKeyBooleanValue
+	 * @var array<KalturaKeyBooleanValue>
 	 */
 	public $customDeliveryTypes;
 

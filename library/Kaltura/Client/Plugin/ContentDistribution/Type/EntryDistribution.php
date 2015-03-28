@@ -238,7 +238,7 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaDistributionValidationError
+	 * @var array<KalturaDistributionValidationError>
 	 */
 	public $validationErrors;
 

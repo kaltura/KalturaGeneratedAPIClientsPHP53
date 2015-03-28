@@ -130,7 +130,7 @@ class ScheduledTaskProfile extends \Kaltura\Client\ObjectBase
 	/**
 	 * A list of tasks to execute on the founded objects
 	 * 	 
-	 * @var array of KalturaObjectTask
+	 * @var array<KalturaObjectTask>
 	 */
 	public $objectTasks;
 

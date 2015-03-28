@@ -202,7 +202,7 @@ class HttpNotificationDispatchJobData extends \Kaltura\Client\Plugin\EventNotifi
 	/**
 	 * Adds a e-mail custom header
 	 * 	 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $customHeaders;
 

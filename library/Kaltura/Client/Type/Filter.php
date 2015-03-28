@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class Filter extends \Kaltura\Client\ObjectBase
+abstract class Filter extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{

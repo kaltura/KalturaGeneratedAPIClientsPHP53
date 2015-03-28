@@ -58,7 +58,7 @@ class AssetsParamsResourceContainers extends \Kaltura\Client\Type\Resource
 	/**
 	 * Array of resources associated with asset params ids
 	 * 	 
-	 * @var array of KalturaAssetParamsResourceContainer
+	 * @var array<KalturaAssetParamsResourceContainer>
 	 */
 	public $resources;
 

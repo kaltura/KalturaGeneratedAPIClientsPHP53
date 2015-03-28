@@ -396,7 +396,7 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	/**
 	 * clipping, skipping and cropping attributes that used to create this entry  
 	 * 	 
-	 * @var array of KalturaOperationAttributes
+	 * @var array<KalturaOperationAttributes>
 	 */
 	public $operationAttributes;
 

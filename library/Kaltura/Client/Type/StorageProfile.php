@@ -226,7 +226,7 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $pathManagerParams;
 
@@ -273,14 +273,14 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	/**
 	 * Holds storage profile export rules
 	 * 	 
-	 * @var array of KalturaRule
+	 * @var array<KalturaRule>
 	 */
 	public $rules;
 
 	/**
 	 * Delivery profile ids
 	 * 	 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $deliveryProfileIds;
 

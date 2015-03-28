@@ -153,21 +153,21 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 	/**
 	 * Array of messages as received from the access control rules that invalidated
 	 * 	 
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $accessControlMessages;
 
 	/**
 	 * Array of actions as received from the access control rules that invalidated
 	 * 	 
-	 * @var array of KalturaRuleAction
+	 * @var array<KalturaRuleAction>
 	 */
 	public $accessControlActions;
 
 	/**
 	 * Array of allowed flavor assets according to access control limitations and requested tags
 	 * 	 
-	 * @var array of KalturaFlavorAsset
+	 * @var array<KalturaFlavorAsset>
 	 */
 	public $flavorAssets;
 

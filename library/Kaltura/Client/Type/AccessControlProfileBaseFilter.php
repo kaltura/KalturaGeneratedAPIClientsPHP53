@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class AccessControlProfileBaseFilter extends \Kaltura\Client\Type\Filter
+abstract class AccessControlProfileBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 {
 	public function getKalturaObjectType()
 	{

@@ -206,28 +206,28 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 	/**
 	 * Thumbnail dimensions that should be submitted if ready
 	 * 	 
-	 * @var array of KalturaDistributionThumbDimensions
+	 * @var array<KalturaDistributionThumbDimensions>
 	 */
 	public $optionalThumbDimensions;
 
 	/**
 	 * Thumbnail dimensions that required to be readt before submission
 	 * 	 
-	 * @var array of KalturaDistributionThumbDimensions
+	 * @var array<KalturaDistributionThumbDimensions>
 	 */
 	public $requiredThumbDimensions;
 
 	/**
 	 * Asset Distribution Rules for assets that should be submitted if ready
 	 * 	 
-	 * @var array of KalturaAssetDistributionRule
+	 * @var array<KalturaAssetDistributionRule>
 	 */
 	public $optionalAssetDistributionRules;
 
 	/**
 	 * Assets Asset Distribution Rules for assets that are required to be ready before submission
 	 * 	 
-	 * @var array of KalturaAssetDistributionRule
+	 * @var array<KalturaAssetDistributionRule>
 	 */
 	public $requiredAssetDistributionRules;
 

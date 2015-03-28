@@ -107,7 +107,7 @@ class ConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 
 	/**
 	 * 
-	 * @var array of KalturaDestFileSyncDescriptor
+	 * @var array<KalturaDestFileSyncDescriptor>
 	 */
 	public $extraDestFileSyncs;
 

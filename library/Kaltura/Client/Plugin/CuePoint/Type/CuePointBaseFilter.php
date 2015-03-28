@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\CuePoint\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class CuePointBaseFilter extends \Kaltura\Client\Type\Filter
+abstract class CuePointBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 {
 	public function getKalturaObjectType()
 	{

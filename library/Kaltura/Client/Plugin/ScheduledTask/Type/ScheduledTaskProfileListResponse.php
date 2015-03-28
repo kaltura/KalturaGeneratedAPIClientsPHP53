@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ScheduledTask\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduledTaskProfileListResponse extends \Kaltura\Client\ObjectBase
+class ScheduledTaskProfileListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class ScheduledTaskProfileListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaScheduledTaskProfile");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaScheduledTaskProfile
+	 * @var array<KalturaScheduledTaskProfile>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

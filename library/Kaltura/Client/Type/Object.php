@@ -50,5 +50,15 @@ abstract class Object extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
+		if(empty($xml->relatedObjects))
+			$this->relatedObjects = array();
+		else
+			$this->relatedObjects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->relatedObjects, "KalturaListResponse");
 	}
+	/**
+	 * 
+	 * @var array<string, KalturaListResponse>
+	 */
+	public $relatedObjects;
+
 }

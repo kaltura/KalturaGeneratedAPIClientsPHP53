@@ -155,7 +155,7 @@ class BulkUploadResult extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaBulkUploadPluginData
+	 * @var array<KalturaBulkUploadPluginData>
 	 */
 	public $pluginsData;
 

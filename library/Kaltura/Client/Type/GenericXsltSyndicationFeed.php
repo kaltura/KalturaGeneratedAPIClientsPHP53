@@ -64,7 +64,7 @@ class GenericXsltSyndicationFeed extends \Kaltura\Client\Type\GenericSyndication
 
 	/**
 	 * 
-	 * @var array of KalturaExtendingItemMrssParameter
+	 * @var array<KalturaExtendingItemMrssParameter>
 	 */
 	public $itemXpathsToExtend;
 

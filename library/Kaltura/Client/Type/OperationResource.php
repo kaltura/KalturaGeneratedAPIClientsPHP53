@@ -70,7 +70,7 @@ class OperationResource extends \Kaltura\Client\Type\ContentResource
 
 	/**
 	 * 
-	 * @var array of KalturaOperationAttributes
+	 * @var array<KalturaOperationAttributes>
 	 */
 	public $operationAttributes;
 
