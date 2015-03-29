@@ -112,7 +112,8 @@ abstract class MetadataBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	public $metadataProfileVersionLessThanOrEqual = null;
 
 	/**
-	 * 
+	 * When null, default is KalturaMetadataObjectType::ENTRY
+	 * 	 
 	 * @var \Kaltura\Client\Plugin\Metadata\Enum\MetadataObjectType
 	 */
 	public $metadataObjectTypeEqual = null;
