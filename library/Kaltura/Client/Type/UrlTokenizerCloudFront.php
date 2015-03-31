@@ -30,41 +30,39 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ContainerFormat
+class UrlTokenizerCloudFront extends \Kaltura\Client\Type\UrlTokenizer
 {
-	const _3GP = "3gp";
-	const APPLEHTTP = "applehttp";
-	const AVI = "avi";
-	const BMP = "bmp";
-	const COPY = "copy";
-	const FLV = "flv";
-	const HLS = "hls";
-	const ISMV = "ismv";
-	const JPG = "jpg";
-	const M2TS = "m2ts";
-	const M4V = "m4v";
-	const MKV = "mkv";
-	const MOV = "mov";
-	const MP3 = "mp3";
-	const MP4 = "mp4";
-	const MPEG = "mpeg";
-	const MPEGTS = "mpegts";
-	const MXF = "mxf";
-	const OGG = "ogg";
-	const OGV = "ogv";
-	const PDF = "pdf";
-	const PNG = "png";
-	const SWF = "swf";
-	const WAV = "wav";
-	const WEBM = "webm";
-	const WMA = "wma";
-	const WMV = "wmv";
-	const WVM = "wvm";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaUrlTokenizerCloudFront';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		$this->keyPairId = (string)$xml->keyPairId;
+		$this->rootDir = (string)$xml->rootDir;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $keyPairId = null;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $rootDir = null;
+
+}

@@ -481,6 +481,7 @@ class TypeMap
 		'KalturaUrlTokenizerAkamaiRtsp' => 'Kaltura\Client\Type\UrlTokenizerAkamaiRtsp',
 		'KalturaUrlTokenizerAkamaiSecureHd' => 'Kaltura\Client\Type\UrlTokenizerAkamaiSecureHd',
 		'KalturaUrlTokenizerBitGravity' => 'Kaltura\Client\Type\UrlTokenizerBitGravity',
+		'KalturaUrlTokenizerCloudFront' => 'Kaltura\Client\Type\UrlTokenizerCloudFront',
 		'KalturaUrlTokenizerLevel3' => 'Kaltura\Client\Type\UrlTokenizerLevel3',
 		'KalturaUrlTokenizerLimeLight' => 'Kaltura\Client\Type\UrlTokenizerLimeLight',
 		'KalturaUrlTokenizerVelocix' => 'Kaltura\Client\Type\UrlTokenizerVelocix',
