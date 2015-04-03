@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Metadata\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseProfileMapping extends \Kaltura\Client\ObjectBase
+class MetadataResponseProfileMapping extends \Kaltura\Client\Type\ResponseProfileMapping
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaResponseProfileMapping';
+		return 'KalturaMetadataResponseProfileMapping';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,27 +50,5 @@ class ResponseProfileMapping extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->parentProperty = (string)$xml->parentProperty;
-		$this->filterProperty = (string)$xml->filterProperty;
-		if(!empty($xml->allowNull))
-			$this->allowNull = true;
 	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $parentProperty = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $filterProperty = null;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $allowNull = null;
-
 }

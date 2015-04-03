@@ -418,6 +418,7 @@ class TypeMap
 		'KalturaMetadataProfileBaseFilter' => 'Kaltura\Client\Plugin\Metadata\Type\MetadataProfileBaseFilter',
 		'KalturaMetadataProfileFieldListResponse' => 'Kaltura\Client\Plugin\Metadata\Type\MetadataProfileFieldListResponse',
 		'KalturaMetadataProfileListResponse' => 'Kaltura\Client\Plugin\Metadata\Type\MetadataProfileListResponse',
+		'KalturaMetadataResponseProfileMapping' => 'Kaltura\Client\Plugin\Metadata\Type\MetadataResponseProfileMapping',
 		'KalturaMixListResponse' => 'Kaltura\Client\Type\MixListResponse',
 		'KalturaModerationFlagListResponse' => 'Kaltura\Client\Type\ModerationFlagListResponse',
 		'KalturaModifyCategoriesObjectTask' => 'Kaltura\Client\Plugin\ScheduledTask\Type\ModifyCategoriesObjectTask',
