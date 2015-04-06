@@ -133,6 +133,7 @@ class TypeMap
 		'KalturaFileAsset' => 'Kaltura\Client\Type\FileAsset',
 		'KalturaFileSync' => 'Kaltura\Client\Plugin\FileSync\Type\FileSync',
 		'KalturaFlavorAsset' => 'Kaltura\Client\Type\FlavorAsset',
+		'KalturaFlavorAssetUrlOptions' => 'Kaltura\Client\Type\FlavorAssetUrlOptions',
 		'KalturaFlavorParams' => 'Kaltura\Client\Type\FlavorParams',
 		'KalturaFlavorAssetWithParams' => 'Kaltura\Client\Type\FlavorAssetWithParams',
 		'KalturaFlavorParamsOutput' => 'Kaltura\Client\Type\FlavorParamsOutput',
