@@ -57,7 +57,7 @@ abstract class MatchCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * 
-	 * @var array of KalturaStringValue
+	 * @var array<KalturaStringValue>
 	 */
 	public $values;
 

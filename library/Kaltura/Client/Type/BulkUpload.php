@@ -141,7 +141,7 @@ class BulkUpload extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaBulkUploadResult
+	 * @var array<KalturaBulkUploadResult>
 	 */
 	public $results;
 

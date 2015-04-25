@@ -358,7 +358,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 * @insertonly
 	 */
 	public $additionalParams;
@@ -400,14 +400,14 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaPlayerDeliveryType
+	 * @var array<KalturaPlayerDeliveryType>
 	 * @readonly
 	 */
 	public $deliveryTypes;
 
 	/**
 	 * 
-	 * @var array of KalturaPlayerEmbedCodeType
+	 * @var array<KalturaPlayerEmbedCodeType>
 	 * @readonly
 	 */
 	public $embedCodeTypes;

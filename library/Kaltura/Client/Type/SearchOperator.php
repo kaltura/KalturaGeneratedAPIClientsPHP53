@@ -65,7 +65,7 @@ class SearchOperator extends \Kaltura\Client\Type\SearchItem
 
 	/**
 	 * 
-	 * @var array of KalturaSearchItem
+	 * @var array<KalturaSearchItem>
 	 */
 	public $items;
 

@@ -61,13 +61,13 @@ abstract class ConfigurableDistributionProfile extends \Kaltura\Client\Plugin\Co
 	}
 	/**
 	 * 
-	 * @var array of KalturaDistributionFieldConfig
+	 * @var array<KalturaDistributionFieldConfig>
 	 */
 	public $fieldConfigArray;
 
 	/**
 	 * 
-	 * @var array of KalturaExtendingItemMrssParameter
+	 * @var array<KalturaExtendingItemMrssParameter>
 	 */
 	public $itemXpathsToExtend;
 

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\SystemPartner\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class SystemPartnerUsageListResponse extends \Kaltura\Client\ObjectBase
+class SystemPartnerUsageListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,19 +54,11 @@ class SystemPartnerUsageListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaSystemPartnerUsageItem");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaSystemPartnerUsageItem
+	 * @var array<KalturaSystemPartnerUsageItem>
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $totalCount = null;
 
 }

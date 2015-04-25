@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderFileListResponse extends \Kaltura\Client\ObjectBase
+class DropFolderFileListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class DropFolderFileListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaDropFolderFile");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaDropFolderFile
+	 * @var array<KalturaDropFolderFile>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

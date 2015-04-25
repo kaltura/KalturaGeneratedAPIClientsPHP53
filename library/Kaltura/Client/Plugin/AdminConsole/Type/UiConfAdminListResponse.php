@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\AdminConsole\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class UiConfAdminListResponse extends \Kaltura\Client\ObjectBase
+class UiConfAdminListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class UiConfAdminListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaUiConfAdmin");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaUiConfAdmin
+	 * @var array<KalturaUiConfAdmin>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

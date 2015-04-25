@@ -60,7 +60,7 @@ class EmailNotificationStaticRecipientProvider extends \Kaltura\Client\Plugin\Em
 	/**
 	 * Email to emails and names
 	 * 	 
-	 * @var array of KalturaEmailNotificationRecipient
+	 * @var array<KalturaEmailNotificationRecipient>
 	 */
 	public $emailRecipients;
 

@@ -59,7 +59,7 @@ class VelocixProvisionJobData extends \Kaltura\Client\Type\ProvisionJobData
 	}
 	/**
 	 * 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $provisioningParams;
 

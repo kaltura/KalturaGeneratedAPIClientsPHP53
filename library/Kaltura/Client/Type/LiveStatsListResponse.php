@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveStatsListResponse extends \Kaltura\Client\ObjectBase
+class LiveStatsListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -52,19 +52,11 @@ class LiveStatsListResponse extends \Kaltura\Client\ObjectBase
 		
 		if(!empty($xml->objects))
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalObject($xml->objects, "KalturaLiveStats");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Type\LiveStats
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $totalCount = null;
 
 }

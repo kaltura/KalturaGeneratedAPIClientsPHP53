@@ -122,7 +122,7 @@ class AccessControl extends \Kaltura\Client\ObjectBase
 	/**
 	 * Array of Access Control Restrictions
 	 * 	 
-	 * @var array of KalturaBaseRestriction
+	 * @var array<KalturaBaseRestriction>
 	 */
 	public $restrictions;
 

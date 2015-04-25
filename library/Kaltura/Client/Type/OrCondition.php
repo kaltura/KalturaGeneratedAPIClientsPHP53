@@ -57,7 +57,7 @@ class OrCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * 
-	 * @var array of KalturaCondition
+	 * @var array<KalturaCondition>
 	 */
 	public $conditions;
 

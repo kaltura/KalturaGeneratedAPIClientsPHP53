@@ -71,7 +71,7 @@ class UiConfTypeInfo extends \Kaltura\Client\ObjectBase
 	/**
 	 * Available versions
 	 *      
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $versions;
 

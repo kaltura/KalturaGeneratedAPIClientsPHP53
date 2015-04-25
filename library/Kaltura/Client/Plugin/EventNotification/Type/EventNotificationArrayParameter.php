@@ -61,14 +61,14 @@ class EventNotificationArrayParameter extends \Kaltura\Client\Plugin\EventNotifi
 	}
 	/**
 	 * 
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $values;
 
 	/**
 	 * Used to restrict the values to close list
 	 * 	 
-	 * @var array of KalturaStringValue
+	 * @var array<KalturaStringValue>
 	 */
 	public $allowedValues;
 

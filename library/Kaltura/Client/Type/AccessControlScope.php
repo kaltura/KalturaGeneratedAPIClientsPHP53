@@ -103,14 +103,14 @@ class AccessControlScope extends \Kaltura\Client\ObjectBase
 	/**
 	 * Indicates what contexts should be tested. No contexts means any context.
 	 * 	 
-	 * @var array of KalturaAccessControlContextTypeHolder
+	 * @var array<KalturaAccessControlContextTypeHolder>
 	 */
 	public $contexts;
 
 	/**
 	 * Array of hashes to pass to the access control profile scope
 	 * 	 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $hashes;
 

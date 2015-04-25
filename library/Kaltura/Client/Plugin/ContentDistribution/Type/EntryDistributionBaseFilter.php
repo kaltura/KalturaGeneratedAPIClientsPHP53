@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class EntryDistributionBaseFilter extends \Kaltura\Client\Type\Filter
+abstract class EntryDistributionBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 {
 	public function getKalturaObjectType()
 	{

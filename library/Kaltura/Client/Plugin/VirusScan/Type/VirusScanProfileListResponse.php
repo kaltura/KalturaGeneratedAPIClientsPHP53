@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\VirusScan\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class VirusScanProfileListResponse extends \Kaltura\Client\ObjectBase
+class VirusScanProfileListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class VirusScanProfileListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaVirusScanProfile");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaVirusScanProfile
+	 * @var array<KalturaVirusScanProfile>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

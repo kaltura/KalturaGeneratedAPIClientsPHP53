@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\AdminConsole\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class TrackEntryListResponse extends \Kaltura\Client\ObjectBase
+class TrackEntryListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class TrackEntryListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaTrackEntry");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaTrackEntry
+	 * @var array<KalturaTrackEntry>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

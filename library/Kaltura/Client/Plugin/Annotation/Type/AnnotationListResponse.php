@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Annotation\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class AnnotationListResponse extends \Kaltura\Client\ObjectBase
+class AnnotationListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class AnnotationListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaAnnotation");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaAnnotation
+	 * @var array<KalturaAnnotation>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

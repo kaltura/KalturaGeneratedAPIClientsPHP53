@@ -70,7 +70,7 @@ class BulkUploadCsvJobData extends \Kaltura\Client\Type\BulkUploadJobData
 	/**
 	 * Array containing CSV headers
 	 * 	 
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $columns;
 

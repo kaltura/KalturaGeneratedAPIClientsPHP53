@@ -64,7 +64,7 @@ class ReportResponse extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $results;
 

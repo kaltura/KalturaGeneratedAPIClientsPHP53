@@ -99,7 +99,7 @@ class ConvertCollectionJobData extends \Kaltura\Client\Type\ConvartableJobData
 
 	/**
 	 * 
-	 * @var array of KalturaConvertCollectionFlavorData
+	 * @var array<KalturaConvertCollectionFlavorData>
 	 */
 	public $flavors;
 

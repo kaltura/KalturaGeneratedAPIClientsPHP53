@@ -130,7 +130,7 @@ class AccessControlProfile extends \Kaltura\Client\ObjectBase
 	/**
 	 * Array of access control rules
 	 * 	 
-	 * @var array of KalturaRule
+	 * @var array<KalturaRule>
 	 */
 	public $rules;
 

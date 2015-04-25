@@ -60,7 +60,7 @@ class EmailNotificationStaticRecipientJobData extends \Kaltura\Client\Plugin\Ema
 	/**
 	 * Email to emails and names
 	 * 	 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $emailRecipients;
 

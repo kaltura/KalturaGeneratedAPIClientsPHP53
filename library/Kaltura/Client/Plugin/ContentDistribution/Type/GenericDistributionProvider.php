@@ -133,13 +133,13 @@ class GenericDistributionProvider extends \Kaltura\Client\Plugin\ContentDistribu
 
 	/**
 	 * 
-	 * @var array of KalturaDistributionThumbDimensions
+	 * @var array<KalturaDistributionThumbDimensions>
 	 */
 	public $optionalThumbDimensions;
 
 	/**
 	 * 
-	 * @var array of KalturaDistributionThumbDimensions
+	 * @var array<KalturaDistributionThumbDimensions>
 	 */
 	public $requiredThumbDimensions;
 

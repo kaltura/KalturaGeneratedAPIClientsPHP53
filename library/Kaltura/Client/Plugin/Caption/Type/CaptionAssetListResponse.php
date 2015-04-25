@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Caption\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class CaptionAssetListResponse extends \Kaltura\Client\ObjectBase
+class CaptionAssetListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class CaptionAssetListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaCaptionAsset");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaCaptionAsset
+	 * @var array<KalturaCaptionAsset>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

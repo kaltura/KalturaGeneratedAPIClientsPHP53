@@ -131,7 +131,7 @@ class DistributionJobData extends \Kaltura\Client\Type\JobData
 	 * Stores array of media files that submitted to the destination site
 	 * 	 Could be used later for media update 
 	 * 	 
-	 * @var array of KalturaDistributionRemoteMediaFile
+	 * @var array<KalturaDistributionRemoteMediaFile>
 	 */
 	public $mediaFiles;
 

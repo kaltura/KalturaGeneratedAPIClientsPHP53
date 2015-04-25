@@ -95,7 +95,7 @@ class ConvartableJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * 
-	 * @var array of KalturaSourceFileSyncDescriptor
+	 * @var array<KalturaSourceFileSyncDescriptor>
 	 */
 	public $srcFileSyncs;
 
@@ -137,7 +137,7 @@ class ConvartableJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * 
-	 * @var array of KalturaKeyValue
+	 * @var array<KalturaKeyValue>
 	 */
 	public $pluginData;
 

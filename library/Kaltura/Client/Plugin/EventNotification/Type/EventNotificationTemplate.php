@@ -174,21 +174,21 @@ class EventNotificationTemplate extends \Kaltura\Client\ObjectBase
 	/**
 	 * Define the conditions that cause this notification to be triggered
 	 * 	 
-	 * @var array of KalturaCondition
+	 * @var array<KalturaCondition>
 	 */
 	public $eventConditions;
 
 	/**
 	 * Define the content dynamic parameters
 	 * 	 
-	 * @var array of KalturaEventNotificationParameter
+	 * @var array<KalturaEventNotificationParameter>
 	 */
 	public $contentParameters;
 
 	/**
 	 * Define the content dynamic parameters
 	 * 	 
-	 * @var array of KalturaEventNotificationParameter
+	 * @var array<KalturaEventNotificationParameter>
 	 */
 	public $userParameters;
 

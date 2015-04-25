@@ -104,7 +104,7 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 	/**
 	 * Entry column or metadata xpath that should trigger an update
 	 *      
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $updateParams;
 

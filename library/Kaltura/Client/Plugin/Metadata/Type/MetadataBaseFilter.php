@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class MetadataBaseFilter extends \Kaltura\Client\Type\Filter
+abstract class MetadataBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 {
 	public function getKalturaObjectType()
 	{
@@ -112,7 +112,8 @@ abstract class MetadataBaseFilter extends \Kaltura\Client\Type\Filter
 	public $metadataProfileVersionLessThanOrEqual = null;
 
 	/**
-	 * 
+	 * When null, default is KalturaMetadataObjectType::ENTRY
+	 * 	 
 	 * @var \Kaltura\Client\Plugin\Metadata\Enum\MetadataObjectType
 	 */
 	public $metadataObjectTypeEqual = null;

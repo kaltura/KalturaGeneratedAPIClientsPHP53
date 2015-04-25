@@ -120,7 +120,7 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	/**
 	 * Array of key value protocol->live stream url objects
 	 * 	 
-	 * @var array of KalturaLiveStreamConfiguration
+	 * @var array<KalturaLiveStreamConfiguration>
 	 */
 	public $liveStreamConfigurations;
 
@@ -141,7 +141,7 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	/**
 	 * Array of publish configurations
 	 * 	 
-	 * @var array of KalturaLiveStreamPushPublishConfiguration
+	 * @var array<KalturaLiveStreamPushPublishConfiguration>
 	 */
 	public $publishConfigurations;
 

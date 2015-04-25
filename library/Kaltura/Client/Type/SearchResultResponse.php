@@ -59,7 +59,7 @@ class SearchResultResponse extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * 
-	 * @var array of KalturaSearchResult
+	 * @var array<KalturaSearchResult>
 	 * @readonly
 	 */
 	public $objects;

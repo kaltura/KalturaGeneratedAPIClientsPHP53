@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Attachment\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class AttachmentAssetListResponse extends \Kaltura\Client\ObjectBase
+class AttachmentAssetListResponse extends \Kaltura\Client\Type\ListResponse
 {
 	public function getKalturaObjectType()
 	{
@@ -54,21 +54,12 @@ class AttachmentAssetListResponse extends \Kaltura\Client\ObjectBase
 			$this->objects = array();
 		else
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaAttachmentAsset");
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
 	 * 
-	 * @var array of KalturaAttachmentAsset
+	 * @var array<KalturaAttachmentAsset>
 	 * @readonly
 	 */
 	public $objects;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $totalCount = null;
 
 }

@@ -62,14 +62,14 @@ class ContextDataResult extends \Kaltura\Client\ObjectBase
 	/**
 	 * Array of messages as received from the rules that invalidated
 	 * 	 
-	 * @var array of KalturaString
+	 * @var array<KalturaString>
 	 */
 	public $messages;
 
 	/**
 	 * Array of actions as received from the rules that invalidated
 	 * 	 
-	 * @var array of KalturaRuleAction
+	 * @var array<KalturaRuleAction>
 	 */
 	public $actions;
 

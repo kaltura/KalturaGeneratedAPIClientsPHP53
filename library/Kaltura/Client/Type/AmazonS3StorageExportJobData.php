@@ -51,11 +51,18 @@ class AmazonS3StorageExportJobData extends \Kaltura\Client\Type\StorageExportJob
 			return;
 		
 		$this->filesPermissionInS3 = (string)$xml->filesPermissionInS3;
+		$this->s3Region = (string)$xml->s3Region;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Enum\AmazonS3StorageProfileFilesPermissionLevel
 	 */
 	public $filesPermissionInS3 = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $s3Region = null;
 
 }

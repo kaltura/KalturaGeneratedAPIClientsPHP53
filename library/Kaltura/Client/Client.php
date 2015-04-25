@@ -39,11 +39,6 @@ namespace Kaltura\Client;
 class Client extends Base
 {
 	/**
-	 * @var string
-	 */
-	protected $apiVersion = '3.1.6';
-
-	/**
 	 * @var \Kaltura\Client\Service\AccessControlProfileService
 	 */
 	protected $accessControlProfile = null;
@@ -214,6 +209,11 @@ class Client extends Base
 	protected $report = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\ResponseProfileService
+	 */
+	protected $responseProfile = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\SchemaService
 	 */
 	protected $schema = null;
@@ -306,6 +306,9 @@ class Client extends Base
 	public function __construct(Configuration $config)
 	{
 		parent::__construct($config);
+		
+		$this->setClientTag('php5:15-04-25');
+		$this->setApiVersion('3.2.0');
 	}
 	
 	/**
@@ -615,6 +618,15 @@ class Client extends Base
 		return $this->report;
 	}
 	/**
+	 * @return \Kaltura\Client\Service\ResponseProfileService
+	 */
+	public function getResponseProfileService()
+	{
+		if (is_null($this->responseProfile))
+			$this->responseProfile = new \Kaltura\Client\Service\ResponseProfileService($this);
+		return $this->responseProfile;
+	}
+	/**
 	 * @return \Kaltura\Client\Service\SchemaService
 	 */
 	public function getSchemaService()
@@ -767,4 +779,146 @@ class Client extends Base
 			$this->xInternal = new \Kaltura\Client\Service\XInternalService($this);
 		return $this->xInternal;
 	}
+	/**
+	 * @param string $clientTag
+	 */
+	public function setClientTag($clientTag)
+	{
+		$this->clientConfiguration['clientTag'] = $clientTag;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getClientTag()
+	{
+		if(isset($this->clientConfiguration['clientTag']))
+		{
+			return $this->clientConfiguration['clientTag'];
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * @param string $apiVersion
+	 */
+	public function setApiVersion($apiVersion)
+	{
+		$this->clientConfiguration['apiVersion'] = $apiVersion;
+	}
+	
+	/**
+	 * @return string
+	 */
+	public function getApiVersion()
+	{
+		if(isset($this->clientConfiguration['apiVersion']))
+		{
+			return $this->clientConfiguration['apiVersion'];
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Impersonated partner id
+	 * 
+	 * @param int $partnerId
+	 */
+	public function setPartnerId($partnerId)
+	{
+		$this->requestConfiguration['partnerId'] = $partnerId;
+	}
+	
+	/**
+	 * Impersonated partner id
+	 * 
+	 * @return int
+	 */
+	public function getPartnerId()
+	{
+		if(isset($this->requestConfiguration['partnerId']))
+		{
+			return $this->requestConfiguration['partnerId'];
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Kaltura API session
+	 * 
+	 * @param string $ks
+	 */
+	public function setKs($ks)
+	{
+		$this->requestConfiguration['ks'] = $ks;
+	}
+	
+	/**
+	 * Kaltura API session
+	 * 
+	 * @return string
+	 */
+	public function getKs()
+	{
+		if(isset($this->requestConfiguration['ks']))
+		{
+			return $this->requestConfiguration['ks'];
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Kaltura API session
+	 * 
+	 * @param string $sessionId
+	 */
+	public function setSessionId($sessionId)
+	{
+		$this->requestConfiguration['ks'] = $sessionId;
+	}
+	
+	/**
+	 * Kaltura API session
+	 * 
+	 * @return string
+	 */
+	public function getSessionId()
+	{
+		if(isset($this->requestConfiguration['ks']))
+		{
+			return $this->requestConfiguration['ks'];
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Response profile
+	 * 
+	 * @param KalturaBaseResponseProfile $responseProfile
+	 */
+	public function setResponseProfile(KalturaBaseResponseProfile $responseProfile)
+	{
+		$this->requestConfiguration['responseProfile'] = $responseProfile;
+	}
+	
+	/**
+	 * Response profile
+	 * 
+	 * @return KalturaBaseResponseProfile
+	 */
+	public function getResponseProfile()
+	{
+		if(isset($this->requestConfiguration['responseProfile']))
+		{
+			return $this->requestConfiguration['responseProfile'];
+		}
+		
+		return null;
+	}
+	
 }
