@@ -30,25 +30,43 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\FeedDropFolder;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseProfileFilter extends \Kaltura\Client\Type\ResponseProfileBaseFilter
+class FeedDropFolderPlugin extends \Kaltura\Client\Plugin
 {
-	public function getKalturaObjectType()
+	protected function __construct(\Kaltura\Client\Client $client)
 	{
-		return 'KalturaResponseProfileFilter';
+		parent::__construct($client);
 	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
+
+	/**
+	 * @return FeedDropFolderPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
 	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
+		return new FeedDropFolderPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'FeedDropFolder';
 	}
 }
+

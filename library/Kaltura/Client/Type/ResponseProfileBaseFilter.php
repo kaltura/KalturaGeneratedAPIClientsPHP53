@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseProfileFilter extends \Kaltura\Client\Type\ResponseProfileBaseFilter
+abstract class ResponseProfileBaseFilter extends \Kaltura\Client\Type\Filter
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaResponseProfileFilter';
+		return 'KalturaResponseProfileBaseFilter';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,5 +50,81 @@ class ResponseProfileFilter extends \Kaltura\Client\Type\ResponseProfileBaseFilt
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->idEqual))
+			$this->idEqual = (int)$xml->idEqual;
+		$this->idIn = (string)$xml->idIn;
+		$this->systemNameEqual = (string)$xml->systemNameEqual;
+		$this->systemNameIn = (string)$xml->systemNameIn;
+		if(count($xml->createdAtGreaterThanOrEqual))
+			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
+		if(count($xml->createdAtLessThanOrEqual))
+			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
+		if(count($xml->updatedAtGreaterThanOrEqual))
+			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
+		if(count($xml->updatedAtLessThanOrEqual))
+			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
+		if(count($xml->statusEqual))
+			$this->statusEqual = (int)$xml->statusEqual;
+		$this->statusIn = (string)$xml->statusIn;
 	}
+	/**
+	 * 
+	 * @var int
+	 */
+	public $idEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $idIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $systemNameEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $systemNameIn = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $createdAtGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $createdAtLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $updatedAtGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $updatedAtLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\ResponseProfileStatus
+	 */
+	public $statusEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $statusIn = null;
+
 }

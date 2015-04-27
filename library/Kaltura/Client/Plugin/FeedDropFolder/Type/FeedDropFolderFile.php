@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\FeedDropFolder\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseProfileFilter extends \Kaltura\Client\Type\ResponseProfileBaseFilter
+class FeedDropFolderFile extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaResponseProfileFilter';
+		return 'KalturaFeedDropFolderFile';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,5 +50,21 @@ class ResponseProfileFilter extends \Kaltura\Client\Type\ResponseProfileBaseFilt
 		if(is_null($xml))
 			return;
 		
+		$this->hash = (string)$xml->hash;
+		$this->feedXmlPath = (string)$xml->feedXmlPath;
 	}
+	/**
+	 * MD5 or Sha1 encrypted string
+	 * 	 
+	 * @var string
+	 */
+	public $hash = null;
+
+	/**
+	 * Path of the original Feed content XML
+	 * 	 
+	 * @var string
+	 */
+	public $feedXmlPath = null;
+
 }

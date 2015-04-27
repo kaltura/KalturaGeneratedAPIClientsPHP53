@@ -234,7 +234,7 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * Convert entry
 	 * 	 
 	 * 
-	 * @return int
+	 * @return bigint
 	 */
 	function convert($entryId, $conversionProfileId = null, array $dynamicConversionAttributes = null)
 	{
@@ -252,7 +252,7 @@ class MediaService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
-		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 

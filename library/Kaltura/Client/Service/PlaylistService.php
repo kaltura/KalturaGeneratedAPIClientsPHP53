@@ -187,7 +187,7 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return array
 	 */
-	function execute($id, $detailed = "", \Kaltura\Client\Type\Context $playlistContext = null, \Kaltura\Client\Type\MediaEntryFilterForPlaylist $filter = null)
+	function execute($id, $detailed = "", \Kaltura\Client\Type\Context $playlistContext = null, \Kaltura\Client\Type\MediaEntryFilterForPlaylist $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
@@ -196,6 +196,8 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 			$this->client->addParam($kparams, "playlistContext", $playlistContext->toParams());
 		if ($filter !== null)
 			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
 		$this->client->queueServiceActionCall("playlist", "execute", "KalturaBaseEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
@@ -213,12 +215,14 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return array
 	 */
-	function executeFromContent($playlistType, $playlistContent, $detailed = "")
+	function executeFromContent($playlistType, $playlistContent, $detailed = "", \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "playlistType", $playlistType);
 		$this->client->addParam($kparams, "playlistContent", $playlistContent);
 		$this->client->addParam($kparams, "detailed", $detailed);
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
 		$this->client->queueServiceActionCall("playlist", "executeFromContent", "KalturaBaseEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
@@ -236,7 +240,7 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return array
 	 */
-	function executeFromFilters(array $filters, $totalResults, $detailed = "")
+	function executeFromFilters(array $filters, $totalResults, $detailed = "1", \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
 		foreach($filters as $index => $obj)
@@ -245,6 +249,8 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 		}
 		$this->client->addParam($kparams, "totalResults", $totalResults);
 		$this->client->addParam($kparams, "detailed", $detailed);
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
 		$this->client->queueServiceActionCall("playlist", "executeFromFilters", "KalturaBaseEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
