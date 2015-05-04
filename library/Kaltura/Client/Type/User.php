@@ -50,24 +50,36 @@ class User extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		$this->screenName = (string)$xml->screenName;
-		$this->fullName = (string)$xml->fullName;
-		$this->email = (string)$xml->email;
+		if(count($xml->screenName))
+			$this->screenName = (string)$xml->screenName;
+		if(count($xml->fullName))
+			$this->fullName = (string)$xml->fullName;
+		if(count($xml->email))
+			$this->email = (string)$xml->email;
 		if(count($xml->dateOfBirth))
 			$this->dateOfBirth = (int)$xml->dateOfBirth;
-		$this->country = (string)$xml->country;
-		$this->state = (string)$xml->state;
-		$this->city = (string)$xml->city;
-		$this->zip = (string)$xml->zip;
-		$this->thumbnailUrl = (string)$xml->thumbnailUrl;
-		$this->description = (string)$xml->description;
-		$this->tags = (string)$xml->tags;
-		$this->adminTags = (string)$xml->adminTags;
+		if(count($xml->country))
+			$this->country = (string)$xml->country;
+		if(count($xml->state))
+			$this->state = (string)$xml->state;
+		if(count($xml->city))
+			$this->city = (string)$xml->city;
+		if(count($xml->zip))
+			$this->zip = (string)$xml->zip;
+		if(count($xml->thumbnailUrl))
+			$this->thumbnailUrl = (string)$xml->thumbnailUrl;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->adminTags))
+			$this->adminTags = (string)$xml->adminTags;
 		if(count($xml->gender))
 			$this->gender = (int)$xml->gender;
 		if(count($xml->status))
@@ -76,32 +88,57 @@ class User extends \Kaltura\Client\ObjectBase
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		$this->partnerData = (string)$xml->partnerData;
+		if(count($xml->partnerData))
+			$this->partnerData = (string)$xml->partnerData;
 		if(count($xml->indexedPartnerDataInt))
 			$this->indexedPartnerDataInt = (int)$xml->indexedPartnerDataInt;
-		$this->indexedPartnerDataString = (string)$xml->indexedPartnerDataString;
+		if(count($xml->indexedPartnerDataString))
+			$this->indexedPartnerDataString = (string)$xml->indexedPartnerDataString;
 		if(count($xml->storageSize))
 			$this->storageSize = (int)$xml->storageSize;
-		$this->password = (string)$xml->password;
-		$this->firstName = (string)$xml->firstName;
-		$this->lastName = (string)$xml->lastName;
-		if(!empty($xml->isAdmin))
-			$this->isAdmin = true;
-		$this->language = (string)$xml->language;
+		if(count($xml->password))
+			$this->password = (string)$xml->password;
+		if(count($xml->firstName))
+			$this->firstName = (string)$xml->firstName;
+		if(count($xml->lastName))
+			$this->lastName = (string)$xml->lastName;
+		if(count($xml->isAdmin))
+		{
+			if(!empty($xml->isAdmin))
+				$this->isAdmin = true;
+			else
+				$this->isAdmin = false;
+		}
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
 		if(count($xml->lastLoginTime))
 			$this->lastLoginTime = (int)$xml->lastLoginTime;
 		if(count($xml->statusUpdatedAt))
 			$this->statusUpdatedAt = (int)$xml->statusUpdatedAt;
 		if(count($xml->deletedAt))
 			$this->deletedAt = (int)$xml->deletedAt;
-		if(!empty($xml->loginEnabled))
-			$this->loginEnabled = true;
-		$this->roleIds = (string)$xml->roleIds;
-		$this->roleNames = (string)$xml->roleNames;
-		if(!empty($xml->isAccountOwner))
-			$this->isAccountOwner = true;
-		$this->allowedPartnerIds = (string)$xml->allowedPartnerIds;
-		$this->allowedPartnerPackages = (string)$xml->allowedPartnerPackages;
+		if(count($xml->loginEnabled))
+		{
+			if(!empty($xml->loginEnabled))
+				$this->loginEnabled = true;
+			else
+				$this->loginEnabled = false;
+		}
+		if(count($xml->roleIds))
+			$this->roleIds = (string)$xml->roleIds;
+		if(count($xml->roleNames))
+			$this->roleNames = (string)$xml->roleNames;
+		if(count($xml->isAccountOwner))
+		{
+			if(!empty($xml->isAccountOwner))
+				$this->isAccountOwner = true;
+			else
+				$this->isAccountOwner = false;
+		}
+		if(count($xml->allowedPartnerIds))
+			$this->allowedPartnerIds = (string)$xml->allowedPartnerIds;
+		if(count($xml->allowedPartnerPackages))
+			$this->allowedPartnerPackages = (string)$xml->allowedPartnerPackages;
 	}
 	/**
 	 * 

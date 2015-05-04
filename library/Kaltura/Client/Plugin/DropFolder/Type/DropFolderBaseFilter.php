@@ -52,34 +52,54 @@ abstract class DropFolderBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
-		$this->nameLike = (string)$xml->nameLike;
-		$this->typeEqual = (string)$xml->typeEqual;
-		$this->typeIn = (string)$xml->typeIn;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->nameLike))
+			$this->nameLike = (string)$xml->nameLike;
+		if(count($xml->typeEqual))
+			$this->typeEqual = (string)$xml->typeEqual;
+		if(count($xml->typeIn))
+			$this->typeIn = (string)$xml->typeIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->conversionProfileIdEqual))
 			$this->conversionProfileIdEqual = (int)$xml->conversionProfileIdEqual;
-		$this->conversionProfileIdIn = (string)$xml->conversionProfileIdIn;
+		if(count($xml->conversionProfileIdIn))
+			$this->conversionProfileIdIn = (string)$xml->conversionProfileIdIn;
 		if(count($xml->dcEqual))
 			$this->dcEqual = (int)$xml->dcEqual;
-		$this->dcIn = (string)$xml->dcIn;
-		$this->pathEqual = (string)$xml->pathEqual;
-		$this->pathLike = (string)$xml->pathLike;
-		$this->fileHandlerTypeEqual = (string)$xml->fileHandlerTypeEqual;
-		$this->fileHandlerTypeIn = (string)$xml->fileHandlerTypeIn;
-		$this->fileNamePatternsLike = (string)$xml->fileNamePatternsLike;
-		$this->fileNamePatternsMultiLikeOr = (string)$xml->fileNamePatternsMultiLikeOr;
-		$this->fileNamePatternsMultiLikeAnd = (string)$xml->fileNamePatternsMultiLikeAnd;
-		$this->tagsLike = (string)$xml->tagsLike;
-		$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
-		$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
-		$this->errorCodeEqual = (string)$xml->errorCodeEqual;
-		$this->errorCodeIn = (string)$xml->errorCodeIn;
+		if(count($xml->dcIn))
+			$this->dcIn = (string)$xml->dcIn;
+		if(count($xml->pathEqual))
+			$this->pathEqual = (string)$xml->pathEqual;
+		if(count($xml->pathLike))
+			$this->pathLike = (string)$xml->pathLike;
+		if(count($xml->fileHandlerTypeEqual))
+			$this->fileHandlerTypeEqual = (string)$xml->fileHandlerTypeEqual;
+		if(count($xml->fileHandlerTypeIn))
+			$this->fileHandlerTypeIn = (string)$xml->fileHandlerTypeIn;
+		if(count($xml->fileNamePatternsLike))
+			$this->fileNamePatternsLike = (string)$xml->fileNamePatternsLike;
+		if(count($xml->fileNamePatternsMultiLikeOr))
+			$this->fileNamePatternsMultiLikeOr = (string)$xml->fileNamePatternsMultiLikeOr;
+		if(count($xml->fileNamePatternsMultiLikeAnd))
+			$this->fileNamePatternsMultiLikeAnd = (string)$xml->fileNamePatternsMultiLikeAnd;
+		if(count($xml->tagsLike))
+			$this->tagsLike = (string)$xml->tagsLike;
+		if(count($xml->tagsMultiLikeOr))
+			$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
+		if(count($xml->tagsMultiLikeAnd))
+			$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
+		if(count($xml->errorCodeEqual))
+			$this->errorCodeEqual = (string)$xml->errorCodeEqual;
+		if(count($xml->errorCodeIn))
+			$this->errorCodeIn = (string)$xml->errorCodeIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))

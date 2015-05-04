@@ -54,7 +54,8 @@ class MediaServer extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->dc))
 			$this->dc = (int)$xml->dc;
-		$this->hostname = (string)$xml->hostname;
+		if(count($xml->hostname))
+			$this->hostname = (string)$xml->hostname;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))

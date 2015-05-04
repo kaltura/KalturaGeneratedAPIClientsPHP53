@@ -50,33 +50,53 @@ class BulkUploadResultEntry extends \Kaltura\Client\Type\BulkUploadResult
 		if(is_null($xml))
 			return;
 		
-		$this->entryId = (string)$xml->entryId;
-		$this->title = (string)$xml->title;
-		$this->description = (string)$xml->description;
-		$this->tags = (string)$xml->tags;
-		$this->url = (string)$xml->url;
-		$this->contentType = (string)$xml->contentType;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->title))
+			$this->title = (string)$xml->title;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->url))
+			$this->url = (string)$xml->url;
+		if(count($xml->contentType))
+			$this->contentType = (string)$xml->contentType;
 		if(count($xml->conversionProfileId))
 			$this->conversionProfileId = (int)$xml->conversionProfileId;
 		if(count($xml->accessControlProfileId))
 			$this->accessControlProfileId = (int)$xml->accessControlProfileId;
-		$this->category = (string)$xml->category;
+		if(count($xml->category))
+			$this->category = (string)$xml->category;
 		if(count($xml->scheduleStartDate))
 			$this->scheduleStartDate = (int)$xml->scheduleStartDate;
 		if(count($xml->scheduleEndDate))
 			$this->scheduleEndDate = (int)$xml->scheduleEndDate;
 		if(count($xml->entryStatus))
 			$this->entryStatus = (int)$xml->entryStatus;
-		$this->thumbnailUrl = (string)$xml->thumbnailUrl;
-		if(!empty($xml->thumbnailSaved))
-			$this->thumbnailSaved = true;
-		$this->sshPrivateKey = (string)$xml->sshPrivateKey;
-		$this->sshPublicKey = (string)$xml->sshPublicKey;
-		$this->sshKeyPassphrase = (string)$xml->sshKeyPassphrase;
-		$this->creatorId = (string)$xml->creatorId;
-		$this->entitledUsersEdit = (string)$xml->entitledUsersEdit;
-		$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
-		$this->ownerId = (string)$xml->ownerId;
+		if(count($xml->thumbnailUrl))
+			$this->thumbnailUrl = (string)$xml->thumbnailUrl;
+		if(count($xml->thumbnailSaved))
+		{
+			if(!empty($xml->thumbnailSaved))
+				$this->thumbnailSaved = true;
+			else
+				$this->thumbnailSaved = false;
+		}
+		if(count($xml->sshPrivateKey))
+			$this->sshPrivateKey = (string)$xml->sshPrivateKey;
+		if(count($xml->sshPublicKey))
+			$this->sshPublicKey = (string)$xml->sshPublicKey;
+		if(count($xml->sshKeyPassphrase))
+			$this->sshKeyPassphrase = (string)$xml->sshKeyPassphrase;
+		if(count($xml->creatorId))
+			$this->creatorId = (string)$xml->creatorId;
+		if(count($xml->entitledUsersEdit))
+			$this->entitledUsersEdit = (string)$xml->entitledUsersEdit;
+		if(count($xml->entitledUsersPublish))
+			$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
+		if(count($xml->ownerId))
+			$this->ownerId = (string)$xml->ownerId;
 	}
 	/**
 	 * 

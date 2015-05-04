@@ -50,20 +50,28 @@ abstract class AssetBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		if(is_null($xml))
 			return;
 		
-		$this->idEqual = (string)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
-		$this->entryIdEqual = (string)$xml->entryIdEqual;
-		$this->entryIdIn = (string)$xml->entryIdIn;
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->entryIdEqual))
+			$this->entryIdEqual = (string)$xml->entryIdEqual;
+		if(count($xml->entryIdIn))
+			$this->entryIdIn = (string)$xml->entryIdIn;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
 		if(count($xml->sizeGreaterThanOrEqual))
 			$this->sizeGreaterThanOrEqual = (int)$xml->sizeGreaterThanOrEqual;
 		if(count($xml->sizeLessThanOrEqual))
 			$this->sizeLessThanOrEqual = (int)$xml->sizeLessThanOrEqual;
-		$this->tagsLike = (string)$xml->tagsLike;
-		$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
-		$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
+		if(count($xml->tagsLike))
+			$this->tagsLike = (string)$xml->tagsLike;
+		if(count($xml->tagsMultiLikeOr))
+			$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
+		if(count($xml->tagsMultiLikeAnd))
+			$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))

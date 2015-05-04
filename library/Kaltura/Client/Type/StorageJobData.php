@@ -50,17 +50,31 @@ class StorageJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->serverUrl = (string)$xml->serverUrl;
-		$this->serverUsername = (string)$xml->serverUsername;
-		$this->serverPassword = (string)$xml->serverPassword;
-		$this->serverPrivateKey = (string)$xml->serverPrivateKey;
-		$this->serverPublicKey = (string)$xml->serverPublicKey;
-		$this->serverPassPhrase = (string)$xml->serverPassPhrase;
-		if(!empty($xml->ftpPassiveMode))
-			$this->ftpPassiveMode = true;
-		$this->srcFileSyncLocalPath = (string)$xml->srcFileSyncLocalPath;
-		$this->srcFileSyncId = (string)$xml->srcFileSyncId;
-		$this->destFileSyncStoredPath = (string)$xml->destFileSyncStoredPath;
+		if(count($xml->serverUrl))
+			$this->serverUrl = (string)$xml->serverUrl;
+		if(count($xml->serverUsername))
+			$this->serverUsername = (string)$xml->serverUsername;
+		if(count($xml->serverPassword))
+			$this->serverPassword = (string)$xml->serverPassword;
+		if(count($xml->serverPrivateKey))
+			$this->serverPrivateKey = (string)$xml->serverPrivateKey;
+		if(count($xml->serverPublicKey))
+			$this->serverPublicKey = (string)$xml->serverPublicKey;
+		if(count($xml->serverPassPhrase))
+			$this->serverPassPhrase = (string)$xml->serverPassPhrase;
+		if(count($xml->ftpPassiveMode))
+		{
+			if(!empty($xml->ftpPassiveMode))
+				$this->ftpPassiveMode = true;
+			else
+				$this->ftpPassiveMode = false;
+		}
+		if(count($xml->srcFileSyncLocalPath))
+			$this->srcFileSyncLocalPath = (string)$xml->srcFileSyncLocalPath;
+		if(count($xml->srcFileSyncId))
+			$this->srcFileSyncId = (string)$xml->srcFileSyncId;
+		if(count($xml->destFileSyncStoredPath))
+			$this->destFileSyncStoredPath = (string)$xml->destFileSyncStoredPath;
 	}
 	/**
 	 * 

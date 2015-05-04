@@ -50,13 +50,16 @@ class Search extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->keyWords = (string)$xml->keyWords;
+		if(count($xml->keyWords))
+			$this->keyWords = (string)$xml->keyWords;
 		if(count($xml->searchSource))
 			$this->searchSource = (int)$xml->searchSource;
 		if(count($xml->mediaType))
 			$this->mediaType = (int)$xml->mediaType;
-		$this->extraData = (string)$xml->extraData;
-		$this->authData = (string)$xml->authData;
+		if(count($xml->extraData))
+			$this->extraData = (string)$xml->extraData;
+		if(count($xml->authData))
+			$this->authData = (string)$xml->authData;
 	}
 	/**
 	 * 

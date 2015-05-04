@@ -52,18 +52,24 @@ abstract class ConversionProfileAssetParamsBaseFilter extends \Kaltura\Client\Ty
 		
 		if(count($xml->conversionProfileIdEqual))
 			$this->conversionProfileIdEqual = (int)$xml->conversionProfileIdEqual;
-		$this->conversionProfileIdIn = (string)$xml->conversionProfileIdIn;
+		if(count($xml->conversionProfileIdIn))
+			$this->conversionProfileIdIn = (string)$xml->conversionProfileIdIn;
 		if(count($xml->assetParamsIdEqual))
 			$this->assetParamsIdEqual = (int)$xml->assetParamsIdEqual;
-		$this->assetParamsIdIn = (string)$xml->assetParamsIdIn;
+		if(count($xml->assetParamsIdIn))
+			$this->assetParamsIdIn = (string)$xml->assetParamsIdIn;
 		if(count($xml->readyBehaviorEqual))
 			$this->readyBehaviorEqual = (int)$xml->readyBehaviorEqual;
-		$this->readyBehaviorIn = (string)$xml->readyBehaviorIn;
+		if(count($xml->readyBehaviorIn))
+			$this->readyBehaviorIn = (string)$xml->readyBehaviorIn;
 		if(count($xml->originEqual))
 			$this->originEqual = (int)$xml->originEqual;
-		$this->originIn = (string)$xml->originIn;
-		$this->systemNameEqual = (string)$xml->systemNameEqual;
-		$this->systemNameIn = (string)$xml->systemNameIn;
+		if(count($xml->originIn))
+			$this->originIn = (string)$xml->originIn;
+		if(count($xml->systemNameEqual))
+			$this->systemNameEqual = (string)$xml->systemNameEqual;
+		if(count($xml->systemNameIn))
+			$this->systemNameIn = (string)$xml->systemNameIn;
 	}
 	/**
 	 * 

@@ -54,12 +54,16 @@ class FileSync extends \Kaltura\Client\ObjectBase
 			$this->id = (string)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->fileObjectType = (string)$xml->fileObjectType;
-		$this->objectId = (string)$xml->objectId;
-		$this->version = (string)$xml->version;
+		if(count($xml->fileObjectType))
+			$this->fileObjectType = (string)$xml->fileObjectType;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
+		if(count($xml->version))
+			$this->version = (string)$xml->version;
 		if(count($xml->objectSubType))
 			$this->objectSubType = (int)$xml->objectSubType;
-		$this->dc = (string)$xml->dc;
+		if(count($xml->dc))
+			$this->dc = (string)$xml->dc;
 		if(count($xml->original))
 			$this->original = (int)$xml->original;
 		if(count($xml->createdAt))
@@ -78,16 +82,25 @@ class FileSync extends \Kaltura\Client\ObjectBase
 			$this->linkedId = (int)$xml->linkedId;
 		if(count($xml->linkCount))
 			$this->linkCount = (int)$xml->linkCount;
-		$this->fileRoot = (string)$xml->fileRoot;
-		$this->filePath = (string)$xml->filePath;
+		if(count($xml->fileRoot))
+			$this->fileRoot = (string)$xml->fileRoot;
+		if(count($xml->filePath))
+			$this->filePath = (string)$xml->filePath;
 		if(count($xml->fileSize))
 			$this->fileSize = (float)$xml->fileSize;
-		$this->fileUrl = (string)$xml->fileUrl;
-		$this->fileContent = (string)$xml->fileContent;
+		if(count($xml->fileUrl))
+			$this->fileUrl = (string)$xml->fileUrl;
+		if(count($xml->fileContent))
+			$this->fileContent = (string)$xml->fileContent;
 		if(count($xml->fileDiscSize))
 			$this->fileDiscSize = (float)$xml->fileDiscSize;
-		if(!empty($xml->isCurrentDc))
-			$this->isCurrentDc = true;
+		if(count($xml->isCurrentDc))
+		{
+			if(!empty($xml->isCurrentDc))
+				$this->isCurrentDc = true;
+			else
+				$this->isCurrentDc = false;
+		}
 	}
 	/**
 	 * 

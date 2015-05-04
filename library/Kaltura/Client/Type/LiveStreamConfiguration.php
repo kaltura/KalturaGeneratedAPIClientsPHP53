@@ -52,11 +52,16 @@ class LiveStreamConfiguration extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->protocol = (string)$xml->protocol;
-		$this->url = (string)$xml->url;
-		$this->publishUrl = (string)$xml->publishUrl;
-		$this->backupUrl = (string)$xml->backupUrl;
-		$this->streamName = (string)$xml->streamName;
+		if(count($xml->protocol))
+			$this->protocol = (string)$xml->protocol;
+		if(count($xml->url))
+			$this->url = (string)$xml->url;
+		if(count($xml->publishUrl))
+			$this->publishUrl = (string)$xml->publishUrl;
+		if(count($xml->backupUrl))
+			$this->backupUrl = (string)$xml->backupUrl;
+		if(count($xml->streamName))
+			$this->streamName = (string)$xml->streamName;
 	}
 	/**
 	 * 

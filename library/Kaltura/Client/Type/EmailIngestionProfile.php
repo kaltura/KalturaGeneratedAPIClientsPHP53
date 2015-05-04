@@ -52,10 +52,14 @@ class EmailIngestionProfile extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->name = (string)$xml->name;
-		$this->description = (string)$xml->description;
-		$this->emailAddress = (string)$xml->emailAddress;
-		$this->mailboxId = (string)$xml->mailboxId;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->emailAddress))
+			$this->emailAddress = (string)$xml->emailAddress;
+		if(count($xml->mailboxId))
+			$this->mailboxId = (string)$xml->mailboxId;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->conversionProfile2Id))
@@ -64,11 +68,16 @@ class EmailIngestionProfile extends \Kaltura\Client\ObjectBase
 			$this->moderationStatus = (int)$xml->moderationStatus;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->createdAt = (string)$xml->createdAt;
-		$this->defaultCategory = (string)$xml->defaultCategory;
-		$this->defaultUserId = (string)$xml->defaultUserId;
-		$this->defaultTags = (string)$xml->defaultTags;
-		$this->defaultAdminTags = (string)$xml->defaultAdminTags;
+		if(count($xml->createdAt))
+			$this->createdAt = (string)$xml->createdAt;
+		if(count($xml->defaultCategory))
+			$this->defaultCategory = (string)$xml->defaultCategory;
+		if(count($xml->defaultUserId))
+			$this->defaultUserId = (string)$xml->defaultUserId;
+		if(count($xml->defaultTags))
+			$this->defaultTags = (string)$xml->defaultTags;
+		if(count($xml->defaultAdminTags))
+			$this->defaultAdminTags = (string)$xml->defaultAdminTags;
 		if(count($xml->maxAttachmentSizeKbytes))
 			$this->maxAttachmentSizeKbytes = (int)$xml->maxAttachmentSizeKbytes;
 		if(count($xml->maxAttachmentsPerMail))

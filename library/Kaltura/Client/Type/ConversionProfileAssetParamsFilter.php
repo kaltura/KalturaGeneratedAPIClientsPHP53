@@ -50,9 +50,9 @@ class ConversionProfileAssetParamsFilter extends \Kaltura\Client\Type\Conversion
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->conversionProfileIdFilter))
+		if(count($xml->conversionProfileIdFilter) && !empty($xml->conversionProfileIdFilter))
 			$this->conversionProfileIdFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->conversionProfileIdFilter, "KalturaConversionProfileFilter");
-		if(!empty($xml->assetParamsIdFilter))
+		if(count($xml->assetParamsIdFilter) && !empty($xml->assetParamsIdFilter))
 			$this->assetParamsIdFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->assetParamsIdFilter, "KalturaAssetParamsFilter");
 	}
 	/**

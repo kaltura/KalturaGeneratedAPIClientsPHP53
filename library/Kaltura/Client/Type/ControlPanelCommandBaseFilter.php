@@ -52,7 +52,8 @@ abstract class ControlPanelCommandBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -61,13 +62,16 @@ abstract class ControlPanelCommandBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->createdByIdEqual = (int)$xml->createdByIdEqual;
 		if(count($xml->typeEqual))
 			$this->typeEqual = (int)$xml->typeEqual;
-		$this->typeIn = (string)$xml->typeIn;
+		if(count($xml->typeIn))
+			$this->typeIn = (string)$xml->typeIn;
 		if(count($xml->targetTypeEqual))
 			$this->targetTypeEqual = (int)$xml->targetTypeEqual;
-		$this->targetTypeIn = (string)$xml->targetTypeIn;
+		if(count($xml->targetTypeIn))
+			$this->targetTypeIn = (string)$xml->targetTypeIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 	}
 	/**
 	 * 

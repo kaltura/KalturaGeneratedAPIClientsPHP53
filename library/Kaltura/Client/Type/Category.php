@@ -58,17 +58,22 @@ class Category extends \Kaltura\Client\ObjectBase
 			$this->depth = (int)$xml->depth;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->fullName = (string)$xml->fullName;
-		$this->fullIds = (string)$xml->fullIds;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->fullName))
+			$this->fullName = (string)$xml->fullName;
+		if(count($xml->fullIds))
+			$this->fullIds = (string)$xml->fullIds;
 		if(count($xml->entriesCount))
 			$this->entriesCount = (int)$xml->entriesCount;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		$this->description = (string)$xml->description;
-		$this->tags = (string)$xml->tags;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
 		if(count($xml->appearInList))
 			$this->appearInList = (int)$xml->appearInList;
 		if(count($xml->privacy))
@@ -79,26 +84,32 @@ class Category extends \Kaltura\Client\ObjectBase
 			$this->userJoinPolicy = (int)$xml->userJoinPolicy;
 		if(count($xml->defaultPermissionLevel))
 			$this->defaultPermissionLevel = (int)$xml->defaultPermissionLevel;
-		$this->owner = (string)$xml->owner;
+		if(count($xml->owner))
+			$this->owner = (string)$xml->owner;
 		if(count($xml->directEntriesCount))
 			$this->directEntriesCount = (int)$xml->directEntriesCount;
-		$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->referenceId))
+			$this->referenceId = (string)$xml->referenceId;
 		if(count($xml->contributionPolicy))
 			$this->contributionPolicy = (int)$xml->contributionPolicy;
 		if(count($xml->membersCount))
 			$this->membersCount = (int)$xml->membersCount;
 		if(count($xml->pendingMembersCount))
 			$this->pendingMembersCount = (int)$xml->pendingMembersCount;
-		$this->privacyContext = (string)$xml->privacyContext;
-		$this->privacyContexts = (string)$xml->privacyContexts;
+		if(count($xml->privacyContext))
+			$this->privacyContext = (string)$xml->privacyContext;
+		if(count($xml->privacyContexts))
+			$this->privacyContexts = (string)$xml->privacyContexts;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->inheritedParentId))
 			$this->inheritedParentId = (int)$xml->inheritedParentId;
 		if(count($xml->partnerSortValue))
 			$this->partnerSortValue = (int)$xml->partnerSortValue;
-		$this->partnerData = (string)$xml->partnerData;
-		$this->defaultOrderBy = (string)$xml->defaultOrderBy;
+		if(count($xml->partnerData))
+			$this->partnerData = (string)$xml->partnerData;
+		if(count($xml->defaultOrderBy))
+			$this->defaultOrderBy = (string)$xml->defaultOrderBy;
 		if(count($xml->directSubCategoriesCount))
 			$this->directSubCategoriesCount = (int)$xml->directSubCategoriesCount;
 		if(count($xml->moderation))

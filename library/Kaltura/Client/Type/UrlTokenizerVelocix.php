@@ -50,9 +50,12 @@ class UrlTokenizerVelocix extends \Kaltura\Client\Type\UrlTokenizer
 		if(is_null($xml))
 			return;
 		
-		$this->hdsPaths = (string)$xml->hdsPaths;
-		$this->paramName = (string)$xml->paramName;
-		$this->authPrefix = (string)$xml->authPrefix;
+		if(count($xml->hdsPaths))
+			$this->hdsPaths = (string)$xml->hdsPaths;
+		if(count($xml->paramName))
+			$this->paramName = (string)$xml->paramName;
+		if(count($xml->authPrefix))
+			$this->authPrefix = (string)$xml->authPrefix;
 	}
 	/**
 	 * hdsPaths

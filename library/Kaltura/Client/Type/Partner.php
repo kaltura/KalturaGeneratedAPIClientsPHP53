@@ -52,28 +52,45 @@ class Partner extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->name = (string)$xml->name;
-		$this->website = (string)$xml->website;
-		$this->notificationUrl = (string)$xml->notificationUrl;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->website))
+			$this->website = (string)$xml->website;
+		if(count($xml->notificationUrl))
+			$this->notificationUrl = (string)$xml->notificationUrl;
 		if(count($xml->appearInSearch))
 			$this->appearInSearch = (int)$xml->appearInSearch;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
-		$this->adminName = (string)$xml->adminName;
-		$this->adminEmail = (string)$xml->adminEmail;
-		$this->description = (string)$xml->description;
+		if(count($xml->adminName))
+			$this->adminName = (string)$xml->adminName;
+		if(count($xml->adminEmail))
+			$this->adminEmail = (string)$xml->adminEmail;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->commercialUse))
 			$this->commercialUse = (int)$xml->commercialUse;
-		$this->landingPage = (string)$xml->landingPage;
-		$this->userLandingPage = (string)$xml->userLandingPage;
-		$this->contentCategories = (string)$xml->contentCategories;
+		if(count($xml->landingPage))
+			$this->landingPage = (string)$xml->landingPage;
+		if(count($xml->userLandingPage))
+			$this->userLandingPage = (string)$xml->userLandingPage;
+		if(count($xml->contentCategories))
+			$this->contentCategories = (string)$xml->contentCategories;
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		$this->phone = (string)$xml->phone;
-		$this->describeYourself = (string)$xml->describeYourself;
-		if(!empty($xml->adultContent))
-			$this->adultContent = true;
-		$this->defConversionProfileType = (string)$xml->defConversionProfileType;
+		if(count($xml->phone))
+			$this->phone = (string)$xml->phone;
+		if(count($xml->describeYourself))
+			$this->describeYourself = (string)$xml->describeYourself;
+		if(count($xml->adultContent))
+		{
+			if(!empty($xml->adultContent))
+				$this->adultContent = true;
+			else
+				$this->adultContent = false;
+		}
+		if(count($xml->defConversionProfileType))
+			$this->defConversionProfileType = (string)$xml->defConversionProfileType;
 		if(count($xml->notify))
 			$this->notify = (int)$xml->notify;
 		if(count($xml->status))
@@ -82,56 +99,96 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->allowQuickEdit = (int)$xml->allowQuickEdit;
 		if(count($xml->mergeEntryLists))
 			$this->mergeEntryLists = (int)$xml->mergeEntryLists;
-		$this->notificationsConfig = (string)$xml->notificationsConfig;
+		if(count($xml->notificationsConfig))
+			$this->notificationsConfig = (string)$xml->notificationsConfig;
 		if(count($xml->maxUploadSize))
 			$this->maxUploadSize = (int)$xml->maxUploadSize;
 		if(count($xml->partnerPackage))
 			$this->partnerPackage = (int)$xml->partnerPackage;
-		$this->secret = (string)$xml->secret;
-		$this->adminSecret = (string)$xml->adminSecret;
-		$this->cmsPassword = (string)$xml->cmsPassword;
+		if(count($xml->secret))
+			$this->secret = (string)$xml->secret;
+		if(count($xml->adminSecret))
+			$this->adminSecret = (string)$xml->adminSecret;
+		if(count($xml->cmsPassword))
+			$this->cmsPassword = (string)$xml->cmsPassword;
 		if(count($xml->allowMultiNotification))
 			$this->allowMultiNotification = (int)$xml->allowMultiNotification;
 		if(count($xml->adminLoginUsersQuota))
 			$this->adminLoginUsersQuota = (int)$xml->adminLoginUsersQuota;
-		$this->adminUserId = (string)$xml->adminUserId;
-		$this->firstName = (string)$xml->firstName;
-		$this->lastName = (string)$xml->lastName;
-		$this->country = (string)$xml->country;
-		$this->state = (string)$xml->state;
-		if(empty($xml->additionalParams))
-			$this->additionalParams = array();
-		else
-			$this->additionalParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->additionalParams, "KalturaKeyValue");
+		if(count($xml->adminUserId))
+			$this->adminUserId = (string)$xml->adminUserId;
+		if(count($xml->firstName))
+			$this->firstName = (string)$xml->firstName;
+		if(count($xml->lastName))
+			$this->lastName = (string)$xml->lastName;
+		if(count($xml->country))
+			$this->country = (string)$xml->country;
+		if(count($xml->state))
+			$this->state = (string)$xml->state;
+		if(count($xml->additionalParams))
+		{
+			if(empty($xml->additionalParams))
+				$this->additionalParams = array();
+			else
+				$this->additionalParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->additionalParams, "KalturaKeyValue");
+		}
 		if(count($xml->publishersQuota))
 			$this->publishersQuota = (int)$xml->publishersQuota;
 		if(count($xml->partnerGroupType))
 			$this->partnerGroupType = (int)$xml->partnerGroupType;
-		if(!empty($xml->defaultEntitlementEnforcement))
-			$this->defaultEntitlementEnforcement = true;
-		$this->defaultDeliveryType = (string)$xml->defaultDeliveryType;
-		$this->defaultEmbedCodeType = (string)$xml->defaultEmbedCodeType;
-		if(empty($xml->deliveryTypes))
-			$this->deliveryTypes = array();
-		else
-			$this->deliveryTypes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryTypes, "KalturaPlayerDeliveryType");
-		if(empty($xml->embedCodeTypes))
-			$this->embedCodeTypes = array();
-		else
-			$this->embedCodeTypes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->embedCodeTypes, "KalturaPlayerEmbedCodeType");
+		if(count($xml->defaultEntitlementEnforcement))
+		{
+			if(!empty($xml->defaultEntitlementEnforcement))
+				$this->defaultEntitlementEnforcement = true;
+			else
+				$this->defaultEntitlementEnforcement = false;
+		}
+		if(count($xml->defaultDeliveryType))
+			$this->defaultDeliveryType = (string)$xml->defaultDeliveryType;
+		if(count($xml->defaultEmbedCodeType))
+			$this->defaultEmbedCodeType = (string)$xml->defaultEmbedCodeType;
+		if(count($xml->deliveryTypes))
+		{
+			if(empty($xml->deliveryTypes))
+				$this->deliveryTypes = array();
+			else
+				$this->deliveryTypes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryTypes, "KalturaPlayerDeliveryType");
+		}
+		if(count($xml->embedCodeTypes))
+		{
+			if(empty($xml->embedCodeTypes))
+				$this->embedCodeTypes = array();
+			else
+				$this->embedCodeTypes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->embedCodeTypes, "KalturaPlayerEmbedCodeType");
+		}
 		if(count($xml->templatePartnerId))
 			$this->templatePartnerId = (int)$xml->templatePartnerId;
-		if(!empty($xml->ignoreSeoLinks))
-			$this->ignoreSeoLinks = true;
-		$this->host = (string)$xml->host;
-		$this->cdnHost = (string)$xml->cdnHost;
-		if(!empty($xml->isFirstLogin))
-			$this->isFirstLogin = true;
-		$this->logoutUrl = (string)$xml->logoutUrl;
+		if(count($xml->ignoreSeoLinks))
+		{
+			if(!empty($xml->ignoreSeoLinks))
+				$this->ignoreSeoLinks = true;
+			else
+				$this->ignoreSeoLinks = false;
+		}
+		if(count($xml->host))
+			$this->host = (string)$xml->host;
+		if(count($xml->cdnHost))
+			$this->cdnHost = (string)$xml->cdnHost;
+		if(count($xml->isFirstLogin))
+		{
+			if(!empty($xml->isFirstLogin))
+				$this->isFirstLogin = true;
+			else
+				$this->isFirstLogin = false;
+		}
+		if(count($xml->logoutUrl))
+			$this->logoutUrl = (string)$xml->logoutUrl;
 		if(count($xml->partnerParentId))
 			$this->partnerParentId = (int)$xml->partnerParentId;
-		$this->crmId = (string)$xml->crmId;
-		$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->crmId))
+			$this->crmId = (string)$xml->crmId;
+		if(count($xml->referenceId))
+			$this->referenceId = (string)$xml->referenceId;
 	}
 	/**
 	 * 

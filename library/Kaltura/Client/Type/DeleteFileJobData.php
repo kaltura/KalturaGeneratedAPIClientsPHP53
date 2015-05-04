@@ -50,7 +50,8 @@ class DeleteFileJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->localFileSyncPath = (string)$xml->localFileSyncPath;
+		if(count($xml->localFileSyncPath))
+			$this->localFileSyncPath = (string)$xml->localFileSyncPath;
 	}
 	/**
 	 * 

@@ -50,7 +50,8 @@ class DistributeObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\Obj
 		if(is_null($xml))
 			return;
 		
-		$this->distributionProfileId = (string)$xml->distributionProfileId;
+		if(count($xml->distributionProfileId))
+			$this->distributionProfileId = (string)$xml->distributionProfileId;
 	}
 	/**
 	 * Distribution profile id

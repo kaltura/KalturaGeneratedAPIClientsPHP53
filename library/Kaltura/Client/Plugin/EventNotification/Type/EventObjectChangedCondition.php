@@ -50,7 +50,8 @@ class EventObjectChangedCondition extends \Kaltura\Client\Type\Condition
 		if(is_null($xml))
 			return;
 		
-		$this->modifiedColumns = (string)$xml->modifiedColumns;
+		if(count($xml->modifiedColumns))
+			$this->modifiedColumns = (string)$xml->modifiedColumns;
 	}
 	/**
 	 * Comma seperated column names to be tested

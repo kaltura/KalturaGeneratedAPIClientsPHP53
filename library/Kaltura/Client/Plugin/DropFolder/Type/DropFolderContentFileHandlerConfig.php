@@ -52,7 +52,8 @@ class DropFolderContentFileHandlerConfig extends \Kaltura\Client\Plugin\DropFold
 		
 		if(count($xml->contentMatchPolicy))
 			$this->contentMatchPolicy = (int)$xml->contentMatchPolicy;
-		$this->slugRegex = (string)$xml->slugRegex;
+		if(count($xml->slugRegex))
+			$this->slugRegex = (string)$xml->slugRegex;
 	}
 	/**
 	 * 

@@ -50,11 +50,16 @@ class BulkUploadResultCategory extends \Kaltura\Client\Type\BulkUploadResult
 		if(is_null($xml))
 			return;
 		
-		$this->relativePath = (string)$xml->relativePath;
-		$this->name = (string)$xml->name;
-		$this->referenceId = (string)$xml->referenceId;
-		$this->description = (string)$xml->description;
-		$this->tags = (string)$xml->tags;
+		if(count($xml->relativePath))
+			$this->relativePath = (string)$xml->relativePath;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->referenceId))
+			$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
 		if(count($xml->appearInList))
 			$this->appearInList = (int)$xml->appearInList;
 		if(count($xml->privacy))
@@ -65,13 +70,19 @@ class BulkUploadResultCategory extends \Kaltura\Client\Type\BulkUploadResult
 			$this->userJoinPolicy = (int)$xml->userJoinPolicy;
 		if(count($xml->defaultPermissionLevel))
 			$this->defaultPermissionLevel = (int)$xml->defaultPermissionLevel;
-		$this->owner = (string)$xml->owner;
+		if(count($xml->owner))
+			$this->owner = (string)$xml->owner;
 		if(count($xml->contributionPolicy))
 			$this->contributionPolicy = (int)$xml->contributionPolicy;
 		if(count($xml->partnerSortValue))
 			$this->partnerSortValue = (int)$xml->partnerSortValue;
-		if(!empty($xml->moderation))
-			$this->moderation = true;
+		if(count($xml->moderation))
+		{
+			if(!empty($xml->moderation))
+				$this->moderation = true;
+			else
+				$this->moderation = false;
+		}
 	}
 	/**
 	 * 

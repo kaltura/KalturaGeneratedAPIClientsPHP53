@@ -54,22 +54,32 @@ abstract class UserBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
 		if(count($xml->typeEqual))
 			$this->typeEqual = (int)$xml->typeEqual;
-		$this->typeIn = (string)$xml->typeIn;
-		$this->screenNameLike = (string)$xml->screenNameLike;
-		$this->screenNameStartsWith = (string)$xml->screenNameStartsWith;
-		$this->emailLike = (string)$xml->emailLike;
-		$this->emailStartsWith = (string)$xml->emailStartsWith;
-		$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
-		$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
+		if(count($xml->typeIn))
+			$this->typeIn = (string)$xml->typeIn;
+		if(count($xml->screenNameLike))
+			$this->screenNameLike = (string)$xml->screenNameLike;
+		if(count($xml->screenNameStartsWith))
+			$this->screenNameStartsWith = (string)$xml->screenNameStartsWith;
+		if(count($xml->emailLike))
+			$this->emailLike = (string)$xml->emailLike;
+		if(count($xml->emailStartsWith))
+			$this->emailStartsWith = (string)$xml->emailStartsWith;
+		if(count($xml->tagsMultiLikeOr))
+			$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
+		if(count($xml->tagsMultiLikeAnd))
+			$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
 			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
-		$this->firstNameStartsWith = (string)$xml->firstNameStartsWith;
-		$this->lastNameStartsWith = (string)$xml->lastNameStartsWith;
+		if(count($xml->firstNameStartsWith))
+			$this->firstNameStartsWith = (string)$xml->firstNameStartsWith;
+		if(count($xml->lastNameStartsWith))
+			$this->lastNameStartsWith = (string)$xml->lastNameStartsWith;
 		if(count($xml->isAdminEqual))
 			$this->isAdminEqual = (int)$xml->isAdminEqual;
 	}

@@ -50,7 +50,8 @@ class SearchComparableCondition extends \Kaltura\Client\Type\SearchCondition
 		if(is_null($xml))
 			return;
 		
-		$this->comparison = (string)$xml->comparison;
+		if(count($xml->comparison))
+			$this->comparison = (string)$xml->comparison;
 	}
 	/**
 	 * 

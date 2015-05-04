@@ -52,8 +52,13 @@ class BooleanValue extends \Kaltura\Client\Type\Value
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->value))
-			$this->value = true;
+		if(count($xml->value))
+		{
+			if(!empty($xml->value))
+				$this->value = true;
+			else
+				$this->value = false;
+		}
 	}
 	/**
 	 * 

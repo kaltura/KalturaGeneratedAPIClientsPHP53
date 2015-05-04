@@ -54,18 +54,25 @@ class ScheduledTaskProfile extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->description = (string)$xml->description;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->objectFilterEngineType = (string)$xml->objectFilterEngineType;
-		if(!empty($xml->objectFilter))
+		if(count($xml->objectFilterEngineType))
+			$this->objectFilterEngineType = (string)$xml->objectFilterEngineType;
+		if(count($xml->objectFilter) && !empty($xml->objectFilter))
 			$this->objectFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->objectFilter, "KalturaFilter");
-		if(empty($xml->objectTasks))
-			$this->objectTasks = array();
-		else
-			$this->objectTasks = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objectTasks, "KalturaObjectTask");
+		if(count($xml->objectTasks))
+		{
+			if(empty($xml->objectTasks))
+				$this->objectTasks = array();
+			else
+				$this->objectTasks = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objectTasks, "KalturaObjectTask");
+		}
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))

@@ -50,12 +50,16 @@ class MetadataFieldChangedCondition extends \Kaltura\Client\Type\MatchCondition
 		if(is_null($xml))
 			return;
 		
-		$this->xPath = (string)$xml->xPath;
+		if(count($xml->xPath))
+			$this->xPath = (string)$xml->xPath;
 		if(count($xml->profileId))
 			$this->profileId = (int)$xml->profileId;
-		$this->profileSystemName = (string)$xml->profileSystemName;
-		$this->versionA = (string)$xml->versionA;
-		$this->versionB = (string)$xml->versionB;
+		if(count($xml->profileSystemName))
+			$this->profileSystemName = (string)$xml->profileSystemName;
+		if(count($xml->versionA))
+			$this->versionA = (string)$xml->versionA;
+		if(count($xml->versionB))
+			$this->versionB = (string)$xml->versionB;
 	}
 	/**
 	 * May contain the full xpath to the field in three formats

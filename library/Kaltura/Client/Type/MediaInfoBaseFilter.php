@@ -50,7 +50,8 @@ abstract class MediaInfoBaseFilter extends \Kaltura\Client\Type\Filter
 		if(is_null($xml))
 			return;
 		
-		$this->flavorAssetIdEqual = (string)$xml->flavorAssetIdEqual;
+		if(count($xml->flavorAssetIdEqual))
+			$this->flavorAssetIdEqual = (string)$xml->flavorAssetIdEqual;
 	}
 	/**
 	 * 

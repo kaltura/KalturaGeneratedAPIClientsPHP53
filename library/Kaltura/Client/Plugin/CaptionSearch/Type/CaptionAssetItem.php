@@ -50,15 +50,16 @@ class CaptionAssetItem extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->asset))
+		if(count($xml->asset) && !empty($xml->asset))
 			$this->asset = \Kaltura\Client\ParseUtils::unmarshalObject($xml->asset, "KalturaCaptionAsset");
-		if(!empty($xml->entry))
+		if(count($xml->entry) && !empty($xml->entry))
 			$this->entry = \Kaltura\Client\ParseUtils::unmarshalObject($xml->entry, "KalturaBaseEntry");
 		if(count($xml->startTime))
 			$this->startTime = (int)$xml->startTime;
 		if(count($xml->endTime))
 			$this->endTime = (int)$xml->endTime;
-		$this->content = (string)$xml->content;
+		if(count($xml->content))
+			$this->content = (string)$xml->content;
 	}
 	/**
 	 * The Caption Asset object

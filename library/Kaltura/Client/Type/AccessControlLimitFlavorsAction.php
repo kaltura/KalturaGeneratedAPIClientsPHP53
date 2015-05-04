@@ -50,9 +50,15 @@ class AccessControlLimitFlavorsAction extends \Kaltura\Client\Type\RuleAction
 		if(is_null($xml))
 			return;
 		
-		$this->flavorParamsIds = (string)$xml->flavorParamsIds;
-		if(!empty($xml->isBlockedList))
-			$this->isBlockedList = true;
+		if(count($xml->flavorParamsIds))
+			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
+		if(count($xml->isBlockedList))
+		{
+			if(!empty($xml->isBlockedList))
+				$this->isBlockedList = true;
+			else
+				$this->isBlockedList = false;
+		}
 	}
 	/**
 	 * Comma separated list of flavor ids 

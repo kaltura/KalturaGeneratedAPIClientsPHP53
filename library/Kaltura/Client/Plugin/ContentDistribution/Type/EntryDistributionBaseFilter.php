@@ -52,7 +52,8 @@ abstract class EntryDistributionBaseFilter extends \Kaltura\Client\Type\RelatedF
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -65,17 +66,22 @@ abstract class EntryDistributionBaseFilter extends \Kaltura\Client\Type\RelatedF
 			$this->submittedAtGreaterThanOrEqual = (int)$xml->submittedAtGreaterThanOrEqual;
 		if(count($xml->submittedAtLessThanOrEqual))
 			$this->submittedAtLessThanOrEqual = (int)$xml->submittedAtLessThanOrEqual;
-		$this->entryIdEqual = (string)$xml->entryIdEqual;
-		$this->entryIdIn = (string)$xml->entryIdIn;
+		if(count($xml->entryIdEqual))
+			$this->entryIdEqual = (string)$xml->entryIdEqual;
+		if(count($xml->entryIdIn))
+			$this->entryIdIn = (string)$xml->entryIdIn;
 		if(count($xml->distributionProfileIdEqual))
 			$this->distributionProfileIdEqual = (int)$xml->distributionProfileIdEqual;
-		$this->distributionProfileIdIn = (string)$xml->distributionProfileIdIn;
+		if(count($xml->distributionProfileIdIn))
+			$this->distributionProfileIdIn = (string)$xml->distributionProfileIdIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->dirtyStatusEqual))
 			$this->dirtyStatusEqual = (int)$xml->dirtyStatusEqual;
-		$this->dirtyStatusIn = (string)$xml->dirtyStatusIn;
+		if(count($xml->dirtyStatusIn))
+			$this->dirtyStatusIn = (string)$xml->dirtyStatusIn;
 		if(count($xml->sunriseGreaterThanOrEqual))
 			$this->sunriseGreaterThanOrEqual = (int)$xml->sunriseGreaterThanOrEqual;
 		if(count($xml->sunriseLessThanOrEqual))

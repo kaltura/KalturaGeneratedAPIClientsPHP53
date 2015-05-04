@@ -50,7 +50,8 @@ abstract class ThumbParamsBaseFilter extends \Kaltura\Client\Type\AssetParamsFil
 		if(is_null($xml))
 			return;
 		
-		$this->formatEqual = (string)$xml->formatEqual;
+		if(count($xml->formatEqual))
+			$this->formatEqual = (string)$xml->formatEqual;
 	}
 	/**
 	 * 

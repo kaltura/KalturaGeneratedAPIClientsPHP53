@@ -50,33 +50,47 @@ class HttpNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification\
 		if(is_null($xml))
 			return;
 		
-		$this->url = (string)$xml->url;
+		if(count($xml->url))
+			$this->url = (string)$xml->url;
 		if(count($xml->method))
 			$this->method = (int)$xml->method;
-		if(!empty($xml->data))
+		if(count($xml->data) && !empty($xml->data))
 			$this->data = \Kaltura\Client\ParseUtils::unmarshalObject($xml->data, "KalturaHttpNotificationData");
 		if(count($xml->timeout))
 			$this->timeout = (int)$xml->timeout;
 		if(count($xml->connectTimeout))
 			$this->connectTimeout = (int)$xml->connectTimeout;
-		$this->username = (string)$xml->username;
-		$this->password = (string)$xml->password;
+		if(count($xml->username))
+			$this->username = (string)$xml->username;
+		if(count($xml->password))
+			$this->password = (string)$xml->password;
 		if(count($xml->authenticationMethod))
 			$this->authenticationMethod = (int)$xml->authenticationMethod;
 		if(count($xml->sslVersion))
 			$this->sslVersion = (int)$xml->sslVersion;
-		$this->sslCertificate = (string)$xml->sslCertificate;
-		$this->sslCertificateType = (string)$xml->sslCertificateType;
-		$this->sslCertificatePassword = (string)$xml->sslCertificatePassword;
-		$this->sslEngine = (string)$xml->sslEngine;
-		$this->sslEngineDefault = (string)$xml->sslEngineDefault;
-		$this->sslKeyType = (string)$xml->sslKeyType;
-		$this->sslKey = (string)$xml->sslKey;
-		$this->sslKeyPassword = (string)$xml->sslKeyPassword;
-		if(empty($xml->customHeaders))
-			$this->customHeaders = array();
-		else
-			$this->customHeaders = \Kaltura\Client\ParseUtils::unmarshalArray($xml->customHeaders, "KalturaKeyValue");
+		if(count($xml->sslCertificate))
+			$this->sslCertificate = (string)$xml->sslCertificate;
+		if(count($xml->sslCertificateType))
+			$this->sslCertificateType = (string)$xml->sslCertificateType;
+		if(count($xml->sslCertificatePassword))
+			$this->sslCertificatePassword = (string)$xml->sslCertificatePassword;
+		if(count($xml->sslEngine))
+			$this->sslEngine = (string)$xml->sslEngine;
+		if(count($xml->sslEngineDefault))
+			$this->sslEngineDefault = (string)$xml->sslEngineDefault;
+		if(count($xml->sslKeyType))
+			$this->sslKeyType = (string)$xml->sslKeyType;
+		if(count($xml->sslKey))
+			$this->sslKey = (string)$xml->sslKey;
+		if(count($xml->sslKeyPassword))
+			$this->sslKeyPassword = (string)$xml->sslKeyPassword;
+		if(count($xml->customHeaders))
+		{
+			if(empty($xml->customHeaders))
+				$this->customHeaders = array();
+			else
+				$this->customHeaders = \Kaltura\Client\ParseUtils::unmarshalArray($xml->customHeaders, "KalturaKeyValue");
+		}
 	}
 	/**
 	 * Remote server URL

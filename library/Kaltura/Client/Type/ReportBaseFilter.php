@@ -52,12 +52,16 @@ abstract class ReportBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
-		$this->systemNameEqual = (string)$xml->systemNameEqual;
-		$this->systemNameIn = (string)$xml->systemNameIn;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->systemNameEqual))
+			$this->systemNameEqual = (string)$xml->systemNameEqual;
+		if(count($xml->systemNameIn))
+			$this->systemNameIn = (string)$xml->systemNameIn;
 	}
 	/**
 	 * 

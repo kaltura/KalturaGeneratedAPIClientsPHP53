@@ -50,10 +50,14 @@ class EndUserReportInputFilter extends \Kaltura\Client\Type\ReportInputFilter
 		if(is_null($xml))
 			return;
 		
-		$this->application = (string)$xml->application;
-		$this->userIds = (string)$xml->userIds;
-		$this->playbackContext = (string)$xml->playbackContext;
-		$this->ancestorPlaybackContext = (string)$xml->ancestorPlaybackContext;
+		if(count($xml->application))
+			$this->application = (string)$xml->application;
+		if(count($xml->userIds))
+			$this->userIds = (string)$xml->userIds;
+		if(count($xml->playbackContext))
+			$this->playbackContext = (string)$xml->playbackContext;
+		if(count($xml->ancestorPlaybackContext))
+			$this->ancestorPlaybackContext = (string)$xml->ancestorPlaybackContext;
 	}
 	/**
 	 * 

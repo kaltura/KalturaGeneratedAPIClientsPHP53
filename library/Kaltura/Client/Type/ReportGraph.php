@@ -50,8 +50,10 @@ class ReportGraph extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->data = (string)$xml->data;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->data))
+			$this->data = (string)$xml->data;
 	}
 	/**
 	 * 

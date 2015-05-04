@@ -50,8 +50,10 @@ class KontikiStorageDeleteJobData extends \Kaltura\Client\Type\StorageDeleteJobD
 		if(is_null($xml))
 			return;
 		
-		$this->contentMoid = (string)$xml->contentMoid;
-		$this->serviceToken = (string)$xml->serviceToken;
+		if(count($xml->contentMoid))
+			$this->contentMoid = (string)$xml->contentMoid;
+		if(count($xml->serviceToken))
+			$this->serviceToken = (string)$xml->serviceToken;
 	}
 	/**
 	 * Unique Kontiki MOID for the content uploaded to Kontiki

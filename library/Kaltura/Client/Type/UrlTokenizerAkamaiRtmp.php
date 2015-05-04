@@ -50,11 +50,19 @@ class UrlTokenizerAkamaiRtmp extends \Kaltura\Client\Type\UrlTokenizer
 		if(is_null($xml))
 			return;
 		
-		$this->profile = (string)$xml->profile;
-		$this->type = (string)$xml->type;
-		$this->aifp = (string)$xml->aifp;
-		if(!empty($xml->usePrefix))
-			$this->usePrefix = true;
+		if(count($xml->profile))
+			$this->profile = (string)$xml->profile;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->aifp))
+			$this->aifp = (string)$xml->aifp;
+		if(count($xml->usePrefix))
+		{
+			if(!empty($xml->usePrefix))
+				$this->usePrefix = true;
+			else
+				$this->usePrefix = false;
+		}
 	}
 	/**
 	 * profile

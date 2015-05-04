@@ -50,7 +50,8 @@ class DistributionValidationErrorMissingFlavor extends \Kaltura\Client\Plugin\Co
 		if(is_null($xml))
 			return;
 		
-		$this->flavorParamsId = (string)$xml->flavorParamsId;
+		if(count($xml->flavorParamsId))
+			$this->flavorParamsId = (string)$xml->flavorParamsId;
 	}
 	/**
 	 * 

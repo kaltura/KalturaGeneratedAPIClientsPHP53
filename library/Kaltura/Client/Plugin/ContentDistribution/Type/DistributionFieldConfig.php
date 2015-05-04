@@ -50,19 +50,35 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->fieldName = (string)$xml->fieldName;
-		$this->userFriendlyFieldName = (string)$xml->userFriendlyFieldName;
-		$this->entryMrssXslt = (string)$xml->entryMrssXslt;
+		if(count($xml->fieldName))
+			$this->fieldName = (string)$xml->fieldName;
+		if(count($xml->userFriendlyFieldName))
+			$this->userFriendlyFieldName = (string)$xml->userFriendlyFieldName;
+		if(count($xml->entryMrssXslt))
+			$this->entryMrssXslt = (string)$xml->entryMrssXslt;
 		if(count($xml->isRequired))
 			$this->isRequired = (int)$xml->isRequired;
-		if(!empty($xml->updateOnChange))
-			$this->updateOnChange = true;
-		if(empty($xml->updateParams))
-			$this->updateParams = array();
-		else
-			$this->updateParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->updateParams, "KalturaString");
-		if(!empty($xml->isDefault))
-			$this->isDefault = true;
+		if(count($xml->updateOnChange))
+		{
+			if(!empty($xml->updateOnChange))
+				$this->updateOnChange = true;
+			else
+				$this->updateOnChange = false;
+		}
+		if(count($xml->updateParams))
+		{
+			if(empty($xml->updateParams))
+				$this->updateParams = array();
+			else
+				$this->updateParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->updateParams, "KalturaString");
+		}
+		if(count($xml->isDefault))
+		{
+			if(!empty($xml->isDefault))
+				$this->isDefault = true;
+			else
+				$this->isDefault = false;
+		}
 	}
 	/**
 	 * A value taken from a connector field enum which associates the current configuration to that connector field

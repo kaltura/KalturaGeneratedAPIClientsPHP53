@@ -50,7 +50,8 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 		if(is_null($xml))
 			return;
 		
-		$this->offlineMessage = (string)$xml->offlineMessage;
+		if(count($xml->offlineMessage))
+			$this->offlineMessage = (string)$xml->offlineMessage;
 		if(count($xml->recordStatus))
 			$this->recordStatus = (int)$xml->recordStatus;
 		if(count($xml->dvrStatus))
@@ -59,24 +60,31 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 			$this->dvrWindow = (int)$xml->dvrWindow;
 		if(count($xml->lastElapsedRecordingTime))
 			$this->lastElapsedRecordingTime = (int)$xml->lastElapsedRecordingTime;
-		if(empty($xml->liveStreamConfigurations))
-			$this->liveStreamConfigurations = array();
-		else
-			$this->liveStreamConfigurations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->liveStreamConfigurations, "KalturaLiveStreamConfiguration");
-		$this->recordedEntryId = (string)$xml->recordedEntryId;
+		if(count($xml->liveStreamConfigurations))
+		{
+			if(empty($xml->liveStreamConfigurations))
+				$this->liveStreamConfigurations = array();
+			else
+				$this->liveStreamConfigurations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->liveStreamConfigurations, "KalturaLiveStreamConfiguration");
+		}
+		if(count($xml->recordedEntryId))
+			$this->recordedEntryId = (string)$xml->recordedEntryId;
 		if(count($xml->pushPublishEnabled))
 			$this->pushPublishEnabled = (int)$xml->pushPublishEnabled;
-		if(empty($xml->publishConfigurations))
-			$this->publishConfigurations = array();
-		else
-			$this->publishConfigurations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->publishConfigurations, "KalturaLiveStreamPushPublishConfiguration");
+		if(count($xml->publishConfigurations))
+		{
+			if(empty($xml->publishConfigurations))
+				$this->publishConfigurations = array();
+			else
+				$this->publishConfigurations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->publishConfigurations, "KalturaLiveStreamPushPublishConfiguration");
+		}
 		if(count($xml->firstBroadcast))
 			$this->firstBroadcast = (int)$xml->firstBroadcast;
 		if(count($xml->lastBroadcast))
 			$this->lastBroadcast = (int)$xml->lastBroadcast;
 		if(count($xml->currentBroadcastStartTime))
 			$this->currentBroadcastStartTime = (float)$xml->currentBroadcastStartTime;
-		if(!empty($xml->recordingOptions))
+		if(count($xml->recordingOptions) && !empty($xml->recordingOptions))
 			$this->recordingOptions = \Kaltura\Client\ParseUtils::unmarshalObject($xml->recordingOptions, "KalturaLiveEntryRecordingOptions");
 	}
 	/**

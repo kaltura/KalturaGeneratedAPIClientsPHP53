@@ -50,15 +50,24 @@ class ITunesSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 		if(is_null($xml))
 			return;
 		
-		$this->feedDescription = (string)$xml->feedDescription;
-		$this->language = (string)$xml->language;
-		$this->feedLandingPage = (string)$xml->feedLandingPage;
-		$this->ownerName = (string)$xml->ownerName;
-		$this->ownerEmail = (string)$xml->ownerEmail;
-		$this->feedImageUrl = (string)$xml->feedImageUrl;
-		$this->category = (string)$xml->category;
-		$this->adultContent = (string)$xml->adultContent;
-		$this->feedAuthor = (string)$xml->feedAuthor;
+		if(count($xml->feedDescription))
+			$this->feedDescription = (string)$xml->feedDescription;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
+		if(count($xml->feedLandingPage))
+			$this->feedLandingPage = (string)$xml->feedLandingPage;
+		if(count($xml->ownerName))
+			$this->ownerName = (string)$xml->ownerName;
+		if(count($xml->ownerEmail))
+			$this->ownerEmail = (string)$xml->ownerEmail;
+		if(count($xml->feedImageUrl))
+			$this->feedImageUrl = (string)$xml->feedImageUrl;
+		if(count($xml->category))
+			$this->category = (string)$xml->category;
+		if(count($xml->adultContent))
+			$this->adultContent = (string)$xml->adultContent;
+		if(count($xml->feedAuthor))
+			$this->feedAuthor = (string)$xml->feedAuthor;
 		if(count($xml->enforceOrder))
 			$this->enforceOrder = (int)$xml->enforceOrder;
 	}

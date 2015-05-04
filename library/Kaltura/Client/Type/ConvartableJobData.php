@@ -50,18 +50,24 @@ class ConvartableJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->srcFileSyncLocalPath = (string)$xml->srcFileSyncLocalPath;
-		$this->actualSrcFileSyncLocalPath = (string)$xml->actualSrcFileSyncLocalPath;
-		$this->srcFileSyncRemoteUrl = (string)$xml->srcFileSyncRemoteUrl;
-		if(empty($xml->srcFileSyncs))
-			$this->srcFileSyncs = array();
-		else
-			$this->srcFileSyncs = \Kaltura\Client\ParseUtils::unmarshalArray($xml->srcFileSyncs, "KalturaSourceFileSyncDescriptor");
+		if(count($xml->srcFileSyncLocalPath))
+			$this->srcFileSyncLocalPath = (string)$xml->srcFileSyncLocalPath;
+		if(count($xml->actualSrcFileSyncLocalPath))
+			$this->actualSrcFileSyncLocalPath = (string)$xml->actualSrcFileSyncLocalPath;
+		if(count($xml->srcFileSyncRemoteUrl))
+			$this->srcFileSyncRemoteUrl = (string)$xml->srcFileSyncRemoteUrl;
+		if(count($xml->srcFileSyncs))
+		{
+			if(empty($xml->srcFileSyncs))
+				$this->srcFileSyncs = array();
+			else
+				$this->srcFileSyncs = \Kaltura\Client\ParseUtils::unmarshalArray($xml->srcFileSyncs, "KalturaSourceFileSyncDescriptor");
+		}
 		if(count($xml->engineVersion))
 			$this->engineVersion = (int)$xml->engineVersion;
 		if(count($xml->flavorParamsOutputId))
 			$this->flavorParamsOutputId = (int)$xml->flavorParamsOutputId;
-		if(!empty($xml->flavorParamsOutput))
+		if(count($xml->flavorParamsOutput) && !empty($xml->flavorParamsOutput))
 			$this->flavorParamsOutput = \Kaltura\Client\ParseUtils::unmarshalObject($xml->flavorParamsOutput, "KalturaFlavorParamsOutput");
 		if(count($xml->mediaInfoId))
 			$this->mediaInfoId = (int)$xml->mediaInfoId;
@@ -69,10 +75,13 @@ class ConvartableJobData extends \Kaltura\Client\Type\JobData
 			$this->currentOperationSet = (int)$xml->currentOperationSet;
 		if(count($xml->currentOperationIndex))
 			$this->currentOperationIndex = (int)$xml->currentOperationIndex;
-		if(empty($xml->pluginData))
-			$this->pluginData = array();
-		else
-			$this->pluginData = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pluginData, "KalturaKeyValue");
+		if(count($xml->pluginData))
+		{
+			if(empty($xml->pluginData))
+				$this->pluginData = array();
+			else
+				$this->pluginData = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pluginData, "KalturaKeyValue");
+		}
 	}
 	/**
 	 * 

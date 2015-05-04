@@ -50,7 +50,8 @@ class TubeMogulSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 		if(is_null($xml))
 			return;
 		
-		$this->category = (string)$xml->category;
+		if(count($xml->category))
+			$this->category = (string)$xml->category;
 	}
 	/**
 	 * 

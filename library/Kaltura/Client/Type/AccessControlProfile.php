@@ -54,19 +54,25 @@ class AccessControlProfile extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->description = (string)$xml->description;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->isDefault))
 			$this->isDefault = (int)$xml->isDefault;
-		if(empty($xml->rules))
-			$this->rules = array();
-		else
-			$this->rules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->rules, "KalturaRule");
+		if(count($xml->rules))
+		{
+			if(empty($xml->rules))
+				$this->rules = array();
+			else
+				$this->rules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->rules, "KalturaRule");
+		}
 	}
 	/**
 	 * The id of the Access Control Profile

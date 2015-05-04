@@ -50,9 +50,12 @@ class SearchAuthData extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->authData = (string)$xml->authData;
-		$this->loginUrl = (string)$xml->loginUrl;
-		$this->message = (string)$xml->message;
+		if(count($xml->authData))
+			$this->authData = (string)$xml->authData;
+		if(count($xml->loginUrl))
+			$this->loginUrl = (string)$xml->loginUrl;
+		if(count($xml->message))
+			$this->message = (string)$xml->message;
 	}
 	/**
 	 * The authentication data that further should be used for search

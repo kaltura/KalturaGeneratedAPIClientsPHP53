@@ -52,16 +52,18 @@ class GenericDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribut
 		
 		if(count($xml->genericProviderId))
 			$this->genericProviderId = (int)$xml->genericProviderId;
-		if(!empty($xml->submitAction))
+		if(count($xml->submitAction) && !empty($xml->submitAction))
 			$this->submitAction = \Kaltura\Client\ParseUtils::unmarshalObject($xml->submitAction, "KalturaGenericDistributionProfileAction");
-		if(!empty($xml->updateAction))
+		if(count($xml->updateAction) && !empty($xml->updateAction))
 			$this->updateAction = \Kaltura\Client\ParseUtils::unmarshalObject($xml->updateAction, "KalturaGenericDistributionProfileAction");
-		if(!empty($xml->deleteAction))
+		if(count($xml->deleteAction) && !empty($xml->deleteAction))
 			$this->deleteAction = \Kaltura\Client\ParseUtils::unmarshalObject($xml->deleteAction, "KalturaGenericDistributionProfileAction");
-		if(!empty($xml->fetchReportAction))
+		if(count($xml->fetchReportAction) && !empty($xml->fetchReportAction))
 			$this->fetchReportAction = \Kaltura\Client\ParseUtils::unmarshalObject($xml->fetchReportAction, "KalturaGenericDistributionProfileAction");
-		$this->updateRequiredEntryFields = (string)$xml->updateRequiredEntryFields;
-		$this->updateRequiredMetadataXPaths = (string)$xml->updateRequiredMetadataXPaths;
+		if(count($xml->updateRequiredEntryFields))
+			$this->updateRequiredEntryFields = (string)$xml->updateRequiredEntryFields;
+		if(count($xml->updateRequiredMetadataXPaths))
+			$this->updateRequiredMetadataXPaths = (string)$xml->updateRequiredMetadataXPaths;
 	}
 	/**
 	 * 

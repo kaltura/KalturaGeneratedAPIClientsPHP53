@@ -50,11 +50,15 @@ class AssetDistributionRule extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->validationError = (string)$xml->validationError;
-		if(empty($xml->assetDistributionConditions))
-			$this->assetDistributionConditions = array();
-		else
-			$this->assetDistributionConditions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->assetDistributionConditions, "KalturaAssetDistributionCondition");
+		if(count($xml->validationError))
+			$this->validationError = (string)$xml->validationError;
+		if(count($xml->assetDistributionConditions))
+		{
+			if(empty($xml->assetDistributionConditions))
+				$this->assetDistributionConditions = array();
+			else
+				$this->assetDistributionConditions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->assetDistributionConditions, "KalturaAssetDistributionCondition");
+		}
 	}
 	/**
 	 * The validation error description that will be set on the "data" property on KalturaDistributionValidationErrorMissingAsset if rule was not fulfilled

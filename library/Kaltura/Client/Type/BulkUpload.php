@@ -52,32 +52,45 @@ class BulkUpload extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (string)$xml->id;
-		$this->uploadedBy = (string)$xml->uploadedBy;
-		$this->uploadedByUserId = (string)$xml->uploadedByUserId;
+		if(count($xml->uploadedBy))
+			$this->uploadedBy = (string)$xml->uploadedBy;
+		if(count($xml->uploadedByUserId))
+			$this->uploadedByUserId = (string)$xml->uploadedByUserId;
 		if(count($xml->uploadedOn))
 			$this->uploadedOn = (int)$xml->uploadedOn;
 		if(count($xml->numOfEntries))
 			$this->numOfEntries = (int)$xml->numOfEntries;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->logFileUrl = (string)$xml->logFileUrl;
-		$this->csvFileUrl = (string)$xml->csvFileUrl;
-		$this->bulkFileUrl = (string)$xml->bulkFileUrl;
-		$this->bulkUploadType = (string)$xml->bulkUploadType;
-		if(empty($xml->results))
-			$this->results = array();
-		else
-			$this->results = \Kaltura\Client\ParseUtils::unmarshalArray($xml->results, "KalturaBulkUploadResult");
-		$this->error = (string)$xml->error;
+		if(count($xml->logFileUrl))
+			$this->logFileUrl = (string)$xml->logFileUrl;
+		if(count($xml->csvFileUrl))
+			$this->csvFileUrl = (string)$xml->csvFileUrl;
+		if(count($xml->bulkFileUrl))
+			$this->bulkFileUrl = (string)$xml->bulkFileUrl;
+		if(count($xml->bulkUploadType))
+			$this->bulkUploadType = (string)$xml->bulkUploadType;
+		if(count($xml->results))
+		{
+			if(empty($xml->results))
+				$this->results = array();
+			else
+				$this->results = \Kaltura\Client\ParseUtils::unmarshalArray($xml->results, "KalturaBulkUploadResult");
+		}
+		if(count($xml->error))
+			$this->error = (string)$xml->error;
 		if(count($xml->errorType))
 			$this->errorType = (int)$xml->errorType;
 		if(count($xml->errorNumber))
 			$this->errorNumber = (int)$xml->errorNumber;
-		$this->fileName = (string)$xml->fileName;
-		$this->description = (string)$xml->description;
+		if(count($xml->fileName))
+			$this->fileName = (string)$xml->fileName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->numOfObjects))
 			$this->numOfObjects = (int)$xml->numOfObjects;
-		$this->bulkUploadObjectType = (string)$xml->bulkUploadObjectType;
+		if(count($xml->bulkUploadObjectType))
+			$this->bulkUploadObjectType = (string)$xml->bulkUploadObjectType;
 	}
 	/**
 	 * 

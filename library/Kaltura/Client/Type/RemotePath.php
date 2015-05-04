@@ -52,7 +52,8 @@ class RemotePath extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->storageProfileId))
 			$this->storageProfileId = (int)$xml->storageProfileId;
-		$this->uri = (string)$xml->uri;
+		if(count($xml->uri))
+			$this->uri = (string)$xml->uri;
 	}
 	/**
 	 * 

@@ -50,15 +50,26 @@ class PlayerDeliveryType extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->label = (string)$xml->label;
-		if(empty($xml->flashvars))
-			$this->flashvars = array();
-		else
-			$this->flashvars = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flashvars, "KalturaKeyValue");
-		$this->minVersion = (string)$xml->minVersion;
-		if(!empty($xml->enabledByDefault))
-			$this->enabledByDefault = true;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->label))
+			$this->label = (string)$xml->label;
+		if(count($xml->flashvars))
+		{
+			if(empty($xml->flashvars))
+				$this->flashvars = array();
+			else
+				$this->flashvars = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flashvars, "KalturaKeyValue");
+		}
+		if(count($xml->minVersion))
+			$this->minVersion = (string)$xml->minVersion;
+		if(count($xml->enabledByDefault))
+		{
+			if(!empty($xml->enabledByDefault))
+				$this->enabledByDefault = true;
+			else
+				$this->enabledByDefault = false;
+		}
 	}
 	/**
 	 * 

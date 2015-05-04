@@ -52,7 +52,8 @@ class SystemPartnerPackage extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->name = (string)$xml->name;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 	}
 	/**
 	 * 

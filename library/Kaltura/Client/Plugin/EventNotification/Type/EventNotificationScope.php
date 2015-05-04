@@ -50,8 +50,10 @@ class EventNotificationScope extends \Kaltura\Client\Type\Scope
 		if(is_null($xml))
 			return;
 		
-		$this->objectId = (string)$xml->objectId;
-		$this->scopeObjectType = (string)$xml->scopeObjectType;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
+		if(count($xml->scopeObjectType))
+			$this->scopeObjectType = (string)$xml->scopeObjectType;
 	}
 	/**
 	 * 

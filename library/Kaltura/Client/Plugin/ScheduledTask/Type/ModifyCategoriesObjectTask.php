@@ -52,10 +52,13 @@ class ModifyCategoriesObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Ty
 		
 		if(count($xml->addRemoveType))
 			$this->addRemoveType = (int)$xml->addRemoveType;
-		if(empty($xml->categoryIds))
-			$this->categoryIds = array();
-		else
-			$this->categoryIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->categoryIds, "KalturaIntegerValue");
+		if(count($xml->categoryIds))
+		{
+			if(empty($xml->categoryIds))
+				$this->categoryIds = array();
+			else
+				$this->categoryIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->categoryIds, "KalturaIntegerValue");
+		}
 	}
 	/**
 	 * Should the object task add or remove categories?

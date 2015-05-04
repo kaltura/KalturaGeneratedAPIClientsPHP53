@@ -50,9 +50,12 @@ class AttachmentAsset extends \Kaltura\Client\Type\Asset
 		if(is_null($xml))
 			return;
 		
-		$this->filename = (string)$xml->filename;
-		$this->title = (string)$xml->title;
-		$this->format = (string)$xml->format;
+		if(count($xml->filename))
+			$this->filename = (string)$xml->filename;
+		if(count($xml->title))
+			$this->title = (string)$xml->title;
+		if(count($xml->format))
+			$this->format = (string)$xml->format;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 	}

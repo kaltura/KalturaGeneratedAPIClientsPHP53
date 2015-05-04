@@ -50,8 +50,10 @@ class UrlRecognizer extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->hosts = (string)$xml->hosts;
-		$this->uriPrefix = (string)$xml->uriPrefix;
+		if(count($xml->hosts))
+			$this->hosts = (string)$xml->hosts;
+		if(count($xml->uriPrefix))
+			$this->uriPrefix = (string)$xml->uriPrefix;
 	}
 	/**
 	 * The hosts that are recognized

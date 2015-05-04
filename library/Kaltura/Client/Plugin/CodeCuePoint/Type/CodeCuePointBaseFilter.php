@@ -50,14 +50,22 @@ abstract class CodeCuePointBaseFilter extends \Kaltura\Client\Plugin\CuePoint\Ty
 		if(is_null($xml))
 			return;
 		
-		$this->codeLike = (string)$xml->codeLike;
-		$this->codeMultiLikeOr = (string)$xml->codeMultiLikeOr;
-		$this->codeMultiLikeAnd = (string)$xml->codeMultiLikeAnd;
-		$this->codeEqual = (string)$xml->codeEqual;
-		$this->codeIn = (string)$xml->codeIn;
-		$this->descriptionLike = (string)$xml->descriptionLike;
-		$this->descriptionMultiLikeOr = (string)$xml->descriptionMultiLikeOr;
-		$this->descriptionMultiLikeAnd = (string)$xml->descriptionMultiLikeAnd;
+		if(count($xml->codeLike))
+			$this->codeLike = (string)$xml->codeLike;
+		if(count($xml->codeMultiLikeOr))
+			$this->codeMultiLikeOr = (string)$xml->codeMultiLikeOr;
+		if(count($xml->codeMultiLikeAnd))
+			$this->codeMultiLikeAnd = (string)$xml->codeMultiLikeAnd;
+		if(count($xml->codeEqual))
+			$this->codeEqual = (string)$xml->codeEqual;
+		if(count($xml->codeIn))
+			$this->codeIn = (string)$xml->codeIn;
+		if(count($xml->descriptionLike))
+			$this->descriptionLike = (string)$xml->descriptionLike;
+		if(count($xml->descriptionMultiLikeOr))
+			$this->descriptionMultiLikeOr = (string)$xml->descriptionMultiLikeOr;
+		if(count($xml->descriptionMultiLikeAnd))
+			$this->descriptionMultiLikeAnd = (string)$xml->descriptionMultiLikeAnd;
 		if(count($xml->endTimeGreaterThanOrEqual))
 			$this->endTimeGreaterThanOrEqual = (int)$xml->endTimeGreaterThanOrEqual;
 		if(count($xml->endTimeLessThanOrEqual))

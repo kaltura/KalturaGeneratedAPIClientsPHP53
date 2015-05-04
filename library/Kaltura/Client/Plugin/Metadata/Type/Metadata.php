@@ -58,8 +58,10 @@ class Metadata extends \Kaltura\Client\ObjectBase
 			$this->metadataProfileId = (int)$xml->metadataProfileId;
 		if(count($xml->metadataProfileVersion))
 			$this->metadataProfileVersion = (int)$xml->metadataProfileVersion;
-		$this->metadataObjectType = (string)$xml->metadataObjectType;
-		$this->objectId = (string)$xml->objectId;
+		if(count($xml->metadataObjectType))
+			$this->metadataObjectType = (string)$xml->metadataObjectType;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
 		if(count($xml->version))
 			$this->version = (int)$xml->version;
 		if(count($xml->createdAt))
@@ -68,7 +70,8 @@ class Metadata extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->xml = (string)$xml->xml;
+		if(count($xml->xml))
+			$this->xml = (string)$xml->xml;
 	}
 	/**
 	 * 

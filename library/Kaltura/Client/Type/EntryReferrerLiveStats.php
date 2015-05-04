@@ -50,7 +50,8 @@ class EntryReferrerLiveStats extends \Kaltura\Client\Type\EntryLiveStats
 		if(is_null($xml))
 			return;
 		
-		$this->referrer = (string)$xml->referrer;
+		if(count($xml->referrer))
+			$this->referrer = (string)$xml->referrer;
 	}
 	/**
 	 * 

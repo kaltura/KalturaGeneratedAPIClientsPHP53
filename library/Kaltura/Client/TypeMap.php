@@ -52,6 +52,7 @@ class TypeMap
 		'KalturaAccessControlScope' => 'Kaltura\Client\Type\AccessControlScope',
 		'KalturaCuePoint' => 'Kaltura\Client\Plugin\CuePoint\Type\CuePoint',
 		'KalturaAnnotation' => 'Kaltura\Client\Plugin\Annotation\Type\Annotation',
+		'KalturaApiExceptionArg' => 'Kaltura\Client\Type\ApiExceptionArg',
 		'KalturaAsset' => 'Kaltura\Client\Type\Asset',
 		'KalturaAssetDistributionCondition' => 'Kaltura\Client\Plugin\ContentDistribution\Type\AssetDistributionCondition',
 		'KalturaAssetDistributionRule' => 'Kaltura\Client\Plugin\ContentDistribution\Type\AssetDistributionRule',

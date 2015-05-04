@@ -52,7 +52,8 @@ abstract class EmailNotificationRecipientJobData extends \Kaltura\Client\ObjectB
 		if(is_null($xml))
 			return;
 		
-		$this->providerType = (string)$xml->providerType;
+		if(count($xml->providerType))
+			$this->providerType = (string)$xml->providerType;
 	}
 	/**
 	 * Provider type of the job data.

@@ -50,8 +50,10 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 		if(is_null($xml))
 			return;
 		
-		$this->parentId = (string)$xml->parentId;
-		$this->text = (string)$xml->text;
+		if(count($xml->parentId))
+			$this->parentId = (string)$xml->parentId;
+		if(count($xml->text))
+			$this->text = (string)$xml->text;
 		if(count($xml->endTime))
 			$this->endTime = (int)$xml->endTime;
 		if(count($xml->duration))

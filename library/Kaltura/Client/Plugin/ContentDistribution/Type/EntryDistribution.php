@@ -58,7 +58,8 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->submittedAt))
 			$this->submittedAt = (int)$xml->submittedAt;
-		$this->entryId = (string)$xml->entryId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->distributionProfileId))
@@ -69,27 +70,35 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 			$this->sunStatus = (int)$xml->sunStatus;
 		if(count($xml->dirtyStatus))
 			$this->dirtyStatus = (int)$xml->dirtyStatus;
-		$this->thumbAssetIds = (string)$xml->thumbAssetIds;
-		$this->flavorAssetIds = (string)$xml->flavorAssetIds;
-		$this->assetIds = (string)$xml->assetIds;
+		if(count($xml->thumbAssetIds))
+			$this->thumbAssetIds = (string)$xml->thumbAssetIds;
+		if(count($xml->flavorAssetIds))
+			$this->flavorAssetIds = (string)$xml->flavorAssetIds;
+		if(count($xml->assetIds))
+			$this->assetIds = (string)$xml->assetIds;
 		if(count($xml->sunrise))
 			$this->sunrise = (int)$xml->sunrise;
 		if(count($xml->sunset))
 			$this->sunset = (int)$xml->sunset;
-		$this->remoteId = (string)$xml->remoteId;
+		if(count($xml->remoteId))
+			$this->remoteId = (string)$xml->remoteId;
 		if(count($xml->plays))
 			$this->plays = (int)$xml->plays;
 		if(count($xml->views))
 			$this->views = (int)$xml->views;
-		if(empty($xml->validationErrors))
-			$this->validationErrors = array();
-		else
-			$this->validationErrors = \Kaltura\Client\ParseUtils::unmarshalArray($xml->validationErrors, "KalturaDistributionValidationError");
+		if(count($xml->validationErrors))
+		{
+			if(empty($xml->validationErrors))
+				$this->validationErrors = array();
+			else
+				$this->validationErrors = \Kaltura\Client\ParseUtils::unmarshalArray($xml->validationErrors, "KalturaDistributionValidationError");
+		}
 		if(count($xml->errorType))
 			$this->errorType = (int)$xml->errorType;
 		if(count($xml->errorNumber))
 			$this->errorNumber = (int)$xml->errorNumber;
-		$this->errorDescription = (string)$xml->errorDescription;
+		if(count($xml->errorDescription))
+			$this->errorDescription = (string)$xml->errorDescription;
 		if(count($xml->hasSubmitResultsLog))
 			$this->hasSubmitResultsLog = (int)$xml->hasSubmitResultsLog;
 		if(count($xml->hasSubmitSentDataLog))

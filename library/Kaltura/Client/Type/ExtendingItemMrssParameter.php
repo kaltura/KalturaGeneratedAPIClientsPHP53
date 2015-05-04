@@ -50,8 +50,9 @@ class ExtendingItemMrssParameter extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->xpath = (string)$xml->xpath;
-		if(!empty($xml->identifier))
+		if(count($xml->xpath))
+			$this->xpath = (string)$xml->xpath;
+		if(count($xml->identifier) && !empty($xml->identifier))
 			$this->identifier = \Kaltura\Client\ParseUtils::unmarshalObject($xml->identifier, "KalturaObjectIdentifier");
 		if(count($xml->extensionMode))
 			$this->extensionMode = (int)$xml->extensionMode;

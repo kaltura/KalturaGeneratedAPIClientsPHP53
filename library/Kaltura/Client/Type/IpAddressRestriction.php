@@ -52,7 +52,8 @@ class IpAddressRestriction extends \Kaltura\Client\Type\BaseRestriction
 		
 		if(count($xml->ipAddressRestrictionType))
 			$this->ipAddressRestrictionType = (int)$xml->ipAddressRestrictionType;
-		$this->ipAddressList = (string)$xml->ipAddressList;
+		if(count($xml->ipAddressList))
+			$this->ipAddressList = (string)$xml->ipAddressList;
 	}
 	/**
 	 * Ip address restriction type (Allow or deny)

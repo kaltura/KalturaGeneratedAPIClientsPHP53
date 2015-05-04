@@ -52,9 +52,12 @@ class LiveStreamPushPublishConfiguration extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->publishUrl = (string)$xml->publishUrl;
-		$this->backupPublishUrl = (string)$xml->backupPublishUrl;
-		$this->port = (string)$xml->port;
+		if(count($xml->publishUrl))
+			$this->publishUrl = (string)$xml->publishUrl;
+		if(count($xml->backupPublishUrl))
+			$this->backupPublishUrl = (string)$xml->backupPublishUrl;
+		if(count($xml->port))
+			$this->port = (string)$xml->port;
 	}
 	/**
 	 * 

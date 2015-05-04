@@ -54,30 +54,45 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->status = (string)$xml->status;
-		$this->type = (string)$xml->type;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->tags = (string)$xml->tags;
-		$this->description = (string)$xml->description;
-		$this->defaultEntryId = (string)$xml->defaultEntryId;
+		if(count($xml->status))
+			$this->status = (string)$xml->status;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->defaultEntryId))
+			$this->defaultEntryId = (string)$xml->defaultEntryId;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
-		$this->flavorParamsIds = (string)$xml->flavorParamsIds;
+		if(count($xml->flavorParamsIds))
+			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
 		if(count($xml->isDefault))
 			$this->isDefault = (int)$xml->isDefault;
-		if(!empty($xml->isPartnerDefault))
-			$this->isPartnerDefault = true;
-		if(!empty($xml->cropDimensions))
+		if(count($xml->isPartnerDefault))
+		{
+			if(!empty($xml->isPartnerDefault))
+				$this->isPartnerDefault = true;
+			else
+				$this->isPartnerDefault = false;
+		}
+		if(count($xml->cropDimensions) && !empty($xml->cropDimensions))
 			$this->cropDimensions = \Kaltura\Client\ParseUtils::unmarshalObject($xml->cropDimensions, "KalturaCropDimensions");
 		if(count($xml->clipStart))
 			$this->clipStart = (int)$xml->clipStart;
 		if(count($xml->clipDuration))
 			$this->clipDuration = (int)$xml->clipDuration;
-		$this->xslTransformation = (string)$xml->xslTransformation;
+		if(count($xml->xslTransformation))
+			$this->xslTransformation = (string)$xml->xslTransformation;
 		if(count($xml->storageProfileId))
 			$this->storageProfileId = (int)$xml->storageProfileId;
-		$this->mediaParserType = (string)$xml->mediaParserType;
+		if(count($xml->mediaParserType))
+			$this->mediaParserType = (string)$xml->mediaParserType;
 	}
 	/**
 	 * The id of the Conversion Profile

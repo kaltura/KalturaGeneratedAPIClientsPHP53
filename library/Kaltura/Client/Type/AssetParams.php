@@ -54,24 +54,33 @@ class AssetParams extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->description = (string)$xml->description;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->isSystemDefault))
 			$this->isSystemDefault = (int)$xml->isSystemDefault;
-		$this->tags = (string)$xml->tags;
-		if(empty($xml->requiredPermissions))
-			$this->requiredPermissions = array();
-		else
-			$this->requiredPermissions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->requiredPermissions, "KalturaString");
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->requiredPermissions))
+		{
+			if(empty($xml->requiredPermissions))
+				$this->requiredPermissions = array();
+			else
+				$this->requiredPermissions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->requiredPermissions, "KalturaString");
+		}
 		if(count($xml->sourceRemoteStorageProfileId))
 			$this->sourceRemoteStorageProfileId = (int)$xml->sourceRemoteStorageProfileId;
 		if(count($xml->remoteStorageProfileIds))
 			$this->remoteStorageProfileIds = (int)$xml->remoteStorageProfileIds;
-		$this->mediaParserType = (string)$xml->mediaParserType;
-		$this->sourceAssetParamsIds = (string)$xml->sourceAssetParamsIds;
+		if(count($xml->mediaParserType))
+			$this->mediaParserType = (string)$xml->mediaParserType;
+		if(count($xml->sourceAssetParamsIds))
+			$this->sourceAssetParamsIds = (string)$xml->sourceAssetParamsIds;
 	}
 	/**
 	 * The id of the Flavor Params

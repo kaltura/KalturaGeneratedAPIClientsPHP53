@@ -52,10 +52,13 @@ class EmailNotificationStaticRecipientJobData extends \Kaltura\Client\Plugin\Ema
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->emailRecipients))
-			$this->emailRecipients = array();
-		else
-			$this->emailRecipients = \Kaltura\Client\ParseUtils::unmarshalArray($xml->emailRecipients, "KalturaKeyValue");
+		if(count($xml->emailRecipients))
+		{
+			if(empty($xml->emailRecipients))
+				$this->emailRecipients = array();
+			else
+				$this->emailRecipients = \Kaltura\Client\ParseUtils::unmarshalArray($xml->emailRecipients, "KalturaKeyValue");
+		}
 	}
 	/**
 	 * Email to emails and names

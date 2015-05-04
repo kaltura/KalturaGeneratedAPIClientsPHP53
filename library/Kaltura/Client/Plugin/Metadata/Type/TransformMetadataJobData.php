@@ -50,12 +50,14 @@ class TransformMetadataJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->srcXslPath = (string)$xml->srcXslPath;
+		if(count($xml->srcXslPath))
+			$this->srcXslPath = (string)$xml->srcXslPath;
 		if(count($xml->srcVersion))
 			$this->srcVersion = (int)$xml->srcVersion;
 		if(count($xml->destVersion))
 			$this->destVersion = (int)$xml->destVersion;
-		$this->destXsdPath = (string)$xml->destXsdPath;
+		if(count($xml->destXsdPath))
+			$this->destXsdPath = (string)$xml->destXsdPath;
 		if(count($xml->metadataProfileId))
 			$this->metadataProfileId = (int)$xml->metadataProfileId;
 	}

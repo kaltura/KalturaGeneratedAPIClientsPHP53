@@ -52,7 +52,8 @@ class EvalBooleanField extends \Kaltura\Client\Type\BooleanField
 		if(is_null($xml))
 			return;
 		
-		$this->code = (string)$xml->code;
+		if(count($xml->code))
+			$this->code = (string)$xml->code;
 	}
 	/**
 	 * PHP code

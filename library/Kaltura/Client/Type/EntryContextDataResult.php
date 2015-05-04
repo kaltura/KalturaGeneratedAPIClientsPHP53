@@ -50,37 +50,84 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->isSiteRestricted))
-			$this->isSiteRestricted = true;
-		if(!empty($xml->isCountryRestricted))
-			$this->isCountryRestricted = true;
-		if(!empty($xml->isSessionRestricted))
-			$this->isSessionRestricted = true;
-		if(!empty($xml->isIpAddressRestricted))
-			$this->isIpAddressRestricted = true;
-		if(!empty($xml->isUserAgentRestricted))
-			$this->isUserAgentRestricted = true;
+		if(count($xml->isSiteRestricted))
+		{
+			if(!empty($xml->isSiteRestricted))
+				$this->isSiteRestricted = true;
+			else
+				$this->isSiteRestricted = false;
+		}
+		if(count($xml->isCountryRestricted))
+		{
+			if(!empty($xml->isCountryRestricted))
+				$this->isCountryRestricted = true;
+			else
+				$this->isCountryRestricted = false;
+		}
+		if(count($xml->isSessionRestricted))
+		{
+			if(!empty($xml->isSessionRestricted))
+				$this->isSessionRestricted = true;
+			else
+				$this->isSessionRestricted = false;
+		}
+		if(count($xml->isIpAddressRestricted))
+		{
+			if(!empty($xml->isIpAddressRestricted))
+				$this->isIpAddressRestricted = true;
+			else
+				$this->isIpAddressRestricted = false;
+		}
+		if(count($xml->isUserAgentRestricted))
+		{
+			if(!empty($xml->isUserAgentRestricted))
+				$this->isUserAgentRestricted = true;
+			else
+				$this->isUserAgentRestricted = false;
+		}
 		if(count($xml->previewLength))
 			$this->previewLength = (int)$xml->previewLength;
-		if(!empty($xml->isScheduledNow))
-			$this->isScheduledNow = true;
-		if(!empty($xml->isAdmin))
-			$this->isAdmin = true;
-		$this->streamerType = (string)$xml->streamerType;
-		$this->mediaProtocol = (string)$xml->mediaProtocol;
-		$this->storageProfilesXML = (string)$xml->storageProfilesXML;
-		if(empty($xml->accessControlMessages))
-			$this->accessControlMessages = array();
-		else
-			$this->accessControlMessages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->accessControlMessages, "KalturaString");
-		if(empty($xml->accessControlActions))
-			$this->accessControlActions = array();
-		else
-			$this->accessControlActions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->accessControlActions, "KalturaRuleAction");
-		if(empty($xml->flavorAssets))
-			$this->flavorAssets = array();
-		else
-			$this->flavorAssets = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavorAssets, "KalturaFlavorAsset");
+		if(count($xml->isScheduledNow))
+		{
+			if(!empty($xml->isScheduledNow))
+				$this->isScheduledNow = true;
+			else
+				$this->isScheduledNow = false;
+		}
+		if(count($xml->isAdmin))
+		{
+			if(!empty($xml->isAdmin))
+				$this->isAdmin = true;
+			else
+				$this->isAdmin = false;
+		}
+		if(count($xml->streamerType))
+			$this->streamerType = (string)$xml->streamerType;
+		if(count($xml->mediaProtocol))
+			$this->mediaProtocol = (string)$xml->mediaProtocol;
+		if(count($xml->storageProfilesXML))
+			$this->storageProfilesXML = (string)$xml->storageProfilesXML;
+		if(count($xml->accessControlMessages))
+		{
+			if(empty($xml->accessControlMessages))
+				$this->accessControlMessages = array();
+			else
+				$this->accessControlMessages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->accessControlMessages, "KalturaString");
+		}
+		if(count($xml->accessControlActions))
+		{
+			if(empty($xml->accessControlActions))
+				$this->accessControlActions = array();
+			else
+				$this->accessControlActions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->accessControlActions, "KalturaRuleAction");
+		}
+		if(count($xml->flavorAssets))
+		{
+			if(empty($xml->flavorAssets))
+				$this->flavorAssets = array();
+			else
+				$this->flavorAssets = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavorAssets, "KalturaFlavorAsset");
+		}
 	}
 	/**
 	 * 

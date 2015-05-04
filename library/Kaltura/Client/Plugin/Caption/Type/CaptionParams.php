@@ -50,11 +50,14 @@ class CaptionParams extends \Kaltura\Client\Type\AssetParams
 		if(is_null($xml))
 			return;
 		
-		$this->language = (string)$xml->language;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
 		if(count($xml->isDefault))
 			$this->isDefault = (int)$xml->isDefault;
-		$this->label = (string)$xml->label;
-		$this->format = (string)$xml->format;
+		if(count($xml->label))
+			$this->label = (string)$xml->label;
+		if(count($xml->format))
+			$this->format = (string)$xml->format;
 		if(count($xml->sourceParamsId))
 			$this->sourceParamsId = (int)$xml->sourceParamsId;
 	}

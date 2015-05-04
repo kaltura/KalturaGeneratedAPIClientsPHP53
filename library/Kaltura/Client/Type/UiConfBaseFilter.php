@@ -52,16 +52,22 @@ abstract class UiConfBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
-		$this->nameLike = (string)$xml->nameLike;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->nameLike))
+			$this->nameLike = (string)$xml->nameLike;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
 		if(count($xml->objTypeEqual))
 			$this->objTypeEqual = (int)$xml->objTypeEqual;
-		$this->objTypeIn = (string)$xml->objTypeIn;
-		$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
-		$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
+		if(count($xml->objTypeIn))
+			$this->objTypeIn = (string)$xml->objTypeIn;
+		if(count($xml->tagsMultiLikeOr))
+			$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
+		if(count($xml->tagsMultiLikeAnd))
+			$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -72,12 +78,18 @@ abstract class UiConfBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
 		if(count($xml->creationModeEqual))
 			$this->creationModeEqual = (int)$xml->creationModeEqual;
-		$this->creationModeIn = (string)$xml->creationModeIn;
-		$this->versionEqual = (string)$xml->versionEqual;
-		$this->versionMultiLikeOr = (string)$xml->versionMultiLikeOr;
-		$this->versionMultiLikeAnd = (string)$xml->versionMultiLikeAnd;
-		$this->partnerTagsMultiLikeOr = (string)$xml->partnerTagsMultiLikeOr;
-		$this->partnerTagsMultiLikeAnd = (string)$xml->partnerTagsMultiLikeAnd;
+		if(count($xml->creationModeIn))
+			$this->creationModeIn = (string)$xml->creationModeIn;
+		if(count($xml->versionEqual))
+			$this->versionEqual = (string)$xml->versionEqual;
+		if(count($xml->versionMultiLikeOr))
+			$this->versionMultiLikeOr = (string)$xml->versionMultiLikeOr;
+		if(count($xml->versionMultiLikeAnd))
+			$this->versionMultiLikeAnd = (string)$xml->versionMultiLikeAnd;
+		if(count($xml->partnerTagsMultiLikeOr))
+			$this->partnerTagsMultiLikeOr = (string)$xml->partnerTagsMultiLikeOr;
+		if(count($xml->partnerTagsMultiLikeAnd))
+			$this->partnerTagsMultiLikeAnd = (string)$xml->partnerTagsMultiLikeAnd;
 	}
 	/**
 	 * 

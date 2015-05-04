@@ -33,16 +33,14 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Used to ingest media file that is already accessible on the shared disc.
- *  
  * @package Kaltura
  * @subpackage Client
  */
-class ServerFileResource extends \Kaltura\Client\Type\DataCenterContentResource
+class ApiExceptionArg extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaServerFileResource';
+		return 'KalturaApiExceptionArg';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -52,14 +50,21 @@ class ServerFileResource extends \Kaltura\Client\Type\DataCenterContentResource
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->localFilePath))
-			$this->localFilePath = (string)$xml->localFilePath;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->value))
+			$this->value = (string)$xml->value;
 	}
 	/**
-	 * Full path to the local file 
-	 * 	 
+	 * 
 	 * @var string
 	 */
-	public $localFilePath = null;
+	public $name = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $value = null;
 
 }

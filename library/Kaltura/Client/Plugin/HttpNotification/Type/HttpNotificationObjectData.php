@@ -52,12 +52,19 @@ class HttpNotificationObjectData extends \Kaltura\Client\Plugin\HttpNotification
 		if(is_null($xml))
 			return;
 		
-		$this->apiObjectType = (string)$xml->apiObjectType;
+		if(count($xml->apiObjectType))
+			$this->apiObjectType = (string)$xml->apiObjectType;
 		if(count($xml->format))
 			$this->format = (int)$xml->format;
-		if(!empty($xml->ignoreNull))
-			$this->ignoreNull = true;
-		$this->code = (string)$xml->code;
+		if(count($xml->ignoreNull))
+		{
+			if(!empty($xml->ignoreNull))
+				$this->ignoreNull = true;
+			else
+				$this->ignoreNull = false;
+		}
+		if(count($xml->code))
+			$this->code = (string)$xml->code;
 	}
 	/**
 	 * Kaltura API object type

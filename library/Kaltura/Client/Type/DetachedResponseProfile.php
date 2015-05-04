@@ -50,22 +50,30 @@ class DetachedResponseProfile extends \Kaltura\Client\Type\BaseResponseProfile
 		if(is_null($xml))
 			return;
 		
-		$this->name = (string)$xml->name;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		$this->fields = (string)$xml->fields;
-		if(!empty($xml->filter))
+		if(count($xml->fields))
+			$this->fields = (string)$xml->fields;
+		if(count($xml->filter) && !empty($xml->filter))
 			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaRelatedFilter");
-		if(!empty($xml->pager))
+		if(count($xml->pager) && !empty($xml->pager))
 			$this->pager = \Kaltura\Client\ParseUtils::unmarshalObject($xml->pager, "KalturaFilterPager");
-		if(empty($xml->relatedProfiles))
-			$this->relatedProfiles = array();
-		else
-			$this->relatedProfiles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->relatedProfiles, "KalturaDetachedResponseProfile");
-		if(empty($xml->mappings))
-			$this->mappings = array();
-		else
-			$this->mappings = \Kaltura\Client\ParseUtils::unmarshalArray($xml->mappings, "KalturaResponseProfileMapping");
+		if(count($xml->relatedProfiles))
+		{
+			if(empty($xml->relatedProfiles))
+				$this->relatedProfiles = array();
+			else
+				$this->relatedProfiles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->relatedProfiles, "KalturaDetachedResponseProfile");
+		}
+		if(count($xml->mappings))
+		{
+			if(empty($xml->mappings))
+				$this->mappings = array();
+			else
+				$this->mappings = \Kaltura\Client\ParseUtils::unmarshalArray($xml->mappings, "KalturaResponseProfileMapping");
+		}
 	}
 	/**
 	 * Friendly name

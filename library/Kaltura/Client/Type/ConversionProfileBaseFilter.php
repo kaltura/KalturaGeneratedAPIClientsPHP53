@@ -52,18 +52,30 @@ abstract class ConversionProfileBaseFilter extends \Kaltura\Client\Type\RelatedF
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
-		$this->statusEqual = (string)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->typeEqual = (string)$xml->typeEqual;
-		$this->typeIn = (string)$xml->typeIn;
-		$this->nameEqual = (string)$xml->nameEqual;
-		$this->systemNameEqual = (string)$xml->systemNameEqual;
-		$this->systemNameIn = (string)$xml->systemNameIn;
-		$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
-		$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
-		$this->defaultEntryIdEqual = (string)$xml->defaultEntryIdEqual;
-		$this->defaultEntryIdIn = (string)$xml->defaultEntryIdIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->statusEqual))
+			$this->statusEqual = (string)$xml->statusEqual;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->typeEqual))
+			$this->typeEqual = (string)$xml->typeEqual;
+		if(count($xml->typeIn))
+			$this->typeIn = (string)$xml->typeIn;
+		if(count($xml->nameEqual))
+			$this->nameEqual = (string)$xml->nameEqual;
+		if(count($xml->systemNameEqual))
+			$this->systemNameEqual = (string)$xml->systemNameEqual;
+		if(count($xml->systemNameIn))
+			$this->systemNameIn = (string)$xml->systemNameIn;
+		if(count($xml->tagsMultiLikeOr))
+			$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
+		if(count($xml->tagsMultiLikeAnd))
+			$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
+		if(count($xml->defaultEntryIdEqual))
+			$this->defaultEntryIdEqual = (string)$xml->defaultEntryIdEqual;
+		if(count($xml->defaultEntryIdIn))
+			$this->defaultEntryIdIn = (string)$xml->defaultEntryIdIn;
 	}
 	/**
 	 * 

@@ -52,8 +52,10 @@ class StartWidgetSessionResponse extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->ks = (string)$xml->ks;
-		$this->userId = (string)$xml->userId;
+		if(count($xml->ks))
+			$this->ks = (string)$xml->ks;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
 	}
 	/**
 	 * 

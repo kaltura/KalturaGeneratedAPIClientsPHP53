@@ -58,28 +58,41 @@ class SchedulerWorker extends \Kaltura\Client\ObjectBase
 			$this->schedulerId = (int)$xml->schedulerId;
 		if(count($xml->schedulerConfiguredId))
 			$this->schedulerConfiguredId = (int)$xml->schedulerConfiguredId;
-		$this->type = (string)$xml->type;
-		$this->typeName = (string)$xml->typeName;
-		$this->name = (string)$xml->name;
-		if(empty($xml->statuses))
-			$this->statuses = array();
-		else
-			$this->statuses = \Kaltura\Client\ParseUtils::unmarshalArray($xml->statuses, "KalturaSchedulerStatus");
-		if(empty($xml->configs))
-			$this->configs = array();
-		else
-			$this->configs = \Kaltura\Client\ParseUtils::unmarshalArray($xml->configs, "KalturaSchedulerConfig");
-		if(empty($xml->lockedJobs))
-			$this->lockedJobs = array();
-		else
-			$this->lockedJobs = \Kaltura\Client\ParseUtils::unmarshalArray($xml->lockedJobs, "KalturaBatchJob");
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->typeName))
+			$this->typeName = (string)$xml->typeName;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->statuses))
+		{
+			if(empty($xml->statuses))
+				$this->statuses = array();
+			else
+				$this->statuses = \Kaltura\Client\ParseUtils::unmarshalArray($xml->statuses, "KalturaSchedulerStatus");
+		}
+		if(count($xml->configs))
+		{
+			if(empty($xml->configs))
+				$this->configs = array();
+			else
+				$this->configs = \Kaltura\Client\ParseUtils::unmarshalArray($xml->configs, "KalturaSchedulerConfig");
+		}
+		if(count($xml->lockedJobs))
+		{
+			if(empty($xml->lockedJobs))
+				$this->lockedJobs = array();
+			else
+				$this->lockedJobs = \Kaltura\Client\ParseUtils::unmarshalArray($xml->lockedJobs, "KalturaBatchJob");
+		}
 		if(count($xml->avgWait))
 			$this->avgWait = (int)$xml->avgWait;
 		if(count($xml->avgWork))
 			$this->avgWork = (int)$xml->avgWork;
 		if(count($xml->lastStatus))
 			$this->lastStatus = (int)$xml->lastStatus;
-		$this->lastStatusStr = (string)$xml->lastStatusStr;
+		if(count($xml->lastStatusStr))
+			$this->lastStatusStr = (string)$xml->lastStatusStr;
 	}
 	/**
 	 * The id of the Worker

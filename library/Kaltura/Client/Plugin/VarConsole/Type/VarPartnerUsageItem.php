@@ -52,7 +52,8 @@ class VarPartnerUsageItem extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->partnerName = (string)$xml->partnerName;
+		if(count($xml->partnerName))
+			$this->partnerName = (string)$xml->partnerName;
 		if(count($xml->partnerStatus))
 			$this->partnerStatus = (int)$xml->partnerStatus;
 		if(count($xml->partnerPackage))
@@ -91,7 +92,8 @@ class VarPartnerUsageItem extends \Kaltura\Client\ObjectBase
 			$this->combinedStorageBandwidth = (float)$xml->combinedStorageBandwidth;
 		if(count($xml->transcodingUsage))
 			$this->transcodingUsage = (float)$xml->transcodingUsage;
-		$this->dateId = (string)$xml->dateId;
+		if(count($xml->dateId))
+			$this->dateId = (string)$xml->dateId;
 	}
 	/**
 	 * Partner ID

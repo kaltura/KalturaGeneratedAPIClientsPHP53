@@ -50,8 +50,10 @@ abstract class CaptionParamsBaseFilter extends \Kaltura\Client\Type\AssetParamsF
 		if(is_null($xml))
 			return;
 		
-		$this->formatEqual = (string)$xml->formatEqual;
-		$this->formatIn = (string)$xml->formatIn;
+		if(count($xml->formatEqual))
+			$this->formatEqual = (string)$xml->formatEqual;
+		if(count($xml->formatIn))
+			$this->formatIn = (string)$xml->formatIn;
 	}
 	/**
 	 * 

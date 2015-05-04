@@ -50,10 +50,13 @@ class AssetsParamsResourceContainers extends \Kaltura\Client\Type\Resource
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->resources))
-			$this->resources = array();
-		else
-			$this->resources = \Kaltura\Client\ParseUtils::unmarshalArray($xml->resources, "KalturaAssetParamsResourceContainer");
+		if(count($xml->resources))
+		{
+			if(empty($xml->resources))
+				$this->resources = array();
+			else
+				$this->resources = \Kaltura\Client\ParseUtils::unmarshalArray($xml->resources, "KalturaAssetParamsResourceContainer");
+		}
 	}
 	/**
 	 * Array of resources associated with asset params ids

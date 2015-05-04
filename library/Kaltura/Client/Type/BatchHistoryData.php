@@ -58,13 +58,16 @@ class BatchHistoryData extends \Kaltura\Client\ObjectBase
 			$this->batchIndex = (int)$xml->batchIndex;
 		if(count($xml->timeStamp))
 			$this->timeStamp = (int)$xml->timeStamp;
-		$this->message = (string)$xml->message;
+		if(count($xml->message))
+			$this->message = (string)$xml->message;
 		if(count($xml->errType))
 			$this->errType = (int)$xml->errType;
 		if(count($xml->errNumber))
 			$this->errNumber = (int)$xml->errNumber;
-		$this->hostName = (string)$xml->hostName;
-		$this->sessionId = (string)$xml->sessionId;
+		if(count($xml->hostName))
+			$this->hostName = (string)$xml->hostName;
+		if(count($xml->sessionId))
+			$this->sessionId = (string)$xml->sessionId;
 	}
 	/**
 	 * 

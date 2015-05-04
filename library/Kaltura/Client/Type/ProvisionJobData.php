@@ -50,21 +50,32 @@ class ProvisionJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->streamID = (string)$xml->streamID;
-		$this->backupStreamID = (string)$xml->backupStreamID;
-		$this->rtmp = (string)$xml->rtmp;
-		$this->encoderIP = (string)$xml->encoderIP;
-		$this->backupEncoderIP = (string)$xml->backupEncoderIP;
-		$this->encoderPassword = (string)$xml->encoderPassword;
-		$this->encoderUsername = (string)$xml->encoderUsername;
+		if(count($xml->streamID))
+			$this->streamID = (string)$xml->streamID;
+		if(count($xml->backupStreamID))
+			$this->backupStreamID = (string)$xml->backupStreamID;
+		if(count($xml->rtmp))
+			$this->rtmp = (string)$xml->rtmp;
+		if(count($xml->encoderIP))
+			$this->encoderIP = (string)$xml->encoderIP;
+		if(count($xml->backupEncoderIP))
+			$this->backupEncoderIP = (string)$xml->backupEncoderIP;
+		if(count($xml->encoderPassword))
+			$this->encoderPassword = (string)$xml->encoderPassword;
+		if(count($xml->encoderUsername))
+			$this->encoderUsername = (string)$xml->encoderUsername;
 		if(count($xml->endDate))
 			$this->endDate = (int)$xml->endDate;
-		$this->returnVal = (string)$xml->returnVal;
+		if(count($xml->returnVal))
+			$this->returnVal = (string)$xml->returnVal;
 		if(count($xml->mediaType))
 			$this->mediaType = (int)$xml->mediaType;
-		$this->primaryBroadcastingUrl = (string)$xml->primaryBroadcastingUrl;
-		$this->secondaryBroadcastingUrl = (string)$xml->secondaryBroadcastingUrl;
-		$this->streamName = (string)$xml->streamName;
+		if(count($xml->primaryBroadcastingUrl))
+			$this->primaryBroadcastingUrl = (string)$xml->primaryBroadcastingUrl;
+		if(count($xml->secondaryBroadcastingUrl))
+			$this->secondaryBroadcastingUrl = (string)$xml->secondaryBroadcastingUrl;
+		if(count($xml->streamName))
+			$this->streamName = (string)$xml->streamName;
 	}
 	/**
 	 * 

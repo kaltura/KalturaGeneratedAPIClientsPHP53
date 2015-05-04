@@ -52,17 +52,24 @@ abstract class MediaEntryBaseFilter extends \Kaltura\Client\Type\PlayableEntryFi
 		
 		if(count($xml->mediaTypeEqual))
 			$this->mediaTypeEqual = (int)$xml->mediaTypeEqual;
-		$this->mediaTypeIn = (string)$xml->mediaTypeIn;
-		$this->sourceTypeEqual = (string)$xml->sourceTypeEqual;
-		$this->sourceTypeNotEqual = (string)$xml->sourceTypeNotEqual;
-		$this->sourceTypeIn = (string)$xml->sourceTypeIn;
-		$this->sourceTypeNotIn = (string)$xml->sourceTypeNotIn;
+		if(count($xml->mediaTypeIn))
+			$this->mediaTypeIn = (string)$xml->mediaTypeIn;
+		if(count($xml->sourceTypeEqual))
+			$this->sourceTypeEqual = (string)$xml->sourceTypeEqual;
+		if(count($xml->sourceTypeNotEqual))
+			$this->sourceTypeNotEqual = (string)$xml->sourceTypeNotEqual;
+		if(count($xml->sourceTypeIn))
+			$this->sourceTypeIn = (string)$xml->sourceTypeIn;
+		if(count($xml->sourceTypeNotIn))
+			$this->sourceTypeNotIn = (string)$xml->sourceTypeNotIn;
 		if(count($xml->mediaDateGreaterThanOrEqual))
 			$this->mediaDateGreaterThanOrEqual = (int)$xml->mediaDateGreaterThanOrEqual;
 		if(count($xml->mediaDateLessThanOrEqual))
 			$this->mediaDateLessThanOrEqual = (int)$xml->mediaDateLessThanOrEqual;
-		$this->flavorParamsIdsMatchOr = (string)$xml->flavorParamsIdsMatchOr;
-		$this->flavorParamsIdsMatchAnd = (string)$xml->flavorParamsIdsMatchAnd;
+		if(count($xml->flavorParamsIdsMatchOr))
+			$this->flavorParamsIdsMatchOr = (string)$xml->flavorParamsIdsMatchOr;
+		if(count($xml->flavorParamsIdsMatchAnd))
+			$this->flavorParamsIdsMatchAnd = (string)$xml->flavorParamsIdsMatchAnd;
 	}
 	/**
 	 * 

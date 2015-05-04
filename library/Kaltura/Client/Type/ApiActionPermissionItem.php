@@ -50,8 +50,10 @@ class ApiActionPermissionItem extends \Kaltura\Client\Type\PermissionItem
 		if(is_null($xml))
 			return;
 		
-		$this->service = (string)$xml->service;
-		$this->action = (string)$xml->action;
+		if(count($xml->service))
+			$this->service = (string)$xml->service;
+		if(count($xml->action))
+			$this->action = (string)$xml->action;
 	}
 	/**
 	 * 

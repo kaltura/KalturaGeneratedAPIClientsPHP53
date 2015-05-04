@@ -52,11 +52,14 @@ abstract class ThumbAssetBaseFilter extends \Kaltura\Client\Type\AssetFilter
 		
 		if(count($xml->thumbParamsIdEqual))
 			$this->thumbParamsIdEqual = (int)$xml->thumbParamsIdEqual;
-		$this->thumbParamsIdIn = (string)$xml->thumbParamsIdIn;
+		if(count($xml->thumbParamsIdIn))
+			$this->thumbParamsIdIn = (string)$xml->thumbParamsIdIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->statusNotIn = (string)$xml->statusNotIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusNotIn))
+			$this->statusNotIn = (string)$xml->statusNotIn;
 	}
 	/**
 	 * 

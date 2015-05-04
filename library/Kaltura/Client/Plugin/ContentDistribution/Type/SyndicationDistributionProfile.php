@@ -50,8 +50,10 @@ class SyndicationDistributionProfile extends \Kaltura\Client\Plugin\ContentDistr
 		if(is_null($xml))
 			return;
 		
-		$this->xsl = (string)$xml->xsl;
-		$this->feedId = (string)$xml->feedId;
+		if(count($xml->xsl))
+			$this->xsl = (string)$xml->xsl;
+		if(count($xml->feedId))
+			$this->feedId = (string)$xml->feedId;
 	}
 	/**
 	 * 

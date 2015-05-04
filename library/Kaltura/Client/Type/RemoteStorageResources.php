@@ -52,10 +52,13 @@ class RemoteStorageResources extends \Kaltura\Client\Type\ContentResource
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->resources))
-			$this->resources = array();
-		else
-			$this->resources = \Kaltura\Client\ParseUtils::unmarshalArray($xml->resources, "KalturaRemoteStorageResource");
+		if(count($xml->resources))
+		{
+			if(empty($xml->resources))
+				$this->resources = array();
+			else
+				$this->resources = \Kaltura\Client\ParseUtils::unmarshalArray($xml->resources, "KalturaRemoteStorageResource");
+		}
 	}
 	/**
 	 * Array of remote stoage resources 

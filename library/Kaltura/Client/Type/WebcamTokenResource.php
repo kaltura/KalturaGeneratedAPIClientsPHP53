@@ -52,7 +52,8 @@ class WebcamTokenResource extends \Kaltura\Client\Type\DataCenterContentResource
 		if(is_null($xml))
 			return;
 		
-		$this->token = (string)$xml->token;
+		if(count($xml->token))
+			$this->token = (string)$xml->token;
 	}
 	/**
 	 * Token that returned from media server such as FMS or red5.

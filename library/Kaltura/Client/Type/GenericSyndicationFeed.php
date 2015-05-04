@@ -50,8 +50,10 @@ class GenericSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 		if(is_null($xml))
 			return;
 		
-		$this->feedDescription = (string)$xml->feedDescription;
-		$this->feedLandingPage = (string)$xml->feedLandingPage;
+		if(count($xml->feedDescription))
+			$this->feedDescription = (string)$xml->feedDescription;
+		if(count($xml->feedLandingPage))
+			$this->feedLandingPage = (string)$xml->feedLandingPage;
 	}
 	/**
 	 * feed description

@@ -52,12 +52,16 @@ abstract class FileAssetBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->fileAssetObjectTypeEqual = (string)$xml->fileAssetObjectTypeEqual;
-		$this->objectIdEqual = (string)$xml->objectIdEqual;
-		$this->objectIdIn = (string)$xml->objectIdIn;
+		if(count($xml->fileAssetObjectTypeEqual))
+			$this->fileAssetObjectTypeEqual = (string)$xml->fileAssetObjectTypeEqual;
+		if(count($xml->objectIdEqual))
+			$this->objectIdEqual = (string)$xml->objectIdEqual;
+		if(count($xml->objectIdIn))
+			$this->objectIdIn = (string)$xml->objectIdIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -66,8 +70,10 @@ abstract class FileAssetBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
 		if(count($xml->updatedAtLessThanOrEqual))
 			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
-		$this->statusEqual = (string)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusEqual))
+			$this->statusEqual = (string)$xml->statusEqual;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 	}
 	/**
 	 * 

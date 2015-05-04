@@ -50,7 +50,8 @@ class StorageExportObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\
 		if(is_null($xml))
 			return;
 		
-		$this->storageId = (string)$xml->storageId;
+		if(count($xml->storageId))
+			$this->storageId = (string)$xml->storageId;
 	}
 	/**
 	 * Storage profile id

@@ -52,7 +52,8 @@ class DocumentEntry extends \Kaltura\Client\Type\BaseEntry
 		
 		if(count($xml->documentType))
 			$this->documentType = (int)$xml->documentType;
-		$this->assetParamsIds = (string)$xml->assetParamsIds;
+		if(count($xml->assetParamsIds))
+			$this->assetParamsIds = (string)$xml->assetParamsIds;
 	}
 	/**
 	 * The type of the document

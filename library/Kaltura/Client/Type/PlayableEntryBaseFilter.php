@@ -62,7 +62,8 @@ abstract class PlayableEntryBaseFilter extends \Kaltura\Client\Type\BaseEntryFil
 			$this->durationLessThanOrEqual = (int)$xml->durationLessThanOrEqual;
 		if(count($xml->durationGreaterThanOrEqual))
 			$this->durationGreaterThanOrEqual = (int)$xml->durationGreaterThanOrEqual;
-		$this->durationTypeMatchOr = (string)$xml->durationTypeMatchOr;
+		if(count($xml->durationTypeMatchOr))
+			$this->durationTypeMatchOr = (string)$xml->durationTypeMatchOr;
 	}
 	/**
 	 * 

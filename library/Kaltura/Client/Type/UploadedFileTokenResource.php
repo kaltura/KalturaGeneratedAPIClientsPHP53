@@ -52,7 +52,8 @@ class UploadedFileTokenResource extends \Kaltura\Client\Type\DataCenterContentRe
 		if(is_null($xml))
 			return;
 		
-		$this->token = (string)$xml->token;
+		if(count($xml->token))
+			$this->token = (string)$xml->token;
 	}
 	/**
 	 * Token that returned from upload.upload action or uploadToken.add action. 

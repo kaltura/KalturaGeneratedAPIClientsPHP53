@@ -60,11 +60,22 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 			$this->lastMovedCategoryPageIndex = (int)$xml->lastMovedCategoryPageIndex;
 		if(count($xml->lastMovedCategoryEntryPageIndex))
 			$this->lastMovedCategoryEntryPageIndex = (int)$xml->lastMovedCategoryEntryPageIndex;
-		if(!empty($xml->moveFromChildren))
-			$this->moveFromChildren = true;
-		if(!empty($xml->copyOnly))
-			$this->copyOnly = true;
-		$this->destCategoryFullIds = (string)$xml->destCategoryFullIds;
+		if(count($xml->moveFromChildren))
+		{
+			if(!empty($xml->moveFromChildren))
+				$this->moveFromChildren = true;
+			else
+				$this->moveFromChildren = false;
+		}
+		if(count($xml->copyOnly))
+		{
+			if(!empty($xml->copyOnly))
+				$this->copyOnly = true;
+			else
+				$this->copyOnly = false;
+		}
+		if(count($xml->destCategoryFullIds))
+			$this->destCategoryFullIds = (string)$xml->destCategoryFullIds;
 	}
 	/**
 	 * Source category id

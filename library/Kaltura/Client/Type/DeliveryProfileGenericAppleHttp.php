@@ -50,8 +50,10 @@ class DeliveryProfileGenericAppleHttp extends \Kaltura\Client\Type\DeliveryProfi
 		if(is_null($xml))
 			return;
 		
-		$this->pattern = (string)$xml->pattern;
-		$this->rendererClass = (string)$xml->rendererClass;
+		if(count($xml->pattern))
+			$this->pattern = (string)$xml->pattern;
+		if(count($xml->rendererClass))
+			$this->rendererClass = (string)$xml->rendererClass;
 		if(count($xml->manifestRedirect))
 			$this->manifestRedirect = (int)$xml->manifestRedirect;
 	}

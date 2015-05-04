@@ -50,12 +50,20 @@ class SearchResultResponse extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->objects))
-			$this->objects = array();
-		else
-			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaSearchResult");
-		if(!empty($xml->needMediaInfo))
-			$this->needMediaInfo = true;
+		if(count($xml->objects))
+		{
+			if(empty($xml->objects))
+				$this->objects = array();
+			else
+				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaSearchResult");
+		}
+		if(count($xml->needMediaInfo))
+		{
+			if(!empty($xml->needMediaInfo))
+				$this->needMediaInfo = true;
+			else
+				$this->needMediaInfo = false;
+		}
 	}
 	/**
 	 * 

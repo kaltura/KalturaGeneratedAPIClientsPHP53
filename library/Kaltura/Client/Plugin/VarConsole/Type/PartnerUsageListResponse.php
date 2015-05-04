@@ -50,12 +50,15 @@ class PartnerUsageListResponse extends \Kaltura\Client\Type\ListResponse
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->total))
+		if(count($xml->total) && !empty($xml->total))
 			$this->total = \Kaltura\Client\ParseUtils::unmarshalObject($xml->total, "KalturaVarPartnerUsageItem");
-		if(empty($xml->objects))
-			$this->objects = array();
-		else
-			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaVarPartnerUsageItem");
+		if(count($xml->objects))
+		{
+			if(empty($xml->objects))
+				$this->objects = array();
+			else
+				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaVarPartnerUsageItem");
+		}
 	}
 	/**
 	 * 

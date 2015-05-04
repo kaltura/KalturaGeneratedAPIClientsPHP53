@@ -50,8 +50,10 @@ abstract class EventCuePointBaseFilter extends \Kaltura\Client\Plugin\CuePoint\T
 		if(is_null($xml))
 			return;
 		
-		$this->eventTypeEqual = (string)$xml->eventTypeEqual;
-		$this->eventTypeIn = (string)$xml->eventTypeIn;
+		if(count($xml->eventTypeEqual))
+			$this->eventTypeEqual = (string)$xml->eventTypeEqual;
+		if(count($xml->eventTypeIn))
+			$this->eventTypeIn = (string)$xml->eventTypeIn;
 	}
 	/**
 	 * 

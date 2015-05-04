@@ -54,47 +54,73 @@ class DropFolder extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->description = (string)$xml->description;
-		$this->type = (string)$xml->type;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->conversionProfileId))
 			$this->conversionProfileId = (int)$xml->conversionProfileId;
 		if(count($xml->dc))
 			$this->dc = (int)$xml->dc;
-		$this->path = (string)$xml->path;
+		if(count($xml->path))
+			$this->path = (string)$xml->path;
 		if(count($xml->fileSizeCheckInterval))
 			$this->fileSizeCheckInterval = (int)$xml->fileSizeCheckInterval;
 		if(count($xml->fileDeletePolicy))
 			$this->fileDeletePolicy = (int)$xml->fileDeletePolicy;
 		if(count($xml->autoFileDeleteDays))
 			$this->autoFileDeleteDays = (int)$xml->autoFileDeleteDays;
-		$this->fileHandlerType = (string)$xml->fileHandlerType;
-		$this->fileNamePatterns = (string)$xml->fileNamePatterns;
-		if(!empty($xml->fileHandlerConfig))
+		if(count($xml->fileHandlerType))
+			$this->fileHandlerType = (string)$xml->fileHandlerType;
+		if(count($xml->fileNamePatterns))
+			$this->fileNamePatterns = (string)$xml->fileNamePatterns;
+		if(count($xml->fileHandlerConfig) && !empty($xml->fileHandlerConfig))
 			$this->fileHandlerConfig = \Kaltura\Client\ParseUtils::unmarshalObject($xml->fileHandlerConfig, "KalturaDropFolderFileHandlerConfig");
-		$this->tags = (string)$xml->tags;
-		$this->errorCode = (string)$xml->errorCode;
-		$this->errorDescription = (string)$xml->errorDescription;
-		$this->ignoreFileNamePatterns = (string)$xml->ignoreFileNamePatterns;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->errorCode))
+			$this->errorCode = (string)$xml->errorCode;
+		if(count($xml->errorDescription))
+			$this->errorDescription = (string)$xml->errorDescription;
+		if(count($xml->ignoreFileNamePatterns))
+			$this->ignoreFileNamePatterns = (string)$xml->ignoreFileNamePatterns;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->lastAccessedAt))
 			$this->lastAccessedAt = (int)$xml->lastAccessedAt;
-		if(!empty($xml->incremental))
-			$this->incremental = true;
+		if(count($xml->incremental))
+		{
+			if(!empty($xml->incremental))
+				$this->incremental = true;
+			else
+				$this->incremental = false;
+		}
 		if(count($xml->lastFileTimestamp))
 			$this->lastFileTimestamp = (int)$xml->lastFileTimestamp;
 		if(count($xml->metadataProfileId))
 			$this->metadataProfileId = (int)$xml->metadataProfileId;
-		$this->categoriesMetadataFieldName = (string)$xml->categoriesMetadataFieldName;
-		if(!empty($xml->enforceEntitlement))
-			$this->enforceEntitlement = true;
-		if(!empty($xml->shouldValidateKS))
-			$this->shouldValidateKS = true;
+		if(count($xml->categoriesMetadataFieldName))
+			$this->categoriesMetadataFieldName = (string)$xml->categoriesMetadataFieldName;
+		if(count($xml->enforceEntitlement))
+		{
+			if(!empty($xml->enforceEntitlement))
+				$this->enforceEntitlement = true;
+			else
+				$this->enforceEntitlement = false;
+		}
+		if(count($xml->shouldValidateKS))
+		{
+			if(!empty($xml->shouldValidateKS))
+				$this->shouldValidateKS = true;
+			else
+				$this->shouldValidateKS = false;
+		}
 	}
 	/**
 	 * 

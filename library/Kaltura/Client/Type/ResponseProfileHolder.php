@@ -52,7 +52,8 @@ class ResponseProfileHolder extends \Kaltura\Client\Type\BaseResponseProfile
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->systemName = (string)$xml->systemName;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
 	}
 	/**
 	 * Auto generated numeric identifier

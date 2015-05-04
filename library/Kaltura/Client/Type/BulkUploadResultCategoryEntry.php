@@ -52,7 +52,8 @@ class BulkUploadResultCategoryEntry extends \Kaltura\Client\Type\BulkUploadResul
 		
 		if(count($xml->categoryId))
 			$this->categoryId = (int)$xml->categoryId;
-		$this->entryId = (string)$xml->entryId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
 	}
 	/**
 	 * 

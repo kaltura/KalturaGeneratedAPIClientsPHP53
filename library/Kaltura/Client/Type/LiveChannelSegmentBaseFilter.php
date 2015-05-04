@@ -58,10 +58,14 @@ abstract class LiveChannelSegmentBaseFilter extends \Kaltura\Client\Type\Related
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
 		if(count($xml->updatedAtLessThanOrEqual))
 			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
-		$this->statusEqual = (string)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->channelIdEqual = (string)$xml->channelIdEqual;
-		$this->channelIdIn = (string)$xml->channelIdIn;
+		if(count($xml->statusEqual))
+			$this->statusEqual = (string)$xml->statusEqual;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->channelIdEqual))
+			$this->channelIdEqual = (string)$xml->channelIdEqual;
+		if(count($xml->channelIdIn))
+			$this->channelIdIn = (string)$xml->channelIdIn;
 		if(count($xml->startTimeGreaterThanOrEqual))
 			$this->startTimeGreaterThanOrEqual = (float)$xml->startTimeGreaterThanOrEqual;
 		if(count($xml->startTimeLessThanOrEqual))

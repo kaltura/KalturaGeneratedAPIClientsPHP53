@@ -50,22 +50,32 @@ class LiveChannelSegment extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		$this->name = (string)$xml->name;
-		$this->description = (string)$xml->description;
-		$this->tags = (string)$xml->tags;
-		$this->type = (string)$xml->type;
-		$this->status = (string)$xml->status;
-		$this->channelId = (string)$xml->channelId;
-		$this->entryId = (string)$xml->entryId;
-		$this->triggerType = (string)$xml->triggerType;
-		$this->triggerSegmentId = (string)$xml->triggerSegmentId;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->status))
+			$this->status = (string)$xml->status;
+		if(count($xml->channelId))
+			$this->channelId = (string)$xml->channelId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->triggerType))
+			$this->triggerType = (string)$xml->triggerType;
+		if(count($xml->triggerSegmentId))
+			$this->triggerSegmentId = (string)$xml->triggerSegmentId;
 		if(count($xml->startTime))
 			$this->startTime = (float)$xml->startTime;
 		if(count($xml->duration))

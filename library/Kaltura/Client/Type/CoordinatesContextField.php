@@ -52,7 +52,8 @@ class CoordinatesContextField extends \Kaltura\Client\Type\StringField
 		if(is_null($xml))
 			return;
 		
-		$this->geoCoderType = (string)$xml->geoCoderType;
+		if(count($xml->geoCoderType))
+			$this->geoCoderType = (string)$xml->geoCoderType;
 	}
 	/**
 	 * The ip geo coder engine to be used

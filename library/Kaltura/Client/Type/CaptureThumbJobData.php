@@ -50,15 +50,22 @@ class CaptureThumbJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->srcFileSyncLocalPath = (string)$xml->srcFileSyncLocalPath;
-		$this->actualSrcFileSyncLocalPath = (string)$xml->actualSrcFileSyncLocalPath;
-		$this->srcFileSyncRemoteUrl = (string)$xml->srcFileSyncRemoteUrl;
+		if(count($xml->srcFileSyncLocalPath))
+			$this->srcFileSyncLocalPath = (string)$xml->srcFileSyncLocalPath;
+		if(count($xml->actualSrcFileSyncLocalPath))
+			$this->actualSrcFileSyncLocalPath = (string)$xml->actualSrcFileSyncLocalPath;
+		if(count($xml->srcFileSyncRemoteUrl))
+			$this->srcFileSyncRemoteUrl = (string)$xml->srcFileSyncRemoteUrl;
 		if(count($xml->thumbParamsOutputId))
 			$this->thumbParamsOutputId = (int)$xml->thumbParamsOutputId;
-		$this->thumbAssetId = (string)$xml->thumbAssetId;
-		$this->srcAssetId = (string)$xml->srcAssetId;
-		$this->srcAssetType = (string)$xml->srcAssetType;
-		$this->thumbPath = (string)$xml->thumbPath;
+		if(count($xml->thumbAssetId))
+			$this->thumbAssetId = (string)$xml->thumbAssetId;
+		if(count($xml->srcAssetId))
+			$this->srcAssetId = (string)$xml->srcAssetId;
+		if(count($xml->srcAssetType))
+			$this->srcAssetType = (string)$xml->srcAssetType;
+		if(count($xml->thumbPath))
+			$this->thumbPath = (string)$xml->thumbPath;
 	}
 	/**
 	 * 

@@ -52,12 +52,16 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 		
 		if(count($xml->captionParamsId))
 			$this->captionParamsId = (int)$xml->captionParamsId;
-		$this->language = (string)$xml->language;
-		$this->languageCode = (string)$xml->languageCode;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
+		if(count($xml->languageCode))
+			$this->languageCode = (string)$xml->languageCode;
 		if(count($xml->isDefault))
 			$this->isDefault = (int)$xml->isDefault;
-		$this->label = (string)$xml->label;
-		$this->format = (string)$xml->format;
+		if(count($xml->label))
+			$this->label = (string)$xml->label;
+		if(count($xml->format))
+			$this->format = (string)$xml->format;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 	}

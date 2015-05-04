@@ -50,7 +50,8 @@ class SystemPartnerLimit extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->type = (string)$xml->type;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
 		if(count($xml->max))
 			$this->max = (float)$xml->max;
 	}

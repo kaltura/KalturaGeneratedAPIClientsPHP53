@@ -50,7 +50,7 @@ class DeleteJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->filter))
+		if(count($xml->filter) && !empty($xml->filter))
 			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaFilter");
 	}
 	/**

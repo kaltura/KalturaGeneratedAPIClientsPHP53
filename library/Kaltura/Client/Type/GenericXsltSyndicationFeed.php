@@ -50,11 +50,15 @@ class GenericXsltSyndicationFeed extends \Kaltura\Client\Type\GenericSyndication
 		if(is_null($xml))
 			return;
 		
-		$this->xslt = (string)$xml->xslt;
-		if(empty($xml->itemXpathsToExtend))
-			$this->itemXpathsToExtend = array();
-		else
-			$this->itemXpathsToExtend = \Kaltura\Client\ParseUtils::unmarshalArray($xml->itemXpathsToExtend, "KalturaExtendingItemMrssParameter");
+		if(count($xml->xslt))
+			$this->xslt = (string)$xml->xslt;
+		if(count($xml->itemXpathsToExtend))
+		{
+			if(empty($xml->itemXpathsToExtend))
+				$this->itemXpathsToExtend = array();
+			else
+				$this->itemXpathsToExtend = \Kaltura\Client\ParseUtils::unmarshalArray($xml->itemXpathsToExtend, "KalturaExtendingItemMrssParameter");
+		}
 	}
 	/**
 	 * 

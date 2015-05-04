@@ -52,7 +52,8 @@ class ResponseProfile extends \Kaltura\Client\Type\DetachedResponseProfile
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->systemName = (string)$xml->systemName;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->createdAt))

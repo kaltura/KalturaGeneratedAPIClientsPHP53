@@ -50,14 +50,20 @@ abstract class SshDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\Remo
 		if(is_null($xml))
 			return;
 		
-		$this->host = (string)$xml->host;
+		if(count($xml->host))
+			$this->host = (string)$xml->host;
 		if(count($xml->port))
 			$this->port = (int)$xml->port;
-		$this->username = (string)$xml->username;
-		$this->password = (string)$xml->password;
-		$this->privateKey = (string)$xml->privateKey;
-		$this->publicKey = (string)$xml->publicKey;
-		$this->passPhrase = (string)$xml->passPhrase;
+		if(count($xml->username))
+			$this->username = (string)$xml->username;
+		if(count($xml->password))
+			$this->password = (string)$xml->password;
+		if(count($xml->privateKey))
+			$this->privateKey = (string)$xml->privateKey;
+		if(count($xml->publicKey))
+			$this->publicKey = (string)$xml->publicKey;
+		if(count($xml->passPhrase))
+			$this->passPhrase = (string)$xml->passPhrase;
 	}
 	/**
 	 * 

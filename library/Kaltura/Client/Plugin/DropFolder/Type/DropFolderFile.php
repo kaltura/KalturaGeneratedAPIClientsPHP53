@@ -56,25 +56,34 @@ class DropFolderFile extends \Kaltura\Client\ObjectBase
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->dropFolderId))
 			$this->dropFolderId = (int)$xml->dropFolderId;
-		$this->fileName = (string)$xml->fileName;
+		if(count($xml->fileName))
+			$this->fileName = (string)$xml->fileName;
 		if(count($xml->fileSize))
 			$this->fileSize = (float)$xml->fileSize;
 		if(count($xml->fileSizeLastSetAt))
 			$this->fileSizeLastSetAt = (int)$xml->fileSizeLastSetAt;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->type = (string)$xml->type;
-		$this->parsedSlug = (string)$xml->parsedSlug;
-		$this->parsedFlavor = (string)$xml->parsedFlavor;
-		$this->parsedUserId = (string)$xml->parsedUserId;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->parsedSlug))
+			$this->parsedSlug = (string)$xml->parsedSlug;
+		if(count($xml->parsedFlavor))
+			$this->parsedFlavor = (string)$xml->parsedFlavor;
+		if(count($xml->parsedUserId))
+			$this->parsedUserId = (string)$xml->parsedUserId;
 		if(count($xml->leadDropFolderFileId))
 			$this->leadDropFolderFileId = (int)$xml->leadDropFolderFileId;
 		if(count($xml->deletedDropFolderFileId))
 			$this->deletedDropFolderFileId = (int)$xml->deletedDropFolderFileId;
-		$this->entryId = (string)$xml->entryId;
-		$this->errorCode = (string)$xml->errorCode;
-		$this->errorDescription = (string)$xml->errorDescription;
-		$this->lastModificationTime = (string)$xml->lastModificationTime;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->errorCode))
+			$this->errorCode = (string)$xml->errorCode;
+		if(count($xml->errorDescription))
+			$this->errorDescription = (string)$xml->errorDescription;
+		if(count($xml->lastModificationTime))
+			$this->lastModificationTime = (string)$xml->lastModificationTime;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))

@@ -52,9 +52,12 @@ abstract class FlavorParamsOutputBaseFilter extends \Kaltura\Client\Type\FlavorP
 		
 		if(count($xml->flavorParamsIdEqual))
 			$this->flavorParamsIdEqual = (int)$xml->flavorParamsIdEqual;
-		$this->flavorParamsVersionEqual = (string)$xml->flavorParamsVersionEqual;
-		$this->flavorAssetIdEqual = (string)$xml->flavorAssetIdEqual;
-		$this->flavorAssetVersionEqual = (string)$xml->flavorAssetVersionEqual;
+		if(count($xml->flavorParamsVersionEqual))
+			$this->flavorParamsVersionEqual = (string)$xml->flavorParamsVersionEqual;
+		if(count($xml->flavorAssetIdEqual))
+			$this->flavorAssetIdEqual = (string)$xml->flavorAssetIdEqual;
+		if(count($xml->flavorAssetVersionEqual))
+			$this->flavorAssetVersionEqual = (string)$xml->flavorAssetVersionEqual;
 	}
 	/**
 	 * 

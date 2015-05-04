@@ -50,14 +50,22 @@ class CategoryFilter extends \Kaltura\Client\Type\CategoryBaseFilter
 		if(is_null($xml))
 			return;
 		
-		$this->freeText = (string)$xml->freeText;
-		$this->membersIn = (string)$xml->membersIn;
-		$this->nameOrReferenceIdStartsWith = (string)$xml->nameOrReferenceIdStartsWith;
-		$this->managerEqual = (string)$xml->managerEqual;
-		$this->memberEqual = (string)$xml->memberEqual;
-		$this->fullNameStartsWithIn = (string)$xml->fullNameStartsWithIn;
-		$this->ancestorIdIn = (string)$xml->ancestorIdIn;
-		$this->idOrInheritedParentIdIn = (string)$xml->idOrInheritedParentIdIn;
+		if(count($xml->freeText))
+			$this->freeText = (string)$xml->freeText;
+		if(count($xml->membersIn))
+			$this->membersIn = (string)$xml->membersIn;
+		if(count($xml->nameOrReferenceIdStartsWith))
+			$this->nameOrReferenceIdStartsWith = (string)$xml->nameOrReferenceIdStartsWith;
+		if(count($xml->managerEqual))
+			$this->managerEqual = (string)$xml->managerEqual;
+		if(count($xml->memberEqual))
+			$this->memberEqual = (string)$xml->memberEqual;
+		if(count($xml->fullNameStartsWithIn))
+			$this->fullNameStartsWithIn = (string)$xml->fullNameStartsWithIn;
+		if(count($xml->ancestorIdIn))
+			$this->ancestorIdIn = (string)$xml->ancestorIdIn;
+		if(count($xml->idOrInheritedParentIdIn))
+			$this->idOrInheritedParentIdIn = (string)$xml->idOrInheritedParentIdIn;
 	}
 	/**
 	 * 

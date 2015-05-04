@@ -52,18 +52,24 @@ class MediaInfo extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
 		if(count($xml->fileSize))
 			$this->fileSize = (int)$xml->fileSize;
-		$this->containerFormat = (string)$xml->containerFormat;
-		$this->containerId = (string)$xml->containerId;
-		$this->containerProfile = (string)$xml->containerProfile;
+		if(count($xml->containerFormat))
+			$this->containerFormat = (string)$xml->containerFormat;
+		if(count($xml->containerId))
+			$this->containerId = (string)$xml->containerId;
+		if(count($xml->containerProfile))
+			$this->containerProfile = (string)$xml->containerProfile;
 		if(count($xml->containerDuration))
 			$this->containerDuration = (int)$xml->containerDuration;
 		if(count($xml->containerBitRate))
 			$this->containerBitRate = (int)$xml->containerBitRate;
-		$this->videoFormat = (string)$xml->videoFormat;
-		$this->videoCodecId = (string)$xml->videoCodecId;
+		if(count($xml->videoFormat))
+			$this->videoFormat = (string)$xml->videoFormat;
+		if(count($xml->videoCodecId))
+			$this->videoCodecId = (string)$xml->videoCodecId;
 		if(count($xml->videoDuration))
 			$this->videoDuration = (int)$xml->videoDuration;
 		if(count($xml->videoBitRate))
@@ -80,8 +86,10 @@ class MediaInfo extends \Kaltura\Client\ObjectBase
 			$this->videoDar = (float)$xml->videoDar;
 		if(count($xml->videoRotation))
 			$this->videoRotation = (int)$xml->videoRotation;
-		$this->audioFormat = (string)$xml->audioFormat;
-		$this->audioCodecId = (string)$xml->audioCodecId;
+		if(count($xml->audioFormat))
+			$this->audioFormat = (string)$xml->audioFormat;
+		if(count($xml->audioCodecId))
+			$this->audioCodecId = (string)$xml->audioCodecId;
 		if(count($xml->audioDuration))
 			$this->audioDuration = (int)$xml->audioDuration;
 		if(count($xml->audioBitRate))
@@ -94,15 +102,20 @@ class MediaInfo extends \Kaltura\Client\ObjectBase
 			$this->audioSamplingRate = (int)$xml->audioSamplingRate;
 		if(count($xml->audioResolution))
 			$this->audioResolution = (int)$xml->audioResolution;
-		$this->writingLib = (string)$xml->writingLib;
-		$this->rawData = (string)$xml->rawData;
-		$this->multiStreamInfo = (string)$xml->multiStreamInfo;
+		if(count($xml->writingLib))
+			$this->writingLib = (string)$xml->writingLib;
+		if(count($xml->rawData))
+			$this->rawData = (string)$xml->rawData;
+		if(count($xml->multiStreamInfo))
+			$this->multiStreamInfo = (string)$xml->multiStreamInfo;
 		if(count($xml->scanType))
 			$this->scanType = (int)$xml->scanType;
-		$this->multiStream = (string)$xml->multiStream;
+		if(count($xml->multiStream))
+			$this->multiStream = (string)$xml->multiStream;
 		if(count($xml->isFastStart))
 			$this->isFastStart = (int)$xml->isFastStart;
-		$this->contentStreams = (string)$xml->contentStreams;
+		if(count($xml->contentStreams))
+			$this->contentStreams = (string)$xml->contentStreams;
 	}
 	/**
 	 * The id of the media info

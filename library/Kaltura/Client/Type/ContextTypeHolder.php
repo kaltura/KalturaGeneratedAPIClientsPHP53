@@ -50,7 +50,8 @@ class ContextTypeHolder extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->type = (string)$xml->type;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
 	}
 	/**
 	 * The type of the condition context

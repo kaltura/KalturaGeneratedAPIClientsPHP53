@@ -52,7 +52,8 @@ abstract class ShortLinkBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -67,14 +68,20 @@ abstract class ShortLinkBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->expiresAtLessThanOrEqual = (int)$xml->expiresAtLessThanOrEqual;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
-		$this->userIdEqual = (string)$xml->userIdEqual;
-		$this->userIdIn = (string)$xml->userIdIn;
-		$this->systemNameEqual = (string)$xml->systemNameEqual;
-		$this->systemNameIn = (string)$xml->systemNameIn;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->userIdEqual))
+			$this->userIdEqual = (string)$xml->userIdEqual;
+		if(count($xml->userIdIn))
+			$this->userIdIn = (string)$xml->userIdIn;
+		if(count($xml->systemNameEqual))
+			$this->systemNameEqual = (string)$xml->systemNameEqual;
+		if(count($xml->systemNameIn))
+			$this->systemNameIn = (string)$xml->systemNameIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 	}
 	/**
 	 * 

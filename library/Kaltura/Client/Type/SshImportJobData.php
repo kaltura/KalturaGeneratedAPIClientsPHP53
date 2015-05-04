@@ -50,9 +50,12 @@ class SshImportJobData extends \Kaltura\Client\Type\ImportJobData
 		if(is_null($xml))
 			return;
 		
-		$this->privateKey = (string)$xml->privateKey;
-		$this->publicKey = (string)$xml->publicKey;
-		$this->passPhrase = (string)$xml->passPhrase;
+		if(count($xml->privateKey))
+			$this->privateKey = (string)$xml->privateKey;
+		if(count($xml->publicKey))
+			$this->publicKey = (string)$xml->publicKey;
+		if(count($xml->passPhrase))
+			$this->passPhrase = (string)$xml->passPhrase;
 	}
 	/**
 	 * 

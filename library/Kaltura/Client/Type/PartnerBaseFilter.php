@@ -52,15 +52,22 @@ abstract class PartnerBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
-		$this->idNotIn = (string)$xml->idNotIn;
-		$this->nameLike = (string)$xml->nameLike;
-		$this->nameMultiLikeOr = (string)$xml->nameMultiLikeOr;
-		$this->nameMultiLikeAnd = (string)$xml->nameMultiLikeAnd;
-		$this->nameEqual = (string)$xml->nameEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->idNotIn))
+			$this->idNotIn = (string)$xml->idNotIn;
+		if(count($xml->nameLike))
+			$this->nameLike = (string)$xml->nameLike;
+		if(count($xml->nameMultiLikeOr))
+			$this->nameMultiLikeOr = (string)$xml->nameMultiLikeOr;
+		if(count($xml->nameMultiLikeAnd))
+			$this->nameMultiLikeAnd = (string)$xml->nameMultiLikeAnd;
+		if(count($xml->nameEqual))
+			$this->nameEqual = (string)$xml->nameEqual;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->partnerPackageEqual))
 			$this->partnerPackageEqual = (int)$xml->partnerPackageEqual;
 		if(count($xml->partnerPackageGreaterThanOrEqual))
@@ -69,7 +76,8 @@ abstract class PartnerBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->partnerPackageLessThanOrEqual = (int)$xml->partnerPackageLessThanOrEqual;
 		if(count($xml->partnerGroupTypeEqual))
 			$this->partnerGroupTypeEqual = (int)$xml->partnerGroupTypeEqual;
-		$this->partnerNameDescriptionWebsiteAdminNameAdminEmailLike = (string)$xml->partnerNameDescriptionWebsiteAdminNameAdminEmailLike;
+		if(count($xml->partnerNameDescriptionWebsiteAdminNameAdminEmailLike))
+			$this->partnerNameDescriptionWebsiteAdminNameAdminEmailLike = (string)$xml->partnerNameDescriptionWebsiteAdminNameAdminEmailLike;
 	}
 	/**
 	 * 

@@ -50,28 +50,43 @@ class MailJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->mailType = (string)$xml->mailType;
+		if(count($xml->mailType))
+			$this->mailType = (string)$xml->mailType;
 		if(count($xml->mailPriority))
 			$this->mailPriority = (int)$xml->mailPriority;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->recipientName = (string)$xml->recipientName;
-		$this->recipientEmail = (string)$xml->recipientEmail;
+		if(count($xml->recipientName))
+			$this->recipientName = (string)$xml->recipientName;
+		if(count($xml->recipientEmail))
+			$this->recipientEmail = (string)$xml->recipientEmail;
 		if(count($xml->recipientId))
 			$this->recipientId = (int)$xml->recipientId;
-		$this->fromName = (string)$xml->fromName;
-		$this->fromEmail = (string)$xml->fromEmail;
-		$this->bodyParams = (string)$xml->bodyParams;
-		$this->subjectParams = (string)$xml->subjectParams;
-		$this->templatePath = (string)$xml->templatePath;
-		$this->language = (string)$xml->language;
+		if(count($xml->fromName))
+			$this->fromName = (string)$xml->fromName;
+		if(count($xml->fromEmail))
+			$this->fromEmail = (string)$xml->fromEmail;
+		if(count($xml->bodyParams))
+			$this->bodyParams = (string)$xml->bodyParams;
+		if(count($xml->subjectParams))
+			$this->subjectParams = (string)$xml->subjectParams;
+		if(count($xml->templatePath))
+			$this->templatePath = (string)$xml->templatePath;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
 		if(count($xml->campaignId))
 			$this->campaignId = (int)$xml->campaignId;
 		if(count($xml->minSendDate))
 			$this->minSendDate = (int)$xml->minSendDate;
-		if(!empty($xml->isHtml))
-			$this->isHtml = true;
-		$this->separator = (string)$xml->separator;
+		if(count($xml->isHtml))
+		{
+			if(!empty($xml->isHtml))
+				$this->isHtml = true;
+			else
+				$this->isHtml = false;
+		}
+		if(count($xml->separator))
+			$this->separator = (string)$xml->separator;
 	}
 	/**
 	 * 

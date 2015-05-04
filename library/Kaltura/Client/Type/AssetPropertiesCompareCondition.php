@@ -50,10 +50,13 @@ class AssetPropertiesCompareCondition extends \Kaltura\Client\Type\Condition
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->properties))
-			$this->properties = array();
-		else
-			$this->properties = \Kaltura\Client\ParseUtils::unmarshalArray($xml->properties, "KalturaKeyValue");
+		if(count($xml->properties))
+		{
+			if(empty($xml->properties))
+				$this->properties = array();
+			else
+				$this->properties = \Kaltura\Client\ParseUtils::unmarshalArray($xml->properties, "KalturaKeyValue");
+		}
 	}
 	/**
 	 * Array of key/value objects that holds the property and the value to find and compare on an asset object

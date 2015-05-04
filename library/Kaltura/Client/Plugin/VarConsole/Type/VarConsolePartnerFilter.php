@@ -52,8 +52,10 @@ class VarConsolePartnerFilter extends \Kaltura\Client\Type\PartnerFilter
 		
 		if(count($xml->groupTypeEq))
 			$this->groupTypeEq = (int)$xml->groupTypeEq;
-		$this->groupTypeIn = (string)$xml->groupTypeIn;
-		$this->partnerPermissionsExist = (string)$xml->partnerPermissionsExist;
+		if(count($xml->groupTypeIn))
+			$this->groupTypeIn = (string)$xml->groupTypeIn;
+		if(count($xml->partnerPermissionsExist))
+			$this->partnerPermissionsExist = (string)$xml->partnerPermissionsExist;
 	}
 	/**
 	 * Eq filter for the partner's group type

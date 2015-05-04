@@ -50,7 +50,8 @@ class EventCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 		if(is_null($xml))
 			return;
 		
-		$this->eventType = (string)$xml->eventType;
+		if(count($xml->eventType))
+			$this->eventType = (string)$xml->eventType;
 	}
 	/**
 	 * 

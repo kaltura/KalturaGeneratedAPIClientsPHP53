@@ -50,10 +50,12 @@ class MatchMetadataCondition extends \Kaltura\Client\Type\MatchCondition
 		if(is_null($xml))
 			return;
 		
-		$this->xPath = (string)$xml->xPath;
+		if(count($xml->xPath))
+			$this->xPath = (string)$xml->xPath;
 		if(count($xml->profileId))
 			$this->profileId = (int)$xml->profileId;
-		$this->profileSystemName = (string)$xml->profileSystemName;
+		if(count($xml->profileSystemName))
+			$this->profileSystemName = (string)$xml->profileSystemName;
 	}
 	/**
 	 * May contain the full xpath to the field in three formats

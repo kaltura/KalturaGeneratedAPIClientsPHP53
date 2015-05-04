@@ -52,15 +52,20 @@ class UserRole extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->description = (string)$xml->description;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->permissionNames = (string)$xml->permissionNames;
-		$this->tags = (string)$xml->tags;
+		if(count($xml->permissionNames))
+			$this->permissionNames = (string)$xml->permissionNames;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))

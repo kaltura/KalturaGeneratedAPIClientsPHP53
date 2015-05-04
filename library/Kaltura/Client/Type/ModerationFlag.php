@@ -54,12 +54,18 @@ class ModerationFlag extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->userId = (string)$xml->userId;
-		$this->moderationObjectType = (string)$xml->moderationObjectType;
-		$this->flaggedEntryId = (string)$xml->flaggedEntryId;
-		$this->flaggedUserId = (string)$xml->flaggedUserId;
-		$this->status = (string)$xml->status;
-		$this->comments = (string)$xml->comments;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->moderationObjectType))
+			$this->moderationObjectType = (string)$xml->moderationObjectType;
+		if(count($xml->flaggedEntryId))
+			$this->flaggedEntryId = (string)$xml->flaggedEntryId;
+		if(count($xml->flaggedUserId))
+			$this->flaggedUserId = (string)$xml->flaggedUserId;
+		if(count($xml->status))
+			$this->status = (string)$xml->status;
+		if(count($xml->comments))
+			$this->comments = (string)$xml->comments;
 		if(count($xml->flagType))
 			$this->flagType = (int)$xml->flagType;
 		if(count($xml->createdAt))

@@ -50,11 +50,19 @@ class PlayerEmbedCodeType extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->label = (string)$xml->label;
-		if(!empty($xml->entryOnly))
-			$this->entryOnly = true;
-		$this->minVersion = (string)$xml->minVersion;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->label))
+			$this->label = (string)$xml->label;
+		if(count($xml->entryOnly))
+		{
+			if(!empty($xml->entryOnly))
+				$this->entryOnly = true;
+			else
+				$this->entryOnly = false;
+		}
+		if(count($xml->minVersion))
+			$this->minVersion = (string)$xml->minVersion;
 	}
 	/**
 	 * 

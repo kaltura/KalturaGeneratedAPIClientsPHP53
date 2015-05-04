@@ -52,7 +52,8 @@ class ScheduledTaskJobData extends \Kaltura\Client\Type\JobData
 		
 		if(count($xml->maxResults))
 			$this->maxResults = (int)$xml->maxResults;
-		$this->resultsFilePath = (string)$xml->resultsFilePath;
+		if(count($xml->resultsFilePath))
+			$this->resultsFilePath = (string)$xml->resultsFilePath;
 		if(count($xml->referenceTime))
 			$this->referenceTime = (int)$xml->referenceTime;
 	}

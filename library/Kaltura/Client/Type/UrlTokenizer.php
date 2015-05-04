@@ -52,7 +52,8 @@ class UrlTokenizer extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->window))
 			$this->window = (int)$xml->window;
-		$this->key = (string)$xml->key;
+		if(count($xml->key))
+			$this->key = (string)$xml->key;
 	}
 	/**
 	 * Window

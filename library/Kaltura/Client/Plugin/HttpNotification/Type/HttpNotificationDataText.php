@@ -50,7 +50,7 @@ class HttpNotificationDataText extends \Kaltura\Client\Plugin\HttpNotification\T
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->content))
+		if(count($xml->content) && !empty($xml->content))
 			$this->content = \Kaltura\Client\ParseUtils::unmarshalObject($xml->content, "KalturaStringValue");
 	}
 	/**

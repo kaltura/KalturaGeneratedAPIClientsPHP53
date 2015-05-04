@@ -52,17 +52,22 @@ abstract class CategoryEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilte
 		
 		if(count($xml->categoryIdEqual))
 			$this->categoryIdEqual = (int)$xml->categoryIdEqual;
-		$this->categoryIdIn = (string)$xml->categoryIdIn;
-		$this->entryIdEqual = (string)$xml->entryIdEqual;
-		$this->entryIdIn = (string)$xml->entryIdIn;
+		if(count($xml->categoryIdIn))
+			$this->categoryIdIn = (string)$xml->categoryIdIn;
+		if(count($xml->entryIdEqual))
+			$this->entryIdEqual = (string)$xml->entryIdEqual;
+		if(count($xml->entryIdIn))
+			$this->entryIdIn = (string)$xml->entryIdIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
 			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
-		$this->categoryFullIdsStartsWith = (string)$xml->categoryFullIdsStartsWith;
+		if(count($xml->categoryFullIdsStartsWith))
+			$this->categoryFullIdsStartsWith = (string)$xml->categoryFullIdsStartsWith;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 	}
 	/**
 	 * 

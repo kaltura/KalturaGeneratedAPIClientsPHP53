@@ -58,30 +58,48 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->desciption = (string)$xml->desciption;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->desciption))
+			$this->desciption = (string)$xml->desciption;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->protocol = (string)$xml->protocol;
-		$this->storageUrl = (string)$xml->storageUrl;
-		$this->storageBaseDir = (string)$xml->storageBaseDir;
-		$this->storageUsername = (string)$xml->storageUsername;
-		$this->storagePassword = (string)$xml->storagePassword;
-		if(!empty($xml->storageFtpPassiveMode))
-			$this->storageFtpPassiveMode = true;
+		if(count($xml->protocol))
+			$this->protocol = (string)$xml->protocol;
+		if(count($xml->storageUrl))
+			$this->storageUrl = (string)$xml->storageUrl;
+		if(count($xml->storageBaseDir))
+			$this->storageBaseDir = (string)$xml->storageBaseDir;
+		if(count($xml->storageUsername))
+			$this->storageUsername = (string)$xml->storageUsername;
+		if(count($xml->storagePassword))
+			$this->storagePassword = (string)$xml->storagePassword;
+		if(count($xml->storageFtpPassiveMode))
+		{
+			if(!empty($xml->storageFtpPassiveMode))
+				$this->storageFtpPassiveMode = true;
+			else
+				$this->storageFtpPassiveMode = false;
+		}
 		if(count($xml->minFileSize))
 			$this->minFileSize = (int)$xml->minFileSize;
 		if(count($xml->maxFileSize))
 			$this->maxFileSize = (int)$xml->maxFileSize;
-		$this->flavorParamsIds = (string)$xml->flavorParamsIds;
+		if(count($xml->flavorParamsIds))
+			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
 		if(count($xml->maxConcurrentConnections))
 			$this->maxConcurrentConnections = (int)$xml->maxConcurrentConnections;
-		$this->pathManagerClass = (string)$xml->pathManagerClass;
-		if(empty($xml->pathManagerParams))
-			$this->pathManagerParams = array();
-		else
-			$this->pathManagerParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pathManagerParams, "KalturaKeyValue");
+		if(count($xml->pathManagerClass))
+			$this->pathManagerClass = (string)$xml->pathManagerClass;
+		if(count($xml->pathManagerParams))
+		{
+			if(empty($xml->pathManagerParams))
+				$this->pathManagerParams = array();
+			else
+				$this->pathManagerParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pathManagerParams, "KalturaKeyValue");
+		}
 		if(count($xml->trigger))
 			$this->trigger = (int)$xml->trigger;
 		if(count($xml->deliveryPriority))
@@ -92,19 +110,33 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->readyBehavior = (int)$xml->readyBehavior;
 		if(count($xml->allowAutoDelete))
 			$this->allowAutoDelete = (int)$xml->allowAutoDelete;
-		if(!empty($xml->createFileLink))
-			$this->createFileLink = true;
-		if(empty($xml->rules))
-			$this->rules = array();
-		else
-			$this->rules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->rules, "KalturaRule");
-		if(empty($xml->deliveryProfileIds))
-			$this->deliveryProfileIds = array();
-		else
-			$this->deliveryProfileIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryProfileIds, "KalturaKeyValue");
-		$this->privateKey = (string)$xml->privateKey;
-		$this->publicKey = (string)$xml->publicKey;
-		$this->passPhrase = (string)$xml->passPhrase;
+		if(count($xml->createFileLink))
+		{
+			if(!empty($xml->createFileLink))
+				$this->createFileLink = true;
+			else
+				$this->createFileLink = false;
+		}
+		if(count($xml->rules))
+		{
+			if(empty($xml->rules))
+				$this->rules = array();
+			else
+				$this->rules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->rules, "KalturaRule");
+		}
+		if(count($xml->deliveryProfileIds))
+		{
+			if(empty($xml->deliveryProfileIds))
+				$this->deliveryProfileIds = array();
+			else
+				$this->deliveryProfileIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryProfileIds, "KalturaKeyValue");
+		}
+		if(count($xml->privateKey))
+			$this->privateKey = (string)$xml->privateKey;
+		if(count($xml->publicKey))
+			$this->publicKey = (string)$xml->publicKey;
+		if(count($xml->passPhrase))
+			$this->passPhrase = (string)$xml->passPhrase;
 	}
 	/**
 	 * 

@@ -50,8 +50,10 @@ class FileSyncDescriptor extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->fileSyncLocalPath = (string)$xml->fileSyncLocalPath;
-		$this->fileSyncRemoteUrl = (string)$xml->fileSyncRemoteUrl;
+		if(count($xml->fileSyncLocalPath))
+			$this->fileSyncLocalPath = (string)$xml->fileSyncLocalPath;
+		if(count($xml->fileSyncRemoteUrl))
+			$this->fileSyncRemoteUrl = (string)$xml->fileSyncRemoteUrl;
 		if(count($xml->fileSyncObjectSubType))
 			$this->fileSyncObjectSubType = (int)$xml->fileSyncObjectSubType;
 	}

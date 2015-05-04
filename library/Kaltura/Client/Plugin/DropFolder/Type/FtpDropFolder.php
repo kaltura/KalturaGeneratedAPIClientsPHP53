@@ -50,11 +50,14 @@ class FtpDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\RemoteDropFol
 		if(is_null($xml))
 			return;
 		
-		$this->host = (string)$xml->host;
+		if(count($xml->host))
+			$this->host = (string)$xml->host;
 		if(count($xml->port))
 			$this->port = (int)$xml->port;
-		$this->username = (string)$xml->username;
-		$this->password = (string)$xml->password;
+		if(count($xml->username))
+			$this->username = (string)$xml->username;
+		if(count($xml->password))
+			$this->password = (string)$xml->password;
 	}
 	/**
 	 * 

@@ -50,10 +50,13 @@ class EventNotificationTemplateListResponse extends \Kaltura\Client\Type\ListRes
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->objects))
-			$this->objects = array();
-		else
-			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaEventNotificationTemplate");
+		if(count($xml->objects))
+		{
+			if(empty($xml->objects))
+				$this->objects = array();
+			else
+				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaEventNotificationTemplate");
+		}
 	}
 	/**
 	 * 

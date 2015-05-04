@@ -50,17 +50,26 @@ class UserFilter extends \Kaltura\Client\Type\UserBaseFilter
 		if(is_null($xml))
 			return;
 		
-		$this->idOrScreenNameStartsWith = (string)$xml->idOrScreenNameStartsWith;
-		$this->idEqual = (string)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idOrScreenNameStartsWith))
+			$this->idOrScreenNameStartsWith = (string)$xml->idOrScreenNameStartsWith;
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->loginEnabledEqual))
 			$this->loginEnabledEqual = (int)$xml->loginEnabledEqual;
-		$this->roleIdEqual = (string)$xml->roleIdEqual;
-		$this->roleIdsEqual = (string)$xml->roleIdsEqual;
-		$this->roleIdsIn = (string)$xml->roleIdsIn;
-		$this->firstNameOrLastNameStartsWith = (string)$xml->firstNameOrLastNameStartsWith;
-		$this->permissionNamesMultiLikeOr = (string)$xml->permissionNamesMultiLikeOr;
-		$this->permissionNamesMultiLikeAnd = (string)$xml->permissionNamesMultiLikeAnd;
+		if(count($xml->roleIdEqual))
+			$this->roleIdEqual = (string)$xml->roleIdEqual;
+		if(count($xml->roleIdsEqual))
+			$this->roleIdsEqual = (string)$xml->roleIdsEqual;
+		if(count($xml->roleIdsIn))
+			$this->roleIdsIn = (string)$xml->roleIdsIn;
+		if(count($xml->firstNameOrLastNameStartsWith))
+			$this->firstNameOrLastNameStartsWith = (string)$xml->firstNameOrLastNameStartsWith;
+		if(count($xml->permissionNamesMultiLikeOr))
+			$this->permissionNamesMultiLikeOr = (string)$xml->permissionNamesMultiLikeOr;
+		if(count($xml->permissionNamesMultiLikeAnd))
+			$this->permissionNamesMultiLikeAnd = (string)$xml->permissionNamesMultiLikeAnd;
 	}
 	/**
 	 * 

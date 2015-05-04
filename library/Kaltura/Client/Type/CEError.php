@@ -50,17 +50,26 @@ class CEError extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->browser = (string)$xml->browser;
-		$this->serverIp = (string)$xml->serverIp;
-		$this->serverOs = (string)$xml->serverOs;
-		$this->phpVersion = (string)$xml->phpVersion;
-		$this->ceAdminEmail = (string)$xml->ceAdminEmail;
-		$this->type = (string)$xml->type;
-		$this->description = (string)$xml->description;
-		$this->data = (string)$xml->data;
+		if(count($xml->browser))
+			$this->browser = (string)$xml->browser;
+		if(count($xml->serverIp))
+			$this->serverIp = (string)$xml->serverIp;
+		if(count($xml->serverOs))
+			$this->serverOs = (string)$xml->serverOs;
+		if(count($xml->phpVersion))
+			$this->phpVersion = (string)$xml->phpVersion;
+		if(count($xml->ceAdminEmail))
+			$this->ceAdminEmail = (string)$xml->ceAdminEmail;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->data))
+			$this->data = (string)$xml->data;
 	}
 	/**
 	 * 

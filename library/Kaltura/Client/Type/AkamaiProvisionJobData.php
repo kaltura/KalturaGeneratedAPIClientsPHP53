@@ -50,12 +50,18 @@ class AkamaiProvisionJobData extends \Kaltura\Client\Type\ProvisionJobData
 		if(is_null($xml))
 			return;
 		
-		$this->wsdlUsername = (string)$xml->wsdlUsername;
-		$this->wsdlPassword = (string)$xml->wsdlPassword;
-		$this->cpcode = (string)$xml->cpcode;
-		$this->emailId = (string)$xml->emailId;
-		$this->primaryContact = (string)$xml->primaryContact;
-		$this->secondaryContact = (string)$xml->secondaryContact;
+		if(count($xml->wsdlUsername))
+			$this->wsdlUsername = (string)$xml->wsdlUsername;
+		if(count($xml->wsdlPassword))
+			$this->wsdlPassword = (string)$xml->wsdlPassword;
+		if(count($xml->cpcode))
+			$this->cpcode = (string)$xml->cpcode;
+		if(count($xml->emailId))
+			$this->emailId = (string)$xml->emailId;
+		if(count($xml->primaryContact))
+			$this->primaryContact = (string)$xml->primaryContact;
+		if(count($xml->secondaryContact))
+			$this->secondaryContact = (string)$xml->secondaryContact;
 	}
 	/**
 	 * 

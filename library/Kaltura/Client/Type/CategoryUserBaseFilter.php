@@ -52,15 +52,20 @@ abstract class CategoryUserBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		
 		if(count($xml->categoryIdEqual))
 			$this->categoryIdEqual = (int)$xml->categoryIdEqual;
-		$this->categoryIdIn = (string)$xml->categoryIdIn;
-		$this->userIdEqual = (string)$xml->userIdEqual;
-		$this->userIdIn = (string)$xml->userIdIn;
+		if(count($xml->categoryIdIn))
+			$this->categoryIdIn = (string)$xml->categoryIdIn;
+		if(count($xml->userIdEqual))
+			$this->userIdEqual = (string)$xml->userIdEqual;
+		if(count($xml->userIdIn))
+			$this->userIdIn = (string)$xml->userIdIn;
 		if(count($xml->permissionLevelEqual))
 			$this->permissionLevelEqual = (int)$xml->permissionLevelEqual;
-		$this->permissionLevelIn = (string)$xml->permissionLevelIn;
+		if(count($xml->permissionLevelIn))
+			$this->permissionLevelIn = (string)$xml->permissionLevelIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -71,12 +76,18 @@ abstract class CategoryUserBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
 		if(count($xml->updateMethodEqual))
 			$this->updateMethodEqual = (int)$xml->updateMethodEqual;
-		$this->updateMethodIn = (string)$xml->updateMethodIn;
-		$this->categoryFullIdsStartsWith = (string)$xml->categoryFullIdsStartsWith;
-		$this->categoryFullIdsEqual = (string)$xml->categoryFullIdsEqual;
-		$this->permissionNamesMatchAnd = (string)$xml->permissionNamesMatchAnd;
-		$this->permissionNamesMatchOr = (string)$xml->permissionNamesMatchOr;
-		$this->permissionNamesNotContains = (string)$xml->permissionNamesNotContains;
+		if(count($xml->updateMethodIn))
+			$this->updateMethodIn = (string)$xml->updateMethodIn;
+		if(count($xml->categoryFullIdsStartsWith))
+			$this->categoryFullIdsStartsWith = (string)$xml->categoryFullIdsStartsWith;
+		if(count($xml->categoryFullIdsEqual))
+			$this->categoryFullIdsEqual = (string)$xml->categoryFullIdsEqual;
+		if(count($xml->permissionNamesMatchAnd))
+			$this->permissionNamesMatchAnd = (string)$xml->permissionNamesMatchAnd;
+		if(count($xml->permissionNamesMatchOr))
+			$this->permissionNamesMatchOr = (string)$xml->permissionNamesMatchOr;
+		if(count($xml->permissionNamesNotContains))
+			$this->permissionNamesNotContains = (string)$xml->permissionNamesNotContains;
 	}
 	/**
 	 * 

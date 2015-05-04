@@ -50,7 +50,8 @@ class EntryContext extends \Kaltura\Client\Type\Context
 		if(is_null($xml))
 			return;
 		
-		$this->entryId = (string)$xml->entryId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
 		if(count($xml->followEntryRedirect))
 			$this->followEntryRedirect = (int)$xml->followEntryRedirect;
 	}

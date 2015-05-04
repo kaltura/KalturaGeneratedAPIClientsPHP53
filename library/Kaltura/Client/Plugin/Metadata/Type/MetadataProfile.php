@@ -54,21 +54,28 @@ class MetadataProfile extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->metadataObjectType = (string)$xml->metadataObjectType;
+		if(count($xml->metadataObjectType))
+			$this->metadataObjectType = (string)$xml->metadataObjectType;
 		if(count($xml->version))
 			$this->version = (int)$xml->version;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->description = (string)$xml->description;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->xsd = (string)$xml->xsd;
-		$this->views = (string)$xml->views;
-		$this->xslt = (string)$xml->xslt;
+		if(count($xml->xsd))
+			$this->xsd = (string)$xml->xsd;
+		if(count($xml->views))
+			$this->views = (string)$xml->views;
+		if(count($xml->xslt))
+			$this->xslt = (string)$xml->xslt;
 		if(count($xml->createMode))
 			$this->createMode = (int)$xml->createMode;
 	}

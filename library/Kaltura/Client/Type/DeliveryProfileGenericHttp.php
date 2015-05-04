@@ -50,7 +50,8 @@ class DeliveryProfileGenericHttp extends \Kaltura\Client\Type\DeliveryProfile
 		if(is_null($xml))
 			return;
 		
-		$this->pattern = (string)$xml->pattern;
+		if(count($xml->pattern))
+			$this->pattern = (string)$xml->pattern;
 	}
 	/**
 	 * 

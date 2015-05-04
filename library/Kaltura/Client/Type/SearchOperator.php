@@ -52,10 +52,13 @@ class SearchOperator extends \Kaltura\Client\Type\SearchItem
 		
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		if(empty($xml->items))
-			$this->items = array();
-		else
-			$this->items = \Kaltura\Client\ParseUtils::unmarshalArray($xml->items, "KalturaSearchItem");
+		if(count($xml->items))
+		{
+			if(empty($xml->items))
+				$this->items = array();
+			else
+				$this->items = \Kaltura\Client\ParseUtils::unmarshalArray($xml->items, "KalturaSearchItem");
+		}
 	}
 	/**
 	 * 

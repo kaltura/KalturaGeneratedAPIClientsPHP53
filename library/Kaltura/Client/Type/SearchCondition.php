@@ -50,8 +50,10 @@ class SearchCondition extends \Kaltura\Client\Type\SearchItem
 		if(is_null($xml))
 			return;
 		
-		$this->field = (string)$xml->field;
-		$this->value = (string)$xml->value;
+		if(count($xml->field))
+			$this->field = (string)$xml->field;
+		if(count($xml->value))
+			$this->value = (string)$xml->value;
 	}
 	/**
 	 * 

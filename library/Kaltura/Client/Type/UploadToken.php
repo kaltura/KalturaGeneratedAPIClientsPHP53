@@ -50,13 +50,16 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->userId = (string)$xml->userId;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->fileName = (string)$xml->fileName;
+		if(count($xml->fileName))
+			$this->fileName = (string)$xml->fileName;
 		if(count($xml->fileSize))
 			$this->fileSize = (float)$xml->fileSize;
 		if(count($xml->uploadedFileSize))

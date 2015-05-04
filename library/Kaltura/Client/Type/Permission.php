@@ -54,21 +54,28 @@ class Permission extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		$this->name = (string)$xml->name;
-		$this->friendlyName = (string)$xml->friendlyName;
-		$this->description = (string)$xml->description;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->friendlyName))
+			$this->friendlyName = (string)$xml->friendlyName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->dependsOnPermissionNames = (string)$xml->dependsOnPermissionNames;
-		$this->tags = (string)$xml->tags;
-		$this->permissionItemsIds = (string)$xml->permissionItemsIds;
+		if(count($xml->dependsOnPermissionNames))
+			$this->dependsOnPermissionNames = (string)$xml->dependsOnPermissionNames;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->permissionItemsIds))
+			$this->permissionItemsIds = (string)$xml->permissionItemsIds;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		$this->partnerGroup = (string)$xml->partnerGroup;
+		if(count($xml->partnerGroup))
+			$this->partnerGroup = (string)$xml->partnerGroup;
 	}
 	/**
 	 * 

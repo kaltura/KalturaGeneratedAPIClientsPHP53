@@ -52,23 +52,32 @@ class SchedulerConfig extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->createdBy = (string)$xml->createdBy;
-		$this->updatedBy = (string)$xml->updatedBy;
-		$this->commandId = (string)$xml->commandId;
-		$this->commandStatus = (string)$xml->commandStatus;
+		if(count($xml->createdBy))
+			$this->createdBy = (string)$xml->createdBy;
+		if(count($xml->updatedBy))
+			$this->updatedBy = (string)$xml->updatedBy;
+		if(count($xml->commandId))
+			$this->commandId = (string)$xml->commandId;
+		if(count($xml->commandStatus))
+			$this->commandStatus = (string)$xml->commandStatus;
 		if(count($xml->schedulerId))
 			$this->schedulerId = (int)$xml->schedulerId;
 		if(count($xml->schedulerConfiguredId))
 			$this->schedulerConfiguredId = (int)$xml->schedulerConfiguredId;
-		$this->schedulerName = (string)$xml->schedulerName;
+		if(count($xml->schedulerName))
+			$this->schedulerName = (string)$xml->schedulerName;
 		if(count($xml->workerId))
 			$this->workerId = (int)$xml->workerId;
 		if(count($xml->workerConfiguredId))
 			$this->workerConfiguredId = (int)$xml->workerConfiguredId;
-		$this->workerName = (string)$xml->workerName;
-		$this->variable = (string)$xml->variable;
-		$this->variablePart = (string)$xml->variablePart;
-		$this->value = (string)$xml->value;
+		if(count($xml->workerName))
+			$this->workerName = (string)$xml->workerName;
+		if(count($xml->variable))
+			$this->variable = (string)$xml->variable;
+		if(count($xml->variablePart))
+			$this->variablePart = (string)$xml->variablePart;
+		if(count($xml->value))
+			$this->value = (string)$xml->value;
 	}
 	/**
 	 * The id of the Category

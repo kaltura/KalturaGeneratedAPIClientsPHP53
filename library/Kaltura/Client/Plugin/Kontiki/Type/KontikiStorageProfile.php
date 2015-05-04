@@ -50,7 +50,8 @@ class KontikiStorageProfile extends \Kaltura\Client\Type\StorageProfile
 		if(is_null($xml))
 			return;
 		
-		$this->serviceToken = (string)$xml->serviceToken;
+		if(count($xml->serviceToken))
+			$this->serviceToken = (string)$xml->serviceToken;
 	}
 	/**
 	 * 

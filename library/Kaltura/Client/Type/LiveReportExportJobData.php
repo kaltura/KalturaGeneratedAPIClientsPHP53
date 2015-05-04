@@ -54,9 +54,12 @@ class LiveReportExportJobData extends \Kaltura\Client\Type\JobData
 			$this->timeReference = (int)$xml->timeReference;
 		if(count($xml->timeZoneOffset))
 			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		$this->entryIds = (string)$xml->entryIds;
-		$this->outputPath = (string)$xml->outputPath;
-		$this->recipientEmail = (string)$xml->recipientEmail;
+		if(count($xml->entryIds))
+			$this->entryIds = (string)$xml->entryIds;
+		if(count($xml->outputPath))
+			$this->outputPath = (string)$xml->outputPath;
+		if(count($xml->recipientEmail))
+			$this->recipientEmail = (string)$xml->recipientEmail;
 	}
 	/**
 	 * 

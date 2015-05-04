@@ -54,14 +54,18 @@ class InternalToolsSession extends \Kaltura\Client\ObjectBase
 			$this->partner_id = (int)$xml->partner_id;
 		if(count($xml->valid_until))
 			$this->valid_until = (int)$xml->valid_until;
-		$this->partner_pattern = (string)$xml->partner_pattern;
+		if(count($xml->partner_pattern))
+			$this->partner_pattern = (string)$xml->partner_pattern;
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		$this->error = (string)$xml->error;
+		if(count($xml->error))
+			$this->error = (string)$xml->error;
 		if(count($xml->rand))
 			$this->rand = (int)$xml->rand;
-		$this->user = (string)$xml->user;
-		$this->privileges = (string)$xml->privileges;
+		if(count($xml->user))
+			$this->user = (string)$xml->user;
+		if(count($xml->privileges))
+			$this->privileges = (string)$xml->privileges;
 	}
 	/**
 	 * 

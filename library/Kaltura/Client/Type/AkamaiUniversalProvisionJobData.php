@@ -52,17 +52,24 @@ class AkamaiUniversalProvisionJobData extends \Kaltura\Client\Type\ProvisionJobD
 		
 		if(count($xml->streamId))
 			$this->streamId = (int)$xml->streamId;
-		$this->systemUserName = (string)$xml->systemUserName;
-		$this->systemPassword = (string)$xml->systemPassword;
-		$this->domainName = (string)$xml->domainName;
+		if(count($xml->systemUserName))
+			$this->systemUserName = (string)$xml->systemUserName;
+		if(count($xml->systemPassword))
+			$this->systemPassword = (string)$xml->systemPassword;
+		if(count($xml->domainName))
+			$this->domainName = (string)$xml->domainName;
 		if(count($xml->dvrEnabled))
 			$this->dvrEnabled = (int)$xml->dvrEnabled;
 		if(count($xml->dvrWindow))
 			$this->dvrWindow = (int)$xml->dvrWindow;
-		$this->primaryContact = (string)$xml->primaryContact;
-		$this->secondaryContact = (string)$xml->secondaryContact;
-		$this->streamType = (string)$xml->streamType;
-		$this->notificationEmail = (string)$xml->notificationEmail;
+		if(count($xml->primaryContact))
+			$this->primaryContact = (string)$xml->primaryContact;
+		if(count($xml->secondaryContact))
+			$this->secondaryContact = (string)$xml->secondaryContact;
+		if(count($xml->streamType))
+			$this->streamType = (string)$xml->streamType;
+		if(count($xml->notificationEmail))
+			$this->notificationEmail = (string)$xml->notificationEmail;
 	}
 	/**
 	 * 

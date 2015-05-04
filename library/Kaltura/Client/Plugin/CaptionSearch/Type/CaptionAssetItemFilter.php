@@ -50,16 +50,26 @@ class CaptionAssetItemFilter extends \Kaltura\Client\Plugin\Caption\Type\Caption
 		if(is_null($xml))
 			return;
 		
-		$this->contentLike = (string)$xml->contentLike;
-		$this->contentMultiLikeOr = (string)$xml->contentMultiLikeOr;
-		$this->contentMultiLikeAnd = (string)$xml->contentMultiLikeAnd;
-		$this->partnerDescriptionLike = (string)$xml->partnerDescriptionLike;
-		$this->partnerDescriptionMultiLikeOr = (string)$xml->partnerDescriptionMultiLikeOr;
-		$this->partnerDescriptionMultiLikeAnd = (string)$xml->partnerDescriptionMultiLikeAnd;
-		$this->languageEqual = (string)$xml->languageEqual;
-		$this->languageIn = (string)$xml->languageIn;
-		$this->labelEqual = (string)$xml->labelEqual;
-		$this->labelIn = (string)$xml->labelIn;
+		if(count($xml->contentLike))
+			$this->contentLike = (string)$xml->contentLike;
+		if(count($xml->contentMultiLikeOr))
+			$this->contentMultiLikeOr = (string)$xml->contentMultiLikeOr;
+		if(count($xml->contentMultiLikeAnd))
+			$this->contentMultiLikeAnd = (string)$xml->contentMultiLikeAnd;
+		if(count($xml->partnerDescriptionLike))
+			$this->partnerDescriptionLike = (string)$xml->partnerDescriptionLike;
+		if(count($xml->partnerDescriptionMultiLikeOr))
+			$this->partnerDescriptionMultiLikeOr = (string)$xml->partnerDescriptionMultiLikeOr;
+		if(count($xml->partnerDescriptionMultiLikeAnd))
+			$this->partnerDescriptionMultiLikeAnd = (string)$xml->partnerDescriptionMultiLikeAnd;
+		if(count($xml->languageEqual))
+			$this->languageEqual = (string)$xml->languageEqual;
+		if(count($xml->languageIn))
+			$this->languageIn = (string)$xml->languageIn;
+		if(count($xml->labelEqual))
+			$this->labelEqual = (string)$xml->labelEqual;
+		if(count($xml->labelIn))
+			$this->labelIn = (string)$xml->labelIn;
 		if(count($xml->startTimeGreaterThanOrEqual))
 			$this->startTimeGreaterThanOrEqual = (int)$xml->startTimeGreaterThanOrEqual;
 		if(count($xml->startTimeLessThanOrEqual))

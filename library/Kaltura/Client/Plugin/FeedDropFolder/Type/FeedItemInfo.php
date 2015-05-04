@@ -50,15 +50,24 @@ class FeedItemInfo extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->itemXPath = (string)$xml->itemXPath;
-		$this->itemPublishDateXPath = (string)$xml->itemPublishDateXPath;
-		$this->itemUniqueIdentifierXPath = (string)$xml->itemUniqueIdentifierXPath;
-		$this->itemContentFileSizeXPath = (string)$xml->itemContentFileSizeXPath;
-		$this->itemContentUrlXPath = (string)$xml->itemContentUrlXPath;
-		$this->itemContentBitrateXPath = (string)$xml->itemContentBitrateXPath;
-		$this->itemHashXPath = (string)$xml->itemHashXPath;
-		$this->itemContentXpath = (string)$xml->itemContentXpath;
-		$this->contentBitrateAttributeName = (string)$xml->contentBitrateAttributeName;
+		if(count($xml->itemXPath))
+			$this->itemXPath = (string)$xml->itemXPath;
+		if(count($xml->itemPublishDateXPath))
+			$this->itemPublishDateXPath = (string)$xml->itemPublishDateXPath;
+		if(count($xml->itemUniqueIdentifierXPath))
+			$this->itemUniqueIdentifierXPath = (string)$xml->itemUniqueIdentifierXPath;
+		if(count($xml->itemContentFileSizeXPath))
+			$this->itemContentFileSizeXPath = (string)$xml->itemContentFileSizeXPath;
+		if(count($xml->itemContentUrlXPath))
+			$this->itemContentUrlXPath = (string)$xml->itemContentUrlXPath;
+		if(count($xml->itemContentBitrateXPath))
+			$this->itemContentBitrateXPath = (string)$xml->itemContentBitrateXPath;
+		if(count($xml->itemHashXPath))
+			$this->itemHashXPath = (string)$xml->itemHashXPath;
+		if(count($xml->itemContentXpath))
+			$this->itemContentXpath = (string)$xml->itemContentXpath;
+		if(count($xml->contentBitrateAttributeName))
+			$this->contentBitrateAttributeName = (string)$xml->contentBitrateAttributeName;
 	}
 	/**
 	 * 

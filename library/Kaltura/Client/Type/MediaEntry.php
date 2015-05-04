@@ -52,17 +52,24 @@ class MediaEntry extends \Kaltura\Client\Type\PlayableEntry
 		
 		if(count($xml->mediaType))
 			$this->mediaType = (int)$xml->mediaType;
-		$this->conversionQuality = (string)$xml->conversionQuality;
-		$this->sourceType = (string)$xml->sourceType;
+		if(count($xml->conversionQuality))
+			$this->conversionQuality = (string)$xml->conversionQuality;
+		if(count($xml->sourceType))
+			$this->sourceType = (string)$xml->sourceType;
 		if(count($xml->searchProviderType))
 			$this->searchProviderType = (int)$xml->searchProviderType;
-		$this->searchProviderId = (string)$xml->searchProviderId;
-		$this->creditUserName = (string)$xml->creditUserName;
-		$this->creditUrl = (string)$xml->creditUrl;
+		if(count($xml->searchProviderId))
+			$this->searchProviderId = (string)$xml->searchProviderId;
+		if(count($xml->creditUserName))
+			$this->creditUserName = (string)$xml->creditUserName;
+		if(count($xml->creditUrl))
+			$this->creditUrl = (string)$xml->creditUrl;
 		if(count($xml->mediaDate))
 			$this->mediaDate = (int)$xml->mediaDate;
-		$this->dataUrl = (string)$xml->dataUrl;
-		$this->flavorParamsIds = (string)$xml->flavorParamsIds;
+		if(count($xml->dataUrl))
+			$this->dataUrl = (string)$xml->dataUrl;
+		if(count($xml->flavorParamsIds))
+			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
 	}
 	/**
 	 * The media type of the entry

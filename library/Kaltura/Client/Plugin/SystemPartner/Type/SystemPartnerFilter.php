@@ -52,7 +52,8 @@ class SystemPartnerFilter extends \Kaltura\Client\Type\PartnerFilter
 		
 		if(count($xml->partnerParentIdEqual))
 			$this->partnerParentIdEqual = (int)$xml->partnerParentIdEqual;
-		$this->partnerParentIdIn = (string)$xml->partnerParentIdIn;
+		if(count($xml->partnerParentIdIn))
+			$this->partnerParentIdIn = (string)$xml->partnerParentIdIn;
 	}
 	/**
 	 * 

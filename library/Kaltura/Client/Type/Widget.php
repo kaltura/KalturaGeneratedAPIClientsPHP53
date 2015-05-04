@@ -50,12 +50,16 @@ class Widget extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->sourceWidgetId = (string)$xml->sourceWidgetId;
-		$this->rootWidgetId = (string)$xml->rootWidgetId;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->sourceWidgetId))
+			$this->sourceWidgetId = (string)$xml->sourceWidgetId;
+		if(count($xml->rootWidgetId))
+			$this->rootWidgetId = (string)$xml->rootWidgetId;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->entryId = (string)$xml->entryId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
 		if(count($xml->uiConfId))
 			$this->uiConfId = (int)$xml->uiConfId;
 		if(count($xml->securityType))
@@ -66,13 +70,26 @@ class Widget extends \Kaltura\Client\ObjectBase
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		$this->partnerData = (string)$xml->partnerData;
-		$this->widgetHTML = (string)$xml->widgetHTML;
-		if(!empty($xml->enforceEntitlement))
-			$this->enforceEntitlement = true;
-		$this->privacyContext = (string)$xml->privacyContext;
-		if(!empty($xml->addEmbedHtml5Support))
-			$this->addEmbedHtml5Support = true;
+		if(count($xml->partnerData))
+			$this->partnerData = (string)$xml->partnerData;
+		if(count($xml->widgetHTML))
+			$this->widgetHTML = (string)$xml->widgetHTML;
+		if(count($xml->enforceEntitlement))
+		{
+			if(!empty($xml->enforceEntitlement))
+				$this->enforceEntitlement = true;
+			else
+				$this->enforceEntitlement = false;
+		}
+		if(count($xml->privacyContext))
+			$this->privacyContext = (string)$xml->privacyContext;
+		if(count($xml->addEmbedHtml5Support))
+		{
+			if(!empty($xml->addEmbedHtml5Support))
+				$this->addEmbedHtml5Support = true;
+			else
+				$this->addEmbedHtml5Support = false;
+		}
 	}
 	/**
 	 * 

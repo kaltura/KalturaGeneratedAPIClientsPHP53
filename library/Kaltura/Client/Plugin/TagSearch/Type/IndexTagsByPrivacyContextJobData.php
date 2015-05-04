@@ -52,8 +52,10 @@ class IndexTagsByPrivacyContextJobData extends \Kaltura\Client\Type\JobData
 		
 		if(count($xml->changedCategoryId))
 			$this->changedCategoryId = (int)$xml->changedCategoryId;
-		$this->deletedPrivacyContexts = (string)$xml->deletedPrivacyContexts;
-		$this->addedPrivacyContexts = (string)$xml->addedPrivacyContexts;
+		if(count($xml->deletedPrivacyContexts))
+			$this->deletedPrivacyContexts = (string)$xml->deletedPrivacyContexts;
+		if(count($xml->addedPrivacyContexts))
+			$this->addedPrivacyContexts = (string)$xml->addedPrivacyContexts;
 	}
 	/**
 	 * 

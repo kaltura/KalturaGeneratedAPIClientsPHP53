@@ -58,8 +58,10 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->providerType = (string)$xml->providerType;
-		$this->name = (string)$xml->name;
+		if(count($xml->providerType))
+			$this->providerType = (string)$xml->providerType;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->submitEnabled))
@@ -70,26 +72,42 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 			$this->deleteEnabled = (int)$xml->deleteEnabled;
 		if(count($xml->reportEnabled))
 			$this->reportEnabled = (int)$xml->reportEnabled;
-		$this->autoCreateFlavors = (string)$xml->autoCreateFlavors;
-		$this->autoCreateThumb = (string)$xml->autoCreateThumb;
-		$this->optionalFlavorParamsIds = (string)$xml->optionalFlavorParamsIds;
-		$this->requiredFlavorParamsIds = (string)$xml->requiredFlavorParamsIds;
-		if(empty($xml->optionalThumbDimensions))
-			$this->optionalThumbDimensions = array();
-		else
-			$this->optionalThumbDimensions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->optionalThumbDimensions, "KalturaDistributionThumbDimensions");
-		if(empty($xml->requiredThumbDimensions))
-			$this->requiredThumbDimensions = array();
-		else
-			$this->requiredThumbDimensions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->requiredThumbDimensions, "KalturaDistributionThumbDimensions");
-		if(empty($xml->optionalAssetDistributionRules))
-			$this->optionalAssetDistributionRules = array();
-		else
-			$this->optionalAssetDistributionRules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->optionalAssetDistributionRules, "KalturaAssetDistributionRule");
-		if(empty($xml->requiredAssetDistributionRules))
-			$this->requiredAssetDistributionRules = array();
-		else
-			$this->requiredAssetDistributionRules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->requiredAssetDistributionRules, "KalturaAssetDistributionRule");
+		if(count($xml->autoCreateFlavors))
+			$this->autoCreateFlavors = (string)$xml->autoCreateFlavors;
+		if(count($xml->autoCreateThumb))
+			$this->autoCreateThumb = (string)$xml->autoCreateThumb;
+		if(count($xml->optionalFlavorParamsIds))
+			$this->optionalFlavorParamsIds = (string)$xml->optionalFlavorParamsIds;
+		if(count($xml->requiredFlavorParamsIds))
+			$this->requiredFlavorParamsIds = (string)$xml->requiredFlavorParamsIds;
+		if(count($xml->optionalThumbDimensions))
+		{
+			if(empty($xml->optionalThumbDimensions))
+				$this->optionalThumbDimensions = array();
+			else
+				$this->optionalThumbDimensions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->optionalThumbDimensions, "KalturaDistributionThumbDimensions");
+		}
+		if(count($xml->requiredThumbDimensions))
+		{
+			if(empty($xml->requiredThumbDimensions))
+				$this->requiredThumbDimensions = array();
+			else
+				$this->requiredThumbDimensions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->requiredThumbDimensions, "KalturaDistributionThumbDimensions");
+		}
+		if(count($xml->optionalAssetDistributionRules))
+		{
+			if(empty($xml->optionalAssetDistributionRules))
+				$this->optionalAssetDistributionRules = array();
+			else
+				$this->optionalAssetDistributionRules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->optionalAssetDistributionRules, "KalturaAssetDistributionRule");
+		}
+		if(count($xml->requiredAssetDistributionRules))
+		{
+			if(empty($xml->requiredAssetDistributionRules))
+				$this->requiredAssetDistributionRules = array();
+			else
+				$this->requiredAssetDistributionRules = \Kaltura\Client\ParseUtils::unmarshalArray($xml->requiredAssetDistributionRules, "KalturaAssetDistributionRule");
+		}
 		if(count($xml->sunriseDefaultOffset))
 			$this->sunriseDefaultOffset = (int)$xml->sunriseDefaultOffset;
 		if(count($xml->sunsetDefaultOffset))

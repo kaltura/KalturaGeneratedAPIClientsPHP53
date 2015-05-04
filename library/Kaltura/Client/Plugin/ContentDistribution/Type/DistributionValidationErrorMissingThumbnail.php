@@ -50,7 +50,7 @@ class DistributionValidationErrorMissingThumbnail extends \Kaltura\Client\Plugin
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->dimensions))
+		if(count($xml->dimensions) && !empty($xml->dimensions))
 			$this->dimensions = \Kaltura\Client\ParseUtils::unmarshalObject($xml->dimensions, "KalturaDistributionThumbDimensions");
 	}
 	/**

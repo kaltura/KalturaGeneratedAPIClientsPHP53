@@ -50,8 +50,13 @@ class DeliveryProfileAkamaiAppleHttpManifest extends \Kaltura\Client\Type\Delive
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->supportClipping))
-			$this->supportClipping = true;
+		if(count($xml->supportClipping))
+		{
+			if(!empty($xml->supportClipping))
+				$this->supportClipping = true;
+			else
+				$this->supportClipping = false;
+		}
 	}
 	/**
 	 * Should we use timing parameters - clipTo / seekFrom

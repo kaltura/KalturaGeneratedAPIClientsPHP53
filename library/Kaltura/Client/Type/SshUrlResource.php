@@ -52,9 +52,12 @@ class SshUrlResource extends \Kaltura\Client\Type\UrlResource
 		if(is_null($xml))
 			return;
 		
-		$this->privateKey = (string)$xml->privateKey;
-		$this->publicKey = (string)$xml->publicKey;
-		$this->keyPassphrase = (string)$xml->keyPassphrase;
+		if(count($xml->privateKey))
+			$this->privateKey = (string)$xml->privateKey;
+		if(count($xml->publicKey))
+			$this->publicKey = (string)$xml->publicKey;
+		if(count($xml->keyPassphrase))
+			$this->keyPassphrase = (string)$xml->keyPassphrase;
 	}
 	/**
 	 * SSH private key

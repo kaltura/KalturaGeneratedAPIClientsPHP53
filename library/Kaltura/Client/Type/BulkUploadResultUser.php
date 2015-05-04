@@ -50,21 +50,32 @@ class BulkUploadResultUser extends \Kaltura\Client\Type\BulkUploadResult
 		if(is_null($xml))
 			return;
 		
-		$this->userId = (string)$xml->userId;
-		$this->screenName = (string)$xml->screenName;
-		$this->email = (string)$xml->email;
-		$this->description = (string)$xml->description;
-		$this->tags = (string)$xml->tags;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->screenName))
+			$this->screenName = (string)$xml->screenName;
+		if(count($xml->email))
+			$this->email = (string)$xml->email;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
 		if(count($xml->dateOfBirth))
 			$this->dateOfBirth = (int)$xml->dateOfBirth;
-		$this->country = (string)$xml->country;
-		$this->state = (string)$xml->state;
-		$this->city = (string)$xml->city;
-		$this->zip = (string)$xml->zip;
+		if(count($xml->country))
+			$this->country = (string)$xml->country;
+		if(count($xml->state))
+			$this->state = (string)$xml->state;
+		if(count($xml->city))
+			$this->city = (string)$xml->city;
+		if(count($xml->zip))
+			$this->zip = (string)$xml->zip;
 		if(count($xml->gender))
 			$this->gender = (int)$xml->gender;
-		$this->firstName = (string)$xml->firstName;
-		$this->lastName = (string)$xml->lastName;
+		if(count($xml->firstName))
+			$this->firstName = (string)$xml->firstName;
+		if(count($xml->lastName))
+			$this->lastName = (string)$xml->lastName;
 	}
 	/**
 	 * 

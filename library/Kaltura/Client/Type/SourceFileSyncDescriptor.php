@@ -50,8 +50,10 @@ class SourceFileSyncDescriptor extends \Kaltura\Client\Type\FileSyncDescriptor
 		if(is_null($xml))
 			return;
 		
-		$this->actualFileSyncLocalPath = (string)$xml->actualFileSyncLocalPath;
-		$this->assetId = (string)$xml->assetId;
+		if(count($xml->actualFileSyncLocalPath))
+			$this->actualFileSyncLocalPath = (string)$xml->actualFileSyncLocalPath;
+		if(count($xml->assetId))
+			$this->assetId = (string)$xml->assetId;
 		if(count($xml->assetParamsId))
 			$this->assetParamsId = (int)$xml->assetParamsId;
 	}

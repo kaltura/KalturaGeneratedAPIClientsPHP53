@@ -50,7 +50,8 @@ class CuePointFilter extends \Kaltura\Client\Plugin\CuePoint\Type\CuePointBaseFi
 		if(is_null($xml))
 			return;
 		
-		$this->freeText = (string)$xml->freeText;
+		if(count($xml->freeText))
+			$this->freeText = (string)$xml->freeText;
 	}
 	/**
 	 * 

@@ -52,29 +52,51 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->partnerName = (string)$xml->partnerName;
-		$this->description = (string)$xml->description;
-		$this->adminName = (string)$xml->adminName;
-		$this->adminEmail = (string)$xml->adminEmail;
-		$this->host = (string)$xml->host;
-		$this->cdnHost = (string)$xml->cdnHost;
-		$this->thumbnailHost = (string)$xml->thumbnailHost;
+		if(count($xml->partnerName))
+			$this->partnerName = (string)$xml->partnerName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->adminName))
+			$this->adminName = (string)$xml->adminName;
+		if(count($xml->adminEmail))
+			$this->adminEmail = (string)$xml->adminEmail;
+		if(count($xml->host))
+			$this->host = (string)$xml->host;
+		if(count($xml->cdnHost))
+			$this->cdnHost = (string)$xml->cdnHost;
+		if(count($xml->thumbnailHost))
+			$this->thumbnailHost = (string)$xml->thumbnailHost;
 		if(count($xml->partnerPackage))
 			$this->partnerPackage = (int)$xml->partnerPackage;
 		if(count($xml->monitorUsage))
 			$this->monitorUsage = (int)$xml->monitorUsage;
-		if(!empty($xml->moderateContent))
-			$this->moderateContent = true;
-		if(!empty($xml->storageDeleteFromKaltura))
-			$this->storageDeleteFromKaltura = true;
+		if(count($xml->moderateContent))
+		{
+			if(!empty($xml->moderateContent))
+				$this->moderateContent = true;
+			else
+				$this->moderateContent = false;
+		}
+		if(count($xml->storageDeleteFromKaltura))
+		{
+			if(!empty($xml->storageDeleteFromKaltura))
+				$this->storageDeleteFromKaltura = true;
+			else
+				$this->storageDeleteFromKaltura = false;
+		}
 		if(count($xml->storageServePriority))
 			$this->storageServePriority = (int)$xml->storageServePriority;
 		if(count($xml->kmcVersion))
 			$this->kmcVersion = (int)$xml->kmcVersion;
 		if(count($xml->restrictThumbnailByKs))
 			$this->restrictThumbnailByKs = (int)$xml->restrictThumbnailByKs;
-		if(!empty($xml->supportAnimatedThumbnails))
-			$this->supportAnimatedThumbnails = true;
+		if(count($xml->supportAnimatedThumbnails))
+		{
+			if(!empty($xml->supportAnimatedThumbnails))
+				$this->supportAnimatedThumbnails = true;
+			else
+				$this->supportAnimatedThumbnails = false;
+		}
 		if(count($xml->defThumbOffset))
 			$this->defThumbOffset = (int)$xml->defThumbOffset;
 		if(count($xml->defThumbDensity))
@@ -83,74 +105,143 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 			$this->userSessionRoleId = (int)$xml->userSessionRoleId;
 		if(count($xml->adminSessionRoleId))
 			$this->adminSessionRoleId = (int)$xml->adminSessionRoleId;
-		$this->alwaysAllowedPermissionNames = (string)$xml->alwaysAllowedPermissionNames;
-		if(!empty($xml->importRemoteSourceForConvert))
-			$this->importRemoteSourceForConvert = true;
-		if(empty($xml->permissions))
-			$this->permissions = array();
-		else
-			$this->permissions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->permissions, "KalturaPermission");
-		$this->notificationsConfig = (string)$xml->notificationsConfig;
-		if(!empty($xml->allowMultiNotification))
-			$this->allowMultiNotification = true;
+		if(count($xml->alwaysAllowedPermissionNames))
+			$this->alwaysAllowedPermissionNames = (string)$xml->alwaysAllowedPermissionNames;
+		if(count($xml->importRemoteSourceForConvert))
+		{
+			if(!empty($xml->importRemoteSourceForConvert))
+				$this->importRemoteSourceForConvert = true;
+			else
+				$this->importRemoteSourceForConvert = false;
+		}
+		if(count($xml->permissions))
+		{
+			if(empty($xml->permissions))
+				$this->permissions = array();
+			else
+				$this->permissions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->permissions, "KalturaPermission");
+		}
+		if(count($xml->notificationsConfig))
+			$this->notificationsConfig = (string)$xml->notificationsConfig;
+		if(count($xml->allowMultiNotification))
+		{
+			if(!empty($xml->allowMultiNotification))
+				$this->allowMultiNotification = true;
+			else
+				$this->allowMultiNotification = false;
+		}
 		if(count($xml->loginBlockPeriod))
 			$this->loginBlockPeriod = (int)$xml->loginBlockPeriod;
 		if(count($xml->numPrevPassToKeep))
 			$this->numPrevPassToKeep = (int)$xml->numPrevPassToKeep;
 		if(count($xml->passReplaceFreq))
 			$this->passReplaceFreq = (int)$xml->passReplaceFreq;
-		if(!empty($xml->isFirstLogin))
-			$this->isFirstLogin = true;
+		if(count($xml->isFirstLogin))
+		{
+			if(!empty($xml->isFirstLogin))
+				$this->isFirstLogin = true;
+			else
+				$this->isFirstLogin = false;
+		}
 		if(count($xml->partnerGroupType))
 			$this->partnerGroupType = (int)$xml->partnerGroupType;
 		if(count($xml->partnerParentId))
 			$this->partnerParentId = (int)$xml->partnerParentId;
-		if(empty($xml->limits))
-			$this->limits = array();
-		else
-			$this->limits = \Kaltura\Client\ParseUtils::unmarshalArray($xml->limits, "KalturaSystemPartnerLimit");
-		$this->streamerType = (string)$xml->streamerType;
-		$this->mediaProtocol = (string)$xml->mediaProtocol;
-		$this->extendedFreeTrailExpiryReason = (string)$xml->extendedFreeTrailExpiryReason;
+		if(count($xml->limits))
+		{
+			if(empty($xml->limits))
+				$this->limits = array();
+			else
+				$this->limits = \Kaltura\Client\ParseUtils::unmarshalArray($xml->limits, "KalturaSystemPartnerLimit");
+		}
+		if(count($xml->streamerType))
+			$this->streamerType = (string)$xml->streamerType;
+		if(count($xml->mediaProtocol))
+			$this->mediaProtocol = (string)$xml->mediaProtocol;
+		if(count($xml->extendedFreeTrailExpiryReason))
+			$this->extendedFreeTrailExpiryReason = (string)$xml->extendedFreeTrailExpiryReason;
 		if(count($xml->extendedFreeTrailExpiryDate))
 			$this->extendedFreeTrailExpiryDate = (int)$xml->extendedFreeTrailExpiryDate;
 		if(count($xml->extendedFreeTrail))
 			$this->extendedFreeTrail = (int)$xml->extendedFreeTrail;
-		$this->crmId = (string)$xml->crmId;
-		$this->referenceId = (string)$xml->referenceId;
-		$this->crmLink = (string)$xml->crmLink;
-		$this->verticalClasiffication = (string)$xml->verticalClasiffication;
-		$this->partnerPackageClassOfService = (string)$xml->partnerPackageClassOfService;
-		if(!empty($xml->enableBulkUploadNotificationsEmails))
-			$this->enableBulkUploadNotificationsEmails = true;
-		$this->deliveryProfileIds = (string)$xml->deliveryProfileIds;
-		if(!empty($xml->enforceDelivery))
-			$this->enforceDelivery = true;
-		$this->bulkUploadNotificationsEmail = (string)$xml->bulkUploadNotificationsEmail;
-		if(!empty($xml->internalUse))
-			$this->internalUse = true;
-		$this->defaultLiveStreamEntrySourceType = (string)$xml->defaultLiveStreamEntrySourceType;
-		$this->liveStreamProvisionParams = (string)$xml->liveStreamProvisionParams;
-		if(!empty($xml->autoModerateEntryFilter))
+		if(count($xml->crmId))
+			$this->crmId = (string)$xml->crmId;
+		if(count($xml->referenceId))
+			$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->crmLink))
+			$this->crmLink = (string)$xml->crmLink;
+		if(count($xml->verticalClasiffication))
+			$this->verticalClasiffication = (string)$xml->verticalClasiffication;
+		if(count($xml->partnerPackageClassOfService))
+			$this->partnerPackageClassOfService = (string)$xml->partnerPackageClassOfService;
+		if(count($xml->enableBulkUploadNotificationsEmails))
+		{
+			if(!empty($xml->enableBulkUploadNotificationsEmails))
+				$this->enableBulkUploadNotificationsEmails = true;
+			else
+				$this->enableBulkUploadNotificationsEmails = false;
+		}
+		if(count($xml->deliveryProfileIds))
+			$this->deliveryProfileIds = (string)$xml->deliveryProfileIds;
+		if(count($xml->enforceDelivery))
+		{
+			if(!empty($xml->enforceDelivery))
+				$this->enforceDelivery = true;
+			else
+				$this->enforceDelivery = false;
+		}
+		if(count($xml->bulkUploadNotificationsEmail))
+			$this->bulkUploadNotificationsEmail = (string)$xml->bulkUploadNotificationsEmail;
+		if(count($xml->internalUse))
+		{
+			if(!empty($xml->internalUse))
+				$this->internalUse = true;
+			else
+				$this->internalUse = false;
+		}
+		if(count($xml->defaultLiveStreamEntrySourceType))
+			$this->defaultLiveStreamEntrySourceType = (string)$xml->defaultLiveStreamEntrySourceType;
+		if(count($xml->liveStreamProvisionParams))
+			$this->liveStreamProvisionParams = (string)$xml->liveStreamProvisionParams;
+		if(count($xml->autoModerateEntryFilter) && !empty($xml->autoModerateEntryFilter))
 			$this->autoModerateEntryFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->autoModerateEntryFilter, "KalturaBaseEntryFilter");
-		$this->logoutUrl = (string)$xml->logoutUrl;
-		if(!empty($xml->defaultEntitlementEnforcement))
-			$this->defaultEntitlementEnforcement = true;
+		if(count($xml->logoutUrl))
+			$this->logoutUrl = (string)$xml->logoutUrl;
+		if(count($xml->defaultEntitlementEnforcement))
+		{
+			if(!empty($xml->defaultEntitlementEnforcement))
+				$this->defaultEntitlementEnforcement = true;
+			else
+				$this->defaultEntitlementEnforcement = false;
+		}
 		if(count($xml->cacheFlavorVersion))
 			$this->cacheFlavorVersion = (int)$xml->cacheFlavorVersion;
 		if(count($xml->apiAccessControlId))
 			$this->apiAccessControlId = (int)$xml->apiAccessControlId;
-		$this->defaultDeliveryType = (string)$xml->defaultDeliveryType;
-		$this->defaultEmbedCodeType = (string)$xml->defaultEmbedCodeType;
-		if(empty($xml->customDeliveryTypes))
-			$this->customDeliveryTypes = array();
-		else
-			$this->customDeliveryTypes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->customDeliveryTypes, "KalturaKeyBooleanValue");
-		if(!empty($xml->restrictEntryByMetadata))
-			$this->restrictEntryByMetadata = true;
-		$this->language = (string)$xml->language;
-		$this->audioThumbEntryId = (string)$xml->audioThumbEntryId;
-		$this->liveThumbEntryId = (string)$xml->liveThumbEntryId;
+		if(count($xml->defaultDeliveryType))
+			$this->defaultDeliveryType = (string)$xml->defaultDeliveryType;
+		if(count($xml->defaultEmbedCodeType))
+			$this->defaultEmbedCodeType = (string)$xml->defaultEmbedCodeType;
+		if(count($xml->customDeliveryTypes))
+		{
+			if(empty($xml->customDeliveryTypes))
+				$this->customDeliveryTypes = array();
+			else
+				$this->customDeliveryTypes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->customDeliveryTypes, "KalturaKeyBooleanValue");
+		}
+		if(count($xml->restrictEntryByMetadata))
+		{
+			if(!empty($xml->restrictEntryByMetadata))
+				$this->restrictEntryByMetadata = true;
+			else
+				$this->restrictEntryByMetadata = false;
+		}
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
+		if(count($xml->audioThumbEntryId))
+			$this->audioThumbEntryId = (string)$xml->audioThumbEntryId;
+		if(count($xml->liveThumbEntryId))
+			$this->liveThumbEntryId = (string)$xml->liveThumbEntryId;
 	}
 	/**
 	 * 

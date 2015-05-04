@@ -52,7 +52,7 @@ class EmailNotificationCategoryRecipientJobData extends \Kaltura\Client\Plugin\E
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->categoryUserFilter))
+		if(count($xml->categoryUserFilter) && !empty($xml->categoryUserFilter))
 			$this->categoryUserFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->categoryUserFilter, "KalturaCategoryUserFilter");
 	}
 	/**

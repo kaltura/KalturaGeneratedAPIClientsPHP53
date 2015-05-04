@@ -899,9 +899,9 @@ class Client extends Base
 	/**
 	 * Response profile
 	 * 
-	 * @param KalturaBaseResponseProfile $responseProfile
+	 * @param \Kaltura\Client\Type\BaseResponseProfile $responseProfile
 	 */
-	public function setResponseProfile(KalturaBaseResponseProfile $responseProfile)
+	public function setResponseProfile(\Kaltura\Client\Type\BaseResponseProfile $responseProfile)
 	{
 		$this->requestConfiguration['responseProfile'] = $responseProfile;
 	}
@@ -909,7 +909,7 @@ class Client extends Base
 	/**
 	 * Response profile
 	 * 
-	 * @return KalturaBaseResponseProfile
+	 * @return \Kaltura\Client\Type\BaseResponseProfile
 	 */
 	public function getResponseProfile()
 	{

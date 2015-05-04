@@ -50,7 +50,8 @@ class UserRoleCondition extends \Kaltura\Client\Type\Condition
 		if(is_null($xml))
 			return;
 		
-		$this->roleIds = (string)$xml->roleIds;
+		if(count($xml->roleIds))
+			$this->roleIds = (string)$xml->roleIds;
 	}
 	/**
 	 * Comma separated list of role ids

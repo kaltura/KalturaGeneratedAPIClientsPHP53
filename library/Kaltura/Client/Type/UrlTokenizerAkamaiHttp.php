@@ -50,8 +50,10 @@ class UrlTokenizerAkamaiHttp extends \Kaltura\Client\Type\UrlTokenizer
 		if(is_null($xml))
 			return;
 		
-		$this->paramName = (string)$xml->paramName;
-		$this->rootDir = (string)$xml->rootDir;
+		if(count($xml->paramName))
+			$this->paramName = (string)$xml->paramName;
+		if(count($xml->rootDir))
+			$this->rootDir = (string)$xml->rootDir;
 	}
 	/**
 	 * param

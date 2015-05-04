@@ -50,10 +50,17 @@ abstract class Condition extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->type = (string)$xml->type;
-		$this->description = (string)$xml->description;
-		if(!empty($xml->not))
-			$this->not = true;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->not))
+		{
+			if(!empty($xml->not))
+				$this->not = true;
+			else
+				$this->not = false;
+		}
 	}
 	/**
 	 * The type of the access control condition

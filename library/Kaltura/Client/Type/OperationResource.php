@@ -52,12 +52,15 @@ class OperationResource extends \Kaltura\Client\Type\ContentResource
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->resource))
+		if(count($xml->resource) && !empty($xml->resource))
 			$this->resource = \Kaltura\Client\ParseUtils::unmarshalObject($xml->resource, "KalturaContentResource");
-		if(empty($xml->operationAttributes))
-			$this->operationAttributes = array();
-		else
-			$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
+		if(count($xml->operationAttributes))
+		{
+			if(empty($xml->operationAttributes))
+				$this->operationAttributes = array();
+			else
+				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
+		}
 		if(count($xml->assetParamsId))
 			$this->assetParamsId = (int)$xml->assetParamsId;
 	}

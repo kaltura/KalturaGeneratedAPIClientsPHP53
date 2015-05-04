@@ -50,9 +50,12 @@ class ImportJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->srcFileUrl = (string)$xml->srcFileUrl;
-		$this->destFileLocalPath = (string)$xml->destFileLocalPath;
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->srcFileUrl))
+			$this->srcFileUrl = (string)$xml->srcFileUrl;
+		if(count($xml->destFileLocalPath))
+			$this->destFileLocalPath = (string)$xml->destFileLocalPath;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
 		if(count($xml->fileSize))
 			$this->fileSize = (int)$xml->fileSize;
 	}

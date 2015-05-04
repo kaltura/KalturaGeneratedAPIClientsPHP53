@@ -72,14 +72,21 @@ class ThumbParams extends \Kaltura\Client\Type\AssetParams
 			$this->scaleWidth = (float)$xml->scaleWidth;
 		if(count($xml->scaleHeight))
 			$this->scaleHeight = (float)$xml->scaleHeight;
-		$this->backgroundColor = (string)$xml->backgroundColor;
+		if(count($xml->backgroundColor))
+			$this->backgroundColor = (string)$xml->backgroundColor;
 		if(count($xml->sourceParamsId))
 			$this->sourceParamsId = (int)$xml->sourceParamsId;
-		$this->format = (string)$xml->format;
+		if(count($xml->format))
+			$this->format = (string)$xml->format;
 		if(count($xml->density))
 			$this->density = (int)$xml->density;
-		if(!empty($xml->stripProfiles))
-			$this->stripProfiles = true;
+		if(count($xml->stripProfiles))
+		{
+			if(!empty($xml->stripProfiles))
+				$this->stripProfiles = true;
+			else
+				$this->stripProfiles = false;
+		}
 		if(count($xml->videoOffsetInPercentage))
 			$this->videoOffsetInPercentage = (int)$xml->videoOffsetInPercentage;
 	}

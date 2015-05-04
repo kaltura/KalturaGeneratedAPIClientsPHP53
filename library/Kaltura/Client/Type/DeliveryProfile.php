@@ -54,28 +54,38 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->type = (string)$xml->type;
-		$this->systemName = (string)$xml->systemName;
-		$this->description = (string)$xml->description;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		$this->streamerType = (string)$xml->streamerType;
-		$this->url = (string)$xml->url;
-		$this->hostName = (string)$xml->hostName;
+		if(count($xml->streamerType))
+			$this->streamerType = (string)$xml->streamerType;
+		if(count($xml->url))
+			$this->url = (string)$xml->url;
+		if(count($xml->hostName))
+			$this->hostName = (string)$xml->hostName;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		if(!empty($xml->recognizer))
+		if(count($xml->recognizer) && !empty($xml->recognizer))
 			$this->recognizer = \Kaltura\Client\ParseUtils::unmarshalObject($xml->recognizer, "KalturaUrlRecognizer");
-		if(!empty($xml->tokenizer))
+		if(count($xml->tokenizer) && !empty($xml->tokenizer))
 			$this->tokenizer = \Kaltura\Client\ParseUtils::unmarshalObject($xml->tokenizer, "KalturaUrlTokenizer");
 		if(count($xml->isDefault))
 			$this->isDefault = (int)$xml->isDefault;
 		if(count($xml->parentId))
 			$this->parentId = (int)$xml->parentId;
-		$this->mediaProtocols = (string)$xml->mediaProtocols;
+		if(count($xml->mediaProtocols))
+			$this->mediaProtocols = (string)$xml->mediaProtocols;
+		if(count($xml->priority))
+			$this->priority = (int)$xml->priority;
 	}
 	/**
 	 * The id of the Delivery
@@ -196,5 +206,12 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $mediaProtocols = null;
+
+	/**
+	 * priority used for ordering similar delivery profiles
+	 * 	 
+	 * @var int
+	 */
+	public $priority = null;
 
 }

@@ -52,36 +52,56 @@ class StatsEvent extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->clientVer = (string)$xml->clientVer;
+		if(count($xml->clientVer))
+			$this->clientVer = (string)$xml->clientVer;
 		if(count($xml->eventType))
 			$this->eventType = (int)$xml->eventType;
 		if(count($xml->eventTimestamp))
 			$this->eventTimestamp = (float)$xml->eventTimestamp;
-		$this->sessionId = (string)$xml->sessionId;
+		if(count($xml->sessionId))
+			$this->sessionId = (string)$xml->sessionId;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->entryId = (string)$xml->entryId;
-		$this->uniqueViewer = (string)$xml->uniqueViewer;
-		$this->widgetId = (string)$xml->widgetId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->uniqueViewer))
+			$this->uniqueViewer = (string)$xml->uniqueViewer;
+		if(count($xml->widgetId))
+			$this->widgetId = (string)$xml->widgetId;
 		if(count($xml->uiconfId))
 			$this->uiconfId = (int)$xml->uiconfId;
-		$this->userId = (string)$xml->userId;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
 		if(count($xml->currentPoint))
 			$this->currentPoint = (int)$xml->currentPoint;
 		if(count($xml->duration))
 			$this->duration = (int)$xml->duration;
-		$this->userIp = (string)$xml->userIp;
+		if(count($xml->userIp))
+			$this->userIp = (string)$xml->userIp;
 		if(count($xml->processDuration))
 			$this->processDuration = (int)$xml->processDuration;
-		$this->controlId = (string)$xml->controlId;
-		if(!empty($xml->seek))
-			$this->seek = true;
+		if(count($xml->controlId))
+			$this->controlId = (string)$xml->controlId;
+		if(count($xml->seek))
+		{
+			if(!empty($xml->seek))
+				$this->seek = true;
+			else
+				$this->seek = false;
+		}
 		if(count($xml->newPoint))
 			$this->newPoint = (int)$xml->newPoint;
-		$this->referrer = (string)$xml->referrer;
-		if(!empty($xml->isFirstInSession))
-			$this->isFirstInSession = true;
-		$this->applicationId = (string)$xml->applicationId;
+		if(count($xml->referrer))
+			$this->referrer = (string)$xml->referrer;
+		if(count($xml->isFirstInSession))
+		{
+			if(!empty($xml->isFirstInSession))
+				$this->isFirstInSession = true;
+			else
+				$this->isFirstInSession = false;
+		}
+		if(count($xml->applicationId))
+			$this->applicationId = (string)$xml->applicationId;
 		if(count($xml->contextId))
 			$this->contextId = (int)$xml->contextId;
 		if(count($xml->featureType))

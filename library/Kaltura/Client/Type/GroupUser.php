@@ -50,8 +50,10 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->userId = (string)$xml->userId;
-		$this->groupId = (string)$xml->groupId;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->groupId))
+			$this->groupId = (string)$xml->groupId;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->partnerId))

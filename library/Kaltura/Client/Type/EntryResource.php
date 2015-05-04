@@ -52,7 +52,8 @@ class EntryResource extends \Kaltura\Client\Type\ContentResource
 		if(is_null($xml))
 			return;
 		
-		$this->entryId = (string)$xml->entryId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
 		if(count($xml->flavorParamsId))
 			$this->flavorParamsId = (int)$xml->flavorParamsId;
 	}

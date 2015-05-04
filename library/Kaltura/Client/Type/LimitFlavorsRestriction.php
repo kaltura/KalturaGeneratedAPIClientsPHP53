@@ -52,7 +52,8 @@ class LimitFlavorsRestriction extends \Kaltura\Client\Type\BaseRestriction
 		
 		if(count($xml->limitFlavorsRestrictionType))
 			$this->limitFlavorsRestrictionType = (int)$xml->limitFlavorsRestrictionType;
-		$this->flavorParamsIds = (string)$xml->flavorParamsIds;
+		if(count($xml->flavorParamsIds))
+			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
 	}
 	/**
 	 * Limit flavors restriction type (Allow or deny)

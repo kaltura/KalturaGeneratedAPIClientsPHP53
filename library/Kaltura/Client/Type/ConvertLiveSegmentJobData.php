@@ -50,14 +50,18 @@ class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->entryId = (string)$xml->entryId;
-		$this->assetId = (string)$xml->assetId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->assetId))
+			$this->assetId = (string)$xml->assetId;
 		if(count($xml->mediaServerIndex))
 			$this->mediaServerIndex = (int)$xml->mediaServerIndex;
 		if(count($xml->fileIndex))
 			$this->fileIndex = (int)$xml->fileIndex;
-		$this->srcFilePath = (string)$xml->srcFilePath;
-		$this->destFilePath = (string)$xml->destFilePath;
+		if(count($xml->srcFilePath))
+			$this->srcFilePath = (string)$xml->srcFilePath;
+		if(count($xml->destFilePath))
+			$this->destFilePath = (string)$xml->destFilePath;
 		if(count($xml->endTime))
 			$this->endTime = (float)$xml->endTime;
 	}

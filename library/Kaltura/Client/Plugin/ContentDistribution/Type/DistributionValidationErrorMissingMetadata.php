@@ -50,7 +50,8 @@ class DistributionValidationErrorMissingMetadata extends \Kaltura\Client\Plugin\
 		if(is_null($xml))
 			return;
 		
-		$this->fieldName = (string)$xml->fieldName;
+		if(count($xml->fieldName))
+			$this->fieldName = (string)$xml->fieldName;
 	}
 	/**
 	 * 

@@ -56,11 +56,14 @@ abstract class BulkUploadBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->uploadedOnLessThanOrEqual = (int)$xml->uploadedOnLessThanOrEqual;
 		if(count($xml->uploadedOnEqual))
 			$this->uploadedOnEqual = (int)$xml->uploadedOnEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->bulkUploadObjectTypeEqual = (string)$xml->bulkUploadObjectTypeEqual;
-		$this->bulkUploadObjectTypeIn = (string)$xml->bulkUploadObjectTypeIn;
+		if(count($xml->bulkUploadObjectTypeEqual))
+			$this->bulkUploadObjectTypeEqual = (string)$xml->bulkUploadObjectTypeEqual;
+		if(count($xml->bulkUploadObjectTypeIn))
+			$this->bulkUploadObjectTypeIn = (string)$xml->bulkUploadObjectTypeIn;
 	}
 	/**
 	 * 

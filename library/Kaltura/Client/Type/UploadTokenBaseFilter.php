@@ -50,13 +50,18 @@ abstract class UploadTokenBaseFilter extends \Kaltura\Client\Type\Filter
 		if(is_null($xml))
 			return;
 		
-		$this->idEqual = (string)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
-		$this->userIdEqual = (string)$xml->userIdEqual;
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->userIdEqual))
+			$this->userIdEqual = (string)$xml->userIdEqual;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->fileNameEqual = (string)$xml->fileNameEqual;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->fileNameEqual))
+			$this->fileNameEqual = (string)$xml->fileNameEqual;
 		if(count($xml->fileSizeEqual))
 			$this->fileSizeEqual = (float)$xml->fileSizeEqual;
 	}

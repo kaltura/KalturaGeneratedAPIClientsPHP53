@@ -52,7 +52,8 @@ abstract class Value extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->description = (string)$xml->description;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 	}
 	/**
 	 * 

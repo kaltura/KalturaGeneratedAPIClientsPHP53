@@ -54,24 +54,36 @@ class TrackEntry extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->trackEventType))
 			$this->trackEventType = (int)$xml->trackEventType;
-		$this->psVersion = (string)$xml->psVersion;
-		$this->context = (string)$xml->context;
+		if(count($xml->psVersion))
+			$this->psVersion = (string)$xml->psVersion;
+		if(count($xml->context))
+			$this->context = (string)$xml->context;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->entryId = (string)$xml->entryId;
-		$this->hostName = (string)$xml->hostName;
-		$this->userId = (string)$xml->userId;
-		$this->changedProperties = (string)$xml->changedProperties;
-		$this->paramStr1 = (string)$xml->paramStr1;
-		$this->paramStr2 = (string)$xml->paramStr2;
-		$this->paramStr3 = (string)$xml->paramStr3;
-		$this->ks = (string)$xml->ks;
-		$this->description = (string)$xml->description;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->hostName))
+			$this->hostName = (string)$xml->hostName;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->changedProperties))
+			$this->changedProperties = (string)$xml->changedProperties;
+		if(count($xml->paramStr1))
+			$this->paramStr1 = (string)$xml->paramStr1;
+		if(count($xml->paramStr2))
+			$this->paramStr2 = (string)$xml->paramStr2;
+		if(count($xml->paramStr3))
+			$this->paramStr3 = (string)$xml->paramStr3;
+		if(count($xml->ks))
+			$this->ks = (string)$xml->ks;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		$this->userIp = (string)$xml->userIp;
+		if(count($xml->userIp))
+			$this->userIp = (string)$xml->userIp;
 	}
 	/**
 	 * 

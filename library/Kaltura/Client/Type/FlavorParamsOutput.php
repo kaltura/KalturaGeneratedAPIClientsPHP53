@@ -52,10 +52,14 @@ class FlavorParamsOutput extends \Kaltura\Client\Type\FlavorParams
 		
 		if(count($xml->flavorParamsId))
 			$this->flavorParamsId = (int)$xml->flavorParamsId;
-		$this->commandLinesStr = (string)$xml->commandLinesStr;
-		$this->flavorParamsVersion = (string)$xml->flavorParamsVersion;
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
-		$this->flavorAssetVersion = (string)$xml->flavorAssetVersion;
+		if(count($xml->commandLinesStr))
+			$this->commandLinesStr = (string)$xml->commandLinesStr;
+		if(count($xml->flavorParamsVersion))
+			$this->flavorParamsVersion = (string)$xml->flavorParamsVersion;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->flavorAssetVersion))
+			$this->flavorAssetVersion = (string)$xml->flavorAssetVersion;
 		if(count($xml->readyBehavior))
 			$this->readyBehavior = (int)$xml->readyBehavior;
 	}

@@ -50,24 +50,41 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 		if(is_null($xml))
 			return;
 		
-		$this->streamRemoteId = (string)$xml->streamRemoteId;
-		$this->streamRemoteBackupId = (string)$xml->streamRemoteBackupId;
-		if(empty($xml->bitrates))
-			$this->bitrates = array();
-		else
-			$this->bitrates = \Kaltura\Client\ParseUtils::unmarshalArray($xml->bitrates, "KalturaLiveStreamBitrate");
-		$this->primaryBroadcastingUrl = (string)$xml->primaryBroadcastingUrl;
-		$this->secondaryBroadcastingUrl = (string)$xml->secondaryBroadcastingUrl;
-		$this->primaryRtspBroadcastingUrl = (string)$xml->primaryRtspBroadcastingUrl;
-		$this->secondaryRtspBroadcastingUrl = (string)$xml->secondaryRtspBroadcastingUrl;
-		$this->streamName = (string)$xml->streamName;
-		$this->streamUrl = (string)$xml->streamUrl;
-		$this->hlsStreamUrl = (string)$xml->hlsStreamUrl;
-		$this->urlManager = (string)$xml->urlManager;
-		$this->encodingIP1 = (string)$xml->encodingIP1;
-		$this->encodingIP2 = (string)$xml->encodingIP2;
-		$this->streamPassword = (string)$xml->streamPassword;
-		$this->streamUsername = (string)$xml->streamUsername;
+		if(count($xml->streamRemoteId))
+			$this->streamRemoteId = (string)$xml->streamRemoteId;
+		if(count($xml->streamRemoteBackupId))
+			$this->streamRemoteBackupId = (string)$xml->streamRemoteBackupId;
+		if(count($xml->bitrates))
+		{
+			if(empty($xml->bitrates))
+				$this->bitrates = array();
+			else
+				$this->bitrates = \Kaltura\Client\ParseUtils::unmarshalArray($xml->bitrates, "KalturaLiveStreamBitrate");
+		}
+		if(count($xml->primaryBroadcastingUrl))
+			$this->primaryBroadcastingUrl = (string)$xml->primaryBroadcastingUrl;
+		if(count($xml->secondaryBroadcastingUrl))
+			$this->secondaryBroadcastingUrl = (string)$xml->secondaryBroadcastingUrl;
+		if(count($xml->primaryRtspBroadcastingUrl))
+			$this->primaryRtspBroadcastingUrl = (string)$xml->primaryRtspBroadcastingUrl;
+		if(count($xml->secondaryRtspBroadcastingUrl))
+			$this->secondaryRtspBroadcastingUrl = (string)$xml->secondaryRtspBroadcastingUrl;
+		if(count($xml->streamName))
+			$this->streamName = (string)$xml->streamName;
+		if(count($xml->streamUrl))
+			$this->streamUrl = (string)$xml->streamUrl;
+		if(count($xml->hlsStreamUrl))
+			$this->hlsStreamUrl = (string)$xml->hlsStreamUrl;
+		if(count($xml->urlManager))
+			$this->urlManager = (string)$xml->urlManager;
+		if(count($xml->encodingIP1))
+			$this->encodingIP1 = (string)$xml->encodingIP1;
+		if(count($xml->encodingIP2))
+			$this->encodingIP2 = (string)$xml->encodingIP2;
+		if(count($xml->streamPassword))
+			$this->streamPassword = (string)$xml->streamPassword;
+		if(count($xml->streamUsername))
+			$this->streamUsername = (string)$xml->streamUsername;
 	}
 	/**
 	 * The stream id as provided by the provider

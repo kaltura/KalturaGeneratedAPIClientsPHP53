@@ -52,8 +52,10 @@ class Tag extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->tag = (string)$xml->tag;
-		$this->taggedObjectType = (string)$xml->taggedObjectType;
+		if(count($xml->tag))
+			$this->tag = (string)$xml->tag;
+		if(count($xml->taggedObjectType))
+			$this->taggedObjectType = (string)$xml->taggedObjectType;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->instanceCount))

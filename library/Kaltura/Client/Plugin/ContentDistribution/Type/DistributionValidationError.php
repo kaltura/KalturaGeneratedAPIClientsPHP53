@@ -54,7 +54,8 @@ abstract class DistributionValidationError extends \Kaltura\Client\ObjectBase
 			$this->action = (int)$xml->action;
 		if(count($xml->errorType))
 			$this->errorType = (int)$xml->errorType;
-		$this->description = (string)$xml->description;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 	}
 	/**
 	 * 

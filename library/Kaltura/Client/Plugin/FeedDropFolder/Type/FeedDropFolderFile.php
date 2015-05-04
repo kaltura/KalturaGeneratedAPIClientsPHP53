@@ -50,8 +50,10 @@ class FeedDropFolderFile extends \Kaltura\Client\Plugin\DropFolder\Type\DropFold
 		if(is_null($xml))
 			return;
 		
-		$this->hash = (string)$xml->hash;
-		$this->feedXmlPath = (string)$xml->feedXmlPath;
+		if(count($xml->hash))
+			$this->hash = (string)$xml->hash;
+		if(count($xml->feedXmlPath))
+			$this->feedXmlPath = (string)$xml->feedXmlPath;
 	}
 	/**
 	 * MD5 or Sha1 encrypted string

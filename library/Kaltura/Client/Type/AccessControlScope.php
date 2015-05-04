@@ -50,20 +50,30 @@ class AccessControlScope extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->referrer = (string)$xml->referrer;
-		$this->ip = (string)$xml->ip;
-		$this->ks = (string)$xml->ks;
-		$this->userAgent = (string)$xml->userAgent;
+		if(count($xml->referrer))
+			$this->referrer = (string)$xml->referrer;
+		if(count($xml->ip))
+			$this->ip = (string)$xml->ip;
+		if(count($xml->ks))
+			$this->ks = (string)$xml->ks;
+		if(count($xml->userAgent))
+			$this->userAgent = (string)$xml->userAgent;
 		if(count($xml->time))
 			$this->time = (int)$xml->time;
-		if(empty($xml->contexts))
-			$this->contexts = array();
-		else
-			$this->contexts = \Kaltura\Client\ParseUtils::unmarshalArray($xml->contexts, "KalturaAccessControlContextTypeHolder");
-		if(empty($xml->hashes))
-			$this->hashes = array();
-		else
-			$this->hashes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->hashes, "KalturaKeyValue");
+		if(count($xml->contexts))
+		{
+			if(empty($xml->contexts))
+				$this->contexts = array();
+			else
+				$this->contexts = \Kaltura\Client\ParseUtils::unmarshalArray($xml->contexts, "KalturaAccessControlContextTypeHolder");
+		}
+		if(count($xml->hashes))
+		{
+			if(empty($xml->hashes))
+				$this->hashes = array();
+			else
+				$this->hashes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->hashes, "KalturaKeyValue");
+		}
 	}
 	/**
 	 * URL to be used to test domain conditions.

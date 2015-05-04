@@ -54,8 +54,9 @@ class RequestConfiguration extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->ks = (string)$xml->ks;
-		if(!empty($xml->responseProfile))
+		if(count($xml->ks))
+			$this->ks = (string)$xml->ks;
+		if(count($xml->responseProfile) && !empty($xml->responseProfile))
 			$this->responseProfile = \Kaltura\Client\ParseUtils::unmarshalObject($xml->responseProfile, "KalturaBaseResponseProfile");
 	}
 	/**

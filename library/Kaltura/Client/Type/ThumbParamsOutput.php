@@ -52,9 +52,12 @@ class ThumbParamsOutput extends \Kaltura\Client\Type\ThumbParams
 		
 		if(count($xml->thumbParamsId))
 			$this->thumbParamsId = (int)$xml->thumbParamsId;
-		$this->thumbParamsVersion = (string)$xml->thumbParamsVersion;
-		$this->thumbAssetId = (string)$xml->thumbAssetId;
-		$this->thumbAssetVersion = (string)$xml->thumbAssetVersion;
+		if(count($xml->thumbParamsVersion))
+			$this->thumbParamsVersion = (string)$xml->thumbParamsVersion;
+		if(count($xml->thumbAssetId))
+			$this->thumbAssetId = (string)$xml->thumbAssetId;
+		if(count($xml->thumbAssetVersion))
+			$this->thumbAssetVersion = (string)$xml->thumbAssetVersion;
 		if(count($xml->rotate))
 			$this->rotate = (int)$xml->rotate;
 	}

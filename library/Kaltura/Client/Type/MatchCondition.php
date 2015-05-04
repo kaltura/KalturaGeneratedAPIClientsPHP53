@@ -50,10 +50,13 @@ abstract class MatchCondition extends \Kaltura\Client\Type\Condition
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->values))
-			$this->values = array();
-		else
-			$this->values = \Kaltura\Client\ParseUtils::unmarshalArray($xml->values, "KalturaStringValue");
+		if(count($xml->values))
+		{
+			if(empty($xml->values))
+				$this->values = array();
+			else
+				$this->values = \Kaltura\Client\ParseUtils::unmarshalArray($xml->values, "KalturaStringValue");
+		}
 	}
 	/**
 	 * 

@@ -66,15 +66,24 @@ class GenericDistributionProviderAction extends \Kaltura\Client\ObjectBase
 			$this->resultsParser = (int)$xml->resultsParser;
 		if(count($xml->protocol))
 			$this->protocol = (int)$xml->protocol;
-		$this->serverAddress = (string)$xml->serverAddress;
-		$this->remotePath = (string)$xml->remotePath;
-		$this->remoteUsername = (string)$xml->remoteUsername;
-		$this->remotePassword = (string)$xml->remotePassword;
-		$this->editableFields = (string)$xml->editableFields;
-		$this->mandatoryFields = (string)$xml->mandatoryFields;
-		$this->mrssTransformer = (string)$xml->mrssTransformer;
-		$this->mrssValidator = (string)$xml->mrssValidator;
-		$this->resultsTransformer = (string)$xml->resultsTransformer;
+		if(count($xml->serverAddress))
+			$this->serverAddress = (string)$xml->serverAddress;
+		if(count($xml->remotePath))
+			$this->remotePath = (string)$xml->remotePath;
+		if(count($xml->remoteUsername))
+			$this->remoteUsername = (string)$xml->remoteUsername;
+		if(count($xml->remotePassword))
+			$this->remotePassword = (string)$xml->remotePassword;
+		if(count($xml->editableFields))
+			$this->editableFields = (string)$xml->editableFields;
+		if(count($xml->mandatoryFields))
+			$this->mandatoryFields = (string)$xml->mandatoryFields;
+		if(count($xml->mrssTransformer))
+			$this->mrssTransformer = (string)$xml->mrssTransformer;
+		if(count($xml->mrssValidator))
+			$this->mrssValidator = (string)$xml->mrssValidator;
+		if(count($xml->resultsTransformer))
+			$this->resultsTransformer = (string)$xml->resultsTransformer;
 	}
 	/**
 	 * Auto generated

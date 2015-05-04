@@ -54,8 +54,10 @@ class ReportInputBaseFilter extends \Kaltura\Client\ObjectBase
 			$this->fromDate = (int)$xml->fromDate;
 		if(count($xml->toDate))
 			$this->toDate = (int)$xml->toDate;
-		$this->fromDay = (string)$xml->fromDay;
-		$this->toDay = (string)$xml->toDay;
+		if(count($xml->fromDay))
+			$this->fromDay = (string)$xml->fromDay;
+		if(count($xml->toDay))
+			$this->toDay = (string)$xml->toDay;
 	}
 	/**
 	 * Start date as Unix timestamp (In seconds)

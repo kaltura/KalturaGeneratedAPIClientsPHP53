@@ -52,7 +52,8 @@ class EvalStringField extends \Kaltura\Client\Type\StringField
 		if(is_null($xml))
 			return;
 		
-		$this->code = (string)$xml->code;
+		if(count($xml->code))
+			$this->code = (string)$xml->code;
 	}
 	/**
 	 * PHP code

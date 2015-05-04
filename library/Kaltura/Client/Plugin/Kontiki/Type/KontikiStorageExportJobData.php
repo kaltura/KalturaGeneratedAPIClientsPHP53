@@ -50,9 +50,12 @@ class KontikiStorageExportJobData extends \Kaltura\Client\Type\StorageExportJobD
 		if(is_null($xml))
 			return;
 		
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
-		$this->contentMoid = (string)$xml->contentMoid;
-		$this->serviceToken = (string)$xml->serviceToken;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->contentMoid))
+			$this->contentMoid = (string)$xml->contentMoid;
+		if(count($xml->serviceToken))
+			$this->serviceToken = (string)$xml->serviceToken;
 	}
 	/**
 	 * Holds the id of the exported asset

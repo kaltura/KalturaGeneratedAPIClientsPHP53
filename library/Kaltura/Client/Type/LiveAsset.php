@@ -50,7 +50,8 @@ class LiveAsset extends \Kaltura\Client\Type\FlavorAsset
 		if(is_null($xml))
 			return;
 		
-		$this->multicastIP = (string)$xml->multicastIP;
+		if(count($xml->multicastIP))
+			$this->multicastIP = (string)$xml->multicastIP;
 		if(count($xml->multicastPort))
 			$this->multicastPort = (int)$xml->multicastPort;
 	}

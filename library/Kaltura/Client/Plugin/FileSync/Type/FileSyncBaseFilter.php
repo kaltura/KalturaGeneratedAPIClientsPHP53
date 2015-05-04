@@ -52,17 +52,26 @@ abstract class FileSyncBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->fileObjectTypeEqual = (string)$xml->fileObjectTypeEqual;
-		$this->fileObjectTypeIn = (string)$xml->fileObjectTypeIn;
-		$this->objectIdEqual = (string)$xml->objectIdEqual;
-		$this->objectIdIn = (string)$xml->objectIdIn;
-		$this->versionEqual = (string)$xml->versionEqual;
-		$this->versionIn = (string)$xml->versionIn;
+		if(count($xml->fileObjectTypeEqual))
+			$this->fileObjectTypeEqual = (string)$xml->fileObjectTypeEqual;
+		if(count($xml->fileObjectTypeIn))
+			$this->fileObjectTypeIn = (string)$xml->fileObjectTypeIn;
+		if(count($xml->objectIdEqual))
+			$this->objectIdEqual = (string)$xml->objectIdEqual;
+		if(count($xml->objectIdIn))
+			$this->objectIdIn = (string)$xml->objectIdIn;
+		if(count($xml->versionEqual))
+			$this->versionEqual = (string)$xml->versionEqual;
+		if(count($xml->versionIn))
+			$this->versionIn = (string)$xml->versionIn;
 		if(count($xml->objectSubTypeEqual))
 			$this->objectSubTypeEqual = (int)$xml->objectSubTypeEqual;
-		$this->objectSubTypeIn = (string)$xml->objectSubTypeIn;
-		$this->dcEqual = (string)$xml->dcEqual;
-		$this->dcIn = (string)$xml->dcIn;
+		if(count($xml->objectSubTypeIn))
+			$this->objectSubTypeIn = (string)$xml->objectSubTypeIn;
+		if(count($xml->dcEqual))
+			$this->dcEqual = (string)$xml->dcEqual;
+		if(count($xml->dcIn))
+			$this->dcIn = (string)$xml->dcIn;
 		if(count($xml->originalEqual))
 			$this->originalEqual = (int)$xml->originalEqual;
 		if(count($xml->createdAtGreaterThanOrEqual))
@@ -83,10 +92,12 @@ abstract class FileSyncBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->syncTimeLessThanOrEqual = (int)$xml->syncTimeLessThanOrEqual;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->fileTypeEqual))
 			$this->fileTypeEqual = (int)$xml->fileTypeEqual;
-		$this->fileTypeIn = (string)$xml->fileTypeIn;
+		if(count($xml->fileTypeIn))
+			$this->fileTypeIn = (string)$xml->fileTypeIn;
 		if(count($xml->linkedIdEqual))
 			$this->linkedIdEqual = (int)$xml->linkedIdEqual;
 		if(count($xml->linkCountGreaterThanOrEqual))

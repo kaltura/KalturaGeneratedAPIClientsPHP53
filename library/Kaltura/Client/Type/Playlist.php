@@ -50,11 +50,15 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 		if(is_null($xml))
 			return;
 		
-		$this->playlistContent = (string)$xml->playlistContent;
-		if(empty($xml->filters))
-			$this->filters = array();
-		else
-			$this->filters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->filters, "KalturaMediaEntryFilterForPlaylist");
+		if(count($xml->playlistContent))
+			$this->playlistContent = (string)$xml->playlistContent;
+		if(count($xml->filters))
+		{
+			if(empty($xml->filters))
+				$this->filters = array();
+			else
+				$this->filters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->filters, "KalturaMediaEntryFilterForPlaylist");
+		}
 		if(count($xml->totalResults))
 			$this->totalResults = (int)$xml->totalResults;
 		if(count($xml->playlistType))
@@ -65,7 +69,8 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 			$this->views = (int)$xml->views;
 		if(count($xml->duration))
 			$this->duration = (int)$xml->duration;
-		$this->executeUrl = (string)$xml->executeUrl;
+		if(count($xml->executeUrl))
+			$this->executeUrl = (string)$xml->executeUrl;
 	}
 	/**
 	 * Content of the playlist - 

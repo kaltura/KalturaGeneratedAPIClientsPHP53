@@ -50,16 +50,25 @@ class ConvertCollectionJobData extends \Kaltura\Client\Type\ConvartableJobData
 		if(is_null($xml))
 			return;
 		
-		$this->destDirLocalPath = (string)$xml->destDirLocalPath;
-		$this->destDirRemoteUrl = (string)$xml->destDirRemoteUrl;
-		$this->destFileName = (string)$xml->destFileName;
-		$this->inputXmlLocalPath = (string)$xml->inputXmlLocalPath;
-		$this->inputXmlRemoteUrl = (string)$xml->inputXmlRemoteUrl;
-		$this->commandLinesStr = (string)$xml->commandLinesStr;
-		if(empty($xml->flavors))
-			$this->flavors = array();
-		else
-			$this->flavors = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavors, "KalturaConvertCollectionFlavorData");
+		if(count($xml->destDirLocalPath))
+			$this->destDirLocalPath = (string)$xml->destDirLocalPath;
+		if(count($xml->destDirRemoteUrl))
+			$this->destDirRemoteUrl = (string)$xml->destDirRemoteUrl;
+		if(count($xml->destFileName))
+			$this->destFileName = (string)$xml->destFileName;
+		if(count($xml->inputXmlLocalPath))
+			$this->inputXmlLocalPath = (string)$xml->inputXmlLocalPath;
+		if(count($xml->inputXmlRemoteUrl))
+			$this->inputXmlRemoteUrl = (string)$xml->inputXmlRemoteUrl;
+		if(count($xml->commandLinesStr))
+			$this->commandLinesStr = (string)$xml->commandLinesStr;
+		if(count($xml->flavors))
+		{
+			if(empty($xml->flavors))
+				$this->flavors = array();
+			else
+				$this->flavors = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavors, "KalturaConvertCollectionFlavorData");
+		}
 	}
 	/**
 	 * 

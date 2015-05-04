@@ -52,7 +52,7 @@ class FeedDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 		
 		if(count($xml->itemHandlingLimit))
 			$this->itemHandlingLimit = (int)$xml->itemHandlingLimit;
-		if(!empty($xml->feedItemInfo))
+		if(count($xml->feedItemInfo) && !empty($xml->feedItemInfo))
 			$this->feedItemInfo = \Kaltura\Client\ParseUtils::unmarshalObject($xml->feedItemInfo, "KalturaFeedItemInfo");
 	}
 	/**

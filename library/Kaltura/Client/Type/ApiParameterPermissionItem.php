@@ -50,9 +50,12 @@ class ApiParameterPermissionItem extends \Kaltura\Client\Type\PermissionItem
 		if(is_null($xml))
 			return;
 		
-		$this->object = (string)$xml->object;
-		$this->parameter = (string)$xml->parameter;
-		$this->action = (string)$xml->action;
+		if(count($xml->object))
+			$this->object = (string)$xml->object;
+		if(count($xml->parameter))
+			$this->parameter = (string)$xml->parameter;
+		if(count($xml->action))
+			$this->action = (string)$xml->action;
 	}
 	/**
 	 * 

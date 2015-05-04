@@ -50,7 +50,8 @@ class ExtractMediaJobData extends \Kaltura\Client\Type\ConvartableJobData
 		if(is_null($xml))
 			return;
 		
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
 	}
 	/**
 	 * 

@@ -52,7 +52,7 @@ class ConcatAttributes extends \Kaltura\Client\Type\OperationAttributes
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->resource))
+		if(count($xml->resource) && !empty($xml->resource))
 			$this->resource = \Kaltura\Client\ParseUtils::unmarshalObject($xml->resource, "KalturaDataCenterContentResource");
 	}
 	/**

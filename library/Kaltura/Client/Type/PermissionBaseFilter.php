@@ -52,24 +52,36 @@ abstract class PermissionBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->typeEqual))
 			$this->typeEqual = (int)$xml->typeEqual;
-		$this->typeIn = (string)$xml->typeIn;
-		$this->nameEqual = (string)$xml->nameEqual;
-		$this->nameIn = (string)$xml->nameIn;
-		$this->friendlyNameLike = (string)$xml->friendlyNameLike;
-		$this->descriptionLike = (string)$xml->descriptionLike;
+		if(count($xml->typeIn))
+			$this->typeIn = (string)$xml->typeIn;
+		if(count($xml->nameEqual))
+			$this->nameEqual = (string)$xml->nameEqual;
+		if(count($xml->nameIn))
+			$this->nameIn = (string)$xml->nameIn;
+		if(count($xml->friendlyNameLike))
+			$this->friendlyNameLike = (string)$xml->friendlyNameLike;
+		if(count($xml->descriptionLike))
+			$this->descriptionLike = (string)$xml->descriptionLike;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
-		$this->dependsOnPermissionNamesMultiLikeOr = (string)$xml->dependsOnPermissionNamesMultiLikeOr;
-		$this->dependsOnPermissionNamesMultiLikeAnd = (string)$xml->dependsOnPermissionNamesMultiLikeAnd;
-		$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
-		$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->dependsOnPermissionNamesMultiLikeOr))
+			$this->dependsOnPermissionNamesMultiLikeOr = (string)$xml->dependsOnPermissionNamesMultiLikeOr;
+		if(count($xml->dependsOnPermissionNamesMultiLikeAnd))
+			$this->dependsOnPermissionNamesMultiLikeAnd = (string)$xml->dependsOnPermissionNamesMultiLikeAnd;
+		if(count($xml->tagsMultiLikeOr))
+			$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
+		if(count($xml->tagsMultiLikeAnd))
+			$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))

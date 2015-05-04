@@ -50,8 +50,10 @@ class VirusScanJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->srcFilePath = (string)$xml->srcFilePath;
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->srcFilePath))
+			$this->srcFilePath = (string)$xml->srcFilePath;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
 		if(count($xml->scanResult))
 			$this->scanResult = (int)$xml->scanResult;
 		if(count($xml->virusFoundAction))

@@ -52,16 +52,20 @@ class HttpNotification extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->object))
+		if(count($xml->object) && !empty($xml->object))
 			$this->object = \Kaltura\Client\ParseUtils::unmarshalObject($xml->object, "KalturaObjectBase");
-		$this->eventObjectType = (string)$xml->eventObjectType;
+		if(count($xml->eventObjectType))
+			$this->eventObjectType = (string)$xml->eventObjectType;
 		if(count($xml->eventNotificationJobId))
 			$this->eventNotificationJobId = (int)$xml->eventNotificationJobId;
 		if(count($xml->templateId))
 			$this->templateId = (int)$xml->templateId;
-		$this->templateName = (string)$xml->templateName;
-		$this->templateSystemName = (string)$xml->templateSystemName;
-		$this->eventType = (string)$xml->eventType;
+		if(count($xml->templateName))
+			$this->templateName = (string)$xml->templateName;
+		if(count($xml->templateSystemName))
+			$this->templateSystemName = (string)$xml->templateSystemName;
+		if(count($xml->eventType))
+			$this->eventType = (string)$xml->eventType;
 	}
 	/**
 	 * Object that triggered the notification

@@ -50,9 +50,9 @@ class EmailNotificationRecipient extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->email))
+		if(count($xml->email) && !empty($xml->email))
 			$this->email = \Kaltura\Client\ParseUtils::unmarshalObject($xml->email, "KalturaStringValue");
-		if(!empty($xml->name))
+		if(count($xml->name) && !empty($xml->name))
 			$this->name = \Kaltura\Client\ParseUtils::unmarshalObject($xml->name, "KalturaStringValue");
 	}
 	/**

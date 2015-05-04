@@ -50,26 +50,34 @@ class Asset extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->entryId = (string)$xml->entryId;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->version))
 			$this->version = (int)$xml->version;
 		if(count($xml->size))
 			$this->size = (int)$xml->size;
-		$this->tags = (string)$xml->tags;
-		$this->fileExt = (string)$xml->fileExt;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->fileExt))
+			$this->fileExt = (string)$xml->fileExt;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->deletedAt))
 			$this->deletedAt = (int)$xml->deletedAt;
-		$this->description = (string)$xml->description;
-		$this->partnerData = (string)$xml->partnerData;
-		$this->partnerDescription = (string)$xml->partnerDescription;
-		$this->actualSourceAssetParamsIds = (string)$xml->actualSourceAssetParamsIds;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->partnerData))
+			$this->partnerData = (string)$xml->partnerData;
+		if(count($xml->partnerDescription))
+			$this->partnerDescription = (string)$xml->partnerDescription;
+		if(count($xml->actualSourceAssetParamsIds))
+			$this->actualSourceAssetParamsIds = (string)$xml->actualSourceAssetParamsIds;
 	}
 	/**
 	 * The ID of the Flavor Asset

@@ -50,11 +50,14 @@ class LiveReportExportParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->entryIds = (string)$xml->entryIds;
-		$this->recpientEmail = (string)$xml->recpientEmail;
+		if(count($xml->entryIds))
+			$this->entryIds = (string)$xml->entryIds;
+		if(count($xml->recpientEmail))
+			$this->recpientEmail = (string)$xml->recpientEmail;
 		if(count($xml->timeZoneOffset))
 			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		$this->applicationUrlTemplate = (string)$xml->applicationUrlTemplate;
+		if(count($xml->applicationUrlTemplate))
+			$this->applicationUrlTemplate = (string)$xml->applicationUrlTemplate;
 	}
 	/**
 	 * 

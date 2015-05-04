@@ -50,7 +50,8 @@ class ParseCaptionAssetJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->captionAssetId = (string)$xml->captionAssetId;
+		if(count($xml->captionAssetId))
+			$this->captionAssetId = (string)$xml->captionAssetId;
 	}
 	/**
 	 * 

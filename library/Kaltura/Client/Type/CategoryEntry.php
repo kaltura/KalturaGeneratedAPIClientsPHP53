@@ -52,10 +52,12 @@ class CategoryEntry extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->categoryId))
 			$this->categoryId = (int)$xml->categoryId;
-		$this->entryId = (string)$xml->entryId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
-		$this->categoryFullIds = (string)$xml->categoryFullIds;
+		if(count($xml->categoryFullIds))
+			$this->categoryFullIds = (string)$xml->categoryFullIds;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 	}

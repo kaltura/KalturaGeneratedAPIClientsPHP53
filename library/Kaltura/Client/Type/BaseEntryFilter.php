@@ -50,12 +50,16 @@ class BaseEntryFilter extends \Kaltura\Client\Type\BaseEntryBaseFilter
 		if(is_null($xml))
 			return;
 		
-		$this->freeText = (string)$xml->freeText;
+		if(count($xml->freeText))
+			$this->freeText = (string)$xml->freeText;
 		if(count($xml->isRoot))
 			$this->isRoot = (int)$xml->isRoot;
-		$this->categoriesFullNameIn = (string)$xml->categoriesFullNameIn;
-		$this->categoryAncestorIdIn = (string)$xml->categoryAncestorIdIn;
-		$this->redirectFromEntryId = (string)$xml->redirectFromEntryId;
+		if(count($xml->categoriesFullNameIn))
+			$this->categoriesFullNameIn = (string)$xml->categoriesFullNameIn;
+		if(count($xml->categoryAncestorIdIn))
+			$this->categoryAncestorIdIn = (string)$xml->categoryAncestorIdIn;
+		if(count($xml->redirectFromEntryId))
+			$this->redirectFromEntryId = (string)$xml->redirectFromEntryId;
 	}
 	/**
 	 * 

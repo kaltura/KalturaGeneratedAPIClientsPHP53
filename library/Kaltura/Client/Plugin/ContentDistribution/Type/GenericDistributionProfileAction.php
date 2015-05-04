@@ -52,14 +52,25 @@ class GenericDistributionProfileAction extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->protocol))
 			$this->protocol = (int)$xml->protocol;
-		$this->serverUrl = (string)$xml->serverUrl;
-		$this->serverPath = (string)$xml->serverPath;
-		$this->username = (string)$xml->username;
-		$this->password = (string)$xml->password;
-		if(!empty($xml->ftpPassiveMode))
-			$this->ftpPassiveMode = true;
-		$this->httpFieldName = (string)$xml->httpFieldName;
-		$this->httpFileName = (string)$xml->httpFileName;
+		if(count($xml->serverUrl))
+			$this->serverUrl = (string)$xml->serverUrl;
+		if(count($xml->serverPath))
+			$this->serverPath = (string)$xml->serverPath;
+		if(count($xml->username))
+			$this->username = (string)$xml->username;
+		if(count($xml->password))
+			$this->password = (string)$xml->password;
+		if(count($xml->ftpPassiveMode))
+		{
+			if(!empty($xml->ftpPassiveMode))
+				$this->ftpPassiveMode = true;
+			else
+				$this->ftpPassiveMode = false;
+		}
+		if(count($xml->httpFieldName))
+			$this->httpFieldName = (string)$xml->httpFieldName;
+		if(count($xml->httpFileName))
+			$this->httpFileName = (string)$xml->httpFileName;
 	}
 	/**
 	 * 

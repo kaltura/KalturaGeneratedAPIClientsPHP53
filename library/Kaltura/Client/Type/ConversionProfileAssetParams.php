@@ -58,7 +58,8 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 			$this->readyBehavior = (int)$xml->readyBehavior;
 		if(count($xml->origin))
 			$this->origin = (int)$xml->origin;
-		$this->systemName = (string)$xml->systemName;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
 		if(count($xml->forceNoneComplied))
 			$this->forceNoneComplied = (int)$xml->forceNoneComplied;
 		if(count($xml->deletePolicy))

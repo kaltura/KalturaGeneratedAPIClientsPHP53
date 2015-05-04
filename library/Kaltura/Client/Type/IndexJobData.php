@@ -50,12 +50,17 @@ class IndexJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->filter))
+		if(count($xml->filter) && !empty($xml->filter))
 			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaFilter");
 		if(count($xml->lastIndexId))
 			$this->lastIndexId = (int)$xml->lastIndexId;
-		if(!empty($xml->shouldUpdate))
-			$this->shouldUpdate = true;
+		if(count($xml->shouldUpdate))
+		{
+			if(!empty($xml->shouldUpdate))
+				$this->shouldUpdate = true;
+			else
+				$this->shouldUpdate = false;
+		}
 	}
 	/**
 	 * The filter should return the list of objects that need to be reindexed.

@@ -50,10 +50,12 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 		if(is_null($xml))
 			return;
 		
-		$this->videoCodec = (string)$xml->videoCodec;
+		if(count($xml->videoCodec))
+			$this->videoCodec = (string)$xml->videoCodec;
 		if(count($xml->videoBitrate))
 			$this->videoBitrate = (int)$xml->videoBitrate;
-		$this->audioCodec = (string)$xml->audioCodec;
+		if(count($xml->audioCodec))
+			$this->audioCodec = (string)$xml->audioCodec;
 		if(count($xml->audioBitrate))
 			$this->audioBitrate = (int)$xml->audioBitrate;
 		if(count($xml->audioChannels))
@@ -68,18 +70,27 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->frameRate = (int)$xml->frameRate;
 		if(count($xml->gopSize))
 			$this->gopSize = (int)$xml->gopSize;
-		$this->conversionEngines = (string)$xml->conversionEngines;
-		$this->conversionEnginesExtraParams = (string)$xml->conversionEnginesExtraParams;
-		if(!empty($xml->twoPass))
-			$this->twoPass = true;
+		if(count($xml->conversionEngines))
+			$this->conversionEngines = (string)$xml->conversionEngines;
+		if(count($xml->conversionEnginesExtraParams))
+			$this->conversionEnginesExtraParams = (string)$xml->conversionEnginesExtraParams;
+		if(count($xml->twoPass))
+		{
+			if(!empty($xml->twoPass))
+				$this->twoPass = true;
+			else
+				$this->twoPass = false;
+		}
 		if(count($xml->deinterlice))
 			$this->deinterlice = (int)$xml->deinterlice;
 		if(count($xml->rotate))
 			$this->rotate = (int)$xml->rotate;
-		$this->operators = (string)$xml->operators;
+		if(count($xml->operators))
+			$this->operators = (string)$xml->operators;
 		if(count($xml->engineVersion))
 			$this->engineVersion = (int)$xml->engineVersion;
-		$this->format = (string)$xml->format;
+		if(count($xml->format))
+			$this->format = (string)$xml->format;
 		if(count($xml->aspectRatioProcessingMode))
 			$this->aspectRatioProcessingMode = (int)$xml->aspectRatioProcessingMode;
 		if(count($xml->forceFrameToMultiplication16))
@@ -92,7 +103,8 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->isAvoidVideoShrinkBitrateToSource = (int)$xml->isAvoidVideoShrinkBitrateToSource;
 		if(count($xml->isVideoFrameRateForLowBrAppleHls))
 			$this->isVideoFrameRateForLowBrAppleHls = (int)$xml->isVideoFrameRateForLowBrAppleHls;
-		$this->multiStream = (string)$xml->multiStream;
+		if(count($xml->multiStream))
+			$this->multiStream = (string)$xml->multiStream;
 		if(count($xml->anamorphicPixels))
 			$this->anamorphicPixels = (float)$xml->anamorphicPixels;
 		if(count($xml->isAvoidForcedKeyFrames))
@@ -107,7 +119,8 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->videoConstantBitrate = (int)$xml->videoConstantBitrate;
 		if(count($xml->videoBitrateTolerance))
 			$this->videoBitrateTolerance = (int)$xml->videoBitrateTolerance;
-		$this->watermarkData = (string)$xml->watermarkData;
+		if(count($xml->watermarkData))
+			$this->watermarkData = (string)$xml->watermarkData;
 		if(count($xml->clipOffset))
 			$this->clipOffset = (int)$xml->clipOffset;
 		if(count($xml->clipDuration))

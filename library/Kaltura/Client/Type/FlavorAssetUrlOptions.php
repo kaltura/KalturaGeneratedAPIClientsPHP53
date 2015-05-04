@@ -50,7 +50,8 @@ class FlavorAssetUrlOptions extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->fileName = (string)$xml->fileName;
+		if(count($xml->fileName))
+			$this->fileName = (string)$xml->fileName;
 	}
 	/**
 	 * The name of the downloaded file

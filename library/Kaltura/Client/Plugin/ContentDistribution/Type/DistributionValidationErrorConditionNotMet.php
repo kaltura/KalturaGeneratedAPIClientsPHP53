@@ -50,7 +50,8 @@ class DistributionValidationErrorConditionNotMet extends \Kaltura\Client\Plugin\
 		if(is_null($xml))
 			return;
 		
-		$this->conditionName = (string)$xml->conditionName;
+		if(count($xml->conditionName))
+			$this->conditionName = (string)$xml->conditionName;
 	}
 	/**
 	 * 

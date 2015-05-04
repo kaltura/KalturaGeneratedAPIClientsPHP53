@@ -54,7 +54,8 @@ class Coordinate extends \Kaltura\Client\ObjectBase
 			$this->latitude = (float)$xml->latitude;
 		if(count($xml->longitude))
 			$this->longitude = (float)$xml->longitude;
-		$this->name = (string)$xml->name;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 	}
 	/**
 	 * 

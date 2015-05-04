@@ -50,23 +50,34 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->name = (string)$xml->name;
-		$this->description = (string)$xml->description;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->userId = (string)$xml->userId;
-		$this->creatorId = (string)$xml->creatorId;
-		$this->tags = (string)$xml->tags;
-		$this->adminTags = (string)$xml->adminTags;
-		$this->categories = (string)$xml->categories;
-		$this->categoriesIds = (string)$xml->categoriesIds;
-		$this->status = (string)$xml->status;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->creatorId))
+			$this->creatorId = (string)$xml->creatorId;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->adminTags))
+			$this->adminTags = (string)$xml->adminTags;
+		if(count($xml->categories))
+			$this->categories = (string)$xml->categories;
+		if(count($xml->categoriesIds))
+			$this->categoriesIds = (string)$xml->categoriesIds;
+		if(count($xml->status))
+			$this->status = (string)$xml->status;
 		if(count($xml->moderationStatus))
 			$this->moderationStatus = (int)$xml->moderationStatus;
 		if(count($xml->moderationCount))
 			$this->moderationCount = (int)$xml->moderationCount;
-		$this->type = (string)$xml->type;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
@@ -79,37 +90,53 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			$this->votes = (int)$xml->votes;
 		if(count($xml->groupId))
 			$this->groupId = (int)$xml->groupId;
-		$this->partnerData = (string)$xml->partnerData;
-		$this->downloadUrl = (string)$xml->downloadUrl;
-		$this->searchText = (string)$xml->searchText;
+		if(count($xml->partnerData))
+			$this->partnerData = (string)$xml->partnerData;
+		if(count($xml->downloadUrl))
+			$this->downloadUrl = (string)$xml->downloadUrl;
+		if(count($xml->searchText))
+			$this->searchText = (string)$xml->searchText;
 		if(count($xml->licenseType))
 			$this->licenseType = (int)$xml->licenseType;
 		if(count($xml->version))
 			$this->version = (int)$xml->version;
-		$this->thumbnailUrl = (string)$xml->thumbnailUrl;
+		if(count($xml->thumbnailUrl))
+			$this->thumbnailUrl = (string)$xml->thumbnailUrl;
 		if(count($xml->accessControlId))
 			$this->accessControlId = (int)$xml->accessControlId;
 		if(count($xml->startDate))
 			$this->startDate = (int)$xml->startDate;
 		if(count($xml->endDate))
 			$this->endDate = (int)$xml->endDate;
-		$this->referenceId = (string)$xml->referenceId;
-		$this->replacingEntryId = (string)$xml->replacingEntryId;
-		$this->replacedEntryId = (string)$xml->replacedEntryId;
-		$this->replacementStatus = (string)$xml->replacementStatus;
+		if(count($xml->referenceId))
+			$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->replacingEntryId))
+			$this->replacingEntryId = (string)$xml->replacingEntryId;
+		if(count($xml->replacedEntryId))
+			$this->replacedEntryId = (string)$xml->replacedEntryId;
+		if(count($xml->replacementStatus))
+			$this->replacementStatus = (string)$xml->replacementStatus;
 		if(count($xml->partnerSortValue))
 			$this->partnerSortValue = (int)$xml->partnerSortValue;
 		if(count($xml->conversionProfileId))
 			$this->conversionProfileId = (int)$xml->conversionProfileId;
-		$this->redirectEntryId = (string)$xml->redirectEntryId;
-		$this->rootEntryId = (string)$xml->rootEntryId;
-		$this->parentEntryId = (string)$xml->parentEntryId;
-		if(empty($xml->operationAttributes))
-			$this->operationAttributes = array();
-		else
-			$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
-		$this->entitledUsersEdit = (string)$xml->entitledUsersEdit;
-		$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
+		if(count($xml->redirectEntryId))
+			$this->redirectEntryId = (string)$xml->redirectEntryId;
+		if(count($xml->rootEntryId))
+			$this->rootEntryId = (string)$xml->rootEntryId;
+		if(count($xml->parentEntryId))
+			$this->parentEntryId = (string)$xml->parentEntryId;
+		if(count($xml->operationAttributes))
+		{
+			if(empty($xml->operationAttributes))
+				$this->operationAttributes = array();
+			else
+				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
+		}
+		if(count($xml->entitledUsersEdit))
+			$this->entitledUsersEdit = (string)$xml->entitledUsersEdit;
+		if(count($xml->entitledUsersPublish))
+			$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
 	}
 	/**
 	 * Auto generated 10 characters alphanumeric string

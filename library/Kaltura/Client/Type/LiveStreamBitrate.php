@@ -56,7 +56,8 @@ class LiveStreamBitrate extends \Kaltura\Client\ObjectBase
 			$this->width = (int)$xml->width;
 		if(count($xml->height))
 			$this->height = (int)$xml->height;
-		$this->tags = (string)$xml->tags;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
 	}
 	/**
 	 * 

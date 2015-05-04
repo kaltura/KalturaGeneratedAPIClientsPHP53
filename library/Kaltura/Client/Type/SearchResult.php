@@ -50,18 +50,28 @@ class SearchResult extends \Kaltura\Client\Type\Search
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->title = (string)$xml->title;
-		$this->thumbUrl = (string)$xml->thumbUrl;
-		$this->description = (string)$xml->description;
-		$this->tags = (string)$xml->tags;
-		$this->url = (string)$xml->url;
-		$this->sourceLink = (string)$xml->sourceLink;
-		$this->credit = (string)$xml->credit;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->title))
+			$this->title = (string)$xml->title;
+		if(count($xml->thumbUrl))
+			$this->thumbUrl = (string)$xml->thumbUrl;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->url))
+			$this->url = (string)$xml->url;
+		if(count($xml->sourceLink))
+			$this->sourceLink = (string)$xml->sourceLink;
+		if(count($xml->credit))
+			$this->credit = (string)$xml->credit;
 		if(count($xml->licenseType))
 			$this->licenseType = (int)$xml->licenseType;
-		$this->flashPlaybackType = (string)$xml->flashPlaybackType;
-		$this->fileExt = (string)$xml->fileExt;
+		if(count($xml->flashPlaybackType))
+			$this->flashPlaybackType = (string)$xml->flashPlaybackType;
+		if(count($xml->fileExt))
+			$this->fileExt = (string)$xml->fileExt;
 	}
 	/**
 	 * 

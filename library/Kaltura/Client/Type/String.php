@@ -52,7 +52,8 @@ class String extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->value = (string)$xml->value;
+		if(count($xml->value))
+			$this->value = (string)$xml->value;
 	}
 	/**
 	 * 

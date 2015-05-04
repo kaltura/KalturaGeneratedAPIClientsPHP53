@@ -66,12 +66,15 @@ class BatchJob extends \Kaltura\Client\ObjectBase
 			$this->executionAttempts = (int)$xml->executionAttempts;
 		if(count($xml->lockVersion))
 			$this->lockVersion = (int)$xml->lockVersion;
-		$this->entryId = (string)$xml->entryId;
-		$this->entryName = (string)$xml->entryName;
-		$this->jobType = (string)$xml->jobType;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->entryName))
+			$this->entryName = (string)$xml->entryName;
+		if(count($xml->jobType))
+			$this->jobType = (string)$xml->jobType;
 		if(count($xml->jobSubType))
 			$this->jobSubType = (int)$xml->jobSubType;
-		if(!empty($xml->data))
+		if(count($xml->data) && !empty($xml->data))
 			$this->data = \Kaltura\Client\ParseUtils::unmarshalObject($xml->data, "KalturaJobData");
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
@@ -79,14 +82,19 @@ class BatchJob extends \Kaltura\Client\ObjectBase
 			$this->abort = (int)$xml->abort;
 		if(count($xml->checkAgainTimeout))
 			$this->checkAgainTimeout = (int)$xml->checkAgainTimeout;
-		$this->message = (string)$xml->message;
-		$this->description = (string)$xml->description;
+		if(count($xml->message))
+			$this->message = (string)$xml->message;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->priority))
 			$this->priority = (int)$xml->priority;
-		if(empty($xml->history))
-			$this->history = array();
-		else
-			$this->history = \Kaltura\Client\ParseUtils::unmarshalArray($xml->history, "KalturaBatchHistoryData");
+		if(count($xml->history))
+		{
+			if(empty($xml->history))
+				$this->history = array();
+			else
+				$this->history = \Kaltura\Client\ParseUtils::unmarshalArray($xml->history, "KalturaBatchHistoryData");
+		}
 		if(count($xml->bulkJobId))
 			$this->bulkJobId = (int)$xml->bulkJobId;
 		if(count($xml->batchVersion))
@@ -119,7 +127,8 @@ class BatchJob extends \Kaltura\Client\ObjectBase
 			$this->lastWorkerId = (int)$xml->lastWorkerId;
 		if(count($xml->dc))
 			$this->dc = (int)$xml->dc;
-		$this->jobObjectId = (string)$xml->jobObjectId;
+		if(count($xml->jobObjectId))
+			$this->jobObjectId = (string)$xml->jobObjectId;
 		if(count($xml->jobObjectType))
 			$this->jobObjectType = (int)$xml->jobObjectType;
 	}

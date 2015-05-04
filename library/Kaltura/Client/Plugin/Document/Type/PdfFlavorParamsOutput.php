@@ -50,8 +50,13 @@ class PdfFlavorParamsOutput extends \Kaltura\Client\Type\FlavorParamsOutput
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->readonly))
-			$this->readonly = true;
+		if(count($xml->readonly))
+		{
+			if(!empty($xml->readonly))
+				$this->readonly = true;
+			else
+				$this->readonly = false;
+		}
 	}
 	/**
 	 * 

@@ -52,7 +52,8 @@ class SystemPartnerUsageItem extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->partnerName = (string)$xml->partnerName;
+		if(count($xml->partnerName))
+			$this->partnerName = (string)$xml->partnerName;
 		if(count($xml->partnerStatus))
 			$this->partnerStatus = (int)$xml->partnerStatus;
 		if(count($xml->partnerPackage))

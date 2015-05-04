@@ -50,8 +50,10 @@ class UserLoginData extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->loginEmail = (string)$xml->loginEmail;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->loginEmail))
+			$this->loginEmail = (string)$xml->loginEmail;
 	}
 	/**
 	 * 

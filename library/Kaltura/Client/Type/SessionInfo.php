@@ -50,15 +50,18 @@ class SessionInfo extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->ks = (string)$xml->ks;
+		if(count($xml->ks))
+			$this->ks = (string)$xml->ks;
 		if(count($xml->sessionType))
 			$this->sessionType = (int)$xml->sessionType;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->userId = (string)$xml->userId;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
 		if(count($xml->expiry))
 			$this->expiry = (int)$xml->expiry;
-		$this->privileges = (string)$xml->privileges;
+		if(count($xml->privileges))
+			$this->privileges = (string)$xml->privileges;
 	}
 	/**
 	 * 

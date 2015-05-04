@@ -52,10 +52,14 @@ class EntryContextDataParams extends \Kaltura\Client\Type\AccessControlScope
 		if(is_null($xml))
 			return;
 		
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
-		$this->flavorTags = (string)$xml->flavorTags;
-		$this->streamerType = (string)$xml->streamerType;
-		$this->mediaProtocol = (string)$xml->mediaProtocol;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->flavorTags))
+			$this->flavorTags = (string)$xml->flavorTags;
+		if(count($xml->streamerType))
+			$this->streamerType = (string)$xml->streamerType;
+		if(count($xml->mediaProtocol))
+			$this->mediaProtocol = (string)$xml->mediaProtocol;
 	}
 	/**
 	 * Id of the current flavor.

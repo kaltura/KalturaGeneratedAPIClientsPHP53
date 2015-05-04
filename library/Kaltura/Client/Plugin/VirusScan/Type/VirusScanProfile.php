@@ -58,11 +58,13 @@ class VirusScanProfile extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->engineType = (string)$xml->engineType;
-		if(!empty($xml->entryFilter))
+		if(count($xml->engineType))
+			$this->engineType = (string)$xml->engineType;
+		if(count($xml->entryFilter) && !empty($xml->entryFilter))
 			$this->entryFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->entryFilter, "KalturaBaseEntryFilter");
 		if(count($xml->actionIfInfected))
 			$this->actionIfInfected = (int)$xml->actionIfInfected;

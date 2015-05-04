@@ -50,11 +50,15 @@ class ReportResponse extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->columns = (string)$xml->columns;
-		if(empty($xml->results))
-			$this->results = array();
-		else
-			$this->results = \Kaltura\Client\ParseUtils::unmarshalArray($xml->results, "KalturaString");
+		if(count($xml->columns))
+			$this->columns = (string)$xml->columns;
+		if(count($xml->results))
+		{
+			if(empty($xml->results))
+				$this->results = array();
+			else
+				$this->results = \Kaltura\Client\ParseUtils::unmarshalArray($xml->results, "KalturaString");
+		}
 	}
 	/**
 	 * 

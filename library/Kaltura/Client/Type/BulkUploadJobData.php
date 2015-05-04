@@ -50,23 +50,32 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->userId = (string)$xml->userId;
-		$this->uploadedBy = (string)$xml->uploadedBy;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->uploadedBy))
+			$this->uploadedBy = (string)$xml->uploadedBy;
 		if(count($xml->conversionProfileId))
 			$this->conversionProfileId = (int)$xml->conversionProfileId;
-		$this->resultsFileLocalPath = (string)$xml->resultsFileLocalPath;
-		$this->resultsFileUrl = (string)$xml->resultsFileUrl;
+		if(count($xml->resultsFileLocalPath))
+			$this->resultsFileLocalPath = (string)$xml->resultsFileLocalPath;
+		if(count($xml->resultsFileUrl))
+			$this->resultsFileUrl = (string)$xml->resultsFileUrl;
 		if(count($xml->numOfEntries))
 			$this->numOfEntries = (int)$xml->numOfEntries;
 		if(count($xml->numOfObjects))
 			$this->numOfObjects = (int)$xml->numOfObjects;
-		$this->filePath = (string)$xml->filePath;
-		$this->bulkUploadObjectType = (string)$xml->bulkUploadObjectType;
-		$this->fileName = (string)$xml->fileName;
-		if(!empty($xml->objectData))
+		if(count($xml->filePath))
+			$this->filePath = (string)$xml->filePath;
+		if(count($xml->bulkUploadObjectType))
+			$this->bulkUploadObjectType = (string)$xml->bulkUploadObjectType;
+		if(count($xml->fileName))
+			$this->fileName = (string)$xml->fileName;
+		if(count($xml->objectData) && !empty($xml->objectData))
 			$this->objectData = \Kaltura\Client\ParseUtils::unmarshalObject($xml->objectData, "KalturaBulkUploadObjectData");
-		$this->type = (string)$xml->type;
-		$this->emailRecipients = (string)$xml->emailRecipients;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->emailRecipients))
+			$this->emailRecipients = (string)$xml->emailRecipients;
 		if(count($xml->numOfErrorObjects))
 			$this->numOfErrorObjects = (int)$xml->numOfErrorObjects;
 	}

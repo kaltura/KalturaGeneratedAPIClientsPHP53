@@ -52,8 +52,10 @@ class ConversionAttribute extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->flavorParamsId))
 			$this->flavorParamsId = (int)$xml->flavorParamsId;
-		$this->name = (string)$xml->name;
-		$this->value = (string)$xml->value;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->value))
+			$this->value = (string)$xml->value;
 	}
 	/**
 	 * The id of the flavor params, set to null for source flavor

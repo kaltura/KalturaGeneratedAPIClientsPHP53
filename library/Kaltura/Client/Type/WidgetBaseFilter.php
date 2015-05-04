@@ -50,13 +50,18 @@ abstract class WidgetBaseFilter extends \Kaltura\Client\Type\Filter
 		if(is_null($xml))
 			return;
 		
-		$this->idEqual = (string)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
-		$this->sourceWidgetIdEqual = (string)$xml->sourceWidgetIdEqual;
-		$this->rootWidgetIdEqual = (string)$xml->rootWidgetIdEqual;
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->sourceWidgetIdEqual))
+			$this->sourceWidgetIdEqual = (string)$xml->sourceWidgetIdEqual;
+		if(count($xml->rootWidgetIdEqual))
+			$this->rootWidgetIdEqual = (string)$xml->rootWidgetIdEqual;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->entryIdEqual = (string)$xml->entryIdEqual;
+		if(count($xml->entryIdEqual))
+			$this->entryIdEqual = (string)$xml->entryIdEqual;
 		if(count($xml->uiConfIdEqual))
 			$this->uiConfIdEqual = (int)$xml->uiConfIdEqual;
 		if(count($xml->createdAtGreaterThanOrEqual))
@@ -67,7 +72,8 @@ abstract class WidgetBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
 		if(count($xml->updatedAtLessThanOrEqual))
 			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
-		$this->partnerDataLike = (string)$xml->partnerDataLike;
+		if(count($xml->partnerDataLike))
+			$this->partnerDataLike = (string)$xml->partnerDataLike;
 	}
 	/**
 	 * 

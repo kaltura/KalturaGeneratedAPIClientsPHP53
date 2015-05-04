@@ -50,7 +50,8 @@ class DistributionValidationErrorMissingAsset extends \Kaltura\Client\Plugin\Con
 		if(is_null($xml))
 			return;
 		
-		$this->data = (string)$xml->data;
+		if(count($xml->data))
+			$this->data = (string)$xml->data;
 	}
 	/**
 	 * 

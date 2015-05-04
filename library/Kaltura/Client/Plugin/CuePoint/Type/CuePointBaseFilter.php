@@ -50,15 +50,22 @@ abstract class CuePointBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		if(is_null($xml))
 			return;
 		
-		$this->idEqual = (string)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
-		$this->cuePointTypeEqual = (string)$xml->cuePointTypeEqual;
-		$this->cuePointTypeIn = (string)$xml->cuePointTypeIn;
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->cuePointTypeEqual))
+			$this->cuePointTypeEqual = (string)$xml->cuePointTypeEqual;
+		if(count($xml->cuePointTypeIn))
+			$this->cuePointTypeIn = (string)$xml->cuePointTypeIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->entryIdEqual = (string)$xml->entryIdEqual;
-		$this->entryIdIn = (string)$xml->entryIdIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->entryIdEqual))
+			$this->entryIdEqual = (string)$xml->entryIdEqual;
+		if(count($xml->entryIdIn))
+			$this->entryIdIn = (string)$xml->entryIdIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -71,26 +78,34 @@ abstract class CuePointBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->triggeredAtGreaterThanOrEqual = (int)$xml->triggeredAtGreaterThanOrEqual;
 		if(count($xml->triggeredAtLessThanOrEqual))
 			$this->triggeredAtLessThanOrEqual = (int)$xml->triggeredAtLessThanOrEqual;
-		$this->tagsLike = (string)$xml->tagsLike;
-		$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
-		$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
+		if(count($xml->tagsLike))
+			$this->tagsLike = (string)$xml->tagsLike;
+		if(count($xml->tagsMultiLikeOr))
+			$this->tagsMultiLikeOr = (string)$xml->tagsMultiLikeOr;
+		if(count($xml->tagsMultiLikeAnd))
+			$this->tagsMultiLikeAnd = (string)$xml->tagsMultiLikeAnd;
 		if(count($xml->startTimeGreaterThanOrEqual))
 			$this->startTimeGreaterThanOrEqual = (int)$xml->startTimeGreaterThanOrEqual;
 		if(count($xml->startTimeLessThanOrEqual))
 			$this->startTimeLessThanOrEqual = (int)$xml->startTimeLessThanOrEqual;
-		$this->userIdEqual = (string)$xml->userIdEqual;
-		$this->userIdIn = (string)$xml->userIdIn;
+		if(count($xml->userIdEqual))
+			$this->userIdEqual = (string)$xml->userIdEqual;
+		if(count($xml->userIdIn))
+			$this->userIdIn = (string)$xml->userIdIn;
 		if(count($xml->partnerSortValueEqual))
 			$this->partnerSortValueEqual = (int)$xml->partnerSortValueEqual;
-		$this->partnerSortValueIn = (string)$xml->partnerSortValueIn;
+		if(count($xml->partnerSortValueIn))
+			$this->partnerSortValueIn = (string)$xml->partnerSortValueIn;
 		if(count($xml->partnerSortValueGreaterThanOrEqual))
 			$this->partnerSortValueGreaterThanOrEqual = (int)$xml->partnerSortValueGreaterThanOrEqual;
 		if(count($xml->partnerSortValueLessThanOrEqual))
 			$this->partnerSortValueLessThanOrEqual = (int)$xml->partnerSortValueLessThanOrEqual;
 		if(count($xml->forceStopEqual))
 			$this->forceStopEqual = (int)$xml->forceStopEqual;
-		$this->systemNameEqual = (string)$xml->systemNameEqual;
-		$this->systemNameIn = (string)$xml->systemNameIn;
+		if(count($xml->systemNameEqual))
+			$this->systemNameEqual = (string)$xml->systemNameEqual;
+		if(count($xml->systemNameIn))
+			$this->systemNameIn = (string)$xml->systemNameIn;
 	}
 	/**
 	 * 

@@ -50,8 +50,10 @@ class GenericDistributionJobProviderData extends \Kaltura\Client\Plugin\ContentD
 		if(is_null($xml))
 			return;
 		
-		$this->xml = (string)$xml->xml;
-		$this->resultParseData = (string)$xml->resultParseData;
+		if(count($xml->xml))
+			$this->xml = (string)$xml->xml;
+		if(count($xml->resultParseData))
+			$this->resultParseData = (string)$xml->resultParseData;
 		if(count($xml->resultParserType))
 			$this->resultParserType = (int)$xml->resultParserType;
 	}

@@ -50,11 +50,16 @@ abstract class AnnotationBaseFilter extends \Kaltura\Client\Plugin\CuePoint\Type
 		if(is_null($xml))
 			return;
 		
-		$this->parentIdEqual = (string)$xml->parentIdEqual;
-		$this->parentIdIn = (string)$xml->parentIdIn;
-		$this->textLike = (string)$xml->textLike;
-		$this->textMultiLikeOr = (string)$xml->textMultiLikeOr;
-		$this->textMultiLikeAnd = (string)$xml->textMultiLikeAnd;
+		if(count($xml->parentIdEqual))
+			$this->parentIdEqual = (string)$xml->parentIdEqual;
+		if(count($xml->parentIdIn))
+			$this->parentIdIn = (string)$xml->parentIdIn;
+		if(count($xml->textLike))
+			$this->textLike = (string)$xml->textLike;
+		if(count($xml->textMultiLikeOr))
+			$this->textMultiLikeOr = (string)$xml->textMultiLikeOr;
+		if(count($xml->textMultiLikeAnd))
+			$this->textMultiLikeAnd = (string)$xml->textMultiLikeAnd;
 		if(count($xml->endTimeGreaterThanOrEqual))
 			$this->endTimeGreaterThanOrEqual = (int)$xml->endTimeGreaterThanOrEqual;
 		if(count($xml->endTimeLessThanOrEqual))

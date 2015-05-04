@@ -60,10 +60,14 @@ class ShortLink extends \Kaltura\Client\ObjectBase
 			$this->expiresAt = (int)$xml->expiresAt;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->userId = (string)$xml->userId;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->fullUrl = (string)$xml->fullUrl;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->fullUrl))
+			$this->fullUrl = (string)$xml->fullUrl;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 	}

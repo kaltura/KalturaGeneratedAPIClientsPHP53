@@ -50,7 +50,7 @@ class LiveStatsListResponse extends \Kaltura\Client\Type\ListResponse
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->objects))
+		if(count($xml->objects) && !empty($xml->objects))
 			$this->objects = \Kaltura\Client\ParseUtils::unmarshalObject($xml->objects, "KalturaLiveStats");
 	}
 	/**

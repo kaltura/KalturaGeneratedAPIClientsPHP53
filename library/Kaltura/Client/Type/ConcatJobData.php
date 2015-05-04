@@ -50,12 +50,17 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->srcFiles))
-			$this->srcFiles = array();
-		else
-			$this->srcFiles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->srcFiles, "KalturaString");
-		$this->destFilePath = (string)$xml->destFilePath;
-		$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->srcFiles))
+		{
+			if(empty($xml->srcFiles))
+				$this->srcFiles = array();
+			else
+				$this->srcFiles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->srcFiles, "KalturaString");
+		}
+		if(count($xml->destFilePath))
+			$this->destFilePath = (string)$xml->destFilePath;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
 		if(count($xml->offset))
 			$this->offset = (float)$xml->offset;
 		if(count($xml->duration))

@@ -54,10 +54,13 @@ class BulkUploadCsvJobData extends \Kaltura\Client\Type\BulkUploadJobData
 		
 		if(count($xml->csvVersion))
 			$this->csvVersion = (int)$xml->csvVersion;
-		if(empty($xml->columns))
-			$this->columns = array();
-		else
-			$this->columns = \Kaltura\Client\ParseUtils::unmarshalArray($xml->columns, "KalturaString");
+		if(count($xml->columns))
+		{
+			if(empty($xml->columns))
+				$this->columns = array();
+			else
+				$this->columns = \Kaltura\Client\ParseUtils::unmarshalArray($xml->columns, "KalturaString");
+		}
 	}
 	/**
 	 * The version of the csv file

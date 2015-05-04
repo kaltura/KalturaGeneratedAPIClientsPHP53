@@ -50,15 +50,28 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 		if(is_null($xml))
 			return;
 		
-		$this->keywords = (string)$xml->keywords;
-		if(!empty($xml->searchInTags))
-			$this->searchInTags = true;
-		if(!empty($xml->searchInAdminTags))
-			$this->searchInAdminTags = true;
-		$this->categories = (string)$xml->categories;
+		if(count($xml->keywords))
+			$this->keywords = (string)$xml->keywords;
+		if(count($xml->searchInTags))
+		{
+			if(!empty($xml->searchInTags))
+				$this->searchInTags = true;
+			else
+				$this->searchInTags = false;
+		}
+		if(count($xml->searchInAdminTags))
+		{
+			if(!empty($xml->searchInAdminTags))
+				$this->searchInAdminTags = true;
+			else
+				$this->searchInAdminTags = false;
+		}
+		if(count($xml->categories))
+			$this->categories = (string)$xml->categories;
 		if(count($xml->timeZoneOffset))
 			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		$this->interval = (string)$xml->interval;
+		if(count($xml->interval))
+			$this->interval = (string)$xml->interval;
 	}
 	/**
 	 * Search keywords to filter objects

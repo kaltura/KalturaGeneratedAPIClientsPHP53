@@ -52,9 +52,15 @@ class UrlResource extends \Kaltura\Client\Type\ContentResource
 		if(is_null($xml))
 			return;
 		
-		$this->url = (string)$xml->url;
-		if(!empty($xml->forceAsyncDownload))
-			$this->forceAsyncDownload = true;
+		if(count($xml->url))
+			$this->url = (string)$xml->url;
+		if(count($xml->forceAsyncDownload))
+		{
+			if(!empty($xml->forceAsyncDownload))
+				$this->forceAsyncDownload = true;
+			else
+				$this->forceAsyncDownload = false;
+		}
 	}
 	/**
 	 * Remote URL, FTP, HTTP or HTTPS 

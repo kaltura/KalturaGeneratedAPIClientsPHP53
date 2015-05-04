@@ -50,10 +50,14 @@ class AdCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 		if(is_null($xml))
 			return;
 		
-		$this->protocolType = (string)$xml->protocolType;
-		$this->sourceUrl = (string)$xml->sourceUrl;
-		$this->adType = (string)$xml->adType;
-		$this->title = (string)$xml->title;
+		if(count($xml->protocolType))
+			$this->protocolType = (string)$xml->protocolType;
+		if(count($xml->sourceUrl))
+			$this->sourceUrl = (string)$xml->sourceUrl;
+		if(count($xml->adType))
+			$this->adType = (string)$xml->adType;
+		if(count($xml->title))
+			$this->title = (string)$xml->title;
 		if(count($xml->endTime))
 			$this->endTime = (int)$xml->endTime;
 		if(count($xml->duration))

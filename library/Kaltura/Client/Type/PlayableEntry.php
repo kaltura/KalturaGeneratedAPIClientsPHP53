@@ -64,7 +64,8 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 			$this->duration = (int)$xml->duration;
 		if(count($xml->msDuration))
 			$this->msDuration = (int)$xml->msDuration;
-		$this->durationType = (string)$xml->durationType;
+		if(count($xml->durationType))
+			$this->durationType = (string)$xml->durationType;
 	}
 	/**
 	 * Number of plays

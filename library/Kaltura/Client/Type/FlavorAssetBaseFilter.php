@@ -52,11 +52,14 @@ abstract class FlavorAssetBaseFilter extends \Kaltura\Client\Type\AssetFilter
 		
 		if(count($xml->flavorParamsIdEqual))
 			$this->flavorParamsIdEqual = (int)$xml->flavorParamsIdEqual;
-		$this->flavorParamsIdIn = (string)$xml->flavorParamsIdIn;
+		if(count($xml->flavorParamsIdIn))
+			$this->flavorParamsIdIn = (string)$xml->flavorParamsIdIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->statusNotIn = (string)$xml->statusNotIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusNotIn))
+			$this->statusNotIn = (string)$xml->statusNotIn;
 	}
 	/**
 	 * 

@@ -50,7 +50,8 @@ abstract class DropFolderFileHandlerConfig extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->handlerType = (string)$xml->handlerType;
+		if(count($xml->handlerType))
+			$this->handlerType = (string)$xml->handlerType;
 	}
 	/**
 	 * 

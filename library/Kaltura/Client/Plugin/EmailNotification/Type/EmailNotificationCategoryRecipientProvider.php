@@ -52,9 +52,9 @@ class EmailNotificationCategoryRecipientProvider extends \Kaltura\Client\Plugin\
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->categoryId))
+		if(count($xml->categoryId) && !empty($xml->categoryId))
 			$this->categoryId = \Kaltura\Client\ParseUtils::unmarshalObject($xml->categoryId, "KalturaStringValue");
-		if(!empty($xml->categoryUserFilter))
+		if(count($xml->categoryUserFilter) && !empty($xml->categoryUserFilter))
 			$this->categoryUserFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->categoryUserFilter, "KalturaCategoryUserProviderFilter");
 	}
 	/**

@@ -50,8 +50,10 @@ class CodeCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 		if(is_null($xml))
 			return;
 		
-		$this->code = (string)$xml->code;
-		$this->description = (string)$xml->description;
+		if(count($xml->code))
+			$this->code = (string)$xml->code;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 		if(count($xml->endTime))
 			$this->endTime = (int)$xml->endTime;
 		if(count($xml->duration))

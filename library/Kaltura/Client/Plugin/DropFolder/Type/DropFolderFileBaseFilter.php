@@ -52,33 +52,50 @@ abstract class DropFolderFileBaseFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->idEqual))
 			$this->idEqual = (int)$xml->idEqual;
-		$this->idIn = (string)$xml->idIn;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
 		if(count($xml->dropFolderIdEqual))
 			$this->dropFolderIdEqual = (int)$xml->dropFolderIdEqual;
-		$this->dropFolderIdIn = (string)$xml->dropFolderIdIn;
-		$this->fileNameEqual = (string)$xml->fileNameEqual;
-		$this->fileNameIn = (string)$xml->fileNameIn;
-		$this->fileNameLike = (string)$xml->fileNameLike;
+		if(count($xml->dropFolderIdIn))
+			$this->dropFolderIdIn = (string)$xml->dropFolderIdIn;
+		if(count($xml->fileNameEqual))
+			$this->fileNameEqual = (string)$xml->fileNameEqual;
+		if(count($xml->fileNameIn))
+			$this->fileNameIn = (string)$xml->fileNameIn;
+		if(count($xml->fileNameLike))
+			$this->fileNameLike = (string)$xml->fileNameLike;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->statusNotIn = (string)$xml->statusNotIn;
-		$this->parsedSlugEqual = (string)$xml->parsedSlugEqual;
-		$this->parsedSlugIn = (string)$xml->parsedSlugIn;
-		$this->parsedSlugLike = (string)$xml->parsedSlugLike;
-		$this->parsedFlavorEqual = (string)$xml->parsedFlavorEqual;
-		$this->parsedFlavorIn = (string)$xml->parsedFlavorIn;
-		$this->parsedFlavorLike = (string)$xml->parsedFlavorLike;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusNotIn))
+			$this->statusNotIn = (string)$xml->statusNotIn;
+		if(count($xml->parsedSlugEqual))
+			$this->parsedSlugEqual = (string)$xml->parsedSlugEqual;
+		if(count($xml->parsedSlugIn))
+			$this->parsedSlugIn = (string)$xml->parsedSlugIn;
+		if(count($xml->parsedSlugLike))
+			$this->parsedSlugLike = (string)$xml->parsedSlugLike;
+		if(count($xml->parsedFlavorEqual))
+			$this->parsedFlavorEqual = (string)$xml->parsedFlavorEqual;
+		if(count($xml->parsedFlavorIn))
+			$this->parsedFlavorIn = (string)$xml->parsedFlavorIn;
+		if(count($xml->parsedFlavorLike))
+			$this->parsedFlavorLike = (string)$xml->parsedFlavorLike;
 		if(count($xml->leadDropFolderFileIdEqual))
 			$this->leadDropFolderFileIdEqual = (int)$xml->leadDropFolderFileIdEqual;
 		if(count($xml->deletedDropFolderFileIdEqual))
 			$this->deletedDropFolderFileIdEqual = (int)$xml->deletedDropFolderFileIdEqual;
-		$this->entryIdEqual = (string)$xml->entryIdEqual;
-		$this->errorCodeEqual = (string)$xml->errorCodeEqual;
-		$this->errorCodeIn = (string)$xml->errorCodeIn;
+		if(count($xml->entryIdEqual))
+			$this->entryIdEqual = (string)$xml->entryIdEqual;
+		if(count($xml->errorCodeEqual))
+			$this->errorCodeEqual = (string)$xml->errorCodeEqual;
+		if(count($xml->errorCodeIn))
+			$this->errorCodeIn = (string)$xml->errorCodeIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))

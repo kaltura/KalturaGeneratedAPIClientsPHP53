@@ -50,12 +50,17 @@ class VelocixProvisionJobData extends \Kaltura\Client\Type\ProvisionJobData
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->provisioningParams))
-			$this->provisioningParams = array();
-		else
-			$this->provisioningParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->provisioningParams, "KalturaKeyValue");
-		$this->userName = (string)$xml->userName;
-		$this->password = (string)$xml->password;
+		if(count($xml->provisioningParams))
+		{
+			if(empty($xml->provisioningParams))
+				$this->provisioningParams = array();
+			else
+				$this->provisioningParams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->provisioningParams, "KalturaKeyValue");
+		}
+		if(count($xml->userName))
+			$this->userName = (string)$xml->userName;
+		if(count($xml->password))
+			$this->password = (string)$xml->password;
 	}
 	/**
 	 * 

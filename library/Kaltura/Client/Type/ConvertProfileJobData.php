@@ -50,7 +50,8 @@ class ConvertProfileJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->inputFileSyncLocalPath = (string)$xml->inputFileSyncLocalPath;
+		if(count($xml->inputFileSyncLocalPath))
+			$this->inputFileSyncLocalPath = (string)$xml->inputFileSyncLocalPath;
 		if(count($xml->thumbHeight))
 			$this->thumbHeight = (int)$xml->thumbHeight;
 		if(count($xml->thumbBitrate))

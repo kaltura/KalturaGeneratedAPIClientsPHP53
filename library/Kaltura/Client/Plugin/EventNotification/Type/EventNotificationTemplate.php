@@ -54,34 +54,59 @@ class EventNotificationTemplate extends \Kaltura\Client\ObjectBase
 			$this->id = (int)$xml->id;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->name = (string)$xml->name;
-		$this->systemName = (string)$xml->systemName;
-		$this->description = (string)$xml->description;
-		$this->type = (string)$xml->type;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
-		if(!empty($xml->manualDispatchEnabled))
-			$this->manualDispatchEnabled = true;
-		if(!empty($xml->automaticDispatchEnabled))
-			$this->automaticDispatchEnabled = true;
-		$this->eventType = (string)$xml->eventType;
-		$this->eventObjectType = (string)$xml->eventObjectType;
-		if(empty($xml->eventConditions))
-			$this->eventConditions = array();
-		else
-			$this->eventConditions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->eventConditions, "KalturaCondition");
-		if(empty($xml->contentParameters))
-			$this->contentParameters = array();
-		else
-			$this->contentParameters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->contentParameters, "KalturaEventNotificationParameter");
-		if(empty($xml->userParameters))
-			$this->userParameters = array();
-		else
-			$this->userParameters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->userParameters, "KalturaEventNotificationParameter");
+		if(count($xml->manualDispatchEnabled))
+		{
+			if(!empty($xml->manualDispatchEnabled))
+				$this->manualDispatchEnabled = true;
+			else
+				$this->manualDispatchEnabled = false;
+		}
+		if(count($xml->automaticDispatchEnabled))
+		{
+			if(!empty($xml->automaticDispatchEnabled))
+				$this->automaticDispatchEnabled = true;
+			else
+				$this->automaticDispatchEnabled = false;
+		}
+		if(count($xml->eventType))
+			$this->eventType = (string)$xml->eventType;
+		if(count($xml->eventObjectType))
+			$this->eventObjectType = (string)$xml->eventObjectType;
+		if(count($xml->eventConditions))
+		{
+			if(empty($xml->eventConditions))
+				$this->eventConditions = array();
+			else
+				$this->eventConditions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->eventConditions, "KalturaCondition");
+		}
+		if(count($xml->contentParameters))
+		{
+			if(empty($xml->contentParameters))
+				$this->contentParameters = array();
+			else
+				$this->contentParameters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->contentParameters, "KalturaEventNotificationParameter");
+		}
+		if(count($xml->userParameters))
+		{
+			if(empty($xml->userParameters))
+				$this->userParameters = array();
+			else
+				$this->userParameters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->userParameters, "KalturaEventNotificationParameter");
+		}
 	}
 	/**
 	 * 

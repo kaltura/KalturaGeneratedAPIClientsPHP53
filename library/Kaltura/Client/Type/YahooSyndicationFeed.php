@@ -50,10 +50,14 @@ class YahooSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 		if(is_null($xml))
 			return;
 		
-		$this->category = (string)$xml->category;
-		$this->adultContent = (string)$xml->adultContent;
-		$this->feedDescription = (string)$xml->feedDescription;
-		$this->feedLandingPage = (string)$xml->feedLandingPage;
+		if(count($xml->category))
+			$this->category = (string)$xml->category;
+		if(count($xml->adultContent))
+			$this->adultContent = (string)$xml->adultContent;
+		if(count($xml->feedDescription))
+			$this->feedDescription = (string)$xml->feedDescription;
+		if(count($xml->feedLandingPage))
+			$this->feedLandingPage = (string)$xml->feedLandingPage;
 	}
 	/**
 	 * 

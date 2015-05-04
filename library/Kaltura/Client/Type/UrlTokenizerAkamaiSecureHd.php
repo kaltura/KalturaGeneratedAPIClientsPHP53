@@ -50,11 +50,16 @@ class UrlTokenizerAkamaiSecureHd extends \Kaltura\Client\Type\UrlTokenizer
 		if(is_null($xml))
 			return;
 		
-		$this->paramName = (string)$xml->paramName;
-		$this->aclPostfix = (string)$xml->aclPostfix;
-		$this->customPostfixes = (string)$xml->customPostfixes;
-		$this->useCookieHosts = (string)$xml->useCookieHosts;
-		$this->rootDir = (string)$xml->rootDir;
+		if(count($xml->paramName))
+			$this->paramName = (string)$xml->paramName;
+		if(count($xml->aclPostfix))
+			$this->aclPostfix = (string)$xml->aclPostfix;
+		if(count($xml->customPostfixes))
+			$this->customPostfixes = (string)$xml->customPostfixes;
+		if(count($xml->useCookieHosts))
+			$this->useCookieHosts = (string)$xml->useCookieHosts;
+		if(count($xml->rootDir))
+			$this->rootDir = (string)$xml->rootDir;
 	}
 	/**
 	 * 

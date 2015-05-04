@@ -52,9 +52,12 @@ abstract class DocumentEntryBaseFilter extends \Kaltura\Client\Type\BaseEntryFil
 		
 		if(count($xml->documentTypeEqual))
 			$this->documentTypeEqual = (int)$xml->documentTypeEqual;
-		$this->documentTypeIn = (string)$xml->documentTypeIn;
-		$this->assetParamsIdsMatchOr = (string)$xml->assetParamsIdsMatchOr;
-		$this->assetParamsIdsMatchAnd = (string)$xml->assetParamsIdsMatchAnd;
+		if(count($xml->documentTypeIn))
+			$this->documentTypeIn = (string)$xml->documentTypeIn;
+		if(count($xml->assetParamsIdsMatchOr))
+			$this->assetParamsIdsMatchOr = (string)$xml->assetParamsIdsMatchOr;
+		if(count($xml->assetParamsIdsMatchAnd))
+			$this->assetParamsIdsMatchAnd = (string)$xml->assetParamsIdsMatchAnd;
 	}
 	/**
 	 * 

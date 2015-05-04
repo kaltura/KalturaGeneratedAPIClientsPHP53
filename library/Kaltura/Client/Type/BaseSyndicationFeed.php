@@ -50,36 +50,64 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->id = (string)$xml->id;
-		$this->feedUrl = (string)$xml->feedUrl;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->feedUrl))
+			$this->feedUrl = (string)$xml->feedUrl;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->playlistId = (string)$xml->playlistId;
-		$this->name = (string)$xml->name;
+		if(count($xml->playlistId))
+			$this->playlistId = (string)$xml->playlistId;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		$this->landingPage = (string)$xml->landingPage;
+		if(count($xml->landingPage))
+			$this->landingPage = (string)$xml->landingPage;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
-		if(!empty($xml->allowEmbed))
-			$this->allowEmbed = true;
+		if(count($xml->allowEmbed))
+		{
+			if(!empty($xml->allowEmbed))
+				$this->allowEmbed = true;
+			else
+				$this->allowEmbed = false;
+		}
 		if(count($xml->playerUiconfId))
 			$this->playerUiconfId = (int)$xml->playerUiconfId;
 		if(count($xml->flavorParamId))
 			$this->flavorParamId = (int)$xml->flavorParamId;
-		if(!empty($xml->transcodeExistingContent))
-			$this->transcodeExistingContent = true;
-		if(!empty($xml->addToDefaultConversionProfile))
-			$this->addToDefaultConversionProfile = true;
-		$this->categories = (string)$xml->categories;
+		if(count($xml->transcodeExistingContent))
+		{
+			if(!empty($xml->transcodeExistingContent))
+				$this->transcodeExistingContent = true;
+			else
+				$this->transcodeExistingContent = false;
+		}
+		if(count($xml->addToDefaultConversionProfile))
+		{
+			if(!empty($xml->addToDefaultConversionProfile))
+				$this->addToDefaultConversionProfile = true;
+			else
+				$this->addToDefaultConversionProfile = false;
+		}
+		if(count($xml->categories))
+			$this->categories = (string)$xml->categories;
 		if(count($xml->storageId))
 			$this->storageId = (int)$xml->storageId;
-		$this->entriesOrderBy = (string)$xml->entriesOrderBy;
-		if(!empty($xml->enforceEntitlement))
-			$this->enforceEntitlement = true;
-		$this->privacyContext = (string)$xml->privacyContext;
+		if(count($xml->entriesOrderBy))
+			$this->entriesOrderBy = (string)$xml->entriesOrderBy;
+		if(count($xml->enforceEntitlement))
+		{
+			if(!empty($xml->enforceEntitlement))
+				$this->enforceEntitlement = true;
+			else
+				$this->enforceEntitlement = false;
+		}
+		if(count($xml->privacyContext))
+			$this->privacyContext = (string)$xml->privacyContext;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
 	}

@@ -52,10 +52,12 @@ abstract class PermissionItem extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (int)$xml->id;
-		$this->type = (string)$xml->type;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->tags = (string)$xml->tags;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
 		if(count($xml->createdAt))
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))

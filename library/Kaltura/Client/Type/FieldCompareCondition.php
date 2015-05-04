@@ -50,7 +50,7 @@ class FieldCompareCondition extends \Kaltura\Client\Type\CompareCondition
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->field))
+		if(count($xml->field) && !empty($xml->field))
 			$this->field = \Kaltura\Client\ParseUtils::unmarshalObject($xml->field, "KalturaIntegerField");
 	}
 	/**

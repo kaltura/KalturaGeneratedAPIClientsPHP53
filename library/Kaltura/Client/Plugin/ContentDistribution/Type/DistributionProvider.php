@@ -50,20 +50,39 @@ abstract class DistributionProvider extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->type = (string)$xml->type;
-		$this->name = (string)$xml->name;
-		if(!empty($xml->scheduleUpdateEnabled))
-			$this->scheduleUpdateEnabled = true;
-		if(!empty($xml->availabilityUpdateEnabled))
-			$this->availabilityUpdateEnabled = true;
-		if(!empty($xml->deleteInsteadUpdate))
-			$this->deleteInsteadUpdate = true;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->scheduleUpdateEnabled))
+		{
+			if(!empty($xml->scheduleUpdateEnabled))
+				$this->scheduleUpdateEnabled = true;
+			else
+				$this->scheduleUpdateEnabled = false;
+		}
+		if(count($xml->availabilityUpdateEnabled))
+		{
+			if(!empty($xml->availabilityUpdateEnabled))
+				$this->availabilityUpdateEnabled = true;
+			else
+				$this->availabilityUpdateEnabled = false;
+		}
+		if(count($xml->deleteInsteadUpdate))
+		{
+			if(!empty($xml->deleteInsteadUpdate))
+				$this->deleteInsteadUpdate = true;
+			else
+				$this->deleteInsteadUpdate = false;
+		}
 		if(count($xml->intervalBeforeSunrise))
 			$this->intervalBeforeSunrise = (int)$xml->intervalBeforeSunrise;
 		if(count($xml->intervalBeforeSunset))
 			$this->intervalBeforeSunset = (int)$xml->intervalBeforeSunset;
-		$this->updateRequiredEntryFields = (string)$xml->updateRequiredEntryFields;
-		$this->updateRequiredMetadataXPaths = (string)$xml->updateRequiredMetadataXPaths;
+		if(count($xml->updateRequiredEntryFields))
+			$this->updateRequiredEntryFields = (string)$xml->updateRequiredEntryFields;
+		if(count($xml->updateRequiredMetadataXPaths))
+			$this->updateRequiredMetadataXPaths = (string)$xml->updateRequiredMetadataXPaths;
 	}
 	/**
 	 * 

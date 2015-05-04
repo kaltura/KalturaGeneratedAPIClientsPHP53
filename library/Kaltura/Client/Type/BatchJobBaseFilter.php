@@ -56,8 +56,10 @@ abstract class BatchJobBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->idGreaterThanOrEqual = (string)$xml->idGreaterThanOrEqual;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
-		$this->partnerIdIn = (string)$xml->partnerIdIn;
-		$this->partnerIdNotIn = (string)$xml->partnerIdNotIn;
+		if(count($xml->partnerIdIn))
+			$this->partnerIdIn = (string)$xml->partnerIdIn;
+		if(count($xml->partnerIdNotIn))
+			$this->partnerIdNotIn = (string)$xml->partnerIdNotIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
@@ -74,26 +76,36 @@ abstract class BatchJobBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->lockVersionGreaterThanOrEqual = (int)$xml->lockVersionGreaterThanOrEqual;
 		if(count($xml->lockVersionLessThanOrEqual))
 			$this->lockVersionLessThanOrEqual = (int)$xml->lockVersionLessThanOrEqual;
-		$this->entryIdEqual = (string)$xml->entryIdEqual;
-		$this->jobTypeEqual = (string)$xml->jobTypeEqual;
-		$this->jobTypeIn = (string)$xml->jobTypeIn;
-		$this->jobTypeNotIn = (string)$xml->jobTypeNotIn;
+		if(count($xml->entryIdEqual))
+			$this->entryIdEqual = (string)$xml->entryIdEqual;
+		if(count($xml->jobTypeEqual))
+			$this->jobTypeEqual = (string)$xml->jobTypeEqual;
+		if(count($xml->jobTypeIn))
+			$this->jobTypeIn = (string)$xml->jobTypeIn;
+		if(count($xml->jobTypeNotIn))
+			$this->jobTypeNotIn = (string)$xml->jobTypeNotIn;
 		if(count($xml->jobSubTypeEqual))
 			$this->jobSubTypeEqual = (int)$xml->jobSubTypeEqual;
-		$this->jobSubTypeIn = (string)$xml->jobSubTypeIn;
-		$this->jobSubTypeNotIn = (string)$xml->jobSubTypeNotIn;
+		if(count($xml->jobSubTypeIn))
+			$this->jobSubTypeIn = (string)$xml->jobSubTypeIn;
+		if(count($xml->jobSubTypeNotIn))
+			$this->jobSubTypeNotIn = (string)$xml->jobSubTypeNotIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
-		$this->statusNotIn = (string)$xml->statusNotIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusNotIn))
+			$this->statusNotIn = (string)$xml->statusNotIn;
 		if(count($xml->priorityGreaterThanOrEqual))
 			$this->priorityGreaterThanOrEqual = (int)$xml->priorityGreaterThanOrEqual;
 		if(count($xml->priorityLessThanOrEqual))
 			$this->priorityLessThanOrEqual = (int)$xml->priorityLessThanOrEqual;
 		if(count($xml->priorityEqual))
 			$this->priorityEqual = (int)$xml->priorityEqual;
-		$this->priorityIn = (string)$xml->priorityIn;
-		$this->priorityNotIn = (string)$xml->priorityNotIn;
+		if(count($xml->priorityIn))
+			$this->priorityIn = (string)$xml->priorityIn;
+		if(count($xml->priorityNotIn))
+			$this->priorityNotIn = (string)$xml->priorityNotIn;
 		if(count($xml->batchVersionGreaterThanOrEqual))
 			$this->batchVersionGreaterThanOrEqual = (int)$xml->batchVersionGreaterThanOrEqual;
 		if(count($xml->batchVersionLessThanOrEqual))
@@ -110,12 +122,16 @@ abstract class BatchJobBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->finishTimeLessThanOrEqual = (int)$xml->finishTimeLessThanOrEqual;
 		if(count($xml->errTypeEqual))
 			$this->errTypeEqual = (int)$xml->errTypeEqual;
-		$this->errTypeIn = (string)$xml->errTypeIn;
-		$this->errTypeNotIn = (string)$xml->errTypeNotIn;
+		if(count($xml->errTypeIn))
+			$this->errTypeIn = (string)$xml->errTypeIn;
+		if(count($xml->errTypeNotIn))
+			$this->errTypeNotIn = (string)$xml->errTypeNotIn;
 		if(count($xml->errNumberEqual))
 			$this->errNumberEqual = (int)$xml->errNumberEqual;
-		$this->errNumberIn = (string)$xml->errNumberIn;
-		$this->errNumberNotIn = (string)$xml->errNumberNotIn;
+		if(count($xml->errNumberIn))
+			$this->errNumberIn = (string)$xml->errNumberIn;
+		if(count($xml->errNumberNotIn))
+			$this->errNumberNotIn = (string)$xml->errNumberNotIn;
 		if(count($xml->estimatedEffortLessThan))
 			$this->estimatedEffortLessThan = (int)$xml->estimatedEffortLessThan;
 		if(count($xml->estimatedEffortGreaterThan))

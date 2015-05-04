@@ -50,17 +50,22 @@ class NotificationJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		$this->userId = (string)$xml->userId;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
 		if(count($xml->type))
 			$this->type = (int)$xml->type;
-		$this->typeAsString = (string)$xml->typeAsString;
-		$this->objectId = (string)$xml->objectId;
+		if(count($xml->typeAsString))
+			$this->typeAsString = (string)$xml->typeAsString;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
-		$this->data = (string)$xml->data;
+		if(count($xml->data))
+			$this->data = (string)$xml->data;
 		if(count($xml->numberOfAttempts))
 			$this->numberOfAttempts = (int)$xml->numberOfAttempts;
-		$this->notificationResult = (string)$xml->notificationResult;
+		if(count($xml->notificationResult))
+			$this->notificationResult = (string)$xml->notificationResult;
 		if(count($xml->objType))
 			$this->objType = (int)$xml->objType;
 	}

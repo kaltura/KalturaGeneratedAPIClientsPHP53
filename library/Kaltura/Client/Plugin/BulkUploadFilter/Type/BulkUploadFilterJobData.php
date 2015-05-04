@@ -52,9 +52,9 @@ class BulkUploadFilterJobData extends \Kaltura\Client\Type\BulkUploadJobData
 		if(is_null($xml))
 			return;
 		
-		if(!empty($xml->filter))
+		if(count($xml->filter) && !empty($xml->filter))
 			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaFilter");
-		if(!empty($xml->templateObject))
+		if(count($xml->templateObject) && !empty($xml->templateObject))
 			$this->templateObject = \Kaltura\Client\ParseUtils::unmarshalObject($xml->templateObject, "KalturaObjectBase");
 	}
 	/**

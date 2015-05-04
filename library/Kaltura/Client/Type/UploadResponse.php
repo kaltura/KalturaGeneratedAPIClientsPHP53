@@ -50,12 +50,14 @@ class UploadResponse extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->uploadTokenId = (string)$xml->uploadTokenId;
+		if(count($xml->uploadTokenId))
+			$this->uploadTokenId = (string)$xml->uploadTokenId;
 		if(count($xml->fileSize))
 			$this->fileSize = (int)$xml->fileSize;
 		if(count($xml->errorCode))
 			$this->errorCode = (int)$xml->errorCode;
-		$this->errorDescription = (string)$xml->errorDescription;
+		if(count($xml->errorDescription))
+			$this->errorDescription = (string)$xml->errorDescription;
 	}
 	/**
 	 * 

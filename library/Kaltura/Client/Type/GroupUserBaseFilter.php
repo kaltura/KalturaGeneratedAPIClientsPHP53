@@ -50,13 +50,18 @@ abstract class GroupUserBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		if(is_null($xml))
 			return;
 		
-		$this->userIdEqual = (string)$xml->userIdEqual;
-		$this->userIdIn = (string)$xml->userIdIn;
-		$this->groupIdEqual = (string)$xml->groupIdEqual;
-		$this->groupIdIn = (string)$xml->groupIdIn;
+		if(count($xml->userIdEqual))
+			$this->userIdEqual = (string)$xml->userIdEqual;
+		if(count($xml->userIdIn))
+			$this->userIdIn = (string)$xml->userIdIn;
+		if(count($xml->groupIdEqual))
+			$this->groupIdEqual = (string)$xml->groupIdEqual;
+		if(count($xml->groupIdIn))
+			$this->groupIdIn = (string)$xml->groupIdIn;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
-		$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
 			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))

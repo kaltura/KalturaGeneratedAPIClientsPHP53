@@ -52,7 +52,8 @@ class LiveReportExportResponse extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->referenceJobId))
 			$this->referenceJobId = (string)$xml->referenceJobId;
-		$this->reportEmail = (string)$xml->reportEmail;
+		if(count($xml->reportEmail))
+			$this->reportEmail = (string)$xml->reportEmail;
 	}
 	/**
 	 * 

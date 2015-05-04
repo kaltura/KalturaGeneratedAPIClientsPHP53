@@ -52,10 +52,13 @@ class EmailNotificationStaticRecipientProvider extends \Kaltura\Client\Plugin\Em
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->emailRecipients))
-			$this->emailRecipients = array();
-		else
-			$this->emailRecipients = \Kaltura\Client\ParseUtils::unmarshalArray($xml->emailRecipients, "KalturaEmailNotificationRecipient");
+		if(count($xml->emailRecipients))
+		{
+			if(empty($xml->emailRecipients))
+				$this->emailRecipients = array();
+			else
+				$this->emailRecipients = \Kaltura\Client\ParseUtils::unmarshalArray($xml->emailRecipients, "KalturaEmailNotificationRecipient");
+		}
 	}
 	/**
 	 * Email to emails and names

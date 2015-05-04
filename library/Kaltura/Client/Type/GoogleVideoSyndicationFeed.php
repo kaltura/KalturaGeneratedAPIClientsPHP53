@@ -50,7 +50,8 @@ class GoogleVideoSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFee
 		if(is_null($xml))
 			return;
 		
-		$this->adultContent = (string)$xml->adultContent;
+		if(count($xml->adultContent))
+			$this->adultContent = (string)$xml->adultContent;
 	}
 	/**
 	 * 

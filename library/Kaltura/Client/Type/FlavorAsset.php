@@ -60,12 +60,24 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 			$this->bitrate = (int)$xml->bitrate;
 		if(count($xml->frameRate))
 			$this->frameRate = (float)$xml->frameRate;
-		if(!empty($xml->isOriginal))
-			$this->isOriginal = true;
-		if(!empty($xml->isWeb))
-			$this->isWeb = true;
-		$this->containerFormat = (string)$xml->containerFormat;
-		$this->videoCodecId = (string)$xml->videoCodecId;
+		if(count($xml->isOriginal))
+		{
+			if(!empty($xml->isOriginal))
+				$this->isOriginal = true;
+			else
+				$this->isOriginal = false;
+		}
+		if(count($xml->isWeb))
+		{
+			if(!empty($xml->isWeb))
+				$this->isWeb = true;
+			else
+				$this->isWeb = false;
+		}
+		if(count($xml->containerFormat))
+			$this->containerFormat = (string)$xml->containerFormat;
+		if(count($xml->videoCodecId))
+			$this->videoCodecId = (string)$xml->videoCodecId;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
 	}

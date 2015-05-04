@@ -52,21 +52,28 @@ class StatsKmcEvent extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		$this->clientVer = (string)$xml->clientVer;
-		$this->kmcEventActionPath = (string)$xml->kmcEventActionPath;
+		if(count($xml->clientVer))
+			$this->clientVer = (string)$xml->clientVer;
+		if(count($xml->kmcEventActionPath))
+			$this->kmcEventActionPath = (string)$xml->kmcEventActionPath;
 		if(count($xml->kmcEventType))
 			$this->kmcEventType = (int)$xml->kmcEventType;
 		if(count($xml->eventTimestamp))
 			$this->eventTimestamp = (float)$xml->eventTimestamp;
-		$this->sessionId = (string)$xml->sessionId;
+		if(count($xml->sessionId))
+			$this->sessionId = (string)$xml->sessionId;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
-		$this->entryId = (string)$xml->entryId;
-		$this->widgetId = (string)$xml->widgetId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->widgetId))
+			$this->widgetId = (string)$xml->widgetId;
 		if(count($xml->uiconfId))
 			$this->uiconfId = (int)$xml->uiconfId;
-		$this->userId = (string)$xml->userId;
-		$this->userIp = (string)$xml->userIp;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
+		if(count($xml->userIp))
+			$this->userIp = (string)$xml->userIp;
 	}
 	/**
 	 * 

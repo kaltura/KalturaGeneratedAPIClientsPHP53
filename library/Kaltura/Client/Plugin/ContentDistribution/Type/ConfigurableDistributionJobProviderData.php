@@ -50,7 +50,8 @@ abstract class ConfigurableDistributionJobProviderData extends \Kaltura\Client\P
 		if(is_null($xml))
 			return;
 		
-		$this->fieldValues = (string)$xml->fieldValues;
+		if(count($xml->fieldValues))
+			$this->fieldValues = (string)$xml->fieldValues;
 	}
 	/**
 	 * 

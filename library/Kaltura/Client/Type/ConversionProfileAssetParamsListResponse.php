@@ -50,10 +50,13 @@ class ConversionProfileAssetParamsListResponse extends \Kaltura\Client\Type\List
 		if(is_null($xml))
 			return;
 		
-		if(empty($xml->objects))
-			$this->objects = array();
-		else
-			$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaConversionProfileAssetParams");
+		if(count($xml->objects))
+		{
+			if(empty($xml->objects))
+				$this->objects = array();
+			else
+				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaConversionProfileAssetParams");
+		}
 	}
 	/**
 	 * 
