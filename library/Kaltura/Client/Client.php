@@ -307,7 +307,7 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:15-05-07');
+		$this->setClientTag('php5:15-05-08');
 		$this->setApiVersion('3.2.0');
 	}
 	
@@ -921,4 +921,12 @@ class Client extends Base
 		return null;
 	}
 	
+	/**
+	 * Clear all volatile configuration parameters
+	 */
+	protected function resetRequest()
+	{
+		parent::resetRequest();
+		unset($this->requestConfiguration['responseProfile']);
+	}
 }
