@@ -68,6 +68,8 @@ abstract class AnnotationBaseFilter extends \Kaltura\Client\Plugin\CuePoint\Type
 			$this->durationGreaterThanOrEqual = (int)$xml->durationGreaterThanOrEqual;
 		if(count($xml->durationLessThanOrEqual))
 			$this->durationLessThanOrEqual = (int)$xml->durationLessThanOrEqual;
+		if(count($xml->isPublicEqual))
+			$this->isPublicEqual = (int)$xml->isPublicEqual;
 	}
 	/**
 	 * 
@@ -122,5 +124,11 @@ abstract class AnnotationBaseFilter extends \Kaltura\Client\Plugin\CuePoint\Type
 	 * @var int
 	 */
 	public $durationLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $isPublicEqual = null;
 
 }

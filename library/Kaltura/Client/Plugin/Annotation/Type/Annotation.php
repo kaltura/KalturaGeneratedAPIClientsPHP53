@@ -64,6 +64,10 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 			$this->childrenCount = (int)$xml->childrenCount;
 		if(count($xml->directChildrenCount))
 			$this->directChildrenCount = (int)$xml->directChildrenCount;
+		if(count($xml->isPublic))
+			$this->isPublic = (int)$xml->isPublic;
+		if(count($xml->searchableOnEntry))
+			$this->searchableOnEntry = (int)$xml->searchableOnEntry;
 	}
 	/**
 	 * 
@@ -116,5 +120,19 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 * @readonly
 	 */
 	public $directChildrenCount = null;
+
+	/**
+	 * Is the annotation public.
+	 * 	 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $isPublic = null;
+
+	/**
+	 * Should the cue point get indexed on the entry.
+	 * 	 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $searchableOnEntry = null;
 
 }
