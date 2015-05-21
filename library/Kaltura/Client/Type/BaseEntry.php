@@ -328,7 +328,7 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	 * Thumbnail URL
 	 * 	 
 	 * @var string
-	 * @insertonly
+	 * @readonly
 	 */
 	public $thumbnailUrl = null;
 

@@ -128,6 +128,13 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 			else
 				$this->flavorAssets = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavorAssets, "KalturaFlavorAsset");
 		}
+		if(count($xml->pluginData))
+		{
+			if(empty($xml->pluginData))
+				$this->pluginData = array();
+			else
+				$this->pluginData = \Kaltura\Client\ParseUtils::unmarshalMap($xml->pluginData, "KalturaPluginData");
+		}
 	}
 	/**
 	 * 
@@ -217,5 +224,12 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 	 * @var array<KalturaFlavorAsset>
 	 */
 	public $flavorAssets;
+
+	/**
+	 * Array of allowed flavor assets according to access control limitations and requested tags
+	 *      
+	 * @var array<string, KalturaPluginData>
+	 */
+	public $pluginData;
 
 }
