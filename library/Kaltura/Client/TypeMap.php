@@ -239,6 +239,7 @@ class TypeMap
 		'KalturaVirusScanProfile' => 'Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfile',
 		'KalturaWidget' => 'Kaltura\Client\Type\Widget',
 		'KalturaAccessControlBlockAction' => 'Kaltura\Client\Type\AccessControlBlockAction',
+		'KalturaAccessControlLimitDeliveryProfilesAction' => 'Kaltura\Client\Type\AccessControlLimitDeliveryProfilesAction',
 		'KalturaAccessControlLimitFlavorsAction' => 'Kaltura\Client\Type\AccessControlLimitFlavorsAction',
 		'KalturaAccessControlListResponse' => 'Kaltura\Client\Type\AccessControlListResponse',
 		'KalturaAccessControlPreviewAction' => 'Kaltura\Client\Type\AccessControlPreviewAction',
