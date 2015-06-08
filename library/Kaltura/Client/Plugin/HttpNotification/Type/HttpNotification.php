@@ -57,7 +57,7 @@ class HttpNotification extends \Kaltura\Client\ObjectBase
 		if(count($xml->eventObjectType))
 			$this->eventObjectType = (string)$xml->eventObjectType;
 		if(count($xml->eventNotificationJobId))
-			$this->eventNotificationJobId = (int)$xml->eventNotificationJobId;
+			$this->eventNotificationJobId = (string)$xml->eventNotificationJobId;
 		if(count($xml->templateId))
 			$this->templateId = (int)$xml->templateId;
 		if(count($xml->templateName))
