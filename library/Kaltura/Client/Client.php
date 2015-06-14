@@ -104,6 +104,11 @@ class Client extends Base
 	protected $document = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\EdgeServerService
+	 */
+	protected $edgeServer = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\EmailIngestionProfileService
 	 */
 	protected $EmailIngestionProfile = null;
@@ -427,6 +432,15 @@ class Client extends Base
 		if (is_null($this->document))
 			$this->document = new \Kaltura\Client\Service\DocumentService($this);
 		return $this->document;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\EdgeServerService
+	 */
+	public function getEdgeServerService()
+	{
+		if (is_null($this->edgeServer))
+			$this->edgeServer = new \Kaltura\Client\Service\EdgeServerService($this);
+		return $this->edgeServer;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\EmailIngestionProfileService

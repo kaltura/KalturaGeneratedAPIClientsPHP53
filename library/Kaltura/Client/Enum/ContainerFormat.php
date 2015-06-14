@@ -45,6 +45,7 @@ class ContainerFormat
 	const COPY = "copy";
 	const FLV = "flv";
 	const HLS = "hls";
+	const ISMA = "isma";
 	const ISMV = "ismv";
 	const JPG = "jpg";
 	const M2TS = "m2ts";

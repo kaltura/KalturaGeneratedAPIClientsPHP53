@@ -123,6 +123,7 @@ class Language
 	const MR = "Marathi";
 	const MO = "Moldavian";
 	const MN = "Mongolian";
+	const MU = "Multilingual";
 	const NA = "Nauru";
 	const NE = "Nepali";
 	const NO = "Norwegian";
@@ -177,8 +178,8 @@ class Language
 	const CY = "Welsh";
 	const WO = "Wolof";
 	const XH = "Xhosa";
-	const YI = "Yiddish";
 	const JI = "Yiddish";
+	const YI = "Yiddish";
 	const YO = "Yoruba";
 	const ZU = "Zulu";
 }

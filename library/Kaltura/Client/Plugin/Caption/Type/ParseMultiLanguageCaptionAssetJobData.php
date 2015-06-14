@@ -30,30 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Caption\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConditionType
+class ParseMultiLanguageCaptionAssetJobData extends \Kaltura\Client\Type\JobData
 {
-	const EVENT_NOTIFICATION_FIELD = "eventNotification.BooleanField";
-	const EVENT_NOTIFICATION_OBJECT_CHANGED = "eventNotification.ObjectChanged";
-	const METADATA_FIELD_CHANGED = "metadata.FieldChanged";
-	const METADATA_FIELD_COMPARE = "metadata.FieldCompare";
-	const METADATA_FIELD_MATCH = "metadata.FieldMatch";
-	const AUTHENTICATED = "1";
-	const COUNTRY = "2";
-	const IP_ADDRESS = "3";
-	const SITE = "4";
-	const USER_AGENT = "5";
-	const FIELD_MATCH = "6";
-	const FIELD_COMPARE = "7";
-	const ASSET_PROPERTIES_COMPARE = "8";
-	const USER_ROLE = "9";
-	const GEO_DISTANCE = "10";
-	const OR_OPERATOR = "11";
-	const HASH = "12";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaParseMultiLanguageCaptionAssetJobData';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->multiLanaguageCaptionAssetId))
+			$this->multiLanaguageCaptionAssetId = (string)$xml->multiLanaguageCaptionAssetId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->fileLocation))
+			$this->fileLocation = (string)$xml->fileLocation;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $multiLanaguageCaptionAssetId = null;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entryId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $fileLocation = null;
+
+}

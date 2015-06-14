@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Caption\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class CaptionAsset extends \Kaltura\Client\Type\Asset
+class EdgeServer extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaCaptionAsset';
+		return 'KalturaEdgeServer';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,81 +50,120 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->captionParamsId))
-			$this->captionParamsId = (int)$xml->captionParamsId;
-		if(count($xml->language))
-			$this->language = (string)$xml->language;
-		if(count($xml->languageCode))
-			$this->languageCode = (string)$xml->languageCode;
-		if(count($xml->isDefault))
-			$this->isDefault = (int)$xml->isDefault;
-		if(count($xml->label))
-			$this->label = (string)$xml->label;
-		if(count($xml->format))
-			$this->format = (string)$xml->format;
+		if(count($xml->id))
+			$this->id = (int)$xml->id;
+		if(count($xml->createdAt))
+			$this->createdAt = (int)$xml->createdAt;
+		if(count($xml->updatedAt))
+			$this->updatedAt = (int)$xml->updatedAt;
+		if(count($xml->partnerId))
+			$this->partnerId = (int)$xml->partnerId;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->desciption))
+			$this->desciption = (string)$xml->desciption;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->hostName))
+			$this->hostName = (string)$xml->hostName;
+		if(count($xml->playbackHostName))
+			$this->playbackHostName = (string)$xml->playbackHostName;
+		if(count($xml->deliveryProfileIds))
+			$this->deliveryProfileIds = (string)$xml->deliveryProfileIds;
 		if(count($xml->parentId))
-			$this->parentId = (string)$xml->parentId;
+			$this->parentId = (int)$xml->parentId;
 	}
 	/**
-	 * The Caption Params used to create this Caption Asset
-	 * 	 
+	 * 
 	 * @var int
-	 * @insertonly
-	 */
-	public $captionParamsId = null;
-
-	/**
-	 * The language of the caption asset content
-	 * 	 
-	 * @var \Kaltura\Client\Enum\Language
-	 */
-	public $language = null;
-
-	/**
-	 * The language of the caption asset content
-	 * 	 
-	 * @var \Kaltura\Client\Enum\LanguageCode
 	 * @readonly
 	 */
-	public $languageCode = null;
+	public $id = null;
 
 	/**
-	 * Is default caption asset of the entry
-	 * 	 
-	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 * 
+	 * @var int
+	 * @readonly
 	 */
-	public $isDefault = null;
+	public $createdAt = null;
 
 	/**
-	 * Friendly label
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $updatedAt = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $partnerId = null;
+
+	/**
+	 * edgeServer name
 	 * 	 
 	 * @var string
 	 */
-	public $label = null;
+	public $name = null;
 
 	/**
-	 * The caption format
+	 * edgeServer uniqe system name
 	 * 	 
-	 * @var \Kaltura\Client\Plugin\Caption\Enum\CaptionType
-	 * @insertonly
+	 * @var string
 	 */
-	public $format = null;
+	public $systemName = null;
 
 	/**
-	 * The status of the asset
+	 * edgeServer description
 	 * 	 
-	 * @var \Kaltura\Client\Plugin\Caption\Enum\CaptionAssetStatus
-	 * @readonly
+	 * @var string
+	 */
+	public $desciption = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\EdgeServerStatus
 	 */
 	public $status = null;
 
 	/**
-	 * The parent id of the asset
+	 * edgeServer tags
 	 * 	 
 	 * @var string
-	 * @insertonly
+	 */
+	public $tags = null;
+
+	/**
+	 * edgeServer host name
+	 * 	 
+	 * @var string
+	 */
+	public $hostName = null;
+
+	/**
+	 * edgeServer playback hostName
+	 * 	 
+	 * @var string
+	 */
+	public $playbackHostName = null;
+
+	/**
+	 * Delivery profile ids comma seperated
+	 * 	 
+	 * @var string
+	 */
+	public $deliveryProfileIds = null;
+
+	/**
+	 * Id of the parent edge server
+	 * 	 
+	 * @var int
 	 */
 	public $parentId = null;
 

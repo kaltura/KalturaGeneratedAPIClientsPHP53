@@ -39,6 +39,7 @@ namespace Kaltura\Client\Enum;
 class BatchJobType
 {
 	const CONVERT = "0";
+	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
 	const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
 	const DISTRIBUTION_DELETE = "contentDistribution.DistributionDelete";
 	const DISTRIBUTION_DISABLE = "contentDistribution.DistributionDisable";
