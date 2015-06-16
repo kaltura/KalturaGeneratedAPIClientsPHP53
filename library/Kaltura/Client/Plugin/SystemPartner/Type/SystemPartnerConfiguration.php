@@ -64,6 +64,8 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 			$this->host = (string)$xml->host;
 		if(count($xml->cdnHost))
 			$this->cdnHost = (string)$xml->cdnHost;
+		if(count($xml->cdnHostWhiteList))
+			$this->cdnHostWhiteList = (string)$xml->cdnHostWhiteList;
 		if(count($xml->thumbnailHost))
 			$this->thumbnailHost = (string)$xml->thumbnailHost;
 		if(count($xml->partnerPackage))
@@ -285,6 +287,12 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $cdnHost = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $cdnHostWhiteList = null;
 
 	/**
 	 * 
