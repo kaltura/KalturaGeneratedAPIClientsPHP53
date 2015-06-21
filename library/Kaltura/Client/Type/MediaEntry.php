@@ -70,6 +70,8 @@ class MediaEntry extends \Kaltura\Client\Type\PlayableEntry
 			$this->dataUrl = (string)$xml->dataUrl;
 		if(count($xml->flavorParamsIds))
 			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
+		if(count($xml->isTrimDisabled))
+			$this->isTrimDisabled = (int)$xml->isTrimDisabled;
 	}
 	/**
 	 * The media type of the entry
@@ -148,5 +150,13 @@ class MediaEntry extends \Kaltura\Client\Type\PlayableEntry
 	 * @readonly
 	 */
 	public $flavorParamsIds = null;
+
+	/**
+	 * True if trim action is disabled for this entry
+	 * 	 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 * @readonly
+	 */
+	public $isTrimDisabled = null;
 
 }

@@ -284,6 +284,11 @@ class Client extends Base
 	protected $uploadToken = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\UserEntryService
+	 */
+	protected $userEntry = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\UserRoleService
 	 */
 	protected $userRole = null;
@@ -756,6 +761,15 @@ class Client extends Base
 		if (is_null($this->uploadToken))
 			$this->uploadToken = new \Kaltura\Client\Service\UploadTokenService($this);
 		return $this->uploadToken;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\UserEntryService
+	 */
+	public function getUserEntryService()
+	{
+		if (is_null($this->userEntry))
+			$this->userEntry = new \Kaltura\Client\Service\UserEntryService($this);
+		return $this->userEntry;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\UserRoleService
