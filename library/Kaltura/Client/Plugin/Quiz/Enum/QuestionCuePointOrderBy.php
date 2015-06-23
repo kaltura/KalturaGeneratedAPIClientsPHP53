@@ -40,13 +40,11 @@ class QuestionCuePointOrderBy
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const PARTNER_SORT_VALUE_ASC = "+partnerSortValue";
-	const QUESTION_ASC = "+question";
 	const START_TIME_ASC = "+startTime";
 	const TRIGGERED_AT_ASC = "+triggeredAt";
 	const UPDATED_AT_ASC = "+updatedAt";
 	const CREATED_AT_DESC = "-createdAt";
 	const PARTNER_SORT_VALUE_DESC = "-partnerSortValue";
-	const QUESTION_DESC = "-question";
 	const START_TIME_DESC = "-startTime";
 	const TRIGGERED_AT_DESC = "-triggeredAt";
 	const UPDATED_AT_DESC = "-updatedAt";

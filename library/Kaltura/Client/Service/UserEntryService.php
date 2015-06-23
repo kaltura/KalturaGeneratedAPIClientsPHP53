@@ -140,4 +140,25 @@ class UserEntryService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserEntry");
 		return $resultObject;
 	}
+
+	/**
+	 * Submits the quiz so that it's status will be submitted and calculates the score for the quiz
+	 * 	 
+	 * 
+	 * @return \Kaltura\Client\Type\QuizUserEntry
+	 */
+	function submitQuiz($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("userentry", "submitQuiz", "KalturaQuizUserEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaQuizUserEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\QuizUserEntry");
+		return $resultObject;
+	}
 }

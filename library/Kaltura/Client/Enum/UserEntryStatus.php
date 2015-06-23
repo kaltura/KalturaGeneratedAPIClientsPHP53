@@ -38,6 +38,7 @@ namespace Kaltura\Client\Enum;
  */
 class UserEntryStatus
 {
+	const QUIZ_SUBMITTED = "quiz.3";
 	const ACTIVE = "1";
 	const DELETED = "2";
 }

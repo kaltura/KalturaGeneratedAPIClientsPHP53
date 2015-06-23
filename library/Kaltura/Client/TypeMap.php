@@ -262,6 +262,7 @@ class TypeMap
 		'KalturaAccessControlListResponse' => 'Kaltura\Client\Type\AccessControlListResponse',
 		'KalturaAccessControlPreviewAction' => 'Kaltura\Client\Type\AccessControlPreviewAction',
 		'KalturaAccessControlProfileListResponse' => 'Kaltura\Client\Type\AccessControlProfileListResponse',
+		'KalturaAccessControlServeRemoteEdgeServerAction' => 'Kaltura\Client\Type\AccessControlServeRemoteEdgeServerAction',
 		'KalturaAdCuePoint' => 'Kaltura\Client\Plugin\AdCuePoint\Type\AdCuePoint',
 		'KalturaAdminUser' => 'Kaltura\Client\Type\AdminUser',
 		'KalturaAmazonS3StorageProfile' => 'Kaltura\Client\Type\AmazonS3StorageProfile',

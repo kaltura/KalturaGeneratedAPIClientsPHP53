@@ -30,58 +30,34 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Quiz;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuizPlugin extends \Kaltura\Client\Plugin
+class AccessControlServeRemoteEdgeServerAction extends \Kaltura\Client\Type\RuleAction
 {
+	public function getKalturaObjectType()
+	{
+		return 'KalturaAccessControlServeRemoteEdgeServerAction';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->edgeServerIds))
+			$this->edgeServerIds = (string)$xml->edgeServerIds;
+	}
 	/**
-	 * @var Service\QuizService
+	 * Comma separated list of edge servers playBack should be done from
+	 * 	 
+	 * @var string
 	 */
-	protected $quiz = null;
+	public $edgeServerIds = null;
 
-	protected function __construct(\Kaltura\Client\Client $client)
-	{
-		parent::__construct($client);
-	}
-
-	/**
-	 * @return QuizPlugin
-	 */
-	public static function get(\Kaltura\Client\Client $client)
-	{
-		return new QuizPlugin($client);
-	}
-
-	/**
-	 * @return array<\Kaltura\Client\ServiceBase>
-	 */
-	public function getServices()
-	{
-		$services = array(
-			'quiz' => $this->getQuizService(),
-		);
-		return $services;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName()
-	{
-		return 'quiz';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Quiz\Service\QuizService
-	 */
-	public function getQuizService()
-	{
-		if (is_null($this->quiz))
-			$this->quiz = new Service\QuizService($this->_client);
-		return $this->quiz;
-	}
 }
-
