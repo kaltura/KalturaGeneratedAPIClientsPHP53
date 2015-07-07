@@ -68,6 +68,8 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->userIdIn = (string)$xml->userIdIn;
 		if(count($xml->userIdNotIn))
 			$this->userIdNotIn = (string)$xml->userIdNotIn;
+		if(count($xml->statusEqual))
+			$this->statusEqual = (string)$xml->statusEqual;
 		if(count($xml->createdAtLessThanOrEqual))
 			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
 		if(count($xml->createdAtGreaterThanOrEqual))
@@ -76,6 +78,8 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
 		if(count($xml->updatedAtGreaterThanOrEqual))
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
+		if(count($xml->typeEqual))
+			$this->typeEqual = (string)$xml->typeEqual;
 	}
 	/**
 	 * 
@@ -133,6 +137,12 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\Filter
 
 	/**
 	 * 
+	 * @var \Kaltura\Client\Enum\UserEntryStatus
+	 */
+	public $statusEqual = null;
+
+	/**
+	 * 
 	 * @var int
 	 */
 	public $createdAtLessThanOrEqual = null;
@@ -154,5 +164,11 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var int
 	 */
 	public $updatedAtGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserEntryType
+	 */
+	public $typeEqual = null;
 
 }

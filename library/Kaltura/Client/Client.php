@@ -54,6 +54,11 @@ class Client extends Base
 	protected $adminUser = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\AppTokenService
+	 */
+	protected $appToken = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\BaseEntryService
 	 */
 	protected $baseEntry = null;
@@ -317,7 +322,7 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:15-06-29');
+		$this->setClientTag('php5:15-07-07');
 		$this->setApiVersion('3.2.0');
 	}
 	
@@ -347,6 +352,15 @@ class Client extends Base
 		if (is_null($this->adminUser))
 			$this->adminUser = new \Kaltura\Client\Service\AdminUserService($this);
 		return $this->adminUser;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\AppTokenService
+	 */
+	public function getAppTokenService()
+	{
+		if (is_null($this->appToken))
+			$this->appToken = new \Kaltura\Client\Service\AppTokenService($this);
+		return $this->appToken;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\BaseEntryService

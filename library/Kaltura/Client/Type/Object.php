@@ -61,6 +61,7 @@ abstract class Object extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var array<string, KalturaListResponse>
+	 * @readonly
 	 */
 	public $relatedObjects;
 

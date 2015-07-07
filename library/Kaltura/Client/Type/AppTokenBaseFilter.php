@@ -30,31 +30,73 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConditionType
+abstract class AppTokenBaseFilter extends \Kaltura\Client\Type\Filter
 {
-	const EVENT_NOTIFICATION_FIELD = "eventNotification.BooleanField";
-	const EVENT_NOTIFICATION_OBJECT_CHANGED = "eventNotification.ObjectChanged";
-	const METADATA_FIELD_CHANGED = "metadata.FieldChanged";
-	const METADATA_FIELD_COMPARE = "metadata.FieldCompare";
-	const METADATA_FIELD_MATCH = "metadata.FieldMatch";
-	const AUTHENTICATED = "1";
-	const COUNTRY = "2";
-	const IP_ADDRESS = "3";
-	const SITE = "4";
-	const USER_AGENT = "5";
-	const FIELD_MATCH = "6";
-	const FIELD_COMPARE = "7";
-	const ASSET_PROPERTIES_COMPARE = "8";
-	const USER_ROLE = "9";
-	const GEO_DISTANCE = "10";
-	const OR_OPERATOR = "11";
-	const HASH = "12";
-	const DELIVERY_PROFILE = "13";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaAppTokenBaseFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->idEqual))
+			$this->idEqual = (int)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->createdAtGreaterThanOrEqual))
+			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
+		if(count($xml->createdAtLessThanOrEqual))
+			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
+		if(count($xml->updatedAtGreaterThanOrEqual))
+			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
+		if(count($xml->updatedAtLessThanOrEqual))
+			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
+	}
+	/**
+	 * 
+	 * @var int
+	 */
+	public $idEqual = null;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $idIn = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $createdAtGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $createdAtLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $updatedAtGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $updatedAtLessThanOrEqual = null;
+
+}
