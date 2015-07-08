@@ -39,6 +39,7 @@ namespace Kaltura\Client\Enum;
 class PlaybackProtocol
 {
 	const APPLE_HTTP = "applehttp";
+	const APPLE_HTTP_TO_MC = "applehttp_to_mc";
 	const AUTO = "auto";
 	const AKAMAI_HD = "hdnetwork";
 	const AKAMAI_HDS = "hdnetworkmanifest";

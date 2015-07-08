@@ -101,6 +101,15 @@ class FileSync extends \Kaltura\Client\ObjectBase
 			else
 				$this->isCurrentDc = false;
 		}
+		if(count($xml->isDir))
+		{
+			if(!empty($xml->isDir))
+				$this->isDir = true;
+			else
+				$this->isDir = false;
+		}
+		if(count($xml->originalId))
+			$this->originalId = (int)$xml->originalId;
 	}
 	/**
 	 * 
@@ -189,7 +198,6 @@ class FileSync extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\FileSync\Enum\FileSyncStatus
-	 * @readonly
 	 */
 	public $status = null;
 
@@ -217,14 +225,12 @@ class FileSync extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var string
-	 * @readonly
 	 */
 	public $fileRoot = null;
 
 	/**
 	 * 
 	 * @var string
-	 * @readonly
 	 */
 	public $filePath = null;
 
@@ -262,5 +268,19 @@ class FileSync extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $isCurrentDc = null;
+
+	/**
+	 * 
+	 * @var bool
+	 * @readonly
+	 */
+	public $isDir = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $originalId = null;
 
 }
