@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -50,9 +50,12 @@ class ThumbCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 		if(is_null($xml))
 			return;
 		
-		$this->assetId = (string)$xml->assetId;
-		$this->description = (string)$xml->description;
-		$this->title = (string)$xml->title;
+		if(count($xml->assetId))
+			$this->assetId = (string)$xml->assetId;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->title))
+			$this->title = (string)$xml->title;
 		if(count($xml->subType))
 			$this->subType = (int)$xml->subType;
 	}

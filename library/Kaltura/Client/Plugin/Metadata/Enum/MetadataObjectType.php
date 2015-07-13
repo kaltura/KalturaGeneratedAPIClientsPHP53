@@ -41,6 +41,7 @@ class MetadataObjectType
 	const AD_CUE_POINT = "adCuePointMetadata.AdCuePoint";
 	const ANNOTATION = "annotationMetadata.Annotation";
 	const CODE_CUE_POINT = "codeCuePointMetadata.CodeCuePoint";
+	const THUMB_CUE_POINT = "thumbCuePointMetadata.thumbCuePoint";
 	const ENTRY = "1";
 	const CATEGORY = "2";
 	const USER = "3";

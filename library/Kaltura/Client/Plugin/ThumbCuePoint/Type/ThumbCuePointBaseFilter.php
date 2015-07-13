@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2011  Kaltura Inc.
+// Copyright (C) 2006-2015  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -50,15 +50,22 @@ abstract class ThumbCuePointBaseFilter extends \Kaltura\Client\Plugin\CuePoint\T
 		if(is_null($xml))
 			return;
 		
-		$this->descriptionLike = (string)$xml->descriptionLike;
-		$this->descriptionMultiLikeOr = (string)$xml->descriptionMultiLikeOr;
-		$this->descriptionMultiLikeAnd = (string)$xml->descriptionMultiLikeAnd;
-		$this->titleLike = (string)$xml->titleLike;
-		$this->titleMultiLikeOr = (string)$xml->titleMultiLikeOr;
-		$this->titleMultiLikeAnd = (string)$xml->titleMultiLikeAnd;
+		if(count($xml->descriptionLike))
+			$this->descriptionLike = (string)$xml->descriptionLike;
+		if(count($xml->descriptionMultiLikeOr))
+			$this->descriptionMultiLikeOr = (string)$xml->descriptionMultiLikeOr;
+		if(count($xml->descriptionMultiLikeAnd))
+			$this->descriptionMultiLikeAnd = (string)$xml->descriptionMultiLikeAnd;
+		if(count($xml->titleLike))
+			$this->titleLike = (string)$xml->titleLike;
+		if(count($xml->titleMultiLikeOr))
+			$this->titleMultiLikeOr = (string)$xml->titleMultiLikeOr;
+		if(count($xml->titleMultiLikeAnd))
+			$this->titleMultiLikeAnd = (string)$xml->titleMultiLikeAnd;
 		if(count($xml->subTypeEqual))
 			$this->subTypeEqual = (int)$xml->subTypeEqual;
-		$this->subTypeIn = (string)$xml->subTypeIn;
+		if(count($xml->subTypeIn))
+			$this->subTypeIn = (string)$xml->subTypeIn;
 	}
 	/**
 	 * 

@@ -50,5 +50,13 @@ class UserEntryFilter extends \Kaltura\Client\Type\UserEntryBaseFilter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->userIdEqualCurrent))
+			$this->userIdEqualCurrent = (int)$xml->userIdEqualCurrent;
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $userIdEqualCurrent = null;
+
 }

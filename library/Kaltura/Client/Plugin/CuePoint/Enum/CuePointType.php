@@ -44,5 +44,6 @@ class CuePointType
 	const EVENT = "eventCuePoint.Event";
 	const QUIZ_ANSWER = "quiz.QUIZ_ANSWER";
 	const QUIZ_QUESTION = "quiz.QUIZ_QUESTION";
+	const THUMB = "thumbCuePoint.Thumb";
 }
 

@@ -173,4 +173,25 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ResponseProfileListResponse");
 		return $resultObject;
 	}
+
+	/**
+	 * Recalculate response profile cached objects
+	 * 	 
+	 * 
+	 * @return \Kaltura\Client\Type\ResponseProfileCacheRecalculateResults
+	 */
+	function recalculate(\Kaltura\Client\Type\ResponseProfileCacheRecalculateOptions $options)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "options", $options->toParams());
+		$this->client->queueServiceActionCall("responseprofile", "recalculate", "KalturaResponseProfileCacheRecalculateResults", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaResponseProfileCacheRecalculateResults");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ResponseProfileCacheRecalculateResults");
+		return $resultObject;
+	}
 }

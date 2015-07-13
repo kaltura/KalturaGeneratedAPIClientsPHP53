@@ -33,16 +33,14 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Define client request optional configurations
- *  /
  * @package Kaltura
  * @subpackage Client
  */
-class RequestConfiguration extends \Kaltura\Client\ObjectBase
+class RecalculateResponseProfileCacheJobData extends \Kaltura\Client\Type\RecalculateCacheJobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaRequestConfiguration';
+		return 'KalturaRecalculateResponseProfileCacheJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -52,32 +50,68 @@ class RequestConfiguration extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->ks))
-			$this->ks = (string)$xml->ks;
-		if(count($xml->responseProfile) && !empty($xml->responseProfile))
-			$this->responseProfile = \Kaltura\Client\ParseUtils::unmarshalObject($xml->responseProfile, "KalturaBaseResponseProfile");
+		if(count($xml->protocol))
+			$this->protocol = (string)$xml->protocol;
+		if(count($xml->ksType))
+			$this->ksType = (int)$xml->ksType;
+		if(count($xml->userRoles))
+		{
+			if(empty($xml->userRoles))
+				$this->userRoles = array();
+			else
+				$this->userRoles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->userRoles, "KalturaIntegerValue");
+		}
+		if(count($xml->cachedObjectType))
+			$this->cachedObjectType = (string)$xml->cachedObjectType;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
+		if(count($xml->startObjectKey))
+			$this->startObjectKey = (string)$xml->startObjectKey;
+		if(count($xml->endObjectKey))
+			$this->endObjectKey = (string)$xml->endObjectKey;
 	}
 	/**
-	 * Impersonated partner id
-	 * 	 
-	 * @var int
-	 */
-	public $partnerId = null;
-
-	/**
-	 * Kaltura API session
+	 * http / https
 	 * 	 
 	 * @var string
 	 */
-	public $ks = null;
+	public $protocol = null;
 
 	/**
-	 * Response profile - this attribute will be automatically unset after every API call.
-	 * 	 
-	 * @var \Kaltura\Client\Type\BaseResponseProfile
+	 * 
+	 * @var \Kaltura\Client\Enum\SessionType
 	 */
-	public $responseProfile;
+	public $ksType = null;
+
+	/**
+	 * 
+	 * @var array<KalturaIntegerValue>
+	 */
+	public $userRoles;
+
+	/**
+	 * Class name
+	 * 	 
+	 * @var string
+	 */
+	public $cachedObjectType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $objectId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $startObjectKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $endObjectKey = null;
 
 }

@@ -62,6 +62,8 @@ class ResponseProfile extends \Kaltura\Client\Type\DetachedResponseProfile
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
+		if(count($xml->version))
+			$this->version = (int)$xml->version;
 	}
 	/**
 	 * Auto generated numeric identifier
@@ -107,5 +109,12 @@ class ResponseProfile extends \Kaltura\Client\Type\DetachedResponseProfile
 	 * @readonly
 	 */
 	public $status = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $version = null;
 
 }

@@ -33,16 +33,14 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Define client request optional configurations
- *  /
  * @package Kaltura
  * @subpackage Client
  */
-class RequestConfiguration extends \Kaltura\Client\ObjectBase
+class ResponseProfileCacheRecalculateOptions extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaRequestConfiguration';
+		return 'KalturaResponseProfileCacheRecalculateOptions';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -52,32 +50,68 @@ class RequestConfiguration extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->ks))
-			$this->ks = (string)$xml->ks;
-		if(count($xml->responseProfile) && !empty($xml->responseProfile))
-			$this->responseProfile = \Kaltura\Client\ParseUtils::unmarshalObject($xml->responseProfile, "KalturaBaseResponseProfile");
+		if(count($xml->limit))
+			$this->limit = (int)$xml->limit;
+		if(count($xml->cachedObjectType))
+			$this->cachedObjectType = (string)$xml->cachedObjectType;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
+		if(count($xml->startObjectKey))
+			$this->startObjectKey = (string)$xml->startObjectKey;
+		if(count($xml->endObjectKey))
+			$this->endObjectKey = (string)$xml->endObjectKey;
+		if(count($xml->jobCreatedAt))
+			$this->jobCreatedAt = (int)$xml->jobCreatedAt;
+		if(count($xml->isFirstLoop))
+		{
+			if(!empty($xml->isFirstLoop))
+				$this->isFirstLoop = true;
+			else
+				$this->isFirstLoop = false;
+		}
 	}
 	/**
-	 * Impersonated partner id
+	 * Maximum number of keys to recalculate
 	 * 	 
 	 * @var int
 	 */
-	public $partnerId = null;
+	public $limit = null;
 
 	/**
-	 * Kaltura API session
+	 * Class name
 	 * 	 
 	 * @var string
 	 */
-	public $ks = null;
+	public $cachedObjectType = null;
 
 	/**
-	 * Response profile - this attribute will be automatically unset after every API call.
-	 * 	 
-	 * @var \Kaltura\Client\Type\BaseResponseProfile
+	 * 
+	 * @var string
 	 */
-	public $responseProfile;
+	public $objectId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $startObjectKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $endObjectKey = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $jobCreatedAt = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $isFirstLoop = null;
 
 }

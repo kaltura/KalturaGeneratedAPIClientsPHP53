@@ -939,7 +939,7 @@ class Client extends Base
 	}
 	
 	/**
-	 * Response profile
+	 * Response profile - this attribute will be automatically unset after every API call.
 	 * 
 	 * @param \Kaltura\Client\Type\BaseResponseProfile $responseProfile
 	 */
@@ -949,7 +949,7 @@ class Client extends Base
 	}
 	
 	/**
-	 * Response profile
+	 * Response profile - this attribute will be automatically unset after every API call.
 	 * 
 	 * @return \Kaltura\Client\Type\BaseResponseProfile
 	 */

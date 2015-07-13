@@ -52,11 +52,27 @@ class CuePointFilter extends \Kaltura\Client\Plugin\CuePoint\Type\CuePointBaseFi
 		
 		if(count($xml->freeText))
 			$this->freeText = (string)$xml->freeText;
+		if(count($xml->userIdEqualCurrent))
+			$this->userIdEqualCurrent = (int)$xml->userIdEqualCurrent;
+		if(count($xml->userIdCurrent))
+			$this->userIdCurrent = (int)$xml->userIdCurrent;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
 	public $freeText = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $userIdEqualCurrent = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $userIdCurrent = null;
 
 }

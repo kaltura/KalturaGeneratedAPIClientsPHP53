@@ -63,7 +63,7 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\Filter
 		if(count($xml->entryIdNotIn))
 			$this->entryIdNotIn = (string)$xml->entryIdNotIn;
 		if(count($xml->userIdEqual))
-			$this->userIdEqual = (int)$xml->userIdEqual;
+			$this->userIdEqual = (string)$xml->userIdEqual;
 		if(count($xml->userIdIn))
 			$this->userIdIn = (string)$xml->userIdIn;
 		if(count($xml->userIdNotIn))
@@ -119,7 +119,7 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\Filter
 
 	/**
 	 * 
-	 * @var int
+	 * @var string
 	 */
 	public $userIdEqual = null;
 

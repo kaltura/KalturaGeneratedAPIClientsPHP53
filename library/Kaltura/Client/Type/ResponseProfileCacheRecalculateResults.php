@@ -30,21 +30,43 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ThumbCuePoint\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class TimedThumbAssetOrderBy
+class ResponseProfileCacheRecalculateResults extends \Kaltura\Client\ObjectBase
 {
-	const CREATED_AT_ASC = "+createdAt";
-	const DELETED_AT_ASC = "+deletedAt";
-	const SIZE_ASC = "+size";
-	const UPDATED_AT_ASC = "+updatedAt";
-	const CREATED_AT_DESC = "-createdAt";
-	const DELETED_AT_DESC = "-deletedAt";
-	const SIZE_DESC = "-size";
-	const UPDATED_AT_DESC = "-updatedAt";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaResponseProfileCacheRecalculateResults';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->lastObjectKey))
+			$this->lastObjectKey = (string)$xml->lastObjectKey;
+		if(count($xml->recalculated))
+			$this->recalculated = (int)$xml->recalculated;
+	}
+	/**
+	 * Last recalculated id
+	 * 	 
+	 * @var string
+	 */
+	public $lastObjectKey = null;
 
+	/**
+	 * Number of recalculated keys
+	 * 	 
+	 * @var int
+	 */
+	public $recalculated = null;
+
+}

@@ -30,21 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ThumbCuePoint\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class TimedThumbAssetOrderBy
+abstract class RecalculateCacheJobData extends \Kaltura\Client\Type\JobData
 {
-	const CREATED_AT_ASC = "+createdAt";
-	const DELETED_AT_ASC = "+deletedAt";
-	const SIZE_ASC = "+size";
-	const UPDATED_AT_ASC = "+updatedAt";
-	const CREATED_AT_DESC = "-createdAt";
-	const DELETED_AT_DESC = "-deletedAt";
-	const SIZE_DESC = "-size";
-	const UPDATED_AT_DESC = "-updatedAt";
+	public function getKalturaObjectType()
+	{
+		return 'KalturaRecalculateCacheJobData';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-
