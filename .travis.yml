@@ -4,3 +4,10 @@ php:
   - "5.4"
   - "5.3"
 script: cd tests && php run.php
+notifications:
+  email:
+    recipients:
+      - moshe.maor@kaltura.com
+      - jess.portnoy@kaltura.com
+    on_success: change
+    on_failure: always
