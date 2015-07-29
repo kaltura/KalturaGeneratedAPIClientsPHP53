@@ -39,7 +39,7 @@ namespace Kaltura\Client\Enum;
 class ReportType
 {
 	const QUIZ = "quiz.QUIZ";
-	const QUIZ_USER_PERCENTAGE = "quiz.self::QUIZ_USER_PERCENTAGE";
+	const QUIZ_USER_PERCENTAGE = "quiz.QUIZ_USER_PERCENTAGE";
 	const TOP_CONTENT = "1";
 	const CONTENT_DROPOFF = "2";
 	const CONTENT_INTERACTIONS = "3";

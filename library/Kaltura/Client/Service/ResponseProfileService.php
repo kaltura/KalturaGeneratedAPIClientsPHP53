@@ -194,4 +194,26 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ResponseProfileCacheRecalculateResults");
 		return $resultObject;
 	}
+
+	/**
+	 * Clone an existing response profile
+	 * 	 
+	 * 
+	 * @return \Kaltura\Client\Type\ResponseProfile
+	 */
+	function cloneAction($id, \Kaltura\Client\Type\ResponseProfile $profile)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "profile", $profile->toParams());
+		$this->client->queueServiceActionCall("responseprofile", "clone", "KalturaResponseProfile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaResponseProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ResponseProfile");
+		return $resultObject;
+	}
 }

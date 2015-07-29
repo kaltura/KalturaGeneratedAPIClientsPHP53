@@ -58,8 +58,13 @@ class AnswerCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 			$this->answerKey = (string)$xml->answerKey;
 		if(count($xml->isCorrect))
 			$this->isCorrect = (int)$xml->isCorrect;
-		if(count($xml->correctAnswerKeys) && !empty($xml->correctAnswerKeys))
-			$this->correctAnswerKeys = \Kaltura\Client\ParseUtils::unmarshalObject($xml->correctAnswerKeys, "KalturaTypedArray");
+		if(count($xml->correctAnswerKeys))
+		{
+			if(empty($xml->correctAnswerKeys))
+				$this->correctAnswerKeys = array();
+			else
+				$this->correctAnswerKeys = \Kaltura\Client\ParseUtils::unmarshalArray($xml->correctAnswerKeys, "KalturaString");
+		}
 		if(count($xml->explanation))
 			$this->explanation = (string)$xml->explanation;
 	}
@@ -93,7 +98,7 @@ class AnswerCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	/**
 	 * Array of string
 	 * 	 
-	 * @var \Kaltura\Client\Type\TypedArray
+	 * @var array<KalturaString>
 	 * @readonly
 	 */
 	public $correctAnswerKeys;
