@@ -617,6 +617,7 @@ class TypeMap
 		'KalturaResponseProfileFilter' => 'Kaltura\Client\Type\ResponseProfileFilter',
 		'KalturaScheduledTaskProfileFilter' => 'Kaltura\Client\Plugin\ScheduledTask\Type\ScheduledTaskProfileFilter',
 		'KalturaSearchComparableCondition' => 'Kaltura\Client\Type\SearchComparableCondition',
+		'KalturaSearchMatchCondition' => 'Kaltura\Client\Type\SearchMatchCondition',
 		'KalturaShortLinkFilter' => 'Kaltura\Client\Plugin\ShortLink\Type\ShortLinkFilter',
 		'KalturaSiteCondition' => 'Kaltura\Client\Type\SiteCondition',
 		'KalturaSshDropFolder' => 'Kaltura\Client\Plugin\DropFolder\Type\SshDropFolder',

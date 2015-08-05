@@ -30,40 +30,38 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ReportType
+class SearchMatchCondition extends \Kaltura\Client\Type\SearchCondition
 {
-	const QUIZ = "quiz.QUIZ";
-	const QUIZ_AGGREGATE_BY_QUESTION = "quiz.QUIZ_AGGREGATE_BY_QUESTION";
-	const QUIZ_USER_AGGREGATE_BY_QUESTION = "quiz.QUIZ_USER_AGGREGATE_BY_QUESTION";
-	const QUIZ_USER_PERCENTAGE = "quiz.QUIZ_USER_PERCENTAGE";
-	const TOP_CONTENT = "1";
-	const CONTENT_DROPOFF = "2";
-	const CONTENT_INTERACTIONS = "3";
-	const MAP_OVERLAY = "4";
-	const TOP_CONTRIBUTORS = "5";
-	const TOP_SYNDICATION = "6";
-	const CONTENT_CONTRIBUTIONS = "7";
-	const USER_ENGAGEMENT = "11";
-	const SPEFICIC_USER_ENGAGEMENT = "12";
-	const USER_TOP_CONTENT = "13";
-	const USER_CONTENT_DROPOFF = "14";
-	const USER_CONTENT_INTERACTIONS = "15";
-	const APPLICATIONS = "16";
-	const USER_USAGE = "17";
-	const SPECIFIC_USER_USAGE = "18";
-	const VAR_USAGE = "19";
-	const TOP_CREATORS = "20";
-	const PLATFORMS = "21";
-	const OPERATION_SYSTEM = "22";
-	const BROWSERS = "23";
-	const LIVE = "24";
-	const TOP_PLAYBACK_CONTEXT = "25";
-	const PARTNER_USAGE = "201";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaSearchMatchCondition';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->not))
+		{
+			if(!empty($xml->not))
+				$this->not = true;
+			else
+				$this->not = false;
+		}
+	}
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $not = null;
 
+}
