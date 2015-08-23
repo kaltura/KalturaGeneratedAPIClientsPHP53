@@ -30,58 +30,22 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Integration;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class IntegrationPlugin extends \Kaltura\Client\Plugin
+class BatchJobObjectType
 {
-	/**
-	 * @var Service\IntegrationService
-	 */
-	protected $integration = null;
-
-	protected function __construct(\Kaltura\Client\Client $client)
-	{
-		parent::__construct($client);
-	}
-
-	/**
-	 * @return IntegrationPlugin
-	 */
-	public static function get(\Kaltura\Client\Client $client)
-	{
-		return new IntegrationPlugin($client);
-	}
-
-	/**
-	 * @return array<\Kaltura\Client\ServiceBase>
-	 */
-	public function getServices()
-	{
-		$services = array(
-			'integration' => $this->getIntegrationService(),
-		);
-		return $services;
-	}
-
-	/**
-	 * @return string
-	 */
-	public function getName()
-	{
-		return 'integration';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Integration\Service\IntegrationService
-	 */
-	public function getIntegrationService()
-	{
-		if (is_null($this->integration))
-			$this->integration = new Service\IntegrationService($this->_client);
-		return $this->integration;
-	}
+	const ENTRY_DISTRIBUTION = "contentDistribution.EntryDistribution";
+	const DROP_FOLDER_FILE = "dropFolderXmlBulkUpload.DropFolderFile";
+	const METADATA = "metadata.Metadata";
+	const METADATA_PROFILE = "metadata.MetadataProfile";
+	const SCHEDULED_TASK_PROFILE = "scheduledTask.ScheduledTaskProfile";
+	const ENTRY = "1";
+	const CATEGORY = "2";
+	const FILE_SYNC = "3";
+	const ASSET = "4";
 }
 
