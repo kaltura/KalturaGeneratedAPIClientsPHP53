@@ -244,6 +244,13 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 			$this->audioThumbEntryId = (string)$xml->audioThumbEntryId;
 		if(count($xml->liveThumbEntryId))
 			$this->liveThumbEntryId = (string)$xml->liveThumbEntryId;
+		if(count($xml->timeAlignedRenditions))
+		{
+			if(!empty($xml->timeAlignedRenditions))
+				$this->timeAlignedRenditions = true;
+			else
+				$this->timeAlignedRenditions = false;
+		}
 	}
 	/**
 	 * 
@@ -620,5 +627,11 @@ class SystemPartnerConfiguration extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $liveThumbEntryId = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $timeAlignedRenditions = null;
 
 }
