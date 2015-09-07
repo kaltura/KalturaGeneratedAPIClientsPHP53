@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PartnerStatus
+class PartnerStatus extends \Kaltura\Client\EnumBase
 {
 	const DELETED = 0;
 	const ACTIVE = 1;

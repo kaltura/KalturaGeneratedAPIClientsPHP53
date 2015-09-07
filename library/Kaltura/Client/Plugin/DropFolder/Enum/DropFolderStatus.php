@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderStatus
+class DropFolderStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 0;
 	const ENABLED = 1;

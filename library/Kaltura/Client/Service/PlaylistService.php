@@ -120,7 +120,6 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 	 * Delete existing playlist
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

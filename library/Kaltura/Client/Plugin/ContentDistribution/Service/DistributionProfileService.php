@@ -136,7 +136,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 	 * Delete Distribution Profile by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

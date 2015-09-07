@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MediaEntryCompareAttribute
+class MediaEntryCompareAttribute extends \Kaltura\Client\EnumBase
 {
 	const ACCESS_CONTROL_ID = "accessControlId";
 	const CREATED_AT = "createdAt";

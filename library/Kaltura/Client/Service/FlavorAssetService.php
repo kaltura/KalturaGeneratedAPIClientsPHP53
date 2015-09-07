@@ -203,7 +203,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	 * Add and convert new Flavor Asset for Entry with specific Flavor Params
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function convert($entryId, $flavorParamsId, $priority = 0)
 	{
@@ -223,7 +222,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	 * Reconvert Flavor Asset by ID
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function reconvert($id)
 	{
@@ -241,7 +239,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	 * Delete Flavor Asset by ID
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{
@@ -368,7 +365,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	 * Set a given flavor as the original flavor
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function setAsSource($assetId)
 	{
@@ -386,7 +382,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	 * delete all local file syncs for this asset
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function deleteLocalContent($assetId)
 	{

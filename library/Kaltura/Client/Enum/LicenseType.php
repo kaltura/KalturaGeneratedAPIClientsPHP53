@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LicenseType
+class LicenseType extends \Kaltura\Client\EnumBase
 {
 	const UNKNOWN = -1;
 	const NONE = 0;

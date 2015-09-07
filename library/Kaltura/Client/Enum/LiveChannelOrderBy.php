@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveChannelOrderBy
+class LiveChannelOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const DURATION_ASC = "+duration";

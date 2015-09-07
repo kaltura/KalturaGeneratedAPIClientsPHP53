@@ -303,6 +303,7 @@ class TypeMap
 		'KalturaCategoryUserAdvancedFilter' => 'Kaltura\Client\Type\CategoryUserAdvancedFilter',
 		'KalturaCategoryUserListResponse' => 'Kaltura\Client\Type\CategoryUserListResponse',
 		'KalturaCategoryUserProviderFilter' => 'Kaltura\Client\Plugin\EmailNotification\Type\CategoryUserProviderFilter',
+		'KalturaCielo24JobProviderData' => 'Kaltura\Client\Plugin\Cielo24\Type\Cielo24JobProviderData',
 		'KalturaClipAttributes' => 'Kaltura\Client\Type\ClipAttributes',
 		'KalturaCodeCuePoint' => 'Kaltura\Client\Plugin\CodeCuePoint\Type\CodeCuePoint',
 		'KalturaCompareCondition' => 'Kaltura\Client\Type\CompareCondition',

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionAction
+class DistributionAction extends \Kaltura\Client\EnumBase
 {
 	const SUBMIT = 1;
 	const UPDATE = 2;

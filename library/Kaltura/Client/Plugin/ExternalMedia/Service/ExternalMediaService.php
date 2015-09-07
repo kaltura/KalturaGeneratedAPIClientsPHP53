@@ -114,7 +114,6 @@ class ExternalMediaService extends \Kaltura\Client\ServiceBase
 	 * Delete a external media entry.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

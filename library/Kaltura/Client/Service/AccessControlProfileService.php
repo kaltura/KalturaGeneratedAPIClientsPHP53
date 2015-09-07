@@ -114,7 +114,6 @@ class AccessControlProfileService extends \Kaltura\Client\ServiceBase
 	 * Delete access control profile by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DataEntryOrderBy
+class DataEntryOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const END_DATE_ASC = "+endDate";

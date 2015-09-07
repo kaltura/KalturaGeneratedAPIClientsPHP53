@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CategoryEntryStatus
+class CategoryEntryStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = 1;
 	const ACTIVE = 2;

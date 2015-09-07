@@ -114,7 +114,6 @@ class EdgeServerService extends \Kaltura\Client\ServiceBase
 	 * delete edge server by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($edgeServerId)
 	{

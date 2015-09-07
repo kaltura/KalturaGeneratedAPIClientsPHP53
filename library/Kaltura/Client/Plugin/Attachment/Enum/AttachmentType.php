@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Attachment\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AttachmentType
+class AttachmentType extends \Kaltura\Client\EnumBase
 {
 	const TEXT = "1";
 	const MEDIA = "2";

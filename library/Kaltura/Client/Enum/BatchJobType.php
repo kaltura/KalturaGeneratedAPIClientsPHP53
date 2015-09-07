@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BatchJobType
+class BatchJobType extends \Kaltura\Client\EnumBase
 {
 	const CONVERT = "0";
 	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";

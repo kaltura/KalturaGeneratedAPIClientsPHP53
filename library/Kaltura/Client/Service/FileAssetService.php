@@ -114,7 +114,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 	 * Delete file asset by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{
@@ -136,6 +135,9 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($id)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall('fileasset', 'serve', null, $kparams);

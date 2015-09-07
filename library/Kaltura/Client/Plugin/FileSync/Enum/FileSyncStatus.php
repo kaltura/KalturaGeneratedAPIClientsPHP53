@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\FileSync\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class FileSyncStatus
+class FileSyncStatus extends \Kaltura\Client\EnumBase
 {
 	const ERROR = -1;
 	const PENDING = 1;

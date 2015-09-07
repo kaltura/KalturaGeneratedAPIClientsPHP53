@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MediaParserType
+class MediaParserType extends \Kaltura\Client\EnumBase
 {
 	const MEDIAINFO = "0";
 	const FFMPEG = "1";

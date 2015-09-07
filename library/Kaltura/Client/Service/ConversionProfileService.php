@@ -156,7 +156,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 	 * Delete Conversion Profile by ID
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

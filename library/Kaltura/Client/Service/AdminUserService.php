@@ -74,7 +74,6 @@ class AdminUserService extends \Kaltura\Client\ServiceBase
 	 * Reset admin user password and send it to the users email address
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function resetPassword($email)
 	{
@@ -114,7 +113,6 @@ class AdminUserService extends \Kaltura\Client\ServiceBase
 	 * Set initial users password
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function setInitialPassword($hashKey, $newPassword)
 	{

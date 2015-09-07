@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class GeoCoderType
+class GeoCoderType extends \Kaltura\Client\EnumBase
 {
 	const KALTURA = "1";
 }

@@ -355,7 +355,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * Delete a media entry.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($entryId)
 	{
@@ -596,7 +595,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * Flag inappropriate media entry for moderation
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function flag(\Kaltura\Client\Type\ModerationFlag $moderationFlag)
 	{
@@ -614,7 +612,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * Reject the media entry and mark the pending flags (if any) as moderated (this will make the entry non playable)
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function reject($entryId)
 	{
@@ -632,7 +629,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * Approve the media entry and mark the pending flags (if any) as moderated (this will make the entry playable)
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function approve($entryId)
 	{
@@ -673,7 +669,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * Anonymously rank a media entry, no validation is done on duplicate rankings
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function anonymousRank($entryId, $rank)
 	{

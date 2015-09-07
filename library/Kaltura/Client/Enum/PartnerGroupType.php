@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PartnerGroupType
+class PartnerGroupType extends \Kaltura\Client\EnumBase
 {
 	const PUBLISHER = 1;
 	const VAR_GROUP = 2;

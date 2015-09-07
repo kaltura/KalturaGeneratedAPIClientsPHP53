@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PlaylistMatchAttribute
+class PlaylistMatchAttribute extends \Kaltura\Client\EnumBase
 {
 	const ADMIN_TAGS = "adminTags";
 	const CATEGORIES_IDS = "categoriesIds";

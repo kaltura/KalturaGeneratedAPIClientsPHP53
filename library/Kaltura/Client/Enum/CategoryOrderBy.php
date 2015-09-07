@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CategoryOrderBy
+class CategoryOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const DEPTH_ASC = "+depth";

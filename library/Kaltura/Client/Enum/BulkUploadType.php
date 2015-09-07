@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkUploadType
+class BulkUploadType extends \Kaltura\Client\EnumBase
 {
 	const CSV = "bulkUploadCsv.CSV";
 	const FILTER = "bulkUploadFilter.FILTER";

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ExternalMedia\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ExternalMediaEntryOrderBy
+class ExternalMediaEntryOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const DURATION_ASC = "+duration";

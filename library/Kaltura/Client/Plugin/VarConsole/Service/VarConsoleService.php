@@ -76,7 +76,6 @@ class VarConsoleService extends \Kaltura\Client\ServiceBase
 	 * Function to change a sub-publisher's status
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function updateStatus($id, $status)
 	{

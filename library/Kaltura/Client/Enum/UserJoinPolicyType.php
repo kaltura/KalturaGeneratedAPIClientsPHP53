@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UserJoinPolicyType
+class UserJoinPolicyType extends \Kaltura\Client\EnumBase
 {
 	const AUTO_JOIN = 1;
 	const REQUEST_TO_JOIN = 2;

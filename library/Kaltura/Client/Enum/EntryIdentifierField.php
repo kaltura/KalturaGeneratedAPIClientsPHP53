@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EntryIdentifierField
+class EntryIdentifierField extends \Kaltura\Client\EnumBase
 {
 	const ID = "id";
 	const REFERENCE_ID = "referenceId";

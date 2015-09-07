@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\VirusScan\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class VirusScanEngineType
+class VirusScanEngineType extends \Kaltura\Client\EnumBase
 {
 	const CLAMAV_SCAN_ENGINE = "clamAVScanEngine.ClamAV";
 }

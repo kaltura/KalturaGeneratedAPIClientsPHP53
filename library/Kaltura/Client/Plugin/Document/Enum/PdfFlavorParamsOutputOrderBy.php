@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Document\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PdfFlavorParamsOutputOrderBy
+class PdfFlavorParamsOutputOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

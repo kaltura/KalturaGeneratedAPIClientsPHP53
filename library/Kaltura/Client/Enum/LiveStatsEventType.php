@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveStatsEventType
+class LiveStatsEventType extends \Kaltura\Client\EnumBase
 {
 	const LIVE = 1;
 	const DVR = 2;

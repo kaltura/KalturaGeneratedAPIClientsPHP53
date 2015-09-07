@@ -189,7 +189,6 @@ class DocumentService extends \Kaltura\Client\ServiceBase
 	 * Delete a document entry.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($entryId)
 	{
@@ -277,6 +276,9 @@ class DocumentService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($entryId, $flavorAssetId = null, $forceProxy = false)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "flavorAssetId", $flavorAssetId);
@@ -294,6 +296,9 @@ class DocumentService extends \Kaltura\Client\ServiceBase
 	 */
 	function serveByFlavorParamsId($entryId, $flavorParamsId = null, $forceProxy = false)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);

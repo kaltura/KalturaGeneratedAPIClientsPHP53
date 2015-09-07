@@ -88,7 +88,6 @@ class TagService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function indexCategoryEntryTags($categoryId, $pcToDecrement, $pcToIncrement)
 	{

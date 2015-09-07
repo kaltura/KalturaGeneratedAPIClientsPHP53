@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\VirusScan\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class VirusScanJobResult
+class VirusScanJobResult extends \Kaltura\Client\EnumBase
 {
 	const SCAN_ERROR = 1;
 	const FILE_IS_CLEAN = 2;

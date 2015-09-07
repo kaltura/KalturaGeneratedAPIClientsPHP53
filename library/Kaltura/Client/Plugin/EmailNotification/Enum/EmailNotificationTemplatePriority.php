@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\EmailNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationTemplatePriority
+class EmailNotificationTemplatePriority extends \Kaltura\Client\EnumBase
 {
 	const HIGH = 1;
 	const NORMAL = 3;

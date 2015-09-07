@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\SystemPartner\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SystemPartnerLimitType
+class SystemPartnerLimitType extends \Kaltura\Client\EnumBase
 {
 	const ACCESS_CONTROLS = "ACCESS_CONTROLS";
 	const ADMIN_LOGIN_USERS = "ADMIN_LOGIN_USERS";

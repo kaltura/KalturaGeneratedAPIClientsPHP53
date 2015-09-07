@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ModerationObjectType
+class ModerationObjectType extends \Kaltura\Client\EnumBase
 {
 	const ENTRY = "2";
 	const USER = "3";

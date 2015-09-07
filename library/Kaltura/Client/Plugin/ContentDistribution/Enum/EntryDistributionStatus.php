@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EntryDistributionStatus
+class EntryDistributionStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = 0;
 	const QUEUED = 1;

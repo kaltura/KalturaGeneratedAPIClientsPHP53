@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class FeatureStatusType
+class FeatureStatusType extends \Kaltura\Client\EnumBase
 {
 	const LOCK_CATEGORY = 1;
 	const CATEGORY = 2;

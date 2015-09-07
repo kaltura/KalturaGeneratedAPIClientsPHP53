@@ -239,7 +239,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 	 * Delete an existing metadata
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{
@@ -258,7 +257,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 	 * 	 Used by batch metadata transform
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function invalidate($id, $version = null)
 	{
@@ -302,6 +300,9 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($id)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall('metadata_metadata', 'serve', null, $kparams);

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\EventCuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EventType
+class EventType extends \Kaltura\Client\EnumBase
 {
 	const BROADCAST_START = "1";
 	const BROADCAST_END = "2";

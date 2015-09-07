@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ControlPanelCommandType
+class ControlPanelCommandType extends \Kaltura\Client\EnumBase
 {
 	const KILL = 4;
 }

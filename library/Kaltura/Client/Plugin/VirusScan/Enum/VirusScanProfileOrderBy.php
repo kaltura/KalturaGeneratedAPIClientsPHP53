@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\VirusScan\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class VirusScanProfileOrderBy
+class VirusScanProfileOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const UPDATED_AT_ASC = "+updatedAt";

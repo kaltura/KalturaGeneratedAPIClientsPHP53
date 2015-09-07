@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AssetParamsDeletePolicy
+class AssetParamsDeletePolicy extends \Kaltura\Client\EnumBase
 {
 	const KEEP = 0;
 	const DELETE = 1;

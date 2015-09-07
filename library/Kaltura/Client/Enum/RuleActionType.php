@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class RuleActionType
+class RuleActionType extends \Kaltura\Client\EnumBase
 {
 	const BLOCK = "1";
 	const PREVIEW = "2";

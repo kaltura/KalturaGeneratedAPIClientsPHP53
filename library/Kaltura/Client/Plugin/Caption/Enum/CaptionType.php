@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Caption\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CaptionType
+class CaptionType extends \Kaltura\Client\EnumBase
 {
 	const SRT = "1";
 	const DFXP = "2";

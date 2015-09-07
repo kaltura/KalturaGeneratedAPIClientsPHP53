@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ITunesSyndicationFeedAdultValues
+class ITunesSyndicationFeedAdultValues extends \Kaltura\Client\EnumBase
 {
 	const CLEAN = "clean";
 	const NO = "no";

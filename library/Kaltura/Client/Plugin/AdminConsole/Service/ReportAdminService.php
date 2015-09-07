@@ -126,7 +126,6 @@ class ReportAdminService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

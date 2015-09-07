@@ -120,6 +120,9 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	 */
 	function serveByEntryId($entryId, $captionParamId = null)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "captionParamId", $captionParamId);
@@ -178,6 +181,9 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($captionAssetId)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "captionAssetId", $captionAssetId);
 		$this->client->queueServiceActionCall('caption_captionasset', 'serve', null, $kparams);
@@ -193,6 +199,9 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	 */
 	function serveWebVTT($captionAssetId, $segmentDuration = 30, $segmentIndex = null, $localTimestamp = 10000)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "captionAssetId", $captionAssetId);
 		$this->client->addParam($kparams, "segmentDuration", $segmentDuration);
@@ -207,7 +216,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	 * Markss the caption as default and removes that mark from all other caption assets of the entry.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function setAsDefault($captionAssetId)
 	{
@@ -266,7 +274,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function delete($captionAssetId)
 	{

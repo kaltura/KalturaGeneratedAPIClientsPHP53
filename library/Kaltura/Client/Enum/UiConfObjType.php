@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UiConfObjType
+class UiConfObjType extends \Kaltura\Client\EnumBase
 {
 	const PLAYER = 1;
 	const CONTRIBUTION_WIZARD = 2;

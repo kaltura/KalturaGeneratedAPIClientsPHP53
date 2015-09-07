@@ -114,7 +114,6 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 	 * Delete Caption Params by ID
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

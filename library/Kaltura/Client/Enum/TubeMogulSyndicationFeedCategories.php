@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class TubeMogulSyndicationFeedCategories
+class TubeMogulSyndicationFeedCategories extends \Kaltura\Client\EnumBase
 {
 	const ANIMALS_AND_PETS = "Animals &amp; Pets";
 	const ARTS_AND_ANIMATION = "Arts &amp; Animation";

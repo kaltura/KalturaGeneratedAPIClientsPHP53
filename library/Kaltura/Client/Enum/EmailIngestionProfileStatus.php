@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EmailIngestionProfileStatus
+class EmailIngestionProfileStatus extends \Kaltura\Client\EnumBase
 {
 	const INACTIVE = 0;
 	const ACTIVE = 1;

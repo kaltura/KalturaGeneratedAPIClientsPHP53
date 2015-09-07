@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AppTokenStatus
+class AppTokenStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 1;
 	const ACTIVE = 2;

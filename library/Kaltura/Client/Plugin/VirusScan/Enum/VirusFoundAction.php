@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\VirusScan\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class VirusFoundAction
+class VirusFoundAction extends \Kaltura\Client\EnumBase
 {
 	const NONE = 0;
 	const DELETE = 1;

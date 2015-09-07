@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class StatsFeatureType
+class StatsFeatureType extends \Kaltura\Client\EnumBase
 {
 	const NONE = 0;
 	const RELATED = 1;

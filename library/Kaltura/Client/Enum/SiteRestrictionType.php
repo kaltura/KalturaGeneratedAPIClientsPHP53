@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SiteRestrictionType
+class SiteRestrictionType extends \Kaltura\Client\EnumBase
 {
 	const RESTRICT_SITE_LIST = 0;
 	const ALLOW_SITE_LIST = 1;

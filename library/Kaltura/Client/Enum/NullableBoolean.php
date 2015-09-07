@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class NullableBoolean
+class NullableBoolean extends \Kaltura\Client\EnumBase
 {
 	const NULL_VALUE = -1;
 	const FALSE_VALUE = 0;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ShortLink\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ShortLinkStatus
+class ShortLinkStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 1;
 	const ENABLED = 2;

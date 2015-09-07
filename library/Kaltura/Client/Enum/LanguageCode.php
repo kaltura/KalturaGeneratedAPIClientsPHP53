@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LanguageCode
+class LanguageCode extends \Kaltura\Client\EnumBase
 {
 	const AA = "aa";
 	const AB = "ab";

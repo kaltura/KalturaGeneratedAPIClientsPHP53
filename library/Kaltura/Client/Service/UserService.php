@@ -186,7 +186,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * Notifies that a user is banned from an account.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function notifyBan($userId)
 	{
@@ -252,7 +251,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * Updates a user's login data: email, password, name.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function updateLoginData($oldLoginId, $password, $newLoginId = "", $newPassword = "", $newFirstName = null, $newLastName = null)
 	{
@@ -275,7 +273,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * Reset user's password and send the user an email to generate a new one.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function resetPassword($email)
 	{
@@ -293,7 +290,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * Set initial users password
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function setInitialPassword($hashKey, $newPassword)
 	{

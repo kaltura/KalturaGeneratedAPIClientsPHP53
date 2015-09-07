@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EntryReplacementStatus
+class EntryReplacementStatus extends \Kaltura\Client\EnumBase
 {
 	const NONE = "0";
 	const APPROVED_BUT_NOT_READY = "1";

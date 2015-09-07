@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\AdCuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AdProtocolType
+class AdProtocolType extends \Kaltura\Client\EnumBase
 {
 	const CUSTOM = "0";
 	const VAST = "1";

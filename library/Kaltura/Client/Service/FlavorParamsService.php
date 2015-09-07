@@ -114,7 +114,6 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 	 * Delete Flavor Params by ID
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

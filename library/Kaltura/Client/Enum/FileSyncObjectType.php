@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class FileSyncObjectType
+class FileSyncObjectType extends \Kaltura\Client\EnumBase
 {
 	const DISTRIBUTION_PROFILE = "contentDistribution.DistributionProfile";
 	const ENTRY_DISTRIBUTION = "contentDistribution.EntryDistribution";

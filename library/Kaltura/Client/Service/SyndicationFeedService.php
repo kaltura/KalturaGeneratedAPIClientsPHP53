@@ -114,7 +114,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 	 * Delete Syndication Feed by ID
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

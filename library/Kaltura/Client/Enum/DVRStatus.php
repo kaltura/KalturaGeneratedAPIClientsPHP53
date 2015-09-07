@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DVRStatus
+class DVRStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 0;
 	const ENABLED = 1;

@@ -163,6 +163,9 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 	 */
 	function gotoAction($id, $proxy = false)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "proxy", $proxy);

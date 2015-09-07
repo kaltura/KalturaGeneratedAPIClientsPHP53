@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseType
+class ResponseType extends \Kaltura\Client\EnumBase
 {
 	const RESPONSE_TYPE_JSON = 1;
 	const RESPONSE_TYPE_XML = 2;

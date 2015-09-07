@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class StorageProfileStatus
+class StorageProfileStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 1;
 	const AUTOMATIC = 2;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BatchJobStatus
+class BatchJobStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = 0;
 	const QUEUED = 1;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class GenericXsltSyndicationFeedOrderBy
+class GenericXsltSyndicationFeedOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const NAME_ASC = "+name";

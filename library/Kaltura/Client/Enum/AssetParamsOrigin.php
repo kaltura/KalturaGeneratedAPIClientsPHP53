@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AssetParamsOrigin
+class AssetParamsOrigin extends \Kaltura\Client\EnumBase
 {
 	const CONVERT = 0;
 	const INGEST = 1;

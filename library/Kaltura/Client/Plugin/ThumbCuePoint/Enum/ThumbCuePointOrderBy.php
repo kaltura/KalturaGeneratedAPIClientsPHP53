@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ThumbCuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ThumbCuePointOrderBy
+class ThumbCuePointOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const PARTNER_SORT_VALUE_ASC = "+partnerSortValue";

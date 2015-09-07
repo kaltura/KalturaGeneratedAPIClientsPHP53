@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\EventNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EventNotificationTemplateType
+class EventNotificationTemplateType extends \Kaltura\Client\EnumBase
 {
 	const EMAIL = "emailNotification.Email";
 	const HTTP = "httpNotification.Http";

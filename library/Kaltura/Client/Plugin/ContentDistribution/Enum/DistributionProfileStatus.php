@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProfileStatus
+class DistributionProfileStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 1;
 	const ENABLED = 2;

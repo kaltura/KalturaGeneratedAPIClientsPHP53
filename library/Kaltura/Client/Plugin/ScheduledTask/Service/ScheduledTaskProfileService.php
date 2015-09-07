@@ -114,7 +114,6 @@ class ScheduledTaskProfileService extends \Kaltura\Client\ServiceBase
 	 * Delete a scheduled task profile
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

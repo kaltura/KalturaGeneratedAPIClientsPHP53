@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\EventNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EventNotificationEventType
+class EventNotificationEventType extends \Kaltura\Client\EnumBase
 {
 	const BATCH_JOB_STATUS = "1";
 	const OBJECT_ADDED = "2";

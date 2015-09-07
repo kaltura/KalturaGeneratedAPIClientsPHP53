@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EntryDistributionFlag
+class EntryDistributionFlag extends \Kaltura\Client\EnumBase
 {
 	const NONE = 0;
 	const SUBMIT_REQUIRED = 1;

@@ -92,7 +92,6 @@ class StatsService extends \Kaltura\Client\ServiceBase
 	 * 	 // this will actually be an empty function because all events will be sent using GET and will anyway be logged in the apache log
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function kmcCollect(\Kaltura\Client\Type\StatsKmcEvent $kmcEvent)
 	{
@@ -129,7 +128,6 @@ class StatsService extends \Kaltura\Client\ServiceBase
 	 * Use this action to report errors to the kaltura server.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function reportError($errorCode, $errorMessage)
 	{

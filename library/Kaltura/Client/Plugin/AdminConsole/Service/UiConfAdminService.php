@@ -114,7 +114,6 @@ class UiConfAdminService extends \Kaltura\Client\ServiceBase
 	 * Delete an existing UIConf with no partner limitation
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SyndicationFeedEntriesOrderBy
+class SyndicationFeedEntriesOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_DESC = "-createdAt";
 	const RECENT = "recent";

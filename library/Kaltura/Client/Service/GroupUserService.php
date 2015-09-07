@@ -71,7 +71,6 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 	 * delete by userId and groupId
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($userId, $groupId)
 	{

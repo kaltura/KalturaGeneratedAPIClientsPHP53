@@ -76,7 +76,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 	 * End a session with the Kaltura server, making the current KS invalid.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function end()
 	{

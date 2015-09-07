@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SyndicationFeedStatus
+class SyndicationFeedStatus extends \Kaltura\Client\EnumBase
 {
 	const DELETED = -1;
 	const ACTIVE = 1;

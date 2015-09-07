@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AssetParamsOutputOrderBy
+class AssetParamsOutputOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AmazonS3StorageProfileFilesPermissionLevel
+class AmazonS3StorageProfileFilesPermissionLevel extends \Kaltura\Client\EnumBase
 {
 	const ACL_AUTHENTICATED_READ = "authenticated-read";
 	const ACL_PRIVATE = "private";

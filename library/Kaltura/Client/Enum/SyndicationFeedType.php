@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SyndicationFeedType
+class SyndicationFeedType extends \Kaltura\Client\EnumBase
 {
 	const GOOGLE_VIDEO = 1;
 	const YAHOO = 2;

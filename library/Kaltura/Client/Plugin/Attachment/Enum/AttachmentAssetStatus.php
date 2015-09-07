@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Attachment\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AttachmentAssetStatus
+class AttachmentAssetStatus extends \Kaltura\Client\EnumBase
 {
 	const ERROR = -1;
 	const QUEUED = 0;

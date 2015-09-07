@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class NotificationStatus
+class NotificationStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = 1;
 	const SENT = 2;

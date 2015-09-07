@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ApiParameterPermissionItemAction
+class ApiParameterPermissionItemAction extends \Kaltura\Client\EnumBase
 {
 	const USAGE = "all";
 	const INSERT = "insert";

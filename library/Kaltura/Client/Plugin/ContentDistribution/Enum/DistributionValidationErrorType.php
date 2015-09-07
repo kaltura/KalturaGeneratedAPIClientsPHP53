@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionValidationErrorType
+class DistributionValidationErrorType extends \Kaltura\Client\EnumBase
 {
 	const CUSTOM_ERROR = 0;
 	const STRING_EMPTY = 1;

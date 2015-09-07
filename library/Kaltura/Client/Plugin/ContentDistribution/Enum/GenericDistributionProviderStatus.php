@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class GenericDistributionProviderStatus
+class GenericDistributionProviderStatus extends \Kaltura\Client\EnumBase
 {
 	const ACTIVE = 2;
 	const DELETED = 3;

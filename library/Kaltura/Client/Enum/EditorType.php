@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EditorType
+class EditorType extends \Kaltura\Client\EnumBase
 {
 	const SIMPLE = 1;
 	const ADVANCED = 2;

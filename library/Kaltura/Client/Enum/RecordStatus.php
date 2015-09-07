@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class RecordStatus
+class RecordStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 0;
 	const APPENDED = 1;

@@ -139,7 +139,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	 * Delete a live stream entry.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($entryId)
 	{
@@ -367,7 +366,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	 * Validates all registered media servers
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function validateRegisteredMediaServers($entryId)
 	{
@@ -385,7 +383,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	 * Creates perioding metadata sync-point events on a live stream
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function createPeriodicSyncPoints($entryId, $interval, $duration)
 	{

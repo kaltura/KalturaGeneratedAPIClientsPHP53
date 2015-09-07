@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class StatsKmcEventType
+class StatsKmcEventType extends \Kaltura\Client\EnumBase
 {
 	const CONTENT_PAGE_VIEW = 1001;
 	const CONTENT_ADD_PLAYLIST = 1010;

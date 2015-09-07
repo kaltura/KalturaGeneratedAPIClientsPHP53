@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ScheduledTask\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduledTaskProfileStatus
+class ScheduledTaskProfileStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 1;
 	const ACTIVE = 2;

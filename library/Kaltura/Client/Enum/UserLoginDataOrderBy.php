@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UserLoginDataOrderBy
+class UserLoginDataOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

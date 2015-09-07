@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EntryStatus
+class EntryStatus extends \Kaltura\Client\EnumBase
 {
 	const ERROR_IMPORTING = "-2";
 	const ERROR_CONVERTING = "-1";

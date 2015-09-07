@@ -115,7 +115,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 	 * Delete a data entry.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($entryId)
 	{
@@ -161,6 +160,9 @@ class DataService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($entryId, $version = -1, $forceProxy = false)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "version", $version);

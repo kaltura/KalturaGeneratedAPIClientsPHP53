@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class StorageProfileReadyBehavior
+class StorageProfileReadyBehavior extends \Kaltura\Client\EnumBase
 {
 	const NO_IMPACT = 0;
 	const REQUIRED = 1;

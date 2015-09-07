@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EdgeServerStatus
+class EdgeServerStatus extends \Kaltura\Client\EnumBase
 {
 	const ACTIVE = 1;
 	const DISABLED = 2;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkUploadObjectType
+class BulkUploadObjectType extends \Kaltura\Client\EnumBase
 {
 	const ENTRY = "1";
 	const CATEGORY = "2";

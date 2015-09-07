@@ -71,7 +71,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	 * Delete CategoryEntry
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($entryId, $categoryId)
 	{
@@ -136,7 +135,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	 * activate CategoryEntry when it is pending moderation
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function activate($entryId, $categoryId)
 	{
@@ -155,7 +153,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	 * activate CategoryEntry when it is pending moderation
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function reject($entryId, $categoryId)
 	{
@@ -174,7 +171,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	 * update privacy context from the category
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function syncPrivacyContext($entryId, $categoryId)
 	{

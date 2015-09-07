@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AppTokenHashType
+class AppTokenHashType extends \Kaltura\Client\EnumBase
 {
 	const MD5 = "MD5";
 	const SHA1 = "SHA1";

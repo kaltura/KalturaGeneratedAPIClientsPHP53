@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ReportType
+class ReportType extends \Kaltura\Client\EnumBase
 {
 	const QUIZ = "quiz.QUIZ";
 	const QUIZ_AGGREGATE_BY_QUESTION = "quiz.QUIZ_AGGREGATE_BY_QUESTION";

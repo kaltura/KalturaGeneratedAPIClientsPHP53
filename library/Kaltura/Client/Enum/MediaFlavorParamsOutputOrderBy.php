@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MediaFlavorParamsOutputOrderBy
+class MediaFlavorParamsOutputOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

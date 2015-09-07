@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class TubeMogulSyndicationFeedOrderBy
+class TubeMogulSyndicationFeedOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const NAME_ASC = "+name";

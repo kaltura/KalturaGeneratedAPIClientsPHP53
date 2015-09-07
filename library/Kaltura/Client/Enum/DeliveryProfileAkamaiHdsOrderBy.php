@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DeliveryProfileAkamaiHdsOrderBy
+class DeliveryProfileAkamaiHdsOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const UPDATED_AT_ASC = "+updatedAt";

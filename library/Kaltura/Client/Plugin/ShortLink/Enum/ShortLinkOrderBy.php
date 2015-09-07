@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ShortLink\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ShortLinkOrderBy
+class ShortLinkOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const EXPIRES_AT_ASC = "+expiresAt";

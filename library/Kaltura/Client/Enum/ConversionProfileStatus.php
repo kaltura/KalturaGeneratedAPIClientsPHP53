@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ConversionProfileStatus
+class ConversionProfileStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = "1";
 	const ENABLED = "2";

@@ -114,7 +114,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 	 * Delete a live channel.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{
@@ -249,7 +248,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 	 * Validates all registered media servers
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function validateRegisteredMediaServers($entryId)
 	{

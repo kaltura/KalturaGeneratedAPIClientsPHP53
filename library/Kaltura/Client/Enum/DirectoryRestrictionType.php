@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DirectoryRestrictionType
+class DirectoryRestrictionType extends \Kaltura\Client\EnumBase
 {
 	const DONT_DISPLAY = 0;
 	const DISPLAY_WITH_LINK = 1;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\CuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ThumbCuePointSubType
+class ThumbCuePointSubType extends \Kaltura\Client\EnumBase
 {
 	const SLIDE = 1;
 	const CHAPTER = 2;

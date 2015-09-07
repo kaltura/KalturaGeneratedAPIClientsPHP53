@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class FtpDropFolderOrderBy
+class FtpDropFolderOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const ID_ASC = "+id";

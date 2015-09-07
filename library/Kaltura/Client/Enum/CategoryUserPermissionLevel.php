@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CategoryUserPermissionLevel
+class CategoryUserPermissionLevel extends \Kaltura\Client\EnumBase
 {
 	const MANAGER = 0;
 	const MODERATOR = 1;

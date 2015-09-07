@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveReportExportType
+class LiveReportExportType extends \Kaltura\Client\EnumBase
 {
 	const PARTNER_TOTAL_ALL = 1;
 	const PARTNER_TOTAL_LIVE = 2;

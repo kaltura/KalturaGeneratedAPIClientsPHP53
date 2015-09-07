@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MailType
+class MailType extends \Kaltura\Client\EnumBase
 {
 	const MAIL_TYPE_KALTURA_NEWSLETTER = "10";
 	const MAIL_TYPE_ADDED_TO_FAVORITES = "11";

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ControlPanelCommandStatus
+class ControlPanelCommandStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = 1;
 	const HANDLED = 2;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class StorageProfileDeliveryStatus
+class StorageProfileDeliveryStatus extends \Kaltura\Client\EnumBase
 {
 	const ACTIVE = 1;
 	const BLOCKED = 2;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class WidgetSecurityType
+class WidgetSecurityType extends \Kaltura\Client\EnumBase
 {
 	const NONE = 1;
 	const TIMEHASH = 2;

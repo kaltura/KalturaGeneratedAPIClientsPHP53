@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class Gender
+class Gender extends \Kaltura\Client\EnumBase
 {
 	const UNKNOWN = 0;
 	const MALE = 1;

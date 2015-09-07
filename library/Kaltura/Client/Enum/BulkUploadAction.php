@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkUploadAction
+class BulkUploadAction extends \Kaltura\Client\EnumBase
 {
 	const ADD = "1";
 	const UPDATE = "2";

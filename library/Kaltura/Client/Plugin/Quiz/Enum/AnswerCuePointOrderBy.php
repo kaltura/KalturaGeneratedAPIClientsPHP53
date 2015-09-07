@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Quiz\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AnswerCuePointOrderBy
+class AnswerCuePointOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const PARTNER_SORT_VALUE_ASC = "+partnerSortValue";

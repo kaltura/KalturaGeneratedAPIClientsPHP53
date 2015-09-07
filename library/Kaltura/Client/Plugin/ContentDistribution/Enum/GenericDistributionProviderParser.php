@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class GenericDistributionProviderParser
+class GenericDistributionProviderParser extends \Kaltura\Client\EnumBase
 {
 	const XSL = 1;
 	const XPATH = 2;

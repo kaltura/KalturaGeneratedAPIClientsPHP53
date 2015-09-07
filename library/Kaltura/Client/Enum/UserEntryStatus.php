@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UserEntryStatus
+class UserEntryStatus extends \Kaltura\Client\EnumBase
 {
 	const QUIZ_SUBMITTED = "quiz.3";
 	const ACTIVE = "1";

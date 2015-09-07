@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MediaType
+class MediaType extends \Kaltura\Client\EnumBase
 {
 	const VIDEO = 1;
 	const IMAGE = 2;

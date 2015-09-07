@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class NotificationObjectType
+class NotificationObjectType extends \Kaltura\Client\EnumBase
 {
 	const ENTRY = 1;
 	const KSHOW = 2;

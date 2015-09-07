@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderFileOrderBy
+class DropFolderFileOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const FILE_NAME_ASC = "+fileName";

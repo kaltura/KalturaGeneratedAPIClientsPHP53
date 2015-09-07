@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MrssExtensionMode
+class MrssExtensionMode extends \Kaltura\Client\EnumBase
 {
 	const APPEND = 1;
 	const REPLACE = 2;

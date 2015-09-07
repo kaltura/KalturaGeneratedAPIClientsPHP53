@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class StorageServePriority
+class StorageServePriority extends \Kaltura\Client\EnumBase
 {
 	const KALTURA_ONLY = 1;
 	const KALTURA_FIRST = 2;

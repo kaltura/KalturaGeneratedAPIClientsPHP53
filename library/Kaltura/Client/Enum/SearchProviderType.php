@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SearchProviderType
+class SearchProviderType extends \Kaltura\Client\EnumBase
 {
 	const FLICKR = 3;
 	const YOUTUBE = 4;

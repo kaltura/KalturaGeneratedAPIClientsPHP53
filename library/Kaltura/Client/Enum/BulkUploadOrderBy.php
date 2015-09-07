@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkUploadOrderBy
+class BulkUploadOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

@@ -136,7 +136,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 	 * Delete response profile by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

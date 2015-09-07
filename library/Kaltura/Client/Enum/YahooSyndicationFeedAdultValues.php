@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class YahooSyndicationFeedAdultValues
+class YahooSyndicationFeedAdultValues extends \Kaltura\Client\EnumBase
 {
 	const ADULT = "adult";
 	const NON_ADULT = "nonadult";

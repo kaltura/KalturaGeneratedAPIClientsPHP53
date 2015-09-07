@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class InheritanceType
+class InheritanceType extends \Kaltura\Client\EnumBase
 {
 	const INHERIT = 1;
 	const MANUAL = 2;

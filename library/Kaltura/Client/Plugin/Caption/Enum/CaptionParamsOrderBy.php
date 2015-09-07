@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Caption\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CaptionParamsOrderBy
+class CaptionParamsOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

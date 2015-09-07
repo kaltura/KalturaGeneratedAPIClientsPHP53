@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\HttpNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class HttpNotificationSslVersion
+class HttpNotificationSslVersion extends \Kaltura\Client\EnumBase
 {
 	const V2 = 2;
 	const V3 = 3;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class YahooSyndicationFeedCategories
+class YahooSyndicationFeedCategories extends \Kaltura\Client\EnumBase
 {
 	const ACTION = "Action";
 	const ANIMALS = "Animals";

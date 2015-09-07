@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ConversionProfileAssetParamsOrderBy
+class ConversionProfileAssetParamsOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

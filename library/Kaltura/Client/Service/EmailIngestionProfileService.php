@@ -135,7 +135,6 @@ class EmailIngestionProfileService extends \Kaltura\Client\ServiceBase
 	 * Delete an existing EmailIngestionProfile
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

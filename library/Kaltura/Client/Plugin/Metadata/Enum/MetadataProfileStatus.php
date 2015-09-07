@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MetadataProfileStatus
+class MetadataProfileStatus extends \Kaltura\Client\EnumBase
 {
 	const ACTIVE = 1;
 	const DEPRECATED = 2;

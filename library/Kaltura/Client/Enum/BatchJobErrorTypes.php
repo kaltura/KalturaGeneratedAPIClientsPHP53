@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BatchJobErrorTypes
+class BatchJobErrorTypes extends \Kaltura\Client\EnumBase
 {
 	const APP = 0;
 	const RUNTIME = 1;

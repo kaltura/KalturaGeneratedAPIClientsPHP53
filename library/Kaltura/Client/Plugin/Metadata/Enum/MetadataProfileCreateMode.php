@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MetadataProfileCreateMode
+class MetadataProfileCreateMode extends \Kaltura\Client\EnumBase
 {
 	const API = 1;
 	const KMC = 2;

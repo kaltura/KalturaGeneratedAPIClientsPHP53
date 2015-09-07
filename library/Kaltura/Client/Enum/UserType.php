@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UserType
+class UserType extends \Kaltura\Client\EnumBase
 {
 	const USER = 0;
 	const GROUP = 1;

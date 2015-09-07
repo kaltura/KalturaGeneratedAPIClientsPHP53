@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MetadataObjectType
+class MetadataObjectType extends \Kaltura\Client\EnumBase
 {
 	const AD_CUE_POINT = "adCuePointMetadata.AdCuePoint";
 	const ANNOTATION = "annotationMetadata.Annotation";

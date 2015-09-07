@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ConversionProfileType
+class ConversionProfileType extends \Kaltura\Client\EnumBase
 {
 	const MEDIA = "1";
 	const LIVE_STREAM = "2";

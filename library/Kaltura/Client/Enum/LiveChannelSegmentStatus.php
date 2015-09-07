@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveChannelSegmentStatus
+class LiveChannelSegmentStatus extends \Kaltura\Client\EnumBase
 {
 	const ACTIVE = "2";
 	const DELETED = "3";

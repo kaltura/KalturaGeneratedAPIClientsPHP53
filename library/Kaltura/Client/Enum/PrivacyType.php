@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PrivacyType
+class PrivacyType extends \Kaltura\Client\EnumBase
 {
 	const ALL = 1;
 	const AUTHENTICATED_USERS = 2;

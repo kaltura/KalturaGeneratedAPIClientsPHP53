@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AudioCodec
+class AudioCodec extends \Kaltura\Client\EnumBase
 {
 	const NONE = "";
 	const AAC = "aac";

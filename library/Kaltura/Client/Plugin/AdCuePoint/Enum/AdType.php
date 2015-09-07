@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\AdCuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AdType
+class AdType extends \Kaltura\Client\EnumBase
 {
 	const VIDEO = "1";
 	const OVERLAY = "2";

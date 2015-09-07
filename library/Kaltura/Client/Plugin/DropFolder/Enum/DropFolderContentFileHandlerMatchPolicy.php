@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderContentFileHandlerMatchPolicy
+class DropFolderContentFileHandlerMatchPolicy extends \Kaltura\Client\EnumBase
 {
 	const ADD_AS_NEW = 1;
 	const MATCH_EXISTING_OR_ADD_AS_NEW = 2;

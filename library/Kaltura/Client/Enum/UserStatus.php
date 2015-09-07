@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UserStatus
+class UserStatus extends \Kaltura\Client\EnumBase
 {
 	const BLOCKED = 0;
 	const ACTIVE = 1;

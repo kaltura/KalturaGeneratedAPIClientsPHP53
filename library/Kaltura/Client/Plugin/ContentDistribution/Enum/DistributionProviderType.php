@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderType
+class DistributionProviderType extends \Kaltura\Client\EnumBase
 {
 	const IDETIC = "ideticDistribution.IDETIC";
 	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";

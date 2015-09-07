@@ -117,7 +117,6 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 	 * Deletes the upload token by upload token id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($uploadTokenId)
 	{

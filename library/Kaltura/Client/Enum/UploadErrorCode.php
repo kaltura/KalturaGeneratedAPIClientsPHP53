@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UploadErrorCode
+class UploadErrorCode extends \Kaltura\Client\EnumBase
 {
 	const NO_ERROR = 0;
 	const GENERAL_ERROR = 1;

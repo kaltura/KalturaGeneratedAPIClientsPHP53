@@ -114,7 +114,6 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 	 * Delete Thumb Params by ID
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\CuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CuePointType
+class CuePointType extends \Kaltura\Client\EnumBase
 {
 	const AD = "adCuePoint.Ad";
 	const ANNOTATION = "annotation.Annotation";

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EntryDistributionSunStatus
+class EntryDistributionSunStatus extends \Kaltura\Client\EnumBase
 {
 	const BEFORE_SUNRISE = 1;
 	const AFTER_SUNRISE = 2;

@@ -114,7 +114,6 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 	 * Delete Generic Distribution Provider by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

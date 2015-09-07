@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\CuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CuePointStatus
+class CuePointStatus extends \Kaltura\Client\EnumBase
 {
 	const READY = 1;
 	const DELETED = 2;

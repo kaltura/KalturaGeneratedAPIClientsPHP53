@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\HttpNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class HttpNotificationCertificateType
+class HttpNotificationCertificateType extends \Kaltura\Client\EnumBase
 {
 	const DER = "DER";
 	const ENG = "ENG";

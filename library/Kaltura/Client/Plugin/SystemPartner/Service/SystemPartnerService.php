@@ -116,7 +116,6 @@ class SystemPartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function updateStatus($partnerId, $status, $reason)
 	{
@@ -153,7 +152,6 @@ class SystemPartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function updateConfiguration($partnerId, \Kaltura\Client\Plugin\SystemPartner\Type\SystemPartnerConfiguration $configuration)
 	{
@@ -279,7 +277,6 @@ class SystemPartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function resetUserPassword($userId, $partnerId, $newPassword)
 	{

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AssetType
+class AssetType extends \Kaltura\Client\EnumBase
 {
 	const ATTACHMENT = "attachment.Attachment";
 	const CAPTION = "caption.Caption";

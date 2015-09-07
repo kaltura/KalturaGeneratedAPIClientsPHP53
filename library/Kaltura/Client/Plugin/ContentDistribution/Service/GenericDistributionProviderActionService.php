@@ -294,7 +294,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 	 * Delete Generic Distribution Provider Action by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{
@@ -312,7 +311,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 	 * Delete Generic Distribution Provider Action by provider id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function deleteByProviderId($genericDistributionProviderId, $actionType)
 	{

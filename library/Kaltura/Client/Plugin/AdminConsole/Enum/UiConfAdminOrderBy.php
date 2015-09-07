@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\AdminConsole\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UiConfAdminOrderBy
+class UiConfAdminOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const UPDATED_AT_ASC = "+updatedAt";

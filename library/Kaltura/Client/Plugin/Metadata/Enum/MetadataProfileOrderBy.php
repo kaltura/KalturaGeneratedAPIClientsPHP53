@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MetadataProfileOrderBy
+class MetadataProfileOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const UPDATED_AT_ASC = "+updatedAt";

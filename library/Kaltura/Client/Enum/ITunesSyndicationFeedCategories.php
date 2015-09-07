@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ITunesSyndicationFeedCategories
+class ITunesSyndicationFeedCategories extends \Kaltura\Client\EnumBase
 {
 	const ARTS = "Arts";
 	const ARTS_DESIGN = "Arts/Design";

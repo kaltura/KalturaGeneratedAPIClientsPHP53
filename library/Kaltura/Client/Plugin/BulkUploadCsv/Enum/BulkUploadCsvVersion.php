@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\BulkUploadCsv\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkUploadCsvVersion
+class BulkUploadCsvVersion extends \Kaltura\Client\EnumBase
 {
 	const V1 = 1;
 	const V2 = 2;

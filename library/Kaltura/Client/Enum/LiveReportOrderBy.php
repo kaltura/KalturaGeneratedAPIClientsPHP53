@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveReportOrderBy
+class LiveReportOrderBy extends \Kaltura\Client\EnumBase
 {
 	const NAME_ASC = "+name";
 	const AUDIENCE_DESC = "-audience";

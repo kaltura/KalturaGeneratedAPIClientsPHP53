@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PartnerType
+class PartnerType extends \Kaltura\Client\EnumBase
 {
 	const KMC = 1;
 	const WIKI = 100;

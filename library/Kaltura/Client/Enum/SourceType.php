@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SourceType
+class SourceType extends \Kaltura\Client\EnumBase
 {
 	const VELOCIX_LIVE = "velocix.VELOCIX_LIVE";
 	const FILE = "1";

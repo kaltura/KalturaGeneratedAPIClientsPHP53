@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\EventCuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EventCuePointOrderBy
+class EventCuePointOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const PARTNER_SORT_VALUE_ASC = "+partnerSortValue";

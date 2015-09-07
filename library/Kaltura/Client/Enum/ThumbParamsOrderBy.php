@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ThumbParamsOrderBy
+class ThumbParamsOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderErrorCode
+class DropFolderErrorCode extends \Kaltura\Client\EnumBase
 {
 	const ERROR_CONNECT = "1";
 	const ERROR_AUTENTICATE = "2";

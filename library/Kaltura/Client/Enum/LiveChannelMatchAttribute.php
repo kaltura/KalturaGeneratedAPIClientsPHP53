@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveChannelMatchAttribute
+class LiveChannelMatchAttribute extends \Kaltura\Client\EnumBase
 {
 	const ADMIN_TAGS = "adminTags";
 	const CATEGORIES_IDS = "categoriesIds";

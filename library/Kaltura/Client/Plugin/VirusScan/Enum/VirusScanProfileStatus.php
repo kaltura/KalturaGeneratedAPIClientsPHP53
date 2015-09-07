@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\VirusScan\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class VirusScanProfileStatus
+class VirusScanProfileStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 1;
 	const ENABLED = 2;

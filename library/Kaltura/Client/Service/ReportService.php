@@ -220,6 +220,9 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	 */
 	function getCsv($id, array $params = null)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		if ($params !== null)
@@ -240,6 +243,9 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	 */
 	function getCsvFromStringParams($id, $params = null)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "params", $params);

@@ -162,6 +162,9 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($attachmentAssetId)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "attachmentAssetId", $attachmentAssetId);
 		$this->client->queueServiceActionCall('attachment_attachmentasset', 'serve', null, $kparams);
@@ -214,7 +217,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function delete($attachmentAssetId)
 	{

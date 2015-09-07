@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class GroupUserStatus
+class GroupUserStatus extends \Kaltura\Client\EnumBase
 {
 	const ACTIVE = 0;
 	const DELETED = 1;

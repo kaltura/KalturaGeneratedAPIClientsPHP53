@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UiConfCreationMode
+class UiConfCreationMode extends \Kaltura\Client\EnumBase
 {
 	const WIZARD = 2;
 	const ADVANCED = 3;

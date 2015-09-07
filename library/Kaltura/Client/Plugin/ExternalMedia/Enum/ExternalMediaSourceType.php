@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ExternalMedia\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ExternalMediaSourceType
+class ExternalMediaSourceType extends \Kaltura\Client\EnumBase
 {
 	const INTERCALL = "InterCall";
 	const YOUTUBE = "YouTube";

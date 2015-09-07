@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Annotation\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AnnotationOrderBy
+class AnnotationOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const DURATION_ASC = "+duration";

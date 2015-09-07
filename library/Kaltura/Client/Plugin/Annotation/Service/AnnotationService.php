@@ -143,6 +143,9 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 	 */
 	function serveBulk(\Kaltura\Client\Plugin\CuePoint\Type\CuePointFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		if ($filter !== null)
 			$this->client->addParam($kparams, "filter", $filter->toParams());
@@ -199,7 +202,6 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 	 * delete cue point by id, and delete all children cue points
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

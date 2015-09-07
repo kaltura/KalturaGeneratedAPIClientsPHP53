@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CategoryIdentifierField
+class CategoryIdentifierField extends \Kaltura\Client\EnumBase
 {
 	const FULL_NAME = "fullName";
 	const ID = "id";

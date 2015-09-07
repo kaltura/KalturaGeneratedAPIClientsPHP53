@@ -70,7 +70,6 @@ class IntegrationService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function notify($id)
 	{

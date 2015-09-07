@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ReportInterval
+class ReportInterval extends \Kaltura\Client\EnumBase
 {
 	const DAYS = "days";
 	const MONTHS = "months";

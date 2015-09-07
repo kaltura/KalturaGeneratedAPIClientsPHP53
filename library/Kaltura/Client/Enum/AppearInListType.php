@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AppearInListType
+class AppearInListType extends \Kaltura\Client\EnumBase
 {
 	const PARTNER_ONLY = 1;
 	const CATEGORY_MEMBERS_ONLY = 3;

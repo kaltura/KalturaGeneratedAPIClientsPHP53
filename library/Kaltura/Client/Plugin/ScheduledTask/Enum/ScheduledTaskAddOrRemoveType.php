@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ScheduledTask\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduledTaskAddOrRemoveType
+class ScheduledTaskAddOrRemoveType extends \Kaltura\Client\EnumBase
 {
 	const ADD = 1;
 	const REMOVE = 2;

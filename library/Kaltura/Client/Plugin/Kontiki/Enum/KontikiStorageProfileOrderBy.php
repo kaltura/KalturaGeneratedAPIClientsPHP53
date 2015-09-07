@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Kontiki\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class KontikiStorageProfileOrderBy
+class KontikiStorageProfileOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const UPDATED_AT_ASC = "+updatedAt";

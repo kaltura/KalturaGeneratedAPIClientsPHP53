@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DynamicEnum
+class DynamicEnum extends \Kaltura\Client\EnumBase
 {
 }
 

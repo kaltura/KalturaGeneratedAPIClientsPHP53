@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ModerationFlagStatus
+class ModerationFlagStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = "1";
 	const MODERATED = "2";

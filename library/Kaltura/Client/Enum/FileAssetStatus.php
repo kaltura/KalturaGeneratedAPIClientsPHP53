@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class FileAssetStatus
+class FileAssetStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = "0";
 	const UPLOADING = "1";

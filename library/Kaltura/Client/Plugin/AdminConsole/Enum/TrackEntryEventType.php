@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\AdminConsole\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class TrackEntryEventType
+class TrackEntryEventType extends \Kaltura\Client\EnumBase
 {
 	const UPLOADED_FILE = 1;
 	const WEBCAM_COMPLETED = 2;

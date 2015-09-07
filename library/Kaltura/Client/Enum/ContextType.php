@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ContextType
+class ContextType extends \Kaltura\Client\EnumBase
 {
 	const PLAY = "1";
 	const DOWNLOAD = "2";

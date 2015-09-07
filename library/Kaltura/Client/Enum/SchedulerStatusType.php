@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SchedulerStatusType
+class SchedulerStatusType extends \Kaltura\Client\EnumBase
 {
 	const RUNNING_BATCHES_COUNT = 1;
 	const RUNNING_BATCHES_CPU = 2;

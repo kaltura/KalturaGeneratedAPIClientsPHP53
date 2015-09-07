@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DocumentEntryMatchAttribute
+class DocumentEntryMatchAttribute extends \Kaltura\Client\EnumBase
 {
 	const ADMIN_TAGS = "adminTags";
 	const CATEGORIES_IDS = "categoriesIds";

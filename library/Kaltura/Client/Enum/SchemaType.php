@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SchemaType
+class SchemaType extends \Kaltura\Client\EnumBase
 {
 	const BULK_UPLOAD_RESULT_XML = "bulkUploadXml.bulkUploadResultXML";
 	const BULK_UPLOAD_XML = "bulkUploadXml.bulkUploadXML";

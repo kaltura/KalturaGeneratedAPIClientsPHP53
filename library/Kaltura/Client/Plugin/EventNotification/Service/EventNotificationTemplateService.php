@@ -159,7 +159,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 	 * Delete an event notification template object
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

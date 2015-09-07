@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ConditionType
+class ConditionType extends \Kaltura\Client\EnumBase
 {
 	const EVENT_NOTIFICATION_FIELD = "eventNotification.BooleanField";
 	const EVENT_NOTIFICATION_OBJECT_CHANGED = "eventNotification.ObjectChanged";

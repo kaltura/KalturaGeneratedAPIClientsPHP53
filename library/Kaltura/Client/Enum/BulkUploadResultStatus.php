@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkUploadResultStatus
+class BulkUploadResultStatus extends \Kaltura\Client\EnumBase
 {
 	const ERROR = "1";
 	const OK = "2";

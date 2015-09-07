@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EntryType
+class EntryType extends \Kaltura\Client\EnumBase
 {
 	const AUTOMATIC = "-1";
 	const EXTERNAL_MEDIA = "externalMedia.externalMedia";

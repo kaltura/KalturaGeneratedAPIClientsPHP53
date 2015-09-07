@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Attachment\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AttachmentAssetOrderBy
+class AttachmentAssetOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const DELETED_AT_ASC = "+deletedAt";

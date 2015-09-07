@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PermissionType
+class PermissionType extends \Kaltura\Client\EnumBase
 {
 	const NORMAL = 1;
 	const SPECIAL_FEATURE = 2;

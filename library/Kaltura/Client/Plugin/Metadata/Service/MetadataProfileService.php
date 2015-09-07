@@ -187,7 +187,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 	 * Delete an existing metadata profile
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{
@@ -300,6 +299,9 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($id)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall('metadata_metadataprofile', 'serve', null, $kparams);
@@ -315,6 +317,9 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 	 */
 	function serveView($id)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall('metadata_metadataprofile', 'serveView', null, $kparams);

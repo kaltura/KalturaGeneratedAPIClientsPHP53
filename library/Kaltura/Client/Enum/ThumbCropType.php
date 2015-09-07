@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ThumbCropType
+class ThumbCropType extends \Kaltura\Client\EnumBase
 {
 	const RESIZE = 1;
 	const RESIZE_WITH_PADDING = 2;

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderOrderBy
+class DistributionProviderOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

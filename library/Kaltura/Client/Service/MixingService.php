@@ -117,7 +117,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	 * Delete a mix entry.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($entryId)
 	{
@@ -267,7 +266,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	 * Anonymously rank a mix entry, no validation is done on duplicate rankings
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function anonymousRank($entryId, $rank)
 	{

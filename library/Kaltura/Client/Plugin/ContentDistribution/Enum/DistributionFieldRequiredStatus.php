@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionFieldRequiredStatus
+class DistributionFieldRequiredStatus extends \Kaltura\Client\EnumBase
 {
 	const NOT_REQUIRED = 0;
 	const REQUIRED_BY_PROVIDER = 1;

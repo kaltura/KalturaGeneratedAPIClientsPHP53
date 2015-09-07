@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\EventNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EventNotificationTemplateStatus
+class EventNotificationTemplateStatus extends \Kaltura\Client\EnumBase
 {
 	const DISABLED = 1;
 	const ACTIVE = 2;

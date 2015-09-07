@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Metadata\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MetadataStatus
+class MetadataStatus extends \Kaltura\Client\EnumBase
 {
 	const VALID = 1;
 	const INVALID = 2;

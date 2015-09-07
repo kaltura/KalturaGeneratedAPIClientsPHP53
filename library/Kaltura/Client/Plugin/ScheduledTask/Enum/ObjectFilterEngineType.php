@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ScheduledTask\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ObjectFilterEngineType
+class ObjectFilterEngineType extends \Kaltura\Client\EnumBase
 {
 	const ENTRY = "1";
 }

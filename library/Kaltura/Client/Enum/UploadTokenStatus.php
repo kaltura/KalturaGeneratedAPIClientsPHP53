@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UploadTokenStatus
+class UploadTokenStatus extends \Kaltura\Client\EnumBase
 {
 	const PENDING = 0;
 	const PARTIAL_UPLOAD = 1;

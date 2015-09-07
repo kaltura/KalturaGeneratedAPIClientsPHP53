@@ -120,6 +120,9 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	 */
 	function serveByEntryId($entryId, $thumbParamId = null)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "thumbParamId", $thumbParamId);
@@ -136,6 +139,9 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	 */
 	function serve($thumbAssetId, $version = null, \Kaltura\Client\Type\ThumbParams $thumbParams = null, \Kaltura\Client\Type\ThumbnailServeOptions $options = null)
 	{
+		if ($this->client->isMultiRequest())
+			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
 		$this->client->addParam($kparams, "version", $version);
@@ -153,7 +159,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	 * 	 Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync.
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function setAsDefault($thumbAssetId)
 	{
@@ -332,7 +337,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function delete($thumbAssetId)
 	{

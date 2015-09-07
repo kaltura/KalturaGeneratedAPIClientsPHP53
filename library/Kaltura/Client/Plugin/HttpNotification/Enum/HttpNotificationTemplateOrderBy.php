@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\HttpNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class HttpNotificationTemplateOrderBy
+class HttpNotificationTemplateOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const ID_ASC = "+id";

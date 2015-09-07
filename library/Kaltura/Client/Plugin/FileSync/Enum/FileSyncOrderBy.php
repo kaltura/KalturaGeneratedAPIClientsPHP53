@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\FileSync\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class FileSyncOrderBy
+class FileSyncOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const FILE_SIZE_ASC = "+fileSize";

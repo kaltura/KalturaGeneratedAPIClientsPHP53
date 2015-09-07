@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class BitRateMode
+class BitRateMode extends \Kaltura\Client\EnumBase
 {
 	const CBR = 1;
 	const VBR = 2;

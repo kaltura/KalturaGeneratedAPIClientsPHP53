@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class PartnerOrderBy
+class PartnerOrderBy extends \Kaltura\Client\EnumBase
 {
 	const ADMIN_EMAIL_ASC = "+adminEmail";
 	const ADMIN_NAME_ASC = "+adminName";

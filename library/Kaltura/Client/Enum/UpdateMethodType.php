@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class UpdateMethodType
+class UpdateMethodType extends \Kaltura\Client\EnumBase
 {
 	const MANUAL = 0;
 	const AUTOMATIC = 1;

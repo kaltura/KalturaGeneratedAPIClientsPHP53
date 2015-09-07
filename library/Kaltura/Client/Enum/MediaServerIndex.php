@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MediaServerIndex
+class MediaServerIndex extends \Kaltura\Client\EnumBase
 {
 	const PRIMARY = 0;
 	const SECONDARY = 1;

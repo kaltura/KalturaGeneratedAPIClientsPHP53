@@ -69,7 +69,6 @@ class StorageProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function updateStatus($storageId, $status)
 	{

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ModerationFlagType
+class ModerationFlagType extends \Kaltura\Client\EnumBase
 {
 	const SEXUAL_CONTENT = 1;
 	const VIOLENT_REPULSIVE = 2;

@@ -114,7 +114,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 	 * Delete a Category
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id, $moveEntriesToParentCategory = 1)
 	{
@@ -200,7 +199,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 	 * Unlock categories
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function unlockCategories()
 	{

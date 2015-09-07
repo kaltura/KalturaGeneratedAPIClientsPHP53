@@ -114,7 +114,6 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 	 * Delete live channel segment by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

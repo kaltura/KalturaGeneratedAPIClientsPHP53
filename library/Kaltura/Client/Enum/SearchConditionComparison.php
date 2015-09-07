@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SearchConditionComparison
+class SearchConditionComparison extends \Kaltura\Client\EnumBase
 {
 	const EQUAL = "1";
 	const GREATER_THAN = "2";

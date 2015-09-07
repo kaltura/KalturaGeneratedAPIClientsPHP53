@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CommercialUseType
+class CommercialUseType extends \Kaltura\Client\EnumBase
 {
 	const NON_COMMERCIAL_USE = 0;
 	const COMMERCIAL_USE = 1;

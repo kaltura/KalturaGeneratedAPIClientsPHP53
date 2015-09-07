@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Caption\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CaptionAssetStatus
+class CaptionAssetStatus extends \Kaltura\Client\EnumBase
 {
 	const ERROR = -1;
 	const QUEUED = 0;

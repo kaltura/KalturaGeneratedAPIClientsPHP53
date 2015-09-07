@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class VideoCodec
+class VideoCodec extends \Kaltura\Client\EnumBase
 {
 	const NONE = "";
 	const APCH = "apch";

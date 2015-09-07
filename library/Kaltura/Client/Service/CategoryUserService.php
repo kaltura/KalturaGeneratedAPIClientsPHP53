@@ -117,7 +117,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	 * Delete a CategoryUser
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($categoryId, $userId)
 	{
@@ -204,7 +203,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	 * Copy all memeber from parent category
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function copyFromCategory($categoryId)
 	{

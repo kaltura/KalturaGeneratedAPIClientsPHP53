@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderFileStatus
+class DropFolderFileStatus extends \Kaltura\Client\EnumBase
 {
 	const UPLOADING = 1;
 	const PENDING = 2;

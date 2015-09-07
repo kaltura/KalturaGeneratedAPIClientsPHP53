@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\CodeCuePoint\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class CodeCuePointOrderBy
+class CodeCuePointOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
 	const DURATION_ASC = "+duration";

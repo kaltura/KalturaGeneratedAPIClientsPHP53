@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProtocol
+class DistributionProtocol extends \Kaltura\Client\EnumBase
 {
 	const FTP = 1;
 	const SCP = 2;

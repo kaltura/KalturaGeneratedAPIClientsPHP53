@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class SessionType
+class SessionType extends \Kaltura\Client\EnumBase
 {
 	const USER = 0;
 	const ADMIN = 2;

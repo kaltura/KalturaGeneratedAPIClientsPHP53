@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class GoogleSyndicationFeedAdultValues
+class GoogleSyndicationFeedAdultValues extends \Kaltura\Client\EnumBase
 {
 	const NO = "No";
 	const YES = "Yes";

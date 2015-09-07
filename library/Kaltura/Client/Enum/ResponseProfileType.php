@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseProfileType
+class ResponseProfileType extends \Kaltura\Client\EnumBase
 {
 	const INCLUDE_FIELDS = 1;
 	const EXCLUDE_FIELDS = 2;

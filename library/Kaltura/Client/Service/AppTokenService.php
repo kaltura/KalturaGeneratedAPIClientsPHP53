@@ -114,7 +114,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	 * Delete application authentication token by id
 	 * 	 
 	 * 
-	 * @return
 	 */
 	function delete($id)
 	{

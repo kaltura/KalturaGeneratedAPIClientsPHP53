@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class AssetStatus
+class AssetStatus extends \Kaltura\Client\EnumBase
 {
 	const ERROR = -1;
 	const QUEUED = 0;

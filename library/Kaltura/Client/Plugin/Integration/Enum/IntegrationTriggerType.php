@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Integration\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class IntegrationTriggerType
+class IntegrationTriggerType extends \Kaltura\Client\EnumBase
 {
 	const MANUAL = "1";
 }

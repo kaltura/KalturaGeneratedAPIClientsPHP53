@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DurationType
+class DurationType extends \Kaltura\Client\EnumBase
 {
 	const LONG = "long";
 	const MEDIUM = "medium";

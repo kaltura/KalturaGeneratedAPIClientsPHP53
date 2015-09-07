@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\EventNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class EventNotificationEventObjectType
+class EventNotificationEventObjectType extends \Kaltura\Client\EnumBase
 {
 	const AD_CUE_POINT = "adCuePointEventNotifications.AdCuePoint";
 	const ANNOTATION = "annotationEventNotifications.Annotation";

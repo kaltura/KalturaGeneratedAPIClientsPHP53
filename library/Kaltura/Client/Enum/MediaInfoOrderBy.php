@@ -36,7 +36,7 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class MediaInfoOrderBy
+class MediaInfoOrderBy extends \Kaltura\Client\EnumBase
 {
 }
 

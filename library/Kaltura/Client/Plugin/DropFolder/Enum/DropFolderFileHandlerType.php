@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderFileHandlerType
+class DropFolderFileHandlerType extends \Kaltura\Client\EnumBase
 {
 	const XML = "dropFolderXmlBulkUpload.XML";
 	const CONTENT = "1";

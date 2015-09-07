@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\HttpNotification\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class HttpNotificationAuthenticationMethod
+class HttpNotificationAuthenticationMethod extends \Kaltura\Client\EnumBase
 {
 	const ANYSAFE = -18;
 	const ANY = -17;

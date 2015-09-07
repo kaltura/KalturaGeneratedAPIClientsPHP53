@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Integration\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class IntegrationProviderType
+class IntegrationProviderType extends \Kaltura\Client\EnumBase
 {
 	const VOICEBASE = "voicebase.Voicebase";
 }

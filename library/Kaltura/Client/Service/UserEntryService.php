@@ -67,7 +67,6 @@ class UserEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return
 	 */
 	function update($id, \Kaltura\Client\Type\UserEntry $userEntry)
 	{

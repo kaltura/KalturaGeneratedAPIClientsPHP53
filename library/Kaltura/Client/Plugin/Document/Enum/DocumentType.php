@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Document\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class DocumentType
+class DocumentType extends \Kaltura\Client\EnumBase
 {
 	const DOCUMENT = 11;
 	const SWF = 12;
