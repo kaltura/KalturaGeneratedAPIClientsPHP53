@@ -54,6 +54,8 @@ class LiveEntryFilter extends \Kaltura\Client\Type\LiveEntryBaseFilter
 			$this->isLive = (int)$xml->isLive;
 		if(count($xml->isRecordedEntryIdEmpty))
 			$this->isRecordedEntryIdEmpty = (int)$xml->isRecordedEntryIdEmpty;
+		if(count($xml->hasMediaServerHostname))
+			$this->hasMediaServerHostname = (string)$xml->hasMediaServerHostname;
 	}
 	/**
 	 * 
@@ -66,5 +68,11 @@ class LiveEntryFilter extends \Kaltura\Client\Type\LiveEntryBaseFilter
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $isRecordedEntryIdEmpty = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $hasMediaServerHostname = null;
 
 }
