@@ -38,7 +38,6 @@ namespace Kaltura\Client\Plugin\Integration\Enum;
  */
 class IntegrationProviderType extends \Kaltura\Client\EnumBase
 {
-	const CIELO24 = "cielo24.Cielo24";
 	const VOICEBASE = "voicebase.Voicebase";
 }
 
