@@ -54,6 +54,10 @@ abstract class AnswerCuePointBaseFilter extends \Kaltura\Client\Plugin\CuePoint\
 			$this->parentIdEqual = (string)$xml->parentIdEqual;
 		if(count($xml->parentIdIn))
 			$this->parentIdIn = (string)$xml->parentIdIn;
+		if(count($xml->quizUserEntryIdEqual))
+			$this->quizUserEntryIdEqual = (string)$xml->quizUserEntryIdEqual;
+		if(count($xml->quizUserEntryIdIn))
+			$this->quizUserEntryIdIn = (string)$xml->quizUserEntryIdIn;
 	}
 	/**
 	 * 
@@ -66,5 +70,17 @@ abstract class AnswerCuePointBaseFilter extends \Kaltura\Client\Plugin\CuePoint\
 	 * @var string
 	 */
 	public $parentIdIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $quizUserEntryIdEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $quizUserEntryIdIn = null;
 
 }

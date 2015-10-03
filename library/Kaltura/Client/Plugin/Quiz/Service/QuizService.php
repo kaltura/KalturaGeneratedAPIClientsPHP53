@@ -134,4 +134,25 @@ class QuizService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Quiz\\Type\\QuizListResponse");
 		return $resultObject;
 	}
+
+	/**
+	 * creates a pdf from quiz object
+	 * 	 
+	 * 
+	 * @return \Kaltura\Client\Plugin\Quiz\Type\Quiz
+	 */
+	function servePdf($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("quiz_quiz", "servePdf", "KalturaQuiz", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaQuiz");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Quiz\\Type\\Quiz");
+		return $resultObject;
+	}
 }
