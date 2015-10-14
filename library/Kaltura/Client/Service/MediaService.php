@@ -285,7 +285,7 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return string
 	 */
-	function getMrss($entryId, array $extendingItemsArray = null)
+	function getMrss($entryId, array $extendingItemsArray = null, $features = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -294,6 +294,7 @@ class MediaService extends \Kaltura\Client\ServiceBase
 			{
 				$this->client->addParam($kparams, "extendingItemsArray:$index", $obj->toParams());
 			}
+		$this->client->addParam($kparams, "features", $features);
 		$this->client->queueServiceActionCall("media", "getMrss", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
