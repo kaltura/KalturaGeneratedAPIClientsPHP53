@@ -45,6 +45,7 @@ class AssetType extends \Kaltura\Client\EnumBase
 	const PDF = "document.PDF";
 	const SWF = "document.SWF";
 	const TIMED_THUMB_ASSET = "thumbCuePoint.timedThumb";
+	const TRANSCRIPT = "transcript.Transcript";
 	const FLAVOR = "1";
 	const THUMBNAIL = "2";
 	const LIVE = "3";
