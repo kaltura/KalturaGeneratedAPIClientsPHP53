@@ -79,6 +79,13 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 			else
 				$this->isDefault = false;
 		}
+		if(count($xml->triggerDeleteOnError))
+		{
+			if(!empty($xml->triggerDeleteOnError))
+				$this->triggerDeleteOnError = true;
+			else
+				$this->triggerDeleteOnError = false;
+		}
 	}
 	/**
 	 * A value taken from a connector field enum which associates the current configuration to that connector field
@@ -131,5 +138,12 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $isDefault = null;
+
+	/**
+	 * Is an error on this field going to trigger deletion of distributed content?
+	 *      
+	 * @var bool
+	 */
+	public $triggerDeleteOnError = null;
 
 }
