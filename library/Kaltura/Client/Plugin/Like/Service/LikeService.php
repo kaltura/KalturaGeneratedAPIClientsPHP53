@@ -100,4 +100,26 @@ class LikeService extends \Kaltura\Client\ServiceBase
 		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
+
+	/**
+	 * 
+	 * @return \Kaltura\Client\Plugin\Like\Type\LikeListResponse
+	 */
+	function listAction(\Kaltura\Client\Plugin\Like\Type\LikeFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("like_like", "list", "KalturaLikeListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLikeListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Like\\Type\\LikeListResponse");
+		return $resultObject;
+	}
 }
