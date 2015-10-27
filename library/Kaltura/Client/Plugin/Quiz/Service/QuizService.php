@@ -141,15 +141,37 @@ class QuizService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return file
 	 */
-	function servePdf($entryId)
+	function serve($entryId, $quizFileType)
 	{
 		if ($this->client->isMultiRequest())
 			throw new ClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
 		
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall('quiz_quiz', 'servePdf', null, $kparams);
+		$this->client->addParam($kparams, "quizFileType", $quizFileType);
+		$this->client->queueServiceActionCall('quiz_quiz', 'serve', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * sends a with an api request for pdf from quiz object
+	 * 	 
+	 * 
+	 * @return string
+	 */
+	function getUrl($entryId, $quizFileType)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "quizFileType", $quizFileType);
+		$this->client->queueServiceActionCall("quiz_quiz", "getUrl", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 }
