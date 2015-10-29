@@ -137,6 +137,8 @@ class QuizService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * creates a pdf from quiz object
+	 * 	 The Output type defines the file format in which the quiz will be generated
+	 * 	 Currently only PDF files are supported
 	 * 	 
 	 * 
 	 * @return file
