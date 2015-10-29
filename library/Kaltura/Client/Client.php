@@ -109,11 +109,6 @@ class Client extends Base
 	protected $document = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\EdgeServerService
-	 */
-	protected $edgeServer = null;
-
-	/**
 	 * @var \Kaltura\Client\Service\EmailIngestionProfileService
 	 */
 	protected $EmailIngestionProfile = null;
@@ -174,11 +169,6 @@ class Client extends Base
 	protected $mediaInfo = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\MediaServerService
-	 */
-	protected $mediaServer = null;
-
-	/**
 	 * @var \Kaltura\Client\Service\MediaService
 	 */
 	protected $media = null;
@@ -232,6 +222,11 @@ class Client extends Base
 	 * @var \Kaltura\Client\Service\SearchService
 	 */
 	protected $search = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\ServerNodeService
+	 */
+	protected $serverNode = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\SessionService
@@ -322,7 +317,7 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:15-10-28');
+		$this->setClientTag('php5:15-10-29');
 		$this->setApiVersion('3.3.0');
 	}
 	
@@ -453,15 +448,6 @@ class Client extends Base
 		return $this->document;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\EdgeServerService
-	 */
-	public function getEdgeServerService()
-	{
-		if (is_null($this->edgeServer))
-			$this->edgeServer = new \Kaltura\Client\Service\EdgeServerService($this);
-		return $this->edgeServer;
-	}
-	/**
 	 * @return \Kaltura\Client\Service\EmailIngestionProfileService
 	 */
 	public function getEmailIngestionProfileService()
@@ -570,15 +556,6 @@ class Client extends Base
 		return $this->mediaInfo;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\MediaServerService
-	 */
-	public function getMediaServerService()
-	{
-		if (is_null($this->mediaServer))
-			$this->mediaServer = new \Kaltura\Client\Service\MediaServerService($this);
-		return $this->mediaServer;
-	}
-	/**
 	 * @return \Kaltura\Client\Service\MediaService
 	 */
 	public function getMediaService()
@@ -676,6 +653,15 @@ class Client extends Base
 		if (is_null($this->search))
 			$this->search = new \Kaltura\Client\Service\SearchService($this);
 		return $this->search;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\ServerNodeService
+	 */
+	public function getServerNodeService()
+	{
+		if (is_null($this->serverNode))
+			$this->serverNode = new \Kaltura\Client\Service\ServerNodeService($this);
+		return $this->serverNode;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\SessionService
