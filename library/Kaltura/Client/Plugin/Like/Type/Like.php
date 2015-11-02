@@ -54,6 +54,8 @@ class Like extends \Kaltura\Client\ObjectBase
 			$this->entryId = (string)$xml->entryId;
 		if(count($xml->userId))
 			$this->userId = (string)$xml->userId;
+		if(count($xml->createdAt))
+			$this->createdAt = (int)$xml->createdAt;
 	}
 	/**
 	 * The id of the entry that the like belongs to
@@ -68,5 +70,12 @@ class Like extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $userId = null;
+
+	/**
+	 * The date of the like's creation
+	 * 	 
+	 * @var int
+	 */
+	public $createdAt = null;
 
 }
