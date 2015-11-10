@@ -69,6 +69,8 @@ class Quiz extends \Kaltura\Client\ObjectBase
 			$this->showCorrectAfterSubmission = (int)$xml->showCorrectAfterSubmission;
 		if(count($xml->allowDownload))
 			$this->allowDownload = (int)$xml->allowDownload;
+		if(count($xml->showGradeAfterSubmission))
+			$this->showGradeAfterSubmission = (int)$xml->showGradeAfterSubmission;
 	}
 	/**
 	 * 
@@ -113,5 +115,11 @@ class Quiz extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $allowDownload = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $showGradeAfterSubmission = null;
 
 }
