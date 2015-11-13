@@ -65,7 +65,6 @@ class TypeMap
 		'KalturaAttachmentAsset' => 'Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset',
 		'KalturaOperationAttributes' => 'Kaltura\Client\Type\OperationAttributes',
 		'KalturaBaseEntry' => 'Kaltura\Client\Type\BaseEntry',
-		'KalturaBaseEntryCloneOptions' => 'Kaltura\Client\Type\BaseEntryCloneOptions',
 		'KalturaBaseResponseProfile' => 'Kaltura\Client\Type\BaseResponseProfile',
 		'KalturaBaseSyndicationFeed' => 'Kaltura\Client\Type\BaseSyndicationFeed',
 		'KalturaBatchHistoryData' => 'Kaltura\Client\Type\BatchHistoryData',
