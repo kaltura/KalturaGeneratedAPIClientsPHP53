@@ -110,6 +110,13 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 			$this->privacyContext = (string)$xml->privacyContext;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
+		if(count($xml->useCategoryEntries))
+		{
+			if(!empty($xml->useCategoryEntries))
+				$this->useCategoryEntries = true;
+			else
+				$this->useCategoryEntries = false;
+		}
 	}
 	/**
 	 * 
@@ -253,5 +260,11 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $updatedAt = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $useCategoryEntries = null;
 
 }
