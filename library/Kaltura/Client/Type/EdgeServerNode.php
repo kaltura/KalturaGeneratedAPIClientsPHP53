@@ -50,5 +50,19 @@ class EdgeServerNode extends \Kaltura\Client\Type\DeliveryServerNode
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->deliveryProfileIds))
+		{
+			if(empty($xml->deliveryProfileIds))
+				$this->deliveryProfileIds = array();
+			else
+				$this->deliveryProfileIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryProfileIds, "KalturaKeyValue");
+		}
 	}
+	/**
+	 * Delivery profile ids
+	 * 	 
+	 * @var array<KalturaKeyValue>
+	 */
+	public $deliveryProfileIds;
+
 }
