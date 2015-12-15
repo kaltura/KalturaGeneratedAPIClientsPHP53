@@ -71,6 +71,8 @@ class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
 			else
 				$this->amfArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->amfArray, "KalturaKeyValue");
 		}
+		if(count($xml->duration))
+			$this->duration = (float)$xml->duration;
 	}
 	/**
 	 * Live stream entry id
@@ -125,5 +127,13 @@ class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
 	 * @var array<KalturaKeyValue>
 	 */
 	public $amfArray;
+
+	/**
+	 * Duration of the live segment.
+	 * 	 filled by the ConvertLiveSegment job
+	 * 	 
+	 * @var float
+	 */
+	public $duration = null;
 
 }
