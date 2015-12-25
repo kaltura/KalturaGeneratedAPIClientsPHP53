@@ -532,6 +532,7 @@ class TypeMap
 		'KalturaUserLoginDataListResponse' => 'Kaltura\Client\Type\UserLoginDataListResponse',
 		'KalturaUserRoleCondition' => 'Kaltura\Client\Type\UserRoleCondition',
 		'KalturaUserRoleListResponse' => 'Kaltura\Client\Type\UserRoleListResponse',
+		'KalturaValidateActiveEdgeCondition' => 'Kaltura\Client\Type\ValidateActiveEdgeCondition',
 		'KalturaVarPartnerUsageTotalItem' => 'Kaltura\Client\Plugin\VarConsole\Type\VarPartnerUsageTotalItem',
 		'KalturaVirusScanJobData' => 'Kaltura\Client\Plugin\VirusScan\Type\VirusScanJobData',
 		'KalturaVirusScanProfileBaseFilter' => 'Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfileBaseFilter',

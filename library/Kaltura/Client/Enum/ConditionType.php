@@ -56,5 +56,6 @@ class ConditionType extends \Kaltura\Client\EnumBase
 	const OR_OPERATOR = "11";
 	const HASH = "12";
 	const DELIVERY_PROFILE = "13";
+	const ACTIVE_EDGE_VALIDATE = "14";
 }
 
