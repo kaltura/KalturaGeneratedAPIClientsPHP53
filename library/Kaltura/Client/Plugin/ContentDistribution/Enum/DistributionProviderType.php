@@ -38,6 +38,7 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  */
 class DistributionProviderType extends \Kaltura\Client\EnumBase
 {
+	const FACEBOOK = "facebookDistribution.FACEBOOK";
 	const IDETIC = "ideticDistribution.IDETIC";
 	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
 	const GENERIC = "1";
