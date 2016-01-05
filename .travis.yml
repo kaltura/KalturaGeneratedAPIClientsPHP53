@@ -3,6 +3,7 @@ php:
   - "5.5"
   - "5.4"
   - "5.3"
+  - "7.0"
 script: cd tests && php run.php
 notifications:
   email:
