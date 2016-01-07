@@ -321,13 +321,14 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
-	function registerMediaServer($entryId, $hostname, $mediaServerIndex, $applicationName = null)
+	function registerMediaServer($entryId, $hostname, $mediaServerIndex, $applicationName = null, $liveEntryStatus = 1)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "hostname", $hostname);
 		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
 		$this->client->addParam($kparams, "applicationName", $applicationName);
+		$this->client->addParam($kparams, "liveEntryStatus", $liveEntryStatus);
 		$this->client->queueServiceActionCall("livestream", "registerMediaServer", "KalturaLiveEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

@@ -50,6 +50,10 @@ class Rule extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->ruleData))
+			$this->ruleData = (string)$xml->ruleData;
 		if(count($xml->message))
 			$this->message = (string)$xml->message;
 		if(count($xml->actions))
@@ -81,6 +85,20 @@ class Rule extends \Kaltura\Client\ObjectBase
 				$this->stopProcessing = false;
 		}
 	}
+	/**
+	 * Short Rule Description
+	 * 	 
+	 * @var string
+	 */
+	public $description = null;
+
+	/**
+	 * Rule Custom Data to allow saving rule specific information 
+	 * 	 
+	 * @var string
+	 */
+	public $ruleData = null;
+
 	/**
 	 * Message to be thrown to the player in case the rule is fulfilled
 	 * 	 

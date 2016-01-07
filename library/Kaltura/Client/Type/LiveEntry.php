@@ -86,6 +86,8 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 			$this->currentBroadcastStartTime = (float)$xml->currentBroadcastStartTime;
 		if(count($xml->recordingOptions) && !empty($xml->recordingOptions))
 			$this->recordingOptions = \Kaltura\Client\ParseUtils::unmarshalObject($xml->recordingOptions, "KalturaLiveEntryRecordingOptions");
+		if(count($xml->liveStatus))
+			$this->liveStatus = (int)$xml->liveStatus;
 	}
 	/**
 	 * The message to be presented when the stream is offline
@@ -182,5 +184,12 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	 * @insertonly
 	 */
 	public $recordingOptions;
+
+	/**
+	 * the status of the entry of type LiveEntryStatus
+	 * 	 
+	 * @var \Kaltura\Client\Enum\LiveEntryStatus
+	 */
+	public $liveStatus = null;
 
 }
