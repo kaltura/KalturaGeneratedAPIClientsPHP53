@@ -110,4 +110,25 @@ class EntryAdminService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\AdminConsole\\Type\\TrackEntryListResponse");
 		return $resultObject;
 	}
+
+	/**
+	 * Restore deleted entry.
+	 * 	 
+	 * 
+	 * @return \Kaltura\Client\Type\BaseEntry
+	 */
+	function restoreDeletedEntry($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("adminconsole_entryadmin", "restoreDeletedEntry", "KalturaBaseEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BaseEntry");
+		return $resultObject;
+	}
 }
