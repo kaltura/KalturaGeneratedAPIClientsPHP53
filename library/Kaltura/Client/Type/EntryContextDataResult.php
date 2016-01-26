@@ -128,6 +128,8 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 			else
 				$this->flavorAssets = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavorAssets, "KalturaFlavorAsset");
 		}
+		if(count($xml->msDuration))
+			$this->msDuration = (int)$xml->msDuration;
 		if(count($xml->pluginData))
 		{
 			if(empty($xml->pluginData))
@@ -224,6 +226,13 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 	 * @var array<KalturaFlavorAsset>
 	 */
 	public $flavorAssets;
+
+	/**
+	 * The duration of the entry in milliseconds
+	 * 	 
+	 * @var int
+	 */
+	public $msDuration = null;
 
 	/**
 	 * Array of allowed flavor assets according to access control limitations and requested tags
