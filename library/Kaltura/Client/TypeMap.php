@@ -388,6 +388,7 @@ class TypeMap
 		'KalturaEntryDistributionListResponse' => 'Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionListResponse',
 		'KalturaEntryIdentifier' => 'Kaltura\Client\Type\EntryIdentifier',
 		'KalturaEntryLiveStats' => 'Kaltura\Client\Type\EntryLiveStats',
+		'KalturaEntryTranscriptAssetSearchItem' => 'Kaltura\Client\Plugin\Transcript\Type\EntryTranscriptAssetSearchItem',
 		'KalturaEventCuePoint' => 'Kaltura\Client\Plugin\EventCuePoint\Type\EventCuePoint',
 		'KalturaBooleanField' => 'Kaltura\Client\Type\BooleanField',
 		'KalturaEventFieldCondition' => 'Kaltura\Client\Plugin\EventNotification\Type\EventFieldCondition',
