@@ -52,11 +52,19 @@ class UserEntryFilter extends \Kaltura\Client\Type\UserEntryBaseFilter
 		
 		if(count($xml->userIdEqualCurrent))
 			$this->userIdEqualCurrent = (int)$xml->userIdEqualCurrent;
+		if(count($xml->isAnonymous))
+			$this->isAnonymous = (int)$xml->isAnonymous;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $userIdEqualCurrent = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $isAnonymous = null;
 
 }

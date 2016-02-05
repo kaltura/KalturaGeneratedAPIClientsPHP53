@@ -50,13 +50,5 @@ class QuizUserEntryFilter extends \Kaltura\Client\Type\QuizUserEntryBaseFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->isAnonymous))
-			$this->isAnonymous = (int)$xml->isAnonymous;
 	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $isAnonymous = null;
-
 }
