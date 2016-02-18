@@ -40,6 +40,7 @@ class EventNotificationEventObjectType extends \Kaltura\Client\EnumBase
 {
 	const AD_CUE_POINT = "adCuePointEventNotifications.AdCuePoint";
 	const ANNOTATION = "annotationEventNotifications.Annotation";
+	const ATTACHMENT_ASSET = "attachmentAssetEventNotifications.AttachmentAsset";
 	const CAPTION_ASSET = "captionAssetEventNotifications.CaptionAsset";
 	const CODE_CUE_POINT = "codeCuePointEventNotifications.CodeCuePoint";
 	const DISTRIBUTION_PROFILE = "contentDistributionEventNotifications.DistributionProfile";
@@ -48,6 +49,7 @@ class EventNotificationEventObjectType extends \Kaltura\Client\EnumBase
 	const DROP_FOLDER = "dropFolderEventNotifications.DropFolder";
 	const DROP_FOLDER_FILE = "dropFolderEventNotifications.DropFolderFile";
 	const METADATA = "metadataEventNotifications.Metadata";
+	const TRANSCRIPT_ASSET = "transcriptAssetEventNotifications.TranscriptAsset";
 	const ENTRY = "1";
 	const CATEGORY = "2";
 	const ASSET = "3";
