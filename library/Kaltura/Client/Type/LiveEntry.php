@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2015  Kaltura Inc.
+// Copyright (C) 2006-2016  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -108,7 +108,6 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	 * DVR Status Enabled/Disabled
 	 * 	 
 	 * @var \Kaltura\Client\Enum\DVRStatus
-	 * @insertonly
 	 */
 	public $dvrStatus = null;
 
@@ -116,7 +115,6 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	 * Window of time which the DVR allows for backwards scrubbing (in minutes)
 	 * 	 
 	 * @var int
-	 * @insertonly
 	 */
 	public $dvrWindow = null;
 
