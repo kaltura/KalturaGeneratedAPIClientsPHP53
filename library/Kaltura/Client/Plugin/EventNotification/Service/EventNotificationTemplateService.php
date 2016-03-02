@@ -61,7 +61,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
 		return $resultObject;
@@ -84,7 +84,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
 		return $resultObject;
@@ -105,7 +105,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
 		return $resultObject;
@@ -127,7 +127,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
 		return $resultObject;
@@ -149,7 +149,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
 		return $resultObject;
@@ -169,7 +169,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -190,7 +190,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplateListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplateListResponse");
 		return $resultObject;
@@ -212,7 +212,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplateListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplateListResponse");
 		return $resultObject;
@@ -234,7 +234,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
@@ -257,7 +257,7 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplateListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplateListResponse");
 		return $resultObject;

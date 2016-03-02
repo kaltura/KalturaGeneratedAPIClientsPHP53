@@ -61,7 +61,7 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaGroupUser");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\GroupUser");
 		return $resultObject;
@@ -82,7 +82,7 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -103,7 +103,7 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaGroupUserListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\GroupUserListResponse");
 		return $resultObject;

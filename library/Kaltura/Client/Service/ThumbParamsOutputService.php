@@ -61,7 +61,7 @@ class ThumbParamsOutputService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbParamsOutput");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbParamsOutput");
 		return $resultObject;
@@ -85,7 +85,7 @@ class ThumbParamsOutputService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbParamsOutputListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbParamsOutputListResponse");
 		return $resultObject;

@@ -61,7 +61,7 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParams");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParams");
 		return $resultObject;
@@ -82,7 +82,7 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParams");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParams");
 		return $resultObject;
@@ -104,7 +104,7 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParams");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParams");
 		return $resultObject;
@@ -124,7 +124,7 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -145,7 +145,7 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParamsListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParamsListResponse");
 		return $resultObject;

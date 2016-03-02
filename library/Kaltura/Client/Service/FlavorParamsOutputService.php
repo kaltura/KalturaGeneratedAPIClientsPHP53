@@ -61,7 +61,7 @@ class FlavorParamsOutputService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorParamsOutput");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorParamsOutput");
 		return $resultObject;
@@ -85,7 +85,7 @@ class FlavorParamsOutputService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorParamsOutputListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorParamsOutputListResponse");
 		return $resultObject;

@@ -90,6 +90,8 @@ class Widget extends \Kaltura\Client\ObjectBase
 			else
 				$this->addEmbedHtml5Support = false;
 		}
+		if(count($xml->roles))
+			$this->roles = (string)$xml->roles;
 	}
 	/**
 	 * 
@@ -190,5 +192,11 @@ class Widget extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $addEmbedHtml5Support = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $roles = null;
 
 }

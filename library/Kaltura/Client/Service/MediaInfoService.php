@@ -64,7 +64,7 @@ class MediaInfoService extends \Kaltura\Client\ServiceBase
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		\Kaltura\Client\ParseUtils::checkIfError($resultXmlObject->result);
+		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMediaInfoListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\MediaInfoListResponse");
 		return $resultObject;
