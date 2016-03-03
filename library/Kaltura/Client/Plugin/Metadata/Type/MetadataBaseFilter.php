@@ -54,6 +54,8 @@ abstract class MetadataBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
 		if(count($xml->metadataProfileIdEqual))
 			$this->metadataProfileIdEqual = (int)$xml->metadataProfileIdEqual;
+		if(count($xml->metadataProfileIdIn))
+			$this->metadataProfileIdIn = (string)$xml->metadataProfileIdIn;
 		if(count($xml->metadataProfileVersionEqual))
 			$this->metadataProfileVersionEqual = (int)$xml->metadataProfileVersionEqual;
 		if(count($xml->metadataProfileVersionGreaterThanOrEqual))
@@ -96,6 +98,12 @@ abstract class MetadataBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	 * @var int
 	 */
 	public $metadataProfileIdEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $metadataProfileIdIn = null;
 
 	/**
 	 * 
