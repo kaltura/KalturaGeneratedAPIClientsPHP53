@@ -57,11 +57,19 @@ class ThumbnailServeOptions extends \Kaltura\Client\ObjectBase
 			else
 				$this->download = false;
 		}
+		if(count($xml->referrer))
+			$this->referrer = (string)$xml->referrer;
 	}
 	/**
 	 * 
 	 * @var bool
 	 */
 	public $download = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $referrer = null;
 
 }
