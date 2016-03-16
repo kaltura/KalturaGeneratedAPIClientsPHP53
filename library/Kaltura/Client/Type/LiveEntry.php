@@ -100,7 +100,6 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	 * Recording Status Enabled/Disabled
 	 * 	 
 	 * @var \Kaltura\Client\Enum\RecordStatus
-	 * @insertonly
 	 */
 	public $recordStatus = null;
 
@@ -179,7 +178,6 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	/**
 	 * 
 	 * @var \Kaltura\Client\Type\LiveEntryRecordingOptions
-	 * @insertonly
 	 */
 	public $recordingOptions;
 

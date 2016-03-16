@@ -214,4 +214,22 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 	}
+
+	/**
+	 * Update cuePoint status by id
+	 * 	 
+	 * 
+	 */
+	function updateStatus($id, $status)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "status", $status);
+		$this->client->queueServiceActionCall("annotation_annotation", "updateStatus", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
 }
