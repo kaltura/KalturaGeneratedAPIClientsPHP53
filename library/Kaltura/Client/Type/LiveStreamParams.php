@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
+class LiveStreamParams extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaConvertLiveSegmentJobData';
+		return 'KalturaLiveStreamParams';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,76 +50,50 @@ class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->entryId))
-			$this->entryId = (string)$xml->entryId;
-		if(count($xml->assetId))
-			$this->assetId = (string)$xml->assetId;
-		if(count($xml->mediaServerIndex))
-			$this->mediaServerIndex = (string)$xml->mediaServerIndex;
-		if(count($xml->fileIndex))
-			$this->fileIndex = (int)$xml->fileIndex;
-		if(count($xml->srcFilePath))
-			$this->srcFilePath = (string)$xml->srcFilePath;
-		if(count($xml->destFilePath))
-			$this->destFilePath = (string)$xml->destFilePath;
-		if(count($xml->endTime))
-			$this->endTime = (float)$xml->endTime;
-		if(count($xml->destDataFilePath))
-			$this->destDataFilePath = (string)$xml->destDataFilePath;
+		if(count($xml->bitrate))
+			$this->bitrate = (int)$xml->bitrate;
+		if(count($xml->flavorId))
+			$this->flavorId = (string)$xml->flavorId;
+		if(count($xml->width))
+			$this->width = (int)$xml->width;
+		if(count($xml->height))
+			$this->height = (int)$xml->height;
+		if(count($xml->codec))
+			$this->codec = (string)$xml->codec;
 	}
 	/**
-	 * Live stream entry id
-	 * 	 
-	 * @var string
-	 */
-	public $entryId = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $assetId = null;
-
-	/**
-	 * Primary or secondary media server
-	 * 	 
-	 * @var \Kaltura\Client\Enum\EntryServerNodeType
-	 */
-	public $mediaServerIndex = null;
-
-	/**
-	 * The index of the file within the entry
+	 * Bit rate of the stream. (i.e. 900)
 	 * 	 
 	 * @var int
 	 */
-	public $fileIndex = null;
+	public $bitrate = null;
 
 	/**
-	 * The recorded live media
+	 * flavor asset id
 	 * 	 
 	 * @var string
 	 */
-	public $srcFilePath = null;
+	public $flavorId = null;
 
 	/**
-	 * The output file
+	 * Stream's width
+	 * 	 
+	 * @var int
+	 */
+	public $width = null;
+
+	/**
+	 * Stream's height
+	 * 	 
+	 * @var int
+	 */
+	public $height = null;
+
+	/**
+	 * Live stream's codec
 	 * 	 
 	 * @var string
 	 */
-	public $destFilePath = null;
-
-	/**
-	 * Duration of the live entry including all recorded segments including the current
-	 * 	 
-	 * @var float
-	 */
-	public $endTime = null;
-
-	/**
-	 * The data output file
-	 * 	 
-	 * @var string
-	 */
-	public $destDataFilePath = null;
+	public $codec = null;
 
 }

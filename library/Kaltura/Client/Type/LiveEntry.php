@@ -182,9 +182,10 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	public $recordingOptions;
 
 	/**
-	 * the status of the entry of type LiveEntryStatus
+	 * the status of the entry of type EntryServerNodeStatus
 	 * 	 
-	 * @var \Kaltura\Client\Enum\LiveEntryStatus
+	 * @var \Kaltura\Client\Enum\EntryServerNodeStatus
+	 * @readonly
 	 */
 	public $liveStatus = null;
 

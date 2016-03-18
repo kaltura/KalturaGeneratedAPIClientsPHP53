@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
+class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaConvertLiveSegmentJobData';
+		return 'KalturaLiveEntryServerNode';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,76 +50,19 @@ class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->entryId))
-			$this->entryId = (string)$xml->entryId;
-		if(count($xml->assetId))
-			$this->assetId = (string)$xml->assetId;
-		if(count($xml->mediaServerIndex))
-			$this->mediaServerIndex = (string)$xml->mediaServerIndex;
-		if(count($xml->fileIndex))
-			$this->fileIndex = (int)$xml->fileIndex;
-		if(count($xml->srcFilePath))
-			$this->srcFilePath = (string)$xml->srcFilePath;
-		if(count($xml->destFilePath))
-			$this->destFilePath = (string)$xml->destFilePath;
-		if(count($xml->endTime))
-			$this->endTime = (float)$xml->endTime;
-		if(count($xml->destDataFilePath))
-			$this->destDataFilePath = (string)$xml->destDataFilePath;
+		if(count($xml->streams))
+		{
+			if(empty($xml->streams))
+				$this->streams = array();
+			else
+				$this->streams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->streams, "KalturaLiveStreamParams");
+		}
 	}
 	/**
-	 * Live stream entry id
+	 * parameters of the stream we got
 	 * 	 
-	 * @var string
+	 * @var array<KalturaLiveStreamParams>
 	 */
-	public $entryId = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $assetId = null;
-
-	/**
-	 * Primary or secondary media server
-	 * 	 
-	 * @var \Kaltura\Client\Enum\EntryServerNodeType
-	 */
-	public $mediaServerIndex = null;
-
-	/**
-	 * The index of the file within the entry
-	 * 	 
-	 * @var int
-	 */
-	public $fileIndex = null;
-
-	/**
-	 * The recorded live media
-	 * 	 
-	 * @var string
-	 */
-	public $srcFilePath = null;
-
-	/**
-	 * The output file
-	 * 	 
-	 * @var string
-	 */
-	public $destFilePath = null;
-
-	/**
-	 * Duration of the live entry including all recorded segments including the current
-	 * 	 
-	 * @var float
-	 */
-	public $endTime = null;
-
-	/**
-	 * The data output file
-	 * 	 
-	 * @var string
-	 */
-	public $destDataFilePath = null;
+	public $streams;
 
 }

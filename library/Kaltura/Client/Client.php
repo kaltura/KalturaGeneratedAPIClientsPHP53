@@ -114,6 +114,11 @@ class Client extends Base
 	protected $EmailIngestionProfile = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\EntryServerNodeService
+	 */
+	protected $entryServerNode = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\FileAssetService
 	 */
 	protected $fileAsset = null;
@@ -317,7 +322,7 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:16-03-16');
+		$this->setClientTag('php5:16-03-18');
 		$this->setApiVersion('3.3.0');
 	}
 	
@@ -455,6 +460,15 @@ class Client extends Base
 		if (is_null($this->EmailIngestionProfile))
 			$this->EmailIngestionProfile = new \Kaltura\Client\Service\EmailIngestionProfileService($this);
 		return $this->EmailIngestionProfile;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\EntryServerNodeService
+	 */
+	public function getEntryServerNodeService()
+	{
+		if (is_null($this->entryServerNode))
+			$this->entryServerNode = new \Kaltura\Client\Service\EntryServerNodeService($this);
+		return $this->entryServerNode;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\FileAssetService
