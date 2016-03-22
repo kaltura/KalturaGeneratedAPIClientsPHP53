@@ -67,13 +67,6 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 			else
 				$this->moveFromChildren = false;
 		}
-		if(count($xml->copyOnly))
-		{
-			if(!empty($xml->copyOnly))
-				$this->copyOnly = true;
-			else
-				$this->copyOnly = false;
-		}
 		if(count($xml->destCategoryFullIds))
 			$this->destCategoryFullIds = (string)$xml->destCategoryFullIds;
 	}
@@ -121,13 +114,6 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 	 * @var bool
 	 */
 	public $moveFromChildren = null;
-
-	/**
-	 * Entries won't be deleted from the source entry
-	 *      
-	 * @var bool
-	 */
-	public $copyOnly = null;
 
 	/**
 	 * Destination categories fallback ids
