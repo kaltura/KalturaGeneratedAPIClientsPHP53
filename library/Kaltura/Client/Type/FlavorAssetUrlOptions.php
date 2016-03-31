@@ -52,6 +52,8 @@ class FlavorAssetUrlOptions extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->fileName))
 			$this->fileName = (string)$xml->fileName;
+		if(count($xml->referrer))
+			$this->referrer = (string)$xml->referrer;
 	}
 	/**
 	 * The name of the downloaded file
@@ -59,5 +61,11 @@ class FlavorAssetUrlOptions extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $fileName = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $referrer = null;
 
 }
