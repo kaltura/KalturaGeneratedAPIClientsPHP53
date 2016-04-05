@@ -78,6 +78,8 @@ abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\RelatedFil
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
 		if(count($xml->statusEqual))
 			$this->statusEqual = (int)$xml->statusEqual;
+		if(count($xml->statusIn))
+			$this->statusIn = (int)$xml->statusIn;
 		if(count($xml->serverTypeEqual))
 			$this->serverTypeEqual = (string)$xml->serverTypeEqual;
 	}
@@ -164,6 +166,12 @@ abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\RelatedFil
 	 * @var \Kaltura\Client\Enum\EntryServerNodeStatus
 	 */
 	public $statusEqual = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\EntryServerNodeStatus
+	 */
+	public $statusIn = null;
 
 	/**
 	 * 
