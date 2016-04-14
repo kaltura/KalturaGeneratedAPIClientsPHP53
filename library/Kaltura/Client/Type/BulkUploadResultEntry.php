@@ -97,6 +97,10 @@ class BulkUploadResultEntry extends \Kaltura\Client\Type\BulkUploadResult
 			$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
 		if(count($xml->ownerId))
 			$this->ownerId = (string)$xml->ownerId;
+		if(count($xml->referenceId))
+			$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->templateEntryId))
+			$this->templateEntryId = (string)$xml->templateEntryId;
 	}
 	/**
 	 * 
@@ -223,5 +227,17 @@ class BulkUploadResultEntry extends \Kaltura\Client\Type\BulkUploadResult
 	 * @var string
 	 */
 	public $ownerId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $referenceId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $templateEntryId = null;
 
 }

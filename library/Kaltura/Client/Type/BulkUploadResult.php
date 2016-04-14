@@ -142,7 +142,7 @@ class BulkUploadResult extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Enum\BulkUploadResultObjectType
+	 * @var \Kaltura\Client\Enum\BulkUploadObjectType
 	 */
 	public $bulkUploadResultObjectType = null;
 

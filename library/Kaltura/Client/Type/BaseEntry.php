@@ -139,6 +139,8 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
 		if(count($xml->capabilities))
 			$this->capabilities = (string)$xml->capabilities;
+		if(count($xml->templateEntryId))
+			$this->templateEntryId = (string)$xml->templateEntryId;
 	}
 	/**
 	 * Auto generated 10 characters alphanumeric string
@@ -450,5 +452,13 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $capabilities = null;
+
+	/**
+	 * Template entry id 
+	 * 	 
+	 * @var string
+	 * @insertonly
+	 */
+	public $templateEntryId = null;
 
 }
