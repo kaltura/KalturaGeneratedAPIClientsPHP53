@@ -54,11 +54,27 @@ class LiveEntryRecordingOptions extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->shouldCopyEntitlement))
 			$this->shouldCopyEntitlement = (int)$xml->shouldCopyEntitlement;
+		if(count($xml->shouldCopyScheduling))
+			$this->shouldCopyScheduling = (int)$xml->shouldCopyScheduling;
+		if(count($xml->shouldCopyThumbnail))
+			$this->shouldCopyThumbnail = (int)$xml->shouldCopyThumbnail;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $shouldCopyEntitlement = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $shouldCopyScheduling = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $shouldCopyThumbnail = null;
 
 }
