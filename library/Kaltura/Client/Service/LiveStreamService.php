@@ -97,11 +97,14 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
-	function authenticate($entryId, $token)
+	function authenticate($entryId, $token, $hostname = null, $mediaServerIndex = null, $applicationName = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "token", $token);
+		$this->client->addParam($kparams, "hostname", $hostname);
+		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+		$this->client->addParam($kparams, "applicationName", $applicationName);
 		$this->client->queueServiceActionCall("livestream", "authenticate", "KalturaLiveStreamEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
