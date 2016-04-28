@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Like\Type;
+namespace Kaltura\Client\Plugin\ScheduleBulkUpload\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-abstract class LikeBaseFilter extends \Kaltura\Client\Type\RelatedFilter
+class BulkUploadResultScheduleResource extends \Kaltura\Client\Type\BulkUploadResult
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaLikeBaseFilter';
+		return 'KalturaBulkUploadResultScheduleResource';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,45 +50,69 @@ abstract class LikeBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->entryIdEqual))
-			$this->entryIdEqual = (string)$xml->entryIdEqual;
-		if(count($xml->entryIdIn))
-			$this->entryIdIn = (string)$xml->entryIdIn;
-		if(count($xml->userIdEqual))
-			$this->userIdEqual = (string)$xml->userIdEqual;
-		if(count($xml->createdAtGreaterThanOrEqual))
-			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
-		if(count($xml->createdAtLessThanOrEqual))
-			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
+		if(count($xml->resourceId))
+			$this->resourceId = (string)$xml->resourceId;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->parentType))
+			$this->parentType = (string)$xml->parentType;
+		if(count($xml->parentSystemName))
+			$this->parentSystemName = (string)$xml->parentSystemName;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $entryIdEqual = null;
+	public $resourceId = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $entryIdIn = null;
+	public $name = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $userIdEqual = null;
+	public $type = null;
 
 	/**
 	 * 
-	 * @var int
+	 * @var string
 	 */
-	public $createdAtGreaterThanOrEqual = null;
+	public $systemName = null;
 
 	/**
 	 * 
-	 * @var int
+	 * @var string
 	 */
-	public $createdAtLessThanOrEqual = null;
+	public $description = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $tags = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $parentType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $parentSystemName = null;
 
 }

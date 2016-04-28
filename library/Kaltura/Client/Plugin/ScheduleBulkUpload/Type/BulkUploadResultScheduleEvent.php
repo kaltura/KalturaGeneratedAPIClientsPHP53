@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Like\Type;
+namespace Kaltura\Client\Plugin\ScheduleBulkUpload\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-abstract class LikeBaseFilter extends \Kaltura\Client\Type\RelatedFilter
+class BulkUploadResultScheduleEvent extends \Kaltura\Client\Type\BulkUploadResult
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaLikeBaseFilter';
+		return 'KalturaBulkUploadResultScheduleEvent';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,45 +50,13 @@ abstract class LikeBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->entryIdEqual))
-			$this->entryIdEqual = (string)$xml->entryIdEqual;
-		if(count($xml->entryIdIn))
-			$this->entryIdIn = (string)$xml->entryIdIn;
-		if(count($xml->userIdEqual))
-			$this->userIdEqual = (string)$xml->userIdEqual;
-		if(count($xml->createdAtGreaterThanOrEqual))
-			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
-		if(count($xml->createdAtLessThanOrEqual))
-			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
+		if(count($xml->referenceId))
+			$this->referenceId = (string)$xml->referenceId;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $entryIdEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $entryIdIn = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $userIdEqual = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $createdAtGreaterThanOrEqual = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $createdAtLessThanOrEqual = null;
+	public $referenceId = null;
 
 }
