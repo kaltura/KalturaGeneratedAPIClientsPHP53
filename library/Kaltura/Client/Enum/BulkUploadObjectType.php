@@ -38,6 +38,8 @@ namespace Kaltura\Client\Enum;
  */
 class BulkUploadObjectType extends \Kaltura\Client\EnumBase
 {
+	const SCHEDULE_EVENT = "scheduleBulkUpload.SCHEDULE_EVENT";
+	const SCHEDULE_RESOURCE = "scheduleBulkUpload.SCHEDULE_RESOURCE";
 	const ENTRY = "1";
 	const CATEGORY = "2";
 	const USER = "3";
