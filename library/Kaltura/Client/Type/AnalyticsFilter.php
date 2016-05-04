@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\RelatedFilter
+class AnalyticsFilter extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaEntryServerNodeBaseFilter';
+		return 'KalturaAnalyticsFilter';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,85 +50,64 @@ abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\RelatedFil
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->entryIdEqual))
-			$this->entryIdEqual = (string)$xml->entryIdEqual;
-		if(count($xml->entryIdIn))
-			$this->entryIdIn = (string)$xml->entryIdIn;
-		if(count($xml->serverNodeIdEqual))
-			$this->serverNodeIdEqual = (int)$xml->serverNodeIdEqual;
-		if(count($xml->createdAtGreaterThanOrEqual))
-			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
-		if(count($xml->createdAtLessThanOrEqual))
-			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
-		if(count($xml->updatedAtGreaterThanOrEqual))
-			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
-		if(count($xml->updatedAtLessThanOrEqual))
-			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
-		if(count($xml->statusEqual))
-			$this->statusEqual = (int)$xml->statusEqual;
-		if(count($xml->statusIn))
-			$this->statusIn = (string)$xml->statusIn;
-		if(count($xml->serverTypeEqual))
-			$this->serverTypeEqual = (string)$xml->serverTypeEqual;
+		if(count($xml->from_time))
+			$this->from_time = (string)$xml->from_time;
+		if(count($xml->to_time))
+			$this->to_time = (string)$xml->to_time;
+		if(count($xml->metrics))
+			$this->metrics = (string)$xml->metrics;
+		if(count($xml->utcOffset))
+			$this->utcOffset = (float)$xml->utcOffset;
+		if(count($xml->dimensions))
+			$this->dimensions = (string)$xml->dimensions;
+		if(count($xml->filters))
+		{
+			if(empty($xml->filters))
+				$this->filters = array();
+			else
+				$this->filters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->filters, "KalturaReportFilter");
+		}
 	}
 	/**
-	 * 
+	 * Query start time (in local time)
+	 * 	 
 	 * @var string
 	 */
-	public $entryIdEqual = null;
+	public $from_time = null;
 
 	/**
-	 * 
+	 * Query end time (in local time)
+	 * 	 
 	 * @var string
 	 */
-	public $entryIdIn = null;
+	public $to_time = null;
 
 	/**
-	 * 
-	 * @var int
-	 */
-	public $serverNodeIdEqual = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $createdAtGreaterThanOrEqual = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $createdAtLessThanOrEqual = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $updatedAtGreaterThanOrEqual = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $updatedAtLessThanOrEqual = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\EntryServerNodeStatus
-	 */
-	public $statusEqual = null;
-
-	/**
-	 * 
+	 * Comma separated metrics list
+	 * 	 
 	 * @var string
 	 */
-	public $statusIn = null;
+	public $metrics = null;
 
 	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\EntryServerNodeType
+	 * Timezone offset from UTC (in minutes)
+	 * 	 
+	 * @var float
 	 */
-	public $serverTypeEqual = null;
+	public $utcOffset = null;
+
+	/**
+	 * Comma separated dimensions list
+	 * 	 
+	 * @var string
+	 */
+	public $dimensions = null;
+
+	/**
+	 * Array of filters
+	 * 	 
+	 * @var array<KalturaReportFilter>
+	 */
+	public $filters;
 
 }

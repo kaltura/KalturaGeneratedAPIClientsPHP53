@@ -54,6 +54,11 @@ class Client extends Base
 	protected $adminUser = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\AnalyticsService
+	 */
+	protected $analytics = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\AppTokenService
 	 */
 	protected $appToken = null;
@@ -322,7 +327,7 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:16-05-03');
+		$this->setClientTag('php5:16-05-04');
 		$this->setApiVersion('3.3.0');
 	}
 	
@@ -352,6 +357,15 @@ class Client extends Base
 		if (is_null($this->adminUser))
 			$this->adminUser = new \Kaltura\Client\Service\AdminUserService($this);
 		return $this->adminUser;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\AnalyticsService
+	 */
+	public function getAnalyticsService()
+	{
+		if (is_null($this->analytics))
+			$this->analytics = new \Kaltura\Client\Service\AnalyticsService($this);
+		return $this->analytics;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\AppTokenService

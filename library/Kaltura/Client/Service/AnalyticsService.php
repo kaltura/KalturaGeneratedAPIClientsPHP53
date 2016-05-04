@@ -27,46 +27,43 @@
 // @ignore
 // ===================================================================================================
 
+
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Service;
 
 /**
+ * api for getting analytics data
+ *  
  * @package Kaltura
  * @subpackage Client
  */
-class ReportFilter extends \Kaltura\Client\ObjectBase
+class AnalyticsService extends \Kaltura\Client\ServiceBase
 {
-	public function getKalturaObjectType()
+	function __construct(\Kaltura\Client\Client $client = null)
 	{
-		return 'KalturaReportFilter';
+		parent::__construct($client);
 	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->dimension))
-			$this->dimension = (string)$xml->dimension;
-		if(count($xml->values))
-			$this->values = (string)$xml->values;
-	}
-	/**
-	 * The dimension whose values should be filtered
-	 * 	 
-	 * @var string
-	 */
-	public $dimension = null;
 
 	/**
-	 * The (comma separated) values to include in the filter
+	 * report query action allows to get a analytics data for specific query dimensions, metrics and filters.
 	 * 	 
-	 * @var string
+	 * 
+	 * @return \Kaltura\Client\Type\ReportResponse
 	 */
-	public $values = null;
-
+	function query(\Kaltura\Client\Type\AnalyticsFilter $filter)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->queueServiceActionCall("analytics", "query", "KalturaReportResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaReportResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ReportResponse");
+		return $resultObject;
+	}
 }
