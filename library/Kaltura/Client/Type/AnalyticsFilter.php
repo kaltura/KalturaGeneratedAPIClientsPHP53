@@ -70,42 +70,36 @@ class AnalyticsFilter extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Query start time (in local time)
-	 * 	 
 	 * @var string
 	 */
 	public $from_time = null;
 
 	/**
 	 * Query end time (in local time)
-	 * 	 
 	 * @var string
 	 */
 	public $to_time = null;
 
 	/**
 	 * Comma separated metrics list
-	 * 	 
 	 * @var string
 	 */
 	public $metrics = null;
 
 	/**
 	 * Timezone offset from UTC (in minutes)
-	 * 	 
 	 * @var float
 	 */
 	public $utcOffset = null;
 
 	/**
 	 * Comma separated dimensions list
-	 * 	 
 	 * @var string
 	 */
 	public $dimensions = null;
 
 	/**
 	 * Array of filters
-	 * 	 
 	 * @var array<KalturaReportFilter>
 	 */
 	public $filters;

@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Document\Service;
 
 /**
  * Document service lets you upload and manage document files
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new document entry after the specific document file was uploaded and the upload token id exists
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */
@@ -70,7 +68,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Copy entry into new entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */
@@ -94,7 +91,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Copy flavor asset into new entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */
@@ -117,7 +113,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Convert entry
-	 * 	 
 	 * 
 	 * @return bigint
 	 */
@@ -143,7 +138,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get document entry by ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */
@@ -165,7 +159,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update document entry. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */
@@ -187,7 +180,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a document entry.
-	 * 	 
 	 * 
 	 */
 	function delete($entryId)
@@ -204,7 +196,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List document entries by filter with paging support.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentListResponse
 	 */
@@ -227,8 +218,7 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Upload a document file to Kaltura, then the file can be used to create a document entry. 
-	 * 	 
+	 * Upload a document file to Kaltura, then the file can be used to create a document entry.
 	 * 
 	 * @return string
 	 */
@@ -249,8 +239,7 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * This will queue a batch job for converting the document file to swf
-	 * 	 Returns the URL where the new swf will be available 
-	 * 	 
+	 * 	 Returns the URL where the new swf will be available
 	 * 
 	 * @return string
 	 */
@@ -270,7 +259,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves the file content
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -290,7 +278,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves the file content
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -310,7 +297,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Replace content associated with the given document entry.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */
@@ -333,7 +319,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Approves document replacement
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */
@@ -354,7 +339,6 @@ class DocumentsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Cancels document replacement
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Document\Type\DocumentEntry
 	 */

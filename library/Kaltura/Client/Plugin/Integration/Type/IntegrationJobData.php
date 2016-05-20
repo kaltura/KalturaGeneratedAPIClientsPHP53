@@ -76,7 +76,6 @@ class IntegrationJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Additional data that relevant for the provider only
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Integration\Type\IntegrationJobProviderData
 	 */
 	public $providerData;
@@ -89,7 +88,6 @@ class IntegrationJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Additional data that relevant for the trigger only
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Integration\Type\IntegrationJobTriggerData
 	 */
 	public $triggerData;

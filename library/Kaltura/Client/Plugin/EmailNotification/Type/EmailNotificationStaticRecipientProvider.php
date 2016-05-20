@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * API class for recipient provider containing a static list of email recipients.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -62,7 +61,6 @@ class EmailNotificationStaticRecipientProvider extends \Kaltura\Client\Plugin\Em
 	}
 	/**
 	 * Email to emails and names
-	 * 	 
 	 * @var array<KalturaEmailNotificationRecipient>
 	 */
 	public $emailRecipients;

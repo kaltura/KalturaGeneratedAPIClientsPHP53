@@ -70,42 +70,36 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * Source files to be concatenated
-	 * 	 
 	 * @var array<KalturaString>
 	 */
 	public $srcFiles;
 
 	/**
 	 * Output file
-	 * 	 
 	 * @var string
 	 */
 	public $destFilePath = null;
 
 	/**
 	 * Flavor asset to be ingested with the output
-	 * 	 
 	 * @var string
 	 */
 	public $flavorAssetId = null;
 
 	/**
 	 * Clipping offset in seconds
-	 * 	 
 	 * @var float
 	 */
 	public $offset = null;
 
 	/**
 	 * Clipping duration in seconds
-	 * 	 
 	 * @var float
 	 */
 	public $duration = null;
 
 	/**
 	 * duration of the concated video
-	 * 	 
 	 * @var float
 	 */
 	public $concatenatedDuration = null;

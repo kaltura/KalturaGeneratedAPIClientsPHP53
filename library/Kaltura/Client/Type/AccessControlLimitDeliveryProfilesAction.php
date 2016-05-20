@@ -61,8 +61,7 @@ class AccessControlLimitDeliveryProfilesAction extends \Kaltura\Client\Type\Rule
 		}
 	}
 	/**
-	 * Comma separated list of delivery profile ids 
-	 * 	 
+	 * Comma separated list of delivery profile ids
 	 * @var string
 	 */
 	public $deliveryProfileIds = null;

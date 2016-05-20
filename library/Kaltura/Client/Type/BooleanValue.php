@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * A boolean representation to return an array of booleans
- *  
  * @package Kaltura
  * @subpackage Client
  */

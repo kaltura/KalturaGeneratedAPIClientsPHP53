@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Like\Service;
 
 /**
  * Allows user to 'like' or 'unlike' and entry
- *  
  * @package Kaltura
  * @subpackage Client
  */

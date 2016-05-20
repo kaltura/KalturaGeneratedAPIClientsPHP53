@@ -87,7 +87,6 @@ class GenericDistributionProviderAction extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Auto generated
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -95,7 +94,6 @@ class GenericDistributionProviderAction extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Generic distribution provider action creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -103,7 +101,6 @@ class GenericDistributionProviderAction extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Generic distribution provider action last update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

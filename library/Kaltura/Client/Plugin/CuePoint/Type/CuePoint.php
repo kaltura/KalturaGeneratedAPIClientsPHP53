@@ -146,7 +146,6 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Start time in milliseconds
-	 * 	 
 	 * @var int
 	 */
 	public $startTime = null;

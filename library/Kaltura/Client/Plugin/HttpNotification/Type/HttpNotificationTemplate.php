@@ -94,28 +94,24 @@ class HttpNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification\
 	}
 	/**
 	 * Remote server URL
-	 * 	 
 	 * @var string
 	 */
 	public $url = null;
 
 	/**
 	 * Request method.
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\HttpNotification\Enum\HttpNotificationMethod
 	 */
 	public $method = null;
 
 	/**
 	 * Data to send.
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\HttpNotification\Type\HttpNotificationData
 	 */
 	public $data;
 
 	/**
 	 * The maximum number of seconds to allow cURL functions to execute.
-	 * 	 
 	 * @var int
 	 */
 	public $timeout = null;
@@ -123,28 +119,24 @@ class HttpNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification\
 	/**
 	 * The number of seconds to wait while trying to connect.
 	 * 	 Must be larger than zero.
-	 * 	 
 	 * @var int
 	 */
 	public $connectTimeout = null;
 
 	/**
 	 * A username to use for the connection.
-	 * 	 
 	 * @var string
 	 */
 	public $username = null;
 
 	/**
 	 * A password to use for the connection.
-	 * 	 
 	 * @var string
 	 */
 	public $password = null;
 
 	/**
 	 * The HTTP authentication method to use.
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\HttpNotification\Enum\HttpNotificationAuthenticationMethod
 	 */
 	public $authenticationMethod = null;
@@ -152,70 +144,60 @@ class HttpNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification\
 	/**
 	 * The SSL version (2 or 3) to use.
 	 * 	 By default PHP will try to determine this itself, although in some cases this must be set manually.
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\HttpNotification\Enum\HttpNotificationSslVersion
 	 */
 	public $sslVersion = null;
 
 	/**
 	 * SSL certificate to verify the peer with.
-	 * 	 
 	 * @var string
 	 */
 	public $sslCertificate = null;
 
 	/**
 	 * The format of the certificate.
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\HttpNotification\Enum\HttpNotificationCertificateType
 	 */
 	public $sslCertificateType = null;
 
 	/**
 	 * The password required to use the certificate.
-	 * 	 
 	 * @var string
 	 */
 	public $sslCertificatePassword = null;
 
 	/**
 	 * The identifier for the crypto engine of the private SSL key specified in ssl key.
-	 * 	 
 	 * @var string
 	 */
 	public $sslEngine = null;
 
 	/**
 	 * The identifier for the crypto engine used for asymmetric crypto operations.
-	 * 	 
 	 * @var string
 	 */
 	public $sslEngineDefault = null;
 
 	/**
 	 * The key type of the private SSL key specified in ssl key - PEM / DER / ENG.
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\HttpNotification\Enum\HttpNotificationSslKeyType
 	 */
 	public $sslKeyType = null;
 
 	/**
 	 * Private SSL key.
-	 * 	 
 	 * @var string
 	 */
 	public $sslKey = null;
 
 	/**
 	 * The secret password needed to use the private SSL key specified in ssl key.
-	 * 	 
 	 * @var string
 	 */
 	public $sslKeyPassword = null;
 
 	/**
 	 * Adds a e-mail custom header
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $customHeaders;

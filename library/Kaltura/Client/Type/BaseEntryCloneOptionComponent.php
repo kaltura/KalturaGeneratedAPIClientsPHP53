@@ -63,7 +63,6 @@ class BaseEntryCloneOptionComponent extends \Kaltura\Client\Type\BaseEntryCloneO
 
 	/**
 	 * condition rule (include/exclude)
-	 *      
 	 * @var \Kaltura\Client\Enum\CloneComponentSelectorType
 	 */
 	public $rule = null;

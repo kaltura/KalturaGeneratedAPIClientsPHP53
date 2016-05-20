@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * A string representation to return an array of strings
- *  
  * @package Kaltura
  * @subpackage Client
  */

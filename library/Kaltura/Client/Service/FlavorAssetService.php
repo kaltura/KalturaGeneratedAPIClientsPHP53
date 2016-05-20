@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Retrieve information and invoke actions on Flavor Asset
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add flavor asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorAsset
 	 */
@@ -70,7 +68,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update flavor asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorAsset
 	 */
@@ -92,7 +89,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update content of flavor asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorAsset
 	 */
@@ -114,7 +110,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Flavor Asset by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorAsset
 	 */
@@ -135,7 +130,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Flavor Assets for Entry
-	 * 	 
 	 * 
 	 * @return array
 	 */
@@ -156,7 +150,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List Flavor Assets by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorAssetListResponse
 	 */
@@ -180,7 +173,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get web playable Flavor Assets for Entry
-	 * 	 
 	 * 
 	 * @return array
 	 */
@@ -201,7 +193,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add and convert new Flavor Asset for Entry with specific Flavor Params
-	 * 	 
 	 * 
 	 */
 	function convert($entryId, $flavorParamsId, $priority = 0)
@@ -220,7 +211,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Reconvert Flavor Asset by ID
-	 * 	 
 	 * 
 	 */
 	function reconvert($id)
@@ -237,7 +227,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Flavor Asset by ID
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -254,7 +243,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get download URL for the asset
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -278,7 +266,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get remote storage existing paths for the asset
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\RemotePathListResponse
 	 */
@@ -299,7 +286,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get download URL for the Flavor Asset
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -320,7 +306,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Flavor Asset with the relevant Flavor Params (Flavor Params can exist without Flavor Asset & vice versa)
-	 * 	 
 	 * 
 	 * @return array
 	 */
@@ -341,7 +326,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * manually export an asset
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorAsset
 	 */
@@ -363,7 +347,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Set a given flavor as the original flavor
-	 * 	 
 	 * 
 	 */
 	function setAsSource($assetId)
@@ -380,7 +363,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * delete all local file syncs for this asset
-	 * 	 
 	 * 
 	 */
 	function deleteLocalContent($assetId)

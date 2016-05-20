@@ -69,7 +69,6 @@ class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * Live stream entry id
-	 * 	 
 	 * @var string
 	 */
 	public $entryId = null;
@@ -82,42 +81,36 @@ class ConvertLiveSegmentJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Primary or secondary media server
-	 * 	 
 	 * @var \Kaltura\Client\Enum\EntryServerNodeType
 	 */
 	public $mediaServerIndex = null;
 
 	/**
 	 * The index of the file within the entry
-	 * 	 
 	 * @var int
 	 */
 	public $fileIndex = null;
 
 	/**
 	 * The recorded live media
-	 * 	 
 	 * @var string
 	 */
 	public $srcFilePath = null;
 
 	/**
 	 * The output file
-	 * 	 
 	 * @var string
 	 */
 	public $destFilePath = null;
 
 	/**
 	 * Duration of the live entry including all recorded segments including the current
-	 * 	 
 	 * @var float
 	 */
 	public $endTime = null;
 
 	/**
 	 * The data output file
-	 * 	 
 	 * @var string
 	 */
 	public $destDataFilePath = null;

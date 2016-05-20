@@ -59,14 +59,12 @@ class KontikiStorageExportJobData extends \Kaltura\Client\Type\StorageExportJobD
 	}
 	/**
 	 * Holds the id of the exported asset
-	 * 	 
 	 * @var string
 	 */
 	public $flavorAssetId = null;
 
 	/**
 	 * Unique Kontiki MOID for the content uploaded to Kontiki
-	 * 	 
 	 * @var string
 	 */
 	public $contentMoid = null;

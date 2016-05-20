@@ -142,21 +142,18 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 	/**
 	 * link a playlist that will set what content the feed will include
 	 * 	 if empty, all content will be included in feed
-	 * 	 
 	 * @var string
 	 */
 	public $playlistId = null;
 
 	/**
 	 * feed name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * feed status
-	 * 	 
 	 * @var \Kaltura\Client\Enum\SyndicationFeedStatus
 	 * @readonly
 	 */
@@ -164,7 +161,6 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * feed type
-	 * 	 
 	 * @var \Kaltura\Client\Enum\SyndicationFeedType
 	 * @insertonly
 	 */
@@ -173,14 +169,12 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 	/**
 	 * Base URL for each video, on the partners site
 	 * 	 This is required by all syndication types.
-	 * 	 
 	 * @var string
 	 */
 	public $landingPage = null;
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -191,14 +185,12 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 	 * 	 or just to provide a link to the landing page.
 	 * 	 it is applied on the video-player_loc property in the XML (google)
 	 * 	 and addes media-player tag (yahoo)
-	 * 	 
 	 * @var bool
 	 */
 	public $allowEmbed = null;
 
 	/**
 	 * Select a uiconf ID as player skin to include in the kwidget url
-	 * 	 
 	 * @var int
 	 */
 	public $playerUiconfId = null;
@@ -241,21 +233,18 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Should enforce entitlement on feed entries
-	 * 	 
 	 * @var bool
 	 */
 	public $enforceEntitlement = null;
 
 	/**
 	 * Set privacy context for search entries that assiged to private and public categories within a category privacy context.
-	 * 	 
 	 * @var string
 	 */
 	public $privacyContext = null;
 
 	/**
 	 * Update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

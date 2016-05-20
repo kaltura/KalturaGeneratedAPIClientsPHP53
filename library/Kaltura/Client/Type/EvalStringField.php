@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Evaluates PHP statement, depends on the execution context
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class EvalStringField extends \Kaltura\Client\Type\StringField
 	}
 	/**
 	 * PHP code
-	 * 	 
 	 * @var string
 	 */
 	public $code = null;

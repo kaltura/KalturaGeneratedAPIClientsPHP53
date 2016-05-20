@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\BulkUploadXml\Type;
 
 /**
  * Represents the Bulk upload job data for xml bulk upload
- *  
  * @package Kaltura
  * @subpackage Client
  */

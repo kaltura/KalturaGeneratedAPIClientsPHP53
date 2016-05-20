@@ -57,14 +57,12 @@ class EmailNotificationRecipient extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Recipient e-mail address
-	 * 	 
 	 * @var \Kaltura\Client\Type\StringValue
 	 */
 	public $email;
 
 	/**
 	 * Recipient name
-	 * 	 
 	 * @var \Kaltura\Client\Type\StringValue
 	 */
 	public $name;

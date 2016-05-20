@@ -73,14 +73,12 @@ class LiveReportExportParams extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Time zone offset in minutes (between client to UTC)
-	 * 	 
 	 * @var int
 	 */
 	public $timeZoneOffset = null;
 
 	/**
 	 * Optional argument that allows controlling the prefix of the exported csv url
-	 * 	 
 	 * @var string
 	 */
 	public $applicationUrlTemplate = null;

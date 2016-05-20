@@ -64,7 +64,6 @@ abstract class Condition extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The type of the access control condition
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ConditionType
 	 * @readonly
 	 */

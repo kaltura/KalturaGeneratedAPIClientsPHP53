@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Attachment\Service;
 
 /**
  * Retrieve information and invoke actions on attachment Asset
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add attachment asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset
 	 */
@@ -70,7 +68,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update content of attachment asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset
 	 */
@@ -92,7 +89,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update attachment asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset
 	 */
@@ -114,7 +110,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get download URL for the asset
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -135,7 +130,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get remote storage existing paths for the asset
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\RemotePathListResponse
 	 */
@@ -156,7 +150,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves attachment by its id
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -193,7 +186,6 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List attachment Assets by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Attachment\Type\AttachmentAssetListResponse
 	 */

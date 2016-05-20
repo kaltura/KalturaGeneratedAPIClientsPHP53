@@ -64,21 +64,18 @@ class CategoryUserFilter extends \Kaltura\Client\Type\CategoryUserBaseFilter
 	}
 	/**
 	 * Return the list of categoryUser that are not inherited from parent category - only the direct categoryUsers.
-	 * 	 
 	 * @var bool
 	 */
 	public $categoryDirectMembers = null;
 
 	/**
 	 * Free text search on user id or screen name
-	 * 	 
 	 * @var string
 	 */
 	public $freeText = null;
 
 	/**
 	 * Return a list of categoryUser that related to the userId in this field by groups
-	 * 	 
 	 * @var string
 	 */
 	public $relatedGroupsByUserId = null;

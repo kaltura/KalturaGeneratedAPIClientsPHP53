@@ -113,7 +113,6 @@ class ContentDistributionSearchItem extends \Kaltura\Client\Type\SearchItem
 
 	/**
 	 * Comma seperated validation error types
-	 * 	 
 	 * @var string
 	 */
 	public $entryDistributionValidationErrors = null;

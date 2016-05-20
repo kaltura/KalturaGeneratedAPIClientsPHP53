@@ -72,14 +72,12 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * Source category id
-	 * 	 
 	 * @var int
 	 */
 	public $srcCategoryId = null;
 
 	/**
 	 * Destination category id
-	 *      
 	 * @var int
 	 */
 	public $destCategoryId = null;
@@ -87,7 +85,6 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 	/**
 	 * Saves the last category id that its entries moved completely
 	 *      In case of crash the batch will restart from that point
-	 *      
 	 * @var int
 	 */
 	public $lastMovedCategoryId = null;
@@ -95,7 +92,6 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 	/**
 	 * Saves the last page index of the child categories filter pager
 	 *      In case of crash the batch will restart from that point
-	 *      
 	 * @var int
 	 */
 	public $lastMovedCategoryPageIndex = null;
@@ -103,21 +99,18 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 	/**
 	 * Saves the last page index of the category entries filter pager
 	 *      In case of crash the batch will restart from that point
-	 *      
 	 * @var int
 	 */
 	public $lastMovedCategoryEntryPageIndex = null;
 
 	/**
 	 * All entries from all child categories will be moved as well
-	 *      
 	 * @var bool
 	 */
 	public $moveFromChildren = null;
 
 	/**
 	 * Destination categories fallback ids
-	 *      
 	 * @var string
 	 */
 	public $destCategoryFullIds = null;

@@ -96,7 +96,6 @@ class SchedulerWorker extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Worker
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -104,91 +103,78 @@ class SchedulerWorker extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The id as configured in the batch config
-	 * 	 
 	 * @var int
 	 */
 	public $configuredId = null;
 
 	/**
 	 * The id of the Scheduler
-	 * 	 
 	 * @var int
 	 */
 	public $schedulerId = null;
 
 	/**
 	 * The id of the scheduler as configured in the batch config
-	 * 	 
 	 * @var int
 	 */
 	public $schedulerConfiguredId = null;
 
 	/**
 	 * The worker type
-	 * 	 
 	 * @var \Kaltura\Client\Enum\BatchJobType
 	 */
 	public $type = null;
 
 	/**
 	 * The friendly name of the type
-	 * 	 
 	 * @var string
 	 */
 	public $typeName = null;
 
 	/**
 	 * The scheduler name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * Array of the last statuses
-	 * 	 
 	 * @var array<KalturaSchedulerStatus>
 	 */
 	public $statuses;
 
 	/**
 	 * Array of the last configs
-	 * 	 
 	 * @var array<KalturaSchedulerConfig>
 	 */
 	public $configs;
 
 	/**
 	 * Array of jobs that locked to this worker
-	 * 	 
 	 * @var array<KalturaBatchJob>
 	 */
 	public $lockedJobs;
 
 	/**
 	 * Avarage time between creation and queue time
-	 * 	 
 	 * @var int
 	 */
 	public $avgWait = null;
 
 	/**
 	 * Avarage time between queue time end finish time
-	 * 	 
 	 * @var int
 	 */
 	public $avgWork = null;
 
 	/**
 	 * last status time
-	 * 	 
 	 * @var int
 	 */
 	public $lastStatus = null;
 
 	/**
 	 * last status formated
-	 * 	 
 	 * @var string
 	 */
 	public $lastStatusStr = null;

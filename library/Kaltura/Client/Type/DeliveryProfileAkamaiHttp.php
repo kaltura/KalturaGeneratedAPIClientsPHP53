@@ -60,7 +60,6 @@ class DeliveryProfileAkamaiHttp extends \Kaltura\Client\Type\DeliveryProfile
 	}
 	/**
 	 * Should we use intelliseek
-	 * 	 
 	 * @var bool
 	 */
 	public $useIntelliseek = null;

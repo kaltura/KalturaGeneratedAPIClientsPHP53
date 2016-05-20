@@ -170,49 +170,42 @@ class EventNotificationTemplate extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Define that the template could be dispatched manually from the API
-	 * 	 
 	 * @var bool
 	 */
 	public $manualDispatchEnabled = null;
 
 	/**
 	 * Define that the template could be dispatched automatically by the system
-	 * 	 
 	 * @var bool
 	 */
 	public $automaticDispatchEnabled = null;
 
 	/**
 	 * Define the event that should trigger this notification
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EventNotification\Enum\EventNotificationEventType
 	 */
 	public $eventType = null;
 
 	/**
 	 * Define the object that raied the event that should trigger this notification
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EventNotification\Enum\EventNotificationEventObjectType
 	 */
 	public $eventObjectType = null;
 
 	/**
 	 * Define the conditions that cause this notification to be triggered
-	 * 	 
 	 * @var array<KalturaCondition>
 	 */
 	public $eventConditions;
 
 	/**
 	 * Define the content dynamic parameters
-	 * 	 
 	 * @var array<KalturaEventNotificationParameter>
 	 */
 	public $contentParameters;
 
 	/**
 	 * Define the content dynamic parameters
-	 * 	 
 	 * @var array<KalturaEventNotificationParameter>
 	 */
 	public $userParameters;

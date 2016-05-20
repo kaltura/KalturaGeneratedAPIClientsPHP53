@@ -63,14 +63,12 @@ class CaptionAssetItem extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The Caption Asset object
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
 	 */
 	public $asset;
 
 	/**
 	 * The entry object
-	 * 	 
 	 * @var \Kaltura\Client\Type\BaseEntry
 	 */
 	public $entry;

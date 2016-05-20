@@ -88,7 +88,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * The screen name of the user
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -96,7 +95,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Selected profile id for all bulk entries
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -104,7 +102,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Created by the API
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -112,7 +109,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Created by the API
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -120,7 +116,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Number of created entries
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -128,7 +123,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Number of created objects
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -136,7 +130,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * The bulk upload file path
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -144,7 +137,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Type of object for bulk upload
-	 * 	 
 	 * @var \Kaltura\Client\Enum\BulkUploadObjectType
 	 * @readonly
 	 */
@@ -152,14 +144,12 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Friendly name of the file, used to be recognized later in the logs.
-	 * 	 
 	 * @var string
 	 */
 	public $fileName = null;
 
 	/**
 	 * Data pertaining to the objects being uploaded
-	 * 	 
 	 * @var \Kaltura\Client\Type\BulkUploadObjectData
 	 * @readonly
 	 */
@@ -167,7 +157,6 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Type of bulk upload
-	 * 	 
 	 * @var \Kaltura\Client\Enum\BulkUploadType
 	 * @readonly
 	 */
@@ -175,14 +164,12 @@ class BulkUploadJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Recipients of the email for bulk upload success/failure
-	 * 	 
 	 * @var string
 	 */
 	public $emailRecipients = null;
 
 	/**
 	 * Number of objects that finished on error status
-	 * 	 
 	 * @var int
 	 */
 	public $numOfErrorObjects = null;

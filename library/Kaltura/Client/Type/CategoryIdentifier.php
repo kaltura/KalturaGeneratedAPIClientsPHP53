@@ -55,7 +55,6 @@ class CategoryIdentifier extends \Kaltura\Client\Type\ObjectIdentifier
 	}
 	/**
 	 * Identifier of the object
-	 * 	 
 	 * @var \Kaltura\Client\Enum\CategoryIdentifierField
 	 */
 	public $identifier = null;

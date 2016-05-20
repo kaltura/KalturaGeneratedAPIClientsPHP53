@@ -57,14 +57,12 @@ class GenericSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 	}
 	/**
 	 * feed description
-	 *     
 	 * @var string
 	 */
 	public $feedDescription = null;
 
 	/**
 	 * feed landing page (i.e publisher website)
-	 * 	
 	 * @var string
 	 */
 	public $feedLandingPage = null;

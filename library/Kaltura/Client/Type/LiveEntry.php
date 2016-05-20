@@ -91,70 +91,60 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	}
 	/**
 	 * The message to be presented when the stream is offline
-	 * 	 
 	 * @var string
 	 */
 	public $offlineMessage = null;
 
 	/**
 	 * Recording Status Enabled/Disabled
-	 * 	 
 	 * @var \Kaltura\Client\Enum\RecordStatus
 	 */
 	public $recordStatus = null;
 
 	/**
 	 * DVR Status Enabled/Disabled
-	 * 	 
 	 * @var \Kaltura\Client\Enum\DVRStatus
 	 */
 	public $dvrStatus = null;
 
 	/**
 	 * Window of time which the DVR allows for backwards scrubbing (in minutes)
-	 * 	 
 	 * @var int
 	 */
 	public $dvrWindow = null;
 
 	/**
 	 * Elapsed recording time (in msec) up to the point where the live stream was last stopped (unpublished).
-	 * 	 
 	 * @var int
 	 */
 	public $lastElapsedRecordingTime = null;
 
 	/**
 	 * Array of key value protocol->live stream url objects
-	 * 	 
 	 * @var array<KalturaLiveStreamConfiguration>
 	 */
 	public $liveStreamConfigurations;
 
 	/**
 	 * Recorded entry id
-	 * 	 
 	 * @var string
 	 */
 	public $recordedEntryId = null;
 
 	/**
 	 * Flag denoting whether entry should be published by the media server
-	 * 	 
 	 * @var \Kaltura\Client\Enum\LivePublishStatus
 	 */
 	public $pushPublishEnabled = null;
 
 	/**
 	 * Array of publish configurations
-	 * 	 
 	 * @var array<KalturaLiveStreamPushPublishConfiguration>
 	 */
 	public $publishConfigurations;
 
 	/**
 	 * The first time in which the entry was broadcast
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -162,7 +152,6 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 
 	/**
 	 * The Last time in which the entry was broadcast
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -170,7 +159,6 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 
 	/**
 	 * The time (unix timestamp in milliseconds) in which the entry broadcast started or 0 when the entry is off the air
-	 * 	 
 	 * @var float
 	 */
 	public $currentBroadcastStartTime = null;
@@ -183,7 +171,6 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 
 	/**
 	 * the status of the entry of type EntryServerNodeStatus
-	 * 	 
 	 * @var \Kaltura\Client\Enum\EntryServerNodeStatus
 	 * @readonly
 	 */

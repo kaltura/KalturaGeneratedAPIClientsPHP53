@@ -80,7 +80,6 @@ class CategoryUser extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * User id
-	 * 	 
 	 * @var string
 	 * @insertonly
 	 */
@@ -88,7 +87,6 @@ class CategoryUser extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Partner id
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -96,14 +94,12 @@ class CategoryUser extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Permission level
-	 * 	 
 	 * @var \Kaltura\Client\Enum\CategoryUserPermissionLevel
 	 */
 	public $permissionLevel = null;
 
 	/**
 	 * Status
-	 * 	 
 	 * @var \Kaltura\Client\Enum\CategoryUserStatus
 	 * @readonly
 	 */
@@ -111,7 +107,6 @@ class CategoryUser extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * CategoryUser creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -119,22 +114,19 @@ class CategoryUser extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * CategoryUser update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
 	public $updatedAt = null;
 
 	/**
-	 * Update method can be either manual or automatic to distinguish between manual operations (for example in KMC) on automatic - using bulk upload 
-	 * 	 
+	 * Update method can be either manual or automatic to distinguish between manual operations (for example in KMC) on automatic - using bulk upload
 	 * @var \Kaltura\Client\Enum\UpdateMethodType
 	 */
 	public $updateMethod = null;
 
 	/**
 	 * The full ids of the Category
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -142,7 +134,6 @@ class CategoryUser extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Set of category-related permissions for the current category user.
-	 * 	 
 	 * @var string
 	 */
 	public $permissionNames = null;

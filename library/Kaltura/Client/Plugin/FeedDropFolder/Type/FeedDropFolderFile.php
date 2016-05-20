@@ -57,14 +57,12 @@ class FeedDropFolderFile extends \Kaltura\Client\Plugin\DropFolder\Type\DropFold
 	}
 	/**
 	 * MD5 or Sha1 encrypted string
-	 * 	 
 	 * @var string
 	 */
 	public $hash = null;
 
 	/**
 	 * Path of the original Feed content XML
-	 * 	 
 	 * @var string
 	 */
 	public $feedXmlPath = null;

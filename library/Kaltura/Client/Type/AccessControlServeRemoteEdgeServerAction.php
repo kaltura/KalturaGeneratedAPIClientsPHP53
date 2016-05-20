@@ -55,7 +55,6 @@ class AccessControlServeRemoteEdgeServerAction extends \Kaltura\Client\Type\Rule
 	}
 	/**
 	 * Comma separated list of edge servers playBack should be done from
-	 * 	 
 	 * @var string
 	 */
 	public $edgeServerIds = null;

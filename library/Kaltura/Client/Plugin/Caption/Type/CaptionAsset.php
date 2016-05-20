@@ -71,7 +71,6 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 	}
 	/**
 	 * The Caption Params used to create this Caption Asset
-	 * 	 
 	 * @var int
 	 * @insertonly
 	 */
@@ -79,14 +78,12 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The language of the caption asset content
-	 * 	 
 	 * @var \Kaltura\Client\Enum\Language
 	 */
 	public $language = null;
 
 	/**
 	 * The language of the caption asset content
-	 * 	 
 	 * @var \Kaltura\Client\Enum\LanguageCode
 	 * @readonly
 	 */
@@ -94,21 +91,18 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * Is default caption asset of the entry
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $isDefault = null;
 
 	/**
 	 * Friendly label
-	 * 	 
 	 * @var string
 	 */
 	public $label = null;
 
 	/**
 	 * The caption format
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Caption\Enum\CaptionType
 	 * @insertonly
 	 */
@@ -116,7 +110,6 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The status of the asset
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Caption\Enum\CaptionAssetStatus
 	 * @readonly
 	 */
@@ -124,7 +117,6 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The parent id of the asset
-	 * 	 
 	 * @var string
 	 * @insertonly
 	 */
@@ -132,7 +124,6 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The Accuracy of the caption content
-	 * 	 
 	 * @var int
 	 */
 	public $accuracy = null;

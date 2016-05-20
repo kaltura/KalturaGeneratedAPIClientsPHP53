@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage the connection between Conversion Profiles and Asset Params
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ConversionProfileAssetParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Lists asset parmas of conversion profile by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfileAssetParamsListResponse
 	 */
@@ -72,7 +70,6 @@ class ConversionProfileAssetParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update asset parmas of conversion profile by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfileAssetParams
 	 */

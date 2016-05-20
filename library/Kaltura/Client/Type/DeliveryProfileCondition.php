@@ -60,7 +60,6 @@ class DeliveryProfileCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * The delivery ids that are accepted by this condition
-	 * 	 
 	 * @var array<KalturaIntegerValue>
 	 */
 	public $deliveryProfileIds;

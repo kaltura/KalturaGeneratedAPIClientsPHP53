@@ -122,21 +122,18 @@ class ScheduledTaskProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The type of engine to use to list objects using the given "objectFilter"
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\ScheduledTask\Enum\ObjectFilterEngineType
 	 */
 	public $objectFilterEngineType = null;
 
 	/**
 	 * A filter object (inherits KalturaFilter) that is used to list objects for scheduled tasks
-	 * 	 
 	 * @var \Kaltura\Client\Type\Filter
 	 */
 	public $objectFilter;
 
 	/**
 	 * A list of tasks to execute on the founded objects
-	 * 	 
 	 * @var array<KalturaObjectTask>
 	 */
 	public $objectTasks;
@@ -163,7 +160,6 @@ class ScheduledTaskProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The maximum number of result count allowed to be processed by this profile per execution
-	 * 	 
 	 * @var int
 	 */
 	public $maxTotalCountAllowed = null;

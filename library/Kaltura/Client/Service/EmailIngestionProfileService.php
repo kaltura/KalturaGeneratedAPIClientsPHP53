@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * EmailIngestionProfile service lets you manage email ingestion profile records
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class EmailIngestionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * EmailIngestionProfile Add action allows you to add a EmailIngestionProfile to Kaltura DB
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\EmailIngestionProfile
 	 */
@@ -69,7 +67,6 @@ class EmailIngestionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a EmailIngestionProfile by email address
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\EmailIngestionProfile
 	 */
@@ -90,7 +87,6 @@ class EmailIngestionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a EmailIngestionProfile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\EmailIngestionProfile
 	 */
@@ -111,7 +107,6 @@ class EmailIngestionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing EmailIngestionProfile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\EmailIngestionProfile
 	 */
@@ -133,7 +128,6 @@ class EmailIngestionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete an existing EmailIngestionProfile
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -150,7 +144,6 @@ class EmailIngestionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * add KalturaMediaEntry from email ingestion
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */

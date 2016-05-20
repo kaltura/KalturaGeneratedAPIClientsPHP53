@@ -65,42 +65,36 @@ class WowzaMediaServerNode extends \Kaltura\Client\Type\MediaServerNode
 	}
 	/**
 	 * Wowza Media server app prefix
-	 * 	 
 	 * @var string
 	 */
 	public $appPrefix = null;
 
 	/**
 	 * Wowza Media server transcoder configuration overide
-	 * 	 
 	 * @var string
 	 */
 	public $transcoder = null;
 
 	/**
 	 * Wowza Media server GPU index id
-	 * 	 
 	 * @var int
 	 */
 	public $GPUID = null;
 
 	/**
 	 * Live service port
-	 * 	 
 	 * @var int
 	 */
 	public $liveServicePort = null;
 
 	/**
 	 * Live service protocol
-	 * 	 
 	 * @var string
 	 */
 	public $liveServiceProtocol = null;
 
 	/**
 	 * Wowza media server live service internal domain
-	 * 	 
 	 * @var string
 	 */
 	public $liveServiceInternalDomain = null;

@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Service;
 
 /**
  * Generic Distribution Provider service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Generic Distribution Provider
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider
 	 */
@@ -69,7 +67,6 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Generic Distribution Provider by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider
 	 */
@@ -90,7 +87,6 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Generic Distribution Provider by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider
 	 */
@@ -112,7 +108,6 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Generic Distribution Provider by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all distribution providers
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderListResponse
 	 */

@@ -158,42 +158,36 @@ class ThumbParams extends \Kaltura\Client\Type\AssetParams
 
 	/**
 	 * Hexadecimal value
-	 * 	 
 	 * @var string
 	 */
 	public $backgroundColor = null;
 
 	/**
 	 * Id of the flavor params or the thumbnail params to be used as source for the thumbnail creation
-	 * 	 
 	 * @var int
 	 */
 	public $sourceParamsId = null;
 
 	/**
 	 * The container format of the Flavor Params
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ContainerFormat
 	 */
 	public $format = null;
 
 	/**
 	 * The image density (dpi) for example: 72 or 96
-	 * 	 
 	 * @var int
 	 */
 	public $density = null;
 
 	/**
 	 * Strip profiles and comments
-	 * 	 
 	 * @var bool
 	 */
 	public $stripProfiles = null;
 
 	/**
 	 * Create thumbnail from the videoLengthpercentage second
-	 *      
 	 * @var int
 	 */
 	public $videoOffsetInPercentage = null;

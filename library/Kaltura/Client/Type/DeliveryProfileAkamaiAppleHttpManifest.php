@@ -60,7 +60,6 @@ class DeliveryProfileAkamaiAppleHttpManifest extends \Kaltura\Client\Type\Delive
 	}
 	/**
 	 * Should we use timing parameters - clipTo / seekFrom
-	 * 	 
 	 * @var bool
 	 */
 	public $supportClipping = null;

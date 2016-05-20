@@ -159,8 +159,7 @@ class Widget extends \Kaltura\Client\ObjectBase
 	public $updatedAt = null;
 
 	/**
-	 * Can be used to store various partner related data as a string 
-	 * 	 
+	 * Can be used to store various partner related data as a string
 	 * @var string
 	 */
 	public $partnerData = null;
@@ -174,21 +173,18 @@ class Widget extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Should enforce entitlement on feed entries
-	 * 	 
 	 * @var bool
 	 */
 	public $enforceEntitlement = null;
 
 	/**
 	 * Set privacy context for search entries that assiged to private and public categories within a category privacy context.
-	 * 	 
 	 * @var string
 	 */
 	public $privacyContext = null;
 
 	/**
 	 * Addes the HTML5 script line to the widget's embed code
-	 * 	 
 	 * @var bool
 	 */
 	public $addEmbedHtml5Support = null;

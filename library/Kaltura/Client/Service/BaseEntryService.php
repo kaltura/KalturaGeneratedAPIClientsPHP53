@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Base Entry Service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Generic add entry, should be used when the uploaded entry type is not known.
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -70,7 +68,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Attach content resource to entry in status NO_MEDIA
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -92,7 +89,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Generic add entry using an uploaded file, should be used when the uploaded entry type is not known.
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -115,7 +111,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get base entry by ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -137,7 +132,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get remote storage existing paths for the asset.
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\RemotePathListResponse
 	 */
@@ -158,7 +152,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update base entry. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -180,7 +173,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update the content resource associated with the entry.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -205,7 +197,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get an array of KalturaBaseEntry objects by a comma-separated list of ids.
-	 * 	 
 	 * 
 	 * @return array
 	 */
@@ -226,7 +217,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete an entry.
-	 * 	 
 	 * 
 	 */
 	function delete($entryId)
@@ -243,7 +233,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List base entries by filter with paging support.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntryListResponse
 	 */
@@ -267,7 +256,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List base entries by filter according to reference id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntryListResponse
 	 */
@@ -290,7 +278,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Count base entries by filter.
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -311,7 +298,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Upload a file to Kaltura, that can be used to create an entry.
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -332,7 +318,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update entry thumbnail using a raw jpeg file.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -355,7 +340,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update entry thumbnail using url.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -377,7 +361,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update entry thumbnail from a different entry by a specified time offset (in seconds).
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -400,7 +383,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Flag inappropriate entry for moderation.
-	 * 	 
 	 * 
 	 */
 	function flag(\Kaltura\Client\Type\ModerationFlag $moderationFlag)
@@ -417,7 +399,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Reject the entry and mark the pending flags (if any) as moderated (this will make the entry non-playable).
-	 * 	 
 	 * 
 	 */
 	function reject($entryId)
@@ -434,7 +415,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Approve the entry and mark the pending flags (if any) as moderated (this will make the entry playable).
-	 * 	 
 	 * 
 	 */
 	function approve($entryId)
@@ -451,7 +431,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all pending flags for the entry.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ModerationFlagListResponse
 	 */
@@ -474,7 +453,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Anonymously rank an entry, no validation is done on duplicate rankings.
-	 * 	 
 	 * 
 	 */
 	function anonymousRank($entryId, $rank)
@@ -492,7 +470,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * This action delivers entry-related data, based on the user's context: access control, restriction, playback format and storage information.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\EntryContextDataResult
 	 */
@@ -534,7 +511,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Index an entry by id.
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -555,7 +531,6 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Clone an entry with optional attributes to apply to the clone
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */

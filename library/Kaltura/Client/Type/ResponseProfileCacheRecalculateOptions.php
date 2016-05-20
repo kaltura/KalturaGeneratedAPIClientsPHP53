@@ -72,14 +72,12 @@ class ResponseProfileCacheRecalculateOptions extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Maximum number of keys to recalculate
-	 * 	 
 	 * @var int
 	 */
 	public $limit = null;
 
 	/**
 	 * Class name
-	 * 	 
 	 * @var string
 	 */
 	public $cachedObjectType = null;

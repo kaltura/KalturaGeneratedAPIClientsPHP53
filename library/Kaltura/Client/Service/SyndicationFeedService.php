@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage Syndication Feeds
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Syndication Feed
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseSyndicationFeed
 	 */
@@ -69,7 +67,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Syndication Feed by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseSyndicationFeed
 	 */
@@ -90,7 +87,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Syndication Feed by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseSyndicationFeed
 	 */
@@ -112,7 +108,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Syndication Feed by ID
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List Syndication Feeds by filter with paging support
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseSyndicationFeedListResponse
 	 */
@@ -153,7 +147,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * get entry count for a syndication feed
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\SyndicationFeedEntryCount
 	 */
@@ -175,7 +168,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 	/**
 	 * request conversion for all entries that doesnt have the required flavor param
 	 * 	 returns a comma-separated ids of conversion jobs
-	 * 	 
 	 * 
 	 * @return string
 	 */

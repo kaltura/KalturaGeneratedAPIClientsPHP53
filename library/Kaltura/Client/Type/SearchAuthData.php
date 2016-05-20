@@ -59,21 +59,18 @@ class SearchAuthData extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The authentication data that further should be used for search
-	 * 	 
 	 * @var string
 	 */
 	public $authData = null;
 
 	/**
 	 * Login URL when user need to sign-in and authorize the search
-	 * 	 
 	 * @var string
 	 */
 	public $loginUrl = null;
 
 	/**
 	 * Information when there was an error
-	 * 	 
 	 * @var string
 	 */
 	public $message = null;

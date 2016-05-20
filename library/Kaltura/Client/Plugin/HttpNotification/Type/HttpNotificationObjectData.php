@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\HttpNotification\Type;
 
 /**
  * Evaluates PHP statement, depends on the execution context
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -68,28 +67,24 @@ class HttpNotificationObjectData extends \Kaltura\Client\Plugin\HttpNotification
 	}
 	/**
 	 * Kaltura API object type
-	 * 	 
 	 * @var string
 	 */
 	public $apiObjectType = null;
 
 	/**
 	 * Data format
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ResponseType
 	 */
 	public $format = null;
 
 	/**
 	 * Ignore null attributes during serialization
-	 * 	 
 	 * @var bool
 	 */
 	public $ignoreNull = null;
 
 	/**
 	 * PHP code
-	 * 	 
 	 * @var string
 	 */
 	public $code = null;

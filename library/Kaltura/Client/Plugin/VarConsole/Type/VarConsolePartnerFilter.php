@@ -59,21 +59,18 @@ class VarConsolePartnerFilter extends \Kaltura\Client\Type\PartnerFilter
 	}
 	/**
 	 * Eq filter for the partner's group type
-	 *      
 	 * @var \Kaltura\Client\Enum\PartnerGroupType
 	 */
 	public $groupTypeEq = null;
 
 	/**
 	 * In filter for the partner's group type
-	 *      
 	 * @var string
 	 */
 	public $groupTypeIn = null;
 
 	/**
 	 * Filter for partner permissions- filter contains comma-separated string of permission names which the returned partners should have.
-	 *      
 	 * @var string
 	 */
 	public $partnerPermissionsExist = null;

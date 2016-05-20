@@ -59,7 +59,6 @@ class SourceFileSyncDescriptor extends \Kaltura\Client\Type\FileSyncDescriptor
 	}
 	/**
 	 * The translated path as used by the scheduler
-	 * 	 
 	 * @var string
 	 */
 	public $actualFileSyncLocalPath = null;

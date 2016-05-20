@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * PermissionItem service lets you create and manage permission items
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -49,7 +48,6 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Adds a new permission item object to the account.
 	 * 	 This action is available only to Kaltura system administrators.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PermissionItem
 	 */
@@ -70,7 +68,6 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieves a permission item object using its ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PermissionItem
 	 */
@@ -92,7 +89,6 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Updates an existing permission item object.
 	 * 	 This action is available only to Kaltura system administrators.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PermissionItem
 	 */
@@ -115,7 +111,6 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Deletes an existing permission item object.
 	 * 	 This action is available only to Kaltura system administrators.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PermissionItem
 	 */
@@ -136,7 +131,6 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Lists permission item objects that are associated with an account.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PermissionItemListResponse
 	 */

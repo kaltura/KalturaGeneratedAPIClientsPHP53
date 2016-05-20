@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Service;
 
 /**
  * Distribution Profile service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Distribution Profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
 	 */
@@ -69,7 +67,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Distribution Profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
 	 */
@@ -90,7 +87,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Distribution Profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
 	 */
@@ -112,7 +108,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Distribution Profile status by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
 	 */
@@ -134,7 +129,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Distribution Profile by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -151,7 +145,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all distribution providers
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfileListResponse
 	 */

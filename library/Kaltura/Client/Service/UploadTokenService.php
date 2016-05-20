@@ -46,7 +46,6 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds new upload token to upload a file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UploadToken
 	 */
@@ -68,7 +67,6 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get upload token by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UploadToken
 	 */
@@ -96,8 +94,7 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 	 * 	 If a chunk fails to upload it can be re-uploaded.
 	 * 	 3. After all of the chunks have been uploaded a final chunk (can be of zero size) should be uploaded 
 	 * 	 with resume=true, finalChunk=true and the expected resumeAt position. In case an UPLOAD_TOKEN_CANNOT_MATCH_EXPECTED_SIZE exception
-	 * 	 has been returned (indicating not all of the chunks were appended yet) the final request can be retried.     
-	 * 	 
+	 * 	 has been returned (indicating not all of the chunks were appended yet) the final request can be retried.
 	 * 
 	 * @return \Kaltura\Client\Type\UploadToken
 	 */
@@ -123,7 +120,6 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Deletes the upload token by upload token id
-	 * 	 
 	 * 
 	 */
 	function delete($uploadTokenId)
@@ -141,7 +137,6 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 	/**
 	 * List upload token by filter with pager support. 
 	 * 	 When using a user session the service will be restricted to users objects only.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UploadTokenListResponse
 	 */

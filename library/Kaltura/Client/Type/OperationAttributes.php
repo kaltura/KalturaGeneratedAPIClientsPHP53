@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Base class to all operation attributes types
- *  
  * @package Kaltura
  * @subpackage Client
  */

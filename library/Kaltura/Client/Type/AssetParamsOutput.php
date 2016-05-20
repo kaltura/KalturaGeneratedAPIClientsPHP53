@@ -95,7 +95,6 @@ class AssetParamsOutput extends \Kaltura\Client\Type\AssetParams
 
 	/**
 	 * The container format of the Flavor Params
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ContainerFormat
 	 */
 	public $format = null;

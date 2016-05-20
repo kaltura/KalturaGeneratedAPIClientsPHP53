@@ -57,7 +57,6 @@ class UrlTokenizerAkamaiHttp extends \Kaltura\Client\Type\UrlTokenizer
 	}
 	/**
 	 * param
-	 * 	 
 	 * @var string
 	 */
 	public $paramName = null;

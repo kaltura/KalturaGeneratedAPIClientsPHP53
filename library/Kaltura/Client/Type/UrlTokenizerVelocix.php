@@ -59,21 +59,18 @@ class UrlTokenizerVelocix extends \Kaltura\Client\Type\UrlTokenizer
 	}
 	/**
 	 * hdsPaths
-	 * 	 
 	 * @var string
 	 */
 	public $hdsPaths = null;
 
 	/**
 	 * tokenParamName
-	 * 	 
 	 * @var string
 	 */
 	public $paramName = null;
 
 	/**
 	 * secure URL prefix
-	 * 	 
 	 * @var string
 	 */
 	public $authPrefix = null;

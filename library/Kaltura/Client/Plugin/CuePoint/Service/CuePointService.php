@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\CuePoint\Service;
 
 /**
  * Cue Point service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add an cue point object associated with an entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 */
@@ -69,7 +67,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePointListResponse
 	 */
@@ -91,7 +88,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Download multiple cue points objects as XML definitions
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -112,7 +108,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve an CuePoint object by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 */
@@ -133,7 +128,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List cue point objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePointListResponse
 	 */
@@ -157,7 +151,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * count cue point objects by filter
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -177,8 +170,7 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update cue point by id 
-	 * 	 
+	 * Update cue point by id
 	 * 
 	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 */
@@ -200,7 +192,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * delete cue point by id, and delete all children cue points
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -217,7 +208,6 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update cuePoint status by id
-	 * 	 
 	 * 
 	 */
 	function updateStatus($id, $status)

@@ -57,14 +57,12 @@ abstract class CompareCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * Value to evaluate against the field and operator
-	 * 	 
 	 * @var \Kaltura\Client\Type\IntegerValue
 	 */
 	public $value;
 
 	/**
 	 * Comparing operator
-	 * 	 
 	 * @var \Kaltura\Client\Enum\SearchConditionComparison
 	 */
 	public $comparison = null;

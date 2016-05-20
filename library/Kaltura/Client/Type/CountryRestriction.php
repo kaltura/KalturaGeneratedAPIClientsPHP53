@@ -57,14 +57,12 @@ class CountryRestriction extends \Kaltura\Client\Type\BaseRestriction
 	}
 	/**
 	 * Country restriction type (Allow or deny)
-	 * 	 
 	 * @var \Kaltura\Client\Enum\CountryRestrictionType
 	 */
 	public $countryRestrictionType = null;
 
 	/**
-	 * Comma separated list of country codes to allow to deny 
-	 * 	 
+	 * Comma separated list of country codes to allow to deny
 	 * @var string
 	 */
 	public $countryList = null;

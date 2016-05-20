@@ -62,14 +62,12 @@ class ModifyCategoriesObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Ty
 	}
 	/**
 	 * Should the object task add or remove categories?
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\ScheduledTask\Enum\ScheduledTaskAddOrRemoveType
 	 */
 	public $addRemoveType = null;
 
 	/**
 	 * The list of category ids to add or remove
-	 * 	 
 	 * @var array<KalturaIntegerValue>
 	 */
 	public $categoryIds;

@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Configuration for extended item in the Kaltura MRSS feeds
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -56,8 +55,7 @@ abstract class ObjectIdentifier extends \Kaltura\Client\ObjectBase
 			$this->extendedFeatures = (string)$xml->extendedFeatures;
 	}
 	/**
-	 * Comma separated string of enum values denoting which features of the item need to be included in the MRSS 
-	 * 	 
+	 * Comma separated string of enum values denoting which features of the item need to be included in the MRSS
 	 * @var string
 	 */
 	public $extendedFeatures = null;

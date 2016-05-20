@@ -59,21 +59,18 @@ abstract class EntryScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\S
 	}
 	/**
 	 * Entry to be used as template during content ingestion
-	 * 	 
 	 * @var string
 	 */
 	public $templateEntryId = null;
 
 	/**
 	 * Entries that associated with this event
-	 * 	 
 	 * @var string
 	 */
 	public $entryIds = null;
 
 	/**
 	 * Categories that associated with this event
-	 * 	 
 	 * @var string
 	 */
 	public $categoryIds = null;

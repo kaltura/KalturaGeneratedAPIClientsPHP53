@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest media that is available on remote server and accessible using the supplied URL, the media file won't be downloaded but a file sync object of URL type will point to the media URL.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -56,8 +55,7 @@ class RemoteStorageResource extends \Kaltura\Client\Type\UrlResource
 			$this->storageProfileId = (int)$xml->storageProfileId;
 	}
 	/**
-	 * ID of storage profile to be associated with the created file sync, used for file serving URL composing. 
-	 * 	 
+	 * ID of storage profile to be associated with the created file sync, used for file serving URL composing.
 	 * @var int
 	 */
 	public $storageProfileId = null;

@@ -109,11 +109,6 @@ class Client extends Base
 	protected $deliveryProfile = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\DocumentService
-	 */
-	protected $document = null;
-
-	/**
 	 * @var \Kaltura\Client\Service\EmailIngestionProfileService
 	 */
 	protected $EmailIngestionProfile = null;
@@ -327,7 +322,7 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:16-05-11');
+		$this->setClientTag('php5:16-05-20');
 		$this->setApiVersion('3.3.0');
 	}
 	
@@ -456,15 +451,6 @@ class Client extends Base
 		if (is_null($this->deliveryProfile))
 			$this->deliveryProfile = new \Kaltura\Client\Service\DeliveryProfileService($this);
 		return $this->deliveryProfile;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\DocumentService
-	 */
-	public function getDocumentService()
-	{
-		if (is_null($this->document))
-			$this->document = new \Kaltura\Client\Service\DocumentService($this);
-		return $this->document;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\EmailIngestionProfileService

@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\Wowza;
  */
 class WowzaPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\LiveConversionProfileService
+	 */
+	protected $liveConversionProfile = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class WowzaPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'liveConversionProfile' => $this->getLiveConversionProfileService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class WowzaPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'wowza';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Wowza\Service\LiveConversionProfileService
+	 */
+	public function getLiveConversionProfileService()
+	{
+		if (is_null($this->liveConversionProfile))
+			$this->liveConversionProfile = new Service\LiveConversionProfileService($this->_client);
+		return $this->liveConversionProfile;
 	}
 }
 

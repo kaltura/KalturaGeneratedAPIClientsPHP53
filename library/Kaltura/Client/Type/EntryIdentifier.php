@@ -55,7 +55,6 @@ class EntryIdentifier extends \Kaltura\Client\Type\ObjectIdentifier
 	}
 	/**
 	 * Identifier of the object
-	 * 	 
 	 * @var \Kaltura\Client\Enum\EntryIdentifierField
 	 */
 	public $identifier = null;

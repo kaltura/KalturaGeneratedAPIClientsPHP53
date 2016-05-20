@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage Conversion Profiles
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Set Conversion Profile to be the partner default
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfile
 	 */
@@ -69,7 +67,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get the partner's default conversion profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfile
 	 */
@@ -90,7 +87,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Conversion Profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfile
 	 */
@@ -111,7 +107,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Conversion Profile by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfile
 	 */
@@ -132,7 +127,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Conversion Profile by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfile
 	 */
@@ -154,7 +148,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Conversion Profile by ID
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -171,7 +164,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List Conversion Profiles by filter with paging support
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfileListResponse
 	 */

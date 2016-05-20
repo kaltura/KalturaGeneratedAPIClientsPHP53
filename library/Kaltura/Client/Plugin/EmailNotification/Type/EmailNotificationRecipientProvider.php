@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * Abstract core class  which provides the recipients (to, CC, BCC) for an email notification
- *  
  * @package Kaltura
  * @subpackage Client
  */

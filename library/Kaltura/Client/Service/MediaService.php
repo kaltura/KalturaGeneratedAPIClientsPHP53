@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Media service lets you upload and manage media files (images / videos & audio)
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add entry
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -70,7 +68,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Add content to media entry which is not yet associated with content (therefore is in status NO_CONTENT).
 	 *      If the requirement is to replace the entry's associated content, use action updateContent.
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -94,7 +91,30 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Adds new media entry by importing an HTTP or FTP URL.
 	 * 	 The entry will be queued for import and then for conversion.
-	 * 	 
+	 * 	 This action should be exposed only to the batches
+	 * 
+	 * @return \Kaltura\Client\Type\MediaEntry
+	 */
+	function addFromBulk(\Kaltura\Client\Type\MediaEntry $mediaEntry, $url, $bulkUploadId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "mediaEntry", $mediaEntry->toParams());
+		$this->client->addParam($kparams, "url", $url);
+		$this->client->addParam($kparams, "bulkUploadId", $bulkUploadId);
+		$this->client->queueServiceActionCall("media", "addFromBulk", "KalturaMediaEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMediaEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\MediaEntry");
+		return $resultObject;
+	}
+
+	/**
+	 * Adds new media entry by importing an HTTP or FTP URL.
+	 * 	 The entry will be queued for import and then for conversion.
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -117,7 +137,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Adds new media entry by importing the media file from a search provider.
 	 * 	 This action should be used with the search service result.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -141,7 +160,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new entry after the specific media file was uploaded and the upload token id exists
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -163,7 +181,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new entry after the file was recored on the server and the token id exists
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -185,7 +202,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Copy entry into new entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -209,7 +225,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Copy flavor asset into new entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -232,7 +247,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Convert entry
-	 * 	 
 	 * 
 	 * @return bigint
 	 */
@@ -258,7 +272,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get media entry by ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -281,7 +294,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Get MRSS by entry id
 	 *      XML will return as an escaped string
-	 *      
 	 * 
 	 * @return string
 	 */
@@ -307,7 +319,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update media entry. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -329,7 +340,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Replace content associated with the media entry.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -354,7 +364,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a media entry.
-	 * 	 
 	 * 
 	 */
 	function delete($entryId)
@@ -371,7 +380,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Approves media replacement
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -392,7 +400,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Cancels media replacement
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -413,7 +420,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List media entries by filter with paging support.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaListResponse
 	 */
@@ -437,7 +443,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Count media entries by filter.
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -458,7 +463,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Upload a media file to Kaltura, then the file can be used to create a media entry.
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -480,7 +484,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Update media entry thumbnail by a specified time offset (In seconds)
 	 * 	 If flavor params id not specified, source flavor will be used by default
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -504,7 +507,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Update media entry thumbnail from a different entry by a specified time offset (In seconds)
 	 * 	 If flavor params id not specified, source flavor will be used by default
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -528,7 +530,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update media entry thumbnail using a raw jpeg file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -551,7 +552,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update entry thumbnail using url
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
@@ -573,7 +573,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Request a new conversion job, this can be used to convert the media entry to a different format
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -594,7 +593,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Flag inappropriate media entry for moderation
-	 * 	 
 	 * 
 	 */
 	function flag(\Kaltura\Client\Type\ModerationFlag $moderationFlag)
@@ -611,7 +609,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Reject the media entry and mark the pending flags (if any) as moderated (this will make the entry non playable)
-	 * 	 
 	 * 
 	 */
 	function reject($entryId)
@@ -628,7 +625,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Approve the media entry and mark the pending flags (if any) as moderated (this will make the entry playable)
-	 * 	 
 	 * 
 	 */
 	function approve($entryId)
@@ -645,7 +641,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all pending flags for the media entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ModerationFlagListResponse
 	 */
@@ -668,7 +663,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Anonymously rank a media entry, no validation is done on duplicate rankings
-	 * 	 
 	 * 
 	 */
 	function anonymousRank($entryId, $rank)
@@ -688,7 +682,6 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	 * Add new bulk upload batch job
 	 * 	 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
 	 * 	 If no conversion profile was specified, partner's default will be used
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */

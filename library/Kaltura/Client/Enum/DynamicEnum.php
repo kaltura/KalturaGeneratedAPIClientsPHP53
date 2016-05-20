@@ -27,16 +27,3 @@
 // @ignore
 // ===================================================================================================
 
-/**
- * @namespace
- */
-namespace Kaltura\Client\Enum;
-
-/**
- * @package Kaltura
- * @subpackage Client
- */
-class DynamicEnum extends \Kaltura\Client\EnumBase
-{
-}
-

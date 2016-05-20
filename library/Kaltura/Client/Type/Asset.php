@@ -81,7 +81,6 @@ class Asset extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The ID of the Flavor Asset
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -89,7 +88,6 @@ class Asset extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The entry ID of the Flavor Asset
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -104,7 +102,6 @@ class Asset extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The version of the Flavor Asset
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -112,7 +109,6 @@ class Asset extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The size (in KBytes) of the Flavor Asset
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -120,14 +116,12 @@ class Asset extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Tags used to identify the Flavor Asset in various scenarios
-	 * 	 
 	 * @var string
 	 */
 	public $tags = null;
 
 	/**
 	 * The file extension
-	 * 	 
 	 * @var string
 	 * @insertonly
 	 */
@@ -156,7 +150,6 @@ class Asset extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * System description, error message, warnings and failure cause.
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -164,21 +157,18 @@ class Asset extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Partner private data
-	 * 	 
 	 * @var string
 	 */
 	public $partnerData = null;
 
 	/**
 	 * Partner friendly description
-	 * 	 
 	 * @var string
 	 */
 	public $partnerDescription = null;
 
 	/**
 	 * Comma separated list of source flavor params ids
-	 * 	 
 	 * @var string
 	 */
 	public $actualSourceAssetParamsIds = null;

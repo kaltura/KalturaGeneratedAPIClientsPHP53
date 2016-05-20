@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Server Node service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds a server node to the Kaltura DB.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
 	 */
@@ -69,7 +67,6 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get server node by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
 	 */
@@ -89,8 +86,7 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update server node by id 
-	 * 	 
+	 * Update server node by id
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
 	 */
@@ -112,7 +108,6 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * delete server node by id
-	 * 	 
 	 * 
 	 */
 	function delete($serverNodeId)
@@ -129,7 +124,6 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Disable server node by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
 	 */
@@ -150,7 +144,6 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Enable server node by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
 	 */
@@ -193,7 +186,6 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update server node status
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
 	 */

@@ -57,7 +57,6 @@ class DocumentEntry extends \Kaltura\Client\Type\BaseEntry
 	}
 	/**
 	 * The type of the document
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Document\Enum\DocumentType
 	 * @insertonly
 	 */
@@ -65,7 +64,6 @@ class DocumentEntry extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * Comma separated asset params ids that exists for this media entry
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */

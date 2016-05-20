@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Internal Service is used for actions that are used internally in Kaltura applications and might be changed in the future without any notice.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -55,8 +54,7 @@ class XInternalService extends \Kaltura\Client\ServiceBase
 	 * 	 - Image will be downloaded as Jpeg
 	 * 	 - MixEntry will be flattened using the flavor params id
 	 * 	 - Other entry types are not supported
-	 * 	 Returns the admin email that the email message will be sent to 
-	 * 	 
+	 * 	 Returns the admin email that the email message will be sent to
 	 * 
 	 * @return string
 	 */

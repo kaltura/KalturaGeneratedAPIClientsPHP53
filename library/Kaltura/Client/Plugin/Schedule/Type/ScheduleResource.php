@@ -73,7 +73,6 @@ abstract class ScheduleResource extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Auto-generated unique identifier
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -94,14 +93,12 @@ abstract class ScheduleResource extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Defines a short name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * Defines a unique system-name
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
@@ -127,7 +124,6 @@ abstract class ScheduleResource extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -135,7 +131,6 @@ abstract class ScheduleResource extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Last update as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

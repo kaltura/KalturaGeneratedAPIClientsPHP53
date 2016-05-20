@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\EventNotification\Service;
 
 /**
  * Event notification template service lets you create and manage event notification templates
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * This action allows for the creation of new backend event types in the system. This action requires access to the Kaltura server Admin Console. If you're looking to register to existing event types, please use the clone action instead.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
 	 */
@@ -69,7 +67,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * This action allows registering to various backend event. Use this action to create notifications that will react to events such as new video was uploaded or metadata field was updated. To see the list of available event types, call the listTemplates action.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
 	 */
@@ -92,7 +89,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve an event notification template object by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
 	 */
@@ -113,7 +109,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing event notification template object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
 	 */
@@ -135,7 +130,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update event notification template status by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
 	 */
@@ -157,7 +151,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete an event notification template object
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -174,7 +167,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * list event notification template objects
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplateListResponse
 	 */
@@ -220,7 +212,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Dispatch event notification object by id
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -241,7 +232,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Action lists the template partner event notification templates.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplateListResponse
 	 */

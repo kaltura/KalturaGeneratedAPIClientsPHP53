@@ -35,8 +35,7 @@ namespace Kaltura\Client\Service;
 
 /**
  * A Mix is an XML unique format invented by Kaltura, it allows the user to create a mix of videos and images, in and out points, transitions, text overlays, soundtrack, effects and much more...
- *  Mixing service lets you create a new mix, manage its metadata and make basic manipulations.   
- *  
+ *  Mixing service lets you create a new mix, manage its metadata and make basic manipulations.
  * @package Kaltura
  * @subpackage Client
  */
@@ -50,7 +49,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Adds a new mix.
 	 * 	 If the dataContent is null, a default timeline will be created.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MixEntry
 	 */
@@ -71,7 +69,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get mix entry by id.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MixEntry
 	 */
@@ -93,7 +90,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update mix entry. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MixEntry
 	 */
@@ -115,7 +111,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a mix entry.
-	 * 	 
 	 * 
 	 */
 	function delete($entryId)
@@ -133,7 +128,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	/**
 	 * List entries by filter with paging support.
 	 * 	 Return parameter is an array of mix entries.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MixListResponse
 	 */
@@ -157,7 +151,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Count mix entries by filter.
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -178,7 +171,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Clones an existing mix.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MixEntry
 	 */
@@ -199,7 +191,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Appends a media entry to a the end of the mix timeline, this will save the mix timeline as a new version.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MixEntry
 	 */
@@ -221,7 +212,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get the mixes in which the media entry is included
-	 * 	 
 	 * 
 	 * @return array
 	 */
@@ -242,7 +232,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get all ready media entries that exist in the given mix id
-	 * 	 
 	 * 
 	 * @return array
 	 */
@@ -264,7 +253,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Anonymously rank a mix entry, no validation is done on duplicate rankings
-	 * 	 
 	 * 
 	 */
 	function anonymousRank($entryId, $rank)

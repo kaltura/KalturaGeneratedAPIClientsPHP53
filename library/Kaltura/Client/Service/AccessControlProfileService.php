@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage access control profiles
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class AccessControlProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new access control profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AccessControlProfile
 	 */
@@ -69,7 +67,6 @@ class AccessControlProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get access control profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AccessControlProfile
 	 */
@@ -90,7 +87,6 @@ class AccessControlProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update access control profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AccessControlProfile
 	 */
@@ -112,7 +108,6 @@ class AccessControlProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete access control profile by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class AccessControlProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List access control profiles by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AccessControlProfileListResponse
 	 */

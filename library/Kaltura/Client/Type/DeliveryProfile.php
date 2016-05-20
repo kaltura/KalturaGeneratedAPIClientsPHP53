@@ -91,7 +91,6 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Delivery
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -106,35 +105,30 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The name of the Delivery
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * Delivery type
-	 * 	 
 	 * @var \Kaltura\Client\Enum\DeliveryProfileType
 	 */
 	public $type = null;
 
 	/**
 	 * System name of the delivery
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
 
 	/**
 	 * The description of the Delivery
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
 	 * Creation time as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -142,7 +136,6 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Update time as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -162,7 +155,6 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * the host part of the url
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -188,7 +180,6 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * True if this is the systemwide default for the protocol
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 * @readonly
 	 */
@@ -196,7 +187,6 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * the object from which this object was cloned (or 0)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -204,21 +194,18 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Comma separated list of supported media protocols. f.i. rtmpe
-	 * 	 
 	 * @var string
 	 */
 	public $mediaProtocols = null;
 
 	/**
 	 * priority used for ordering similar delivery profiles
-	 * 	 
 	 * @var int
 	 */
 	public $priority = null;
 
 	/**
 	 * Extra query string parameters that should be added to the url
-	 * 	 
 	 * @var string
 	 */
 	public $extraParams = null;

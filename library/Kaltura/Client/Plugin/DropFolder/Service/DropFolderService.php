@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\DropFolder\Service;
 
 /**
  * DropFolder service lets you create and manage drop folders
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a new KalturaDropFolder object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 	 */
@@ -69,7 +67,6 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a KalturaDropFolder object by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 	 */
@@ -90,7 +87,6 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing KalturaDropFolder object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 	 */
@@ -112,7 +108,6 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the KalturaDropFolder object as deleted
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 	 */
@@ -133,7 +128,6 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List KalturaDropFolder objects
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderListResponse
 	 */

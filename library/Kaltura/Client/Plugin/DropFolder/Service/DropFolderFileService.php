@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\DropFolder\Service;
 
 /**
  * DropFolderFile service lets you create and manage drop folder files
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a new KalturaDropFolderFile object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
 	 */
@@ -69,7 +67,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a KalturaDropFolderFile object by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
 	 */
@@ -90,7 +87,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing KalturaDropFolderFile object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
 	 */
@@ -112,7 +108,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update status of KalturaDropFolderFile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
 	 */
@@ -134,7 +129,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the KalturaDropFolderFile object as deleted
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
 	 */
@@ -155,7 +149,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List KalturaDropFolderFile objects
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFileListResponse
 	 */
@@ -179,7 +172,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Set the KalturaDropFolderFile status to ignore (KalturaDropFolderFileStatus::IGNORE)
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
 	 */

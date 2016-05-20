@@ -76,7 +76,6 @@ class AccessControlProfile extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Access Control Profile
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -91,36 +90,31 @@ class AccessControlProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The name of the Access Control Profile
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * System name of the Access Control Profile
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
 
 	/**
 	 * The description of the Access Control Profile
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
-	 * Creation time as Unix timestamp (In seconds) 
-	 * 	 
+	 * Creation time as Unix timestamp (In seconds)
 	 * @var int
 	 * @readonly
 	 */
 	public $createdAt = null;
 
 	/**
-	 * Update time as Unix timestamp (In seconds) 
-	 * 	 
+	 * Update time as Unix timestamp (In seconds)
 	 * @var int
 	 * @readonly
 	 */
@@ -128,14 +122,12 @@ class AccessControlProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * True if this access control profile is the partner default
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $isDefault = null;
 
 	/**
 	 * Array of access control rules
-	 * 	 
 	 * @var array<KalturaRule>
 	 */
 	public $rules;

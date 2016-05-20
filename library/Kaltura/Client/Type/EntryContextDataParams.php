@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Object which contains contextual entry-related data.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -63,28 +62,24 @@ class EntryContextDataParams extends \Kaltura\Client\Type\AccessControlScope
 	}
 	/**
 	 * Id of the current flavor.
-	 * 	 
 	 * @var string
 	 */
 	public $flavorAssetId = null;
 
 	/**
 	 * The tags of the flavors that should be used for playback.
-	 * 	 
 	 * @var string
 	 */
 	public $flavorTags = null;
 
 	/**
 	 * Playback streamer type: RTMP, HTTP, appleHttps, rtsp, sl.
-	 * 	 
 	 * @var string
 	 */
 	public $streamerType = null;
 
 	/**
 	 * Protocol of the specific media object.
-	 * 	 
 	 * @var string
 	 */
 	public $mediaProtocol = null;

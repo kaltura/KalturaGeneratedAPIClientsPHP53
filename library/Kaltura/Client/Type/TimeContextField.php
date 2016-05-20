@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Represents the current time context on Kaltura servers
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class TimeContextField extends \Kaltura\Client\Type\IntegerField
 	}
 	/**
 	 * Time offset in seconds since current time
-	 * 	 
 	 * @var int
 	 */
 	public $offset = null;

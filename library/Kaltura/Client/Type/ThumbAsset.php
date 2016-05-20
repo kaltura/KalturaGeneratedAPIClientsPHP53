@@ -61,15 +61,13 @@ class ThumbAsset extends \Kaltura\Client\Type\Asset
 	}
 	/**
 	 * The Flavor Params used to create this Flavor Asset
-	 * 	 
 	 * @var int
 	 * @insertonly
 	 */
 	public $thumbParamsId = null;
 
 	/**
-	 * The width of the Flavor Asset 
-	 * 	 
+	 * The width of the Flavor Asset
 	 * @var int
 	 * @readonly
 	 */
@@ -77,7 +75,6 @@ class ThumbAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The height of the Flavor Asset
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -85,7 +82,6 @@ class ThumbAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The status of the asset
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ThumbAssetStatus
 	 * @readonly
 	 */

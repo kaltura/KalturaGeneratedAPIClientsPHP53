@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\BulkUploadCsv\Type;
 
 /**
  * Represents the Bulk upload job data for xml bulk upload
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -64,7 +63,6 @@ class BulkUploadCsvJobData extends \Kaltura\Client\Type\BulkUploadJobData
 	}
 	/**
 	 * The version of the csv file
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\BulkUploadCsv\Enum\BulkUploadCsvVersion
 	 * @readonly
 	 */
@@ -72,7 +70,6 @@ class BulkUploadCsvJobData extends \Kaltura\Client\Type\BulkUploadJobData
 
 	/**
 	 * Array containing CSV headers
-	 * 	 
 	 * @var array<KalturaString>
 	 */
 	public $columns;

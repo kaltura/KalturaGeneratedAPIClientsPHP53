@@ -55,7 +55,6 @@ abstract class DeliveryServerNode extends \Kaltura\Client\Type\ServerNode
 	}
 	/**
 	 * Delivery server playback Domain
-	 * 	 
 	 * @var string
 	 */
 	public $playbackDomain = null;

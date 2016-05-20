@@ -63,7 +63,6 @@ class DeliveryProfileGenericRtmp extends \Kaltura\Client\Type\DeliveryProfileRtm
 
 	/**
 	 * rendererClass
-	 * 	 
 	 * @var string
 	 */
 	public $rendererClass = null;

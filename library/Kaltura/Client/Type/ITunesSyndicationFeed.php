@@ -73,42 +73,36 @@ class ITunesSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 	}
 	/**
 	 * feed description
-	 *          
 	 * @var string
 	 */
 	public $feedDescription = null;
 
 	/**
 	 * feed language
-	 *          
 	 * @var string
 	 */
 	public $language = null;
 
 	/**
 	 * feed landing page (i.e publisher website)
-	 *          
 	 * @var string
 	 */
 	public $feedLandingPage = null;
 
 	/**
 	 * author/publisher name
-	 *          
 	 * @var string
 	 */
 	public $ownerName = null;
 
 	/**
 	 * publisher email
-	 *          
 	 * @var string
 	 */
 	public $ownerEmail = null;
 
 	/**
 	 * podcast thumbnail
-	 *          
 	 * @var string
 	 */
 	public $feedImageUrl = null;
@@ -133,8 +127,7 @@ class ITunesSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 	public $feedAuthor = null;
 
 	/**
-	 * true in case you want to enfore the palylist order on the 
-	 * 		 
+	 * true in case you want to enfore the palylist order on the
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $enforceOrder = null;

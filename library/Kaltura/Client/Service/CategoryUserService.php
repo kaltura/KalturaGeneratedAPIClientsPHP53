@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage CategoryUser - membership of a user in a category
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new CategoryUser
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
@@ -69,7 +67,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get CategoryUser by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
@@ -91,7 +88,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update CategoryUser by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
@@ -115,7 +111,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a CategoryUser
-	 * 	 
 	 * 
 	 */
 	function delete($categoryId, $userId)
@@ -133,7 +128,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * activate CategoryUser
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
@@ -155,7 +149,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * reject CategoryUser
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
@@ -177,7 +170,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all categories
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUserListResponse
 	 */
@@ -201,7 +193,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Copy all memeber from parent category
-	 * 	 
 	 * 
 	 */
 	function copyFromCategory($categoryId)
@@ -218,7 +209,6 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Index CategoryUser by userid and category id
-	 * 	 
 	 * 
 	 * @return int
 	 */

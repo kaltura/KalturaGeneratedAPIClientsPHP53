@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Service;
 
 /**
  * Entry Distribution service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Entry Distribution
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -69,7 +67,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Entry Distribution by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -90,7 +87,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Validates Entry Distribution by id for submission
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -111,7 +107,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Entry Distribution by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -133,7 +128,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Entry Distribution by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -150,7 +144,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all distribution providers
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionListResponse
 	 */
@@ -174,7 +167,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Submits Entry Distribution to the remote destination
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -196,7 +188,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Submits Entry Distribution changes to the remote destination
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -217,7 +208,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Submits Entry Distribution report request
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -238,7 +228,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Deletes Entry Distribution from the remote destination
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -259,7 +248,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retries last submit action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
@@ -280,7 +268,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves entry distribution sent data
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -299,7 +286,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves entry distribution returned data
-	 * 	 
 	 * 
 	 * @return file
 	 */

@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage CategoryEntry - assign entry to category
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new CategoryEntry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryEntry
 	 */
@@ -69,7 +67,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete CategoryEntry
-	 * 	 
 	 * 
 	 */
 	function delete($entryId, $categoryId)
@@ -87,7 +84,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all categoryEntry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryEntryListResponse
 	 */
@@ -111,7 +107,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Index CategoryEntry by Id
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -133,7 +128,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * activate CategoryEntry when it is pending moderation
-	 * 	 
 	 * 
 	 */
 	function activate($entryId, $categoryId)
@@ -151,7 +145,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * activate CategoryEntry when it is pending moderation
-	 * 	 
 	 * 
 	 */
 	function reject($entryId, $categoryId)
@@ -169,7 +162,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * update privacy context from the category
-	 * 	 
 	 * 
 	 */
 	function syncPrivacyContext($entryId, $categoryId)

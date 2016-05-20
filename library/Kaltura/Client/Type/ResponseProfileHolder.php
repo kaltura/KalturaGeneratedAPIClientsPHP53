@@ -57,14 +57,12 @@ class ResponseProfileHolder extends \Kaltura\Client\Type\BaseResponseProfile
 	}
 	/**
 	 * Auto generated numeric identifier
-	 * 	 
 	 * @var int
 	 */
 	public $id = null;
 
 	/**
 	 * Unique system name
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;

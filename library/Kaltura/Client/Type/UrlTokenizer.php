@@ -57,14 +57,12 @@ class UrlTokenizer extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Window
-	 * 	 
 	 * @var int
 	 */
 	public $window = null;
 
 	/**
 	 * key
-	 * 	 
 	 * @var string
 	 */
 	public $key = null;

@@ -69,7 +69,6 @@ abstract class EntryServerNode extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * unique auto-generated identifier
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

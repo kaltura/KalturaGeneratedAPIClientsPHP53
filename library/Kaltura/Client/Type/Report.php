@@ -69,7 +69,6 @@ class Report extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Report id
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -77,42 +76,36 @@ class Report extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Partner id associated with the report
-	 * 	 
 	 * @var int
 	 */
 	public $partnerId = null;
 
 	/**
 	 * Report name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * Used to identify system reports in a friendly way
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
 
 	/**
 	 * Report description
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
 	 * Report query
-	 * 	 
 	 * @var string
 	 */
 	public $query = null;
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -120,7 +113,6 @@ class Report extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Last update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

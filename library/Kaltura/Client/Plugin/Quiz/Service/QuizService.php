@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Quiz\Service;
 
 /**
  * Allows user to handle quizzes
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class QuizService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows to add a quiz to an entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Quiz\Type\Quiz
 	 */
@@ -70,7 +68,6 @@ class QuizService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows to update a quiz
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Quiz\Type\Quiz
 	 */
@@ -92,7 +89,6 @@ class QuizService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows to get a quiz
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Quiz\Type\Quiz
 	 */
@@ -113,7 +109,6 @@ class QuizService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List quiz objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Quiz\Type\QuizListResponse
 	 */
@@ -139,7 +134,6 @@ class QuizService extends \Kaltura\Client\ServiceBase
 	 * creates a pdf from quiz object
 	 * 	 The Output type defines the file format in which the quiz will be generated
 	 * 	 Currently only PDF files are supported
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -158,7 +152,6 @@ class QuizService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * sends a with an api request for pdf from quiz object
-	 * 	 
 	 * 
 	 * @return string
 	 */

@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest media that is available on remote server and accessible using the supplied URL, media file will be downloaded using import job in order to make the asset ready.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -63,15 +62,13 @@ class UrlResource extends \Kaltura\Client\Type\ContentResource
 		}
 	}
 	/**
-	 * Remote URL, FTP, HTTP or HTTPS 
-	 * 	 
+	 * Remote URL, FTP, HTTP or HTTPS
 	 * @var string
 	 */
 	public $url = null;
 
 	/**
-	 * Force Import Job 
-	 * 	 
+	 * Force Import Job
 	 * @var bool
 	 */
 	public $forceAsyncDownload = null;

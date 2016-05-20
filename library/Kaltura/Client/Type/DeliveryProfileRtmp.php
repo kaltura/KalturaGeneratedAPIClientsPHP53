@@ -62,14 +62,12 @@ class DeliveryProfileRtmp extends \Kaltura\Client\Type\DeliveryProfile
 	}
 	/**
 	 * enforceRtmpe
-	 * 	 
 	 * @var bool
 	 */
 	public $enforceRtmpe = null;
 
 	/**
 	 * a prefix that is added to all stream urls (replaces storageProfile::rtmpPrefix)
-	 * 	 
 	 * @var string
 	 */
 	public $prefix = null;

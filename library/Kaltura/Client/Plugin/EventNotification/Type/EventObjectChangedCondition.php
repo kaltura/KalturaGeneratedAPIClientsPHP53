@@ -55,7 +55,6 @@ class EventObjectChangedCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * Comma seperated column names to be tested
-	 * 	 
 	 * @var string
 	 */
 	public $modifiedColumns = null;

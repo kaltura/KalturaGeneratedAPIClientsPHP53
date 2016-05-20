@@ -227,7 +227,6 @@ class User extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Admin tags can be updated only by using an admin session
-	 * 	 
 	 * @var string
 	 */
 	public $adminTags = null;
@@ -246,7 +245,6 @@ class User extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -254,15 +252,13 @@ class User extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Last update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
 	public $updatedAt = null;
 
 	/**
-	 * Can be used to store various partner related data as a string 
-	 * 	 
+	 * Can be used to store various partner related data as a string
 	 * @var string
 	 */
 	public $partnerData = null;

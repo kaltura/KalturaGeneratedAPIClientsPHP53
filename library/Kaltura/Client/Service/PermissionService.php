@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Permission service lets you create and manage user permissions
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds a new permission object to the account.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Permission
 	 */
@@ -69,7 +67,6 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieves a permission object using its ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Permission
 	 */
@@ -90,7 +87,6 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Updates an existing permission object.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Permission
 	 */
@@ -112,7 +108,6 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Deletes an existing permission object.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Permission
 	 */
@@ -135,7 +130,6 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 	 * Lists permission objects that are associated with an account.
 	 * 	 Blocked permissions are listed unless you use a filter to exclude them.
 	 * 	 Blocked permissions are listed unless you use a filter to exclude them.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PermissionListResponse
 	 */
@@ -159,7 +153,6 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieves a list of permissions that apply to the current KS.
-	 * 	 
 	 * 
 	 * @return string
 	 */

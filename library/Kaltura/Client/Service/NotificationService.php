@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Notification Service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class NotificationService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Return the notifications for a specific entry id and type
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ClientNotification
 	 */

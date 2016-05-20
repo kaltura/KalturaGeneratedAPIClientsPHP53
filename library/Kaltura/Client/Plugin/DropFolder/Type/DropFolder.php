@@ -180,7 +180,6 @@ class DropFolder extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The ammount of time, in seconds, that should pass so that a file with no change in size we'll be treated as "finished uploading to folder"
-	 * 	 
 	 * @var int
 	 */
 	public $fileSizeCheckInterval = null;

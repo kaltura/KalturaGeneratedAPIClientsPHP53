@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * A string representation to return evaluated dynamic value
- *  
  * @package Kaltura
  * @subpackage Client
  */

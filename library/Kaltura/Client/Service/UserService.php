@@ -36,7 +36,6 @@ namespace Kaltura\Client\Service;
 /**
  * Manage partner users on Kaltura's side
  *  The userId in kaltura is the unique Id in the partner's system, and the [partnerId,Id] couple are unique key in kaltura's DB
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -50,7 +49,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Adds a new user to an existing account in the Kaltura database.
 	 * 	 Input param $id is the unique identifier in the partner's system.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\User
 	 */
@@ -72,7 +70,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Updates an existing user object.
 	 * 	 You can also use this action to update the userId.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\User
 	 */
@@ -94,7 +91,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieves a user object for a specified user ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\User
 	 */
@@ -116,7 +112,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Retrieves a user object for a user's login ID and partner ID.
 	 * 	 A login ID is the email address used by a user to log into the system.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\User
 	 */
@@ -137,7 +132,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Deletes a user from a partner account.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\User
 	 */
@@ -160,7 +154,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * Lists user objects that are associated with an account.
 	 * 	 Blocked users are listed unless you use a filter to exclude them.
 	 * 	 Deleted users are not listed unless you use a filter to include them.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserListResponse
 	 */
@@ -184,7 +177,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Notifies that a user is banned from an account.
-	 * 	 
 	 * 
 	 */
 	function notifyBan($userId)
@@ -201,7 +193,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Logs a user into a partner account with a partner ID, a partner user ID (puser), and a user password.
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -225,7 +216,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Logs a user into a partner account with a user login ID and a user password.
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -249,7 +239,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Updates a user's login data: email, password, name.
-	 * 	 
 	 * 
 	 */
 	function updateLoginData($oldLoginId, $password, $newLoginId = "", $newPassword = "", $newFirstName = null, $newLastName = null)
@@ -271,7 +260,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Reset user's password and send the user an email to generate a new one.
-	 * 	 
 	 * 
 	 */
 	function resetPassword($email)
@@ -288,7 +276,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Set initial users password
-	 * 	 
 	 * 
 	 */
 	function setInitialPassword($hashKey, $newPassword)
@@ -306,7 +293,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Enables a user to log into a partner account using an email address and a password
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\User
 	 */
@@ -330,7 +316,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Disables a user's ability to log into a partner account using an email address and a password.
 	 * 	 You may use either a userId or a loginId parameter for this action.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\User
 	 */
@@ -352,7 +337,6 @@ class UserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Index an entry by id.
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -396,8 +380,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Action which checks whther user login 
-	 *      
+	 * Action which checks whther user login
 	 * 
 	 * @return bool
 	 */

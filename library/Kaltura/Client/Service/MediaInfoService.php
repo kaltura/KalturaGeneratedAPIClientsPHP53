@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Media Info service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class MediaInfoService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List media info objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\MediaInfoListResponse
 	 */

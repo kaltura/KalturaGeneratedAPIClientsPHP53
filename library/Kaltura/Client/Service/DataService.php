@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Data service lets you manage data content (textual content)
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds a new data entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\DataEntry
 	 */
@@ -69,7 +67,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get data entry by ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\DataEntry
 	 */
@@ -91,7 +88,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update data entry. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\DataEntry
 	 */
@@ -113,7 +109,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a data entry.
-	 * 	 
 	 * 
 	 */
 	function delete($entryId)
@@ -130,7 +125,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List data entries by filter with paging support.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\DataListResponse
 	 */
@@ -154,7 +148,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * serve action returan the file from dataContent field.
-	 * 	 
 	 * 
 	 * @return file
 	 */

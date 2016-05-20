@@ -79,7 +79,6 @@ class CodeCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * Duration in milliseconds
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

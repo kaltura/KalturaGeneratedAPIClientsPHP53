@@ -237,7 +237,6 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * deprecated - lastName and firstName replaces this field
-	 * 	 
 	 * @var string
 	 */
 	public $adminName = null;
@@ -394,28 +393,24 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * firstName and lastName replace the old (deprecated) adminName
-	 * 	 
 	 * @var string
 	 */
 	public $firstName = null;
 
 	/**
 	 * lastName and firstName replace the old (deprecated) adminName
-	 * 	 
 	 * @var string
 	 */
 	public $lastName = null;
 
 	/**
 	 * country code (2char) - this field is optional
-	 * 	 
 	 * @var string
 	 */
 	public $country = null;
 
 	/**
 	 * state code (2char) - this field is optional
-	 * 	 
 	 * @var string
 	 */
 	public $state = null;

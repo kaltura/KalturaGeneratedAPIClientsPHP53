@@ -57,14 +57,12 @@ class AccessControlModifyRequestHostRegexAction extends \Kaltura\Client\Type\Rul
 	}
 	/**
 	 * Request host regex pattern
-	 * 	 
 	 * @var string
 	 */
 	public $pattern = null;
 
 	/**
 	 * Request host regex replacment
-	 * 	 
 	 * @var string
 	 */
 	public $replacement = null;

@@ -55,7 +55,6 @@ class DropFolderICalBulkUploadFileHandlerConfig extends \Kaltura\Client\Plugin\D
 	}
 	/**
 	 * The type of the events that ill be created by this upload
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Schedule\Enum\ScheduleEventType
 	 */
 	public $eventsType = null;

@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * API object which provides the recipients of category related notifications.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -59,7 +58,6 @@ class EmailNotificationCategoryRecipientProvider extends \Kaltura\Client\Plugin\
 	}
 	/**
 	 * The ID of the category whose subscribers should receive the email notification.
-	 * 	 
 	 * @var \Kaltura\Client\Type\StringValue
 	 */
 	public $categoryId;

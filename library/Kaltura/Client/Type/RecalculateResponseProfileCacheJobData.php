@@ -72,7 +72,6 @@ class RecalculateResponseProfileCacheJobData extends \Kaltura\Client\Type\Recalc
 	}
 	/**
 	 * http / https
-	 * 	 
 	 * @var string
 	 */
 	public $protocol = null;
@@ -91,7 +90,6 @@ class RecalculateResponseProfileCacheJobData extends \Kaltura\Client\Type\Recalc
 
 	/**
 	 * Class name
-	 * 	 
 	 * @var string
 	 */
 	public $cachedObjectType = null;

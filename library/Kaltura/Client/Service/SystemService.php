@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * System service is used for internal system helpers & to retrieve system level information
- *  
  * @package Kaltura
  * @subpackage Client
  */

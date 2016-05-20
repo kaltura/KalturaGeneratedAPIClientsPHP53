@@ -90,7 +90,6 @@ class BulkUploadResult extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the result
-	 *      
 	 * @var int
 	 * @readonly
 	 */
@@ -98,14 +97,12 @@ class BulkUploadResult extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The id of the parent job
-	 * 	 
 	 * @var int
 	 */
 	public $bulkUploadJobId = null;
 
 	/**
 	 * The index of the line in the CSV
-	 * 	 
 	 * @var int
 	 */
 	public $lineIndex = null;
@@ -148,7 +145,6 @@ class BulkUploadResult extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The data as recieved in the csv
-	 * 	 
 	 * @var string
 	 */
 	public $rowData = null;

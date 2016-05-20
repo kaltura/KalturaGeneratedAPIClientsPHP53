@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage live channel segments
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new live channel segment
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannelSegment
 	 */
@@ -69,7 +67,6 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get live channel segment by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannelSegment
 	 */
@@ -90,7 +87,6 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update live channel segment by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannelSegment
 	 */
@@ -112,7 +108,6 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete live channel segment by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List live channel segments by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannelSegmentListResponse
 	 */

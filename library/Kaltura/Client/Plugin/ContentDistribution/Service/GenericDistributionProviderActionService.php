@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Service;
 
 /**
  * Generic Distribution Provider Actions service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Add new Generic Distribution Provider Action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -69,7 +67,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Add MRSS transform file to generic distribution provider action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -91,7 +88,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Add MRSS transform file to generic distribution provider action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -114,7 +110,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Add MRSS validate file to generic distribution provider action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -136,7 +131,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Add MRSS validate file to generic distribution provider action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -159,7 +153,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Add results transform file to generic distribution provider action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -181,7 +174,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Add MRSS transform file to generic distribution provider action
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -204,7 +196,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Get Generic Distribution Provider Action by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -225,7 +216,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Get Generic Distribution Provider Action by provider id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -247,7 +237,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Update Generic Distribution Provider Action by provider id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -270,7 +259,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Update Generic Distribution Provider Action by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderAction
 	 */
@@ -292,7 +280,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Delete Generic Distribution Provider Action by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -309,7 +296,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * Delete Generic Distribution Provider Action by provider id
-	 * 	 
 	 * 
 	 */
 	function deleteByProviderId($genericDistributionProviderId, $actionType)
@@ -327,7 +313,6 @@ class GenericDistributionProviderActionService extends \Kaltura\Client\ServiceBa
 
 	/**
 	 * List all distribution providers
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProviderActionListResponse
 	 */

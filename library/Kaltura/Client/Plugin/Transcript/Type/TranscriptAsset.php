@@ -59,21 +59,18 @@ class TranscriptAsset extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentA
 	}
 	/**
 	 * The accuracy of the transcript - values between 0 and 1
-	 * 	 
 	 * @var float
 	 */
 	public $accuracy = null;
 
 	/**
 	 * Was verified by human or machine
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $humanVerified = null;
 
 	/**
 	 * The language of the transcript
-	 * 	 
 	 * @var \Kaltura\Client\Enum\Language
 	 */
 	public $language = null;

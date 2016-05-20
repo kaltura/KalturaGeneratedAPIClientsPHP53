@@ -188,14 +188,12 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 
 	/**
 	 * http/rtmp/hdnetwork
-	 * 	 
 	 * @var string
 	 */
 	public $streamerType = null;
 
 	/**
 	 * http/https, rtmp/rtmpe
-	 * 	 
 	 * @var string
 	 */
 	public $mediaProtocol = null;
@@ -208,35 +206,30 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 
 	/**
 	 * Array of messages as received from the access control rules that invalidated
-	 * 	 
 	 * @var array<KalturaString>
 	 */
 	public $accessControlMessages;
 
 	/**
 	 * Array of actions as received from the access control rules that invalidated
-	 * 	 
 	 * @var array<KalturaRuleAction>
 	 */
 	public $accessControlActions;
 
 	/**
 	 * Array of allowed flavor assets according to access control limitations and requested tags
-	 * 	 
 	 * @var array<KalturaFlavorAsset>
 	 */
 	public $flavorAssets;
 
 	/**
 	 * The duration of the entry in milliseconds
-	 * 	 
 	 * @var int
 	 */
 	public $msDuration = null;
 
 	/**
 	 * Array of allowed flavor assets according to access control limitations and requested tags
-	 *      
 	 * @var array<string, KalturaPluginData>
 	 */
 	public $pluginData;

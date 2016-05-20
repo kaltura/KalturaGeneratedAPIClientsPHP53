@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Base class for entry server node
- *  
  * @package Kaltura
  * @subpackage Client
  */

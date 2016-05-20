@@ -207,14 +207,12 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	}
 	/**
 	 * This filter should be in use for retrieving only a specific entry (identified by its entryId).
-	 * 	 
 	 * @var string
 	 */
 	public $idEqual = null;
 
 	/**
 	 * This filter should be in use for retrieving few specific entries (string should include comma separated list of entryId strings).
-	 * 	 
 	 * @var string
 	 */
 	public $idIn = null;
@@ -227,49 +225,42 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It should include only one string to search for in entry names (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $nameLike = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $nameMultiLikeOr = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry names, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $nameMultiLikeAnd = null;
 
 	/**
 	 * This filter should be in use for retrieving entries with a specific name.
-	 * 	 
 	 * @var string
 	 */
 	public $nameEqual = null;
 
 	/**
 	 * This filter should be in use for retrieving only entries which were uploaded by/assigned to users of a specific Kaltura Partner (identified by Partner ID).
-	 * 	 
 	 * @var int
 	 */
 	public $partnerIdEqual = null;
 
 	/**
 	 * This filter should be in use for retrieving only entries within Kaltura network which were uploaded by/assigned to users of few Kaltura Partners  (string should include comma separated list of PartnerIDs)
-	 * 	 
 	 * @var string
 	 */
 	public $partnerIdIn = null;
 
 	/**
 	 * This filter parameter should be in use for retrieving only entries, uploaded by/assigned to a specific user (identified by user Id).
-	 * 	 
 	 * @var string
 	 */
 	public $userIdEqual = null;
@@ -288,42 +279,36 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $tagsLike = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $tagsMultiLikeOr = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $tagsMultiLikeAnd = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It should include only one string to search for in entry tags set by an ADMIN user (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $adminTagsLike = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an OR logic to retrieve entries that contain at least one input string (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $adminTagsMultiLikeOr = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries. It could include few (comma separated) strings for searching in entry tags, set by an ADMIN user, while applying an AND logic to retrieve entries that contain all input strings (no wildcards, spaces are treated as part of the string).
-	 * 	 
 	 * @var string
 	 */
 	public $adminTagsMultiLikeAnd = null;
@@ -336,7 +321,6 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 
 	/**
 	 * All entries within these categories or their child categories.
-	 * 	 
 	 * @var string
 	 */
 	public $categoriesMatchOr = null;
@@ -356,7 +340,6 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	/**
 	 * All entries of the categories, excluding their child categories.
 	 * 	 To include entries of the child categories, use categoryAncestorIdIn, or categoriesMatchOr.
-	 * 	 
 	 * @var string
 	 */
 	public $categoriesIdsMatchOr = null;
@@ -435,14 +418,12 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 
 	/**
 	 * This filter parameter should be in use for retrieving only entries which were created at Kaltura system after a specific time/date (standard timestamp format).
-	 * 	 
 	 * @var int
 	 */
 	public $createdAtGreaterThanOrEqual = null;
 
 	/**
 	 * This filter parameter should be in use for retrieving only entries which were created at Kaltura system before a specific time/date (standard timestamp format).
-	 * 	 
 	 * @var int
 	 */
 	public $createdAtLessThanOrEqual = null;
@@ -479,14 +460,12 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 
 	/**
 	 * This filter should be in use for retrieving specific entries while search match the input string within all of the following metadata attributes: name, description, tags, adminTags.
-	 * 	 
 	 * @var string
 	 */
 	public $searchTextMatchAnd = null;
 
 	/**
 	 * This filter should be in use for retrieving specific entries while search match the input string within at least one of the following metadata attributes: name, description, tags, adminTags.
-	 * 	 
 	 * @var string
 	 */
 	public $searchTextMatchOr = null;

@@ -86,77 +86,66 @@ class EmailNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification
 	}
 	/**
 	 * Define the email body format
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Enum\EmailNotificationFormat
 	 */
 	public $format = null;
 
 	/**
-	 * Define the email subject 
-	 * 	 
+	 * Define the email subject
 	 * @var string
 	 */
 	public $subject = null;
 
 	/**
 	 * Define the email body content
-	 * 	 
 	 * @var string
 	 */
 	public $body = null;
 
 	/**
 	 * Define the email sender email
-	 * 	 
 	 * @var string
 	 */
 	public $fromEmail = null;
 
 	/**
 	 * Define the email sender name
-	 * 	 
 	 * @var string
 	 */
 	public $fromName = null;
 
 	/**
 	 * Email recipient emails and names
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientProvider
 	 */
 	public $to;
 
 	/**
 	 * Email recipient emails and names
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientProvider
 	 */
 	public $cc;
 
 	/**
 	 * Email recipient emails and names
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientProvider
 	 */
 	public $bcc;
 
 	/**
-	 * Default email addresses to whom the reply should be sent. 
-	 * 	 
+	 * Default email addresses to whom the reply should be sent.
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientProvider
 	 */
 	public $replyTo;
 
 	/**
 	 * Define the email priority
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Enum\EmailNotificationTemplatePriority
 	 */
 	public $priority = null;
 
 	/**
 	 * Email address that a reading confirmation will be sent
-	 * 	 
 	 * @var string
 	 */
 	public $confirmReadingTo = null;
@@ -164,7 +153,6 @@ class EmailNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification
 	/**
 	 * Hostname to use in Message-Id and Received headers and as default HELLO string. 
 	 * 	 If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
-	 * 	 
 	 * @var string
 	 */
 	public $hostname = null;
@@ -172,14 +160,12 @@ class EmailNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification
 	/**
 	 * Sets the message ID to be used in the Message-Id header.
 	 * 	 If empty, a unique id will be generated.
-	 * 	 
 	 * @var string
 	 */
 	public $messageID = null;
 
 	/**
 	 * Adds a e-mail custom header
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $customHeaders;

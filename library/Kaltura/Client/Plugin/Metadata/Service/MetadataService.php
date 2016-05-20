@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Metadata\Service;
 
 /**
  * Metadata service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a metadata object and metadata content associated with Kaltura object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */
@@ -72,7 +70,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a metadata object and metadata file associated with Kaltura object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */
@@ -97,7 +94,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a metadata xml data from remote URL
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */
@@ -122,7 +118,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Allows you to add a metadata xml data from remote URL.
 	 * 	 Enables different permissions than addFromUrl action.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */
@@ -146,7 +141,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a metadata object by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */
@@ -167,7 +161,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing metadata object with new XML content
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */
@@ -190,7 +183,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing metadata object with new XML file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */
@@ -213,7 +205,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List metadata objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataListResponse
 	 */
@@ -237,7 +228,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete an existing metadata
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -255,7 +245,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Mark existing metadata as invalid
 	 * 	 Used by batch metadata transform
-	 * 	 
 	 * 
 	 */
 	function invalidate($id, $version = null)
@@ -273,7 +262,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Index metadata by id, will also index the related object
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -294,7 +282,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves metadata XML file
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -312,7 +299,6 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Action transforms current metadata object XML using a provided XSL.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */

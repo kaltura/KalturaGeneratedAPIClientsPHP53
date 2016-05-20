@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest media that uploaded to the system and represented by token that returned from upload.upload action or uploadToken.add action.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -56,8 +55,7 @@ class UploadedFileTokenResource extends \Kaltura\Client\Type\DataCenterContentRe
 			$this->token = (string)$xml->token;
 	}
 	/**
-	 * Token that returned from upload.upload action or uploadToken.add action. 
-	 * 	 
+	 * Token that returned from upload.upload action or uploadToken.add action.
 	 * @var string
 	 */
 	public $token = null;

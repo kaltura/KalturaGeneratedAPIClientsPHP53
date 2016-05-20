@@ -59,21 +59,18 @@ class ConversionAttribute extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the flavor params, set to null for source flavor
-	 * 	 
 	 * @var int
 	 */
 	public $flavorParamsId = null;
 
 	/**
-	 * Attribute name  
-	 * 	 
+	 * Attribute name
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
-	 * Attribute value  
-	 * 	 
+	 * Attribute value
 	 * @var string
 	 */
 	public $value = null;

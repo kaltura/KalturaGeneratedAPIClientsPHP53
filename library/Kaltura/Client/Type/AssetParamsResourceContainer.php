@@ -57,14 +57,12 @@ class AssetParamsResourceContainer extends \Kaltura\Client\Type\Resource
 	}
 	/**
 	 * The content resource to associate with asset params
-	 * 	 
 	 * @var \Kaltura\Client\Type\ContentResource
 	 */
 	public $resource;
 
 	/**
 	 * The asset params to associate with the reaource
-	 * 	 
 	 * @var int
 	 */
 	public $assetParamsId = null;

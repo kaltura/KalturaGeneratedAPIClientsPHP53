@@ -86,7 +86,6 @@ abstract class ConfigurableDistributionProfile extends \Kaltura\Client\Plugin\Co
 
 	/**
 	 * When checking custom XSLT conditions using the fieldConfigArray - address only categories associated with the entry via the categoryEntry object
-	 * 	 
 	 * @var bool
 	 */
 	public $useCategoryEntries = null;

@@ -57,14 +57,12 @@ class UserAgentRestriction extends \Kaltura\Client\Type\BaseRestriction
 	}
 	/**
 	 * User agent restriction type (Allow or deny)
-	 * 	 
 	 * @var \Kaltura\Client\Enum\UserAgentRestrictionType
 	 */
 	public $userAgentRestrictionType = null;
 
 	/**
 	 * A comma seperated list of user agent regular expressions
-	 * 	 
 	 * @var string
 	 */
 	public $userAgentRegexList = null;

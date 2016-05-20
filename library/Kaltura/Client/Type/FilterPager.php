@@ -33,8 +33,7 @@
 namespace Kaltura\Client\Type;
 
 /**
- * The KalturaFilterPager object enables paging management to be applied upon service list actions. 
- *  
+ * The KalturaFilterPager object enables paging management to be applied upon service list actions.
  * @package Kaltura
  * @subpackage Client
  */
@@ -59,14 +58,12 @@ class FilterPager extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The number of objects to retrieve. (Default is 30, maximum page size is 500).
-	 * 	 
 	 * @var int
 	 */
 	public $pageSize = null;
 
 	/**
 	 * The page number for which {pageSize} of objects should be retrieved (Default is 1).
-	 * 	 
 	 * @var int
 	 */
 	public $pageIndex = null;

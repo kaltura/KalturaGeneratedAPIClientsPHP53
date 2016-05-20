@@ -77,49 +77,42 @@ class AccessControlScope extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * URL to be used to test domain conditions.
-	 * 	 
 	 * @var string
 	 */
 	public $referrer = null;
 
 	/**
 	 * IP to be used to test geographic location conditions.
-	 * 	 
 	 * @var string
 	 */
 	public $ip = null;
 
 	/**
 	 * Kaltura session to be used to test session and user conditions.
-	 * 	 
 	 * @var string
 	 */
 	public $ks = null;
 
 	/**
 	 * Browser or client application to be used to test agent conditions.
-	 * 	 
 	 * @var string
 	 */
 	public $userAgent = null;
 
 	/**
 	 * Unix timestamp (In seconds) to be used to test entry scheduling, keep null to use now.
-	 * 	 
 	 * @var int
 	 */
 	public $time = null;
 
 	/**
 	 * Indicates what contexts should be tested. No contexts means any context.
-	 * 	 
 	 * @var array<KalturaAccessControlContextTypeHolder>
 	 */
 	public $contexts;
 
 	/**
 	 * Array of hashes to pass to the access control profile scope
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $hashes;

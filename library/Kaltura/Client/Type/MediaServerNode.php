@@ -69,21 +69,18 @@ abstract class MediaServerNode extends \Kaltura\Client\Type\DeliveryServerNode
 	}
 	/**
 	 * Media server application name
-	 * 	 
 	 * @var string
 	 */
 	public $applicationName = null;
 
 	/**
 	 * Media server playback port configuration by protocol and format
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $mediaServerPortConfig;
 
 	/**
 	 * Media server playback Domain configuration by protocol and format
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $mediaServerPlaybackDomainConfig;

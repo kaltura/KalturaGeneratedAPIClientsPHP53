@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage file assets
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new file asset
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FileAsset
 	 */
@@ -69,7 +67,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get file asset by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FileAsset
 	 */
@@ -90,7 +87,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update file asset by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FileAsset
 	 */
@@ -112,7 +108,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete file asset by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serve file asset by id
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -147,7 +141,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Set content of file asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\FileAsset
 	 */
@@ -169,7 +162,6 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List file assets by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FileAssetListResponse
 	 */

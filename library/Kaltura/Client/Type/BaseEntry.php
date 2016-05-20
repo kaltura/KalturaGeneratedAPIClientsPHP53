@@ -144,7 +144,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Auto generated 10 characters alphanumeric string
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -152,14 +151,12 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry name (Min 1 chars)
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * Entry description
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
@@ -172,15 +169,13 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	public $partnerId = null;
 
 	/**
-	 * The ID of the user who is the owner of this entry 
-	 * 	 
+	 * The ID of the user who is the owner of this entry
 	 * @var string
 	 */
 	public $userId = null;
 
 	/**
-	 * The ID of the user who created this entry 
-	 * 	 
+	 * The ID of the user who created this entry
 	 * @var string
 	 * @insertonly
 	 */
@@ -188,28 +183,24 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry tags
-	 * 	 
 	 * @var string
 	 */
 	public $tags = null;
 
 	/**
 	 * Entry admin tags can be updated only by administrators
-	 * 	 
 	 * @var string
 	 */
 	public $adminTags = null;
 
 	/**
-	 * Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action. 
-	 * 	 
+	 * Comma separated list of full names of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
 	 * @var string
 	 */
 	public $categories = null;
 
 	/**
-	 * Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action. 
-	 * 	 
+	 * Comma separated list of ids of categories to which this entry belongs. Only categories that don't have entitlement (privacy context) are listed, to retrieve the full list of categories, use the categoryEntry.list action.
 	 * @var string
 	 */
 	public $categoriesIds = null;
@@ -223,7 +214,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry moderation status
-	 * 	 
 	 * @var \Kaltura\Client\Enum\EntryModerationStatus
 	 * @readonly
 	 */
@@ -231,7 +221,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Number of moderation requests waiting for this entry
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -239,14 +228,12 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The type of the entry, this is auto filled by the derived entry object
-	 * 	 
 	 * @var \Kaltura\Client\Enum\EntryType
 	 */
 	public $type = null;
 
 	/**
 	 * Entry creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -254,7 +241,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -262,7 +248,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The calculated average rank. rank = totalRank / votes
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -270,7 +255,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The sum of all rank values submitted to the baseEntry.anonymousRank action
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -278,7 +262,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * A count of all requests made to the baseEntry.anonymousRank action
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -291,15 +274,13 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	public $groupId = null;
 
 	/**
-	 * Can be used to store various partner related data as a string 
-	 * 	 
+	 * Can be used to store various partner related data as a string
 	 * @var string
 	 */
 	public $partnerData = null;
 
 	/**
 	 * Download URL for the entry
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -307,7 +288,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Indexed search text for full text search
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -315,14 +295,12 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * License type used for this entry
-	 * 	 
 	 * @var \Kaltura\Client\Enum\LicenseType
 	 */
 	public $licenseType = null;
 
 	/**
 	 * Version of the entry data
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -330,43 +308,37 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Thumbnail URL
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
 	public $thumbnailUrl = null;
 
 	/**
-	 * The Access Control ID assigned to this entry (null when not set, send -1 to remove)  
-	 * 	 
+	 * The Access Control ID assigned to this entry (null when not set, send -1 to remove)
 	 * @var int
 	 */
 	public $accessControlId = null;
 
 	/**
 	 * Entry scheduling start date (null when not set, send -1 to remove)
-	 * 	 
 	 * @var int
 	 */
 	public $startDate = null;
 
 	/**
 	 * Entry scheduling end date (null when not set, send -1 to remove)
-	 * 	 
 	 * @var int
 	 */
 	public $endDate = null;
 
 	/**
 	 * Entry external reference id
-	 * 	 
 	 * @var string
 	 */
 	public $referenceId = null;
 
 	/**
 	 * ID of temporary entry that will replace this entry when it's approved and ready for replacement
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -374,7 +346,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * ID of the entry that will be replaced when the replacement approved and this entry is ready
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -382,7 +353,6 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Status of the replacement readiness and approval
-	 * 	 
 	 * @var \Kaltura\Client\Enum\EntryReplacementStatus
 	 * @readonly
 	 */
@@ -390,28 +360,24 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Can be used to store various partner related data as a numeric value
-	 * 	 
 	 * @var int
 	 */
 	public $partnerSortValue = null;
 
 	/**
-	 * Override the default ingestion profile  
-	 * 	 
+	 * Override the default ingestion profile
 	 * @var int
 	 */
 	public $conversionProfileId = null;
 
 	/**
-	 * IF not empty, points to an entry ID the should replace this current entry's id. 
-	 * 	 
+	 * IF not empty, points to an entry ID the should replace this current entry's id.
 	 * @var string
 	 */
 	public $redirectEntryId = null;
 
 	/**
 	 * ID of source root entry, used for clipped, skipped and cropped entries that created from another entry
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -419,43 +385,37 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * ID of source root entry, used for defining entires association
-	 *  	 
 	 * @var string
 	 */
 	public $parentEntryId = null;
 
 	/**
-	 * clipping, skipping and cropping attributes that used to create this entry  
-	 * 	 
+	 * clipping, skipping and cropping attributes that used to create this entry
 	 * @var array<KalturaOperationAttributes>
 	 */
 	public $operationAttributes;
 
 	/**
 	 * list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
-	 * 	 
 	 * @var string
 	 */
 	public $entitledUsersEdit = null;
 
 	/**
 	 * list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
-	 * 	 
 	 * @var string
 	 */
 	public $entitledUsersPublish = null;
 
 	/**
 	 * Comma seperated string of the capabilities of the entry. Any capability needed can be added to this list.
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
 	public $capabilities = null;
 
 	/**
-	 * Template entry id 
-	 * 	 
+	 * Template entry id
 	 * @var string
 	 * @insertonly
 	 */

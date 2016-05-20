@@ -55,7 +55,6 @@ class CountryCondition extends \Kaltura\Client\Type\MatchCondition
 	}
 	/**
 	 * The ip geo coder engine to be used
-	 * 	 
 	 * @var \Kaltura\Client\Enum\GeoCoderType
 	 */
 	public $geoCoderType = null;

@@ -112,7 +112,6 @@ class LiveReportsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Will serve a requested report
-	 * 	 
 	 * 
 	 * @return string
 	 */

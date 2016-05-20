@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage Categories
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Category
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Category
 	 */
@@ -69,7 +67,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Category by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Category
 	 */
@@ -90,7 +87,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Category
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Category
 	 */
@@ -112,7 +108,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a Category
-	 * 	 
 	 * 
 	 */
 	function delete($id, $moveEntriesToParentCategory = 1)
@@ -130,7 +125,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all categories
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryListResponse
 	 */
@@ -154,7 +148,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Index Category by id
-	 * 	 
 	 * 
 	 * @return int
 	 */
@@ -175,7 +168,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Move categories that belong to the same parent category to a target categroy - enabled only for ks with disable entitlement
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryListResponse
 	 */
@@ -197,7 +189,6 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Unlock categories
-	 * 	 
 	 * 
 	 */
 	function unlockCategories()

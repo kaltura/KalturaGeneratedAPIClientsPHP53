@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Schedule\Service;
 
 /**
  * ScheduleEventResource service lets you create and manage connections between events and resources
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ScheduleEventResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a new KalturaScheduleEventResource object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventResource
 	 */
@@ -69,7 +67,6 @@ class ScheduleEventResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a KalturaScheduleEventResource object by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventResource
 	 */
@@ -91,7 +88,6 @@ class ScheduleEventResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing KalturaScheduleEventResource object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventResource
 	 */
@@ -114,7 +110,6 @@ class ScheduleEventResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the KalturaScheduleEventResource object as deleted
-	 * 	 
 	 * 
 	 */
 	function delete($scheduleEventId, $scheduleResourceId)
@@ -132,7 +127,6 @@ class ScheduleEventResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List KalturaScheduleEventResource objects
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventResourceListResponse
 	 */

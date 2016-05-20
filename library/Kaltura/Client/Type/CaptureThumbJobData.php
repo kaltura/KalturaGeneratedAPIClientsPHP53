@@ -75,7 +75,6 @@ class CaptureThumbJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * The translated path as used by the scheduler
-	 * 	 
 	 * @var string
 	 */
 	public $actualSrcFileSyncLocalPath = null;

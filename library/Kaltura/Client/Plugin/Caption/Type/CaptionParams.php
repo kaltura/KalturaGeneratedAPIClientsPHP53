@@ -63,7 +63,6 @@ class CaptionParams extends \Kaltura\Client\Type\AssetParams
 	}
 	/**
 	 * The language of the caption content
-	 * 	 
 	 * @var \Kaltura\Client\Enum\Language
 	 * @insertonly
 	 */
@@ -71,21 +70,18 @@ class CaptionParams extends \Kaltura\Client\Type\AssetParams
 
 	/**
 	 * Is default caption asset of the entry
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $isDefault = null;
 
 	/**
 	 * Friendly label
-	 * 	 
 	 * @var string
 	 */
 	public $label = null;
 
 	/**
 	 * The caption format
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Caption\Enum\CaptionType
 	 * @insertonly
 	 */
@@ -93,7 +89,6 @@ class CaptionParams extends \Kaltura\Client\Type\AssetParams
 
 	/**
 	 * Id of the caption params or the flavor params to be used as source for the caption creation
-	 * 	 
 	 * @var int
 	 */
 	public $sourceParamsId = null;

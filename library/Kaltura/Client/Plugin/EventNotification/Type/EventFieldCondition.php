@@ -55,7 +55,6 @@ class EventFieldCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * The field to be evaluated at runtime
-	 * 	 
 	 * @var \Kaltura\Client\Type\BooleanField
 	 */
 	public $field;

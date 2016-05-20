@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage Flavor Params
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Flavor Params
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorParams
 	 */
@@ -69,7 +67,6 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Flavor Params by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorParams
 	 */
@@ -90,7 +87,6 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Flavor Params by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorParams
 	 */
@@ -112,7 +108,6 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Flavor Params by ID
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List Flavor Params by filter with paging support (By default - all system default params will be listed too)
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorParamsListResponse
 	 */
@@ -153,7 +147,6 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Flavor Params by Conversion Profile ID
-	 * 	 
 	 * 
 	 * @return array
 	 */

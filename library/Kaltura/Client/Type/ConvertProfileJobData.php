@@ -65,14 +65,12 @@ class ConvertProfileJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * The height of last created thumbnail, will be used to comapare if this thumbnail is the best we can have
-	 * 	 
 	 * @var int
 	 */
 	public $thumbHeight = null;
 
 	/**
 	 * The bit rate of last created thumbnail, will be used to comapare if this thumbnail is the best we can have
-	 * 	 
 	 * @var int
 	 */
 	public $thumbBitrate = null;

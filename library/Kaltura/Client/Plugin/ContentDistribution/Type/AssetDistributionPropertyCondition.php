@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Type;
 
 /**
  * Defines the condition to match a property and value on core asset object (or one if its inherited objects)
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -60,14 +59,12 @@ class AssetDistributionPropertyCondition extends \Kaltura\Client\Plugin\ContentD
 	/**
 	 * The property name to look for, this will match to a getter on the asset object.
 	 * 	 Should be camelCase naming convention (defining "myPropertyName" will look for getMyPropertyName())
-	 * 	 
 	 * @var string
 	 */
 	public $propertyName = null;
 
 	/**
 	 * The value to compare
-	 * 	 
 	 * @var string
 	 */
 	public $propertyValue = null;

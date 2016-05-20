@@ -60,7 +60,6 @@ class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 	}
 	/**
 	 * parameters of the stream we got
-	 * 	 
 	 * @var array<KalturaLiveStreamParams>
 	 */
 	public $streams;

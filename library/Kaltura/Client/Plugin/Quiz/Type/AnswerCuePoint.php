@@ -97,7 +97,6 @@ class AnswerCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * Array of string
-	 * 	 
 	 * @var array<KalturaString>
 	 * @readonly
 	 */

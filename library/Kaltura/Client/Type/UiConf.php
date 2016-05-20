@@ -113,7 +113,6 @@ class UiConf extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Name of the uiConf, this is not a primary key
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
@@ -219,7 +218,6 @@ class UiConf extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -227,7 +225,6 @@ class UiConf extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -247,7 +244,6 @@ class UiConf extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * UiConf version
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */

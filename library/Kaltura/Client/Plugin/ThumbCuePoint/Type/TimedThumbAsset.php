@@ -55,7 +55,6 @@ class TimedThumbAsset extends \Kaltura\Client\Type\ThumbAsset
 	}
 	/**
 	 * Associated thumb cue point ID
-	 * 	 
 	 * @var string
 	 * @insertonly
 	 */

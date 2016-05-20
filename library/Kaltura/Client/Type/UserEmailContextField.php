@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Represents the current session user e-mail address context
- *  
  * @package Kaltura
  * @subpackage Client
  */

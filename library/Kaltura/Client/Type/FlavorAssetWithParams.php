@@ -59,21 +59,18 @@ class FlavorAssetWithParams extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The Flavor Asset (Can be null when there are params without asset)
-	 * 	 
 	 * @var \Kaltura\Client\Type\FlavorAsset
 	 */
 	public $flavorAsset;
 
 	/**
 	 * The Flavor Params
-	 * 	 
 	 * @var \Kaltura\Client\Type\FlavorParams
 	 */
 	public $flavorParams;
 
 	/**
 	 * The entry id
-	 * 	 
 	 * @var string
 	 */
 	public $entryId = null;

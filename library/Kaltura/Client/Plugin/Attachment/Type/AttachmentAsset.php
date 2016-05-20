@@ -61,28 +61,24 @@ class AttachmentAsset extends \Kaltura\Client\Type\Asset
 	}
 	/**
 	 * The filename of the attachment asset content
-	 * 	 
 	 * @var string
 	 */
 	public $filename = null;
 
 	/**
 	 * Attachment asset title
-	 * 	 
 	 * @var string
 	 */
 	public $title = null;
 
 	/**
 	 * The attachment format
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Attachment\Enum\AttachmentType
 	 */
 	public $format = null;
 
 	/**
 	 * The status of the asset
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Attachment\Enum\AttachmentAssetStatus
 	 * @readonly
 	 */

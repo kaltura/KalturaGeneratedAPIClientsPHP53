@@ -77,7 +77,6 @@ class AppToken extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the application token
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -85,7 +84,6 @@ class AppToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The application token
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -99,24 +97,21 @@ class AppToken extends \Kaltura\Client\ObjectBase
 	public $partnerId = null;
 
 	/**
-	 * Creation time as Unix timestamp (In seconds) 
-	 * 	 
+	 * Creation time as Unix timestamp (In seconds)
 	 * @var int
 	 * @readonly
 	 */
 	public $createdAt = null;
 
 	/**
-	 * Update time as Unix timestamp (In seconds) 
-	 * 	 
+	 * Update time as Unix timestamp (In seconds)
 	 * @var int
 	 * @readonly
 	 */
 	public $updatedAt = null;
 
 	/**
-	 * Application token status 
-	 * 	 
+	 * Application token status
 	 * @var \Kaltura\Client\Enum\AppTokenStatus
 	 * @readonly
 	 */
@@ -124,35 +119,30 @@ class AppToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Expiry time of current token (unix timestamp in seconds)
-	 * 	 
 	 * @var int
 	 */
 	public $expiry = null;
 
 	/**
 	 * Type of KS (Kaltura Session) that created using the current token
-	 * 	 
 	 * @var \Kaltura\Client\Enum\SessionType
 	 */
 	public $sessionType = null;
 
 	/**
 	 * User id of KS (Kaltura Session) that created using the current token
-	 * 	 
 	 * @var string
 	 */
 	public $sessionUserId = null;
 
 	/**
 	 * Expiry duration of KS (Kaltura Session) that created using the current token (in seconds)
-	 * 	 
 	 * @var int
 	 */
 	public $sessionDuration = null;
 
 	/**
 	 * Comma separated privileges to be applied on KS (Kaltura Session) that created using the current token
-	 * 	 
 	 * @var string
 	 */
 	public $sessionPrivileges = null;

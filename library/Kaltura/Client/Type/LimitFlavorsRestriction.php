@@ -57,14 +57,12 @@ class LimitFlavorsRestriction extends \Kaltura\Client\Type\BaseRestriction
 	}
 	/**
 	 * Limit flavors restriction type (Allow or deny)
-	 * 	 
 	 * @var \Kaltura\Client\Enum\LimitFlavorsRestrictionType
 	 */
 	public $limitFlavorsRestrictionType = null;
 
 	/**
-	 * Comma separated list of flavor params ids to allow to deny 
-	 * 	 
+	 * Comma separated list of flavor params ids to allow to deny
 	 * @var string
 	 */
 	public $flavorParamsIds = null;

@@ -62,14 +62,12 @@ class DataEntry extends \Kaltura\Client\Type\BaseEntry
 	}
 	/**
 	 * The data of the entry
-	 * 	 
 	 * @var string
 	 */
 	public $dataContent = null;
 
 	/**
 	 * indicator whether to return the object for get action with the dataContent field.
-	 * 	 
 	 * @var bool
 	 * @insertonly
 	 */

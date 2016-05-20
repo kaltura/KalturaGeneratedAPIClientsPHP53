@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * api for getting reports data by the report type and some inputFilter
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -47,8 +46,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * report getGraphs action allows to get a graph data for a specific report. 
-	 * 	 
+	 * report getGraphs action allows to get a graph data for a specific report.
 	 * 
 	 * @return array
 	 */
@@ -71,8 +69,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * report getTotal action allows to get a graph data for a specific report. 
-	 * 	 
+	 * report getTotal action allows to get a graph data for a specific report.
 	 * 
 	 * @return \Kaltura\Client\Type\ReportTotal
 	 */
@@ -94,8 +91,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * report getBaseTotal action allows to get a the total base for storage reports  
-	 * 	 
+	 * report getBaseTotal action allows to get a the total base for storage reports
 	 * 
 	 * @return array
 	 */
@@ -117,8 +113,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * report getTable action allows to get a graph data for a specific report. 
-	 * 	 
+	 * report getTable action allows to get a graph data for a specific report.
 	 * 
 	 * @return \Kaltura\Client\Type\ReportTable
 	 */
@@ -143,7 +138,6 @@ class ReportService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * will create a Csv file for the given report and return the URL to access it
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -172,7 +166,6 @@ class ReportService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Will serve a requested report
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -236,8 +229,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Returns report CSV file executed by string params with the following convention: param1=value1;param2=value2 
-	 * 	 
+	 * Returns report CSV file executed by string params with the following convention: param1=value1;param2=value2
 	 * 
 	 * @return file
 	 */

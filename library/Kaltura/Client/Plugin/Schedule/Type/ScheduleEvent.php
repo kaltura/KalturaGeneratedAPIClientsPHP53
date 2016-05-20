@@ -103,7 +103,6 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Auto-generated unique identifier
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -125,7 +124,6 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Defines a short summary or subject for the event
-	 * 	 
 	 * @var string
 	 */
 	public $summary = null;
@@ -169,21 +167,18 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Specifies the global position for the activity
-	 * 	 
 	 * @var float
 	 */
 	public $geoLatitude = null;
 
 	/**
 	 * Specifies the global position for the activity
-	 * 	 
 	 * @var float
 	 */
 	public $geoLongitude = null;
 
 	/**
 	 * Defines the intended venue for the activity
-	 * 	 
 	 * @var string
 	 */
 	public $location = null;
@@ -202,14 +197,12 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The value for the priority field.
-	 * 	 
 	 * @var int
 	 */
 	public $priority = null;
 
 	/**
 	 * Defines the revision sequence number.
-	 * 	 
 	 * @var int
 	 */
 	public $sequence = null;
@@ -223,21 +216,18 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Duration in seconds
-	 * 	 
 	 * @var int
 	 */
 	public $duration = null;
 
 	/**
 	 * Used to represent contact information or alternately a reference to contact information.
-	 * 	 
 	 * @var string
 	 */
 	public $contact = null;
 
 	/**
 	 * Specifies non-processing information intended to provide a comment to the calendar user.
-	 * 	 
 	 * @var string
 	 */
 	public $comment = null;
@@ -250,7 +240,6 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -258,7 +247,6 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Last update as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

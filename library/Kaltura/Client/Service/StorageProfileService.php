@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Storage Profiles service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class StorageProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds a storage profile to the Kaltura DB.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\StorageProfile
 	 */
@@ -85,7 +83,6 @@ class StorageProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get storage profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\StorageProfile
 	 */
@@ -105,8 +102,7 @@ class StorageProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update storage profile by id 
-	 * 	 
+	 * Update storage profile by id
 	 * 
 	 * @return \Kaltura\Client\Type\StorageProfile
 	 */

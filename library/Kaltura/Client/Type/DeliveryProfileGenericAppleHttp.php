@@ -65,14 +65,12 @@ class DeliveryProfileGenericAppleHttp extends \Kaltura\Client\Type\DeliveryProfi
 
 	/**
 	 * rendererClass
-	 * 	 
 	 * @var string
 	 */
 	public $rendererClass = null;
 
 	/**
 	 * Enable to make playManifest redirect to the domain of the delivery profile
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $manifestRedirect = null;

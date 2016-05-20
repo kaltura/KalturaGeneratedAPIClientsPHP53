@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * Job Data representing the provider of recipients for a single categoryId
- *  
  * @package Kaltura
  * @subpackage Client
  */

@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\BulkUpload\Service;
 
 /**
  * Bulk upload service is used to upload & manage bulk uploads
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class BulkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get bulk upload batch job by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
@@ -69,7 +67,6 @@ class BulkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List bulk upload batch jobs
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUploadListResponse
 	 */
@@ -93,7 +90,6 @@ class BulkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * serve action returns the original file.
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -111,7 +107,6 @@ class BulkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * serveLog action returns the log file for the bulk-upload job.
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -129,7 +124,6 @@ class BulkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Aborts the bulk upload and all its child jobs
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */

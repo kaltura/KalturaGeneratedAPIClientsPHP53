@@ -88,7 +88,6 @@ class Scheduler extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Scheduler
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -96,28 +95,24 @@ class Scheduler extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The id as configured in the batch config
-	 * 	 
 	 * @var int
 	 */
 	public $configuredId = null;
 
 	/**
 	 * The scheduler name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * The host name
-	 * 	 
 	 * @var string
 	 */
 	public $host = null;
 
 	/**
 	 * Array of the last statuses
-	 * 	 
 	 * @var array<KalturaSchedulerStatus>
 	 * @readonly
 	 */
@@ -125,7 +120,6 @@ class Scheduler extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Array of the last configs
-	 * 	 
 	 * @var array<KalturaSchedulerConfig>
 	 * @readonly
 	 */
@@ -133,7 +127,6 @@ class Scheduler extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Array of the workers
-	 * 	 
 	 * @var array<KalturaSchedulerWorker>
 	 * @readonly
 	 */
@@ -141,7 +134,6 @@ class Scheduler extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * creation time
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -149,7 +141,6 @@ class Scheduler extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * last status time
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -157,7 +148,6 @@ class Scheduler extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * last status formated
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */

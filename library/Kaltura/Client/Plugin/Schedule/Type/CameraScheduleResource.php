@@ -55,7 +55,6 @@ class CameraScheduleResource extends \Kaltura\Client\Plugin\Schedule\Type\Schedu
 	}
 	/**
 	 * URL of the stream
-	 * 	 
 	 * @var string
 	 */
 	public $streamUrl = null;

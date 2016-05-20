@@ -69,14 +69,12 @@ class CategoryEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * entry id
-	 * 	 
 	 * @var string
 	 */
 	public $entryId = null;
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -84,7 +82,6 @@ class CategoryEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The full ids of the Category
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -92,7 +89,6 @@ class CategoryEntry extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * CategroyEntry status
-	 * 	 
 	 * @var \Kaltura\Client\Enum\CategoryEntryStatus
 	 * @readonly
 	 */

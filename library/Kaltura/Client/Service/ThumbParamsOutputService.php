@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Thumbnail Params Output service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ThumbParamsOutputService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get thumb params output object by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbParamsOutput
 	 */
@@ -69,7 +67,6 @@ class ThumbParamsOutputService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List thumb params output objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbParamsOutputListResponse
 	 */

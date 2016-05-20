@@ -55,7 +55,6 @@ class UrlTokenizerBitGravity extends \Kaltura\Client\Type\UrlTokenizer
 	}
 	/**
 	 * hashPatternRegex
-	 * 	 
 	 * @var string
 	 */
 	public $hashPatternRegex = null;

@@ -62,14 +62,12 @@ class IpAddressCondition extends \Kaltura\Client\Type\MatchCondition
 	}
 	/**
 	 * allow internal ips
-	 * 	 
 	 * @var bool
 	 */
 	public $acceptInternalIps = null;
 
 	/**
 	 * http header name for extracting the ip
-	 * 	 
 	 * @var string
 	 */
 	public $httpHeader = null;

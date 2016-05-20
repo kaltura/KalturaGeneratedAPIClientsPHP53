@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Service;
 
 /**
  * Distribution Provider service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class DistributionProviderService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all distribution providers
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProviderListResponse
 	 */

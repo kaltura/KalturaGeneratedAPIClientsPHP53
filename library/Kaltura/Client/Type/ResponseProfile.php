@@ -67,7 +67,6 @@ class ResponseProfile extends \Kaltura\Client\Type\DetachedResponseProfile
 	}
 	/**
 	 * Auto generated numeric identifier
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -75,7 +74,6 @@ class ResponseProfile extends \Kaltura\Client\Type\DetachedResponseProfile
 
 	/**
 	 * Unique system name
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
@@ -88,16 +86,14 @@ class ResponseProfile extends \Kaltura\Client\Type\DetachedResponseProfile
 	public $partnerId = null;
 
 	/**
-	 * Creation time as Unix timestamp (In seconds) 
-	 * 	 
+	 * Creation time as Unix timestamp (In seconds)
 	 * @var int
 	 * @readonly
 	 */
 	public $createdAt = null;
 
 	/**
-	 * Update time as Unix timestamp (In seconds) 
-	 * 	 
+	 * Update time as Unix timestamp (In seconds)
 	 * @var int
 	 * @readonly
 	 */

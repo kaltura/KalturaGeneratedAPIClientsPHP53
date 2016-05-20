@@ -57,14 +57,12 @@ class HashCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * hash name
-	 * 	 
 	 * @var string
 	 */
 	public $hashName = null;
 
 	/**
 	 * hash secret
-	 * 	 
 	 * @var string
 	 */
 	public $hashSecret = null;

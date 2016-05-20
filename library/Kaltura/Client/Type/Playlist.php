@@ -76,8 +76,7 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 	 * Content of the playlist - 
 	 * 	 XML if the playlistType is dynamic 
 	 * 	 text if the playlistType is static 
-	 * 	 url if the playlistType is mRss 
-	 * 	 
+	 * 	 url if the playlistType is mRss
 	 * @var string
 	 */
 	public $playlistContent = null;
@@ -90,21 +89,18 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * Maximum count of results to be returned in playlist execution
-	 * 	 
 	 * @var int
 	 */
 	public $totalResults = null;
 
 	/**
 	 * Type of playlist
-	 * 	 
 	 * @var \Kaltura\Client\Enum\PlaylistType
 	 */
 	public $playlistType = null;
 
 	/**
 	 * Number of plays
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -112,7 +108,6 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * Number of views
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -120,7 +115,6 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * The duration in seconds
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -128,7 +122,6 @@ class Playlist extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * The url for this playlist
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */

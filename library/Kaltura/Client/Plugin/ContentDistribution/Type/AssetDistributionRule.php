@@ -62,14 +62,12 @@ class AssetDistributionRule extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The validation error description that will be set on the "data" property on KalturaDistributionValidationErrorMissingAsset if rule was not fulfilled
-	 * 	 
 	 * @var string
 	 */
 	public $validationError = null;
 
 	/**
 	 * An array of asset distribution conditions
-	 * 	 
 	 * @var array<KalturaAssetDistributionCondition>
 	 */
 	public $assetDistributionConditions;

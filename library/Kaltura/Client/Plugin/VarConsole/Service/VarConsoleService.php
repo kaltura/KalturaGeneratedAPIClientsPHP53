@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\VarConsole\Service;
 
 /**
  * Utility service for the Multi-publishers console
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class VarConsoleService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Function which calulates partner usage of a group of a VAR's sub-publishers
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Plugin\VarConsole\Type\PartnerUsageListResponse
 	 */
@@ -74,7 +72,6 @@ class VarConsoleService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Function to change a sub-publisher's status
-	 * 	 
 	 * 
 	 */
 	function updateStatus($id, $status)

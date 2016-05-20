@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\ScheduleBulkUpload\Type;
 
 /**
  * Represents the Bulk upload job data for iCal bulk upload
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class BulkUploadICalJobData extends \Kaltura\Client\Type\BulkUploadJobData
 	}
 	/**
 	 * The type of the events that ill be created by this upload
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Schedule\Enum\ScheduleEventType
 	 */
 	public $eventsType = null;

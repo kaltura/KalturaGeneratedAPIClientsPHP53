@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * JobData representing the dynamic user receipient array
- *  
  * @package Kaltura
  * @subpackage Client
  */

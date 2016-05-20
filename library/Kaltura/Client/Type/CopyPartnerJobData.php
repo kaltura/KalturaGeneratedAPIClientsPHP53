@@ -57,14 +57,12 @@ class CopyPartnerJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * Id of the partner to copy from
-	 * 	 
 	 * @var int
 	 */
 	public $fromPartnerId = null;
 
 	/**
 	 * Id of the partner to copy to
-	 * 	 
 	 * @var int
 	 */
 	public $toPartnerId = null;

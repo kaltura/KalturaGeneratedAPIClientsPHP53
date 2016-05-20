@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Stats Service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -49,7 +48,6 @@ class LiveStatsService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Will write to the event log a single line representing the event
 	 * 	 KalturaStatsEvent $event
-	 * 	 
 	 * 
 	 * @return bool
 	 */

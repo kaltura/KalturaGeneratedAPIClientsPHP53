@@ -84,14 +84,12 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * End time in milliseconds
-	 * 	 
 	 * @var int
 	 */
 	public $endTime = null;
 
 	/**
 	 * Duration in milliseconds
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -99,7 +97,6 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * Depth in the tree
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -107,7 +104,6 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * Number of all descendants
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -115,7 +111,6 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * Number of children, first generation only.
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -123,14 +118,12 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * Is the annotation public.
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $isPublic = null;
 
 	/**
 	 * Should the cue point get indexed on the entry.
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $searchableOnEntry = null;

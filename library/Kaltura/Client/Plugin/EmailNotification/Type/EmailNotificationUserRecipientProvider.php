@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * API class for recipient provider which constructs a dynamic list of recipients according to a user filter
- *  
  * @package Kaltura
  * @subpackage Client
  */

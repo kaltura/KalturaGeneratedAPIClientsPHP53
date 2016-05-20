@@ -71,7 +71,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Upload token unique ID
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -79,7 +78,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Partner ID of the upload token
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -87,7 +85,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * User id for the upload token
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -95,7 +92,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Status of the upload token
-	 * 	 
 	 * @var \Kaltura\Client\Enum\UploadTokenStatus
 	 * @readonly
 	 */
@@ -103,7 +99,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Name of the file for the upload token, can be empty when the upload token is created and will be updated internally after the file is uploaded
-	 * 	 
 	 * @var string
 	 * @insertonly
 	 */
@@ -111,7 +106,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * File size in bytes, can be empty when the upload token is created and will be updated internally after the file is uploaded
-	 * 	 
 	 * @var float
 	 * @insertonly
 	 */
@@ -119,7 +113,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Uploaded file size in bytes, can be used to identify how many bytes were uploaded before resuming
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -127,7 +120,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -135,7 +127,6 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Last update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

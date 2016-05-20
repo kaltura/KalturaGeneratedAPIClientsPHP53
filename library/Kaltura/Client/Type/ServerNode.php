@@ -116,14 +116,12 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * serverNode name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * serverNode uniqe system name
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
@@ -136,7 +134,6 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * serverNode hostName
-	 * 	 
 	 * @var string
 	 */
 	public $hostName = null;
@@ -157,14 +154,12 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * serverNode tags
-	 * 	 
 	 * @var string
 	 */
 	public $tags = null;
 
 	/**
 	 * DC where the serverNode is located
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -172,7 +167,6 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Id of the parent serverNode
-	 * 	 
 	 * @var int
 	 */
 	public $parentId = null;

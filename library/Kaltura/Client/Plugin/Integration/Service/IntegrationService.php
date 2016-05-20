@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Integration\Service;
 
 /**
  * Integration service lets you dispatch integration tasks
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class IntegrationService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Dispatch integration task
-	 * 	 
 	 * 
 	 * @return int
 	 */

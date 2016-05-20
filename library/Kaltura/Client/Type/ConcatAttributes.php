@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Concat operation attributes
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class ConcatAttributes extends \Kaltura\Client\Type\OperationAttributes
 	}
 	/**
 	 * The resource to be concatenated
-	 * 	 
 	 * @var \Kaltura\Client\Type\DataCenterContentResource
 	 */
 	public $resource;

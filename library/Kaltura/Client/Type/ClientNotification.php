@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Client notification object to hold the notification url and the data when sending client side notifications
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -58,15 +57,13 @@ class ClientNotification extends \Kaltura\Client\ObjectBase
 			$this->data = (string)$xml->data;
 	}
 	/**
-	 * The URL where the notification should be sent to 
-	 *      
+	 * The URL where the notification should be sent to
 	 * @var string
 	 */
 	public $url = null;
 
 	/**
 	 * The serialized notification data to send
-	 *      
 	 * @var string
 	 */
 	public $data = null;

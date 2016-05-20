@@ -55,7 +55,6 @@ class StorageExportObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\
 	}
 	/**
 	 * Storage profile id
-	 * 	 
 	 * @var string
 	 */
 	public $storageId = null;

@@ -62,14 +62,12 @@ class EdgeServerNode extends \Kaltura\Client\Type\DeliveryServerNode
 	}
 	/**
 	 * Delivery profile ids
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $deliveryProfileIds;
 
 	/**
 	 * Overdie edge server default configuration - json format
-	 * 	 
 	 * @var string
 	 */
 	public $config = null;

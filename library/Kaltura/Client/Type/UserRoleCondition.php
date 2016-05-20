@@ -55,7 +55,6 @@ class UserRoleCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * Comma separated list of role ids
-	 * 	 
 	 * @var string
 	 */
 	public $roleIds = null;

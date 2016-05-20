@@ -57,14 +57,12 @@ class DeleteEntryFlavorsObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\
 	}
 	/**
 	 * The logic to use to choose the flavors for deletion
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\ScheduledTask\Enum\DeleteFlavorsLogicType
 	 */
 	public $deleteType = null;
 
 	/**
 	 * Comma separated list of flavor param ids to delete or keep
-	 * 	 
 	 * @var string
 	 */
 	public $flavorParamsIds = null;

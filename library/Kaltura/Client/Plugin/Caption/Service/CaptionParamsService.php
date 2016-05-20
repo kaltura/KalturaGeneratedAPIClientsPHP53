@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Caption\Service;
 
 /**
  * Add & Manage Caption Params
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Caption Params
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionParams
 	 */
@@ -69,7 +67,6 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Caption Params by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionParams
 	 */
@@ -90,7 +87,6 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Caption Params by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionParams
 	 */
@@ -112,7 +108,6 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Caption Params by ID
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List Caption Params by filter with paging support (By default - all system default params will be listed too)
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionParamsListResponse
 	 */

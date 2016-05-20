@@ -114,7 +114,6 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Auto generated unique id
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -122,7 +121,6 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry distribution creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -130,7 +128,6 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry distribution last update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -138,7 +135,6 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Entry distribution submission date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -188,42 +184,36 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Comma separated thumbnail asset ids
-	 * 	 
 	 * @var string
 	 */
 	public $thumbAssetIds = null;
 
 	/**
 	 * Comma separated flavor asset ids
-	 * 	 
 	 * @var string
 	 */
 	public $flavorAssetIds = null;
 
 	/**
 	 * Comma separated asset ids
-	 * 	 
 	 * @var string
 	 */
 	public $assetIds = null;
 
 	/**
 	 * Entry distribution publish time as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 */
 	public $sunrise = null;
 
 	/**
 	 * Entry distribution un-publish time as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 */
 	public $sunset = null;
 
 	/**
 	 * The id as returned from the distributed destination
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -231,7 +221,6 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The plays as retrieved from the remote destination reports
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -239,7 +228,6 @@ class EntryDistribution extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The views as retrieved from the remote destination reports
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

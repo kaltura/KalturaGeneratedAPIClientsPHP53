@@ -55,7 +55,6 @@ class DispatchEventNotificationObjectTask extends \Kaltura\Client\Plugin\Schedul
 	}
 	/**
 	 * The event notification template id to dispatch
-	 * 	 
 	 * @var int
 	 */
 	public $eventNotificationTemplateId = null;

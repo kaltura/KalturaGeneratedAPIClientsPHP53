@@ -57,14 +57,12 @@ class SiteRestriction extends \Kaltura\Client\Type\BaseRestriction
 	}
 	/**
 	 * The site restriction type (allow or deny)
-	 * 	 
 	 * @var \Kaltura\Client\Enum\SiteRestrictionType
 	 */
 	public $siteRestrictionType = null;
 
 	/**
 	 * Comma separated list of sites (domains) to allow or deny
-	 * 	 
 	 * @var string
 	 */
 	public $siteList = null;

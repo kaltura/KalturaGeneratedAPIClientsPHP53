@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * A resource that perform operation (transcoding, clipping, cropping) before the flavor is ready.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -66,7 +65,6 @@ class OperationResource extends \Kaltura\Client\Type\ContentResource
 	}
 	/**
 	 * Only KalturaEntryResource and KalturaAssetResource are supported
-	 * 	 
 	 * @var \Kaltura\Client\Type\ContentResource
 	 */
 	public $resource;
@@ -78,8 +76,7 @@ class OperationResource extends \Kaltura\Client\Type\ContentResource
 	public $operationAttributes;
 
 	/**
-	 * ID of alternative asset params to be used instead of the system default flavor params 
-	 * 	 
+	 * ID of alternative asset params to be used instead of the system default flavor params
 	 * @var int
 	 */
 	public $assetParamsId = null;

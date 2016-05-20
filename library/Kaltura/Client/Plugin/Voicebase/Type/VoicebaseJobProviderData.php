@@ -76,35 +76,30 @@ class VoicebaseJobProviderData extends \Kaltura\Client\Plugin\Integration\Type\I
 	}
 	/**
 	 * Entry ID
-	 * 	 
 	 * @var string
 	 */
 	public $entryId = null;
 
 	/**
 	 * Flavor ID
-	 * 	 
 	 * @var string
 	 */
 	public $flavorAssetId = null;
 
 	/**
 	 * input Transcript-asset ID
-	 * 	 
 	 * @var string
 	 */
 	public $transcriptId = null;
 
 	/**
 	 * Caption formats
-	 * 	 
 	 * @var string
 	 */
 	public $captionAssetFormats = null;
 
 	/**
 	 * Api key for service provider
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -112,7 +107,6 @@ class VoicebaseJobProviderData extends \Kaltura\Client\Plugin\Integration\Type\I
 
 	/**
 	 * Api key for service provider
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -120,14 +114,12 @@ class VoicebaseJobProviderData extends \Kaltura\Client\Plugin\Integration\Type\I
 
 	/**
 	 * Transcript content language
-	 * 	 
 	 * @var \Kaltura\Client\Enum\Language
 	 */
 	public $spokenLanguage = null;
 
 	/**
 	 * Transcript Content location
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -135,7 +127,6 @@ class VoicebaseJobProviderData extends \Kaltura\Client\Plugin\Integration\Type\I
 
 	/**
 	 * should replace remote media content
-	 * 	 
 	 * @var bool
 	 */
 	public $replaceMediaContent = null;

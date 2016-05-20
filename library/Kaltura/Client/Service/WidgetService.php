@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * widget service for full widget management
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -49,7 +48,6 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Add new widget, can be attached to entry or kshow
 	 * 	 SourceWidget is ignored.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Widget
 	 */
@@ -70,7 +68,6 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update exisiting widget
-	 *  	 
 	 * 
 	 * @return \Kaltura\Client\Type\Widget
 	 */
@@ -92,7 +89,6 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get widget by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Widget
 	 */
@@ -114,7 +110,6 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Add widget based on existing widget.
 	 * 	 Must provide valid sourceWidgetId
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Widget
 	 */
@@ -135,7 +130,6 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a list of available widget depends on the filter given
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\WidgetListResponse
 	 */

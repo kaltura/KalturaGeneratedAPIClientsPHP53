@@ -59,21 +59,18 @@ class ExecuteMetadataXsltObjectTask extends \Kaltura\Client\Plugin\ScheduledTask
 	}
 	/**
 	 * Metadata profile id to lookup the metadata object
-	 * 	 
 	 * @var int
 	 */
 	public $metadataProfileId = null;
 
 	/**
 	 * Metadata object type to lookup the metadata object
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\Metadata\Enum\MetadataObjectType
 	 */
 	public $metadataObjectType = null;
 
 	/**
 	 * The XSLT to execute
-	 * 	 
 	 * @var string
 	 */
 	public $xslt = null;

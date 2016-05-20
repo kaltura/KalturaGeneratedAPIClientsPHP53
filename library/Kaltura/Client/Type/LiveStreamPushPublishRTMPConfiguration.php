@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * A representation of an RTMP live stream configuration
- *  
  * @package Kaltura
  * @subpackage Client
  */

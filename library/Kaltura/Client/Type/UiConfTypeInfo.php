@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Info about uiconf type
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -68,28 +67,24 @@ class UiConfTypeInfo extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * UiConf Type
-	 * 	 
 	 * @var \Kaltura\Client\Enum\UiConfObjType
 	 */
 	public $type = null;
 
 	/**
 	 * Available versions
-	 *      
 	 * @var array<KalturaString>
 	 */
 	public $versions;
 
 	/**
 	 * The direcotry this type is saved at
-	 *      
 	 * @var string
 	 */
 	public $directory = null;
 
 	/**
 	 * Filename for this UiConf type
-	 *      
 	 * @var string
 	 */
 	public $filename = null;

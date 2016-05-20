@@ -55,7 +55,6 @@ class DeleteJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * The filter should return the list of objects that need to be deleted.
-	 * 	 
 	 * @var \Kaltura\Client\Type\Filter
 	 */
 	public $filter;

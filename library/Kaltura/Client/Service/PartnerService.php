@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * partner service allows you to change/manage your partner personal details and settings as well
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Create a new Partner object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Partner
 	 */
@@ -72,7 +70,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update details and settings of an existing partner
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Partner
 	 */
@@ -94,7 +91,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve partner object by Id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Partner
 	 */
@@ -115,7 +111,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve partner secret and admin secret
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Partner
 	 */
@@ -139,7 +134,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Retrieve all info attributed to the partner
 	 * 	 This action expects no parameters. It returns information for the current KS partnerId.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\Partner
 	 */
@@ -162,7 +156,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	 * 	 Calculation is done according to partner's package
 	 * 	 Additional data returned is a graph points of streaming usage in a timeframe
 	 * 	 The resolution can be "days" or "months"
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PartnerUsage
 	 */
@@ -186,7 +179,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Get usage statistics for a partner
 	 * 	 Calculation is done according to partner's package
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PartnerStatistics
 	 */
@@ -206,7 +198,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a list of partner objects which the current user is allowed to access.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PartnerListResponse
 	 */
@@ -232,7 +223,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	 * List partners by filter with paging support
 	 * 	 Current implementation will only list the sub partners of the partner initiating the api call (using the current KS).
 	 * 	 This action is only partially implemented to support listing sub partners of a VAR partner.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\PartnerListResponse
 	 */
@@ -256,7 +246,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List partner's current processes' statuses
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FeatureStatusListResponse
 	 */
@@ -276,7 +265,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Count partner's existing sub-publishers (count includes the partner itself).
-	 * 	 
 	 * 
 	 * @return int
 	 */

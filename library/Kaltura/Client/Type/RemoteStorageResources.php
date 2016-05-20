@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest media that is available on remote server and accessible using the supplied URL, the media file won't be downloaded but a file sync object of URL type will point to the media URL.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -61,8 +60,7 @@ class RemoteStorageResources extends \Kaltura\Client\Type\ContentResource
 		}
 	}
 	/**
-	 * Array of remote stoage resources 
-	 * 	 
+	 * Array of remote stoage resources
 	 * @var array<KalturaRemoteStorageResource>
 	 */
 	public $resources;

@@ -84,7 +84,6 @@ class AssetParams extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Flavor Params
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -98,28 +97,24 @@ class AssetParams extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The name of the Flavor Params
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * System name of the Flavor Params
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
 
 	/**
 	 * The description of the Flavor Params
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -127,7 +122,6 @@ class AssetParams extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * True if those Flavor Params are part of system defaults
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 * @readonly
 	 */
@@ -135,42 +129,36 @@ class AssetParams extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The Flavor Params tags are used to identify the flavor for different usage (e.g. web, hd, mobile)
-	 * 	 
 	 * @var string
 	 */
 	public $tags = null;
 
 	/**
 	 * Array of partner permisison names that required for using this asset params
-	 * 	 
 	 * @var array<KalturaString>
 	 */
 	public $requiredPermissions;
 
 	/**
 	 * Id of remote storage profile that used to get the source, zero indicates Kaltura data center
-	 * 	 
 	 * @var int
 	 */
 	public $sourceRemoteStorageProfileId = null;
 
 	/**
 	 * Comma seperated ids of remote storage profiles that the flavor distributed to, the distribution done by the conversion engine
-	 * 	 
 	 * @var int
 	 */
 	public $remoteStorageProfileIds = null;
 
 	/**
 	 * Media parser type to be used for post-conversion validation
-	 * 	 
 	 * @var \Kaltura\Client\Enum\MediaParserType
 	 */
 	public $mediaParserType = null;
 
 	/**
 	 * Comma seperated ids of source flavor params this flavor is created from
-	 * 	 
 	 * @var string
 	 */
 	public $sourceAssetParamsIds = null;

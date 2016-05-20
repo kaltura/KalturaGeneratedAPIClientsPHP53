@@ -121,7 +121,6 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Auto generated unique id
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -129,7 +128,6 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Profile creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -137,7 +135,6 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Profile last update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -195,91 +192,78 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Comma separated flavor params ids that should be auto converted
-	 * 	 
 	 * @var string
 	 */
 	public $autoCreateFlavors = null;
 
 	/**
 	 * Comma separated thumbnail params ids that should be auto generated
-	 * 	 
 	 * @var string
 	 */
 	public $autoCreateThumb = null;
 
 	/**
 	 * Comma separated flavor params ids that should be submitted if ready
-	 * 	 
 	 * @var string
 	 */
 	public $optionalFlavorParamsIds = null;
 
 	/**
 	 * Comma separated flavor params ids that required to be ready before submission
-	 * 	 
 	 * @var string
 	 */
 	public $requiredFlavorParamsIds = null;
 
 	/**
 	 * Thumbnail dimensions that should be submitted if ready
-	 * 	 
 	 * @var array<KalturaDistributionThumbDimensions>
 	 */
 	public $optionalThumbDimensions;
 
 	/**
 	 * Thumbnail dimensions that required to be readt before submission
-	 * 	 
 	 * @var array<KalturaDistributionThumbDimensions>
 	 */
 	public $requiredThumbDimensions;
 
 	/**
 	 * Asset Distribution Rules for assets that should be submitted if ready
-	 * 	 
 	 * @var array<KalturaAssetDistributionRule>
 	 */
 	public $optionalAssetDistributionRules;
 
 	/**
 	 * Assets Asset Distribution Rules for assets that are required to be ready before submission
-	 * 	 
 	 * @var array<KalturaAssetDistributionRule>
 	 */
 	public $requiredAssetDistributionRules;
 
 	/**
 	 * If entry distribution sunrise not specified that will be the default since entry creation time, in seconds
-	 * 	 
 	 * @var int
 	 */
 	public $sunriseDefaultOffset = null;
 
 	/**
 	 * If entry distribution sunset not specified that will be the default since entry creation time, in seconds
-	 * 	 
 	 * @var int
 	 */
 	public $sunsetDefaultOffset = null;
 
 	/**
 	 * The best external storage to be used to download the asset files from
-	 * 	 
 	 * @var int
 	 */
 	public $recommendedStorageProfileForDownload = null;
 
 	/**
 	 * The best Kaltura data center to be used to download the asset files to
-	 * 	 
 	 * @var int
 	 */
 	public $recommendedDcForDownload = null;
 
 	/**
 	 * The best Kaltura data center to be used to execute the distribution job
-	 * 	 
 	 * @var int
 	 */
 	public $recommendedDcForExecute = null;

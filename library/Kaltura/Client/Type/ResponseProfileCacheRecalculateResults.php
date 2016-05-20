@@ -57,14 +57,12 @@ class ResponseProfileCacheRecalculateResults extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Last recalculated id
-	 * 	 
 	 * @var string
 	 */
 	public $lastObjectKey = null;
 
 	/**
 	 * Number of recalculated keys
-	 * 	 
 	 * @var int
 	 */
 	public $recalculated = null;

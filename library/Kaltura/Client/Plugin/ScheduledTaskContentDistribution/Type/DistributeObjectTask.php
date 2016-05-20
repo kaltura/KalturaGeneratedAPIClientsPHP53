@@ -55,7 +55,6 @@ class DistributeObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\Obj
 	}
 	/**
 	 * Distribution profile id
-	 * 	 
 	 * @var string
 	 */
 	public $distributionProfileId = null;

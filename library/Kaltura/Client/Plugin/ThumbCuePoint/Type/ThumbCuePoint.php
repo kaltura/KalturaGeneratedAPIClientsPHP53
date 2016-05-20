@@ -79,7 +79,6 @@ class ThumbCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 
 	/**
 	 * The sub type of the ThumbCuePoint
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\CuePoint\Enum\ThumbCuePointSubType
 	 */
 	public $subType = null;

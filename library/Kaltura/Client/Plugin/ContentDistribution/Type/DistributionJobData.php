@@ -102,7 +102,6 @@ class DistributionJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Id of the media in the remote system
-	 * 	 
 	 * @var string
 	 */
 	public $remoteId = null;
@@ -115,29 +114,25 @@ class DistributionJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * Additional data that relevant for the provider only
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionJobProviderData
 	 */
 	public $providerData;
 
 	/**
 	 * The results as returned from the remote destination
-	 * 	 
 	 * @var string
 	 */
 	public $results = null;
 
 	/**
 	 * The data as sent to the remote destination
-	 * 	 
 	 * @var string
 	 */
 	public $sentData = null;
 
 	/**
 	 * Stores array of media files that submitted to the destination site
-	 * 	 Could be used later for media update 
-	 * 	 
+	 * 	 Could be used later for media update
 	 * @var array<KalturaDistributionRemoteMediaFile>
 	 */
 	public $mediaFiles;

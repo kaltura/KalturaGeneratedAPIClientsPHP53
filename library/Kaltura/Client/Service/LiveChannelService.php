@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Live Channel service lets you manage live channels
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds new live channel.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannel
 	 */
@@ -69,7 +67,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get live channel by ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannel
 	 */
@@ -90,7 +87,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update live channel. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannel
 	 */
@@ -112,7 +108,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a live channel.
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List live channels by filter with paging support.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannelListResponse
 	 */
@@ -153,7 +147,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delivering the status of a live channel (on-air/offline)
-	 * 	 
 	 * 
 	 * @return bool
 	 */
@@ -173,7 +166,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Append recorded video to live entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
@@ -199,7 +191,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Register media server to live entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
@@ -224,7 +215,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Unregister media server from live entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
@@ -247,7 +237,6 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Validates all registered media servers
-	 * 	 
 	 * 
 	 */
 	function validateRegisteredMediaServers($entryId)

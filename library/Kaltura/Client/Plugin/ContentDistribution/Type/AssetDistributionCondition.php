@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Type;
 
 /**
  * Abstract class for asset distribution condition
- *  
  * @package Kaltura
  * @subpackage Client
  */

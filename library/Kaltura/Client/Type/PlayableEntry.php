@@ -69,7 +69,6 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 	}
 	/**
 	 * Number of plays
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -77,7 +76,6 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * Number of views
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -85,7 +83,6 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * The last time the entry was played
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -93,7 +90,6 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * The width in pixels
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -101,7 +97,6 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * The height in pixels
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -109,7 +104,6 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * The duration in seconds
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -117,14 +111,12 @@ class PlayableEntry extends \Kaltura\Client\Type\BaseEntry
 
 	/**
 	 * The duration in miliseconds
-	 * 	 
 	 * @var int
 	 */
 	public $msDuration = null;
 
 	/**
 	 * The duration type (short for 0-4 mins, medium for 4-20 mins, long for 20+ mins)
-	 * 	 
 	 * @var \Kaltura\Client\Enum\DurationType
 	 * @readonly
 	 */

@@ -263,7 +263,6 @@ class BatchJob extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The id of the bulk upload job that initiated this job
-	 * 	 
 	 * @var int
 	 */
 	public $bulkJobId = null;
@@ -276,28 +275,24 @@ class BatchJob extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * When one job creates another - the parent should set this parentJobId to be its own id.
-	 * 	 
 	 * @var int
 	 */
 	public $parentJobId = null;
 
 	/**
 	 * The id of the root parent job
-	 * 	 
 	 * @var int
 	 */
 	public $rootJobId = null;
 
 	/**
 	 * The time that the job was pulled from the queue
-	 * 	 
 	 * @var int
 	 */
 	public $queueTime = null;
 
 	/**
 	 * The time that the job was finished or closed as failed
-	 * 	 
 	 * @var int
 	 */
 	public $finishTime = null;

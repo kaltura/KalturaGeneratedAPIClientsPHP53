@@ -34,8 +34,7 @@
 namespace Kaltura\Client\Service;
 
 /**
- * Expose the schema definitions for syndication MRSS, bulk upload XML and other schema types. 
- *  
+ * Expose the schema definitions for syndication MRSS, bulk upload XML and other schema types.
  * @package Kaltura
  * @subpackage Client
  */
@@ -47,8 +46,7 @@ class SchemaService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Serves the requested XSD according to the type and name. 
-	 * 	 
+	 * Serves the requested XSD according to the type and name.
 	 * 
 	 * @return file
 	 */

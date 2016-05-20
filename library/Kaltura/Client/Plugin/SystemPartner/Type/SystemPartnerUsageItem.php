@@ -95,147 +95,126 @@ class SystemPartnerUsageItem extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Partner ID
-	 * 	 
 	 * @var int
 	 */
 	public $partnerId = null;
 
 	/**
 	 * Partner name
-	 * 	 
 	 * @var string
 	 */
 	public $partnerName = null;
 
 	/**
 	 * Partner status
-	 * 	 
 	 * @var \Kaltura\Client\Enum\PartnerStatus
 	 */
 	public $partnerStatus = null;
 
 	/**
 	 * Partner package
-	 * 	 
 	 * @var int
 	 */
 	public $partnerPackage = null;
 
 	/**
 	 * Partner creation date (Unix timestamp)
-	 * 	 
 	 * @var int
 	 */
 	public $partnerCreatedAt = null;
 
 	/**
 	 * Number of player loads in the specific date range
-	 * 	 
 	 * @var int
 	 */
 	public $views = null;
 
 	/**
 	 * Number of plays in the specific date range
-	 * 	 
 	 * @var int
 	 */
 	public $plays = null;
 
 	/**
 	 * Number of new entries created during specific date range
-	 * 	 
 	 * @var int
 	 */
 	public $entriesCount = null;
 
 	/**
 	 * Total number of entries
-	 * 	 
 	 * @var int
 	 */
 	public $totalEntriesCount = null;
 
 	/**
 	 * Number of new video entries created during specific date range
-	 * 	 
 	 * @var int
 	 */
 	public $videoEntriesCount = null;
 
 	/**
 	 * Number of new image entries created during specific date range
-	 * 	 
 	 * @var int
 	 */
 	public $imageEntriesCount = null;
 
 	/**
 	 * Number of new audio entries created during specific date range
-	 * 	 
 	 * @var int
 	 */
 	public $audioEntriesCount = null;
 
 	/**
 	 * Number of new mix entries created during specific date range
-	 * 	 
 	 * @var int
 	 */
 	public $mixEntriesCount = null;
 
 	/**
 	 * The total bandwidth usage during the given date range (in MB)
-	 * 	 
 	 * @var float
 	 */
 	public $bandwidth = null;
 
 	/**
 	 * The total storage consumption (in MB)
-	 * 	 
 	 * @var float
 	 */
 	public $totalStorage = null;
 
 	/**
 	 * The change in storage consumption (new uploads) during the given date range (in MB)
-	 * 	 
 	 * @var float
 	 */
 	public $storage = null;
 
 	/**
 	 * The peak amount of storage consumption during the given date range for the specific publisher
-	 * 	 
 	 * @var float
 	 */
 	public $peakStorage = null;
 
 	/**
 	 * The average amount of storage consumption during the given date range for the specific publisher
-	 * 	 
 	 * @var float
 	 */
 	public $avgStorage = null;
 
 	/**
 	 * The combined amount of bandwidth and storage consumed during the given date range for the specific publisher
-	 * 	 
 	 * @var float
 	 */
 	public $combinedBandwidthStorage = null;
 
 	/**
 	 * Amount of deleted storage in MB
-	 * 	 
 	 * @var float
 	 */
 	public $deletedStorage = null;
 
 	/**
 	 * Amount of transcoding usage in MB
-	 * 	 
 	 * @var float
 	 */
 	public $transcodingUsage = null;

@@ -61,28 +61,24 @@ class UrlRecognizerAkamaiG2O extends \Kaltura\Client\Type\UrlRecognizer
 	}
 	/**
 	 * headerData
-	 * 	 
 	 * @var string
 	 */
 	public $headerData = null;
 
 	/**
 	 * headerSign
-	 * 	 
 	 * @var string
 	 */
 	public $headerSign = null;
 
 	/**
 	 * timeout
-	 * 	 
 	 * @var int
 	 */
 	public $timeout = null;
 
 	/**
 	 * salt
-	 * 	 
 	 * @var string
 	 */
 	public $salt = null;

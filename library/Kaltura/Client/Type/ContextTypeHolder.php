@@ -55,7 +55,6 @@ class ContextTypeHolder extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The type of the condition context
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ContextType
 	 */
 	public $type = null;

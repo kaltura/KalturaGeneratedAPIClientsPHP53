@@ -61,8 +61,7 @@ class AccessControlLimitFlavorsAction extends \Kaltura\Client\Type\RuleAction
 		}
 	}
 	/**
-	 * Comma separated list of flavor ids 
-	 * 	 
+	 * Comma separated list of flavor ids
 	 * @var string
 	 */
 	public $flavorParamsIds = null;

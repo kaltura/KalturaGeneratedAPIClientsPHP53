@@ -48,6 +48,11 @@ class MetadataPlugin extends \Kaltura\Client\Plugin
 	 */
 	protected $metadataProfile = null;
 
+	/**
+	 * @var Service\MetadataBatchService
+	 */
+	protected $metadataBatch = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -69,6 +74,7 @@ class MetadataPlugin extends \Kaltura\Client\Plugin
 		$services = array(
 			'metadata' => $this->getMetadataService(),
 			'metadataProfile' => $this->getMetadataProfileService(),
+			'metadataBatch' => $this->getMetadataBatchService(),
 		);
 		return $services;
 	}
@@ -97,6 +103,15 @@ class MetadataPlugin extends \Kaltura\Client\Plugin
 		if (is_null($this->metadataProfile))
 			$this->metadataProfile = new Service\MetadataProfileService($this->_client);
 		return $this->metadataProfile;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Metadata\Service\MetadataBatchService
+	 */
+	public function getMetadataBatchService()
+	{
+		if (is_null($this->metadataBatch))
+			$this->metadataBatch = new Service\MetadataBatchService($this->_client);
+		return $this->metadataBatch;
 	}
 }
 

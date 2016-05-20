@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage GroupUser
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new GroupUser
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\GroupUser
 	 */
@@ -69,7 +67,6 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * delete by userId and groupId
-	 * 	 
 	 * 
 	 */
 	function delete($userId, $groupId)
@@ -87,7 +84,6 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List all GroupUsers
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\GroupUserListResponse
 	 */

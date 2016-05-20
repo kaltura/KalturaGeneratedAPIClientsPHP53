@@ -78,21 +78,18 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 	}
 	/**
 	 * Entry ID
-	 * 	 
 	 * @var string
 	 */
 	public $entryId = null;
 
 	/**
 	 * Flavor ID
-	 * 	 
 	 * @var string
 	 */
 	public $flavorAssetId = null;
 
 	/**
 	 * Caption formats
-	 * 	 
 	 * @var string
 	 */
 	public $captionAssetFormats = null;
@@ -111,7 +108,6 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 
 	/**
 	 * Api key for service provider
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -119,7 +115,6 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 
 	/**
 	 * Api key for service provider
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -127,7 +122,6 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 
 	/**
 	 * Base url for service provider
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -135,14 +129,12 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 
 	/**
 	 * Transcript content language
-	 * 	 
 	 * @var \Kaltura\Client\Enum\Language
 	 */
 	public $spokenLanguage = null;
 
 	/**
 	 * should replace remote media content
-	 * 	 
 	 * @var bool
 	 */
 	public $replaceMediaContent = null;

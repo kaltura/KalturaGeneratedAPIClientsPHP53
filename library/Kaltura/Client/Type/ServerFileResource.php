@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest media file that is already accessible on the shared disc.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -56,8 +55,7 @@ class ServerFileResource extends \Kaltura\Client\Type\DataCenterContentResource
 			$this->localFilePath = (string)$xml->localFilePath;
 	}
 	/**
-	 * Full path to the local file 
-	 * 	 
+	 * Full path to the local file
 	 * @var string
 	 */
 	public $localFilePath = null;

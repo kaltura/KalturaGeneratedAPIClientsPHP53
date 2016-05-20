@@ -62,14 +62,12 @@ class ConvertEntryFlavorsObjectTask extends \Kaltura\Client\Plugin\ScheduledTask
 	}
 	/**
 	 * Comma separated list of flavor param ids to convert
-	 * 	 
 	 * @var string
 	 */
 	public $flavorParamsIds = null;
 
 	/**
 	 * Should reconvert when flavor already exists?
-	 * 	 
 	 * @var bool
 	 */
 	public $reconvert = null;

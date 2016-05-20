@@ -75,42 +75,36 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	}
 	/**
 	 * Search keywords to filter objects
-	 * 	 
 	 * @var string
 	 */
 	public $keywords = null;
 
 	/**
 	 * Search keywords in onjects tags
-	 * 	 
 	 * @var bool
 	 */
 	public $searchInTags = null;
 
 	/**
 	 * Search keywords in onjects admin tags
-	 * 	 
 	 * @var bool
 	 */
 	public $searchInAdminTags = null;
 
 	/**
 	 * Search onjects in specified categories
-	 * 	 
 	 * @var string
 	 */
 	public $categories = null;
 
 	/**
 	 * Time zone offset in minutes
-	 * 	 
 	 * @var int
 	 */
 	public $timeZoneOffset = null;
 
 	/**
 	 * Aggregated results according to interval
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ReportInterval
 	 */
 	public $interval = null;

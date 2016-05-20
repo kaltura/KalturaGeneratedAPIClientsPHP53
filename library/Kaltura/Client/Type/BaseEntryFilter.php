@@ -80,15 +80,13 @@ class BaseEntryFilter extends \Kaltura\Client\Type\BaseEntryBaseFilter
 	public $categoriesFullNameIn = null;
 
 	/**
-	 * All entries within this categoy or in child categories  
-	 * 	 
+	 * All entries within this categoy or in child categories
 	 * @var string
 	 */
 	public $categoryAncestorIdIn = null;
 
 	/**
 	 * The id of the original entry
-	 * 	 
 	 * @var string
 	 */
 	public $redirectFromEntryId = null;

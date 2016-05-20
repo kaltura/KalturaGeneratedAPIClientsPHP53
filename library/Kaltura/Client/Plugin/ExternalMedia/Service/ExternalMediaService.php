@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ExternalMedia\Service;
 
 /**
  * External media service lets you upload and manage embed codes and external playable content
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ExternalMediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add external media entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ExternalMedia\Type\ExternalMediaEntry
 	 */
@@ -69,7 +67,6 @@ class ExternalMediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get external media entry by ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ExternalMedia\Type\ExternalMediaEntry
 	 */
@@ -90,7 +87,6 @@ class ExternalMediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update external media entry. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ExternalMedia\Type\ExternalMediaEntry
 	 */
@@ -112,7 +108,6 @@ class ExternalMediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a external media entry.
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class ExternalMediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List media entries by filter with paging support.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ExternalMedia\Type\ExternalMediaEntryListResponse
 	 */
@@ -153,7 +147,6 @@ class ExternalMediaService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Count media entries by filter.
-	 * 	 
 	 * 
 	 * @return int
 	 */

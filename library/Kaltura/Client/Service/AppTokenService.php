@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage application authentication tokens
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new application authentication token
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AppToken
 	 */
@@ -69,7 +67,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get application authentication token by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AppToken
 	 */
@@ -90,7 +87,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update application authentication token by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AppToken
 	 */
@@ -112,7 +108,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete application authentication token by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List application authentication tokens by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AppTokenListResponse
 	 */
@@ -153,7 +147,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Starts a new KS (kaltura Session) based on application authentication token id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\SessionInfo
 	 */

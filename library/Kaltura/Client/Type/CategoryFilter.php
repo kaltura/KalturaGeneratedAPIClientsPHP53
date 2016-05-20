@@ -105,7 +105,6 @@ class CategoryFilter extends \Kaltura\Client\Type\CategoryBaseFilter
 
 	/**
 	 * not includes the category itself (only sub categories)
-	 * 	 
 	 * @var string
 	 */
 	public $ancestorIdIn = null;

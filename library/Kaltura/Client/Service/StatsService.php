@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Stats Service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -69,7 +68,6 @@ class StatsService extends \Kaltura\Client\ServiceBase
 	 * 	
 	 * 	
 	 * 	 KalturaStatsEvent $event
-	 * 	 
 	 * 
 	 * @return bool
 	 */
@@ -90,7 +88,6 @@ class StatsService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Will collect the kmcEvent sent form the KMC client
 	 * 	 // this will actually be an empty function because all events will be sent using GET and will anyway be logged in the apache log
-	 * 	 
 	 * 
 	 */
 	function kmcCollect(\Kaltura\Client\Type\StatsKmcEvent $kmcEvent)
@@ -126,7 +123,6 @@ class StatsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Use this action to report errors to the kaltura server.
-	 * 	 
 	 * 
 	 */
 	function reportError($errorCode, $errorMessage)

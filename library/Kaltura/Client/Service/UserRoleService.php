@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * UserRole service lets you create and manage user roles
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds a new user role object to the account.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserRole
 	 */
@@ -69,7 +67,6 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieves a user role object using its ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserRole
 	 */
@@ -90,7 +87,6 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Updates an existing user role object.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserRole
 	 */
@@ -112,7 +108,6 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Deletes an existing user role object.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserRole
 	 */
@@ -135,7 +130,6 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 	 * Lists user role objects that are associated with an account.
 	 * 	 Blocked user roles are listed unless you use a filter to exclude them.
 	 * 	 Deleted user roles are not listed unless you use a filter to include them.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserRoleListResponse
 	 */
@@ -159,7 +153,6 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Creates a new user role object that is a duplicate of an existing role.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserRole
 	 */

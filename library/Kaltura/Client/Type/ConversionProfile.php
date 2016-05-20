@@ -96,7 +96,6 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Conversion Profile
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -124,42 +123,36 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The name of the Conversion Profile
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * System name of the Conversion Profile
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
 
 	/**
 	 * Comma separated tags
-	 * 	 
 	 * @var string
 	 */
 	public $tags = null;
 
 	/**
 	 * The description of the Conversion Profile
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
 	 * ID of the default entry to be used for template data
-	 * 	 
 	 * @var string
 	 */
 	public $defaultEntryId = null;
 
 	/**
-	 * Creation date as Unix timestamp (In seconds) 
-	 * 	 
+	 * Creation date as Unix timestamp (In seconds)
 	 * @var int
 	 * @readonly
 	 */
@@ -167,21 +160,18 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * List of included flavor ids (comma separated)
-	 * 	 
 	 * @var string
 	 */
 	public $flavorParamsIds = null;
 
 	/**
 	 * Indicates that this conversion profile is system default
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $isDefault = null;
 
 	/**
 	 * Indicates that this conversion profile is partner default
-	 * 	 
 	 * @var bool
 	 * @readonly
 	 */
@@ -189,42 +179,36 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Cropping dimensions
-	 * 	 
 	 * @var \Kaltura\Client\Type\CropDimensions
 	 */
 	public $cropDimensions;
 
 	/**
 	 * Clipping start position (in miliseconds)
-	 * 	 
 	 * @var int
 	 */
 	public $clipStart = null;
 
 	/**
 	 * Clipping duration (in miliseconds)
-	 * 	 
 	 * @var int
 	 */
 	public $clipDuration = null;
 
 	/**
 	 * XSL to transform ingestion MRSS XML
-	 * 	 
 	 * @var string
 	 */
 	public $xslTransformation = null;
 
 	/**
 	 * ID of default storage profile to be used for linked net-storage file syncs
-	 * 	 
 	 * @var int
 	 */
 	public $storageProfileId = null;
 
 	/**
 	 * Media parser type to be used for extract media
-	 * 	 
 	 * @var \Kaltura\Client\Enum\MediaParserType
 	 */
 	public $mediaParserType = null;

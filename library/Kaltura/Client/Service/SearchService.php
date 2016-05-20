@@ -36,7 +36,6 @@ namespace Kaltura\Client\Service;
 /**
  * Search service allows you to search for media in various media providers
  *  This service is being used mostly by the CW component
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -49,7 +48,6 @@ class SearchService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Search for media in one of the supported media providers
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\SearchResultResponse
 	 */
@@ -73,7 +71,6 @@ class SearchService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Retrieve extra information about media found in search action
 	 * 	 Some providers return only part of the fields needed to create entry from, use this action to get the rest of the fields.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\SearchResult
 	 */
@@ -96,7 +93,6 @@ class SearchService extends \Kaltura\Client\ServiceBase
 	 * Search for media given a specific URL
 	 * 	 Kaltura supports a searchURL action on some of the media providers.
 	 * 	 This action will return a KalturaSearchResult object based on a given URL (assuming the media provider is supported)
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\SearchResult
 	 */

@@ -64,21 +64,18 @@ class IndexJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * The filter should return the list of objects that need to be reindexed.
-	 * 	 
 	 * @var \Kaltura\Client\Type\Filter
 	 */
 	public $filter;
 
 	/**
 	 * Indicates the last id that reindexed, used when the batch crached, to re-run from the last crash point.
-	 * 	 
 	 * @var int
 	 */
 	public $lastIndexId = null;
 
 	/**
 	 * Indicates that the object columns and attributes values should be recalculated before reindexed.
-	 * 	 
 	 * @var bool
 	 */
 	public $shouldUpdate = null;

@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Schedule\Service;
 
 /**
  * ScheduleResource service lets you create and manage schedule events
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a new KalturaScheduleResource object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
 	 */
@@ -69,7 +67,6 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a KalturaScheduleResource object by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
 	 */
@@ -90,7 +87,6 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing KalturaScheduleResource object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
 	 */
@@ -112,7 +108,6 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the KalturaScheduleResource object as deleted
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
 	 */
@@ -133,7 +128,6 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List KalturaScheduleResource objects
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResourceListResponse
 	 */
@@ -157,7 +151,6 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new bulk upload batch job
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */

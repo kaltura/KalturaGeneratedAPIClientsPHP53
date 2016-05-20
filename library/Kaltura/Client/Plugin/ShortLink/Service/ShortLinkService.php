@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ShortLink\Service;
 
 /**
  * Short link service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List short link objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLinkListResponse
 	 */
@@ -72,7 +70,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a short link object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
 	 */
@@ -93,7 +90,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve an short link object by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
 	 */
@@ -114,7 +110,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update exisitng short link
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
 	 */
@@ -136,7 +131,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the short link as deleted
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
 	 */
@@ -157,7 +151,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves short link
-	 * 	 
 	 * 
 	 * @return file
 	 */

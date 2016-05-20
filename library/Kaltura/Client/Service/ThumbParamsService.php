@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Add & Manage Thumb Params
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new Thumb Params
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbParams
 	 */
@@ -69,7 +67,6 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Thumb Params by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbParams
 	 */
@@ -90,7 +87,6 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update Thumb Params by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbParams
 	 */
@@ -112,7 +108,6 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete Thumb Params by ID
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List Thumb Params by filter with paging support (By default - all system default params will be listed too)
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbParamsListResponse
 	 */
@@ -153,7 +147,6 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get Thumb Params by Conversion Profile ID
-	 * 	 
 	 * 
 	 * @return array
 	 */

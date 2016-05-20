@@ -65,7 +65,6 @@ class FileSyncDescriptor extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The translated path as used by the scheduler
-	 * 	 
 	 * @var string
 	 */
 	public $fileSyncRemoteUrl = null;

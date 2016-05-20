@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\BulkUpload\Type;
 /**
  * This class represents object-specific data passed to the 
  *  bulk upload job.
- *  
  * @package Kaltura
  * @subpackage Client
  */

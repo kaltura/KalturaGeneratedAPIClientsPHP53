@@ -63,7 +63,6 @@ class DeliveryProfileGenericHds extends \Kaltura\Client\Type\DeliveryProfile
 
 	/**
 	 * rendererClass
-	 * 	 
 	 * @var string
 	 */
 	public $rendererClass = null;

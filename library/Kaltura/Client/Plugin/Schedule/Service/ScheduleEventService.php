@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Schedule\Service;
 
 /**
  * ScheduleEvent service lets you create and manage schedule events
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a new KalturaScheduleEvent object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent
 	 */
@@ -69,7 +67,6 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a KalturaScheduleEvent object by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent
 	 */
@@ -90,7 +87,6 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing KalturaScheduleEvent object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent
 	 */
@@ -112,7 +108,6 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the KalturaScheduleEvent object as deleted
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent
 	 */
@@ -133,7 +128,6 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the KalturaScheduleEvent object as cancelled
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent
 	 */
@@ -154,7 +148,6 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List KalturaScheduleEvent objects
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventListResponse
 	 */
@@ -178,7 +171,6 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new bulk upload batch job
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */

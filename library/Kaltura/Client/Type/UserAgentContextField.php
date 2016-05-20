@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Represents the current request user agent context
- *  
  * @package Kaltura
  * @subpackage Client
  */

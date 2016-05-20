@@ -57,7 +57,6 @@ class FlavorAssetUrlOptions extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The name of the downloaded file
-	 * 	 
 	 * @var string
 	 */
 	public $fileName = null;

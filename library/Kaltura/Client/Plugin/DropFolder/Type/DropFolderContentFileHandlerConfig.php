@@ -66,7 +66,6 @@ class DropFolderContentFileHandlerConfig extends \Kaltura\Client\Plugin\DropFold
 	 * 	 The following might be extracted from the file name and used if defined:
 	 * 	 - (?P<referenceId>\w+) - will be used as the drop folder file's parsed slug.
 	 * 	 - (?P<flavorName>\w+)  - will be used as the drop folder file's parsed flavor.
-	 * 	 
 	 * @var string
 	 */
 	public $slugRegex = null;

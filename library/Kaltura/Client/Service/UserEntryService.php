@@ -46,7 +46,6 @@ class UserEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Adds a user_entry to the Kaltura DB.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UserEntry
 	 */
@@ -142,7 +141,6 @@ class UserEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Submits the quiz so that it's status will be submitted and calculates the score for the quiz
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\QuizUserEntry
 	 */

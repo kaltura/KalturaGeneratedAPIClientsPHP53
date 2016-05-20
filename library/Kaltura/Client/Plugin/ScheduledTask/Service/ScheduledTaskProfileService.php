@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\ScheduledTask\Service;
 
 /**
  * Schedule task service lets you create and manage scheduled task profiles
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ScheduledTaskProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add a new scheduled task profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ScheduledTask\Type\ScheduledTaskProfile
 	 */
@@ -69,7 +67,6 @@ class ScheduledTaskProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a scheduled task profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ScheduledTask\Type\ScheduledTaskProfile
 	 */
@@ -90,7 +87,6 @@ class ScheduledTaskProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing scheduled task profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ScheduledTask\Type\ScheduledTaskProfile
 	 */
@@ -112,7 +108,6 @@ class ScheduledTaskProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a scheduled task profile
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -129,7 +124,6 @@ class ScheduledTaskProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List scheduled task profiles
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\ScheduledTask\Type\ScheduledTaskProfileListResponse
 	 */

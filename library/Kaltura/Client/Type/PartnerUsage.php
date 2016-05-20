@@ -65,7 +65,6 @@ class PartnerUsage extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Partner total hosting in GB on the disk
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -73,7 +72,6 @@ class PartnerUsage extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * percent of usage out of partner's package. if usageGB is 5 and package is 10GB, this value will be 50
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -81,7 +79,6 @@ class PartnerUsage extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * package total BW - actually this is usage, which represents BW+storage
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -89,7 +86,6 @@ class PartnerUsage extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * total usage in GB - including bandwidth and storage
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -97,7 +93,6 @@ class PartnerUsage extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * date when partner reached the limit of his package (timestamp)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -107,7 +102,6 @@ class PartnerUsage extends \Kaltura\Client\ObjectBase
 	 * a semi-colon separated list of comma-separated key-values to represent a usage graph.
 	 * 	 keys could be 1-12 for a year view (1,1.2;2,1.1;3,0.9;...;12,1.4;)
 	 * 	 keys could be 1-[28,29,30,31] depending on the requested month, for a daily view in a given month (1,0.4;2,0.2;...;31,0.1;)
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */

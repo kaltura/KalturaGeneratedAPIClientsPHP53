@@ -64,7 +64,6 @@ class MixEntry extends \Kaltura\Client\Type\PlayableEntry
 	}
 	/**
 	 * Indicates whether the user has submited a real thumbnail to the mix (Not the one that was generated automaticaly)
-	 * 	 
 	 * @var bool
 	 * @readonly
 	 */
@@ -72,14 +71,12 @@ class MixEntry extends \Kaltura\Client\Type\PlayableEntry
 
 	/**
 	 * The editor type used to edit the metadata
-	 * 	 
 	 * @var \Kaltura\Client\Enum\EditorType
 	 */
 	public $editorType = null;
 
 	/**
 	 * The xml data of the mix
-	 * 	 
 	 * @var string
 	 */
 	public $dataContent = null;

@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Advanced configuration for entry replacement process
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class EntryReplacementOptions extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * If true manually created thumbnails will not be deleted on entry replacement
-	 * 	 
 	 * @var int
 	 */
 	public $keepManualThumbnails = null;

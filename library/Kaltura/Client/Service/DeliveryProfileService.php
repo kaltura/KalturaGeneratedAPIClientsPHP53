@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * delivery service is used to control delivery objects
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new delivery.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfile
 	 */
@@ -69,7 +67,6 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update exisiting delivery
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfile
 	 */
@@ -91,7 +88,6 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get delivery by id
-	 * 	
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfile
 	 */
@@ -113,7 +109,6 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Add delivery based on existing delivery.
 	 * 	Must provide valid sourceDeliveryId
-	 * 	
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfile
 	 */
@@ -134,7 +129,6 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a list of available delivery depends on the filter given
-	 * 	
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfileListResponse
 	 */

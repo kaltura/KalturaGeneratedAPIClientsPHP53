@@ -55,7 +55,6 @@ class FieldMatchCondition extends \Kaltura\Client\Type\MatchCondition
 	}
 	/**
 	 * Field to evaluate
-	 * 	 
 	 * @var \Kaltura\Client\Type\StringField
 	 */
 	public $field;

@@ -69,7 +69,6 @@ class SchedulerStatus extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Category
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -77,42 +76,36 @@ class SchedulerStatus extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The configured id of the scheduler
-	 * 	 
 	 * @var int
 	 */
 	public $schedulerConfiguredId = null;
 
 	/**
 	 * The configured id of the job worker
-	 * 	 
 	 * @var int
 	 */
 	public $workerConfiguredId = null;
 
 	/**
 	 * The type of the job worker.
-	 * 	 
 	 * @var \Kaltura\Client\Enum\BatchJobType
 	 */
 	public $workerType = null;
 
 	/**
 	 * The status type
-	 * 	 
 	 * @var \Kaltura\Client\Enum\SchedulerStatusType
 	 */
 	public $type = null;
 
 	/**
 	 * The status value
-	 * 	 
 	 * @var int
 	 */
 	public $value = null;
 
 	/**
 	 * The id of the scheduler
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -120,7 +113,6 @@ class SchedulerStatus extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The id of the worker
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

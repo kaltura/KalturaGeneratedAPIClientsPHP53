@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage details for the administrative user
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class AdminUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update admin user password and email
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\AdminUser
 	 */
@@ -72,7 +70,6 @@ class AdminUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Reset admin user password and send it to the users email address
-	 * 	 
 	 * 
 	 */
 	function resetPassword($email)
@@ -89,7 +86,6 @@ class AdminUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get an admin session using admin email and password (Used for login to the KMC application)
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -111,7 +107,6 @@ class AdminUserService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Set initial users password
-	 * 	 
 	 * 
 	 */
 	function setInitialPassword($hashKey, $newPassword)

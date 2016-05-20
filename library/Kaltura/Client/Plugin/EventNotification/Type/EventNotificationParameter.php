@@ -59,7 +59,6 @@ class EventNotificationParameter extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The key in the subject and body to be replaced with the dynamic value
-	 * 	 
 	 * @var string
 	 */
 	public $key = null;
@@ -72,7 +71,6 @@ class EventNotificationParameter extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The dynamic value to be placed in the final output
-	 * 	 
 	 * @var \Kaltura\Client\Type\StringValue
 	 */
 	public $value;

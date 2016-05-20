@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * A representation of a live stream recording entry configuration
- *  
  * @package Kaltura
  * @subpackage Client
  */

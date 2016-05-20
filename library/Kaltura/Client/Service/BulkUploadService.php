@@ -36,7 +36,6 @@ namespace Kaltura\Client\Service;
 /**
  * Bulk upload service is used to upload & manage bulk uploads using CSV files.
  *  This service manages only entry bulk uploads.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -51,7 +50,6 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 	 * Add new bulk upload batch job
 	 * 	 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
 	 * 	 If no conversion profile was specified, partner's default will be used
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
@@ -77,7 +75,6 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get bulk upload batch job by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
@@ -98,7 +95,6 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List bulk upload batch jobs
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUploadListResponse
 	 */
@@ -120,7 +116,6 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * serve action returan the original file.
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -138,7 +133,6 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * serveLog action returan the original file.
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -156,7 +150,6 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Aborts the bulk upload and all its child jobs
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */

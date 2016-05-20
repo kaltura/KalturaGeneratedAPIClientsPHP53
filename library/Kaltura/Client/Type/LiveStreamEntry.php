@@ -90,7 +90,6 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 	}
 	/**
 	 * The stream id as provided by the provider
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -98,7 +97,6 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 
 	/**
 	 * The backup stream id as provided by the provider
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -106,7 +104,6 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 
 	/**
 	 * Array of supported bitrates
-	 * 	 
 	 * @var array<KalturaLiveStreamBitrate>
 	 */
 	public $bitrates;
@@ -143,57 +140,49 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 
 	/**
 	 * The stream url
-	 * 	 
 	 * @var string
 	 */
 	public $streamUrl = null;
 
 	/**
 	 * HLS URL - URL for live stream playback on mobile device
-	 * 	 
 	 * @var string
 	 */
 	public $hlsStreamUrl = null;
 
 	/**
 	 * URL Manager to handle the live stream URL (for instance, add token)
-	 * 	 
 	 * @var string
 	 */
 	public $urlManager = null;
 
 	/**
 	 * The broadcast primary ip
-	 * 	 
 	 * @var string
 	 */
 	public $encodingIP1 = null;
 
 	/**
 	 * The broadcast secondary ip
-	 * 	 
 	 * @var string
 	 */
 	public $encodingIP2 = null;
 
 	/**
 	 * The broadcast password
-	 * 	 
 	 * @var string
 	 */
 	public $streamPassword = null;
 
 	/**
 	 * The broadcast username
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
 	public $streamUsername = null;
 
 	/**
-	 * The Streams primary server node id 
-	 * 	 
+	 * The Streams primary server node id
 	 * @var int
 	 * @readonly
 	 */

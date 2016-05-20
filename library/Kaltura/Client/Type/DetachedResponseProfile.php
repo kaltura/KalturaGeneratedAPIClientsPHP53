@@ -77,7 +77,6 @@ class DetachedResponseProfile extends \Kaltura\Client\Type\BaseResponseProfile
 	}
 	/**
 	 * Friendly name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
@@ -90,7 +89,6 @@ class DetachedResponseProfile extends \Kaltura\Client\Type\BaseResponseProfile
 
 	/**
 	 * Comma separated fields list to be included or excluded
-	 * 	 
 	 * @var string
 	 */
 	public $fields = null;

@@ -66,7 +66,6 @@ class QuestionCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	}
 	/**
 	 * Array of key value answerKey->optionAnswer objects
-	 * 	 
 	 * @var array<string, KalturaOptionalAnswer>
 	 */
 	public $optionalAnswers;

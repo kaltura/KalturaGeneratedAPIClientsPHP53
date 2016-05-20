@@ -27,30 +27,3 @@
 // @ignore
 // ===================================================================================================
 
-/**
- * @namespace
- */
-namespace Kaltura\Client\Plugin\SystemPartner\Enum;
-
-/**
- * @package Kaltura
- * @subpackage Client
- */
-class SystemPartnerLimitType extends \Kaltura\Client\EnumBase
-{
-	const ACCESS_CONTROLS = "ACCESS_CONTROLS";
-	const ADMIN_LOGIN_USERS = "ADMIN_LOGIN_USERS";
-	const BULK_SIZE = "BULK_SIZE";
-	const END_USERS = "END_USERS";
-	const ENTRIES = "ENTRIES";
-	const LIVE_STREAM_INPUTS = "LIVE_STREAM_INPUTS";
-	const LIVE_STREAM_OUTPUTS = "LIVE_STREAM_OUTPUTS";
-	const LOGIN_USERS = "LOGIN_USERS";
-	const MONTHLY_BANDWIDTH = "MONTHLY_BANDWIDTH";
-	const MONTHLY_STORAGE = "MONTHLY_STORAGE";
-	const MONTHLY_STORAGE_AND_BANDWIDTH = "MONTHLY_STORAGE_AND_BANDWIDTH";
-	const MONTHLY_STREAM_ENTRIES = "MONTHLY_STREAM_ENTRIES";
-	const PUBLISHERS = "PUBLISHERS";
-	const USER_LOGIN_ATTEMPTS = "USER_LOGIN_ATTEMPTS";
-}
-

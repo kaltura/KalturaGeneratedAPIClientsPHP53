@@ -65,7 +65,6 @@ class PartnerStatistics extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Package total allowed bandwidth and storage
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -73,7 +72,6 @@ class PartnerStatistics extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Partner total hosting in GB on the disk
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -81,7 +79,6 @@ class PartnerStatistics extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Partner total bandwidth in GB
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -89,7 +86,6 @@ class PartnerStatistics extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * total usage in GB - including bandwidth and storage
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -97,7 +93,6 @@ class PartnerStatistics extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Percent of usage out of partner's package. if usage is 5GB and package is 10GB, this value will be 50
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -105,7 +100,6 @@ class PartnerStatistics extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * date when partner reached the limit of his package (timestamp)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

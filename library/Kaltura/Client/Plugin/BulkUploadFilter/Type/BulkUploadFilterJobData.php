@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\BulkUploadFilter\Type;
 
 /**
  * Represents the Bulk upload job data for filter bulk upload
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -58,15 +57,13 @@ class BulkUploadFilterJobData extends \Kaltura\Client\Type\BulkUploadJobData
 			$this->templateObject = \Kaltura\Client\ParseUtils::unmarshalObject($xml->templateObject, "KalturaObjectBase");
 	}
 	/**
-	 * Filter for extracting the objects list to upload 
-	 * 	 
+	 * Filter for extracting the objects list to upload
 	 * @var \Kaltura\Client\Type\Filter
 	 */
 	public $filter;
 
 	/**
 	 * Template object for new object creation
-	 * 	 
 	 * @var \Kaltura\Client\Type\KalturaObjectBase
 	 */
 	public $templateObject;

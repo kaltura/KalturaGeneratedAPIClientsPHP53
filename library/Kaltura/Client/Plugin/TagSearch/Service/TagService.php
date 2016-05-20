@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\TagSearch\Service;
 
 /**
  * Search object tags
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -69,7 +68,6 @@ class TagService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Action goes over all tags with instanceCount==0 and checks whether they need to be removed from the DB. Returns number of removed tags.
-	 *      
 	 * 
 	 * @return int
 	 */

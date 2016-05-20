@@ -33,8 +33,7 @@
 namespace Kaltura\Client\Plugin\HttpNotification\Type;
 
 /**
- * Wrapper for sent notifications 
- *  
+ * Wrapper for sent notifications
  * @package Kaltura
  * @subpackage Client
  */
@@ -69,49 +68,42 @@ class HttpNotification extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Object that triggered the notification
-	 * 	 
 	 * @var \Kaltura\Client\Type\KalturaObjectBase
 	 */
 	public $object;
 
 	/**
 	 * Object type that triggered the notification
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EventNotification\Enum\EventNotificationEventObjectType
 	 */
 	public $eventObjectType = null;
 
 	/**
 	 * ID of the batch job that execute the notification
-	 * 	 
 	 * @var int
 	 */
 	public $eventNotificationJobId = null;
 
 	/**
 	 * ID of the template that triggered the notification
-	 * 	 
 	 * @var int
 	 */
 	public $templateId = null;
 
 	/**
 	 * Name of the template that triggered the notification
-	 * 	 
 	 * @var string
 	 */
 	public $templateName = null;
 
 	/**
 	 * System name of the template that triggered the notification
-	 * 	 
 	 * @var string
 	 */
 	public $templateSystemName = null;
 
 	/**
 	 * Ecent type that triggered the notification
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EventNotification\Enum\EventNotificationEventType
 	 */
 	public $eventType = null;

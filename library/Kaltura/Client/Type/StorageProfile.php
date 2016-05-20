@@ -264,14 +264,12 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * No need to create enum for temp field
-	 * 	 
 	 * @var int
 	 */
 	public $trigger = null;
 
 	/**
 	 * Delivery Priority
-	 * 	 
 	 * @var int
 	 */
 	public $deliveryPriority = null;
@@ -290,28 +288,24 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Flag sugnifying that the storage exported content should be deleted when soure entry is deleted
-	 * 	 
 	 * @var int
 	 */
 	public $allowAutoDelete = null;
 
 	/**
 	 * Indicates to the local file transfer manager to create a link to the file instead of copying it
-	 * 	 
 	 * @var bool
 	 */
 	public $createFileLink = null;
 
 	/**
 	 * Holds storage profile export rules
-	 * 	 
 	 * @var array<KalturaRule>
 	 */
 	public $rules;
 
 	/**
 	 * Delivery profile ids
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $deliveryProfileIds;

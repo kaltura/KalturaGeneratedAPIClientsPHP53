@@ -57,14 +57,12 @@ class UrlRecognizer extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The hosts that are recognized
-	 * 	 
 	 * @var string
 	 */
 	public $hosts = null;
 
 	/**
 	 * The URI prefix we use for security
-	 * 	 
 	 * @var string
 	 */
 	public $uriPrefix = null;

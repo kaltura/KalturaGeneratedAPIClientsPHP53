@@ -35,7 +35,6 @@ namespace Kaltura\Client\Type;
 /**
  * This class represents object-specific data passed to the 
  *  bulk upload job.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -58,7 +57,6 @@ class BulkUploadEntryData extends \Kaltura\Client\Type\BulkUploadObjectData
 	}
 	/**
 	 * Selected profile id for all bulk entries
-	 *      
 	 * @var int
 	 */
 	public $conversionProfileId = null;

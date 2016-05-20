@@ -72,7 +72,6 @@ class DistributionValidationErrorInvalidData extends \Kaltura\Client\Plugin\Cont
 	/**
 	 * Parameter of the validation error
 	 * 	 For example, minimum value for KalturaDistributionValidationErrorType::STRING_TOO_SHORT validation error
-	 * 	 
 	 * @var string
 	 */
 	public $validationErrorParam = null;

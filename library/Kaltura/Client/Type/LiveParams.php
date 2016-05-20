@@ -55,7 +55,6 @@ class LiveParams extends \Kaltura\Client\Type\FlavorParams
 	}
 	/**
 	 * Suffix to be added to the stream name after the entry id {entry_id}_{stream_suffix}, e.g. for entry id 0_kjdu5jr6 and suffix 1, the stream name will be 0_kjdu5jr6_1
-	 * 	 
 	 * @var string
 	 */
 	public $streamSuffix = null;

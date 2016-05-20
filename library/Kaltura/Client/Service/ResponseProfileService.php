@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage response profiles
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new response profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ResponseProfile
 	 */
@@ -69,7 +67,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get response profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ResponseProfile
 	 */
@@ -90,7 +87,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update response profile by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ResponseProfile
 	 */
@@ -112,7 +108,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update response profile status by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ResponseProfile
 	 */
@@ -134,7 +129,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete response profile by id
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -151,7 +145,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List response profiles by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ResponseProfileListResponse
 	 */
@@ -175,7 +168,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Recalculate response profile cached objects
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ResponseProfileCacheRecalculateResults
 	 */
@@ -196,7 +188,6 @@ class ResponseProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Clone an existing response profile
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ResponseProfile
 	 */

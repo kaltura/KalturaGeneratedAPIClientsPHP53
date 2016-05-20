@@ -57,7 +57,6 @@ class KontikiStorageDeleteJobData extends \Kaltura\Client\Type\StorageDeleteJobD
 	}
 	/**
 	 * Unique Kontiki MOID for the content uploaded to Kontiki
-	 *      
 	 * @var string
 	 */
 	public $contentMoid = null;

@@ -55,7 +55,6 @@ class DirectoryRestriction extends \Kaltura\Client\Type\BaseRestriction
 	}
 	/**
 	 * Kaltura directory restriction type
-	 * 	 
 	 * @var \Kaltura\Client\Enum\DirectoryRestrictionType
 	 */
 	public $directoryRestrictionType = null;

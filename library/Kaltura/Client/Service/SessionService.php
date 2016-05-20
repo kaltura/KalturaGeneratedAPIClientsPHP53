@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Session service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -49,7 +48,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Start a session with Kaltura's server.
 	 * 	 The result KS is the session key that you should pass to all services that requires a ticket.
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -74,7 +72,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * End a session with the Kaltura server, making the current KS invalid.
-	 * 	 
 	 * 
 	 */
 	function end()
@@ -91,7 +88,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Start an impersonated session with Kaltura's server.
 	 * 	 The result KS is the session key that you should pass to all services that requires a ticket.
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -119,7 +115,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 	 * Start an impersonated session with Kaltura's server.
 	 * 	 The result KS info contains the session key that you should pass to all services that requires a ticket.
 	 * 	 Type, expiry and privileges won't be changed if they're not set
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\SessionInfo
 	 */
@@ -143,7 +138,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Parse session key and return its info
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\SessionInfo
 	 */
@@ -164,7 +158,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Start a session for Kaltura's flash widgets
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\StartWidgetSessionResponse
 	 */

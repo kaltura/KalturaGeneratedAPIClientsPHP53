@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Flavor Params Output service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class FlavorParamsOutputService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get flavor params output object by ID
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorParamsOutput
 	 */
@@ -69,7 +67,6 @@ class FlavorParamsOutputService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List flavor params output objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorParamsOutputListResponse
 	 */

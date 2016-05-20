@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest media that is available on remote SSH server and accessible using the supplied URL, media file will be downloaded using import job in order to make the asset ready.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -61,21 +60,18 @@ class SshUrlResource extends \Kaltura\Client\Type\UrlResource
 	}
 	/**
 	 * SSH private key
-	 * 	 
 	 * @var string
 	 */
 	public $privateKey = null;
 
 	/**
 	 * SSH public key
-	 * 	 
 	 * @var string
 	 */
 	public $publicKey = null;
 
 	/**
 	 * Passphrase for SSH keys
-	 * 	 
 	 * @var string
 	 */
 	public $keyPassphrase = null;

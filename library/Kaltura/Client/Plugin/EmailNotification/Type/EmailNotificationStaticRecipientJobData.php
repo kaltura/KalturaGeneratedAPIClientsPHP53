@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * JobData representing the static receipient array
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -62,7 +61,6 @@ class EmailNotificationStaticRecipientJobData extends \Kaltura\Client\Plugin\Ema
 	}
 	/**
 	 * Email to emails and names
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $emailRecipients;

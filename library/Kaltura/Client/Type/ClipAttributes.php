@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Clip operation attributes
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -59,14 +58,12 @@ class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
 	}
 	/**
 	 * Offset in milliseconds
-	 * 	 
 	 * @var int
 	 */
 	public $offset = null;
 
 	/**
 	 * Duration in milliseconds
-	 * 	 
 	 * @var int
 	 */
 	public $duration = null;

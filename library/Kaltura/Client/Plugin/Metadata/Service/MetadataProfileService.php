@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Metadata\Service;
 
 /**
  * Metadata Profile service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a metadata profile object and metadata profile content associated with Kaltura object type
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -71,7 +69,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add a metadata profile object and metadata profile file associated with Kaltura object type
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -95,7 +92,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a metadata profile object by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -116,7 +112,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing metadata object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -140,7 +135,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List metadata profile objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfileListResponse
 	 */
@@ -164,7 +158,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List metadata profile fields by metadata profile id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfileFieldListResponse
 	 */
@@ -185,7 +178,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete an existing metadata profile
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -202,7 +194,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing metadata object definition file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -224,7 +215,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing metadata object definition file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -247,7 +237,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing metadata object views file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -270,7 +259,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing metadata object xslt file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */
@@ -293,7 +281,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves metadata profile XSD file
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -311,7 +298,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves metadata profile view file
-	 * 	 
 	 * 
 	 * @return file
 	 */

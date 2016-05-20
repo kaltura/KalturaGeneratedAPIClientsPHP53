@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Live Stream service lets you manage live stream entries
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -49,7 +48,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Adds new live stream entry.
 	 * 	 The entry will be queued for provision.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -71,7 +69,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get live stream entry by ID.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -93,7 +90,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Authenticate live-stream entry against stream token and partner limitations
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -118,7 +114,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update live stream entry. Only the properties that were set will be updated.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -140,7 +135,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete a live stream entry.
-	 * 	 
 	 * 
 	 */
 	function delete($entryId)
@@ -157,7 +151,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List live stream entries by filter with paging support.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamListResponse
 	 */
@@ -181,7 +174,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update live stream entry thumbnail using a raw jpeg file
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -204,7 +196,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update entry thumbnail using url
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -226,7 +217,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delivering the status of a live stream (on-air/offline) if it is possible
-	 * 	 
 	 * 
 	 * @return bool
 	 */
@@ -247,7 +237,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add new pushPublish configuration to entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -272,7 +261,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Remove push publish configuration from entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
@@ -294,7 +282,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Append recorded video to live entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
@@ -320,7 +307,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Register media server to live entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
@@ -345,7 +331,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Unregister media server from live entry
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
@@ -368,7 +353,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Validates all registered media servers
-	 * 	 
 	 * 
 	 */
 	function validateRegisteredMediaServers($entryId)
@@ -385,7 +369,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Creates perioding metadata sync-point events on a live stream
-	 * 	 
 	 * 
 	 */
 	function createPeriodicSyncPoints($entryId, $interval, $duration)

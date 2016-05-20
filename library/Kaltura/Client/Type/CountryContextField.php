@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Represents the current request country context as calculated based on the IP address
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class CountryContextField extends \Kaltura\Client\Type\StringField
 	}
 	/**
 	 * The ip geo coder engine to be used
-	 * 	 
 	 * @var \Kaltura\Client\Enum\GeoCoderType
 	 */
 	public $geoCoderType = null;

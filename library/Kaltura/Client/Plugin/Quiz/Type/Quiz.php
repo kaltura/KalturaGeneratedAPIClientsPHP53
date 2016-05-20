@@ -81,7 +81,6 @@ class Quiz extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Array of key value ui related objects
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $uiAttributes;

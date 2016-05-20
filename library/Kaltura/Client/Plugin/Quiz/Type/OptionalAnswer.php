@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\Quiz\Type;
 
 /**
  * A representation of an optional answer for question cue point
- *  
  * @package Kaltura
  * @subpackage Client
  */

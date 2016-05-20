@@ -59,21 +59,18 @@ class SystemPartnerUsageFilter extends \Kaltura\Client\Type\Filter
 	}
 	/**
 	 * Date range from
-	 * 	 
 	 * @var int
 	 */
 	public $fromDate = null;
 
 	/**
 	 * Date range to
-	 * 	 
 	 * @var int
 	 */
 	public $toDate = null;
 
 	/**
 	 * Time zone offset
-	 * 	 
 	 * @var int
 	 */
 	public $timezoneOffset = null;

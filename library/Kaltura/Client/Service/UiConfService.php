@@ -36,7 +36,6 @@ namespace Kaltura\Client\Service;
 /**
  * UiConf service lets you create and manage your UIConfs for the various flash components
  *  This service is used by the KMC-ApplicationStudio
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -49,7 +48,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * UIConf Add action allows you to add a UIConf to Kaltura DB
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UiConf
 	 */
@@ -70,7 +68,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update an existing UIConf
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UiConf
 	 */
@@ -92,7 +89,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a UIConf by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UiConf
 	 */
@@ -113,7 +109,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Delete an existing UIConf
-	 * 	 
 	 * 
 	 */
 	function delete($id)
@@ -130,7 +125,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Clone an existing UIConf
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UiConf
 	 */
@@ -151,7 +145,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * retrieve a list of available template UIConfs
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UiConfListResponse
 	 */
@@ -175,7 +168,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a list of available UIConfs
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\UiConfListResponse
 	 */
@@ -199,7 +191,6 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve a list of all available versions by object type
-	 * 	 
 	 * 
 	 * @return array
 	 */

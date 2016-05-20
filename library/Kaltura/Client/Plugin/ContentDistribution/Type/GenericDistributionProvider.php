@@ -92,7 +92,6 @@ class GenericDistributionProvider extends \Kaltura\Client\Plugin\ContentDistribu
 	}
 	/**
 	 * Auto generated
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -100,7 +99,6 @@ class GenericDistributionProvider extends \Kaltura\Client\Plugin\ContentDistribu
 
 	/**
 	 * Generic distribution provider creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -108,7 +106,6 @@ class GenericDistributionProvider extends \Kaltura\Client\Plugin\ContentDistribu
 
 	/**
 	 * Generic distribution provider last update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

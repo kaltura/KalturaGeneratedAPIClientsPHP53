@@ -80,18 +80,18 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 			$this->videoCodecId = (string)$xml->videoCodecId;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
 	}
 	/**
 	 * The Flavor Params used to create this Flavor Asset
-	 * 	 
 	 * @var int
 	 * @insertonly
 	 */
 	public $flavorParamsId = null;
 
 	/**
-	 * The width of the Flavor Asset 
-	 * 	 
+	 * The width of the Flavor Asset
 	 * @var int
 	 * @readonly
 	 */
@@ -99,15 +99,13 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The height of the Flavor Asset
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
 	public $height = null;
 
 	/**
-	 * The overall bitrate (in KBits) of the Flavor Asset 
-	 * 	 
+	 * The overall bitrate (in KBits) of the Flavor Asset
 	 * @var int
 	 * @readonly
 	 */
@@ -115,7 +113,6 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The frame rate (in FPS) of the Flavor Asset
-	 * 	 
 	 * @var float
 	 * @readonly
 	 */
@@ -123,7 +120,6 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * True if this Flavor Asset is the original source
-	 * 	 
 	 * @var bool
 	 * @readonly
 	 */
@@ -131,7 +127,6 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * True if this Flavor Asset is playable in KDP
-	 * 	 
 	 * @var bool
 	 * @readonly
 	 */
@@ -139,7 +134,6 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The container format
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -147,7 +141,6 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The video codec
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -155,10 +148,15 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 
 	/**
 	 * The status of the Flavor Asset
-	 * 	 
 	 * @var \Kaltura\Client\Enum\FlavorAssetStatus
 	 * @readonly
 	 */
 	public $status = null;
+
+	/**
+	 * The language of the flavor asset
+	 * @var \Kaltura\Client\Enum\Language
+	 */
+	public $language = null;
 
 }

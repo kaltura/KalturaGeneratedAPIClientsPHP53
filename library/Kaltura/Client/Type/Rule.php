@@ -89,56 +89,48 @@ class Rule extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Short Rule Description
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
-	 * Rule Custom Data to allow saving rule specific information 
-	 * 	 
+	 * Rule Custom Data to allow saving rule specific information
 	 * @var string
 	 */
 	public $ruleData = null;
 
 	/**
 	 * Message to be thrown to the player in case the rule is fulfilled
-	 * 	 
 	 * @var string
 	 */
 	public $message = null;
 
 	/**
 	 * Actions to be performed by the player in case the rule is fulfilled
-	 * 	 
 	 * @var array<KalturaRuleAction>
 	 */
 	public $actions;
 
 	/**
 	 * Conditions to validate the rule
-	 * 	 
 	 * @var array<KalturaCondition>
 	 */
 	public $conditions;
 
 	/**
-	 * Indicates what contexts should be tested by this rule 
-	 * 	 
+	 * Indicates what contexts should be tested by this rule
 	 * @var array<KalturaContextTypeHolder>
 	 */
 	public $contexts;
 
 	/**
-	 * Indicates that this rule is enough and no need to continue checking the rest of the rules 
-	 * 	 
+	 * Indicates that this rule is enough and no need to continue checking the rest of the rules
 	 * @var bool
 	 */
 	public $stopProcessing = null;
 
 	/**
 	 * Indicates if we should force ks validation for admin ks users as well
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $forceAdminValidation = null;

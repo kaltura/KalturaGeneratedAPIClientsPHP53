@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * Retrieve information and invoke actions on Thumb Asset
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add thumbnail asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
@@ -70,7 +68,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update content of thumbnail asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
@@ -92,7 +89,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update thumbnail asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
@@ -114,7 +110,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves thumbnail by entry id and thumnail params id
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -133,7 +128,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves thumbnail by its id
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -157,7 +151,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Tags the thumbnail as DEFAULT_THUMB and removes that tag from all other thumbnail assets of the entry.
 	 * 	 Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync.
-	 * 	 
 	 * 
 	 */
 	function setAsDefault($thumbAssetId)
@@ -272,7 +265,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List Thumbnail Assets by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAssetListResponse
 	 */
@@ -352,7 +344,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get download URL for the asset
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -375,7 +366,6 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get remote storage existing paths for the asset
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\RemotePathListResponse
 	 */

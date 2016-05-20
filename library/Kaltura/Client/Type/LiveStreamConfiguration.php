@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * A representation of a live stream configuration
- *  
  * @package Kaltura
  * @subpackage Client
  */

@@ -35,7 +35,6 @@ namespace Kaltura\Client\Service;
 
 /**
  * api for getting analytics data
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class AnalyticsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * report query action allows to get a analytics data for specific query dimensions, metrics and filters.
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\ReportResponse
 	 */

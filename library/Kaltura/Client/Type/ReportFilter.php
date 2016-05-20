@@ -57,14 +57,12 @@ class ReportFilter extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The dimension whose values should be filtered
-	 * 	 
 	 * @var string
 	 */
 	public $dimension = null;
 
 	/**
 	 * The (comma separated) values to include in the filter
-	 * 	 
 	 * @var string
 	 */
 	public $values = null;

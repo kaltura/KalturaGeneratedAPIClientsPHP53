@@ -69,7 +69,6 @@ abstract class UserEntry extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * unique auto-generated identifier
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

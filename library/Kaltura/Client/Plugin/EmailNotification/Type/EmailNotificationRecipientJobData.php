@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
  * Abstract class representing the final output recipients going into the batch mechanism
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ abstract class EmailNotificationRecipientJobData extends \Kaltura\Client\ObjectB
 	}
 	/**
 	 * Provider type of the job data.
-	 * 	  
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Enum\EmailNotificationRecipientProviderType
 	 * @readonly
 	 */

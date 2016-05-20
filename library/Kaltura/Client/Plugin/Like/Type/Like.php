@@ -59,21 +59,18 @@ class Like extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the entry that the like belongs to
-	 * 	 
 	 * @var string
 	 */
 	public $entryId = null;
 
 	/**
 	 * The id of user that the like belongs to
-	 * 	 
 	 * @var string
 	 */
 	public $userId = null;
 
 	/**
 	 * The date of the like's creation
-	 * 	 
 	 * @var int
 	 */
 	public $createdAt = null;

@@ -57,14 +57,12 @@ class EntryContext extends \Kaltura\Client\Type\Context
 	}
 	/**
 	 * The entry ID in the context of which the playlist should be built
-	 *      
 	 * @var string
 	 */
 	public $entryId = null;
 
 	/**
 	 * Is this a redirected entry followup?
-	 *      
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $followEntryRedirect = null;

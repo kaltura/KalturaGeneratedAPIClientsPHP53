@@ -34,7 +34,6 @@ namespace Kaltura\Client\Plugin\DropFolder\Type;
 
 /**
  * Used to ingest media that dropped through drop folder
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class DropFolderFileResource extends \Kaltura\Client\Type\DataCenterContentResou
 	}
 	/**
 	 * Id of the drop folder file object
-	 * 	 
 	 * @var int
 	 */
 	public $dropFolderFileId = null;

@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\VirusScan\Service;
 
 /**
  * Virus scan profile service
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class VirusScanProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List virus scan profile objects by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfileListResponse
 	 */
@@ -72,7 +70,6 @@ class VirusScanProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Allows you to add an virus scan profile object and virus scan profile content associated with Kaltura object
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfile
 	 */
@@ -93,7 +90,6 @@ class VirusScanProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Retrieve an virus scan profile object by id
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfile
 	 */
@@ -114,7 +110,6 @@ class VirusScanProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update exisitng virus scan profile, it is possible to update the virus scan profile id too
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfile
 	 */
@@ -136,7 +131,6 @@ class VirusScanProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Mark the virus scan profile as deleted
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfile
 	 */
@@ -157,7 +151,6 @@ class VirusScanProfileService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Scan flavor asset according to virus scan profile
-	 * 	 
 	 * 
 	 * @return int
 	 */

@@ -57,14 +57,12 @@ class QuizFilter extends \Kaltura\Client\Type\RelatedFilter
 	}
 	/**
 	 * This filter should be in use for retrieving only a specific quiz entry (identified by its entryId).
-	 * 	 
 	 * @var string
 	 */
 	public $entryIdEqual = null;
 
 	/**
 	 * This filter should be in use for retrieving few specific quiz entries (string should include comma separated list of entryId strings).
-	 * 	 
 	 * @var string
 	 */
 	public $entryIdIn = null;

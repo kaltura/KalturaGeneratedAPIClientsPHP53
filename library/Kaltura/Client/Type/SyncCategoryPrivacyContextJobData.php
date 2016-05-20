@@ -59,7 +59,6 @@ class SyncCategoryPrivacyContextJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * category id
-	 * 	 
 	 * @var int
 	 */
 	public $categoryId = null;
@@ -67,7 +66,6 @@ class SyncCategoryPrivacyContextJobData extends \Kaltura\Client\Type\JobData
 	/**
 	 * Saves the last category entry creation date that was updated
 	 *      In case of crash the batch will restart from that point
-	 *      
 	 * @var int
 	 */
 	public $lastUpdatedCategoryEntryCreatedAt = null;
@@ -75,7 +73,6 @@ class SyncCategoryPrivacyContextJobData extends \Kaltura\Client\Type\JobData
 	/**
 	 * Saves the last sub category creation date that was updated
 	 *      In case of crash the batch will restart from that point
-	 *      
 	 * @var int
 	 */
 	public $lastUpdatedCategoryCreatedAt = null;

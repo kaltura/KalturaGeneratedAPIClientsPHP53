@@ -121,14 +121,12 @@ class UserFilter extends \Kaltura\Client\Type\UserBaseFilter
 
 	/**
 	 * Permission names filter expression
-	 * 	 
 	 * @var string
 	 */
 	public $permissionNamesMultiLikeOr = null;
 
 	/**
 	 * Permission names filter expression
-	 * 	 
 	 * @var string
 	 */
 	public $permissionNamesMultiLikeAnd = null;

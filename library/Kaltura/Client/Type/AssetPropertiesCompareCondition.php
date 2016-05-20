@@ -60,7 +60,6 @@ class AssetPropertiesCompareCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * Array of key/value objects that holds the property and the value to find and compare on an asset object
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $properties;

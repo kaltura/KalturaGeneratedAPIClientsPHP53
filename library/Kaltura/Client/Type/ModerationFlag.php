@@ -75,7 +75,6 @@ class ModerationFlag extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Moderation flag id
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -90,7 +89,6 @@ class ModerationFlag extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The user id that added the moderation flag
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -98,7 +96,6 @@ class ModerationFlag extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The type of the moderation flag (entry or user)
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ModerationObjectType
 	 * @readonly
 	 */
@@ -106,21 +103,18 @@ class ModerationFlag extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * If moderation flag is set for entry, this is the flagged entry id
-	 * 	 
 	 * @var string
 	 */
 	public $flaggedEntryId = null;
 
 	/**
 	 * If moderation flag is set for user, this is the flagged user id
-	 * 	 
 	 * @var string
 	 */
 	public $flaggedUserId = null;
 
 	/**
 	 * The moderation flag status
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ModerationFlagStatus
 	 * @readonly
 	 */
@@ -128,7 +122,6 @@ class ModerationFlag extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The comment that was added to the flag
-	 * 	 
 	 * @var string
 	 */
 	public $comments = null;

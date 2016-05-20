@@ -35,7 +35,6 @@ namespace Kaltura\Client\Plugin\Caption\Service;
 
 /**
  * Retrieve information and invoke actions on caption Asset
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -48,7 +47,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Add caption asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
 	 */
@@ -70,7 +68,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update content of caption asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
 	 */
@@ -92,7 +89,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update caption asset
-	 *      
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
 	 */
@@ -114,7 +110,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves caption by entry id and thumnail params id
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -133,7 +128,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get download URL for the asset
-	 * 	 
 	 * 
 	 * @return string
 	 */
@@ -154,7 +148,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Get remote storage existing paths for the asset
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Type\RemotePathListResponse
 	 */
@@ -175,7 +168,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves caption by its id
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -193,7 +185,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Serves caption by its id converting it to segmented WebVTT
-	 * 	 
 	 * 
 	 * @return file
 	 */
@@ -214,7 +205,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Markss the caption as default and removes that mark from all other caption assets of the entry.
-	 * 	 
 	 * 
 	 */
 	function setAsDefault($captionAssetId)
@@ -250,7 +240,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * List caption Assets by filter and pager
-	 * 	 
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAssetListResponse
 	 */

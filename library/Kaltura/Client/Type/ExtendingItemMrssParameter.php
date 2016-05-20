@@ -59,21 +59,18 @@ class ExtendingItemMrssParameter extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * XPath for the extending item
-	 * 	 
 	 * @var string
 	 */
 	public $xpath = null;
 
 	/**
 	 * Object identifier
-	 * 	 
 	 * @var \Kaltura\Client\Type\ObjectIdentifier
 	 */
 	public $identifier;
 
 	/**
 	 * Mode of extension - append to MRSS or replace the xpath content.
-	 * 	 
 	 * @var \Kaltura\Client\Enum\MrssExtensionMode
 	 */
 	public $extensionMode = null;

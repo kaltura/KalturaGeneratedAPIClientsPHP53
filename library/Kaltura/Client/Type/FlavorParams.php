@@ -132,84 +132,72 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 	}
 	/**
 	 * The video codec of the Flavor Params
-	 * 	 
 	 * @var \Kaltura\Client\Enum\VideoCodec
 	 */
 	public $videoCodec = null;
 
 	/**
 	 * The video bitrate (in KBits) of the Flavor Params
-	 * 	 
 	 * @var int
 	 */
 	public $videoBitrate = null;
 
 	/**
 	 * The audio codec of the Flavor Params
-	 * 	 
 	 * @var \Kaltura\Client\Enum\AudioCodec
 	 */
 	public $audioCodec = null;
 
 	/**
 	 * The audio bitrate (in KBits) of the Flavor Params
-	 * 	 
 	 * @var int
 	 */
 	public $audioBitrate = null;
 
 	/**
 	 * The number of audio channels for "downmixing"
-	 * 	 
 	 * @var int
 	 */
 	public $audioChannels = null;
 
 	/**
 	 * The audio sample rate of the Flavor Params
-	 * 	 
 	 * @var int
 	 */
 	public $audioSampleRate = null;
 
 	/**
 	 * The desired width of the Flavor Params
-	 * 	 
 	 * @var int
 	 */
 	public $width = null;
 
 	/**
 	 * The desired height of the Flavor Params
-	 * 	 
 	 * @var int
 	 */
 	public $height = null;
 
 	/**
 	 * The frame rate of the Flavor Params
-	 * 	 
 	 * @var float
 	 */
 	public $frameRate = null;
 
 	/**
 	 * The gop size of the Flavor Params
-	 * 	 
 	 * @var int
 	 */
 	public $gopSize = null;
 
 	/**
 	 * The list of conversion engines (comma separated)
-	 * 	 
 	 * @var string
 	 */
 	public $conversionEngines = null;
 
 	/**
 	 * The list of conversion engines extra params (separated with "|")
-	 * 	 
 	 * @var string
 	 */
 	public $conversionEnginesExtraParams = null;
@@ -246,7 +234,6 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 
 	/**
 	 * The container format of the Flavor Params
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ContainerFormat
 	 */
 	public $format = null;

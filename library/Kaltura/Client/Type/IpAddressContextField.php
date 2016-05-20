@@ -33,8 +33,7 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Represents the current request IP address context 
- *  
+ * Represents the current request IP address context
  * @package Kaltura
  * @subpackage Client
  */

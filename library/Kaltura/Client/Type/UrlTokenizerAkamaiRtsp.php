@@ -57,14 +57,12 @@ class UrlTokenizerAkamaiRtsp extends \Kaltura\Client\Type\UrlTokenizer
 	}
 	/**
 	 * host
-	 * 	 
 	 * @var string
 	 */
 	public $host = null;
 
 	/**
 	 * Cp-Code
-	 * 	 
 	 * @var int
 	 */
 	public $cpcode = null;

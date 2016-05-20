@@ -84,7 +84,6 @@ class ScheduleEventResource extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -92,7 +91,6 @@ class ScheduleEventResource extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Last update as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

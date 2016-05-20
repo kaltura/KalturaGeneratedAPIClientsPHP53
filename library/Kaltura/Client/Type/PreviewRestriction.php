@@ -54,8 +54,7 @@ class PreviewRestriction extends \Kaltura\Client\Type\SessionRestriction
 			$this->previewLength = (int)$xml->previewLength;
 	}
 	/**
-	 * The preview restriction length 
-	 * 	 
+	 * The preview restriction length
 	 * @var int
 	 */
 	public $previewLength = null;

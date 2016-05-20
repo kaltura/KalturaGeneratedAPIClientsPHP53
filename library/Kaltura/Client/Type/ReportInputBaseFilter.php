@@ -61,28 +61,24 @@ class ReportInputBaseFilter extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Start date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 */
 	public $fromDate = null;
 
 	/**
 	 * End date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 */
 	public $toDate = null;
 
 	/**
 	 * Start day as string (YYYYMMDD)
-	 * 	 
 	 * @var string
 	 */
 	public $fromDay = null;
 
 	/**
 	 * End date as string (YYYYMMDD)
-	 * 	 
 	 * @var string
 	 */
 	public $toDay = null;

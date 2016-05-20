@@ -66,14 +66,12 @@ class UrlTokenizerAkamaiRtmp extends \Kaltura\Client\Type\UrlTokenizer
 	}
 	/**
 	 * profile
-	 * 	 
 	 * @var string
 	 */
 	public $profile = null;
 
 	/**
 	 * Type
-	 * 	 
 	 * @var string
 	 */
 	public $type = null;

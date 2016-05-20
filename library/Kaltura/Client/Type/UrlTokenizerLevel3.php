@@ -59,21 +59,18 @@ class UrlTokenizerLevel3 extends \Kaltura\Client\Type\UrlTokenizer
 	}
 	/**
 	 * paramName
-	 * 	 
 	 * @var string
 	 */
 	public $paramName = null;
 
 	/**
 	 * expiryName
-	 * 	 
 	 * @var string
 	 */
 	public $expiryName = null;
 
 	/**
 	 * gen
-	 * 	 
 	 * @var string
 	 */
 	public $gen = null;

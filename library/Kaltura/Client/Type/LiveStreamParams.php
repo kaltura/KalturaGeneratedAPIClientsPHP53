@@ -63,35 +63,30 @@ class LiveStreamParams extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Bit rate of the stream. (i.e. 900)
-	 * 	 
 	 * @var int
 	 */
 	public $bitrate = null;
 
 	/**
 	 * flavor asset id
-	 * 	 
 	 * @var string
 	 */
 	public $flavorId = null;
 
 	/**
 	 * Stream's width
-	 * 	 
 	 * @var int
 	 */
 	public $width = null;
 
 	/**
 	 * Stream's height
-	 * 	 
 	 * @var int
 	 */
 	public $height = null;
 
 	/**
 	 * Live stream's codec
-	 * 	 
 	 * @var string
 	 */
 	public $codec = null;

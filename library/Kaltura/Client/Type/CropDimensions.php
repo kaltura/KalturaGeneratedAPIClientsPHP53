@@ -61,28 +61,24 @@ class CropDimensions extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Crop left point
-	 * 	 
 	 * @var int
 	 */
 	public $left = null;
 
 	/**
 	 * Crop top point
-	 * 	 
 	 * @var int
 	 */
 	public $top = null;
 
 	/**
 	 * Crop width
-	 * 	 
 	 * @var int
 	 */
 	public $width = null;
 
 	/**
 	 * Crop height
-	 * 	 
 	 * @var int
 	 */
 	public $height = null;

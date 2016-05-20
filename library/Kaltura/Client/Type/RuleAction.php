@@ -55,7 +55,6 @@ abstract class RuleAction extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The type of the action
-	 * 	 
 	 * @var \Kaltura\Client\Enum\RuleActionType
 	 * @readonly
 	 */

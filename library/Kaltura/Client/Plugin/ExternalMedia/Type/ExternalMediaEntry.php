@@ -57,7 +57,6 @@ class ExternalMediaEntry extends \Kaltura\Client\Type\MediaEntry
 	}
 	/**
 	 * The source type of the external media
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\ExternalMedia\Enum\ExternalMediaSourceType
 	 * @insertonly
 	 */
@@ -65,7 +64,6 @@ class ExternalMediaEntry extends \Kaltura\Client\Type\MediaEntry
 
 	/**
 	 * Comma separated asset params ids that exists for this external media entry
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */

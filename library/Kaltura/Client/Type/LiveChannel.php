@@ -57,14 +57,12 @@ class LiveChannel extends \Kaltura\Client\Type\LiveEntry
 	}
 	/**
 	 * Playlist id to be played
-	 * 	 
 	 * @var string
 	 */
 	public $playlistId = null;
 
 	/**
 	 * Indicates that the segments should be repeated for ever
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $repeat = null;

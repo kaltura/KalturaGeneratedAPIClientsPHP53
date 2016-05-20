@@ -60,7 +60,6 @@ class DeliveryProfileAkamaiHds extends \Kaltura\Client\Type\DeliveryProfile
 	}
 	/**
 	 * Should we use timing parameters - clipTo / seekFrom
-	 * 	 
 	 * @var bool
 	 */
 	public $supportClipping = null;

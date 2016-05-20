@@ -67,7 +67,6 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the conversion profile
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -75,7 +74,6 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The id of the asset params
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -83,35 +81,30 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The ingestion origin of the asset params
-	 * 	 
 	 * @var \Kaltura\Client\Enum\FlavorReadyBehaviorType
 	 */
 	public $readyBehavior = null;
 
 	/**
 	 * The ingestion origin of the asset params
-	 * 	 
 	 * @var \Kaltura\Client\Enum\AssetParamsOrigin
 	 */
 	public $origin = null;
 
 	/**
 	 * Asset params system name
-	 * 	 
 	 * @var string
 	 */
 	public $systemName = null;
 
 	/**
 	 * Starts conversion even if the decision layer reduced the configuration to comply with the source
-	 * 	 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $forceNoneComplied = null;
 
 	/**
 	 * Specifies how to treat the flavor after conversion is finished
-	 * 	 
 	 * @var \Kaltura\Client\Enum\AssetParamsDeletePolicy
 	 */
 	public $deletePolicy = null;

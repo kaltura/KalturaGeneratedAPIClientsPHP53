@@ -80,56 +80,48 @@ class EmailNotificationDispatchJobData extends \Kaltura\Client\Plugin\EventNotif
 	}
 	/**
 	 * Define the email sender email
-	 * 	 
 	 * @var string
 	 */
 	public $fromEmail = null;
 
 	/**
 	 * Define the email sender name
-	 * 	 
 	 * @var string
 	 */
 	public $fromName = null;
 
 	/**
 	 * Email recipient emails and names, key is mail address and value is the name
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientJobData
 	 */
 	public $to;
 
 	/**
 	 * Email cc emails and names, key is mail address and value is the name
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientJobData
 	 */
 	public $cc;
 
 	/**
 	 * Email bcc emails and names, key is mail address and value is the name
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientJobData
 	 */
 	public $bcc;
 
 	/**
 	 * Email addresses that a replies should be sent to, key is mail address and value is the name
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientJobData
 	 */
 	public $replyTo;
 
 	/**
 	 * Define the email priority
-	 * 	 
 	 * @var \Kaltura\Client\Plugin\EmailNotification\Enum\EmailNotificationTemplatePriority
 	 */
 	public $priority = null;
 
 	/**
 	 * Email address that a reading confirmation will be sent to
-	 * 	 
 	 * @var string
 	 */
 	public $confirmReadingTo = null;
@@ -137,7 +129,6 @@ class EmailNotificationDispatchJobData extends \Kaltura\Client\Plugin\EventNotif
 	/**
 	 * Hostname to use in Message-Id and Received headers and as default HELO string. 
 	 * 	 If empty, the value returned by SERVER_NAME is used or 'localhost.localdomain'.
-	 * 	 
 	 * @var string
 	 */
 	public $hostname = null;
@@ -145,14 +136,12 @@ class EmailNotificationDispatchJobData extends \Kaltura\Client\Plugin\EventNotif
 	/**
 	 * Sets the message ID to be used in the Message-Id header.
 	 * 	 If empty, a unique id will be generated.
-	 * 	 
 	 * @var string
 	 */
 	public $messageID = null;
 
 	/**
 	 * Adds a e-mail custom header
-	 * 	 
 	 * @var array<KalturaKeyValue>
 	 */
 	public $customHeaders;

@@ -119,7 +119,6 @@ class Category extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * The id of the Category
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -148,14 +147,12 @@ class Category extends \Kaltura\Client\ObjectBase
 	/**
 	 * The name of the Category. 
 	 * 	 The following characters are not allowed: '<', '>', ','
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * The full name of the Category
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -163,7 +160,6 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The full ids of the Category
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -171,7 +167,6 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Number of entries in this Category (including child categories)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -179,7 +174,6 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -187,7 +181,6 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -195,42 +188,36 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Category description
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
 	 * Category tags
-	 * 	 
 	 * @var string
 	 */
 	public $tags = null;
 
 	/**
 	 * If category will be returned for list action.
-	 * 	 
 	 * @var \Kaltura\Client\Enum\AppearInListType
 	 */
 	public $appearInList = null;
 
 	/**
 	 * defines the privacy of the entries that assigned to this category
-	 * 	 
 	 * @var \Kaltura\Client\Enum\PrivacyType
 	 */
 	public $privacy = null;
 
 	/**
-	 * If Category members are inherited from parent category or set manualy. 
-	 * 	 
+	 * If Category members are inherited from parent category or set manualy.
 	 * @var \Kaltura\Client\Enum\InheritanceType
 	 */
 	public $inheritanceType = null;
 
 	/**
 	 * Who can ask to join this category
-	 * 	 
 	 * @var \Kaltura\Client\Enum\UserJoinPolicyType
 	 * @readonly
 	 */
@@ -238,21 +225,18 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Default permissionLevel for new users
-	 * 	 
 	 * @var \Kaltura\Client\Enum\CategoryUserPermissionLevel
 	 */
 	public $defaultPermissionLevel = null;
 
 	/**
 	 * Category Owner (User id)
-	 * 	 
 	 * @var string
 	 */
 	public $owner = null;
 
 	/**
 	 * Number of entries that belong to this category directly
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -260,21 +244,18 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Category external id, controlled and managed by the partner.
-	 * 	 
 	 * @var string
 	 */
 	public $referenceId = null;
 
 	/**
 	 * who can assign entries to this category
-	 * 	 
 	 * @var \Kaltura\Client\Enum\ContributionPolicyType
 	 */
 	public $contributionPolicy = null;
 
 	/**
 	 * Number of active members for this category
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -282,7 +263,6 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Number of pending members for this category
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -290,14 +270,12 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Set privacy context for search entries that assiged to private and public categories. the entries will be private if the search context is set with those categories.
-	 * 	 
 	 * @var string
 	 */
 	public $privacyContext = null;
 
 	/**
 	 * comma separated parents that defines a privacyContext for search
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -305,7 +283,6 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Status
-	 * 	 
 	 * @var \Kaltura\Client\Enum\CategoryStatus
 	 * @readonly
 	 */
@@ -313,7 +290,6 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * The category id that this category inherit its members and members permission (for contribution and join)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -321,43 +297,37 @@ class Category extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Can be used to store various partner related data as a numeric value
-	 * 	 
 	 * @var int
 	 */
 	public $partnerSortValue = null;
 
 	/**
-	 * Can be used to store various partner related data as a string 
-	 * 	 
+	 * Can be used to store various partner related data as a string
 	 * @var string
 	 */
 	public $partnerData = null;
 
 	/**
-	 * Enable client side applications to define how to sort the category child categories 
-	 * 	 
+	 * Enable client side applications to define how to sort the category child categories
 	 * @var \Kaltura\Client\Enum\CategoryOrderBy
 	 */
 	public $defaultOrderBy = null;
 
 	/**
 	 * Number of direct children categories
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
 	public $directSubCategoriesCount = null;
 
 	/**
-	 * Moderation to add entries to this category by users that are not of permission level Manager or Moderator.  
-	 * 	 
+	 * Moderation to add entries to this category by users that are not of permission level Manager or Moderator.
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $moderation = null;
 
 	/**
 	 * Nunber of pending moderation entries
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */

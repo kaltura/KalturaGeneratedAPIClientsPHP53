@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest string content.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class StringResource extends \Kaltura\Client\Type\ContentResource
 	}
 	/**
 	 * Textual content
-	 * 	 
 	 * @var string
 	 */
 	public $content = null;

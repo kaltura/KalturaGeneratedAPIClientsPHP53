@@ -83,7 +83,6 @@ class LiveChannelSegment extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Unique identifier
-	 * 	 
 	 * @var string
 	 * @readonly
 	 */
@@ -98,7 +97,6 @@ class LiveChannelSegment extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Segment creation date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -106,7 +104,6 @@ class LiveChannelSegment extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Segment update date as Unix timestamp (In seconds)
-	 * 	 
 	 * @var int
 	 * @readonly
 	 */
@@ -114,28 +111,24 @@ class LiveChannelSegment extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Segment name
-	 * 	 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
 	 * Segment description
-	 * 	 
 	 * @var string
 	 */
 	public $description = null;
 
 	/**
 	 * Segment tags
-	 * 	 
 	 * @var string
 	 */
 	public $tags = null;
 
 	/**
 	 * Segment could be associated with the main stream, as additional stream or as overlay
-	 * 	 
 	 * @var \Kaltura\Client\Enum\LiveChannelSegmentType
 	 */
 	public $type = null;
@@ -149,42 +142,36 @@ class LiveChannelSegment extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Live channel id
-	 * 	 
 	 * @var string
 	 */
 	public $channelId = null;
 
 	/**
 	 * Entry id to be played
-	 * 	 
 	 * @var string
 	 */
 	public $entryId = null;
 
 	/**
 	 * Segment start time trigger type
-	 * 	 
 	 * @var \Kaltura\Client\Enum\LiveChannelSegmentTriggerType
 	 */
 	public $triggerType = null;
 
 	/**
 	 * Live channel segment that the trigger relates to
-	 * 	 
 	 * @var string
 	 */
 	public $triggerSegmentId = null;
 
 	/**
 	 * Segment play start time, in mili-seconds, according to trigger type
-	 * 	 
 	 * @var float
 	 */
 	public $startTime = null;
 
 	/**
 	 * Segment play duration time, in mili-seconds
-	 * 	 
 	 * @var float
 	 */
 	public $duration = null;

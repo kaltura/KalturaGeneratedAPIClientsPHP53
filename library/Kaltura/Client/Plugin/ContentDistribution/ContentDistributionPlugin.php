@@ -63,6 +63,11 @@ class ContentDistributionPlugin extends \Kaltura\Client\Plugin
 	 */
 	protected $genericDistributionProviderAction = null;
 
+	/**
+	 * @var Service\ContentDistributionBatchService
+	 */
+	protected $contentDistributionBatch = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -87,6 +92,7 @@ class ContentDistributionPlugin extends \Kaltura\Client\Plugin
 			'distributionProvider' => $this->getDistributionProviderService(),
 			'genericDistributionProvider' => $this->getGenericDistributionProviderService(),
 			'genericDistributionProviderAction' => $this->getGenericDistributionProviderActionService(),
+			'contentDistributionBatch' => $this->getContentDistributionBatchService(),
 		);
 		return $services;
 	}
@@ -142,6 +148,15 @@ class ContentDistributionPlugin extends \Kaltura\Client\Plugin
 		if (is_null($this->genericDistributionProviderAction))
 			$this->genericDistributionProviderAction = new Service\GenericDistributionProviderActionService($this->_client);
 		return $this->genericDistributionProviderAction;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Service\ContentDistributionBatchService
+	 */
+	public function getContentDistributionBatchService()
+	{
+		if (is_null($this->contentDistributionBatch))
+			$this->contentDistributionBatch = new Service\ContentDistributionBatchService($this->_client);
+		return $this->contentDistributionBatch;
 	}
 }
 

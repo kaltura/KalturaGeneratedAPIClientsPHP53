@@ -55,7 +55,6 @@ class FieldCompareCondition extends \Kaltura\Client\Type\CompareCondition
 	}
 	/**
 	 * Field to evaluate
-	 * 	 
 	 * @var \Kaltura\Client\Type\IntegerField
 	 */
 	public $field;

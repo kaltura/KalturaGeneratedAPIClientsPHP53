@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Basic push-publish configuration for Kaltura live stream entry
- *  
  * @package Kaltura
  * @subpackage Client
  */

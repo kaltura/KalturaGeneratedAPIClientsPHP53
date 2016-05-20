@@ -55,7 +55,6 @@ class ValidateActiveEdgeCondition extends \Kaltura\Client\Type\Condition
 	}
 	/**
 	 * Comma separated list of edge servers to validate are active
-	 * 	 
 	 * @var string
 	 */
 	public $edgeServerIds = null;

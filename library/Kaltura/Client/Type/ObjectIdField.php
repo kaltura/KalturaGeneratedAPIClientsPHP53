@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Evaluates object ID according to given context
- *  
  * @package Kaltura
  * @subpackage Client
  */

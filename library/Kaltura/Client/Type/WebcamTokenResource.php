@@ -34,7 +34,6 @@ namespace Kaltura\Client\Type;
 
 /**
  * Used to ingest media that streamed to the system and represented by token that returned from media server such as FMS or red5.
- *  
  * @package Kaltura
  * @subpackage Client
  */
@@ -57,7 +56,6 @@ class WebcamTokenResource extends \Kaltura\Client\Type\DataCenterContentResource
 	}
 	/**
 	 * Token that returned from media server such as FMS or red5.
-	 * 	 
 	 * @var string
 	 */
 	public $token = null;
