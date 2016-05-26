@@ -61,21 +61,18 @@ class RequestConfiguration extends \Kaltura\Client\ObjectBase
 	}
 	/**
 	 * Impersonated partner id
-	 * 	 
 	 * @var int
 	 */
 	public $partnerId = null;
 
 	/**
 	 * Kaltura API session
-	 * 	 
 	 * @var string
 	 */
 	public $ks = null;
 
 	/**
 	 * Response profile - this attribute will be automatically unset after every API call.
-	 * 	 
 	 * @var \Kaltura\Client\Type\BaseResponseProfile
 	 */
 	public $responseProfile;

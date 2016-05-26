@@ -27,3 +27,71 @@
 // @ignore
 // ===================================================================================================
 
+
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Plugin\CaptionSearch\Service;
+
+/**
+ * Search caption asset items
+ * @package Kaltura
+ * @subpackage Client
+ */
+class CaptionAssetItemService extends \Kaltura\Client\ServiceBase
+{
+	function __construct(\Kaltura\Client\Client $client = null)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * Search caption asset items by filter, pager and free text
+	 * 
+	 * @return \Kaltura\Client\Plugin\CaptionSearch\Type\CaptionAssetItemListResponse
+	 */
+	function search(\Kaltura\Client\Type\BaseEntryFilter $entryFilter = null, \Kaltura\Client\Plugin\CaptionSearch\Type\CaptionAssetItemFilter $captionAssetItemFilter = null, \Kaltura\Client\Type\FilterPager $captionAssetItemPager = null)
+	{
+		$kparams = array();
+		if ($entryFilter !== null)
+			$this->client->addParam($kparams, "entryFilter", $entryFilter->toParams());
+		if ($captionAssetItemFilter !== null)
+			$this->client->addParam($kparams, "captionAssetItemFilter", $captionAssetItemFilter->toParams());
+		if ($captionAssetItemPager !== null)
+			$this->client->addParam($kparams, "captionAssetItemPager", $captionAssetItemPager->toParams());
+		$this->client->queueServiceActionCall("captionsearch_captionassetitem", "search", "KalturaCaptionAssetItemListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionAssetItemListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\CaptionSearch\\Type\\CaptionAssetItemListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Search caption asset items by filter, pager and free text
+	 * 
+	 * @return \Kaltura\Client\Type\BaseEntryListResponse
+	 */
+	function searchEntries(\Kaltura\Client\Type\BaseEntryFilter $entryFilter = null, \Kaltura\Client\Plugin\CaptionSearch\Type\CaptionAssetItemFilter $captionAssetItemFilter = null, \Kaltura\Client\Type\FilterPager $captionAssetItemPager = null)
+	{
+		$kparams = array();
+		if ($entryFilter !== null)
+			$this->client->addParam($kparams, "entryFilter", $entryFilter->toParams());
+		if ($captionAssetItemFilter !== null)
+			$this->client->addParam($kparams, "captionAssetItemFilter", $captionAssetItemFilter->toParams());
+		if ($captionAssetItemPager !== null)
+			$this->client->addParam($kparams, "captionAssetItemPager", $captionAssetItemPager->toParams());
+		$this->client->queueServiceActionCall("captionsearch_captionassetitem", "searchEntries", "KalturaBaseEntryListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBaseEntryListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BaseEntryListResponse");
+		return $resultObject;
+	}
+}

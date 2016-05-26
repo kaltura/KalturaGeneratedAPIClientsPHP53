@@ -116,10 +116,6 @@ class Category extends \Kaltura\Client\ObjectBase
 			$this->moderation = (int)$xml->moderation;
 		if(count($xml->pendingEntriesCount))
 			$this->pendingEntriesCount = (int)$xml->pendingEntriesCount;
-		if(count($xml->isAggregationCategory))
-			$this->isAggregationCategory = (int)$xml->isAggregationCategory;
-		if(count($xml->aggregationCategories))
-			$this->aggregationCategories = (string)$xml->aggregationCategories;
 	}
 	/**
 	 * The id of the Category
@@ -336,17 +332,5 @@ class Category extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $pendingEntriesCount = null;
-
-	/**
-	 * Flag indicating that the category is an aggregation category
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $isAggregationCategory = null;
-
-	/**
-	 * List of aggregation channels the category belongs to
-	 * @var string
-	 */
-	public $aggregationCategories = null;
 
 }
