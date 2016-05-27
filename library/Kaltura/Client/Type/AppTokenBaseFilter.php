@@ -51,7 +51,7 @@ abstract class AppTokenBaseFilter extends \Kaltura\Client\Type\Filter
 			return;
 		
 		if(count($xml->idEqual))
-			$this->idEqual = (int)$xml->idEqual;
+			$this->idEqual = (string)$xml->idEqual;
 		if(count($xml->idIn))
 			$this->idIn = (string)$xml->idIn;
 		if(count($xml->createdAtGreaterThanOrEqual))
@@ -62,10 +62,14 @@ abstract class AppTokenBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
 		if(count($xml->updatedAtLessThanOrEqual))
 			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
+		if(count($xml->statusEqual))
+			$this->statusEqual = (int)$xml->statusEqual;
+		if(count($xml->statusIn))
+			$this->statusIn = (string)$xml->statusIn;
 	}
 	/**
 	 * 
-	 * @var int
+	 * @var string
 	 */
 	public $idEqual = null;
 
@@ -98,5 +102,17 @@ abstract class AppTokenBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var int
 	 */
 	public $updatedAtLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\AppTokenStatus
+	 */
+	public $statusEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $statusIn = null;
 
 }

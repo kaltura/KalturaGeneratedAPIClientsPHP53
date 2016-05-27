@@ -54,6 +54,8 @@ abstract class CategoryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->idEqual = (int)$xml->idEqual;
 		if(count($xml->idIn))
 			$this->idIn = (string)$xml->idIn;
+		if(count($xml->idNotIn))
+			$this->idNotIn = (string)$xml->idNotIn;
 		if(count($xml->parentIdEqual))
 			$this->parentIdEqual = (int)$xml->parentIdEqual;
 		if(count($xml->parentIdIn))
@@ -124,6 +126,10 @@ abstract class CategoryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->partnerSortValueGreaterThanOrEqual = (int)$xml->partnerSortValueGreaterThanOrEqual;
 		if(count($xml->partnerSortValueLessThanOrEqual))
 			$this->partnerSortValueLessThanOrEqual = (int)$xml->partnerSortValueLessThanOrEqual;
+		if(count($xml->aggregationCategoriesMultiLikeOr))
+			$this->aggregationCategoriesMultiLikeOr = (string)$xml->aggregationCategoriesMultiLikeOr;
+		if(count($xml->aggregationCategoriesMultiLikeAnd))
+			$this->aggregationCategoriesMultiLikeAnd = (string)$xml->aggregationCategoriesMultiLikeAnd;
 	}
 	/**
 	 * 
@@ -136,6 +142,12 @@ abstract class CategoryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	 * @var string
 	 */
 	public $idIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $idNotIn = null;
 
 	/**
 	 * 
@@ -346,5 +358,17 @@ abstract class CategoryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	 * @var int
 	 */
 	public $partnerSortValueLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $aggregationCategoriesMultiLikeOr = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $aggregationCategoriesMultiLikeAnd = null;
 
 }

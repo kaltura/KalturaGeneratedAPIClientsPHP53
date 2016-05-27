@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Schedule\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class ScheduleEventResourceBaseFilter extends \Kaltura\Client\Type\Filter
+abstract class ScheduleEventResourceBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 {
 	public function getKalturaObjectType()
 	{
