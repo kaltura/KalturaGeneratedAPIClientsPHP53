@@ -309,11 +309,6 @@ class Client extends Base
 	protected $widget = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\XInternalService
-	 */
-	protected $xInternal = null;
-
-	/**
 	 * Kaltura client constructor
 	 *
 	 * @param \Kaltura\Client\Configuration $config
@@ -322,7 +317,7 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:16-05-31');
+		$this->setClientTag('php5:16-06-01');
 		$this->setApiVersion('3.3.0');
 	}
 	
@@ -811,15 +806,6 @@ class Client extends Base
 		if (is_null($this->widget))
 			$this->widget = new \Kaltura\Client\Service\WidgetService($this);
 		return $this->widget;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\XInternalService
-	 */
-	public function getXInternalService()
-	{
-		if (is_null($this->xInternal))
-			$this->xInternal = new \Kaltura\Client\Service\XInternalService($this);
-		return $this->xInternal;
 	}
 	/**
 	 * @param string $clientTag
