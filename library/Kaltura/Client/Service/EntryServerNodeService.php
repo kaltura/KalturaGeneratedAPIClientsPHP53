@@ -105,4 +105,20 @@ class EntryServerNodeService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\EntryServerNode");
 		return $resultObject;
 	}
+
+	/**
+	 * Validates server node still registered on entry
+	 * 
+	 */
+	function validateRegisteredEntryServerNode($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("entryservernode", "validateRegisteredEntryServerNode", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
 }
