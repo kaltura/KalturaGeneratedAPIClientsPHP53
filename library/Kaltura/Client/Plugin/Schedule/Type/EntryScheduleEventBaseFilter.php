@@ -50,6 +50,8 @@ abstract class EntryScheduleEventBaseFilter extends \Kaltura\Client\Plugin\Sched
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->templateEntryIdEqual))
+			$this->templateEntryIdEqual = (string)$xml->templateEntryIdEqual;
 		if(count($xml->entryIdsLike))
 			$this->entryIdsLike = (string)$xml->entryIdsLike;
 		if(count($xml->entryIdsMultiLikeOr))
@@ -63,6 +65,12 @@ abstract class EntryScheduleEventBaseFilter extends \Kaltura\Client\Plugin\Sched
 		if(count($xml->categoryIdsMultiLikeAnd))
 			$this->categoryIdsMultiLikeAnd = (string)$xml->categoryIdsMultiLikeAnd;
 	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $templateEntryIdEqual = null;
+
 	/**
 	 * 
 	 * @var string

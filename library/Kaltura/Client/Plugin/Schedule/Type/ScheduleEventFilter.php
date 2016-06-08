@@ -66,14 +66,16 @@ class ScheduleEventFilter extends \Kaltura\Client\Plugin\Schedule\Type\ScheduleE
 			$this->templateEntryCategoriesIdsMultiLikeAnd = (string)$xml->templateEntryCategoriesIdsMultiLikeAnd;
 		if(count($xml->templateEntryCategoriesIdsMultiLikeOr))
 			$this->templateEntryCategoriesIdsMultiLikeOr = (string)$xml->templateEntryCategoriesIdsMultiLikeOr;
+		if(count($xml->resourceSystemNamesMultiLikeOr))
+			$this->resourceSystemNamesMultiLikeOr = (string)$xml->resourceSystemNamesMultiLikeOr;
 		if(count($xml->templateEntryCategoriesIdsLike))
 			$this->templateEntryCategoriesIdsLike = (string)$xml->templateEntryCategoriesIdsLike;
-		if(count($xml->systemNamesMultiLikeOr))
-			$this->systemNamesMultiLikeOr = (string)$xml->systemNamesMultiLikeOr;
-		if(count($xml->systemNamesMultiLikeAnd))
-			$this->systemNamesMultiLikeAnd = (string)$xml->systemNamesMultiLikeAnd;
-		if(count($xml->systemNamesLike))
-			$this->systemNamesLike = (string)$xml->systemNamesLike;
+		if(count($xml->resourceSystemNamesMultiLikeAnd))
+			$this->resourceSystemNamesMultiLikeAnd = (string)$xml->resourceSystemNamesMultiLikeAnd;
+		if(count($xml->resourceSystemNamesLike))
+			$this->resourceSystemNamesLike = (string)$xml->resourceSystemNamesLike;
+		if(count($xml->templateEntryIdEqual))
+			$this->templateEntryIdEqual = (string)$xml->templateEntryIdEqual;
 	}
 	/**
 	 * 
@@ -127,24 +129,30 @@ class ScheduleEventFilter extends \Kaltura\Client\Plugin\Schedule\Type\ScheduleE
 	 * 
 	 * @var string
 	 */
+	public $resourceSystemNamesMultiLikeOr = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
 	public $templateEntryCategoriesIdsLike = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $systemNamesMultiLikeOr = null;
+	public $resourceSystemNamesMultiLikeAnd = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $systemNamesMultiLikeAnd = null;
+	public $resourceSystemNamesLike = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $systemNamesLike = null;
+	public $templateEntryIdEqual = null;
 
 }
