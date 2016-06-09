@@ -54,6 +54,10 @@ class AmazonS3StorageExportJobData extends \Kaltura\Client\Type\StorageExportJob
 			$this->filesPermissionInS3 = (string)$xml->filesPermissionInS3;
 		if(count($xml->s3Region))
 			$this->s3Region = (string)$xml->s3Region;
+		if(count($xml->sseType))
+			$this->sseType = (string)$xml->sseType;
+		if(count($xml->sseKmsKeyId))
+			$this->sseKmsKeyId = (string)$xml->sseKmsKeyId;
 	}
 	/**
 	 * 
@@ -66,5 +70,17 @@ class AmazonS3StorageExportJobData extends \Kaltura\Client\Type\StorageExportJob
 	 * @var string
 	 */
 	public $s3Region = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $sseType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $sseKmsKeyId = null;
 
 }

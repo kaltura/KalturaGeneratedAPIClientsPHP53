@@ -383,4 +383,25 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\RemotePathListResponse");
 		return $resultObject;
 	}
+
+	/**
+	 * manually export an asset
+	 * 
+	 * @return \Kaltura\Client\Type\FlavorAsset
+	 */
+	function export($assetId, $storageProfileId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "assetId", $assetId);
+		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
+		$this->client->queueServiceActionCall("thumbasset", "export", "KalturaFlavorAsset", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAsset");
+		return $resultObject;
+	}
 }
