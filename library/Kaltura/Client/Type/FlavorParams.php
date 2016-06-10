@@ -125,6 +125,8 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->subtitlesData = (string)$xml->subtitlesData;
 		if(count($xml->isEncrypted))
 			$this->isEncrypted = (int)$xml->isEncrypted;
+		if(count($xml->contentAwareness))
+			$this->contentAwareness = (float)$xml->contentAwareness;
 		if(count($xml->clipOffset))
 			$this->clipOffset = (int)$xml->clipOffset;
 		if(count($xml->clipDuration))
@@ -339,6 +341,12 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 	 * @var int
 	 */
 	public $isEncrypted = null;
+
+	/**
+	 * 
+	 * @var float
+	 */
+	public $contentAwareness = null;
 
 	/**
 	 * 
