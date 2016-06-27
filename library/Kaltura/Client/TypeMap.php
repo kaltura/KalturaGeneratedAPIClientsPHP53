@@ -288,6 +288,7 @@ class TypeMap
 		'KalturaAccessControlBlockAction' => 'Kaltura\Client\Type\AccessControlBlockAction',
 		'KalturaAccessControlLimitDeliveryProfilesAction' => 'Kaltura\Client\Type\AccessControlLimitDeliveryProfilesAction',
 		'KalturaAccessControlLimitFlavorsAction' => 'Kaltura\Client\Type\AccessControlLimitFlavorsAction',
+		'KalturaAccessControlLimitThumbnailCaptureAction' => 'Kaltura\Client\Type\AccessControlLimitThumbnailCaptureAction',
 		'KalturaAccessControlListResponse' => 'Kaltura\Client\Type\AccessControlListResponse',
 		'KalturaAccessControlModifyRequestHostRegexAction' => 'Kaltura\Client\Type\AccessControlModifyRequestHostRegexAction',
 		'KalturaAccessControlPreviewAction' => 'Kaltura\Client\Type\AccessControlPreviewAction',
