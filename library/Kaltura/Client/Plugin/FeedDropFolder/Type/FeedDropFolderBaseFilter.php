@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\FeedDropFolder\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class AccessControlModifyRequestHostRegexAction extends \Kaltura\Client\Type\RuleAction
+abstract class FeedDropFolderBaseFilter extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFilter
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaAccessControlModifyRequestHostRegexAction';
+		return 'KalturaFeedDropFolderBaseFilter';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,29 +50,5 @@ class AccessControlModifyRequestHostRegexAction extends \Kaltura\Client\Type\Rul
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->pattern))
-			$this->pattern = (string)$xml->pattern;
-		if(count($xml->replacement))
-			$this->replacement = (string)$xml->replacement;
-		if(count($xml->replacmenServerNodeId))
-			$this->replacmenServerNodeId = (int)$xml->replacmenServerNodeId;
 	}
-	/**
-	 * Request host regex pattern
-	 * @var string
-	 */
-	public $pattern = null;
-
-	/**
-	 * Request host regex replacment
-	 * @var string
-	 */
-	public $replacement = null;
-
-	/**
-	 * serverNodeId to generate replacment host from
-	 * @var int
-	 */
-	public $replacmenServerNodeId = null;
-
 }
