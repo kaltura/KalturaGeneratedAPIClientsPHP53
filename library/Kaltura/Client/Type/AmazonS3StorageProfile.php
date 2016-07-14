@@ -58,6 +58,10 @@ class AmazonS3StorageProfile extends \Kaltura\Client\Type\StorageProfile
 			$this->sseType = (string)$xml->sseType;
 		if(count($xml->sseKmsKeyId))
 			$this->sseKmsKeyId = (string)$xml->sseKmsKeyId;
+		if(count($xml->signatureType))
+			$this->signatureType = (string)$xml->signatureType;
+		if(count($xml->endPoint))
+			$this->endPoint = (string)$xml->endPoint;
 	}
 	/**
 	 * 
@@ -82,5 +86,17 @@ class AmazonS3StorageProfile extends \Kaltura\Client\Type\StorageProfile
 	 * @var string
 	 */
 	public $sseKmsKeyId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $signatureType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $endPoint = null;
 
 }
