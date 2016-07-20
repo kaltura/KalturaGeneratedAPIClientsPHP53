@@ -137,6 +137,13 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->publicKey = (string)$xml->publicKey;
 		if(count($xml->passPhrase))
 			$this->passPhrase = (string)$xml->passPhrase;
+		if(count($xml->shouldExportThumbs))
+		{
+			if(!empty($xml->shouldExportThumbs))
+				$this->shouldExportThumbs = true;
+			else
+				$this->shouldExportThumbs = false;
+		}
 	}
 	/**
 	 * 
@@ -327,5 +334,11 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $passPhrase = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $shouldExportThumbs = null;
 
 }
