@@ -88,6 +88,8 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 			$this->priority = (int)$xml->priority;
 		if(count($xml->extraParams))
 			$this->extraParams = (string)$xml->extraParams;
+		if(count($xml->supplementaryAssetsFilter) && !empty($xml->supplementaryAssetsFilter))
+			$this->supplementaryAssetsFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->supplementaryAssetsFilter, "KalturaAssetFilter");
 	}
 	/**
 	 * The id of the Delivery
@@ -209,5 +211,11 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $extraParams = null;
+
+	/**
+	 * A filter that can be used to include additional assets in the URL (e.g. captions)
+	 * @var \Kaltura\Client\Type\AssetFilter
+	 */
+	public $supplementaryAssetsFilter;
 
 }
