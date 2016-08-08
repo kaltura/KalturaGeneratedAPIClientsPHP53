@@ -33,15 +33,14 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Advanced configuration for entry replacement process
  * @package Kaltura
  * @subpackage Client
  */
-class EntryReplacementOptions extends \Kaltura\Client\ObjectBase
+class LiveToVodJobData extends \Kaltura\Client\Type\JobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaEntryReplacementOptions';
+		return 'KalturaLiveToVodJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -51,26 +50,45 @@ class EntryReplacementOptions extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->keepManualThumbnails))
-			$this->keepManualThumbnails = (int)$xml->keepManualThumbnails;
-		if(count($xml->pluginOptionItems))
-		{
-			if(empty($xml->pluginOptionItems))
-				$this->pluginOptionItems = array();
-			else
-				$this->pluginOptionItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pluginOptionItems, "KalturaPluginReplacementOptionsItem");
-		}
+		if(count($xml->vodEntryId))
+			$this->vodEntryId = (string)$xml->vodEntryId;
+		if(count($xml->liveEntryId))
+			$this->liveEntryId = (string)$xml->liveEntryId;
+		if(count($xml->totalVodDuration))
+			$this->totalVodDuration = (float)$xml->totalVodDuration;
+		if(count($xml->lastSegmentDuration))
+			$this->lastSegmentDuration = (float)$xml->lastSegmentDuration;
+		if(count($xml->amfArray))
+			$this->amfArray = (string)$xml->amfArray;
 	}
 	/**
-	 * If true manually created thumbnails will not be deleted on entry replacement
-	 * @var int
+	 * $vod Entry Id
+	 * @var string
 	 */
-	public $keepManualThumbnails = null;
+	public $vodEntryId = null;
 
 	/**
-	 * Array of plugin replacement options
-	 * @var array<KalturaPluginReplacementOptionsItem>
+	 * live Entry Id
+	 * @var string
 	 */
-	public $pluginOptionItems;
+	public $liveEntryId = null;
+
+	/**
+	 * total VOD Duration
+	 * @var float
+	 */
+	public $totalVodDuration = null;
+
+	/**
+	 * last Segment Duration
+	 * @var float
+	 */
+	public $lastSegmentDuration = null;
+
+	/**
+	 * amf Array File Path
+	 * @var string
+	 */
+	public $amfArray = null;
 
 }

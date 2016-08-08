@@ -33,15 +33,14 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Advanced configuration for entry replacement process
  * @package Kaltura
  * @subpackage Client
  */
-class EntryReplacementOptions extends \Kaltura\Client\ObjectBase
+abstract class PluginReplacementOptionsItem extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaEntryReplacementOptions';
+		return 'KalturaPluginReplacementOptionsItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -51,26 +50,5 @@ class EntryReplacementOptions extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->keepManualThumbnails))
-			$this->keepManualThumbnails = (int)$xml->keepManualThumbnails;
-		if(count($xml->pluginOptionItems))
-		{
-			if(empty($xml->pluginOptionItems))
-				$this->pluginOptionItems = array();
-			else
-				$this->pluginOptionItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pluginOptionItems, "KalturaPluginReplacementOptionsItem");
-		}
 	}
-	/**
-	 * If true manually created thumbnails will not be deleted on entry replacement
-	 * @var int
-	 */
-	public $keepManualThumbnails = null;
-
-	/**
-	 * Array of plugin replacement options
-	 * @var array<KalturaPluginReplacementOptionsItem>
-	 */
-	public $pluginOptionItems;
-
 }

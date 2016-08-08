@@ -50,13 +50,5 @@ class ThumbAssetFilter extends \Kaltura\Client\Type\ThumbAssetBaseFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->typeIn))
-			$this->typeIn = (string)$xml->typeIn;
 	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $typeIn = null;
-
 }

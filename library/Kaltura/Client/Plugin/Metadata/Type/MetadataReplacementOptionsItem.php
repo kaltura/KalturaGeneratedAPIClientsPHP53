@@ -30,18 +30,18 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Metadata\Type;
 
 /**
- * Advanced configuration for entry replacement process
+ * Advanced metadata configuration for entry replacement process
  * @package Kaltura
  * @subpackage Client
  */
-class EntryReplacementOptions extends \Kaltura\Client\ObjectBase
+class MetadataReplacementOptionsItem extends \Kaltura\Client\Type\PluginReplacementOptionsItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaEntryReplacementOptions';
+		return 'KalturaMetadataReplacementOptionsItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -51,26 +51,18 @@ class EntryReplacementOptions extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->keepManualThumbnails))
-			$this->keepManualThumbnails = (int)$xml->keepManualThumbnails;
-		if(count($xml->pluginOptionItems))
+		if(count($xml->shouldCopyMetadata))
 		{
-			if(empty($xml->pluginOptionItems))
-				$this->pluginOptionItems = array();
+			if(!empty($xml->shouldCopyMetadata))
+				$this->shouldCopyMetadata = true;
 			else
-				$this->pluginOptionItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pluginOptionItems, "KalturaPluginReplacementOptionsItem");
+				$this->shouldCopyMetadata = false;
 		}
 	}
 	/**
-	 * If true manually created thumbnails will not be deleted on entry replacement
-	 * @var int
+	 * If true custom-metadata transferred to temp entry on entry replacement
+	 * @var bool
 	 */
-	public $keepManualThumbnails = null;
-
-	/**
-	 * Array of plugin replacement options
-	 * @var array<KalturaPluginReplacementOptionsItem>
-	 */
-	public $pluginOptionItems;
+	public $shouldCopyMetadata = null;
 
 }
