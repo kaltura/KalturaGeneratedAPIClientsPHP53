@@ -381,11 +381,12 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	 * serve cmd line to transcode the ad
 	 * 
 	 */
-	function serveAdStitchCmd($assetId, $mediaInfoJson)
+	function serveAdStitchCmd($assetId, $ffprobeJson = null, $duration = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "assetId", $assetId);
-		$this->client->addParam($kparams, "mediaInfoJson", $mediaInfoJson);
+		$this->client->addParam($kparams, "ffprobeJson", $ffprobeJson);
+		$this->client->addParam($kparams, "duration", $duration);
 		$this->client->queueServiceActionCall("flavorasset", "serveAdStitchCmd", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

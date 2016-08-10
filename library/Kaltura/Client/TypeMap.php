@@ -487,7 +487,6 @@ class TypeMap
 		'KalturaLiveStatsListResponse' => 'Kaltura\Client\Type\LiveStatsListResponse',
 		'KalturaLiveStreamListResponse' => 'Kaltura\Client\Type\LiveStreamListResponse',
 		'KalturaLiveStreamPushPublishRTMPConfiguration' => 'Kaltura\Client\Type\LiveStreamPushPublishRTMPConfiguration',
-		'KalturaLiveToVodJobData' => 'Kaltura\Client\Type\LiveToVodJobData',
 		'KalturaLocationScheduleResource' => 'Kaltura\Client\Plugin\Schedule\Type\LocationScheduleResource',
 		'KalturaMailJobData' => 'Kaltura\Client\Type\MailJobData',
 		'KalturaMatchCondition' => 'Kaltura\Client\Type\MatchCondition',
