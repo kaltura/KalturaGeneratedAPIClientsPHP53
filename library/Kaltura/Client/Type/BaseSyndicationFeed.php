@@ -117,6 +117,8 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 			else
 				$this->useCategoryEntries = false;
 		}
+		if(count($xml->feedContentTypeHeader))
+			$this->feedContentTypeHeader = (string)$xml->feedContentTypeHeader;
 	}
 	/**
 	 * 
@@ -255,5 +257,11 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $useCategoryEntries = null;
+
+	/**
+	 * Feed content-type header value
+	 * @var string
+	 */
+	public $feedContentTypeHeader = null;
 
 }

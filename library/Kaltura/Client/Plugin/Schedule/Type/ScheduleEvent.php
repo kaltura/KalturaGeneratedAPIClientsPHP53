@@ -210,7 +210,6 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\Schedule\Enum\ScheduleEventRecurrenceType
-	 * @insertonly
 	 */
 	public $recurrenceType = null;
 
