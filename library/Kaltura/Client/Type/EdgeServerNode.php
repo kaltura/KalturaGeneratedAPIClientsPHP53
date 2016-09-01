@@ -50,21 +50,16 @@ class EdgeServerNode extends \Kaltura\Client\Type\DeliveryServerNode
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->deliveryProfileIds))
-		{
-			if(empty($xml->deliveryProfileIds))
-				$this->deliveryProfileIds = array();
-			else
-				$this->deliveryProfileIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryProfileIds, "KalturaKeyValue");
-		}
+		if(count($xml->playbackDomain))
+			$this->playbackDomain = (string)$xml->playbackDomain;
 		if(count($xml->config))
 			$this->config = (string)$xml->config;
 	}
 	/**
-	 * Delivery profile ids
-	 * @var array<KalturaKeyValue>
+	 * Delivery server playback Domain
+	 * @var string
 	 */
-	public $deliveryProfileIds;
+	public $playbackDomain = null;
 
 	/**
 	 * Overdie edge server default configuration - json format

@@ -50,13 +50,18 @@ abstract class DeliveryServerNode extends \Kaltura\Client\Type\ServerNode
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->playbackDomain))
-			$this->playbackDomain = (string)$xml->playbackDomain;
+		if(count($xml->deliveryProfileIds))
+		{
+			if(empty($xml->deliveryProfileIds))
+				$this->deliveryProfileIds = array();
+			else
+				$this->deliveryProfileIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryProfileIds, "KalturaKeyValue");
+		}
 	}
 	/**
-	 * Delivery server playback Domain
-	 * @var string
+	 * Delivery profile ids
+	 * @var array<KalturaKeyValue>
 	 */
-	public $playbackDomain = null;
+	public $deliveryProfileIds;
 
 }

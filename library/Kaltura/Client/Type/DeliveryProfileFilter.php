@@ -50,5 +50,13 @@ class DeliveryProfileFilter extends \Kaltura\Client\Type\DeliveryProfileBaseFilt
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->isLive))
+			$this->isLive = (int)$xml->isLive;
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $isLive = null;
+
 }
