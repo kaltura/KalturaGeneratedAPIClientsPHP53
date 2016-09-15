@@ -141,6 +141,8 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			$this->capabilities = (string)$xml->capabilities;
 		if(count($xml->templateEntryId))
 			$this->templateEntryId = (string)$xml->templateEntryId;
+		if(count($xml->displayInSearch))
+			$this->displayInSearch = (int)$xml->displayInSearch;
 	}
 	/**
 	 * Auto generated 10 characters alphanumeric string
@@ -420,5 +422,11 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	 * @insertonly
 	 */
 	public $templateEntryId = null;
+
+	/**
+	 * should we display this entry in search
+	 * @var \Kaltura\Client\Enum\EntryDisplayInSearchType
+	 */
+	public $displayInSearch = null;
 
 }

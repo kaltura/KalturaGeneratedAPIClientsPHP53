@@ -57,6 +57,8 @@ class LiveEntryRecordingOptions extends \Kaltura\Client\ObjectBase
 			$this->shouldCopyScheduling = (int)$xml->shouldCopyScheduling;
 		if(count($xml->shouldCopyThumbnail))
 			$this->shouldCopyThumbnail = (int)$xml->shouldCopyThumbnail;
+		if(count($xml->shouldMakeHidden))
+			$this->shouldMakeHidden = (int)$xml->shouldMakeHidden;
 	}
 	/**
 	 * 
@@ -75,5 +77,11 @@ class LiveEntryRecordingOptions extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $shouldCopyThumbnail = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $shouldMakeHidden = null;
 
 }
