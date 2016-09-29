@@ -386,6 +386,7 @@ class TypeMap
 		'KalturaDeliveryProfileListResponse' => 'Kaltura\Client\Type\DeliveryProfileListResponse',
 		'KalturaDeliveryProfileLiveAppleHttp' => 'Kaltura\Client\Type\DeliveryProfileLiveAppleHttp',
 		'KalturaDeliveryProfileRtmp' => 'Kaltura\Client\Type\DeliveryProfileRtmp',
+		'KalturaDeliveryProfileVodPackagerHls' => 'Kaltura\Client\Type\DeliveryProfileVodPackagerHls',
 		'KalturaDeliveryServerNode' => 'Kaltura\Client\Type\DeliveryServerNode',
 		'KalturaDirectoryRestriction' => 'Kaltura\Client\Type\DirectoryRestriction',
 		'KalturaDispatchEventNotificationObjectTask' => 'Kaltura\Client\Plugin\ScheduledTaskEventNotification\Type\DispatchEventNotificationObjectTask',
