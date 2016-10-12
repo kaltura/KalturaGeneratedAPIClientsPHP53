@@ -281,6 +281,22 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Regenerate new secure token for liveStream
+	 * 
+	 */
+	function regenrateSecureToken($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("livestream", "regenrateSecureToken", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Append recorded video to live entry
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
