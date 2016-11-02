@@ -34,7 +34,7 @@
 namespace Kaltura\Client\Plugin\Schedule\Service;
 
 /**
- * ScheduleEvent service lets you create and manage schedule events
+ * The ScheduleEvent service enables you to create and manage (update, delete, retrieve, etc.) scheduled recording events.
  * @package Kaltura
  * @subpackage Client
  */

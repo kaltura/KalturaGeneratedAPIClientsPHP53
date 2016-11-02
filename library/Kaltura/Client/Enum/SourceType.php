@@ -50,6 +50,7 @@ class SourceType extends \Kaltura\Client\EnumBase
 	const LIVE_CHANNEL = "33";
 	const RECORDED_LIVE = "34";
 	const CLIP = "35";
+	const KALTURA_RECORDED_LIVE = "36";
 	const LIVE_STREAM_ONTEXTDATA_CAPTIONS = "42";
 }
 

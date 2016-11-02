@@ -250,4 +250,27 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 	}
+
+	/**
+	 * Sey recorded video to live entry
+	 * 
+	 * @return \Kaltura\Client\Type\LiveEntry
+	 */
+	function setRecordedContent($entryId, $mediaServerIndex, \Kaltura\Client\Type\DataCenterContentResource $resource, $duration)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+		$this->client->addParam($kparams, "resource", $resource->toParams());
+		$this->client->addParam($kparams, "duration", $duration);
+		$this->client->queueServiceActionCall("livechannel", "setRecordedContent", "KalturaLiveEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
+		return $resultObject;
+	}
 }

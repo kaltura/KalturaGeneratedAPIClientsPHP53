@@ -42,11 +42,13 @@ class EntryScheduleEventOrderBy extends \Kaltura\Client\EnumBase
 	const END_DATE_ASC = "+endDate";
 	const PRIORITY_ASC = "+priority";
 	const START_DATE_ASC = "+startDate";
+	const SUMMARY_ASC = "+summary";
 	const UPDATED_AT_ASC = "+updatedAt";
 	const CREATED_AT_DESC = "-createdAt";
 	const END_DATE_DESC = "-endDate";
 	const PRIORITY_DESC = "-priority";
 	const START_DATE_DESC = "-startDate";
+	const SUMMARY_DESC = "-summary";
 	const UPDATED_AT_DESC = "-updatedAt";
 }
 

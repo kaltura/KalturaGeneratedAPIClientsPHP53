@@ -380,6 +380,7 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	/**
 	 * serve cmd line to transcode the ad
 	 * 
+	 * @return string
 	 */
 	function serveAdStitchCmd($assetId, $ffprobeJson = null, $duration = null)
 	{
@@ -393,5 +394,7 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
 	}
 }

@@ -34,7 +34,7 @@
 namespace Kaltura\Client\Plugin\Schedule\Service;
 
 /**
- * ScheduleResource service lets you create and manage schedule events
+ * The ScheduleResource service enables you to create and manage (update, delete, retrieve, etc.) the resources required for scheduled events (cameras, capture devices, etc.).
  * @package Kaltura
  * @subpackage Client
  */
