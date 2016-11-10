@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class DeliveryProfileVodPackagerHls extends \Kaltura\Client\Type\DeliveryProfileVodPackagerPlayServer
+class StreamContainer extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaDeliveryProfileVodPackagerHls';
+		return 'KalturaStreamContainer';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,18 +50,53 @@ class DeliveryProfileVodPackagerHls extends \Kaltura\Client\Type\DeliveryProfile
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->allowFairplayOffline))
-		{
-			if(!empty($xml->allowFairplayOffline))
-				$this->allowFairplayOffline = true;
-			else
-				$this->allowFairplayOffline = false;
-		}
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
+		if(count($xml->trackIndex))
+			$this->trackIndex = (int)$xml->trackIndex;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
+		if(count($xml->channelIndex))
+			$this->channelIndex = (int)$xml->channelIndex;
+		if(count($xml->label))
+			$this->label = (string)$xml->label;
+		if(count($xml->channelLayout))
+			$this->channelLayout = (string)$xml->channelLayout;
 	}
 	/**
 	 * 
-	 * @var bool
+	 * @var string
 	 */
-	public $allowFairplayOffline = null;
+	public $type = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $trackIndex = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $language = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $channelIndex = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $label = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $channelLayout = null;
 
 }

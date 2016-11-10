@@ -56,6 +56,8 @@ class ScheduleEventRecurrence extends \Kaltura\Client\ObjectBase
 			$this->frequency = (string)$xml->frequency;
 		if(count($xml->until))
 			$this->until = (int)$xml->until;
+		if(count($xml->timeZone))
+			$this->timeZone = (string)$xml->timeZone;
 		if(count($xml->count))
 			$this->count = (int)$xml->count;
 		if(count($xml->interval))
@@ -98,6 +100,12 @@ class ScheduleEventRecurrence extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 */
 	public $until = null;
+
+	/**
+	 * TimeZone String
+	 * @var string
+	 */
+	public $timeZone = null;
 
 	/**
 	 * 

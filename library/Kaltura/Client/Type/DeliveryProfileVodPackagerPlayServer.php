@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class DeliveryProfileVodPackagerHls extends \Kaltura\Client\Type\DeliveryProfileVodPackagerPlayServer
+class DeliveryProfileVodPackagerPlayServer extends \Kaltura\Client\Type\DeliveryProfile
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaDeliveryProfileVodPackagerHls';
+		return 'KalturaDeliveryProfileVodPackagerPlayServer';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,18 +50,18 @@ class DeliveryProfileVodPackagerHls extends \Kaltura\Client\Type\DeliveryProfile
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->allowFairplayOffline))
+		if(count($xml->adStitchingEnabled))
 		{
-			if(!empty($xml->allowFairplayOffline))
-				$this->allowFairplayOffline = true;
+			if(!empty($xml->adStitchingEnabled))
+				$this->adStitchingEnabled = true;
 			else
-				$this->allowFairplayOffline = false;
+				$this->adStitchingEnabled = false;
 		}
 	}
 	/**
 	 * 
 	 * @var bool
 	 */
-	public $allowFairplayOffline = null;
+	public $adStitchingEnabled = null;
 
 }
