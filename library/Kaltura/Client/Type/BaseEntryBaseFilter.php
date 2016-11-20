@@ -72,6 +72,8 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->userIdEqual = (string)$xml->userIdEqual;
 		if(count($xml->userIdIn))
 			$this->userIdIn = (string)$xml->userIdIn;
+		if(count($xml->userIdNotIn))
+			$this->userIdNotIn = (string)$xml->userIdNotIn;
 		if(count($xml->creatorIdEqual))
 			$this->creatorIdEqual = (string)$xml->creatorIdEqual;
 		if(count($xml->tagsLike))
@@ -270,6 +272,12 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	 * @var string
 	 */
 	public $userIdIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $userIdNotIn = null;
 
 	/**
 	 * 
