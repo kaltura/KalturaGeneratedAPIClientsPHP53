@@ -68,6 +68,10 @@ abstract class CategoryEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilte
 			$this->statusEqual = (int)$xml->statusEqual;
 		if(count($xml->statusIn))
 			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->creatorUserIdEqual))
+			$this->creatorUserIdEqual = (string)$xml->creatorUserIdEqual;
+		if(count($xml->creatorUserIdIn))
+			$this->creatorUserIdIn = (string)$xml->creatorUserIdIn;
 	}
 	/**
 	 * 
@@ -122,5 +126,17 @@ abstract class CategoryEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilte
 	 * @var string
 	 */
 	public $statusIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $creatorUserIdEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $creatorUserIdIn = null;
 
 }

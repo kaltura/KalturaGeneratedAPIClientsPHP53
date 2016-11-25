@@ -504,6 +504,7 @@ class TypeMap
 		'KalturaMixListResponse' => 'Kaltura\Client\Type\MixListResponse',
 		'KalturaModerationFlagListResponse' => 'Kaltura\Client\Type\ModerationFlagListResponse',
 		'KalturaModifyCategoriesObjectTask' => 'Kaltura\Client\Plugin\ScheduledTask\Type\ModifyCategoriesObjectTask',
+		'KalturaModifyEntryObjectTask' => 'Kaltura\Client\Plugin\ScheduledTask\Type\ModifyEntryObjectTask',
 		'KalturaMoveCategoryEntriesJobData' => 'Kaltura\Client\Type\MoveCategoryEntriesJobData',
 		'KalturaNotificationJobData' => 'Kaltura\Client\Type\NotificationJobData',
 		'KalturaObjectListResponse' => 'Kaltura\Client\Type\ObjectListResponse',

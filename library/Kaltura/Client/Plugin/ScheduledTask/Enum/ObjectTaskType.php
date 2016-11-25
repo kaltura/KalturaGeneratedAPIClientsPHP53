@@ -47,5 +47,6 @@ class ObjectTaskType extends \Kaltura\Client\EnumBase
 	const CONVERT_ENTRY_FLAVORS = "4";
 	const DELETE_LOCAL_CONTENT = "5";
 	const STORAGE_EXPORT = "6";
+	const MODIFY_ENTRY = "7";
 }
 

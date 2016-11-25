@@ -60,6 +60,8 @@ class CategoryEntry extends \Kaltura\Client\ObjectBase
 			$this->categoryFullIds = (string)$xml->categoryFullIds;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
+		if(count($xml->creatorUserId))
+			$this->creatorUserId = (string)$xml->creatorUserId;
 	}
 	/**
 	 * 
@@ -93,5 +95,12 @@ class CategoryEntry extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $status = null;
+
+	/**
+	 * CategroyEntry creator puser ID
+	 * @var string
+	 * @readonly
+	 */
+	public $creatorUserId = null;
 
 }
