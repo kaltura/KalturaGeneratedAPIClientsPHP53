@@ -67,15 +67,17 @@ class AnalyticsFilter extends \Kaltura\Client\ObjectBase
 			else
 				$this->filters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->filters, "KalturaReportFilter");
 		}
+		if(count($xml->orderBy))
+			$this->orderBy = (string)$xml->orderBy;
 	}
 	/**
-	 * Query start time (in local time)
+	 * Query start time (in local time) MM/dd/yyyy HH:mi
 	 * @var string
 	 */
 	public $from_time = null;
 
 	/**
-	 * Query end time (in local time)
+	 * Query end time (in local time) MM/dd/yyyy HH:mi
 	 * @var string
 	 */
 	public $to_time = null;
@@ -103,5 +105,11 @@ class AnalyticsFilter extends \Kaltura\Client\ObjectBase
 	 * @var array<KalturaReportFilter>
 	 */
 	public $filters;
+
+	/**
+	 * Query order by metric/dimension
+	 * @var string
+	 */
+	public $orderBy = null;
 
 }

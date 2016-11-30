@@ -93,6 +93,8 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 			$this->storageProfileId = (int)$xml->storageProfileId;
 		if(count($xml->mediaParserType))
 			$this->mediaParserType = (string)$xml->mediaParserType;
+		if(count($xml->calculateComplexity))
+			$this->calculateComplexity = (int)$xml->calculateComplexity;
 	}
 	/**
 	 * The id of the Conversion Profile
@@ -212,5 +214,11 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\MediaParserType
 	 */
 	public $mediaParserType = null;
+
+	/**
+	 * Should calculate file conversion complexity
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $calculateComplexity = null;
 
 }

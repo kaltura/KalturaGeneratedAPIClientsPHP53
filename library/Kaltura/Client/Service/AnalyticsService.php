@@ -50,10 +50,12 @@ class AnalyticsService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\ReportResponse
 	 */
-	function query(\Kaltura\Client\Type\AnalyticsFilter $filter)
+	function query(\Kaltura\Client\Type\AnalyticsFilter $filter, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
 		$this->client->queueServiceActionCall("analytics", "query", "KalturaReportResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
