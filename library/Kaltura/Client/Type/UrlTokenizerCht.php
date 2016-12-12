@@ -27,3 +27,28 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Type;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class UrlTokenizerCht extends \Kaltura\Client\Type\UrlTokenizer
+{
+	public function getKalturaObjectType()
+	{
+		return 'KalturaUrlTokenizerCht';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
+}

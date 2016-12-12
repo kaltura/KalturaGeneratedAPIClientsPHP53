@@ -27,3 +27,44 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Type;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class DrmEntryPlayingPluginData extends \Kaltura\Client\Type\PluginData
+{
+	public function getKalturaObjectType()
+	{
+		return 'KalturaDrmEntryPlayingPluginData';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->scheme))
+			$this->scheme = (string)$xml->scheme;
+		if(count($xml->licenseURL))
+			$this->licenseURL = (string)$xml->licenseURL;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $scheme = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $licenseURL = null;
+
+}

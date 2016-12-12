@@ -56,6 +56,8 @@ class Rule extends \Kaltura\Client\ObjectBase
 			$this->ruleData = (string)$xml->ruleData;
 		if(count($xml->message))
 			$this->message = (string)$xml->message;
+		if(count($xml->code))
+			$this->code = (string)$xml->code;
 		if(count($xml->actions))
 		{
 			if(empty($xml->actions))
@@ -104,6 +106,12 @@ class Rule extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $message = null;
+
+	/**
+	 * Code to be thrown to the player in case the rule is fulfilled
+	 * @var string
+	 */
+	public $code = null;
 
 	/**
 	 * Actions to be performed by the player in case the rule is fulfilled

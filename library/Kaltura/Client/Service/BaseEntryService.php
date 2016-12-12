@@ -553,4 +553,25 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BaseEntry");
 		return $resultObject;
 	}
+
+	/**
+	 * This action delivers all data relevant for player
+	 * 
+	 * @return \Kaltura\Client\Type\PlaybackContextResult
+	 */
+	function getPlaybackContext($entryId, \Kaltura\Client\Type\EntryContextDataParams $contextDataParams)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "contextDataParams", $contextDataParams->toParams());
+		$this->client->queueServiceActionCall("baseentry", "getPlaybackContext", "KalturaPlaybackContextResult", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPlaybackContextResult");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PlaybackContextResult");
+		return $resultObject;
+	}
 }

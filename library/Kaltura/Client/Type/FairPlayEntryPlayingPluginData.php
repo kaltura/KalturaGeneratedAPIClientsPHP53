@@ -27,3 +27,36 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Type;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class FairPlayEntryPlayingPluginData extends \Kaltura\Client\Type\DrmEntryPlayingPluginData
+{
+	public function getKalturaObjectType()
+	{
+		return 'KalturaFairPlayEntryPlayingPluginData';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->certificate))
+			$this->certificate = (string)$xml->certificate;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $certificate = null;
+
+}

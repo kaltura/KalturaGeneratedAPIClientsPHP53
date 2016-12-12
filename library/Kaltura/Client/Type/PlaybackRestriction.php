@@ -27,3 +27,44 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Type;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class PlaybackRestriction extends \Kaltura\Client\ObjectBase
+{
+	public function getKalturaObjectType()
+	{
+		return 'KalturaPlaybackRestriction';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->message))
+			$this->message = (string)$xml->message;
+		if(count($xml->code))
+			$this->code = (string)$xml->code;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $message = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $code = null;
+
+}
