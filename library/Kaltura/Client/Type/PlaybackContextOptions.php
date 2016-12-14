@@ -30,27 +30,26 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Type;
 
 /**
+ * Object which contains contextual entry-related data.
  * @package Kaltura
  * @subpackage Client
  */
-class PlaybackProtocol extends \Kaltura\Client\EnumBase
+class PlaybackContextOptions extends \Kaltura\Client\Type\EntryContextDataParams
 {
-	const APPLE_HTTP = "applehttp";
-	const APPLE_HTTP_TO_MC = "applehttp_to_mc";
-	const AUTO = "auto";
-	const AKAMAI_HD = "hdnetwork";
-	const AKAMAI_HDS = "hdnetworkmanifest";
-	const HDS = "hds";
-	const HLS = "hls";
-	const HTTP = "http";
-	const MPEG_DASH = "mpegdash";
-	const MULTICAST_SL = "multicast_silverlight";
-	const RTMP = "rtmp";
-	const RTSP = "rtsp";
-	const SILVER_LIGHT = "sl";
-	const URL = "url";
+	public function getKalturaObjectType()
+	{
+		return 'KalturaPlaybackContextOptions';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-
