@@ -27,3 +27,41 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Type;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class UrlTokenizerKs extends \Kaltura\Client\Type\UrlTokenizer
+{
+	public function getKalturaObjectType()
+	{
+		return 'KalturaUrlTokenizerKs';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->usePath))
+		{
+			if(!empty($xml->usePath))
+				$this->usePath = true;
+			else
+				$this->usePath = false;
+		}
+	}
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $usePath = null;
+
+}

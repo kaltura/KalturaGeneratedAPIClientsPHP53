@@ -27,3 +27,55 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Plugin\Metadata\Type;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class MetadataField extends \Kaltura\Client\Type\StringField
+{
+	public function getKalturaObjectType()
+	{
+		return 'KalturaMetadataField';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->xPath))
+			$this->xPath = (string)$xml->xPath;
+		if(count($xml->profileId))
+			$this->profileId = (int)$xml->profileId;
+		if(count($xml->profileSystemName))
+			$this->profileSystemName = (string)$xml->profileSystemName;
+	}
+	/**
+	 * May contain the full xpath to the field in three formats
+	 * 	 1. Slashed xPath, e.g. /metadata/myElementName
+	 * 	 2. Using local-name function, e.g. /[local-name()='metadata']/[local-name()='myElementName']
+	 * 	 3. Using only the field name, e.g. myElementName, it will be searched as //myElementName
+	 * @var string
+	 */
+	public $xPath = null;
+
+	/**
+	 * Metadata profile id
+	 * @var int
+	 */
+	public $profileId = null;
+
+	/**
+	 * Metadata profile system name
+	 * @var string
+	 */
+	public $profileSystemName = null;
+
+}
