@@ -95,6 +95,8 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 			$this->mediaParserType = (string)$xml->mediaParserType;
 		if(count($xml->calculateComplexity))
 			$this->calculateComplexity = (int)$xml->calculateComplexity;
+		if(count($xml->collectionTags))
+			$this->collectionTags = (string)$xml->collectionTags;
 	}
 	/**
 	 * The id of the Conversion Profile
@@ -220,5 +222,12 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $calculateComplexity = null;
+
+	/**
+	 * Defines the tags that should be used to define 'collective'/group/multi-flavor processing,
+	 * 	 like 'mbr' or 'ism'
+	 * @var string
+	 */
+	public $collectionTags = null;
 
 }

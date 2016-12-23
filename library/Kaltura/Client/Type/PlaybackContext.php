@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class PlaybackSource extends \Kaltura\Client\ObjectBase
+class PlaybackContext extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaPlaybackSource';
+		return 'KalturaPlaybackContext';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,58 +50,57 @@ class PlaybackSource extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->deliveryProfileId))
-			$this->deliveryProfileId = (string)$xml->deliveryProfileId;
-		if(count($xml->format))
-			$this->format = (string)$xml->format;
-		if(count($xml->protocols))
-			$this->protocols = (string)$xml->protocols;
-		if(count($xml->flavorIds))
-			$this->flavorIds = (string)$xml->flavorIds;
-		if(count($xml->url))
-			$this->url = (string)$xml->url;
-		if(count($xml->drm))
+		if(count($xml->sources))
 		{
-			if(empty($xml->drm))
-				$this->drm = array();
+			if(empty($xml->sources))
+				$this->sources = array();
 			else
-				$this->drm = \Kaltura\Client\ParseUtils::unmarshalArray($xml->drm, "KalturaDrmPlaybackPluginData");
+				$this->sources = \Kaltura\Client\ParseUtils::unmarshalArray($xml->sources, "KalturaPlaybackSource");
+		}
+		if(count($xml->flavorAssets))
+		{
+			if(empty($xml->flavorAssets))
+				$this->flavorAssets = array();
+			else
+				$this->flavorAssets = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavorAssets, "KalturaFlavorAsset");
+		}
+		if(count($xml->actions))
+		{
+			if(empty($xml->actions))
+				$this->actions = array();
+			else
+				$this->actions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->actions, "KalturaRuleAction");
+		}
+		if(count($xml->messages))
+		{
+			if(empty($xml->messages))
+				$this->messages = array();
+			else
+				$this->messages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->messages, "KalturaAccessControlMessage");
 		}
 	}
 	/**
 	 * 
-	 * @var string
+	 * @var array<KalturaPlaybackSource>
 	 */
-	public $deliveryProfileId = null;
-
-	/**
-	 * source format according to delivery profile streamer type (applehttp, mpegdash etc.)
-	 * @var string
-	 */
-	public $format = null;
-
-	/**
-	 * comma separated string according to deliveryProfile media protocols ('http,https' etc.)
-	 * @var string
-	 */
-	public $protocols = null;
-
-	/**
-	 * comma separated string of flavor ids
-	 * @var string
-	 */
-	public $flavorIds = null;
+	public $sources;
 
 	/**
 	 * 
-	 * @var string
+	 * @var array<KalturaFlavorAsset>
 	 */
-	public $url = null;
+	public $flavorAssets;
 
 	/**
-	 * drm data object containing relevant license url ,scheme name and certificate
-	 * @var array<KalturaDrmPlaybackPluginData>
+	 * Array of actions as received from the rules that invalidated
+	 * @var array<KalturaRuleAction>
 	 */
-	public $drm;
+	public $actions;
+
+	/**
+	 * Array of actions as received from the rules that invalidated
+	 * @var array<KalturaAccessControlMessage>
+	 */
+	public $messages;
 
 }

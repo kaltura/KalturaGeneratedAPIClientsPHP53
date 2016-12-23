@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class PlaybackSource extends \Kaltura\Client\ObjectBase
+class AccessControlMessage extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaPlaybackSource';
+		return 'KalturaAccessControlMessage';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,58 +50,21 @@ class PlaybackSource extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->deliveryProfileId))
-			$this->deliveryProfileId = (string)$xml->deliveryProfileId;
-		if(count($xml->format))
-			$this->format = (string)$xml->format;
-		if(count($xml->protocols))
-			$this->protocols = (string)$xml->protocols;
-		if(count($xml->flavorIds))
-			$this->flavorIds = (string)$xml->flavorIds;
-		if(count($xml->url))
-			$this->url = (string)$xml->url;
-		if(count($xml->drm))
-		{
-			if(empty($xml->drm))
-				$this->drm = array();
-			else
-				$this->drm = \Kaltura\Client\ParseUtils::unmarshalArray($xml->drm, "KalturaDrmPlaybackPluginData");
-		}
+		if(count($xml->message))
+			$this->message = (string)$xml->message;
+		if(count($xml->code))
+			$this->code = (string)$xml->code;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $deliveryProfileId = null;
-
-	/**
-	 * source format according to delivery profile streamer type (applehttp, mpegdash etc.)
-	 * @var string
-	 */
-	public $format = null;
-
-	/**
-	 * comma separated string according to deliveryProfile media protocols ('http,https' etc.)
-	 * @var string
-	 */
-	public $protocols = null;
-
-	/**
-	 * comma separated string of flavor ids
-	 * @var string
-	 */
-	public $flavorIds = null;
+	public $message = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $url = null;
-
-	/**
-	 * drm data object containing relevant license url ,scheme name and certificate
-	 * @var array<KalturaDrmPlaybackPluginData>
-	 */
-	public $drm;
+	public $code = null;
 
 }

@@ -557,21 +557,21 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 	/**
 	 * This action delivers all data relevant for player
 	 * 
-	 * @return \Kaltura\Client\Type\PlaybackContextOptions
+	 * @return \Kaltura\Client\Type\PlaybackContext
 	 */
 	function getPlaybackContext($entryId, \Kaltura\Client\Type\PlaybackContextOptions $contextDataParams)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->addParam($kparams, "contextDataParams", $contextDataParams->toParams());
-		$this->client->queueServiceActionCall("baseentry", "getPlaybackContext", "KalturaPlaybackContextOptions", $kparams);
+		$this->client->queueServiceActionCall("baseentry", "getPlaybackContext", "KalturaPlaybackContext", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPlaybackContextOptions");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PlaybackContextOptions");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPlaybackContext");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PlaybackContext");
 		return $resultObject;
 	}
 }

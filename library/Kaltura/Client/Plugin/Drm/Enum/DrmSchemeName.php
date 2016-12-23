@@ -30,41 +30,13 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Drm\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DrmPlaybackPluginData extends \Kaltura\Client\Type\PluginData
+class DrmSchemeName extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaDrmPlaybackPluginData';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->scheme))
-			$this->scheme = (string)$xml->scheme;
-		if(count($xml->licenseURL))
-			$this->licenseURL = (string)$xml->licenseURL;
-	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\Drm\Enum\DrmSchemeName
-	 */
-	public $scheme = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $licenseURL = null;
-
 }
+
