@@ -30,57 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Transcript\Type;
+namespace Kaltura\Client\Plugin\Transcript\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class TranscriptAsset extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset
+class TranscriptProviderType extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaTranscriptAsset';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->accuracy))
-			$this->accuracy = (float)$xml->accuracy;
-		if(count($xml->humanVerified))
-			$this->humanVerified = (int)$xml->humanVerified;
-		if(count($xml->language))
-			$this->language = (string)$xml->language;
-		if(count($xml->providerType))
-			$this->providerType = (string)$xml->providerType;
-	}
-	/**
-	 * The accuracy of the transcript - values between 0 and 1
-	 * @var float
-	 */
-	public $accuracy = null;
-
-	/**
-	 * Was verified by human or machine
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $humanVerified = null;
-
-	/**
-	 * The language of the transcript
-	 * @var \Kaltura\Client\Enum\Language
-	 */
-	public $language = null;
-
-	/**
-	 * The provider of the transcript
-	 * @var \Kaltura\Client\Plugin\Transcript\Enum\TranscriptProviderType
-	 */
-	public $providerType = null;
-
+	const CIELO24 = "cielo24.Cielo24";
+	const VOICEBASE = "voicebase.Voicebase";
 }
+
