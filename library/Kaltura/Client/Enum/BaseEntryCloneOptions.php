@@ -44,5 +44,6 @@ class BaseEntryCloneOptions extends \Kaltura\Client\EnumBase
 	const THUMB_CUE_POINTS = "thumbCuePoint.THUMB_CUE_POINTS";
 	const USERS = "1";
 	const CATEGORIES = "2";
+	const CHILD_ENTRIES = "3";
 }
 
