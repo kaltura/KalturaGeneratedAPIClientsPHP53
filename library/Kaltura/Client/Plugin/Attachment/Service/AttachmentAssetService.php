@@ -153,13 +153,15 @@ class AttachmentAssetService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return file
 	 */
-	function serve($attachmentAssetId)
+	function serve($attachmentAssetId, \Kaltura\Client\Plugin\Attachment\Type\AttachmentServeOptions $serveOptions = null)
 	{
 		if ($this->client->isMultiRequest())
 			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
 		
 		$kparams = array();
 		$this->client->addParam($kparams, "attachmentAssetId", $attachmentAssetId);
+		if ($serveOptions !== null)
+			$this->client->addParam($kparams, "serveOptions", $serveOptions->toParams());
 		$this->client->queueServiceActionCall('attachment_attachmentasset', 'serve', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
 		return $resultObject;

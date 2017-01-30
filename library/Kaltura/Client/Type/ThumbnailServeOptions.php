@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ThumbnailServeOptions extends \Kaltura\Client\ObjectBase
+class ThumbnailServeOptions extends \Kaltura\Client\Type\AssetServeOptions
 {
 	public function getKalturaObjectType()
 	{
@@ -50,26 +50,5 @@ class ThumbnailServeOptions extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->download))
-		{
-			if(!empty($xml->download))
-				$this->download = true;
-			else
-				$this->download = false;
-		}
-		if(count($xml->referrer))
-			$this->referrer = (string)$xml->referrer;
 	}
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $download = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $referrer = null;
-
 }

@@ -30,13 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Plugin\Attachment\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class SyndicationDistributionProviderOrderBy extends \Kaltura\Client\EnumBase
+class AttachmentServeOptions extends \Kaltura\Client\Type\AssetServeOptions
 {
+	public function getKalturaObjectType()
+	{
+		return 'KalturaAttachmentServeOptions';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

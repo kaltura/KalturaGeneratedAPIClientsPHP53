@@ -30,13 +30,46 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class SyndicationDistributionProviderOrderBy extends \Kaltura\Client\EnumBase
+class AssetServeOptions extends \Kaltura\Client\ObjectBase
 {
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaAssetServeOptions';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->download))
+		{
+			if(!empty($xml->download))
+				$this->download = true;
+			else
+				$this->download = false;
+		}
+		if(count($xml->referrer))
+			$this->referrer = (string)$xml->referrer;
+	}
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $download = null;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $referrer = null;
+
+}
