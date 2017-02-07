@@ -75,6 +75,8 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 			else
 				$this->replaceMediaContent = false;
 		}
+		if(count($xml->additionalParameters))
+			$this->additionalParameters = (string)$xml->additionalParameters;
 	}
 	/**
 	 * Entry ID
@@ -138,5 +140,11 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 	 * @var bool
 	 */
 	public $replaceMediaContent = null;
+
+	/**
+	 * additional parameters to send to Cielo24
+	 * @var string
+	 */
+	public $additionalParameters = null;
 
 }
