@@ -46,46 +46,22 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Create a new Partner object
+	 * Count partner's existing sub-publishers (count includes the partner itself).
 	 * 
-	 * @return \Kaltura\Client\Type\Partner
+	 * @return int
 	 */
-	function register(\Kaltura\Client\Type\Partner $partner, $cmsPassword = "", $templatePartnerId = null, $silent = false)
+	function count(\Kaltura\Client\Type\PartnerFilter $filter = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "partner", $partner->toParams());
-		$this->client->addParam($kparams, "cmsPassword", $cmsPassword);
-		$this->client->addParam($kparams, "templatePartnerId", $templatePartnerId);
-		$this->client->addParam($kparams, "silent", $silent);
-		$this->client->queueServiceActionCall("partner", "register", "KalturaPartner", $kparams);
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->queueServiceActionCall("partner", "count", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartner");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Partner");
-		return $resultObject;
-	}
-
-	/**
-	 * Update details and settings of an existing partner
-	 * 
-	 * @return \Kaltura\Client\Type\Partner
-	 */
-	function update(\Kaltura\Client\Type\Partner $partner, $allowEmpty = false)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "partner", $partner->toParams());
-		$this->client->addParam($kparams, "allowEmpty", $allowEmpty);
-		$this->client->queueServiceActionCall("partner", "update", "KalturaPartner", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartner");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Partner");
+		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
@@ -99,6 +75,26 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall("partner", "get", "KalturaPartner", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartner");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Partner");
+		return $resultObject;
+	}
+
+	/**
+	 * Retrieve all info attributed to the partner
+	 * 	 This action expects no parameters. It returns information for the current KS partnerId.
+	 * 
+	 * @return \Kaltura\Client\Type\Partner
+	 */
+	function getInfo()
+	{
+		$kparams = array();
+		$this->client->queueServiceActionCall("partner", "getInfo", "KalturaPartner", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -132,22 +128,22 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieve all info attributed to the partner
-	 * 	 This action expects no parameters. It returns information for the current KS partnerId.
+	 * Get usage statistics for a partner
+	 * 	 Calculation is done according to partner's package
 	 * 
-	 * @return \Kaltura\Client\Type\Partner
+	 * @return \Kaltura\Client\Type\PartnerStatistics
 	 */
-	function getInfo()
+	function getStatistics()
 	{
 		$kparams = array();
-		$this->client->queueServiceActionCall("partner", "getInfo", "KalturaPartner", $kparams);
+		$this->client->queueServiceActionCall("partner", "getStatistics", "KalturaPartnerStatistics", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartner");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Partner");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartnerStatistics");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PartnerStatistics");
 		return $resultObject;
 	}
 
@@ -173,49 +169,6 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartnerUsage");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PartnerUsage");
-		return $resultObject;
-	}
-
-	/**
-	 * Get usage statistics for a partner
-	 * 	 Calculation is done according to partner's package
-	 * 
-	 * @return \Kaltura\Client\Type\PartnerStatistics
-	 */
-	function getStatistics()
-	{
-		$kparams = array();
-		$this->client->queueServiceActionCall("partner", "getStatistics", "KalturaPartnerStatistics", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartnerStatistics");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PartnerStatistics");
-		return $resultObject;
-	}
-
-	/**
-	 * Retrieve a list of partner objects which the current user is allowed to access.
-	 * 
-	 * @return \Kaltura\Client\Type\PartnerListResponse
-	 */
-	function listPartnersForUser(\Kaltura\Client\Type\PartnerFilter $partnerFilter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($partnerFilter !== null)
-			$this->client->addParam($kparams, "partnerFilter", $partnerFilter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("partner", "listPartnersForUser", "KalturaPartnerListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartnerListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PartnerListResponse");
 		return $resultObject;
 	}
 
@@ -264,22 +217,69 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Count partner's existing sub-publishers (count includes the partner itself).
+	 * Retrieve a list of partner objects which the current user is allowed to access.
 	 * 
-	 * @return int
+	 * @return \Kaltura\Client\Type\PartnerListResponse
 	 */
-	function count(\Kaltura\Client\Type\PartnerFilter $filter = null)
+	function listPartnersForUser(\Kaltura\Client\Type\PartnerFilter $partnerFilter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		$this->client->queueServiceActionCall("partner", "count", null, $kparams);
+		if ($partnerFilter !== null)
+			$this->client->addParam($kparams, "partnerFilter", $partnerFilter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("partner", "listPartnersForUser", "KalturaPartnerListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartnerListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PartnerListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Create a new Partner object
+	 * 
+	 * @return \Kaltura\Client\Type\Partner
+	 */
+	function register(\Kaltura\Client\Type\Partner $partner, $cmsPassword = "", $templatePartnerId = null, $silent = false)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "partner", $partner->toParams());
+		$this->client->addParam($kparams, "cmsPassword", $cmsPassword);
+		$this->client->addParam($kparams, "templatePartnerId", $templatePartnerId);
+		$this->client->addParam($kparams, "silent", $silent);
+		$this->client->queueServiceActionCall("partner", "register", "KalturaPartner", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartner");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Partner");
+		return $resultObject;
+	}
+
+	/**
+	 * Update details and settings of an existing partner
+	 * 
+	 * @return \Kaltura\Client\Type\Partner
+	 */
+	function update(\Kaltura\Client\Type\Partner $partner, $allowEmpty = false)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "partner", $partner->toParams());
+		$this->client->addParam($kparams, "allowEmpty", $allowEmpty);
+		$this->client->queueServiceActionCall("partner", "update", "KalturaPartner", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartner");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Partner");
 		return $resultObject;
 	}
 }

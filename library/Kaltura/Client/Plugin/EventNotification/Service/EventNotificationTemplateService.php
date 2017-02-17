@@ -88,6 +88,42 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete an event notification template object
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Dispatch event notification object by id
+	 * 
+	 * @return int
+	 */
+	function dispatch($id, \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationScope $scope)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "scope", $scope->toParams());
+		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "dispatch", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Retrieve an event notification template object by id
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
@@ -105,64 +141,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
 		return $resultObject;
-	}
-
-	/**
-	 * Update an existing event notification template object
-	 * 
-	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
-	 */
-	function update($id, \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate $eventNotificationTemplate)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "eventNotificationTemplate", $eventNotificationTemplate->toParams());
-		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "update", "KalturaEventNotificationTemplate", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
-		return $resultObject;
-	}
-
-	/**
-	 * Update event notification template status by id
-	 * 
-	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
-	 */
-	function updateStatus($id, $status)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "status", $status);
-		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "updateStatus", "KalturaEventNotificationTemplate", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete an event notification template object
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -211,26 +189,6 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Dispatch event notification object by id
-	 * 
-	 * @return int
-	 */
-	function dispatch($id, \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationScope $scope)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "scope", $scope->toParams());
-		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "dispatch", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
-	}
-
-	/**
 	 * Action lists the template partner event notification templates.
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplateListResponse
@@ -250,6 +208,48 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplateListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplateListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update an existing event notification template object
+	 * 
+	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
+	 */
+	function update($id, \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate $eventNotificationTemplate)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "eventNotificationTemplate", $eventNotificationTemplate->toParams());
+		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "update", "KalturaEventNotificationTemplate", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
+		return $resultObject;
+	}
+
+	/**
+	 * Update event notification template status by id
+	 * 
+	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
+	 */
+	function updateStatus($id, $status)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "status", $status);
+		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "updateStatus", "KalturaEventNotificationTemplate", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEventNotificationTemplate");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\EventNotification\\Type\\EventNotificationTemplate");
 		return $resultObject;
 	}
 }

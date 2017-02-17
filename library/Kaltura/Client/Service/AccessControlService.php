@@ -66,6 +66,22 @@ class AccessControlService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Access Control Profile by id
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("accesscontrol", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Access Control Profile by id
 	 * 
 	 * @return \Kaltura\Client\Type\AccessControl
@@ -83,43 +99,6 @@ class AccessControlService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAccessControl");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AccessControl");
 		return $resultObject;
-	}
-
-	/**
-	 * Update Access Control Profile by id
-	 * 
-	 * @return \Kaltura\Client\Type\AccessControl
-	 */
-	function update($id, \Kaltura\Client\Type\AccessControl $accessControl)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "accessControl", $accessControl->toParams());
-		$this->client->queueServiceActionCall("accesscontrol", "update", "KalturaAccessControl", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAccessControl");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AccessControl");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete Access Control Profile by id
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("accesscontrol", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -142,6 +121,27 @@ class AccessControlService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAccessControlListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AccessControlListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update Access Control Profile by id
+	 * 
+	 * @return \Kaltura\Client\Type\AccessControl
+	 */
+	function update($id, \Kaltura\Client\Type\AccessControl $accessControl)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "accessControl", $accessControl->toParams());
+		$this->client->queueServiceActionCall("accesscontrol", "update", "KalturaAccessControl", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAccessControl");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AccessControl");
 		return $resultObject;
 	}
 }

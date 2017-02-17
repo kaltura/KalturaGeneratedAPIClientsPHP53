@@ -67,114 +67,16 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update content of thumbnail asset
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
-	function setContent($id, \Kaltura\Client\Type\ContentResource $contentResource)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "contentResource", $contentResource->toParams());
-		$this->client->queueServiceActionCall("thumbasset", "setContent", "KalturaThumbAsset", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
-		return $resultObject;
-	}
-
-	/**
-	 * Update thumbnail asset
-	 * 
-	 * @return \Kaltura\Client\Type\ThumbAsset
-	 */
-	function update($id, \Kaltura\Client\Type\ThumbAsset $thumbAsset)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "thumbAsset", $thumbAsset->toParams());
-		$this->client->queueServiceActionCall("thumbasset", "update", "KalturaThumbAsset", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
-		return $resultObject;
-	}
-
-	/**
-	 * Serves thumbnail by entry id and thumnail params id
-	 * 
-	 * @return file
-	 */
-	function serveByEntryId($entryId, $thumbParamId = null)
-	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "thumbParamId", $thumbParamId);
-		$this->client->queueServiceActionCall('thumbasset', 'serveByEntryId', null, $kparams);
-		$resultObject = $this->client->getServeUrl();
-		return $resultObject;
-	}
-
-	/**
-	 * Serves thumbnail by its id
-	 * 
-	 * @return file
-	 */
-	function serve($thumbAssetId, $version = null, \Kaltura\Client\Type\ThumbParams $thumbParams = null, \Kaltura\Client\Type\ThumbnailServeOptions $options = null)
-	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
-		$kparams = array();
-		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
-		$this->client->addParam($kparams, "version", $version);
-		if ($thumbParams !== null)
-			$this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
-		if ($options !== null)
-			$this->client->addParam($kparams, "options", $options->toParams());
-		$this->client->queueServiceActionCall('thumbasset', 'serve', null, $kparams);
-		$resultObject = $this->client->getServeUrl();
-		return $resultObject;
-	}
-
-	/**
-	 * Tags the thumbnail as DEFAULT_THUMB and removes that tag from all other thumbnail assets of the entry.
-	 * 	 Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync.
-	 * 
-	 */
-	function setAsDefault($thumbAssetId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
-		$this->client->queueServiceActionCall("thumbasset", "setAsDefault", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * 
-	 * @return \Kaltura\Client\Type\ThumbAsset
-	 */
-	function generateByEntryId($entryId, $destThumbParamsId)
+	function addFromImage($entryId, $fileData)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "destThumbParamsId", $destThumbParamsId);
-		$this->client->queueServiceActionCall("thumbasset", "generateByEntryId", "KalturaThumbAsset", $kparams);
+		$kfiles = array();
+		$this->client->addParam($kfiles, "fileData", $fileData);
+		$this->client->queueServiceActionCall("thumbasset", "addFromImage", "KalturaThumbAsset", $kparams, $kfiles);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -182,6 +84,62 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
+		return $resultObject;
+	}
+
+	/**
+	 * 
+	 * @return \Kaltura\Client\Type\ThumbAsset
+	 */
+	function addFromUrl($entryId, $url)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "url", $url);
+		$this->client->queueServiceActionCall("thumbasset", "addFromUrl", "KalturaThumbAsset", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
+		return $resultObject;
+	}
+
+	/**
+	 * 
+	 */
+	function delete($thumbAssetId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+		$this->client->queueServiceActionCall("thumbasset", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * manually export an asset
+	 * 
+	 * @return \Kaltura\Client\Type\FlavorAsset
+	 */
+	function export($assetId, $storageProfileId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "assetId", $assetId);
+		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
+		$this->client->queueServiceActionCall("thumbasset", "export", "KalturaFlavorAsset", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAsset");
 		return $resultObject;
 	}
 
@@ -210,11 +168,12 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
-	function regenerate($thumbAssetId)
+	function generateByEntryId($entryId, $destThumbParamsId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
-		$this->client->queueServiceActionCall("thumbasset", "regenerate", "KalturaThumbAsset", $kparams);
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "destThumbParamsId", $destThumbParamsId);
+		$this->client->queueServiceActionCall("thumbasset", "generateByEntryId", "KalturaThumbAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -264,6 +223,48 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Get remote storage existing paths for the asset
+	 * 
+	 * @return \Kaltura\Client\Type\RemotePathListResponse
+	 */
+	function getRemotePaths($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("thumbasset", "getRemotePaths", "KalturaRemotePathListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaRemotePathListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\RemotePathListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Get download URL for the asset
+	 * 
+	 * @return string
+	 */
+	function getUrl($id, $storageId = null, \Kaltura\Client\Type\ThumbParams $thumbParams = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "storageId", $storageId);
+		if ($thumbParams !== null)
+			$this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
+		$this->client->queueServiceActionCall("thumbasset", "getUrl", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * List Thumbnail Assets by filter and pager
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAssetListResponse
@@ -290,118 +291,117 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
-	function addFromUrl($entryId, $url)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "url", $url);
-		$this->client->queueServiceActionCall("thumbasset", "addFromUrl", "KalturaThumbAsset", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
-		return $resultObject;
-	}
-
-	/**
-	 * 
-	 * @return \Kaltura\Client\Type\ThumbAsset
-	 */
-	function addFromImage($entryId, $fileData)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$kfiles = array();
-		$this->client->addParam($kfiles, "fileData", $fileData);
-		$this->client->queueServiceActionCall("thumbasset", "addFromImage", "KalturaThumbAsset", $kparams, $kfiles);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
-		return $resultObject;
-	}
-
-	/**
-	 * 
-	 */
-	function delete($thumbAssetId)
+	function regenerate($thumbAssetId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
-		$this->client->queueServiceActionCall("thumbasset", "delete", null, $kparams);
+		$this->client->queueServiceActionCall("thumbasset", "regenerate", "KalturaThumbAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
+		return $resultObject;
 	}
 
 	/**
-	 * Get download URL for the asset
+	 * Serves thumbnail by its id
 	 * 
-	 * @return string
+	 * @return file
 	 */
-	function getUrl($id, $storageId = null, \Kaltura\Client\Type\ThumbParams $thumbParams = null)
+	function serve($thumbAssetId, $version = null, \Kaltura\Client\Type\ThumbParams $thumbParams = null, \Kaltura\Client\Type\ThumbnailServeOptions $options = null)
 	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "storageId", $storageId);
+		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+		$this->client->addParam($kparams, "version", $version);
 		if ($thumbParams !== null)
 			$this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
-		$this->client->queueServiceActionCall("thumbasset", "getUrl", null, $kparams);
+		if ($options !== null)
+			$this->client->addParam($kparams, "options", $options->toParams());
+		$this->client->queueServiceActionCall('thumbasset', 'serve', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Serves thumbnail by entry id and thumnail params id
+	 * 
+	 * @return file
+	 */
+	function serveByEntryId($entryId, $thumbParamId = null)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "thumbParamId", $thumbParamId);
+		$this->client->queueServiceActionCall('thumbasset', 'serveByEntryId', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Tags the thumbnail as DEFAULT_THUMB and removes that tag from all other thumbnail assets of the entry.
+	 * 	 Create a new file sync link on the entry thumbnail that points to the thumbnail asset file sync.
+	 * 
+	 */
+	function setAsDefault($thumbAssetId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "thumbAssetId", $thumbAssetId);
+		$this->client->queueServiceActionCall("thumbasset", "setAsDefault", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
 	}
 
 	/**
-	 * Get remote storage existing paths for the asset
+	 * Update content of thumbnail asset
 	 * 
-	 * @return \Kaltura\Client\Type\RemotePathListResponse
+	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
-	function getRemotePaths($id)
+	function setContent($id, \Kaltura\Client\Type\ContentResource $contentResource)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("thumbasset", "getRemotePaths", "KalturaRemotePathListResponse", $kparams);
+		$this->client->addParam($kparams, "contentResource", $contentResource->toParams());
+		$this->client->queueServiceActionCall("thumbasset", "setContent", "KalturaThumbAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaRemotePathListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\RemotePathListResponse");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
 		return $resultObject;
 	}
 
 	/**
-	 * manually export an asset
+	 * Update thumbnail asset
 	 * 
-	 * @return \Kaltura\Client\Type\FlavorAsset
+	 * @return \Kaltura\Client\Type\ThumbAsset
 	 */
-	function export($assetId, $storageProfileId)
+	function update($id, \Kaltura\Client\Type\ThumbAsset $thumbAsset)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "assetId", $assetId);
-		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
-		$this->client->queueServiceActionCall("thumbasset", "export", "KalturaFlavorAsset", $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "thumbAsset", $thumbAsset->toParams());
+		$this->client->queueServiceActionCall("thumbasset", "update", "KalturaThumbAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAsset");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbAsset");
 		return $resultObject;
 	}
 }

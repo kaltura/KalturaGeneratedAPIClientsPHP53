@@ -66,6 +66,22 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete application authentication token by id
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("apptoken", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get application authentication token by id
 	 * 
 	 * @return \Kaltura\Client\Type\AppToken
@@ -83,43 +99,6 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAppToken");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AppToken");
 		return $resultObject;
-	}
-
-	/**
-	 * Update application authentication token by id
-	 * 
-	 * @return \Kaltura\Client\Type\AppToken
-	 */
-	function update($id, \Kaltura\Client\Type\AppToken $appToken)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "appToken", $appToken->toParams());
-		$this->client->queueServiceActionCall("apptoken", "update", "KalturaAppToken", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAppToken");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AppToken");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete application authentication token by id
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("apptoken", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -166,6 +145,27 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSessionInfo");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SessionInfo");
+		return $resultObject;
+	}
+
+	/**
+	 * Update application authentication token by id
+	 * 
+	 * @return \Kaltura\Client\Type\AppToken
+	 */
+	function update($id, \Kaltura\Client\Type\AppToken $appToken)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "appToken", $appToken->toParams());
+		$this->client->queueServiceActionCall("apptoken", "update", "KalturaAppToken", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAppToken");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AppToken");
 		return $resultObject;
 	}
 }

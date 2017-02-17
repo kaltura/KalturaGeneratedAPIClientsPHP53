@@ -66,36 +66,15 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieves a user role object using its ID.
+	 * Creates a new user role object that is a duplicate of an existing role.
 	 * 
 	 * @return \Kaltura\Client\Type\UserRole
 	 */
-	function get($userRoleId)
+	function cloneAction($userRoleId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "userRoleId", $userRoleId);
-		$this->client->queueServiceActionCall("userrole", "get", "KalturaUserRole", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRole");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRole");
-		return $resultObject;
-	}
-
-	/**
-	 * Updates an existing user role object.
-	 * 
-	 * @return \Kaltura\Client\Type\UserRole
-	 */
-	function update($userRoleId, \Kaltura\Client\Type\UserRole $userRole)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "userRoleId", $userRoleId);
-		$this->client->addParam($kparams, "userRole", $userRole->toParams());
-		$this->client->queueServiceActionCall("userrole", "update", "KalturaUserRole", $kparams);
+		$this->client->queueServiceActionCall("userrole", "clone", "KalturaUserRole", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -116,6 +95,26 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "userRoleId", $userRoleId);
 		$this->client->queueServiceActionCall("userrole", "delete", "KalturaUserRole", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRole");
+		return $resultObject;
+	}
+
+	/**
+	 * Retrieves a user role object using its ID.
+	 * 
+	 * @return \Kaltura\Client\Type\UserRole
+	 */
+	function get($userRoleId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userRoleId", $userRoleId);
+		$this->client->queueServiceActionCall("userrole", "get", "KalturaUserRole", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -152,15 +151,16 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Creates a new user role object that is a duplicate of an existing role.
+	 * Updates an existing user role object.
 	 * 
 	 * @return \Kaltura\Client\Type\UserRole
 	 */
-	function cloneAction($userRoleId)
+	function update($userRoleId, \Kaltura\Client\Type\UserRole $userRole)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "userRoleId", $userRoleId);
-		$this->client->queueServiceActionCall("userrole", "clone", "KalturaUserRole", $kparams);
+		$this->client->addParam($kparams, "userRole", $userRole->toParams());
+		$this->client->queueServiceActionCall("userrole", "update", "KalturaUserRole", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();

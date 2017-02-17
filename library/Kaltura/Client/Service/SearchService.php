@@ -47,24 +47,23 @@ class SearchService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Search for media in one of the supported media providers
 	 * 
-	 * @return \Kaltura\Client\Type\SearchResultResponse
+	 * @return \Kaltura\Client\Type\SearchAuthData
 	 */
-	function search(\Kaltura\Client\Type\Search $search, \Kaltura\Client\Type\FilterPager $pager = null)
+	function externalLogin($searchSource, $userName, $password)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "search", $search->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("search", "search", "KalturaSearchResultResponse", $kparams);
+		$this->client->addParam($kparams, "searchSource", $searchSource);
+		$this->client->addParam($kparams, "userName", $userName);
+		$this->client->addParam($kparams, "password", $password);
+		$this->client->queueServiceActionCall("search", "externalLogin", "KalturaSearchAuthData", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSearchResultResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SearchResultResponse");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSearchAuthData");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SearchAuthData");
 		return $resultObject;
 	}
 
@@ -90,6 +89,28 @@ class SearchService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Search for media in one of the supported media providers
+	 * 
+	 * @return \Kaltura\Client\Type\SearchResultResponse
+	 */
+	function search(\Kaltura\Client\Type\Search $search, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "search", $search->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("search", "search", "KalturaSearchResultResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSearchResultResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SearchResultResponse");
+		return $resultObject;
+	}
+
+	/**
 	 * Search for media given a specific URL
 	 * 	 Kaltura supports a searchURL action on some of the media providers.
 	 * 	 This action will return a KalturaSearchResult object based on a given URL (assuming the media provider is supported)
@@ -109,27 +130,6 @@ class SearchService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSearchResult");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SearchResult");
-		return $resultObject;
-	}
-
-	/**
-	 * 
-	 * @return \Kaltura\Client\Type\SearchAuthData
-	 */
-	function externalLogin($searchSource, $userName, $password)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "searchSource", $searchSource);
-		$this->client->addParam($kparams, "userName", $userName);
-		$this->client->addParam($kparams, "password", $password);
-		$this->client->queueServiceActionCall("search", "externalLogin", "KalturaSearchAuthData", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSearchAuthData");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SearchAuthData");
 		return $resultObject;
 	}
 }

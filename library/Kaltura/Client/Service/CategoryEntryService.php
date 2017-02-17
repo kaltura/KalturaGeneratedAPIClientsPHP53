@@ -46,6 +46,23 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * activate CategoryEntry when it is pending moderation
+	 * 
+	 */
+	function activate($entryId, $categoryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "categoryId", $categoryId);
+		$this->client->queueServiceActionCall("categoryentry", "activate", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Add new CategoryEntry
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryEntry
@@ -66,6 +83,27 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return \Kaltura\Client\Type\BulkUpload
+	 */
+	function addFromBulkUpload(\Kaltura\Client\Plugin\BulkUpload\Type\BulkServiceData $bulkUploadData, \Kaltura\Client\Type\BulkUploadCategoryEntryData $bulkUploadCategoryEntryData = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+		if ($bulkUploadCategoryEntryData !== null)
+			$this->client->addParam($kparams, "bulkUploadCategoryEntryData", $bulkUploadCategoryEntryData->toParams());
+		$this->client->queueServiceActionCall("categoryentry", "addFromBulkUpload", "KalturaBulkUpload", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		return $resultObject;
+	}
+
+	/**
 	 * Delete CategoryEntry
 	 * 
 	 */
@@ -80,29 +118,6 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * List all categoryEntry
-	 * 
-	 * @return \Kaltura\Client\Type\CategoryEntryListResponse
-	 */
-	function listAction(\Kaltura\Client\Type\CategoryEntryFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("categoryentry", "list", "KalturaCategoryEntryListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategoryEntryListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\CategoryEntryListResponse");
-		return $resultObject;
 	}
 
 	/**
@@ -127,20 +142,26 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * activate CategoryEntry when it is pending moderation
+	 * List all categoryEntry
 	 * 
+	 * @return \Kaltura\Client\Type\CategoryEntryListResponse
 	 */
-	function activate($entryId, $categoryId)
+	function listAction(\Kaltura\Client\Type\CategoryEntryFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "categoryId", $categoryId);
-		$this->client->queueServiceActionCall("categoryentry", "activate", null, $kparams);
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("categoryentry", "list", "KalturaCategoryEntryListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategoryEntryListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\CategoryEntryListResponse");
+		return $resultObject;
 	}
 
 	/**
@@ -175,26 +196,5 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * 
-	 * @return \Kaltura\Client\Type\BulkUpload
-	 */
-	function addFromBulkUpload(\Kaltura\Client\Plugin\BulkUpload\Type\BulkServiceData $bulkUploadData, \Kaltura\Client\Type\BulkUploadCategoryEntryData $bulkUploadCategoryEntryData = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
-		if ($bulkUploadCategoryEntryData !== null)
-			$this->client->addParam($kparams, "bulkUploadCategoryEntryData", $bulkUploadCategoryEntryData->toParams());
-		$this->client->queueServiceActionCall("categoryentry", "addFromBulkUpload", "KalturaBulkUpload", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
-		return $resultObject;
 	}
 }

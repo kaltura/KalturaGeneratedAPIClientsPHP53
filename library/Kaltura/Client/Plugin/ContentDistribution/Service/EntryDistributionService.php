@@ -66,6 +66,22 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Entry Distribution by id
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Entry Distribution by id
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
@@ -86,15 +102,155 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Validates Entry Distribution by id for submission
+	 * List all distribution providers
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionListResponse
+	 */
+	function listAction(\Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "list", "KalturaEntryDistributionListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistributionListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistributionListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Retries last submit action
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
-	function validate($id)
+	function retrySubmit($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "validate", "KalturaEntryDistribution", $kparams);
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "retrySubmit", "KalturaEntryDistribution", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
+		return $resultObject;
+	}
+
+	/**
+	 * Serves entry distribution returned data
+	 * 
+	 * @return file
+	 */
+	function serveReturnedData($id, $actionType)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "actionType", $actionType);
+		$this->client->queueServiceActionCall('contentdistribution_entrydistribution', 'serveReturnedData', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Serves entry distribution sent data
+	 * 
+	 * @return file
+	 */
+	function serveSentData($id, $actionType)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "actionType", $actionType);
+		$this->client->queueServiceActionCall('contentdistribution_entrydistribution', 'serveSentData', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Submits Entry Distribution to the remote destination
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
+	 */
+	function submitAdd($id, $submitWhenReady = false)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "submitWhenReady", $submitWhenReady);
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitAdd", "KalturaEntryDistribution", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
+		return $resultObject;
+	}
+
+	/**
+	 * Deletes Entry Distribution from the remote destination
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
+	 */
+	function submitDelete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitDelete", "KalturaEntryDistribution", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
+		return $resultObject;
+	}
+
+	/**
+	 * Submits Entry Distribution report request
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
+	 */
+	function submitFetchReport($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitFetchReport", "KalturaEntryDistribution", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
+		return $resultObject;
+	}
+
+	/**
+	 * Submits Entry Distribution changes to the remote destination
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
+	 */
+	function submitUpdate($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitUpdate", "KalturaEntryDistribution", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -127,55 +283,15 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Delete Entry Distribution by id
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * List all distribution providers
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionListResponse
-	 */
-	function listAction(\Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "list", "KalturaEntryDistributionListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistributionListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistributionListResponse");
-		return $resultObject;
-	}
-
-	/**
-	 * Submits Entry Distribution to the remote destination
+	 * Validates Entry Distribution by id for submission
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
 	 */
-	function submitAdd($id, $submitWhenReady = false)
+	function validate($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "submitWhenReady", $submitWhenReady);
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitAdd", "KalturaEntryDistribution", $kparams);
+		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "validate", "KalturaEntryDistribution", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -183,122 +299,6 @@ class EntryDistributionService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
-		return $resultObject;
-	}
-
-	/**
-	 * Submits Entry Distribution changes to the remote destination
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
-	 */
-	function submitUpdate($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitUpdate", "KalturaEntryDistribution", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
-		return $resultObject;
-	}
-
-	/**
-	 * Submits Entry Distribution report request
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
-	 */
-	function submitFetchReport($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitFetchReport", "KalturaEntryDistribution", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
-		return $resultObject;
-	}
-
-	/**
-	 * Deletes Entry Distribution from the remote destination
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
-	 */
-	function submitDelete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "submitDelete", "KalturaEntryDistribution", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
-		return $resultObject;
-	}
-
-	/**
-	 * Retries last submit action
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistribution
-	 */
-	function retrySubmit($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_entrydistribution", "retrySubmit", "KalturaEntryDistribution", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryDistribution");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\EntryDistribution");
-		return $resultObject;
-	}
-
-	/**
-	 * Serves entry distribution sent data
-	 * 
-	 * @return file
-	 */
-	function serveSentData($id, $actionType)
-	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "actionType", $actionType);
-		$this->client->queueServiceActionCall('contentdistribution_entrydistribution', 'serveSentData', null, $kparams);
-		$resultObject = $this->client->getServeUrl();
-		return $resultObject;
-	}
-
-	/**
-	 * Serves entry distribution returned data
-	 * 
-	 * @return file
-	 */
-	function serveReturnedData($id, $actionType)
-	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "actionType", $actionType);
-		$this->client->queueServiceActionCall('contentdistribution_entrydistribution', 'serveReturnedData', null, $kparams);
-		$resultObject = $this->client->getServeUrl();
 		return $resultObject;
 	}
 }

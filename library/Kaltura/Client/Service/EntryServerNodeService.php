@@ -49,12 +49,11 @@ class EntryServerNodeService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\EntryServerNode
 	 */
-	function update($id, \Kaltura\Client\Type\EntryServerNode $entryServerNode)
+	function get($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "entryServerNode", $entryServerNode->toParams());
-		$this->client->queueServiceActionCall("entryservernode", "update", "KalturaEntryServerNode", $kparams);
+		$this->client->queueServiceActionCall("entryservernode", "get", "KalturaEntryServerNode", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -91,11 +90,12 @@ class EntryServerNodeService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\EntryServerNode
 	 */
-	function get($id)
+	function update($id, \Kaltura\Client\Type\EntryServerNode $entryServerNode)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("entryservernode", "get", "KalturaEntryServerNode", $kparams);
+		$this->client->addParam($kparams, "entryServerNode", $entryServerNode->toParams());
+		$this->client->queueServiceActionCall("entryservernode", "update", "KalturaEntryServerNode", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();

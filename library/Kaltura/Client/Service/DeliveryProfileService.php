@@ -66,16 +66,16 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update exisiting delivery
+	 * Add delivery based on existing delivery.
+	 * 	Must provide valid sourceDeliveryId
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfile
 	 */
-	function update($id, \Kaltura\Client\Type\DeliveryProfile $delivery)
+	function cloneAction($deliveryId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "delivery", $delivery->toParams());
-		$this->client->queueServiceActionCall("deliveryprofile", "update", "KalturaDeliveryProfile", $kparams);
+		$this->client->addParam($kparams, "deliveryId", $deliveryId);
+		$this->client->queueServiceActionCall("deliveryprofile", "clone", "KalturaDeliveryProfile", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -107,27 +107,6 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Add delivery based on existing delivery.
-	 * 	Must provide valid sourceDeliveryId
-	 * 
-	 * @return \Kaltura\Client\Type\DeliveryProfile
-	 */
-	function cloneAction($deliveryId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "deliveryId", $deliveryId);
-		$this->client->queueServiceActionCall("deliveryprofile", "clone", "KalturaDeliveryProfile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDeliveryProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\DeliveryProfile");
-		return $resultObject;
-	}
-
-	/**
 	 * Retrieve a list of available delivery depends on the filter given
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfileListResponse
@@ -147,6 +126,27 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDeliveryProfileListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\DeliveryProfileListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update exisiting delivery
+	 * 
+	 * @return \Kaltura\Client\Type\DeliveryProfile
+	 */
+	function update($id, \Kaltura\Client\Type\DeliveryProfile $delivery)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "delivery", $delivery->toParams());
+		$this->client->queueServiceActionCall("deliveryprofile", "update", "KalturaDeliveryProfile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDeliveryProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\DeliveryProfile");
 		return $resultObject;
 	}
 }

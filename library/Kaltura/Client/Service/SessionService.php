@@ -46,31 +46,6 @@ class SessionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Start a session with Kaltura's server.
-	 * 	 The result KS is the session key that you should pass to all services that requires a ticket.
-	 * 
-	 * @return string
-	 */
-	function start($secret, $userId = "", $type = 0, $partnerId = null, $expiry = 86400, $privileges = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "secret", $secret);
-		$this->client->addParam($kparams, "userId", $userId);
-		$this->client->addParam($kparams, "type", $type);
-		$this->client->addParam($kparams, "partnerId", $partnerId);
-		$this->client->addParam($kparams, "expiry", $expiry);
-		$this->client->addParam($kparams, "privileges", $privileges);
-		$this->client->queueServiceActionCall("session", "start", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
-	}
-
-	/**
 	 * End a session with the Kaltura server, making the current KS invalid.
 	 * 
 	 */
@@ -83,6 +58,26 @@ class SessionService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Parse session key and return its info
+	 * 
+	 * @return \Kaltura\Client\Type\SessionInfo
+	 */
+	function get($session = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "session", $session);
+		$this->client->queueServiceActionCall("session", "get", "KalturaSessionInfo", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSessionInfo");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SessionInfo");
+		return $resultObject;
 	}
 
 	/**
@@ -137,22 +132,27 @@ class SessionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Parse session key and return its info
+	 * Start a session with Kaltura's server.
+	 * 	 The result KS is the session key that you should pass to all services that requires a ticket.
 	 * 
-	 * @return \Kaltura\Client\Type\SessionInfo
+	 * @return string
 	 */
-	function get($session = null)
+	function start($secret, $userId = "", $type = 0, $partnerId = null, $expiry = 86400, $privileges = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "session", $session);
-		$this->client->queueServiceActionCall("session", "get", "KalturaSessionInfo", $kparams);
+		$this->client->addParam($kparams, "secret", $secret);
+		$this->client->addParam($kparams, "userId", $userId);
+		$this->client->addParam($kparams, "type", $type);
+		$this->client->addParam($kparams, "partnerId", $partnerId);
+		$this->client->addParam($kparams, "expiry", $expiry);
+		$this->client->addParam($kparams, "privileges", $privileges);
+		$this->client->queueServiceActionCall("session", "start", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSessionInfo");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SessionInfo");
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 

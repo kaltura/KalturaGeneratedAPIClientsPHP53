@@ -67,16 +67,29 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update content of caption asset
+	 * 
+	 */
+	function delete($captionAssetId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "captionAssetId", $captionAssetId);
+		$this->client->queueServiceActionCall("caption_captionasset", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
 	 */
-	function setContent($id, \Kaltura\Client\Type\ContentResource $contentResource)
+	function get($captionAssetId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "contentResource", $contentResource->toParams());
-		$this->client->queueServiceActionCall("caption_captionasset", "setContent", "KalturaCaptionAsset", $kparams);
+		$this->client->addParam($kparams, "captionAssetId", $captionAssetId);
+		$this->client->queueServiceActionCall("caption_captionasset", "get", "KalturaCaptionAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -84,65 +97,6 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionAsset");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionAsset");
-		return $resultObject;
-	}
-
-	/**
-	 * Update caption asset
-	 * 
-	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
-	 */
-	function update($id, \Kaltura\Client\Plugin\Caption\Type\CaptionAsset $captionAsset)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "captionAsset", $captionAsset->toParams());
-		$this->client->queueServiceActionCall("caption_captionasset", "update", "KalturaCaptionAsset", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionAsset");
-		return $resultObject;
-	}
-
-	/**
-	 * Serves caption by entry id and thumnail params id
-	 * 
-	 * @return file
-	 */
-	function serveByEntryId($entryId, $captionParamId = null)
-	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "captionParamId", $captionParamId);
-		$this->client->queueServiceActionCall('caption_captionasset', 'serveByEntryId', null, $kparams);
-		$resultObject = $this->client->getServeUrl();
-		return $resultObject;
-	}
-
-	/**
-	 * Get download URL for the asset
-	 * 
-	 * @return string
-	 */
-	function getUrl($id, $storageId = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "storageId", $storageId);
-		$this->client->queueServiceActionCall("caption_captionasset", "getUrl", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
@@ -167,6 +121,49 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Get download URL for the asset
+	 * 
+	 * @return string
+	 */
+	function getUrl($id, $storageId = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "storageId", $storageId);
+		$this->client->queueServiceActionCall("caption_captionasset", "getUrl", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * List caption Assets by filter and pager
+	 * 
+	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAssetListResponse
+	 */
+	function listAction(\Kaltura\Client\Type\AssetFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("caption_captionasset", "list", "KalturaCaptionAssetListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionAssetListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionAssetListResponse");
+		return $resultObject;
+	}
+
+	/**
 	 * Serves caption by its id
 	 * 
 	 * @return file
@@ -179,6 +176,24 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "captionAssetId", $captionAssetId);
 		$this->client->queueServiceActionCall('caption_captionasset', 'serve', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Serves caption by entry id and thumnail params id
+	 * 
+	 * @return file
+	 */
+	function serveByEntryId($entryId, $captionParamId = null)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "captionParamId", $captionParamId);
+		$this->client->queueServiceActionCall('caption_captionasset', 'serveByEntryId', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
 		return $resultObject;
 	}
@@ -220,14 +235,16 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Update content of caption asset
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
 	 */
-	function get($captionAssetId)
+	function setContent($id, \Kaltura\Client\Type\ContentResource $contentResource)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "captionAssetId", $captionAssetId);
-		$this->client->queueServiceActionCall("caption_captionasset", "get", "KalturaCaptionAsset", $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "contentResource", $contentResource->toParams());
+		$this->client->queueServiceActionCall("caption_captionasset", "setContent", "KalturaCaptionAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -239,40 +256,23 @@ class CaptionAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * List caption Assets by filter and pager
+	 * Update caption asset
 	 * 
-	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAssetListResponse
+	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionAsset
 	 */
-	function listAction(\Kaltura\Client\Type\AssetFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	function update($id, \Kaltura\Client\Plugin\Caption\Type\CaptionAsset $captionAsset)
 	{
 		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("caption_captionasset", "list", "KalturaCaptionAssetListResponse", $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "captionAsset", $captionAsset->toParams());
+		$this->client->queueServiceActionCall("caption_captionasset", "update", "KalturaCaptionAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionAssetListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionAssetListResponse");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionAsset");
 		return $resultObject;
-	}
-
-	/**
-	 * 
-	 */
-	function delete($captionAssetId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "captionAssetId", $captionAssetId);
-		$this->client->queueServiceActionCall("caption_captionasset", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 }

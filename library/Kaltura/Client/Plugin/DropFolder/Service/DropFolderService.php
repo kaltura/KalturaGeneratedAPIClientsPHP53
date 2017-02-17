@@ -66,47 +66,6 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieve a KalturaDropFolder object by ID
-	 * 
-	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
-	 */
-	function get($dropFolderId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
-		$this->client->queueServiceActionCall("dropfolder_dropfolder", "get", "KalturaDropFolder", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolder");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolder");
-		return $resultObject;
-	}
-
-	/**
-	 * Update an existing KalturaDropFolder object
-	 * 
-	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
-	 */
-	function update($dropFolderId, \Kaltura\Client\Plugin\DropFolder\Type\DropFolder $dropFolder)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
-		$this->client->addParam($kparams, "dropFolder", $dropFolder->toParams());
-		$this->client->queueServiceActionCall("dropfolder_dropfolder", "update", "KalturaDropFolder", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolder");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolder");
-		return $resultObject;
-	}
-
-	/**
 	 * Mark the KalturaDropFolder object as deleted
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
@@ -116,6 +75,26 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
 		$this->client->queueServiceActionCall("dropfolder_dropfolder", "delete", "KalturaDropFolder", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolder");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolder");
+		return $resultObject;
+	}
+
+	/**
+	 * Retrieve a KalturaDropFolder object by ID
+	 * 
+	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
+	 */
+	function get($dropFolderId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
+		$this->client->queueServiceActionCall("dropfolder_dropfolder", "get", "KalturaDropFolder", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -146,6 +125,27 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update an existing KalturaDropFolder object
+	 * 
+	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
+	 */
+	function update($dropFolderId, \Kaltura\Client\Plugin\DropFolder\Type\DropFolder $dropFolder)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
+		$this->client->addParam($kparams, "dropFolder", $dropFolder->toParams());
+		$this->client->queueServiceActionCall("dropfolder_dropfolder", "update", "KalturaDropFolder", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolder");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolder");
 		return $resultObject;
 	}
 }

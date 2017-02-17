@@ -91,6 +91,22 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete an existing metadata profile
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("metadata_metadataprofile", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Retrieve a metadata profile object by id
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
@@ -100,29 +116,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall("metadata_metadataprofile", "get", "KalturaMetadataProfile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Update an existing metadata object
-	 * 
-	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
-	 */
-	function update($id, \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile $metadataProfile, $xsdData = null, $viewsData = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "metadataProfile", $metadataProfile->toParams());
-		$this->client->addParam($kparams, "xsdData", $xsdData);
-		$this->client->addParam($kparams, "viewsData", $viewsData);
-		$this->client->queueServiceActionCall("metadata_metadataprofile", "update", "KalturaMetadataProfile", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -177,22 +170,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Delete an existing metadata profile
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("metadata_metadataprofile", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
 	 * Update an existing metadata object definition file
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
@@ -203,72 +180,6 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "toVersion", $toVersion);
 		$this->client->queueServiceActionCall("metadata_metadataprofile", "revert", "KalturaMetadataProfile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Update an existing metadata object definition file
-	 * 
-	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
-	 */
-	function updateDefinitionFromFile($id, $xsdFile)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$kfiles = array();
-		$this->client->addParam($kfiles, "xsdFile", $xsdFile);
-		$this->client->queueServiceActionCall("metadata_metadataprofile", "updateDefinitionFromFile", "KalturaMetadataProfile", $kparams, $kfiles);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Update an existing metadata object views file
-	 * 
-	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
-	 */
-	function updateViewsFromFile($id, $viewsFile)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$kfiles = array();
-		$this->client->addParam($kfiles, "viewsFile", $viewsFile);
-		$this->client->queueServiceActionCall("metadata_metadataprofile", "updateViewsFromFile", "KalturaMetadataProfile", $kparams, $kfiles);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Update an existing metadata object xslt file
-	 * 
-	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
-	 */
-	function updateTransformationFromFile($id, $xsltFile)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$kfiles = array();
-		$this->client->addParam($kfiles, "xsltFile", $xsltFile);
-		$this->client->queueServiceActionCall("metadata_metadataprofile", "updateTransformationFromFile", "KalturaMetadataProfile", $kparams, $kfiles);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -310,6 +221,95 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall('metadata_metadataprofile', 'serveView', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Update an existing metadata object
+	 * 
+	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
+	 */
+	function update($id, \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile $metadataProfile, $xsdData = null, $viewsData = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "metadataProfile", $metadataProfile->toParams());
+		$this->client->addParam($kparams, "xsdData", $xsdData);
+		$this->client->addParam($kparams, "viewsData", $viewsData);
+		$this->client->queueServiceActionCall("metadata_metadataprofile", "update", "KalturaMetadataProfile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
+		return $resultObject;
+	}
+
+	/**
+	 * Update an existing metadata object definition file
+	 * 
+	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
+	 */
+	function updateDefinitionFromFile($id, $xsdFile)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$kfiles = array();
+		$this->client->addParam($kfiles, "xsdFile", $xsdFile);
+		$this->client->queueServiceActionCall("metadata_metadataprofile", "updateDefinitionFromFile", "KalturaMetadataProfile", $kparams, $kfiles);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
+		return $resultObject;
+	}
+
+	/**
+	 * Update an existing metadata object xslt file
+	 * 
+	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
+	 */
+	function updateTransformationFromFile($id, $xsltFile)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$kfiles = array();
+		$this->client->addParam($kfiles, "xsltFile", $xsltFile);
+		$this->client->queueServiceActionCall("metadata_metadataprofile", "updateTransformationFromFile", "KalturaMetadataProfile", $kparams, $kfiles);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
+		return $resultObject;
+	}
+
+	/**
+	 * Update an existing metadata object views file
+	 * 
+	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
+	 */
+	function updateViewsFromFile($id, $viewsFile)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$kfiles = array();
+		$this->client->addParam($kfiles, "viewsFile", $viewsFile);
+		$this->client->queueServiceActionCall("metadata_metadataprofile", "updateViewsFromFile", "KalturaMetadataProfile", $kparams, $kfiles);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMetadataProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Metadata\\Type\\MetadataProfile");
 		return $resultObject;
 	}
 }

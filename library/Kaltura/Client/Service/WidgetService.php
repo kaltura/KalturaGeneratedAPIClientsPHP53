@@ -67,16 +67,16 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update exisiting widget
+	 * Add widget based on existing widget.
+	 * 	 Must provide valid sourceWidgetId
 	 * 
 	 * @return \Kaltura\Client\Type\Widget
 	 */
-	function update($id, \Kaltura\Client\Type\Widget $widget)
+	function cloneAction(\Kaltura\Client\Type\Widget $widget)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "widget", $widget->toParams());
-		$this->client->queueServiceActionCall("widget", "update", "KalturaWidget", $kparams);
+		$this->client->queueServiceActionCall("widget", "clone", "KalturaWidget", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -108,27 +108,6 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Add widget based on existing widget.
-	 * 	 Must provide valid sourceWidgetId
-	 * 
-	 * @return \Kaltura\Client\Type\Widget
-	 */
-	function cloneAction(\Kaltura\Client\Type\Widget $widget)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "widget", $widget->toParams());
-		$this->client->queueServiceActionCall("widget", "clone", "KalturaWidget", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaWidget");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Widget");
-		return $resultObject;
-	}
-
-	/**
 	 * Retrieve a list of available widget depends on the filter given
 	 * 
 	 * @return \Kaltura\Client\Type\WidgetListResponse
@@ -148,6 +127,27 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaWidgetListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\WidgetListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update exisiting widget
+	 * 
+	 * @return \Kaltura\Client\Type\Widget
+	 */
+	function update($id, \Kaltura\Client\Type\Widget $widget)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "widget", $widget->toParams());
+		$this->client->queueServiceActionCall("widget", "update", "KalturaWidget", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaWidget");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Widget");
 		return $resultObject;
 	}
 }

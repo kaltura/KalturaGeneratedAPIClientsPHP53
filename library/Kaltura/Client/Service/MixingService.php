@@ -68,16 +68,33 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Get mix entry by id.
+	 * Anonymously rank a mix entry, no validation is done on duplicate rankings
 	 * 
-	 * @return \Kaltura\Client\Type\MixEntry
 	 */
-	function get($entryId, $version = -1)
+	function anonymousRank($entryId, $rank)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "version", $version);
-		$this->client->queueServiceActionCall("mixing", "get", "KalturaMixEntry", $kparams);
+		$this->client->addParam($kparams, "rank", $rank);
+		$this->client->queueServiceActionCall("mixing", "anonymousRank", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Appends a media entry to a the end of the mix timeline, this will save the mix timeline as a new version.
+	 * 
+	 * @return \Kaltura\Client\Type\MixEntry
+	 */
+	function appendMediaEntry($mixEntryId, $mediaEntryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "mixEntryId", $mixEntryId);
+		$this->client->addParam($kparams, "mediaEntryId", $mediaEntryId);
+		$this->client->queueServiceActionCall("mixing", "appendMediaEntry", "KalturaMixEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -85,87 +102,6 @@ class MixingService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMixEntry");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\MixEntry");
-		return $resultObject;
-	}
-
-	/**
-	 * Update mix entry. Only the properties that were set will be updated.
-	 * 
-	 * @return \Kaltura\Client\Type\MixEntry
-	 */
-	function update($entryId, \Kaltura\Client\Type\MixEntry $mixEntry)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "mixEntry", $mixEntry->toParams());
-		$this->client->queueServiceActionCall("mixing", "update", "KalturaMixEntry", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMixEntry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\MixEntry");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete a mix entry.
-	 * 
-	 */
-	function delete($entryId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("mixing", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * List entries by filter with paging support.
-	 * 	 Return parameter is an array of mix entries.
-	 * 
-	 * @return \Kaltura\Client\Type\MixListResponse
-	 */
-	function listAction(\Kaltura\Client\Type\MixEntryFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("mixing", "list", "KalturaMixListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMixListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\MixListResponse");
-		return $resultObject;
-	}
-
-	/**
-	 * Count mix entries by filter.
-	 * 
-	 * @return int
-	 */
-	function count(\Kaltura\Client\Type\MediaEntryFilter $filter = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		$this->client->queueServiceActionCall("mixing", "count", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
@@ -190,16 +126,52 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Appends a media entry to a the end of the mix timeline, this will save the mix timeline as a new version.
+	 * Count mix entries by filter.
+	 * 
+	 * @return int
+	 */
+	function count(\Kaltura\Client\Type\MediaEntryFilter $filter = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->queueServiceActionCall("mixing", "count", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * Delete a mix entry.
+	 * 
+	 */
+	function delete($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("mixing", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Get mix entry by id.
 	 * 
 	 * @return \Kaltura\Client\Type\MixEntry
 	 */
-	function appendMediaEntry($mixEntryId, $mediaEntryId)
+	function get($entryId, $version = -1)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "mixEntryId", $mixEntryId);
-		$this->client->addParam($kparams, "mediaEntryId", $mediaEntryId);
-		$this->client->queueServiceActionCall("mixing", "appendMediaEntry", "KalturaMixEntry", $kparams);
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "version", $version);
+		$this->client->queueServiceActionCall("mixing", "get", "KalturaMixEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -252,19 +224,47 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Anonymously rank a mix entry, no validation is done on duplicate rankings
+	 * List entries by filter with paging support.
+	 * 	 Return parameter is an array of mix entries.
 	 * 
+	 * @return \Kaltura\Client\Type\MixListResponse
 	 */
-	function anonymousRank($entryId, $rank)
+	function listAction(\Kaltura\Client\Type\MixEntryFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "rank", $rank);
-		$this->client->queueServiceActionCall("mixing", "anonymousRank", null, $kparams);
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("mixing", "list", "KalturaMixListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMixListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\MixListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update mix entry. Only the properties that were set will be updated.
+	 * 
+	 * @return \Kaltura\Client\Type\MixEntry
+	 */
+	function update($entryId, \Kaltura\Client\Type\MixEntry $mixEntry)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "mixEntry", $mixEntry->toParams());
+		$this->client->queueServiceActionCall("mixing", "update", "KalturaMixEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaMixEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\MixEntry");
+		return $resultObject;
 	}
 }

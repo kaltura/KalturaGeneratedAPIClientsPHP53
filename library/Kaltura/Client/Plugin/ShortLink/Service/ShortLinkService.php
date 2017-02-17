@@ -46,29 +46,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * List short link objects by filter and pager
-	 * 
-	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLinkListResponse
-	 */
-	function listAction(\Kaltura\Client\Plugin\ShortLink\Type\ShortLinkFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("shortlink_shortlink", "list", "KalturaShortLinkListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaShortLinkListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ShortLink\\Type\\ShortLinkListResponse");
-		return $resultObject;
-	}
-
-	/**
 	 * Allows you to add a short link object
 	 * 
 	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
@@ -78,47 +55,6 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "shortLink", $shortLink->toParams());
 		$this->client->queueServiceActionCall("shortlink_shortlink", "add", "KalturaShortLink", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaShortLink");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ShortLink\\Type\\ShortLink");
-		return $resultObject;
-	}
-
-	/**
-	 * Retrieve an short link object by id
-	 * 
-	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
-	 */
-	function get($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("shortlink_shortlink", "get", "KalturaShortLink", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaShortLink");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ShortLink\\Type\\ShortLink");
-		return $resultObject;
-	}
-
-	/**
-	 * Update exisitng short link
-	 * 
-	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
-	 */
-	function update($id, \Kaltura\Client\Plugin\ShortLink\Type\ShortLink $shortLink)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "shortLink", $shortLink->toParams());
-		$this->client->queueServiceActionCall("shortlink_shortlink", "update", "KalturaShortLink", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -150,6 +86,26 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Retrieve an short link object by id
+	 * 
+	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
+	 */
+	function get($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("shortlink_shortlink", "get", "KalturaShortLink", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaShortLink");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ShortLink\\Type\\ShortLink");
+		return $resultObject;
+	}
+
+	/**
 	 * Serves short link
 	 * 
 	 * @return file
@@ -164,6 +120,50 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "proxy", $proxy);
 		$this->client->queueServiceActionCall('shortlink_shortlink', 'goto', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * List short link objects by filter and pager
+	 * 
+	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLinkListResponse
+	 */
+	function listAction(\Kaltura\Client\Plugin\ShortLink\Type\ShortLinkFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("shortlink_shortlink", "list", "KalturaShortLinkListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaShortLinkListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ShortLink\\Type\\ShortLinkListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update exisitng short link
+	 * 
+	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
+	 */
+	function update($id, \Kaltura\Client\Plugin\ShortLink\Type\ShortLink $shortLink)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "shortLink", $shortLink->toParams());
+		$this->client->queueServiceActionCall("shortlink_shortlink", "update", "KalturaShortLink", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaShortLink");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ShortLink\\Type\\ShortLink");
 		return $resultObject;
 	}
 }

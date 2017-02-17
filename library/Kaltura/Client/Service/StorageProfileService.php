@@ -66,22 +66,6 @@ class StorageProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * 
-	 */
-	function updateStatus($storageId, $status)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "storageId", $storageId);
-		$this->client->addParam($kparams, "status", $status);
-		$this->client->queueServiceActionCall("storageprofile", "updateStatus", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
 	 * Get storage profile by id
 	 * 
 	 * @return \Kaltura\Client\Type\StorageProfile
@@ -91,27 +75,6 @@ class StorageProfileService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
 		$this->client->queueServiceActionCall("storageprofile", "get", "KalturaStorageProfile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaStorageProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\StorageProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Update storage profile by id
-	 * 
-	 * @return \Kaltura\Client\Type\StorageProfile
-	 */
-	function update($storageProfileId, \Kaltura\Client\Type\StorageProfile $storageProfile)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
-		$this->client->addParam($kparams, "storageProfile", $storageProfile->toParams());
-		$this->client->queueServiceActionCall("storageprofile", "update", "KalturaStorageProfile", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -142,5 +105,42 @@ class StorageProfileService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaStorageProfileListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\StorageProfileListResponse");
 		return $resultObject;
+	}
+
+	/**
+	 * Update storage profile by id
+	 * 
+	 * @return \Kaltura\Client\Type\StorageProfile
+	 */
+	function update($storageProfileId, \Kaltura\Client\Type\StorageProfile $storageProfile)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
+		$this->client->addParam($kparams, "storageProfile", $storageProfile->toParams());
+		$this->client->queueServiceActionCall("storageprofile", "update", "KalturaStorageProfile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaStorageProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\StorageProfile");
+		return $resultObject;
+	}
+
+	/**
+	 * 
+	 */
+	function updateStatus($storageId, $status)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "storageId", $storageId);
+		$this->client->addParam($kparams, "status", $status);
+		$this->client->queueServiceActionCall("storageprofile", "updateStatus", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
 	}
 }

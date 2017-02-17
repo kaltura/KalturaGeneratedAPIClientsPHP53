@@ -67,36 +67,15 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update an existing UIConf
+	 * Clone an existing UIConf
 	 * 
 	 * @return \Kaltura\Client\Type\UiConf
 	 */
-	function update($id, \Kaltura\Client\Type\UiConf $uiConf)
+	function cloneAction($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "uiConf", $uiConf->toParams());
-		$this->client->queueServiceActionCall("uiconf", "update", "KalturaUiConf", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUiConf");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UiConf");
-		return $resultObject;
-	}
-
-	/**
-	 * Retrieve a UIConf by id
-	 * 
-	 * @return \Kaltura\Client\Type\UiConf
-	 */
-	function get($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("uiconf", "get", "KalturaUiConf", $kparams);
+		$this->client->queueServiceActionCall("uiconf", "clone", "KalturaUiConf", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -124,15 +103,15 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Clone an existing UIConf
+	 * Retrieve a UIConf by id
 	 * 
 	 * @return \Kaltura\Client\Type\UiConf
 	 */
-	function cloneAction($id)
+	function get($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("uiconf", "clone", "KalturaUiConf", $kparams);
+		$this->client->queueServiceActionCall("uiconf", "get", "KalturaUiConf", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -144,25 +123,21 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * retrieve a list of available template UIConfs
+	 * Retrieve a list of all available versions by object type
 	 * 
-	 * @return \Kaltura\Client\Type\UiConfListResponse
+	 * @return array
 	 */
-	function listTemplates(\Kaltura\Client\Type\UiConfFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	function getAvailableTypes()
 	{
 		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("uiconf", "listTemplates", "KalturaUiConfListResponse", $kparams);
+		$this->client->queueServiceActionCall("uiconf", "getAvailableTypes", "KalturaUiConfTypeInfo", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUiConfListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UiConfListResponse");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaUiConfTypeInfo");
+		$this->client->validateObjectType($resultObject, "array");
 		return $resultObject;
 	}
 
@@ -190,21 +165,46 @@ class UiConfService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieve a list of all available versions by object type
+	 * retrieve a list of available template UIConfs
 	 * 
-	 * @return array
+	 * @return \Kaltura\Client\Type\UiConfListResponse
 	 */
-	function getAvailableTypes()
+	function listTemplates(\Kaltura\Client\Type\UiConfFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
-		$this->client->queueServiceActionCall("uiconf", "getAvailableTypes", "KalturaUiConfTypeInfo", $kparams);
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("uiconf", "listTemplates", "KalturaUiConfListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaUiConfTypeInfo");
-		$this->client->validateObjectType($resultObject, "array");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUiConfListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UiConfListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update an existing UIConf
+	 * 
+	 * @return \Kaltura\Client\Type\UiConf
+	 */
+	function update($id, \Kaltura\Client\Type\UiConf $uiConf)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "uiConf", $uiConf->toParams());
+		$this->client->queueServiceActionCall("uiconf", "update", "KalturaUiConf", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUiConf");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UiConf");
 		return $resultObject;
 	}
 }

@@ -66,6 +66,22 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Thumb Params by ID
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("thumbparams", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Thumb Params by ID
 	 * 
 	 * @return \Kaltura\Client\Type\ThumbParams
@@ -86,40 +102,23 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update Thumb Params by ID
+	 * Get Thumb Params by Conversion Profile ID
 	 * 
-	 * @return \Kaltura\Client\Type\ThumbParams
+	 * @return array
 	 */
-	function update($id, \Kaltura\Client\Type\ThumbParams $thumbParams)
+	function getByConversionProfileId($conversionProfileId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
-		$this->client->queueServiceActionCall("thumbparams", "update", "KalturaThumbParams", $kparams);
+		$this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
+		$this->client->queueServiceActionCall("thumbparams", "getByConversionProfileId", "KalturaThumbParams", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbParams");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbParams");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaThumbParams");
+		$this->client->validateObjectType($resultObject, "array");
 		return $resultObject;
-	}
-
-	/**
-	 * Delete Thumb Params by ID
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("thumbparams", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -146,22 +145,23 @@ class ThumbParamsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Get Thumb Params by Conversion Profile ID
+	 * Update Thumb Params by ID
 	 * 
-	 * @return array
+	 * @return \Kaltura\Client\Type\ThumbParams
 	 */
-	function getByConversionProfileId($conversionProfileId)
+	function update($id, \Kaltura\Client\Type\ThumbParams $thumbParams)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
-		$this->client->queueServiceActionCall("thumbparams", "getByConversionProfileId", "KalturaThumbParams", $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "thumbParams", $thumbParams->toParams());
+		$this->client->queueServiceActionCall("thumbparams", "update", "KalturaThumbParams", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaThumbParams");
-		$this->client->validateObjectType($resultObject, "array");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaThumbParams");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ThumbParams");
 		return $resultObject;
 	}
 }

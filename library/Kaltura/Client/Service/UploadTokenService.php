@@ -66,6 +66,22 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Deletes the upload token by upload token id
+	 * 
+	 */
+	function delete($uploadTokenId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "uploadTokenId", $uploadTokenId);
+		$this->client->queueServiceActionCall("uploadtoken", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get upload token by id
 	 * 
 	 * @return \Kaltura\Client\Type\UploadToken
@@ -82,6 +98,30 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUploadToken");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UploadToken");
+		return $resultObject;
+	}
+
+	/**
+	 * List upload token by filter with pager support. 
+	 * 	 When using a user session the service will be restricted to users objects only.
+	 * 
+	 * @return \Kaltura\Client\Type\UploadTokenListResponse
+	 */
+	function listAction(\Kaltura\Client\Type\UploadTokenFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("uploadtoken", "list", "KalturaUploadTokenListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUploadTokenListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UploadTokenListResponse");
 		return $resultObject;
 	}
 
@@ -115,46 +155,6 @@ class UploadTokenService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUploadToken");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UploadToken");
-		return $resultObject;
-	}
-
-	/**
-	 * Deletes the upload token by upload token id
-	 * 
-	 */
-	function delete($uploadTokenId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "uploadTokenId", $uploadTokenId);
-		$this->client->queueServiceActionCall("uploadtoken", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * List upload token by filter with pager support. 
-	 * 	 When using a user session the service will be restricted to users objects only.
-	 * 
-	 * @return \Kaltura\Client\Type\UploadTokenListResponse
-	 */
-	function listAction(\Kaltura\Client\Type\UploadTokenFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("uploadtoken", "list", "KalturaUploadTokenListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUploadTokenListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UploadTokenListResponse");
 		return $resultObject;
 	}
 }

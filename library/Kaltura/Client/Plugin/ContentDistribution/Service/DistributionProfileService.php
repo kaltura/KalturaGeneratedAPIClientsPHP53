@@ -66,6 +66,22 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Distribution Profile by id
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("contentdistribution_distributionprofile", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Distribution Profile by id
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
@@ -83,64 +99,6 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDistributionProfile");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\DistributionProfile");
 		return $resultObject;
-	}
-
-	/**
-	 * Update Distribution Profile by id
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
-	 */
-	function update($id, \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile $distributionProfile)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "distributionProfile", $distributionProfile->toParams());
-		$this->client->queueServiceActionCall("contentdistribution_distributionprofile", "update", "KalturaDistributionProfile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDistributionProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\DistributionProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Update Distribution Profile status by id
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
-	 */
-	function updateStatus($id, $status)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "status", $status);
-		$this->client->queueServiceActionCall("contentdistribution_distributionprofile", "updateStatus", "KalturaDistributionProfile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDistributionProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\DistributionProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete Distribution Profile by id
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_distributionprofile", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -185,6 +143,48 @@ class DistributionProfileService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDistributionProfileListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\DistributionProfileListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update Distribution Profile by id
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
+	 */
+	function update($id, \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile $distributionProfile)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "distributionProfile", $distributionProfile->toParams());
+		$this->client->queueServiceActionCall("contentdistribution_distributionprofile", "update", "KalturaDistributionProfile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDistributionProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\DistributionProfile");
+		return $resultObject;
+	}
+
+	/**
+	 * Update Distribution Profile status by id
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\DistributionProfile
+	 */
+	function updateStatus($id, $status)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "status", $status);
+		$this->client->queueServiceActionCall("contentdistribution_distributionprofile", "updateStatus", "KalturaDistributionProfile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDistributionProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\DistributionProfile");
 		return $resultObject;
 	}
 }

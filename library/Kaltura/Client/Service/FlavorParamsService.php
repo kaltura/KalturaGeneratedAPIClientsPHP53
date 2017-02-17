@@ -66,6 +66,22 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Flavor Params by ID
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("flavorparams", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Flavor Params by ID
 	 * 
 	 * @return \Kaltura\Client\Type\FlavorParams
@@ -86,40 +102,23 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update Flavor Params by ID
+	 * Get Flavor Params by Conversion Profile ID
 	 * 
-	 * @return \Kaltura\Client\Type\FlavorParams
+	 * @return array
 	 */
-	function update($id, \Kaltura\Client\Type\FlavorParams $flavorParams)
+	function getByConversionProfileId($conversionProfileId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "flavorParams", $flavorParams->toParams());
-		$this->client->queueServiceActionCall("flavorparams", "update", "KalturaFlavorParams", $kparams);
+		$this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
+		$this->client->queueServiceActionCall("flavorparams", "getByConversionProfileId", "KalturaFlavorParams", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorParams");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorParams");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaFlavorParams");
+		$this->client->validateObjectType($resultObject, "array");
 		return $resultObject;
-	}
-
-	/**
-	 * Delete Flavor Params by ID
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("flavorparams", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -146,22 +145,23 @@ class FlavorParamsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Get Flavor Params by Conversion Profile ID
+	 * Update Flavor Params by ID
 	 * 
-	 * @return array
+	 * @return \Kaltura\Client\Type\FlavorParams
 	 */
-	function getByConversionProfileId($conversionProfileId)
+	function update($id, \Kaltura\Client\Type\FlavorParams $flavorParams)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "conversionProfileId", $conversionProfileId);
-		$this->client->queueServiceActionCall("flavorparams", "getByConversionProfileId", "KalturaFlavorParams", $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "flavorParams", $flavorParams->toParams());
+		$this->client->queueServiceActionCall("flavorparams", "update", "KalturaFlavorParams", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaFlavorParams");
-		$this->client->validateObjectType($resultObject, "array");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorParams");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorParams");
 		return $resultObject;
 	}
 }

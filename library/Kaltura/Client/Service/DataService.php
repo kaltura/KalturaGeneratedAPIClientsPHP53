@@ -66,6 +66,22 @@ class DataService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete a data entry.
+	 * 
+	 */
+	function delete($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("data", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get data entry by ID.
 	 * 
 	 * @return \Kaltura\Client\Type\DataEntry
@@ -84,43 +100,6 @@ class DataService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDataEntry");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\DataEntry");
 		return $resultObject;
-	}
-
-	/**
-	 * Update data entry. Only the properties that were set will be updated.
-	 * 
-	 * @return \Kaltura\Client\Type\DataEntry
-	 */
-	function update($entryId, \Kaltura\Client\Type\DataEntry $documentEntry)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "documentEntry", $documentEntry->toParams());
-		$this->client->queueServiceActionCall("data", "update", "KalturaDataEntry", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDataEntry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\DataEntry");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete a data entry.
-	 * 
-	 */
-	function delete($entryId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("data", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -162,6 +141,27 @@ class DataService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "forceProxy", $forceProxy);
 		$this->client->queueServiceActionCall('data', 'serve', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Update data entry. Only the properties that were set will be updated.
+	 * 
+	 * @return \Kaltura\Client\Type\DataEntry
+	 */
+	function update($entryId, \Kaltura\Client\Type\DataEntry $documentEntry)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "documentEntry", $documentEntry->toParams());
+		$this->client->queueServiceActionCall("data", "update", "KalturaDataEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDataEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\DataEntry");
 		return $resultObject;
 	}
 }

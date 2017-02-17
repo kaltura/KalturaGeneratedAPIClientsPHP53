@@ -46,6 +46,26 @@ class LiveReportsService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return \Kaltura\Client\Type\LiveReportExportResponse
+	 */
+	function exportToCsv($reportType, \Kaltura\Client\Type\LiveReportExportParams $params)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "reportType", $reportType);
+		$this->client->addParam($kparams, "params", $params->toParams());
+		$this->client->queueServiceActionCall("livereports", "exportToCsv", "KalturaLiveReportExportResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveReportExportResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveReportExportResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * 
 	 * @return array
 	 */
 	function getEvents($reportType, \Kaltura\Client\Type\LiveReportInputFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
@@ -87,26 +107,6 @@ class LiveReportsService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStatsListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStatsListResponse");
-		return $resultObject;
-	}
-
-	/**
-	 * 
-	 * @return \Kaltura\Client\Type\LiveReportExportResponse
-	 */
-	function exportToCsv($reportType, \Kaltura\Client\Type\LiveReportExportParams $params)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "reportType", $reportType);
-		$this->client->addParam($kparams, "params", $params->toParams());
-		$this->client->queueServiceActionCall("livereports", "exportToCsv", "KalturaLiveReportExportResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveReportExportResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveReportExportResponse");
 		return $resultObject;
 	}
 

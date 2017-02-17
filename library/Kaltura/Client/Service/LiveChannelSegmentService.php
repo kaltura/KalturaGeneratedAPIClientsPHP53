@@ -66,6 +66,22 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete live channel segment by id
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("livechannelsegment", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get live channel segment by id
 	 * 
 	 * @return \Kaltura\Client\Type\LiveChannelSegment
@@ -83,43 +99,6 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveChannelSegment");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveChannelSegment");
 		return $resultObject;
-	}
-
-	/**
-	 * Update live channel segment by id
-	 * 
-	 * @return \Kaltura\Client\Type\LiveChannelSegment
-	 */
-	function update($id, \Kaltura\Client\Type\LiveChannelSegment $liveChannelSegment)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "liveChannelSegment", $liveChannelSegment->toParams());
-		$this->client->queueServiceActionCall("livechannelsegment", "update", "KalturaLiveChannelSegment", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveChannelSegment");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveChannelSegment");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete live channel segment by id
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("livechannelsegment", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -142,6 +121,27 @@ class LiveChannelSegmentService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveChannelSegmentListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveChannelSegmentListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update live channel segment by id
+	 * 
+	 * @return \Kaltura\Client\Type\LiveChannelSegment
+	 */
+	function update($id, \Kaltura\Client\Type\LiveChannelSegment $liveChannelSegment)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "liveChannelSegment", $liveChannelSegment->toParams());
+		$this->client->queueServiceActionCall("livechannelsegment", "update", "KalturaLiveChannelSegment", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveChannelSegment");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveChannelSegment");
 		return $resultObject;
 	}
 }

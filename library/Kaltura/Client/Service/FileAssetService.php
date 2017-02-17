@@ -66,6 +66,22 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete file asset by id
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("fileasset", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get file asset by id
 	 * 
 	 * @return \Kaltura\Client\Type\FileAsset
@@ -86,40 +102,25 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update file asset by id
+	 * List file assets by filter and pager
 	 * 
-	 * @return \Kaltura\Client\Type\FileAsset
+	 * @return \Kaltura\Client\Type\FileAssetListResponse
 	 */
-	function update($id, \Kaltura\Client\Type\FileAsset $fileAsset)
+	function listAction(\Kaltura\Client\Type\FileAssetFilter $filter, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "fileAsset", $fileAsset->toParams());
-		$this->client->queueServiceActionCall("fileasset", "update", "KalturaFileAsset", $kparams);
+		$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("fileasset", "list", "KalturaFileAssetListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFileAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FileAsset");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFileAssetListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FileAssetListResponse");
 		return $resultObject;
-	}
-
-	/**
-	 * Delete file asset by id
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("fileasset", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -161,24 +162,23 @@ class FileAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * List file assets by filter and pager
+	 * Update file asset by id
 	 * 
-	 * @return \Kaltura\Client\Type\FileAssetListResponse
+	 * @return \Kaltura\Client\Type\FileAsset
 	 */
-	function listAction(\Kaltura\Client\Type\FileAssetFilter $filter, \Kaltura\Client\Type\FilterPager $pager = null)
+	function update($id, \Kaltura\Client\Type\FileAsset $fileAsset)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("fileasset", "list", "KalturaFileAssetListResponse", $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "fileAsset", $fileAsset->toParams());
+		$this->client->queueServiceActionCall("fileasset", "update", "KalturaFileAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFileAssetListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FileAssetListResponse");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFileAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FileAsset");
 		return $resultObject;
 	}
 }

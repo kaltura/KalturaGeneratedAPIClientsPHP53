@@ -66,6 +66,22 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Syndication Feed by ID
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("syndicationfeed", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Syndication Feed by ID
 	 * 
 	 * @return \Kaltura\Client\Type\BaseSyndicationFeed
@@ -86,40 +102,23 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update Syndication Feed by ID
+	 * get entry count for a syndication feed
 	 * 
-	 * @return \Kaltura\Client\Type\BaseSyndicationFeed
+	 * @return \Kaltura\Client\Type\SyndicationFeedEntryCount
 	 */
-	function update($id, \Kaltura\Client\Type\BaseSyndicationFeed $syndicationFeed)
+	function getEntryCount($feedId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "syndicationFeed", $syndicationFeed->toParams());
-		$this->client->queueServiceActionCall("syndicationfeed", "update", "KalturaBaseSyndicationFeed", $kparams);
+		$this->client->addParam($kparams, "feedId", $feedId);
+		$this->client->queueServiceActionCall("syndicationfeed", "getEntryCount", "KalturaSyndicationFeedEntryCount", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBaseSyndicationFeed");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BaseSyndicationFeed");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSyndicationFeedEntryCount");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SyndicationFeedEntryCount");
 		return $resultObject;
-	}
-
-	/**
-	 * Delete Syndication Feed by ID
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("syndicationfeed", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -146,26 +145,6 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * get entry count for a syndication feed
-	 * 
-	 * @return \Kaltura\Client\Type\SyndicationFeedEntryCount
-	 */
-	function getEntryCount($feedId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "feedId", $feedId);
-		$this->client->queueServiceActionCall("syndicationfeed", "getEntryCount", "KalturaSyndicationFeedEntryCount", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSyndicationFeedEntryCount");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SyndicationFeedEntryCount");
-		return $resultObject;
-	}
-
-	/**
 	 * request conversion for all entries that doesnt have the required flavor param
 	 * 	 returns a comma-separated ids of conversion jobs
 	 * 
@@ -182,6 +161,27 @@ class SyndicationFeedService extends \Kaltura\Client\ServiceBase
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * Update Syndication Feed by ID
+	 * 
+	 * @return \Kaltura\Client\Type\BaseSyndicationFeed
+	 */
+	function update($id, \Kaltura\Client\Type\BaseSyndicationFeed $syndicationFeed)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "syndicationFeed", $syndicationFeed->toParams());
+		$this->client->queueServiceActionCall("syndicationfeed", "update", "KalturaBaseSyndicationFeed", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBaseSyndicationFeed");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BaseSyndicationFeed");
 		return $resultObject;
 	}
 }

@@ -46,27 +46,6 @@ class TagService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * 
-	 * @return \Kaltura\Client\Plugin\TagSearch\Type\TagListResponse
-	 */
-	function search(\Kaltura\Client\Plugin\TagSearch\Type\TagFilter $tagFilter, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "tagFilter", $tagFilter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("tagsearch_tag", "search", "KalturaTagListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaTagListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\TagSearch\\Type\\TagListResponse");
-		return $resultObject;
-	}
-
-	/**
 	 * Action goes over all tags with instanceCount==0 and checks whether they need to be removed from the DB. Returns number of removed tags.
 	 * 
 	 * @return int
@@ -99,5 +78,26 @@ class TagService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * 
+	 * @return \Kaltura\Client\Plugin\TagSearch\Type\TagListResponse
+	 */
+	function search(\Kaltura\Client\Plugin\TagSearch\Type\TagFilter $tagFilter, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "tagFilter", $tagFilter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("tagsearch_tag", "search", "KalturaTagListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaTagListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\TagSearch\\Type\\TagListResponse");
+		return $resultObject;
 	}
 }

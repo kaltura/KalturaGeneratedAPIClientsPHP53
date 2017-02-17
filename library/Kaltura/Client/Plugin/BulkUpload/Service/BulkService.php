@@ -46,6 +46,26 @@ class BulkService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Aborts the bulk upload and all its child jobs
+	 * 
+	 * @return \Kaltura\Client\Type\BulkUpload
+	 */
+	function abort($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("bulkupload_bulk", "abort", "KalturaBulkUpload", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		return $resultObject;
+	}
+
+	/**
 	 * Get bulk upload batch job by id
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
@@ -119,26 +139,6 @@ class BulkService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall('bulkupload_bulk', 'serveLog', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
-		return $resultObject;
-	}
-
-	/**
-	 * Aborts the bulk upload and all its child jobs
-	 * 
-	 * @return \Kaltura\Client\Type\BulkUpload
-	 */
-	function abort($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("bulkupload_bulk", "abort", "KalturaBulkUpload", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
 		return $resultObject;
 	}
 }

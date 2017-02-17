@@ -66,6 +66,22 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Generic Distribution Provider by id
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Generic Distribution Provider by id
 	 * 
 	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider
@@ -83,43 +99,6 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaGenericDistributionProvider");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\GenericDistributionProvider");
 		return $resultObject;
-	}
-
-	/**
-	 * Update Generic Distribution Provider by id
-	 * 
-	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider
-	 */
-	function update($id, \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider $genericDistributionProvider)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "genericDistributionProvider", $genericDistributionProvider->toParams());
-		$this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "update", "KalturaGenericDistributionProvider", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaGenericDistributionProvider");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\GenericDistributionProvider");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete Generic Distribution Provider by id
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -142,6 +121,27 @@ class GenericDistributionProviderService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaGenericDistributionProviderListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\GenericDistributionProviderListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update Generic Distribution Provider by id
+	 * 
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider
+	 */
+	function update($id, \Kaltura\Client\Plugin\ContentDistribution\Type\GenericDistributionProvider $genericDistributionProvider)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "genericDistributionProvider", $genericDistributionProvider->toParams());
+		$this->client->queueServiceActionCall("contentdistribution_genericdistributionprovider", "update", "KalturaGenericDistributionProvider", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaGenericDistributionProvider");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ContentDistribution\\Type\\GenericDistributionProvider");
 		return $resultObject;
 	}
 }

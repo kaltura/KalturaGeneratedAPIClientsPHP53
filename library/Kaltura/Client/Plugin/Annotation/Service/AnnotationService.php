@@ -66,50 +66,6 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update annotation by id
-	 * 
-	 * @return \Kaltura\Client\Plugin\Annotation\Type\Annotation
-	 */
-	function update($id, \Kaltura\Client\Plugin\CuePoint\Type\CuePoint $annotation)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "annotation", $annotation->toParams());
-		$this->client->queueServiceActionCall("annotation_annotation", "update", "KalturaAnnotation", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAnnotation");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Annotation\\Type\\Annotation");
-		return $resultObject;
-	}
-
-	/**
-	 * List annotation objects by filter and pager
-	 * 
-	 * @return \Kaltura\Client\Plugin\Annotation\Type\AnnotationListResponse
-	 */
-	function listAction(\Kaltura\Client\Plugin\CuePoint\Type\CuePointFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("annotation_annotation", "list", "KalturaAnnotationListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAnnotationListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Annotation\\Type\\AnnotationListResponse");
-		return $resultObject;
-	}
-
-	/**
 	 * Allows you to add multiple cue points objects by uploading XML that contains multiple cue point definitions
 	 * 
 	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePointListResponse
@@ -131,35 +87,16 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Download multiple cue points objects as XML definitions
-	 * 
-	 * @return file
-	 */
-	function serveBulk(\Kaltura\Client\Plugin\CuePoint\Type\CuePointFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall('annotation_annotation', 'serveBulk', null, $kparams);
-		$resultObject = $this->client->getServeUrl();
-		return $resultObject;
-	}
-
-	/**
-	 * Retrieve an CuePoint object by id
+	 * Clone cuePoint with id to given entry
 	 * 
 	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 */
-	function get($id)
+	function cloneAction($id, $entryId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("annotation_annotation", "get", "KalturaCuePoint", $kparams);
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("annotation_annotation", "clone", "KalturaCuePoint", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -207,6 +144,90 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Retrieve an CuePoint object by id
+	 * 
+	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
+	 */
+	function get($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("annotation_annotation", "get", "KalturaCuePoint", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCuePoint");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\CuePoint\\Type\\CuePoint");
+		return $resultObject;
+	}
+
+	/**
+	 * List annotation objects by filter and pager
+	 * 
+	 * @return \Kaltura\Client\Plugin\Annotation\Type\AnnotationListResponse
+	 */
+	function listAction(\Kaltura\Client\Plugin\CuePoint\Type\CuePointFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("annotation_annotation", "list", "KalturaAnnotationListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAnnotationListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Annotation\\Type\\AnnotationListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Download multiple cue points objects as XML definitions
+	 * 
+	 * @return file
+	 */
+	function serveBulk(\Kaltura\Client\Plugin\CuePoint\Type\CuePointFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall('annotation_annotation', 'serveBulk', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
+	 * Update annotation by id
+	 * 
+	 * @return \Kaltura\Client\Plugin\Annotation\Type\Annotation
+	 */
+	function update($id, \Kaltura\Client\Plugin\CuePoint\Type\CuePoint $annotation)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "annotation", $annotation->toParams());
+		$this->client->queueServiceActionCall("annotation_annotation", "update", "KalturaAnnotation", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAnnotation");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Annotation\\Type\\Annotation");
+		return $resultObject;
+	}
+
+	/**
 	 * Update cuePoint status by id
 	 * 
 	 */
@@ -221,26 +242,5 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * Clone cuePoint with id to given entry
-	 * 
-	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
-	 */
-	function cloneAction($id, $entryId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("annotation_annotation", "clone", "KalturaCuePoint", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCuePoint");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\CuePoint\\Type\\CuePoint");
-		return $resultObject;
 	}
 }

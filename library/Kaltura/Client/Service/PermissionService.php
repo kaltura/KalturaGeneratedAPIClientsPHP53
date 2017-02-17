@@ -66,6 +66,26 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Deletes an existing permission object.
+	 * 
+	 * @return \Kaltura\Client\Type\Permission
+	 */
+	function delete($permissionName)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "permissionName", $permissionName);
+		$this->client->queueServiceActionCall("permission", "delete", "KalturaPermission", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermission");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Permission");
+		return $resultObject;
+	}
+
+	/**
 	 * Retrieves a permission object using its ID.
 	 * 
 	 * @return \Kaltura\Client\Type\Permission
@@ -86,43 +106,20 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Updates an existing permission object.
+	 * Retrieves a list of permissions that apply to the current KS.
 	 * 
-	 * @return \Kaltura\Client\Type\Permission
+	 * @return string
 	 */
-	function update($permissionName, \Kaltura\Client\Type\Permission $permission)
+	function getCurrentPermissions()
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "permissionName", $permissionName);
-		$this->client->addParam($kparams, "permission", $permission->toParams());
-		$this->client->queueServiceActionCall("permission", "update", "KalturaPermission", $kparams);
+		$this->client->queueServiceActionCall("permission", "getCurrentPermissions", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermission");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Permission");
-		return $resultObject;
-	}
-
-	/**
-	 * Deletes an existing permission object.
-	 * 
-	 * @return \Kaltura\Client\Type\Permission
-	 */
-	function delete($permissionName)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "permissionName", $permissionName);
-		$this->client->queueServiceActionCall("permission", "delete", "KalturaPermission", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermission");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Permission");
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
@@ -152,20 +149,23 @@ class PermissionService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieves a list of permissions that apply to the current KS.
+	 * Updates an existing permission object.
 	 * 
-	 * @return string
+	 * @return \Kaltura\Client\Type\Permission
 	 */
-	function getCurrentPermissions()
+	function update($permissionName, \Kaltura\Client\Type\Permission $permission)
 	{
 		$kparams = array();
-		$this->client->queueServiceActionCall("permission", "getCurrentPermissions", null, $kparams);
+		$this->client->addParam($kparams, "permissionName", $permissionName);
+		$this->client->addParam($kparams, "permission", $permission->toParams());
+		$this->client->queueServiceActionCall("permission", "update", "KalturaPermission", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermission");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Permission");
 		return $resultObject;
 	}
 }

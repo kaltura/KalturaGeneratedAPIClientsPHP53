@@ -67,27 +67,6 @@ class QuizService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Allows to update a quiz
-	 * 
-	 * @return \Kaltura\Client\Plugin\Quiz\Type\Quiz
-	 */
-	function update($entryId, \Kaltura\Client\Plugin\Quiz\Type\Quiz $quiz)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "quiz", $quiz->toParams());
-		$this->client->queueServiceActionCall("quiz_quiz", "update", "KalturaQuiz", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaQuiz");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Quiz\\Type\\Quiz");
-		return $resultObject;
-	}
-
-	/**
 	 * Allows to get a quiz
 	 * 
 	 * @return \Kaltura\Client\Plugin\Quiz\Type\Quiz
@@ -104,6 +83,26 @@ class QuizService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaQuiz");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Quiz\\Type\\Quiz");
+		return $resultObject;
+	}
+
+	/**
+	 * sends a with an api request for pdf from quiz object
+	 * 
+	 * @return string
+	 */
+	function getUrl($entryId, $quizOutputType)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "quizOutputType", $quizOutputType);
+		$this->client->queueServiceActionCall("quiz_quiz", "getUrl", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
@@ -151,22 +150,23 @@ class QuizService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * sends a with an api request for pdf from quiz object
+	 * Allows to update a quiz
 	 * 
-	 * @return string
+	 * @return \Kaltura\Client\Plugin\Quiz\Type\Quiz
 	 */
-	function getUrl($entryId, $quizOutputType)
+	function update($entryId, \Kaltura\Client\Plugin\Quiz\Type\Quiz $quiz)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "quizOutputType", $quizOutputType);
-		$this->client->queueServiceActionCall("quiz_quiz", "getUrl", null, $kparams);
+		$this->client->addParam($kparams, "quiz", $quiz->toParams());
+		$this->client->queueServiceActionCall("quiz_quiz", "update", "KalturaQuiz", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaQuiz");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Quiz\\Type\\Quiz");
 		return $resultObject;
 	}
 }

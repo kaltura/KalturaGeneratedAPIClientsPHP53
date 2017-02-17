@@ -47,6 +47,26 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Aborts the bulk upload and all its child jobs
+	 * 
+	 * @return \Kaltura\Client\Type\BulkUpload
+	 */
+	function abort($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("bulkupload", "abort", "KalturaBulkUpload", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		return $resultObject;
+	}
+
+	/**
 	 * Add new bulk upload batch job
 	 * 	 Conversion profile id can be specified in the API or in the CSV file, the one in the CSV file will be stronger.
 	 * 	 If no conversion profile was specified, partner's default will be used
@@ -145,26 +165,6 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall('bulkupload', 'serveLog', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
-		return $resultObject;
-	}
-
-	/**
-	 * Aborts the bulk upload and all its child jobs
-	 * 
-	 * @return \Kaltura\Client\Type\BulkUpload
-	 */
-	function abort($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("bulkupload", "abort", "KalturaBulkUpload", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
 		return $resultObject;
 	}
 }

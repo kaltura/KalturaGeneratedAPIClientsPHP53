@@ -66,43 +66,25 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieve a KalturaScheduleResource object by ID
+	 * Add new bulk upload batch job
 	 * 
-	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
+	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
-	function get($scheduleResourceId)
+	function addFromBulkUpload($fileData, \Kaltura\Client\Plugin\BulkUploadCsv\Type\BulkUploadCsvJobData $bulkUploadData = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "scheduleResourceId", $scheduleResourceId);
-		$this->client->queueServiceActionCall("schedule_scheduleresource", "get", "KalturaScheduleResource", $kparams);
+		$kfiles = array();
+		$this->client->addParam($kfiles, "fileData", $fileData);
+		if ($bulkUploadData !== null)
+			$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+		$this->client->queueServiceActionCall("schedule_scheduleresource", "addFromBulkUpload", "KalturaBulkUpload", $kparams, $kfiles);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaScheduleResource");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Schedule\\Type\\ScheduleResource");
-		return $resultObject;
-	}
-
-	/**
-	 * Update an existing KalturaScheduleResource object
-	 * 
-	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
-	 */
-	function update($scheduleResourceId, \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource $scheduleResource)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "scheduleResourceId", $scheduleResourceId);
-		$this->client->addParam($kparams, "scheduleResource", $scheduleResource->toParams());
-		$this->client->queueServiceActionCall("schedule_scheduleresource", "update", "KalturaScheduleResource", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaScheduleResource");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Schedule\\Type\\ScheduleResource");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
 		return $resultObject;
 	}
 
@@ -116,6 +98,26 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "scheduleResourceId", $scheduleResourceId);
 		$this->client->queueServiceActionCall("schedule_scheduleresource", "delete", "KalturaScheduleResource", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaScheduleResource");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Schedule\\Type\\ScheduleResource");
+		return $resultObject;
+	}
+
+	/**
+	 * Retrieve a KalturaScheduleResource object by ID
+	 * 
+	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
+	 */
+	function get($scheduleResourceId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "scheduleResourceId", $scheduleResourceId);
+		$this->client->queueServiceActionCall("schedule_scheduleresource", "get", "KalturaScheduleResource", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -150,25 +152,23 @@ class ScheduleResourceService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Add new bulk upload batch job
+	 * Update an existing KalturaScheduleResource object
 	 * 
-	 * @return \Kaltura\Client\Type\BulkUpload
+	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource
 	 */
-	function addFromBulkUpload($fileData, \Kaltura\Client\Plugin\BulkUploadCsv\Type\BulkUploadCsvJobData $bulkUploadData = null)
+	function update($scheduleResourceId, \Kaltura\Client\Plugin\Schedule\Type\ScheduleResource $scheduleResource)
 	{
 		$kparams = array();
-		$kfiles = array();
-		$this->client->addParam($kfiles, "fileData", $fileData);
-		if ($bulkUploadData !== null)
-			$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
-		$this->client->queueServiceActionCall("schedule_scheduleresource", "addFromBulkUpload", "KalturaBulkUpload", $kparams, $kfiles);
+		$this->client->addParam($kparams, "scheduleResourceId", $scheduleResourceId);
+		$this->client->addParam($kparams, "scheduleResource", $scheduleResource->toParams());
+		$this->client->queueServiceActionCall("schedule_scheduleresource", "update", "KalturaScheduleResource", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaScheduleResource");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Schedule\\Type\\ScheduleResource");
 		return $resultObject;
 	}
 }

@@ -67,37 +67,66 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update flavor asset
+	 * Add and convert new Flavor Asset for Entry with specific Flavor Params
 	 * 
-	 * @return \Kaltura\Client\Type\FlavorAsset
 	 */
-	function update($id, \Kaltura\Client\Type\FlavorAsset $flavorAsset)
+	function convert($entryId, $flavorParamsId, $priority = 0)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "flavorAsset", $flavorAsset->toParams());
-		$this->client->queueServiceActionCall("flavorasset", "update", "KalturaFlavorAsset", $kparams);
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
+		$this->client->addParam($kparams, "priority", $priority);
+		$this->client->queueServiceActionCall("flavorasset", "convert", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAsset");
-		return $resultObject;
 	}
 
 	/**
-	 * Update content of flavor asset
+	 * Delete Flavor Asset by ID
 	 * 
-	 * @return \Kaltura\Client\Type\FlavorAsset
 	 */
-	function setContent($id, \Kaltura\Client\Type\ContentResource $contentResource)
+	function delete($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "contentResource", $contentResource->toParams());
-		$this->client->queueServiceActionCall("flavorasset", "setContent", "KalturaFlavorAsset", $kparams);
+		$this->client->queueServiceActionCall("flavorasset", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * delete all local file syncs for this asset
+	 * 
+	 */
+	function deleteLocalContent($assetId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "assetId", $assetId);
+		$this->client->queueServiceActionCall("flavorasset", "deleteLocalContent", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * manually export an asset
+	 * 
+	 * @return \Kaltura\Client\Type\FlavorAsset
+	 */
+	function export($assetId, $storageProfileId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "assetId", $assetId);
+		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
+		$this->client->queueServiceActionCall("flavorasset", "export", "KalturaFlavorAsset", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -149,142 +178,6 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * List Flavor Assets by filter and pager
-	 * 
-	 * @return \Kaltura\Client\Type\FlavorAssetListResponse
-	 */
-	function listAction(\Kaltura\Client\Type\AssetFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("flavorasset", "list", "KalturaFlavorAssetListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAssetListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAssetListResponse");
-		return $resultObject;
-	}
-
-	/**
-	 * Get web playable Flavor Assets for Entry
-	 * 
-	 * @return array
-	 */
-	function getWebPlayableByEntryId($entryId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("flavorasset", "getWebPlayableByEntryId", "KalturaFlavorAsset", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaFlavorAsset");
-		$this->client->validateObjectType($resultObject, "array");
-		return $resultObject;
-	}
-
-	/**
-	 * Add and convert new Flavor Asset for Entry with specific Flavor Params
-	 * 
-	 */
-	function convert($entryId, $flavorParamsId, $priority = 0)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
-		$this->client->addParam($kparams, "priority", $priority);
-		$this->client->queueServiceActionCall("flavorasset", "convert", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * Reconvert Flavor Asset by ID
-	 * 
-	 */
-	function reconvert($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("flavorasset", "reconvert", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * Delete Flavor Asset by ID
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("flavorasset", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * Get download URL for the asset
-	 * 
-	 * @return string
-	 */
-	function getUrl($id, $storageId = null, $forceProxy = false, \Kaltura\Client\Type\FlavorAssetUrlOptions $options = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "storageId", $storageId);
-		$this->client->addParam($kparams, "forceProxy", $forceProxy);
-		if ($options !== null)
-			$this->client->addParam($kparams, "options", $options->toParams());
-		$this->client->queueServiceActionCall("flavorasset", "getUrl", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
-	}
-
-	/**
-	 * Get remote storage existing paths for the asset
-	 * 
-	 * @return \Kaltura\Client\Type\RemotePathListResponse
-	 */
-	function getRemotePaths($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("flavorasset", "getRemotePaths", "KalturaRemotePathListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaRemotePathListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\RemotePathListResponse");
-		return $resultObject;
-	}
-
-	/**
 	 * Get download URL for the Flavor Asset
 	 * 
 	 * @return string
@@ -325,51 +218,100 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * manually export an asset
+	 * Get remote storage existing paths for the asset
 	 * 
-	 * @return \Kaltura\Client\Type\FlavorAsset
+	 * @return \Kaltura\Client\Type\RemotePathListResponse
 	 */
-	function export($assetId, $storageProfileId)
+	function getRemotePaths($id)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "assetId", $assetId);
-		$this->client->addParam($kparams, "storageProfileId", $storageProfileId);
-		$this->client->queueServiceActionCall("flavorasset", "export", "KalturaFlavorAsset", $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("flavorasset", "getRemotePaths", "KalturaRemotePathListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAsset");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAsset");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaRemotePathListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\RemotePathListResponse");
 		return $resultObject;
 	}
 
 	/**
-	 * Set a given flavor as the original flavor
+	 * Get download URL for the asset
 	 * 
+	 * @return string
 	 */
-	function setAsSource($assetId)
+	function getUrl($id, $storageId = null, $forceProxy = false, \Kaltura\Client\Type\FlavorAssetUrlOptions $options = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "assetId", $assetId);
-		$this->client->queueServiceActionCall("flavorasset", "setAsSource", null, $kparams);
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "storageId", $storageId);
+		$this->client->addParam($kparams, "forceProxy", $forceProxy);
+		if ($options !== null)
+			$this->client->addParam($kparams, "options", $options->toParams());
+		$this->client->queueServiceActionCall("flavorasset", "getUrl", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
 	}
 
 	/**
-	 * delete all local file syncs for this asset
+	 * Get web playable Flavor Assets for Entry
 	 * 
+	 * @return array
 	 */
-	function deleteLocalContent($assetId)
+	function getWebPlayableByEntryId($entryId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "assetId", $assetId);
-		$this->client->queueServiceActionCall("flavorasset", "deleteLocalContent", null, $kparams);
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("flavorasset", "getWebPlayableByEntryId", "KalturaFlavorAsset", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "array");
+		return $resultObject;
+	}
+
+	/**
+	 * List Flavor Assets by filter and pager
+	 * 
+	 * @return \Kaltura\Client\Type\FlavorAssetListResponse
+	 */
+	function listAction(\Kaltura\Client\Type\AssetFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("flavorasset", "list", "KalturaFlavorAssetListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAssetListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAssetListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Reconvert Flavor Asset by ID
+	 * 
+	 */
+	function reconvert($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("flavorasset", "reconvert", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -395,6 +337,64 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * Set a given flavor as the original flavor
+	 * 
+	 */
+	function setAsSource($assetId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "assetId", $assetId);
+		$this->client->queueServiceActionCall("flavorasset", "setAsSource", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Update content of flavor asset
+	 * 
+	 * @return \Kaltura\Client\Type\FlavorAsset
+	 */
+	function setContent($id, \Kaltura\Client\Type\ContentResource $contentResource)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "contentResource", $contentResource->toParams());
+		$this->client->queueServiceActionCall("flavorasset", "setContent", "KalturaFlavorAsset", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAsset");
+		return $resultObject;
+	}
+
+	/**
+	 * Update flavor asset
+	 * 
+	 * @return \Kaltura\Client\Type\FlavorAsset
+	 */
+	function update($id, \Kaltura\Client\Type\FlavorAsset $flavorAsset)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "flavorAsset", $flavorAsset->toParams());
+		$this->client->queueServiceActionCall("flavorasset", "update", "KalturaFlavorAsset", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaFlavorAsset");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\FlavorAsset");
 		return $resultObject;
 	}
 }

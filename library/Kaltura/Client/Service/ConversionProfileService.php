@@ -46,15 +46,51 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Set Conversion Profile to be the partner default
+	 * Add new Conversion Profile
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfile
 	 */
-	function setAsDefault($id)
+	function add(\Kaltura\Client\Type\ConversionProfile $conversionProfile)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "conversionProfile", $conversionProfile->toParams());
+		$this->client->queueServiceActionCall("conversionprofile", "add", "KalturaConversionProfile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaConversionProfile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ConversionProfile");
+		return $resultObject;
+	}
+
+	/**
+	 * Delete Conversion Profile by ID
+	 * 
+	 */
+	function delete($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("conversionprofile", "setAsDefault", "KalturaConversionProfile", $kparams);
+		$this->client->queueServiceActionCall("conversionprofile", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Get Conversion Profile by ID
+	 * 
+	 * @return \Kaltura\Client\Type\ConversionProfile
+	 */
+	function get($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("conversionprofile", "get", "KalturaConversionProfile", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -86,35 +122,38 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Add new Conversion Profile
+	 * List Conversion Profiles by filter with paging support
 	 * 
-	 * @return \Kaltura\Client\Type\ConversionProfile
+	 * @return \Kaltura\Client\Type\ConversionProfileListResponse
 	 */
-	function add(\Kaltura\Client\Type\ConversionProfile $conversionProfile)
+	function listAction(\Kaltura\Client\Type\ConversionProfileFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "conversionProfile", $conversionProfile->toParams());
-		$this->client->queueServiceActionCall("conversionprofile", "add", "KalturaConversionProfile", $kparams);
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("conversionprofile", "list", "KalturaConversionProfileListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaConversionProfile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ConversionProfile");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaConversionProfileListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ConversionProfileListResponse");
 		return $resultObject;
 	}
 
 	/**
-	 * Get Conversion Profile by ID
+	 * Set Conversion Profile to be the partner default
 	 * 
 	 * @return \Kaltura\Client\Type\ConversionProfile
 	 */
-	function get($id)
+	function setAsDefault($id)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("conversionprofile", "get", "KalturaConversionProfile", $kparams);
+		$this->client->queueServiceActionCall("conversionprofile", "setAsDefault", "KalturaConversionProfile", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -143,45 +182,6 @@ class ConversionProfileService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaConversionProfile");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ConversionProfile");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete Conversion Profile by ID
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("conversionprofile", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * List Conversion Profiles by filter with paging support
-	 * 
-	 * @return \Kaltura\Client\Type\ConversionProfileListResponse
-	 */
-	function listAction(\Kaltura\Client\Type\ConversionProfileFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("conversionprofile", "list", "KalturaConversionProfileListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaConversionProfileListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ConversionProfileListResponse");
 		return $resultObject;
 	}
 }

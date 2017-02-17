@@ -66,6 +66,22 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Delete Caption Params by ID
+	 * 
+	 */
+	function delete($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("caption_captionparams", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Get Caption Params by ID
 	 * 
 	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionParams
@@ -83,43 +99,6 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParams");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParams");
 		return $resultObject;
-	}
-
-	/**
-	 * Update Caption Params by ID
-	 * 
-	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionParams
-	 */
-	function update($id, \Kaltura\Client\Plugin\Caption\Type\CaptionParams $captionParams)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "captionParams", $captionParams->toParams());
-		$this->client->queueServiceActionCall("caption_captionparams", "update", "KalturaCaptionParams", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParams");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParams");
-		return $resultObject;
-	}
-
-	/**
-	 * Delete Caption Params by ID
-	 * 
-	 */
-	function delete($id)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "id", $id);
-		$this->client->queueServiceActionCall("caption_captionparams", "delete", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**
@@ -142,6 +121,27 @@ class CaptionParamsService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParamsListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParamsListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Update Caption Params by ID
+	 * 
+	 * @return \Kaltura\Client\Plugin\Caption\Type\CaptionParams
+	 */
+	function update($id, \Kaltura\Client\Plugin\Caption\Type\CaptionParams $captionParams)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "captionParams", $captionParams->toParams());
+		$this->client->queueServiceActionCall("caption_captionparams", "update", "KalturaCaptionParams", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCaptionParams");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Caption\\Type\\CaptionParams");
 		return $resultObject;
 	}
 }

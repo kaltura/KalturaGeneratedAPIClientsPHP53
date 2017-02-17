@@ -68,16 +68,19 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Get live stream entry by ID.
+	 * Add new pushPublish configuration to entry
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
-	function get($entryId, $version = -1)
+	function addLiveStreamPushPublishConfiguration($entryId, $protocol, $url = null, \Kaltura\Client\Type\LiveStreamConfiguration $liveStreamConfiguration = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "version", $version);
-		$this->client->queueServiceActionCall("livestream", "get", "KalturaLiveStreamEntry", $kparams);
+		$this->client->addParam($kparams, "protocol", $protocol);
+		$this->client->addParam($kparams, "url", $url);
+		if ($liveStreamConfiguration !== null)
+			$this->client->addParam($kparams, "liveStreamConfiguration", $liveStreamConfiguration->toParams());
+		$this->client->queueServiceActionCall("livestream", "addLiveStreamPushPublishConfiguration", "KalturaLiveStreamEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -85,6 +88,31 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamEntry");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamEntry");
+		return $resultObject;
+	}
+
+	/**
+	 * Append recorded video to live entry
+	 * 
+	 * @return \Kaltura\Client\Type\LiveEntry
+	 */
+	function appendRecording($entryId, $assetId, $mediaServerIndex, \Kaltura\Client\Type\DataCenterContentResource $resource, $duration, $isLastChunk = false)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "assetId", $assetId);
+		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+		$this->client->addParam($kparams, "resource", $resource->toParams());
+		$this->client->addParam($kparams, "duration", $duration);
+		$this->client->addParam($kparams, "isLastChunk", $isLastChunk);
+		$this->client->queueServiceActionCall("livestream", "appendRecording", "KalturaLiveEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
 		return $resultObject;
 	}
 
@@ -113,24 +141,21 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update live stream entry. Only the properties that were set will be updated.
+	 * Creates perioding metadata sync-point events on a live stream
 	 * 
-	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
-	function update($entryId, \Kaltura\Client\Type\LiveStreamEntry $liveStreamEntry)
+	function createPeriodicSyncPoints($entryId, $interval, $duration)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "liveStreamEntry", $liveStreamEntry->toParams());
-		$this->client->queueServiceActionCall("livestream", "update", "KalturaLiveStreamEntry", $kparams);
+		$this->client->addParam($kparams, "interval", $interval);
+		$this->client->addParam($kparams, "duration", $duration);
+		$this->client->queueServiceActionCall("livestream", "createPeriodicSyncPoints", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamEntry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamEntry");
-		return $resultObject;
 	}
 
 	/**
@@ -150,61 +175,16 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * List live stream entries by filter with paging support.
-	 * 
-	 * @return \Kaltura\Client\Type\LiveStreamListResponse
-	 */
-	function listAction(\Kaltura\Client\Type\LiveStreamEntryFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("livestream", "list", "KalturaLiveStreamListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamListResponse");
-		return $resultObject;
-	}
-
-	/**
-	 * Update live stream entry thumbnail using a raw jpeg file
+	 * Get live stream entry by ID.
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
 	 */
-	function updateOfflineThumbnailJpeg($entryId, $fileData)
+	function get($entryId, $version = -1)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$kfiles = array();
-		$this->client->addParam($kfiles, "fileData", $fileData);
-		$this->client->queueServiceActionCall("livestream", "updateOfflineThumbnailJpeg", "KalturaLiveStreamEntry", $kparams, $kfiles);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamEntry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamEntry");
-		return $resultObject;
-	}
-
-	/**
-	 * Update entry thumbnail using url
-	 * 
-	 * @return \Kaltura\Client\Type\LiveStreamEntry
-	 */
-	function updateOfflineThumbnailFromUrl($entryId, $url)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "url", $url);
-		$this->client->queueServiceActionCall("livestream", "updateOfflineThumbnailFromUrl", "KalturaLiveStreamEntry", $kparams);
+		$this->client->addParam($kparams, "version", $version);
+		$this->client->queueServiceActionCall("livestream", "get", "KalturaLiveStreamEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -236,26 +216,65 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Add new pushPublish configuration to entry
+	 * List live stream entries by filter with paging support.
 	 * 
-	 * @return \Kaltura\Client\Type\LiveStreamEntry
+	 * @return \Kaltura\Client\Type\LiveStreamListResponse
 	 */
-	function addLiveStreamPushPublishConfiguration($entryId, $protocol, $url = null, \Kaltura\Client\Type\LiveStreamConfiguration $liveStreamConfiguration = null)
+	function listAction(\Kaltura\Client\Type\LiveStreamEntryFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "protocol", $protocol);
-		$this->client->addParam($kparams, "url", $url);
-		if ($liveStreamConfiguration !== null)
-			$this->client->addParam($kparams, "liveStreamConfiguration", $liveStreamConfiguration->toParams());
-		$this->client->queueServiceActionCall("livestream", "addLiveStreamPushPublishConfiguration", "KalturaLiveStreamEntry", $kparams);
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("livestream", "list", "KalturaLiveStreamListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamEntry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamEntry");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Regenerate new secure token for liveStream
+	 * 
+	 */
+	function regenerateStreamToken($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("livestream", "regenerateStreamToken", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Register media server to live entry
+	 * 
+	 * @return \Kaltura\Client\Type\LiveEntry
+	 */
+	function registerMediaServer($entryId, $hostname, $mediaServerIndex, $applicationName = null, $liveEntryStatus = 1)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "hostname", $hostname);
+		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
+		$this->client->addParam($kparams, "applicationName", $applicationName);
+		$this->client->addParam($kparams, "liveEntryStatus", $liveEntryStatus);
+		$this->client->queueServiceActionCall("livestream", "registerMediaServer", "KalturaLiveEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
 		return $resultObject;
 	}
 
@@ -281,60 +300,19 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Regenerate new secure token for liveStream
-	 * 
-	 */
-	function regenerateStreamToken($entryId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("livestream", "regenerateStreamToken", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * Append recorded video to live entry
+	 * Sey recorded video to live entry
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
-	function appendRecording($entryId, $assetId, $mediaServerIndex, \Kaltura\Client\Type\DataCenterContentResource $resource, $duration, $isLastChunk = false)
+	function setRecordedContent($entryId, $mediaServerIndex, \Kaltura\Client\Type\DataCenterContentResource $resource, $duration, $recordedEntryId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "assetId", $assetId);
 		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
 		$this->client->addParam($kparams, "resource", $resource->toParams());
 		$this->client->addParam($kparams, "duration", $duration);
-		$this->client->addParam($kparams, "isLastChunk", $isLastChunk);
-		$this->client->queueServiceActionCall("livestream", "appendRecording", "KalturaLiveEntry", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
-		return $resultObject;
-	}
-
-	/**
-	 * Register media server to live entry
-	 * 
-	 * @return \Kaltura\Client\Type\LiveEntry
-	 */
-	function registerMediaServer($entryId, $hostname, $mediaServerIndex, $applicationName = null, $liveEntryStatus = 1)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "hostname", $hostname);
-		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
-		$this->client->addParam($kparams, "applicationName", $applicationName);
-		$this->client->addParam($kparams, "liveEntryStatus", $liveEntryStatus);
-		$this->client->queueServiceActionCall("livestream", "registerMediaServer", "KalturaLiveEntry", $kparams);
+		$this->client->addParam($kparams, "recordedEntryId", $recordedEntryId);
+		$this->client->queueServiceActionCall("livestream", "setRecordedContent", "KalturaLiveEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -368,6 +346,70 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Update live stream entry. Only the properties that were set will be updated.
+	 * 
+	 * @return \Kaltura\Client\Type\LiveStreamEntry
+	 */
+	function update($entryId, \Kaltura\Client\Type\LiveStreamEntry $liveStreamEntry)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "liveStreamEntry", $liveStreamEntry->toParams());
+		$this->client->queueServiceActionCall("livestream", "update", "KalturaLiveStreamEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamEntry");
+		return $resultObject;
+	}
+
+	/**
+	 * Update entry thumbnail using url
+	 * 
+	 * @return \Kaltura\Client\Type\LiveStreamEntry
+	 */
+	function updateOfflineThumbnailFromUrl($entryId, $url)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "url", $url);
+		$this->client->queueServiceActionCall("livestream", "updateOfflineThumbnailFromUrl", "KalturaLiveStreamEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamEntry");
+		return $resultObject;
+	}
+
+	/**
+	 * Update live stream entry thumbnail using a raw jpeg file
+	 * 
+	 * @return \Kaltura\Client\Type\LiveStreamEntry
+	 */
+	function updateOfflineThumbnailJpeg($entryId, $fileData)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$kfiles = array();
+		$this->client->addParam($kfiles, "fileData", $fileData);
+		$this->client->queueServiceActionCall("livestream", "updateOfflineThumbnailJpeg", "KalturaLiveStreamEntry", $kparams, $kfiles);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamEntry");
+		return $resultObject;
+	}
+
+	/**
 	 * Validates all registered media servers
 	 * 
 	 */
@@ -376,48 +418,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
 		$this->client->queueServiceActionCall("livestream", "validateRegisteredMediaServers", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * Sey recorded video to live entry
-	 * 
-	 * @return \Kaltura\Client\Type\LiveEntry
-	 */
-	function setRecordedContent($entryId, $mediaServerIndex, \Kaltura\Client\Type\DataCenterContentResource $resource, $duration, $recordedEntryId = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "mediaServerIndex", $mediaServerIndex);
-		$this->client->addParam($kparams, "resource", $resource->toParams());
-		$this->client->addParam($kparams, "duration", $duration);
-		$this->client->addParam($kparams, "recordedEntryId", $recordedEntryId);
-		$this->client->queueServiceActionCall("livestream", "setRecordedContent", "KalturaLiveEntry", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
-		return $resultObject;
-	}
-
-	/**
-	 * Creates perioding metadata sync-point events on a live stream
-	 * 
-	 */
-	function createPeriodicSyncPoints($entryId, $interval, $duration)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "interval", $interval);
-		$this->client->addParam($kparams, "duration", $duration);
-		$this->client->queueServiceActionCall("livestream", "createPeriodicSyncPoints", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();

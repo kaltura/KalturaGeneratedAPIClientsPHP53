@@ -67,48 +67,6 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieves a permission item object using its ID.
-	 * 
-	 * @return \Kaltura\Client\Type\PermissionItem
-	 */
-	function get($permissionItemId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "permissionItemId", $permissionItemId);
-		$this->client->queueServiceActionCall("permissionitem", "get", "KalturaPermissionItem", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermissionItem");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PermissionItem");
-		return $resultObject;
-	}
-
-	/**
-	 * Updates an existing permission item object.
-	 * 	 This action is available only to Kaltura system administrators.
-	 * 
-	 * @return \Kaltura\Client\Type\PermissionItem
-	 */
-	function update($permissionItemId, \Kaltura\Client\Type\PermissionItem $permissionItem)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "permissionItemId", $permissionItemId);
-		$this->client->addParam($kparams, "permissionItem", $permissionItem->toParams());
-		$this->client->queueServiceActionCall("permissionitem", "update", "KalturaPermissionItem", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermissionItem");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PermissionItem");
-		return $resultObject;
-	}
-
-	/**
 	 * Deletes an existing permission item object.
 	 * 	 This action is available only to Kaltura system administrators.
 	 * 
@@ -119,6 +77,26 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "permissionItemId", $permissionItemId);
 		$this->client->queueServiceActionCall("permissionitem", "delete", "KalturaPermissionItem", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermissionItem");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PermissionItem");
+		return $resultObject;
+	}
+
+	/**
+	 * Retrieves a permission item object using its ID.
+	 * 
+	 * @return \Kaltura\Client\Type\PermissionItem
+	 */
+	function get($permissionItemId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "permissionItemId", $permissionItemId);
+		$this->client->queueServiceActionCall("permissionitem", "get", "KalturaPermissionItem", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -149,6 +127,28 @@ class PermissionItemService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermissionItemListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PermissionItemListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Updates an existing permission item object.
+	 * 	 This action is available only to Kaltura system administrators.
+	 * 
+	 * @return \Kaltura\Client\Type\PermissionItem
+	 */
+	function update($permissionItemId, \Kaltura\Client\Type\PermissionItem $permissionItem)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "permissionItemId", $permissionItemId);
+		$this->client->addParam($kparams, "permissionItem", $permissionItem->toParams());
+		$this->client->queueServiceActionCall("permissionitem", "update", "KalturaPermissionItem", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPermissionItem");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PermissionItem");
 		return $resultObject;
 	}
 }

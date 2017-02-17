@@ -46,6 +46,27 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * activate CategoryUser
+	 * 
+	 * @return \Kaltura\Client\Type\CategoryUser
+	 */
+	function activate($categoryId, $userId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "categoryId", $categoryId);
+		$this->client->addParam($kparams, "userId", $userId);
+		$this->client->queueServiceActionCall("categoryuser", "activate", "KalturaCategoryUser", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategoryUser");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\CategoryUser");
+		return $resultObject;
+	}
+
+	/**
 	 * Add new CategoryUser
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
@@ -66,39 +87,56 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Get CategoryUser by id
 	 * 
-	 * @return \Kaltura\Client\Type\CategoryUser
+	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
-	function get($categoryId, $userId)
+	function addFromBulkUpload($fileData, \Kaltura\Client\Type\BulkUploadJobData $bulkUploadData = null, \Kaltura\Client\Type\BulkUploadCategoryUserData $bulkUploadCategoryUserData = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "categoryId", $categoryId);
-		$this->client->addParam($kparams, "userId", $userId);
-		$this->client->queueServiceActionCall("categoryuser", "get", "KalturaCategoryUser", $kparams);
+		$kfiles = array();
+		$this->client->addParam($kfiles, "fileData", $fileData);
+		if ($bulkUploadData !== null)
+			$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+		if ($bulkUploadCategoryUserData !== null)
+			$this->client->addParam($kparams, "bulkUploadCategoryUserData", $bulkUploadCategoryUserData->toParams());
+		$this->client->queueServiceActionCall("categoryuser", "addFromBulkUpload", "KalturaBulkUpload", $kparams, $kfiles);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategoryUser");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\CategoryUser");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
 		return $resultObject;
 	}
 
 	/**
-	 * Update CategoryUser by id
+	 * Copy all memeber from parent category
+	 * 
+	 */
+	function copyFromCategory($categoryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "categoryId", $categoryId);
+		$this->client->queueServiceActionCall("categoryuser", "copyFromCategory", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * reject CategoryUser
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
-	function update($categoryId, $userId, \Kaltura\Client\Type\CategoryUser $categoryUser, $override = false)
+	function deactivate($categoryId, $userId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "categoryId", $categoryId);
 		$this->client->addParam($kparams, "userId", $userId);
-		$this->client->addParam($kparams, "categoryUser", $categoryUser->toParams());
-		$this->client->addParam($kparams, "override", $override);
-		$this->client->queueServiceActionCall("categoryuser", "update", "KalturaCategoryUser", $kparams);
+		$this->client->queueServiceActionCall("categoryuser", "deactivate", "KalturaCategoryUser", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -127,16 +165,16 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * activate CategoryUser
+	 * Get CategoryUser by id
 	 * 
 	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
-	function activate($categoryId, $userId)
+	function get($categoryId, $userId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "categoryId", $categoryId);
 		$this->client->addParam($kparams, "userId", $userId);
-		$this->client->queueServiceActionCall("categoryuser", "activate", "KalturaCategoryUser", $kparams);
+		$this->client->queueServiceActionCall("categoryuser", "get", "KalturaCategoryUser", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
@@ -148,23 +186,23 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * reject CategoryUser
+	 * Index CategoryUser by userid and category id
 	 * 
-	 * @return \Kaltura\Client\Type\CategoryUser
+	 * @return int
 	 */
-	function deactivate($categoryId, $userId)
+	function index($userId, $categoryId, $shouldUpdate = true)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "categoryId", $categoryId);
 		$this->client->addParam($kparams, "userId", $userId);
-		$this->client->queueServiceActionCall("categoryuser", "deactivate", "KalturaCategoryUser", $kparams);
+		$this->client->addParam($kparams, "categoryId", $categoryId);
+		$this->client->addParam($kparams, "shouldUpdate", $shouldUpdate);
+		$this->client->queueServiceActionCall("categoryuser", "index", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategoryUser");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\CategoryUser");
+		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
@@ -192,63 +230,25 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Copy all memeber from parent category
+	 * Update CategoryUser by id
 	 * 
+	 * @return \Kaltura\Client\Type\CategoryUser
 	 */
-	function copyFromCategory($categoryId)
+	function update($categoryId, $userId, \Kaltura\Client\Type\CategoryUser $categoryUser, $override = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "categoryId", $categoryId);
-		$this->client->queueServiceActionCall("categoryuser", "copyFromCategory", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-	}
-
-	/**
-	 * Index CategoryUser by userid and category id
-	 * 
-	 * @return int
-	 */
-	function index($userId, $categoryId, $shouldUpdate = true)
-	{
-		$kparams = array();
 		$this->client->addParam($kparams, "userId", $userId);
-		$this->client->addParam($kparams, "categoryId", $categoryId);
-		$this->client->addParam($kparams, "shouldUpdate", $shouldUpdate);
-		$this->client->queueServiceActionCall("categoryuser", "index", null, $kparams);
+		$this->client->addParam($kparams, "categoryUser", $categoryUser->toParams());
+		$this->client->addParam($kparams, "override", $override);
+		$this->client->queueServiceActionCall("categoryuser", "update", "KalturaCategoryUser", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
-	}
-
-	/**
-	 * 
-	 * @return \Kaltura\Client\Type\BulkUpload
-	 */
-	function addFromBulkUpload($fileData, \Kaltura\Client\Type\BulkUploadJobData $bulkUploadData = null, \Kaltura\Client\Type\BulkUploadCategoryUserData $bulkUploadCategoryUserData = null)
-	{
-		$kparams = array();
-		$kfiles = array();
-		$this->client->addParam($kfiles, "fileData", $fileData);
-		if ($bulkUploadData !== null)
-			$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
-		if ($bulkUploadCategoryUserData !== null)
-			$this->client->addParam($kparams, "bulkUploadCategoryUserData", $bulkUploadCategoryUserData->toParams());
-		$this->client->queueServiceActionCall("categoryuser", "addFromBulkUpload", "KalturaBulkUpload", $kparams, $kfiles);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategoryUser");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\CategoryUser");
 		return $resultObject;
 	}
 }

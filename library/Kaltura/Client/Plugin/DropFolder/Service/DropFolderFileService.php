@@ -66,6 +66,26 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Mark the KalturaDropFolderFile object as deleted
+	 * 
+	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
+	 */
+	function delete($dropFolderFileId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "dropFolderFileId", $dropFolderFileId);
+		$this->client->queueServiceActionCall("dropfolder_dropfolderfile", "delete", "KalturaDropFolderFile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderFile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderFile");
+		return $resultObject;
+	}
+
+	/**
 	 * Retrieve a KalturaDropFolderFile object by ID
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
@@ -82,6 +102,49 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderFile");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderFile");
+		return $resultObject;
+	}
+
+	/**
+	 * Set the KalturaDropFolderFile status to ignore (KalturaDropFolderFileStatus::IGNORE)
+	 * 
+	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
+	 */
+	function ignore($dropFolderFileId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "dropFolderFileId", $dropFolderFileId);
+		$this->client->queueServiceActionCall("dropfolder_dropfolderfile", "ignore", "KalturaDropFolderFile", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderFile");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderFile");
+		return $resultObject;
+	}
+
+	/**
+	 * List KalturaDropFolderFile objects
+	 * 
+	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFileListResponse
+	 */
+	function listAction(\Kaltura\Client\Plugin\DropFolder\Type\DropFolderFileFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("dropfolder_dropfolderfile", "list", "KalturaDropFolderFileListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderFileListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderFileListResponse");
 		return $resultObject;
 	}
 
@@ -117,69 +180,6 @@ class DropFolderFileService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "dropFolderFileId", $dropFolderFileId);
 		$this->client->addParam($kparams, "status", $status);
 		$this->client->queueServiceActionCall("dropfolder_dropfolderfile", "updateStatus", "KalturaDropFolderFile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderFile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderFile");
-		return $resultObject;
-	}
-
-	/**
-	 * Mark the KalturaDropFolderFile object as deleted
-	 * 
-	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
-	 */
-	function delete($dropFolderFileId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "dropFolderFileId", $dropFolderFileId);
-		$this->client->queueServiceActionCall("dropfolder_dropfolderfile", "delete", "KalturaDropFolderFile", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderFile");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderFile");
-		return $resultObject;
-	}
-
-	/**
-	 * List KalturaDropFolderFile objects
-	 * 
-	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFileListResponse
-	 */
-	function listAction(\Kaltura\Client\Plugin\DropFolder\Type\DropFolderFileFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
-	{
-		$kparams = array();
-		if ($filter !== null)
-			$this->client->addParam($kparams, "filter", $filter->toParams());
-		if ($pager !== null)
-			$this->client->addParam($kparams, "pager", $pager->toParams());
-		$this->client->queueServiceActionCall("dropfolder_dropfolderfile", "list", "KalturaDropFolderFileListResponse", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolderFileListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolderFileListResponse");
-		return $resultObject;
-	}
-
-	/**
-	 * Set the KalturaDropFolderFile status to ignore (KalturaDropFolderFileStatus::IGNORE)
-	 * 
-	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile
-	 */
-	function ignore($dropFolderFileId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "dropFolderFileId", $dropFolderFileId);
-		$this->client->queueServiceActionCall("dropfolder_dropfolderfile", "ignore", "KalturaDropFolderFile", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
