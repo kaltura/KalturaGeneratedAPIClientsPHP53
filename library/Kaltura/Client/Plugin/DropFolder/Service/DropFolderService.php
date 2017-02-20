@@ -86,6 +86,29 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * freeExclusive KalturaDropFolder object
+	 * 
+	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
+	 */
+	function freeExclusiveDropFolder($dropFolderId, $status, $errorCode = null, $errorDescription = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
+		$this->client->addParam($kparams, "status", $status);
+		$this->client->addParam($kparams, "errorCode", $errorCode);
+		$this->client->addParam($kparams, "errorDescription", $errorDescription);
+		$this->client->queueServiceActionCall("dropfolder_dropfolder", "freeExclusiveDropFolder", "KalturaDropFolder", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolder");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolder");
+		return $resultObject;
+	}
+
+	/**
 	 * Retrieve a KalturaDropFolder object by ID
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
@@ -95,6 +118,27 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
 		$this->client->queueServiceActionCall("dropfolder_dropfolder", "get", "KalturaDropFolder", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaDropFolder");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolder");
+		return $resultObject;
+	}
+
+	/**
+	 * getExclusive KalturaDropFolder object
+	 * 
+	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
+	 */
+	function getExclusiveDropFolder($tag, $maxTime)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "tag", $tag);
+		$this->client->addParam($kparams, "maxTime", $maxTime);
+		$this->client->queueServiceActionCall("dropfolder_dropfolder", "getExclusiveDropFolder", "KalturaDropFolder", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
