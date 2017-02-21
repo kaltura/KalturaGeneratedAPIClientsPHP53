@@ -109,6 +109,8 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->anamorphicPixels = (float)$xml->anamorphicPixels;
 		if(count($xml->isAvoidForcedKeyFrames))
 			$this->isAvoidForcedKeyFrames = (int)$xml->isAvoidForcedKeyFrames;
+		if(count($xml->forcedKeyFramesMode))
+			$this->forcedKeyFramesMode = (int)$xml->forcedKeyFramesMode;
 		if(count($xml->isCropIMX))
 			$this->isCropIMX = (int)$xml->isCropIMX;
 		if(count($xml->optimizationPolicy))
@@ -293,6 +295,12 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 	 * @var int
 	 */
 	public $isAvoidForcedKeyFrames = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $forcedKeyFramesMode = null;
 
 	/**
 	 * 

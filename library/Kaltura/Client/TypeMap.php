@@ -232,6 +232,7 @@ class TypeMap
 		'KalturaPlaybackSource' => 'Kaltura\Client\Type\PlaybackSource',
 		'KalturaPlaybackContext' => 'Kaltura\Client\Type\PlaybackContext',
 		'KalturaPlaylist' => 'Kaltura\Client\Type\Playlist',
+		'KalturaPushEventNotificationParameter' => 'Kaltura\Client\Plugin\PushNotification\Type\PushEventNotificationParameter',
 		'KalturaQuiz' => 'Kaltura\Client\Plugin\Quiz\Type\Quiz',
 		'KalturaRemotePath' => 'Kaltura\Client\Type\RemotePath',
 		'KalturaUrlResource' => 'Kaltura\Client\Type\UrlResource',

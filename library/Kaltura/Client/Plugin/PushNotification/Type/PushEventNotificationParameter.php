@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\PushNotification\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ExtractMediaJobData extends \Kaltura\Client\Type\ConvartableJobData
+class PushEventNotificationParameter extends \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationParameter
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaExtractMediaJobData';
+		return 'KalturaPushEventNotificationParameter';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,55 +50,13 @@ class ExtractMediaJobData extends \Kaltura\Client\Type\ConvartableJobData
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->flavorAssetId))
-			$this->flavorAssetId = (string)$xml->flavorAssetId;
-		if(count($xml->calculateComplexity))
-		{
-			if(!empty($xml->calculateComplexity))
-				$this->calculateComplexity = true;
-			else
-				$this->calculateComplexity = false;
-		}
-		if(count($xml->extractId3Tags))
-		{
-			if(!empty($xml->extractId3Tags))
-				$this->extractId3Tags = true;
-			else
-				$this->extractId3Tags = false;
-		}
-		if(count($xml->destDataFilePath))
-			$this->destDataFilePath = (string)$xml->destDataFilePath;
-		if(count($xml->detectGOP))
-			$this->detectGOP = (int)$xml->detectGOP;
+		if(count($xml->queueKeyToken))
+			$this->queueKeyToken = (string)$xml->queueKeyToken;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $flavorAssetId = null;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $calculateComplexity = null;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $extractId3Tags = null;
-
-	/**
-	 * The data output file
-	 * @var string
-	 */
-	public $destDataFilePath = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $detectGOP = null;
+	public $queueKeyToken = null;
 
 }
