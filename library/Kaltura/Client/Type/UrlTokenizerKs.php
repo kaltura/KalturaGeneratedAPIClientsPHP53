@@ -57,11 +57,19 @@ class UrlTokenizerKs extends \Kaltura\Client\Type\UrlTokenizer
 			else
 				$this->usePath = false;
 		}
+		if(count($xml->additionalUris))
+			$this->additionalUris = (string)$xml->additionalUris;
 	}
 	/**
 	 * 
 	 * @var bool
 	 */
 	public $usePath = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $additionalUris = null;
 
 }
