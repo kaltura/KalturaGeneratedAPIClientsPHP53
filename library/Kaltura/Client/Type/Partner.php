@@ -516,7 +516,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var int
-	 * @readonly
+	 * @insertonly
 	 */
 	public $partnerParentId = null;
 

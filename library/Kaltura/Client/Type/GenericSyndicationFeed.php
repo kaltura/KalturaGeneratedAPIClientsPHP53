@@ -54,6 +54,10 @@ class GenericSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 			$this->feedDescription = (string)$xml->feedDescription;
 		if(count($xml->feedLandingPage))
 			$this->feedLandingPage = (string)$xml->feedLandingPage;
+		if(count($xml->entryFilter) && !empty($xml->entryFilter))
+			$this->entryFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->entryFilter, "KalturaBaseEntryFilter");
+		if(count($xml->pageSize))
+			$this->pageSize = (int)$xml->pageSize;
 	}
 	/**
 	 * feed description
@@ -66,5 +70,17 @@ class GenericSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 	 * @var string
 	 */
 	public $feedLandingPage = null;
+
+	/**
+	 * entry filter
+	 * @var \Kaltura\Client\Type\BaseEntryFilter
+	 */
+	public $entryFilter;
+
+	/**
+	 * page size
+	 * @var int
+	 */
+	public $pageSize = null;
 
 }
