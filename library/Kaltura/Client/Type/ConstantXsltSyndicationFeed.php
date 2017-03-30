@@ -33,15 +33,14 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Used to ingest media file that is already accessible on the shared disc.
  * @package Kaltura
  * @subpackage Client
  */
-class ServerFileResource extends \Kaltura\Client\Type\DataCenterContentResource
+abstract class ConstantXsltSyndicationFeed extends \Kaltura\Client\Type\GenericXsltSyndicationFeed
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaServerFileResource';
+		return 'KalturaConstantXsltSyndicationFeed';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -51,26 +50,5 @@ class ServerFileResource extends \Kaltura\Client\Type\DataCenterContentResource
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->localFilePath))
-			$this->localFilePath = (string)$xml->localFilePath;
-		if(count($xml->keepOriginalFile))
-		{
-			if(!empty($xml->keepOriginalFile))
-				$this->keepOriginalFile = true;
-			else
-				$this->keepOriginalFile = false;
-		}
 	}
-	/**
-	 * Full path to the local file
-	 * @var string
-	 */
-	public $localFilePath = null;
-
-	/**
-	 * Should keep original file (false = mv, true = cp)
-	 * @var bool
-	 */
-	public $keepOriginalFile = null;
-
 }
