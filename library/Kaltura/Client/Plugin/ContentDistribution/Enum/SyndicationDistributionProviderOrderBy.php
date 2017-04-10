@@ -27,16 +27,3 @@
 // @ignore
 // ===================================================================================================
 
-/**
- * @namespace
- */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
-
-/**
- * @package Kaltura
- * @subpackage Client
- */
-class SyndicationDistributionProviderOrderBy extends \Kaltura\Client\EnumBase
-{
-}
-
