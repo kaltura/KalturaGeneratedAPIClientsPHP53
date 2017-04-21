@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2016  Kaltura Inc.
+// Copyright (C) 2006-2017  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -585,6 +585,7 @@ class TypeMap
 		'KalturaUrlTokenizerAkamaiRtsp' => 'Kaltura\Client\Type\UrlTokenizerAkamaiRtsp',
 		'KalturaUrlTokenizerAkamaiSecureHd' => 'Kaltura\Client\Type\UrlTokenizerAkamaiSecureHd',
 		'KalturaUrlTokenizerBitGravity' => 'Kaltura\Client\Type\UrlTokenizerBitGravity',
+		'KalturaUrlTokenizerChinaCache' => 'Kaltura\Client\Type\UrlTokenizerChinaCache',
 		'KalturaUrlTokenizerCht' => 'Kaltura\Client\Type\UrlTokenizerCht',
 		'KalturaUrlTokenizerCloudFront' => 'Kaltura\Client\Type\UrlTokenizerCloudFront',
 		'KalturaUrlTokenizerKs' => 'Kaltura\Client\Type\UrlTokenizerKs',
