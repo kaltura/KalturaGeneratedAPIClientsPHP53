@@ -66,6 +66,24 @@ class UserEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return int
+	 */
+	function bulkDelete(\Kaltura\Client\Type\UserEntryFilter $filter)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->queueServiceActionCall("userentry", "bulkDelete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * 
 	 * @return \Kaltura\Client\Type\UserEntry
 	 */
 	function delete($id)

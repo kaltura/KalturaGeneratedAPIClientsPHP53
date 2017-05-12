@@ -151,21 +151,21 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 	/**
 	 * List conflicting events for resourcesIds by event's dates
 	 * 
-	 * @return array
+	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventListResponse
 	 */
 	function getConflicts($resourceIds, \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent $scheduleEvent)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "resourceIds", $resourceIds);
 		$this->client->addParam($kparams, "scheduleEvent", $scheduleEvent->toParams());
-		$this->client->queueServiceActionCall("schedule_scheduleevent", "getConflicts", "KalturaScheduleEvent", $kparams);
+		$this->client->queueServiceActionCall("schedule_scheduleevent", "getConflicts", "KalturaScheduleEventListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaScheduleEvent");
-		$this->client->validateObjectType($resultObject, "array");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaScheduleEventListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Schedule\\Type\\ScheduleEventListResponse");
 		return $resultObject;
 	}
 

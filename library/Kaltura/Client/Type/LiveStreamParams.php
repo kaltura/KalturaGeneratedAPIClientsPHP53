@@ -64,6 +64,8 @@ class LiveStreamParams extends \Kaltura\Client\ObjectBase
 			$this->frameRate = (int)$xml->frameRate;
 		if(count($xml->keyFrameInterval))
 			$this->keyFrameInterval = (float)$xml->keyFrameInterval;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
 	}
 	/**
 	 * Bit rate of the stream. (i.e. 900)
@@ -106,5 +108,11 @@ class LiveStreamParams extends \Kaltura\Client\ObjectBase
 	 * @var float
 	 */
 	public $keyFrameInterval = null;
+
+	/**
+	 * Live stream's language
+	 * @var string
+	 */
+	public $language = null;
 
 }

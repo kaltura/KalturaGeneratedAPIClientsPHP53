@@ -39,5 +39,6 @@ namespace Kaltura\Client\Enum;
 class GeoCoderType extends \Kaltura\Client\EnumBase
 {
 	const KALTURA = "1";
+	const MAX_MIND = "2";
 }
 

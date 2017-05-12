@@ -54,6 +54,10 @@ class UserEntryFilter extends \Kaltura\Client\Type\UserEntryBaseFilter
 			$this->userIdEqualCurrent = (int)$xml->userIdEqualCurrent;
 		if(count($xml->isAnonymous))
 			$this->isAnonymous = (int)$xml->isAnonymous;
+		if(count($xml->privacyContextEqual))
+			$this->privacyContextEqual = (string)$xml->privacyContextEqual;
+		if(count($xml->privacyContextIn))
+			$this->privacyContextIn = (string)$xml->privacyContextIn;
 	}
 	/**
 	 * 
@@ -66,5 +70,17 @@ class UserEntryFilter extends \Kaltura\Client\Type\UserEntryBaseFilter
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $isAnonymous = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $privacyContextEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $privacyContextIn = null;
 
 }

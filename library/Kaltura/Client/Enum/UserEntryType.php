@@ -39,5 +39,6 @@ namespace Kaltura\Client\Enum;
 class UserEntryType extends \Kaltura\Client\EnumBase
 {
 	const QUIZ = "quiz.QUIZ";
+	const VIEW_HISTORY = "viewHistory.VIEW_HISTORY";
 }
 

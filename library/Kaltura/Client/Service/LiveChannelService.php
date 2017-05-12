@@ -197,7 +197,7 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
-	function setRecordedContent($entryId, $mediaServerIndex, \Kaltura\Client\Type\DataCenterContentResource $resource, $duration, $recordedEntryId = null)
+	function setRecordedContent($entryId, $mediaServerIndex, \Kaltura\Client\Type\DataCenterContentResource $resource, $duration, $recordedEntryId = null, $flavorParamsId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -205,6 +205,7 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "resource", $resource->toParams());
 		$this->client->addParam($kparams, "duration", $duration);
 		$this->client->addParam($kparams, "recordedEntryId", $recordedEntryId);
+		$this->client->addParam($kparams, "flavorParamsId", $flavorParamsId);
 		$this->client->queueServiceActionCall("livechannel", "setRecordedContent", "KalturaLiveEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

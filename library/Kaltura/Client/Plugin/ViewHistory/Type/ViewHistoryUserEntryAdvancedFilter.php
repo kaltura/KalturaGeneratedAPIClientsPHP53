@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\ViewHistory\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-abstract class MatchCondition extends \Kaltura\Client\Type\Condition
+class ViewHistoryUserEntryAdvancedFilter extends \Kaltura\Client\Type\SearchItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaMatchCondition';
+		return 'KalturaViewHistoryUserEntryAdvancedFilter';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,26 +50,69 @@ abstract class MatchCondition extends \Kaltura\Client\Type\Condition
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->values))
-		{
-			if(empty($xml->values))
-				$this->values = array();
-			else
-				$this->values = \Kaltura\Client\ParseUtils::unmarshalArray($xml->values, "KalturaStringValue");
-		}
-		if(count($xml->matchType))
-			$this->matchType = (string)$xml->matchType;
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
+		if(count($xml->userIdEqual))
+			$this->userIdEqual = (string)$xml->userIdEqual;
+		if(count($xml->userIdIn))
+			$this->userIdIn = (string)$xml->userIdIn;
+		if(count($xml->updatedAtGreaterThanOrEqual))
+			$this->updatedAtGreaterThanOrEqual = (string)$xml->updatedAtGreaterThanOrEqual;
+		if(count($xml->updatedAtLessThanOrEqual))
+			$this->updatedAtLessThanOrEqual = (string)$xml->updatedAtLessThanOrEqual;
+		if(count($xml->extendedStatusEqual))
+			$this->extendedStatusEqual = (string)$xml->extendedStatusEqual;
+		if(count($xml->extendedStatusIn))
+			$this->extendedStatusIn = (string)$xml->extendedStatusIn;
 	}
 	/**
 	 * 
-	 * @var array<KalturaStringValue>
+	 * @var string
 	 */
-	public $values;
+	public $idEqual = null;
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Enum\MatchConditionType
+	 * @var string
 	 */
-	public $matchType = null;
+	public $idIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $userIdEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $userIdIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $updatedAtGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $updatedAtLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
+	 */
+	public $extendedStatusEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $extendedStatusIn = null;
 
 }
