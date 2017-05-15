@@ -212,6 +212,45 @@ class EventNotificationTemplateService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Register to a queue from which event messages will be provided according to given template. Queue will be created if not already exists
+	 * 
+	 * @return \Kaltura\Client\Plugin\PushNotification\Type\PushNotificationData
+	 */
+	function register($notificationTemplateSystemName, \Kaltura\Client\Plugin\PushNotification\Type\PushNotificationParams $pushNotificationParams)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "notificationTemplateSystemName", $notificationTemplateSystemName);
+		$this->client->addParam($kparams, "pushNotificationParams", $pushNotificationParams->toParams());
+		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "register", "KalturaPushNotificationData", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPushNotificationData");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\PushNotification\\Type\\PushNotificationData");
+		return $resultObject;
+	}
+
+	/**
+	 * Clear queue messages
+	 * 
+	 */
+	function sendCommand($notificationTemplateSystemName, \Kaltura\Client\Plugin\PushNotification\Type\PushNotificationParams $pushNotificationParams, $command)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "notificationTemplateSystemName", $notificationTemplateSystemName);
+		$this->client->addParam($kparams, "pushNotificationParams", $pushNotificationParams->toParams());
+		$this->client->addParam($kparams, "command", $command);
+		$this->client->queueServiceActionCall("eventnotification_eventnotificationtemplate", "sendCommand", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Update an existing event notification template object
 	 * 
 	 * @return \Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate
