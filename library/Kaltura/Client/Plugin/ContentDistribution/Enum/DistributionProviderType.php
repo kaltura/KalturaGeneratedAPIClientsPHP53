@@ -38,29 +38,8 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  */
 class DistributionProviderType extends \Kaltura\Client\EnumBase
 {
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
 	const FACEBOOK = "facebookDistribution.FACEBOOK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
 	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const NDN = "ndnDistribution.NDN";
-	const PODCAST = "podcastDistribution.PODCAST";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const SYNACOR_HBO = "synacorHboDistribution.SYNACOR_HBO";
-	const TIME_WARNER = "timeWarnerDistribution.TIME_WARNER";
-	const TVCOM = "tvComDistribution.TVCOM";
-	const TVINCI = "tvinciDistribution.TVINCI";
-	const UNICORN = "unicornDistribution.UNICORN";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
 	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
 	const GENERIC = "1";
 	const SYNDICATION = "2";

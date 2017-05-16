@@ -74,6 +74,8 @@ class ScheduleEventFilter extends \Kaltura\Client\Plugin\Schedule\Type\ScheduleE
 			$this->resourceSystemNamesMultiLikeAnd = (string)$xml->resourceSystemNamesMultiLikeAnd;
 		if(count($xml->resourceSystemNamesLike))
 			$this->resourceSystemNamesLike = (string)$xml->resourceSystemNamesLike;
+		if(count($xml->resourceIdEqual))
+			$this->resourceIdEqual = (string)$xml->resourceIdEqual;
 	}
 	/**
 	 * 
@@ -146,5 +148,11 @@ class ScheduleEventFilter extends \Kaltura\Client\Plugin\Schedule\Type\ScheduleE
 	 * @var string
 	 */
 	public $resourceSystemNamesLike = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $resourceIdEqual = null;
 
 }

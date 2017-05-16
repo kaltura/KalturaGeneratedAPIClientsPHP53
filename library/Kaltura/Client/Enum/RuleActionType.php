@@ -38,7 +38,6 @@ namespace Kaltura\Client\Enum;
  */
 class RuleActionType extends \Kaltura\Client\EnumBase
 {
-	const DRM_POLICY = "drm.DRM_POLICY";
 	const BLOCK = "1";
 	const PREVIEW = "2";
 	const LIMIT_FLAVORS = "3";
