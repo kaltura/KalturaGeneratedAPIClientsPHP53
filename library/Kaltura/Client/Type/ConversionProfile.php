@@ -101,6 +101,8 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 			$this->conditionalProfiles = (string)$xml->conditionalProfiles;
 		if(count($xml->detectGOP))
 			$this->detectGOP = (int)$xml->detectGOP;
+		if(count($xml->mediaInfoXslTransformation))
+			$this->mediaInfoXslTransformation = (string)$xml->mediaInfoXslTransformation;
 	}
 	/**
 	 * The id of the Conversion Profile
@@ -245,5 +247,11 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 */
 	public $detectGOP = null;
+
+	/**
+	 * XSL to transform ingestion Media Info XML
+	 * @var string
+	 */
+	public $mediaInfoXslTransformation = null;
 
 }
