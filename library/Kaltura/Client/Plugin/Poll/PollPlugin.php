@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\Poll;
  */
 class PollPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\PollService
+	 */
+	protected $poll = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class PollPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'poll' => $this->getPollService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class PollPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'poll';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Poll\Service\PollService
+	 */
+	public function getPollService()
+	{
+		if (is_null($this->poll))
+			$this->poll = new Service\PollService($this->_client);
+		return $this->poll;
 	}
 }
 
