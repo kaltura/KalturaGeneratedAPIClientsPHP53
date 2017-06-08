@@ -98,10 +98,12 @@ abstract class ServerNodeBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->dcEqual = (int)$xml->dcEqual;
 		if(count($xml->dcIn))
 			$this->dcIn = (string)$xml->dcIn;
-		if(count($xml->parentIdEqual))
-			$this->parentIdEqual = (int)$xml->parentIdEqual;
-		if(count($xml->parentIdIn))
-			$this->parentIdIn = (string)$xml->parentIdIn;
+		if(count($xml->parentIdLike))
+			$this->parentIdLike = (string)$xml->parentIdLike;
+		if(count($xml->parentIdMultiLikeOr))
+			$this->parentIdMultiLikeOr = (string)$xml->parentIdMultiLikeOr;
+		if(count($xml->parentIdMultiLikeAnd))
+			$this->parentIdMultiLikeAnd = (string)$xml->parentIdMultiLikeAnd;
 	}
 	/**
 	 * 
@@ -249,14 +251,20 @@ abstract class ServerNodeBaseFilter extends \Kaltura\Client\Type\Filter
 
 	/**
 	 * 
-	 * @var int
+	 * @var string
 	 */
-	public $parentIdEqual = null;
+	public $parentIdLike = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $parentIdIn = null;
+	public $parentIdMultiLikeOr = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $parentIdMultiLikeAnd = null;
 
 }

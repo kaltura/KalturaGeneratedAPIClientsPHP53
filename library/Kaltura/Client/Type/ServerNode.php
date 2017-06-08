@@ -77,7 +77,7 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 		if(count($xml->dc))
 			$this->dc = (int)$xml->dc;
 		if(count($xml->parentId))
-			$this->parentId = (int)$xml->parentId;
+			$this->parentId = (string)$xml->parentId;
 	}
 	/**
 	 * 
@@ -167,7 +167,7 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * Id of the parent serverNode
-	 * @var int
+	 * @var string
 	 */
 	public $parentId = null;
 

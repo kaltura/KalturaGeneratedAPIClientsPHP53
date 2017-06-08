@@ -66,6 +66,26 @@ class PollService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Vote Action
+	 * 
+	 * @return string
+	 */
+	function getVote($pollId, $userId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "pollId", $pollId);
+		$this->client->addParam($kparams, "userId", $userId);
+		$this->client->queueServiceActionCall("poll_poll", "getVote", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Get Votes Action
 	 * 
 	 * @return string

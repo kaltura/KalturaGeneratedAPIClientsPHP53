@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\RelatedFilter
+abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\Filter
 {
 	public function getKalturaObjectType()
 	{
@@ -56,10 +56,10 @@ abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\RelatedFil
 			$this->entryIdIn = (string)$xml->entryIdIn;
 		if(count($xml->serverNodeIdEqual))
 			$this->serverNodeIdEqual = (int)$xml->serverNodeIdEqual;
-		if(count($xml->createdAtGreaterThanOrEqual))
-			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->createdAtLessThanOrEqual))
 			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
+		if(count($xml->createdAtGreaterThanOrEqual))
+			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
 		if(count($xml->updatedAtGreaterThanOrEqual))
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
 		if(count($xml->updatedAtLessThanOrEqual))
@@ -93,13 +93,13 @@ abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\RelatedFil
 	 * 
 	 * @var int
 	 */
-	public $createdAtGreaterThanOrEqual = null;
+	public $createdAtLessThanOrEqual = null;
 
 	/**
 	 * 
 	 * @var int
 	 */
-	public $createdAtLessThanOrEqual = null;
+	public $createdAtGreaterThanOrEqual = null;
 
 	/**
 	 * 
