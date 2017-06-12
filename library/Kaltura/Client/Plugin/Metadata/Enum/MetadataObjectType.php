@@ -41,6 +41,8 @@ class MetadataObjectType extends \Kaltura\Client\EnumBase
 	const AD_CUE_POINT = "adCuePointMetadata.AdCuePoint";
 	const ANNOTATION = "annotationMetadata.Annotation";
 	const CODE_CUE_POINT = "codeCuePointMetadata.CodeCuePoint";
+	const ANSWER_CUE_POINT = "quiz.AnswerCuePoint";
+	const QUESTION_CUE_POINT = "quiz.QuestionCuePoint";
 	const THUMB_CUE_POINT = "thumbCuePointMetadata.thumbCuePoint";
 	const ENTRY = "1";
 	const CATEGORY = "2";
