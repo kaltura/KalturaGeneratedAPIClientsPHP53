@@ -103,6 +103,22 @@ class StatsService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Use this action to report device capabilities to the kaltura server.
+	 * 
+	 */
+	function reportDeviceCapabilities($data)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "data", $data);
+		$this->client->queueServiceActionCall("stats", "reportDeviceCapabilities", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Use this action to report errors to the kaltura server.
 	 * 
 	 */
