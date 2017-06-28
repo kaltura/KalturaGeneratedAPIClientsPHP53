@@ -107,6 +107,23 @@ class PollService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Get resetVotes Action
+	 * 
+	 */
+	function resetVotes($pollId, $answerIds)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "pollId", $pollId);
+		$this->client->addParam($kparams, "answerIds", $answerIds);
+		$this->client->queueServiceActionCall("poll_poll", "resetVotes", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Vote Action
 	 * 
 	 * @return string
