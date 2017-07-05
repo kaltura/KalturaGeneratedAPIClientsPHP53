@@ -56,13 +56,13 @@ class ApiActionPermissionItem extends \Kaltura\Client\Type\PermissionItem
 			$this->action = (string)$xml->action;
 	}
 	/**
-	 * API service name
+	 * 
 	 * @var string
 	 */
 	public $service = null;
 
 	/**
-	 * API action name
+	 * 
 	 * @var string
 	 */
 	public $action = null;

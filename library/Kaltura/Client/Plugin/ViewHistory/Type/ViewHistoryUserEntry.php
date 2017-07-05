@@ -54,6 +54,8 @@ class ViewHistoryUserEntry extends \Kaltura\Client\Type\UserEntry
 			$this->playbackContext = (string)$xml->playbackContext;
 		if(count($xml->lastTimeReached))
 			$this->lastTimeReached = (int)$xml->lastTimeReached;
+		if(count($xml->lastUpdateTime))
+			$this->lastUpdateTime = (int)$xml->lastUpdateTime;
 	}
 	/**
 	 * Playback context
@@ -66,5 +68,11 @@ class ViewHistoryUserEntry extends \Kaltura\Client\Type\UserEntry
 	 * @var int
 	 */
 	public $lastTimeReached = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $lastUpdateTime = null;
 
 }

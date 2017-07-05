@@ -51,12 +51,20 @@ abstract class Filter extends \Kaltura\Client\ObjectBase
 			return;
 		
 		if(count($xml->orderBy))
-			$this->orderBy = (int)$xml->orderBy;
+			$this->orderBy = (string)$xml->orderBy;
+		if(count($xml->advancedSearch) && !empty($xml->advancedSearch))
+			$this->advancedSearch = \Kaltura\Client\ParseUtils::unmarshalObject($xml->advancedSearch, "KalturaSearchItem");
 	}
 	/**
 	 * 
-	 * @var int
+	 * @var string
 	 */
 	public $orderBy = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\SearchItem
+	 */
+	public $advancedSearch;
 
 }

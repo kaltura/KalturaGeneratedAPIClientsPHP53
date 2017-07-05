@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class AssetFilter extends \Kaltura\Client\Type\Filter
+class AssetFilter extends \Kaltura\Client\Type\AssetBaseFilter
 {
 	public function getKalturaObjectType()
 	{
@@ -50,5 +50,13 @@ class AssetFilter extends \Kaltura\Client\Type\Filter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->typeIn))
+			$this->typeIn = (string)$xml->typeIn;
 	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $typeIn = null;
+
 }

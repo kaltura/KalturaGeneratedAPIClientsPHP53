@@ -38,6 +38,13 @@ namespace Kaltura\Client\Enum;
  */
 class UserRoleOrderBy extends \Kaltura\Client\EnumBase
 {
-	const NONE = "NONE";
+	const CREATED_AT_ASC = "+createdAt";
+	const ID_ASC = "+id";
+	const NAME_ASC = "+name";
+	const UPDATED_AT_ASC = "+updatedAt";
+	const CREATED_AT_DESC = "-createdAt";
+	const ID_DESC = "-id";
+	const NAME_DESC = "-name";
+	const UPDATED_AT_DESC = "-updatedAt";
 }
 

@@ -39,9 +39,24 @@ namespace Kaltura\Client;
 class Client extends Base
 {
 	/**
-	 * @var \Kaltura\Client\Service\AnnouncementService
+	 * @var \Kaltura\Client\Service\AccessControlProfileService
 	 */
-	protected $announcement = null;
+	protected $accessControlProfile = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\AccessControlService
+	 */
+	protected $accessControl = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\AdminUserService
+	 */
+	protected $adminUser = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\AnalyticsService
+	 */
+	protected $analytics = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\AppTokenService
@@ -49,144 +64,124 @@ class Client extends Base
 	protected $appToken = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\AssetCommentService
+	 * @var \Kaltura\Client\Service\BaseEntryService
 	 */
-	protected $assetComment = null;
+	protected $baseEntry = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\AssetService
+	 * @var \Kaltura\Client\Service\BulkUploadService
 	 */
-	protected $asset = null;
+	protected $bulkUpload = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\AssetFileService
+	 * @var \Kaltura\Client\Service\CategoryEntryService
 	 */
-	protected $assetFile = null;
+	protected $categoryEntry = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\AssetHistoryService
+	 * @var \Kaltura\Client\Service\CategoryService
 	 */
-	protected $assetHistory = null;
+	protected $category = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\AssetStatisticsService
+	 * @var \Kaltura\Client\Service\CategoryUserService
 	 */
-	protected $assetStatistics = null;
+	protected $categoryUser = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\BookmarkService
+	 * @var \Kaltura\Client\Service\ConversionProfileAssetParamsService
 	 */
-	protected $bookmark = null;
+	protected $conversionProfileAssetParams = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\CdnAdapterProfileService
+	 * @var \Kaltura\Client\Service\ConversionProfileService
 	 */
-	protected $cdnAdapterProfile = null;
+	protected $conversionProfile = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\CdnPartnerSettingsService
+	 * @var \Kaltura\Client\Service\DataService
 	 */
-	protected $cdnPartnerSettings = null;
+	protected $data = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\CDVRAdapterProfileService
+	 * @var \Kaltura\Client\Service\DeliveryProfileService
 	 */
-	protected $cDVRAdapterProfile = null;
+	protected $deliveryProfile = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\ChannelService
+	 * @var \Kaltura\Client\Service\EmailIngestionProfileService
 	 */
-	protected $channel = null;
+	protected $EmailIngestionProfile = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\CouponService
+	 * @var \Kaltura\Client\Service\EntryServerNodeService
 	 */
-	protected $coupon = null;
+	protected $entryServerNode = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\EntitlementService
+	 * @var \Kaltura\Client\Service\FileAssetService
 	 */
-	protected $entitlement = null;
+	protected $fileAsset = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\ExportTaskService
+	 * @var \Kaltura\Client\Service\FlavorAssetService
 	 */
-	protected $exportTask = null;
+	protected $flavorAsset = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\ExternalChannelProfileService
+	 * @var \Kaltura\Client\Service\FlavorParamsOutputService
 	 */
-	protected $externalChannelProfile = null;
+	protected $flavorParamsOutput = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\FavoriteService
+	 * @var \Kaltura\Client\Service\FlavorParamsService
 	 */
-	protected $favorite = null;
+	protected $flavorParams = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\FollowTvSeriesService
+	 * @var \Kaltura\Client\Service\GroupUserService
 	 */
-	protected $followTvSeries = null;
+	protected $groupUser = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HomeNetworkService
+	 * @var \Kaltura\Client\Service\LiveChannelSegmentService
 	 */
-	protected $homeNetwork = null;
+	protected $liveChannelSegment = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HouseholdService
+	 * @var \Kaltura\Client\Service\LiveChannelService
 	 */
-	protected $household = null;
+	protected $liveChannel = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HouseholdDeviceService
+	 * @var \Kaltura\Client\Service\LiveReportsService
 	 */
-	protected $householdDevice = null;
+	protected $liveReports = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HouseholdLimitationsService
+	 * @var \Kaltura\Client\Service\LiveStatsService
 	 */
-	protected $householdLimitations = null;
+	protected $liveStats = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HouseholdPaymentGatewayService
+	 * @var \Kaltura\Client\Service\LiveStreamService
 	 */
-	protected $householdPaymentGateway = null;
+	protected $liveStream = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HouseholdPaymentMethodService
+	 * @var \Kaltura\Client\Service\MediaInfoService
 	 */
-	protected $householdPaymentMethod = null;
+	protected $mediaInfo = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HouseholdPremiumServiceService
+	 * @var \Kaltura\Client\Service\MediaService
 	 */
-	protected $householdPremiumService = null;
+	protected $media = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\HouseholdQuotaService
+	 * @var \Kaltura\Client\Service\MixingService
 	 */
-	protected $householdQuota = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\HouseholdUserService
-	 */
-	protected $householdUser = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\InboxMessageService
-	 */
-	protected $inboxMessage = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\LicensedUrlService
-	 */
-	protected $licensedUrl = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\MessageTemplateService
-	 */
-	protected $messageTemplate = null;
+	protected $mixing = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\NotificationService
@@ -194,99 +189,49 @@ class Client extends Base
 	protected $notification = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\NotificationsPartnerSettingsService
+	 * @var \Kaltura\Client\Service\PartnerService
 	 */
-	protected $notificationsPartnerSettings = null;
+	protected $partner = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\NotificationsSettingsService
+	 * @var \Kaltura\Client\Service\PermissionItemService
 	 */
-	protected $notificationsSettings = null;
+	protected $permissionItem = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\OssAdapterProfileService
+	 * @var \Kaltura\Client\Service\PermissionService
 	 */
-	protected $ossAdapterProfile = null;
+	protected $permission = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\OttCategoryService
+	 * @var \Kaltura\Client\Service\PlaylistService
 	 */
-	protected $ottCategory = null;
+	protected $playlist = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\OttUserService
+	 * @var \Kaltura\Client\Service\ReportService
 	 */
-	protected $ottUser = null;
+	protected $report = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\ParentalRuleService
+	 * @var \Kaltura\Client\Service\ResponseProfileService
 	 */
-	protected $parentalRule = null;
+	protected $responseProfile = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\PartnerConfigurationService
+	 * @var \Kaltura\Client\Service\SchemaService
 	 */
-	protected $partnerConfiguration = null;
+	protected $schema = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\PaymentGatewayProfileService
+	 * @var \Kaltura\Client\Service\SearchService
 	 */
-	protected $paymentGatewayProfile = null;
+	protected $search = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\PaymentMethodProfileService
+	 * @var \Kaltura\Client\Service\ServerNodeService
 	 */
-	protected $paymentMethodProfile = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\PersonalFeedService
-	 */
-	protected $personalFeed = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\PinService
-	 */
-	protected $pin = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\PpvService
-	 */
-	protected $ppv = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\ProductPriceService
-	 */
-	protected $productPrice = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\PurchaseSettingsService
-	 */
-	protected $purchaseSettings = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\RecommendationProfileService
-	 */
-	protected $recommendationProfile = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\RecordingService
-	 */
-	protected $recording = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\RegionService
-	 */
-	protected $region = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\RegistrySettingsService
-	 */
-	protected $registrySettings = null;
-
-	/**
-	 * @var \Kaltura\Client\Service\SeriesRecordingService
-	 */
-	protected $seriesRecording = null;
+	protected $serverNode = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\SessionService
@@ -294,14 +239,19 @@ class Client extends Base
 	protected $session = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\SocialService
+	 * @var \Kaltura\Client\Service\StatsService
 	 */
-	protected $social = null;
+	protected $stats = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\SubscriptionService
+	 * @var \Kaltura\Client\Service\StorageProfileService
 	 */
-	protected $subscription = null;
+	protected $storageProfile = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\SyndicationFeedService
+	 */
+	protected $syndicationFeed = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\SystemService
@@ -309,44 +259,54 @@ class Client extends Base
 	protected $system = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\TimeShiftedTvPartnerSettingsService
+	 * @var \Kaltura\Client\Service\ThumbAssetService
 	 */
-	protected $timeShiftedTvPartnerSettings = null;
+	protected $thumbAsset = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\TopicService
+	 * @var \Kaltura\Client\Service\ThumbParamsOutputService
 	 */
-	protected $topic = null;
+	protected $thumbParamsOutput = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\TransactionService
+	 * @var \Kaltura\Client\Service\ThumbParamsService
 	 */
-	protected $transaction = null;
+	protected $thumbParams = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\TransactionHistoryService
+	 * @var \Kaltura\Client\Service\UiConfService
 	 */
-	protected $transactionHistory = null;
+	protected $uiConf = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\UserAssetRuleService
+	 * @var \Kaltura\Client\Service\UploadService
 	 */
-	protected $userAssetRule = null;
+	protected $upload = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\UserAssetsListItemService
+	 * @var \Kaltura\Client\Service\UploadTokenService
 	 */
-	protected $userAssetsListItem = null;
+	protected $uploadToken = null;
 
 	/**
-	 * @var \Kaltura\Client\Service\UserLoginPinService
+	 * @var \Kaltura\Client\Service\UserEntryService
 	 */
-	protected $userLoginPin = null;
+	protected $userEntry = null;
 
 	/**
 	 * @var \Kaltura\Client\Service\UserRoleService
 	 */
 	protected $userRole = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\UserService
+	 */
+	protected $user = null;
+
+	/**
+	 * @var \Kaltura\Client\Service\WidgetService
+	 */
+	protected $widget = null;
 
 	/**
 	 * Kaltura client constructor
@@ -358,17 +318,44 @@ class Client extends Base
 		parent::__construct($config);
 		
 		$this->setClientTag('php5:17-07-05');
-		$this->setApiVersion('3.6.287.20330');
+		$this->setApiVersion('3.3.0');
 	}
 	
 	/**
-	 * @return \Kaltura\Client\Service\AnnouncementService
+	 * @return \Kaltura\Client\Service\AccessControlProfileService
 	 */
-	public function getAnnouncementService()
+	public function getAccessControlProfileService()
 	{
-		if (is_null($this->announcement))
-			$this->announcement = new \Kaltura\Client\Service\AnnouncementService($this);
-		return $this->announcement;
+		if (is_null($this->accessControlProfile))
+			$this->accessControlProfile = new \Kaltura\Client\Service\AccessControlProfileService($this);
+		return $this->accessControlProfile;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\AccessControlService
+	 */
+	public function getAccessControlService()
+	{
+		if (is_null($this->accessControl))
+			$this->accessControl = new \Kaltura\Client\Service\AccessControlService($this);
+		return $this->accessControl;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\AdminUserService
+	 */
+	public function getAdminUserService()
+	{
+		if (is_null($this->adminUser))
+			$this->adminUser = new \Kaltura\Client\Service\AdminUserService($this);
+		return $this->adminUser;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\AnalyticsService
+	 */
+	public function getAnalyticsService()
+	{
+		if (is_null($this->analytics))
+			$this->analytics = new \Kaltura\Client\Service\AnalyticsService($this);
+		return $this->analytics;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\AppTokenService
@@ -380,256 +367,220 @@ class Client extends Base
 		return $this->appToken;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\AssetCommentService
+	 * @return \Kaltura\Client\Service\BaseEntryService
 	 */
-	public function getAssetCommentService()
+	public function getBaseEntryService()
 	{
-		if (is_null($this->assetComment))
-			$this->assetComment = new \Kaltura\Client\Service\AssetCommentService($this);
-		return $this->assetComment;
+		if (is_null($this->baseEntry))
+			$this->baseEntry = new \Kaltura\Client\Service\BaseEntryService($this);
+		return $this->baseEntry;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\AssetService
+	 * @return \Kaltura\Client\Service\BulkUploadService
 	 */
-	public function getAssetService()
+	public function getBulkUploadService()
 	{
-		if (is_null($this->asset))
-			$this->asset = new \Kaltura\Client\Service\AssetService($this);
-		return $this->asset;
+		if (is_null($this->bulkUpload))
+			$this->bulkUpload = new \Kaltura\Client\Service\BulkUploadService($this);
+		return $this->bulkUpload;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\AssetFileService
+	 * @return \Kaltura\Client\Service\CategoryEntryService
 	 */
-	public function getAssetFileService()
+	public function getCategoryEntryService()
 	{
-		if (is_null($this->assetFile))
-			$this->assetFile = new \Kaltura\Client\Service\AssetFileService($this);
-		return $this->assetFile;
+		if (is_null($this->categoryEntry))
+			$this->categoryEntry = new \Kaltura\Client\Service\CategoryEntryService($this);
+		return $this->categoryEntry;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\AssetHistoryService
+	 * @return \Kaltura\Client\Service\CategoryService
 	 */
-	public function getAssetHistoryService()
+	public function getCategoryService()
 	{
-		if (is_null($this->assetHistory))
-			$this->assetHistory = new \Kaltura\Client\Service\AssetHistoryService($this);
-		return $this->assetHistory;
+		if (is_null($this->category))
+			$this->category = new \Kaltura\Client\Service\CategoryService($this);
+		return $this->category;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\AssetStatisticsService
+	 * @return \Kaltura\Client\Service\CategoryUserService
 	 */
-	public function getAssetStatisticsService()
+	public function getCategoryUserService()
 	{
-		if (is_null($this->assetStatistics))
-			$this->assetStatistics = new \Kaltura\Client\Service\AssetStatisticsService($this);
-		return $this->assetStatistics;
+		if (is_null($this->categoryUser))
+			$this->categoryUser = new \Kaltura\Client\Service\CategoryUserService($this);
+		return $this->categoryUser;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\BookmarkService
+	 * @return \Kaltura\Client\Service\ConversionProfileAssetParamsService
 	 */
-	public function getBookmarkService()
+	public function getConversionProfileAssetParamsService()
 	{
-		if (is_null($this->bookmark))
-			$this->bookmark = new \Kaltura\Client\Service\BookmarkService($this);
-		return $this->bookmark;
+		if (is_null($this->conversionProfileAssetParams))
+			$this->conversionProfileAssetParams = new \Kaltura\Client\Service\ConversionProfileAssetParamsService($this);
+		return $this->conversionProfileAssetParams;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\CdnAdapterProfileService
+	 * @return \Kaltura\Client\Service\ConversionProfileService
 	 */
-	public function getCdnAdapterProfileService()
+	public function getConversionProfileService()
 	{
-		if (is_null($this->cdnAdapterProfile))
-			$this->cdnAdapterProfile = new \Kaltura\Client\Service\CdnAdapterProfileService($this);
-		return $this->cdnAdapterProfile;
+		if (is_null($this->conversionProfile))
+			$this->conversionProfile = new \Kaltura\Client\Service\ConversionProfileService($this);
+		return $this->conversionProfile;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\CdnPartnerSettingsService
+	 * @return \Kaltura\Client\Service\DataService
 	 */
-	public function getCdnPartnerSettingsService()
+	public function getDataService()
 	{
-		if (is_null($this->cdnPartnerSettings))
-			$this->cdnPartnerSettings = new \Kaltura\Client\Service\CdnPartnerSettingsService($this);
-		return $this->cdnPartnerSettings;
+		if (is_null($this->data))
+			$this->data = new \Kaltura\Client\Service\DataService($this);
+		return $this->data;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\CDVRAdapterProfileService
+	 * @return \Kaltura\Client\Service\DeliveryProfileService
 	 */
-	public function getCDVRAdapterProfileService()
+	public function getDeliveryProfileService()
 	{
-		if (is_null($this->cDVRAdapterProfile))
-			$this->cDVRAdapterProfile = new \Kaltura\Client\Service\CDVRAdapterProfileService($this);
-		return $this->cDVRAdapterProfile;
+		if (is_null($this->deliveryProfile))
+			$this->deliveryProfile = new \Kaltura\Client\Service\DeliveryProfileService($this);
+		return $this->deliveryProfile;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\ChannelService
+	 * @return \Kaltura\Client\Service\EmailIngestionProfileService
 	 */
-	public function getChannelService()
+	public function getEmailIngestionProfileService()
 	{
-		if (is_null($this->channel))
-			$this->channel = new \Kaltura\Client\Service\ChannelService($this);
-		return $this->channel;
+		if (is_null($this->EmailIngestionProfile))
+			$this->EmailIngestionProfile = new \Kaltura\Client\Service\EmailIngestionProfileService($this);
+		return $this->EmailIngestionProfile;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\CouponService
+	 * @return \Kaltura\Client\Service\EntryServerNodeService
 	 */
-	public function getCouponService()
+	public function getEntryServerNodeService()
 	{
-		if (is_null($this->coupon))
-			$this->coupon = new \Kaltura\Client\Service\CouponService($this);
-		return $this->coupon;
+		if (is_null($this->entryServerNode))
+			$this->entryServerNode = new \Kaltura\Client\Service\EntryServerNodeService($this);
+		return $this->entryServerNode;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\EntitlementService
+	 * @return \Kaltura\Client\Service\FileAssetService
 	 */
-	public function getEntitlementService()
+	public function getFileAssetService()
 	{
-		if (is_null($this->entitlement))
-			$this->entitlement = new \Kaltura\Client\Service\EntitlementService($this);
-		return $this->entitlement;
+		if (is_null($this->fileAsset))
+			$this->fileAsset = new \Kaltura\Client\Service\FileAssetService($this);
+		return $this->fileAsset;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\ExportTaskService
+	 * @return \Kaltura\Client\Service\FlavorAssetService
 	 */
-	public function getExportTaskService()
+	public function getFlavorAssetService()
 	{
-		if (is_null($this->exportTask))
-			$this->exportTask = new \Kaltura\Client\Service\ExportTaskService($this);
-		return $this->exportTask;
+		if (is_null($this->flavorAsset))
+			$this->flavorAsset = new \Kaltura\Client\Service\FlavorAssetService($this);
+		return $this->flavorAsset;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\ExternalChannelProfileService
+	 * @return \Kaltura\Client\Service\FlavorParamsOutputService
 	 */
-	public function getExternalChannelProfileService()
+	public function getFlavorParamsOutputService()
 	{
-		if (is_null($this->externalChannelProfile))
-			$this->externalChannelProfile = new \Kaltura\Client\Service\ExternalChannelProfileService($this);
-		return $this->externalChannelProfile;
+		if (is_null($this->flavorParamsOutput))
+			$this->flavorParamsOutput = new \Kaltura\Client\Service\FlavorParamsOutputService($this);
+		return $this->flavorParamsOutput;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\FavoriteService
+	 * @return \Kaltura\Client\Service\FlavorParamsService
 	 */
-	public function getFavoriteService()
+	public function getFlavorParamsService()
 	{
-		if (is_null($this->favorite))
-			$this->favorite = new \Kaltura\Client\Service\FavoriteService($this);
-		return $this->favorite;
+		if (is_null($this->flavorParams))
+			$this->flavorParams = new \Kaltura\Client\Service\FlavorParamsService($this);
+		return $this->flavorParams;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\FollowTvSeriesService
+	 * @return \Kaltura\Client\Service\GroupUserService
 	 */
-	public function getFollowTvSeriesService()
+	public function getGroupUserService()
 	{
-		if (is_null($this->followTvSeries))
-			$this->followTvSeries = new \Kaltura\Client\Service\FollowTvSeriesService($this);
-		return $this->followTvSeries;
+		if (is_null($this->groupUser))
+			$this->groupUser = new \Kaltura\Client\Service\GroupUserService($this);
+		return $this->groupUser;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HomeNetworkService
+	 * @return \Kaltura\Client\Service\LiveChannelSegmentService
 	 */
-	public function getHomeNetworkService()
+	public function getLiveChannelSegmentService()
 	{
-		if (is_null($this->homeNetwork))
-			$this->homeNetwork = new \Kaltura\Client\Service\HomeNetworkService($this);
-		return $this->homeNetwork;
+		if (is_null($this->liveChannelSegment))
+			$this->liveChannelSegment = new \Kaltura\Client\Service\LiveChannelSegmentService($this);
+		return $this->liveChannelSegment;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HouseholdService
+	 * @return \Kaltura\Client\Service\LiveChannelService
 	 */
-	public function getHouseholdService()
+	public function getLiveChannelService()
 	{
-		if (is_null($this->household))
-			$this->household = new \Kaltura\Client\Service\HouseholdService($this);
-		return $this->household;
+		if (is_null($this->liveChannel))
+			$this->liveChannel = new \Kaltura\Client\Service\LiveChannelService($this);
+		return $this->liveChannel;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HouseholdDeviceService
+	 * @return \Kaltura\Client\Service\LiveReportsService
 	 */
-	public function getHouseholdDeviceService()
+	public function getLiveReportsService()
 	{
-		if (is_null($this->householdDevice))
-			$this->householdDevice = new \Kaltura\Client\Service\HouseholdDeviceService($this);
-		return $this->householdDevice;
+		if (is_null($this->liveReports))
+			$this->liveReports = new \Kaltura\Client\Service\LiveReportsService($this);
+		return $this->liveReports;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HouseholdLimitationsService
+	 * @return \Kaltura\Client\Service\LiveStatsService
 	 */
-	public function getHouseholdLimitationsService()
+	public function getLiveStatsService()
 	{
-		if (is_null($this->householdLimitations))
-			$this->householdLimitations = new \Kaltura\Client\Service\HouseholdLimitationsService($this);
-		return $this->householdLimitations;
+		if (is_null($this->liveStats))
+			$this->liveStats = new \Kaltura\Client\Service\LiveStatsService($this);
+		return $this->liveStats;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HouseholdPaymentGatewayService
+	 * @return \Kaltura\Client\Service\LiveStreamService
 	 */
-	public function getHouseholdPaymentGatewayService()
+	public function getLiveStreamService()
 	{
-		if (is_null($this->householdPaymentGateway))
-			$this->householdPaymentGateway = new \Kaltura\Client\Service\HouseholdPaymentGatewayService($this);
-		return $this->householdPaymentGateway;
+		if (is_null($this->liveStream))
+			$this->liveStream = new \Kaltura\Client\Service\LiveStreamService($this);
+		return $this->liveStream;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HouseholdPaymentMethodService
+	 * @return \Kaltura\Client\Service\MediaInfoService
 	 */
-	public function getHouseholdPaymentMethodService()
+	public function getMediaInfoService()
 	{
-		if (is_null($this->householdPaymentMethod))
-			$this->householdPaymentMethod = new \Kaltura\Client\Service\HouseholdPaymentMethodService($this);
-		return $this->householdPaymentMethod;
+		if (is_null($this->mediaInfo))
+			$this->mediaInfo = new \Kaltura\Client\Service\MediaInfoService($this);
+		return $this->mediaInfo;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HouseholdPremiumServiceService
+	 * @return \Kaltura\Client\Service\MediaService
 	 */
-	public function getHouseholdPremiumServiceService()
+	public function getMediaService()
 	{
-		if (is_null($this->householdPremiumService))
-			$this->householdPremiumService = new \Kaltura\Client\Service\HouseholdPremiumServiceService($this);
-		return $this->householdPremiumService;
+		if (is_null($this->media))
+			$this->media = new \Kaltura\Client\Service\MediaService($this);
+		return $this->media;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\HouseholdQuotaService
+	 * @return \Kaltura\Client\Service\MixingService
 	 */
-	public function getHouseholdQuotaService()
+	public function getMixingService()
 	{
-		if (is_null($this->householdQuota))
-			$this->householdQuota = new \Kaltura\Client\Service\HouseholdQuotaService($this);
-		return $this->householdQuota;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\HouseholdUserService
-	 */
-	public function getHouseholdUserService()
-	{
-		if (is_null($this->householdUser))
-			$this->householdUser = new \Kaltura\Client\Service\HouseholdUserService($this);
-		return $this->householdUser;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\InboxMessageService
-	 */
-	public function getInboxMessageService()
-	{
-		if (is_null($this->inboxMessage))
-			$this->inboxMessage = new \Kaltura\Client\Service\InboxMessageService($this);
-		return $this->inboxMessage;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\LicensedUrlService
-	 */
-	public function getLicensedUrlService()
-	{
-		if (is_null($this->licensedUrl))
-			$this->licensedUrl = new \Kaltura\Client\Service\LicensedUrlService($this);
-		return $this->licensedUrl;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\MessageTemplateService
-	 */
-	public function getMessageTemplateService()
-	{
-		if (is_null($this->messageTemplate))
-			$this->messageTemplate = new \Kaltura\Client\Service\MessageTemplateService($this);
-		return $this->messageTemplate;
+		if (is_null($this->mixing))
+			$this->mixing = new \Kaltura\Client\Service\MixingService($this);
+		return $this->mixing;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\NotificationService
@@ -641,175 +592,85 @@ class Client extends Base
 		return $this->notification;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\NotificationsPartnerSettingsService
+	 * @return \Kaltura\Client\Service\PartnerService
 	 */
-	public function getNotificationsPartnerSettingsService()
+	public function getPartnerService()
 	{
-		if (is_null($this->notificationsPartnerSettings))
-			$this->notificationsPartnerSettings = new \Kaltura\Client\Service\NotificationsPartnerSettingsService($this);
-		return $this->notificationsPartnerSettings;
+		if (is_null($this->partner))
+			$this->partner = new \Kaltura\Client\Service\PartnerService($this);
+		return $this->partner;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\NotificationsSettingsService
+	 * @return \Kaltura\Client\Service\PermissionItemService
 	 */
-	public function getNotificationsSettingsService()
+	public function getPermissionItemService()
 	{
-		if (is_null($this->notificationsSettings))
-			$this->notificationsSettings = new \Kaltura\Client\Service\NotificationsSettingsService($this);
-		return $this->notificationsSettings;
+		if (is_null($this->permissionItem))
+			$this->permissionItem = new \Kaltura\Client\Service\PermissionItemService($this);
+		return $this->permissionItem;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\OssAdapterProfileService
+	 * @return \Kaltura\Client\Service\PermissionService
 	 */
-	public function getOssAdapterProfileService()
+	public function getPermissionService()
 	{
-		if (is_null($this->ossAdapterProfile))
-			$this->ossAdapterProfile = new \Kaltura\Client\Service\OssAdapterProfileService($this);
-		return $this->ossAdapterProfile;
+		if (is_null($this->permission))
+			$this->permission = new \Kaltura\Client\Service\PermissionService($this);
+		return $this->permission;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\OttCategoryService
+	 * @return \Kaltura\Client\Service\PlaylistService
 	 */
-	public function getOttCategoryService()
+	public function getPlaylistService()
 	{
-		if (is_null($this->ottCategory))
-			$this->ottCategory = new \Kaltura\Client\Service\OttCategoryService($this);
-		return $this->ottCategory;
+		if (is_null($this->playlist))
+			$this->playlist = new \Kaltura\Client\Service\PlaylistService($this);
+		return $this->playlist;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\OttUserService
+	 * @return \Kaltura\Client\Service\ReportService
 	 */
-	public function getOttUserService()
+	public function getReportService()
 	{
-		if (is_null($this->ottUser))
-			$this->ottUser = new \Kaltura\Client\Service\OttUserService($this);
-		return $this->ottUser;
+		if (is_null($this->report))
+			$this->report = new \Kaltura\Client\Service\ReportService($this);
+		return $this->report;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\ParentalRuleService
+	 * @return \Kaltura\Client\Service\ResponseProfileService
 	 */
-	public function getParentalRuleService()
+	public function getResponseProfileService()
 	{
-		if (is_null($this->parentalRule))
-			$this->parentalRule = new \Kaltura\Client\Service\ParentalRuleService($this);
-		return $this->parentalRule;
+		if (is_null($this->responseProfile))
+			$this->responseProfile = new \Kaltura\Client\Service\ResponseProfileService($this);
+		return $this->responseProfile;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\PartnerConfigurationService
+	 * @return \Kaltura\Client\Service\SchemaService
 	 */
-	public function getPartnerConfigurationService()
+	public function getSchemaService()
 	{
-		if (is_null($this->partnerConfiguration))
-			$this->partnerConfiguration = new \Kaltura\Client\Service\PartnerConfigurationService($this);
-		return $this->partnerConfiguration;
+		if (is_null($this->schema))
+			$this->schema = new \Kaltura\Client\Service\SchemaService($this);
+		return $this->schema;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\PaymentGatewayProfileService
+	 * @return \Kaltura\Client\Service\SearchService
 	 */
-	public function getPaymentGatewayProfileService()
+	public function getSearchService()
 	{
-		if (is_null($this->paymentGatewayProfile))
-			$this->paymentGatewayProfile = new \Kaltura\Client\Service\PaymentGatewayProfileService($this);
-		return $this->paymentGatewayProfile;
+		if (is_null($this->search))
+			$this->search = new \Kaltura\Client\Service\SearchService($this);
+		return $this->search;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\PaymentMethodProfileService
+	 * @return \Kaltura\Client\Service\ServerNodeService
 	 */
-	public function getPaymentMethodProfileService()
+	public function getServerNodeService()
 	{
-		if (is_null($this->paymentMethodProfile))
-			$this->paymentMethodProfile = new \Kaltura\Client\Service\PaymentMethodProfileService($this);
-		return $this->paymentMethodProfile;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\PersonalFeedService
-	 */
-	public function getPersonalFeedService()
-	{
-		if (is_null($this->personalFeed))
-			$this->personalFeed = new \Kaltura\Client\Service\PersonalFeedService($this);
-		return $this->personalFeed;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\PinService
-	 */
-	public function getPinService()
-	{
-		if (is_null($this->pin))
-			$this->pin = new \Kaltura\Client\Service\PinService($this);
-		return $this->pin;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\PpvService
-	 */
-	public function getPpvService()
-	{
-		if (is_null($this->ppv))
-			$this->ppv = new \Kaltura\Client\Service\PpvService($this);
-		return $this->ppv;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\ProductPriceService
-	 */
-	public function getProductPriceService()
-	{
-		if (is_null($this->productPrice))
-			$this->productPrice = new \Kaltura\Client\Service\ProductPriceService($this);
-		return $this->productPrice;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\PurchaseSettingsService
-	 */
-	public function getPurchaseSettingsService()
-	{
-		if (is_null($this->purchaseSettings))
-			$this->purchaseSettings = new \Kaltura\Client\Service\PurchaseSettingsService($this);
-		return $this->purchaseSettings;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\RecommendationProfileService
-	 */
-	public function getRecommendationProfileService()
-	{
-		if (is_null($this->recommendationProfile))
-			$this->recommendationProfile = new \Kaltura\Client\Service\RecommendationProfileService($this);
-		return $this->recommendationProfile;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\RecordingService
-	 */
-	public function getRecordingService()
-	{
-		if (is_null($this->recording))
-			$this->recording = new \Kaltura\Client\Service\RecordingService($this);
-		return $this->recording;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\RegionService
-	 */
-	public function getRegionService()
-	{
-		if (is_null($this->region))
-			$this->region = new \Kaltura\Client\Service\RegionService($this);
-		return $this->region;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\RegistrySettingsService
-	 */
-	public function getRegistrySettingsService()
-	{
-		if (is_null($this->registrySettings))
-			$this->registrySettings = new \Kaltura\Client\Service\RegistrySettingsService($this);
-		return $this->registrySettings;
-	}
-	/**
-	 * @return \Kaltura\Client\Service\SeriesRecordingService
-	 */
-	public function getSeriesRecordingService()
-	{
-		if (is_null($this->seriesRecording))
-			$this->seriesRecording = new \Kaltura\Client\Service\SeriesRecordingService($this);
-		return $this->seriesRecording;
+		if (is_null($this->serverNode))
+			$this->serverNode = new \Kaltura\Client\Service\ServerNodeService($this);
+		return $this->serverNode;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\SessionService
@@ -821,22 +682,31 @@ class Client extends Base
 		return $this->session;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\SocialService
+	 * @return \Kaltura\Client\Service\StatsService
 	 */
-	public function getSocialService()
+	public function getStatsService()
 	{
-		if (is_null($this->social))
-			$this->social = new \Kaltura\Client\Service\SocialService($this);
-		return $this->social;
+		if (is_null($this->stats))
+			$this->stats = new \Kaltura\Client\Service\StatsService($this);
+		return $this->stats;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\SubscriptionService
+	 * @return \Kaltura\Client\Service\StorageProfileService
 	 */
-	public function getSubscriptionService()
+	public function getStorageProfileService()
 	{
-		if (is_null($this->subscription))
-			$this->subscription = new \Kaltura\Client\Service\SubscriptionService($this);
-		return $this->subscription;
+		if (is_null($this->storageProfile))
+			$this->storageProfile = new \Kaltura\Client\Service\StorageProfileService($this);
+		return $this->storageProfile;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\SyndicationFeedService
+	 */
+	public function getSyndicationFeedService()
+	{
+		if (is_null($this->syndicationFeed))
+			$this->syndicationFeed = new \Kaltura\Client\Service\SyndicationFeedService($this);
+		return $this->syndicationFeed;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\SystemService
@@ -848,67 +718,67 @@ class Client extends Base
 		return $this->system;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\TimeShiftedTvPartnerSettingsService
+	 * @return \Kaltura\Client\Service\ThumbAssetService
 	 */
-	public function getTimeShiftedTvPartnerSettingsService()
+	public function getThumbAssetService()
 	{
-		if (is_null($this->timeShiftedTvPartnerSettings))
-			$this->timeShiftedTvPartnerSettings = new \Kaltura\Client\Service\TimeShiftedTvPartnerSettingsService($this);
-		return $this->timeShiftedTvPartnerSettings;
+		if (is_null($this->thumbAsset))
+			$this->thumbAsset = new \Kaltura\Client\Service\ThumbAssetService($this);
+		return $this->thumbAsset;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\TopicService
+	 * @return \Kaltura\Client\Service\ThumbParamsOutputService
 	 */
-	public function getTopicService()
+	public function getThumbParamsOutputService()
 	{
-		if (is_null($this->topic))
-			$this->topic = new \Kaltura\Client\Service\TopicService($this);
-		return $this->topic;
+		if (is_null($this->thumbParamsOutput))
+			$this->thumbParamsOutput = new \Kaltura\Client\Service\ThumbParamsOutputService($this);
+		return $this->thumbParamsOutput;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\TransactionService
+	 * @return \Kaltura\Client\Service\ThumbParamsService
 	 */
-	public function getTransactionService()
+	public function getThumbParamsService()
 	{
-		if (is_null($this->transaction))
-			$this->transaction = new \Kaltura\Client\Service\TransactionService($this);
-		return $this->transaction;
+		if (is_null($this->thumbParams))
+			$this->thumbParams = new \Kaltura\Client\Service\ThumbParamsService($this);
+		return $this->thumbParams;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\TransactionHistoryService
+	 * @return \Kaltura\Client\Service\UiConfService
 	 */
-	public function getTransactionHistoryService()
+	public function getUiConfService()
 	{
-		if (is_null($this->transactionHistory))
-			$this->transactionHistory = new \Kaltura\Client\Service\TransactionHistoryService($this);
-		return $this->transactionHistory;
+		if (is_null($this->uiConf))
+			$this->uiConf = new \Kaltura\Client\Service\UiConfService($this);
+		return $this->uiConf;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\UserAssetRuleService
+	 * @return \Kaltura\Client\Service\UploadService
 	 */
-	public function getUserAssetRuleService()
+	public function getUploadService()
 	{
-		if (is_null($this->userAssetRule))
-			$this->userAssetRule = new \Kaltura\Client\Service\UserAssetRuleService($this);
-		return $this->userAssetRule;
+		if (is_null($this->upload))
+			$this->upload = new \Kaltura\Client\Service\UploadService($this);
+		return $this->upload;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\UserAssetsListItemService
+	 * @return \Kaltura\Client\Service\UploadTokenService
 	 */
-	public function getUserAssetsListItemService()
+	public function getUploadTokenService()
 	{
-		if (is_null($this->userAssetsListItem))
-			$this->userAssetsListItem = new \Kaltura\Client\Service\UserAssetsListItemService($this);
-		return $this->userAssetsListItem;
+		if (is_null($this->uploadToken))
+			$this->uploadToken = new \Kaltura\Client\Service\UploadTokenService($this);
+		return $this->uploadToken;
 	}
 	/**
-	 * @return \Kaltura\Client\Service\UserLoginPinService
+	 * @return \Kaltura\Client\Service\UserEntryService
 	 */
-	public function getUserLoginPinService()
+	public function getUserEntryService()
 	{
-		if (is_null($this->userLoginPin))
-			$this->userLoginPin = new \Kaltura\Client\Service\UserLoginPinService($this);
-		return $this->userLoginPin;
+		if (is_null($this->userEntry))
+			$this->userEntry = new \Kaltura\Client\Service\UserEntryService($this);
+		return $this->userEntry;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\UserRoleService
@@ -918,6 +788,24 @@ class Client extends Base
 		if (is_null($this->userRole))
 			$this->userRole = new \Kaltura\Client\Service\UserRoleService($this);
 		return $this->userRole;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\UserService
+	 */
+	public function getUserService()
+	{
+		if (is_null($this->user))
+			$this->user = new \Kaltura\Client\Service\UserService($this);
+		return $this->user;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\WidgetService
+	 */
+	public function getWidgetService()
+	{
+		if (is_null($this->widget))
+			$this->widget = new \Kaltura\Client\Service\WidgetService($this);
+		return $this->widget;
 	}
 	/**
 	 * @param string $clientTag
@@ -987,56 +875,6 @@ class Client extends Base
 	}
 	
 	/**
-	 * Impersonated user id
-	 * 
-	 * @param int $userId
-	 */
-	public function setUserId($userId)
-	{
-		$this->requestConfiguration['userId'] = $userId;
-	}
-	
-	/**
-	 * Impersonated user id
-	 * 
-	 * @return int
-	 */
-	public function getUserId()
-	{
-		if(isset($this->requestConfiguration['userId']))
-		{
-			return $this->requestConfiguration['userId'];
-		}
-		
-		return null;
-	}
-	
-	/**
-	 * Content language
-	 * 
-	 * @param int $language
-	 */
-	public function setLanguage($language)
-	{
-		$this->requestConfiguration['language'] = $language;
-	}
-	
-	/**
-	 * Content language
-	 * 
-	 * @return int
-	 */
-	public function getLanguage()
-	{
-		if(isset($this->requestConfiguration['language']))
-		{
-			return $this->requestConfiguration['language'];
-		}
-		
-		return null;
-	}
-	
-	/**
 	 * Kaltura API session
 	 * 
 	 * @param string $ks
@@ -1087,10 +925,36 @@ class Client extends Base
 	}
 	
 	/**
+	 * Response profile - this attribute will be automatically unset after every API call.
+	 * 
+	 * @param \Kaltura\Client\Type\BaseResponseProfile $responseProfile
+	 */
+	public function setResponseProfile(\Kaltura\Client\Type\BaseResponseProfile $responseProfile)
+	{
+		$this->requestConfiguration['responseProfile'] = $responseProfile;
+	}
+	
+	/**
+	 * Response profile - this attribute will be automatically unset after every API call.
+	 * 
+	 * @return \Kaltura\Client\Type\BaseResponseProfile
+	 */
+	public function getResponseProfile()
+	{
+		if(isset($this->requestConfiguration['responseProfile']))
+		{
+			return $this->requestConfiguration['responseProfile'];
+		}
+		
+		return null;
+	}
+	
+	/**
 	 * Clear all volatile configuration parameters
 	 */
 	protected function resetRequest()
 	{
 		parent::resetRequest();
+		unset($this->requestConfiguration['responseProfile']);
 	}
 }

@@ -34,6 +34,7 @@
 namespace Kaltura\Client\Service;
 
 /**
+ * UserRole service lets you create and manage user roles
  * @package Kaltura
  * @subpackage Client
  */
@@ -45,24 +46,128 @@ class UserRoleService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Retrieving user roles by identifiers, if filter is empty, returns all partner roles
+	 * Adds a new user role object to the account.
+	 * 
+	 * @return \Kaltura\Client\Type\UserRole
+	 */
+	function add(\Kaltura\Client\Type\UserRole $userRole)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userRole", $userRole->toParams());
+		$this->client->queueServiceActionCall("userrole", "add", "KalturaUserRole", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRole");
+		return $resultObject;
+	}
+
+	/**
+	 * Creates a new user role object that is a duplicate of an existing role.
+	 * 
+	 * @return \Kaltura\Client\Type\UserRole
+	 */
+	function cloneAction($userRoleId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userRoleId", $userRoleId);
+		$this->client->queueServiceActionCall("userrole", "clone", "KalturaUserRole", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRole");
+		return $resultObject;
+	}
+
+	/**
+	 * Deletes an existing user role object.
+	 * 
+	 * @return \Kaltura\Client\Type\UserRole
+	 */
+	function delete($userRoleId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userRoleId", $userRoleId);
+		$this->client->queueServiceActionCall("userrole", "delete", "KalturaUserRole", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRole");
+		return $resultObject;
+	}
+
+	/**
+	 * Retrieves a user role object using its ID.
+	 * 
+	 * @return \Kaltura\Client\Type\UserRole
+	 */
+	function get($userRoleId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userRoleId", $userRoleId);
+		$this->client->queueServiceActionCall("userrole", "get", "KalturaUserRole", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRole");
+		return $resultObject;
+	}
+
+	/**
+	 * Lists user role objects that are associated with an account.
+	 * 	 Blocked user roles are listed unless you use a filter to exclude them.
+	 * 	 Deleted user roles are not listed unless you use a filter to include them.
 	 * 
 	 * @return \Kaltura\Client\Type\UserRoleListResponse
 	 */
-	function listAction(\Kaltura\Client\Type\UserRoleFilter $filter = null)
+	function listAction(\Kaltura\Client\Type\UserRoleFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		if ($filter !== null)
 			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
 		$this->client->queueServiceActionCall("userrole", "list", "KalturaUserRoleListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRoleListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRoleListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Updates an existing user role object.
+	 * 
+	 * @return \Kaltura\Client\Type\UserRole
+	 */
+	function update($userRoleId, \Kaltura\Client\Type\UserRole $userRole)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userRoleId", $userRoleId);
+		$this->client->addParam($kparams, "userRole", $userRole->toParams());
+		$this->client->queueServiceActionCall("userrole", "update", "KalturaUserRole", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserRole");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserRole");
 		return $resultObject;
 	}
 }

@@ -33,7 +33,7 @@
 namespace Kaltura\Client\Type;
 
 /**
- * A string representation to return an array of ints
+ * An int representation to return an array of ints
  * @package Kaltura
  * @subpackage Client
  */

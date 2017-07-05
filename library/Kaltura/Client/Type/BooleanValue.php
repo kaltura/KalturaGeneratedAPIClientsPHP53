@@ -33,7 +33,7 @@
 namespace Kaltura\Client\Type;
 
 /**
- * A string representation to return an array of booleans
+ * A boolean representation to return an array of booleans
  * @package Kaltura
  * @subpackage Client
  */

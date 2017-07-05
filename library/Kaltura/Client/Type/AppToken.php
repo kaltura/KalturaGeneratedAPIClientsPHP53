@@ -33,7 +33,6 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Application token
  * @package Kaltura
  * @subpackage Client
  */
@@ -53,24 +52,28 @@ class AppToken extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->id))
 			$this->id = (string)$xml->id;
-		if(count($xml->expiry))
-			$this->expiry = (int)$xml->expiry;
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->sessionDuration))
-			$this->sessionDuration = (int)$xml->sessionDuration;
-		if(count($xml->hashType))
-			$this->hashType = (string)$xml->hashType;
-		if(count($xml->sessionPrivileges))
-			$this->sessionPrivileges = (string)$xml->sessionPrivileges;
-		if(count($xml->sessionType))
-			$this->sessionType = (int)$xml->sessionType;
-		if(count($xml->status))
-			$this->status = (int)$xml->status;
 		if(count($xml->token))
 			$this->token = (string)$xml->token;
+		if(count($xml->partnerId))
+			$this->partnerId = (int)$xml->partnerId;
+		if(count($xml->createdAt))
+			$this->createdAt = (int)$xml->createdAt;
+		if(count($xml->updatedAt))
+			$this->updatedAt = (int)$xml->updatedAt;
+		if(count($xml->status))
+			$this->status = (int)$xml->status;
+		if(count($xml->expiry))
+			$this->expiry = (int)$xml->expiry;
+		if(count($xml->sessionType))
+			$this->sessionType = (int)$xml->sessionType;
 		if(count($xml->sessionUserId))
 			$this->sessionUserId = (string)$xml->sessionUserId;
+		if(count($xml->sessionDuration))
+			$this->sessionDuration = (int)$xml->sessionDuration;
+		if(count($xml->sessionPrivileges))
+			$this->sessionPrivileges = (string)$xml->sessionPrivileges;
+		if(count($xml->hashType))
+			$this->hashType = (string)$xml->hashType;
 	}
 	/**
 	 * The id of the application token
@@ -80,40 +83,32 @@ class AppToken extends \Kaltura\Client\ObjectBase
 	public $id = null;
 
 	/**
-	 * Expiry time of current token (unix timestamp in seconds)
-	 * @var int
+	 * The application token
+	 * @var string
+	 * @readonly
 	 */
-	public $expiry = null;
+	public $token = null;
 
 	/**
-	 * Partner identifier
+	 * 
 	 * @var int
+	 * @readonly
 	 */
 	public $partnerId = null;
 
 	/**
-	 * Expiry duration of KS (Kaltura Session) that created using the current token (in seconds)
+	 * Creation time as Unix timestamp (In seconds)
 	 * @var int
+	 * @readonly
 	 */
-	public $sessionDuration = null;
+	public $createdAt = null;
 
 	/**
-	 * The hash type of the token
-	 * @var \Kaltura\Client\Enum\AppTokenHashType
+	 * Update time as Unix timestamp (In seconds)
+	 * @var int
+	 * @readonly
 	 */
-	public $hashType = null;
-
-	/**
-	 * Comma separated privileges to be applied on KS (Kaltura Session) that created using the current token
-	 * @var string
-	 */
-	public $sessionPrivileges = null;
-
-	/**
-	 * Type of KS (Kaltura Session) that created using the current token
-	 * @var \Kaltura\Client\Enum\SessionType
-	 */
-	public $sessionType = null;
+	public $updatedAt = null;
 
 	/**
 	 * Application token status
@@ -123,15 +118,39 @@ class AppToken extends \Kaltura\Client\ObjectBase
 	public $status = null;
 
 	/**
-	 * The application token
-	 * @var string
+	 * Expiry time of current token (unix timestamp in seconds)
+	 * @var int
 	 */
-	public $token = null;
+	public $expiry = null;
+
+	/**
+	 * Type of KS (Kaltura Session) that created using the current token
+	 * @var \Kaltura\Client\Enum\SessionType
+	 */
+	public $sessionType = null;
 
 	/**
 	 * User id of KS (Kaltura Session) that created using the current token
 	 * @var string
 	 */
 	public $sessionUserId = null;
+
+	/**
+	 * Expiry duration of KS (Kaltura Session) that created using the current token (in seconds)
+	 * @var int
+	 */
+	public $sessionDuration = null;
+
+	/**
+	 * Comma separated privileges to be applied on KS (Kaltura Session) that created using the current token
+	 * @var string
+	 */
+	public $sessionPrivileges = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\AppTokenHashType
+	 */
+	public $hashType = null;
 
 }
