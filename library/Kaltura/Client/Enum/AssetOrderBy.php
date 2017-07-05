@@ -38,13 +38,14 @@ namespace Kaltura\Client\Enum;
  */
 class AssetOrderBy extends \Kaltura\Client\EnumBase
 {
-	const CREATED_AT_ASC = "+createdAt";
-	const DELETED_AT_ASC = "+deletedAt";
-	const SIZE_ASC = "+size";
-	const UPDATED_AT_ASC = "+updatedAt";
-	const CREATED_AT_DESC = "-createdAt";
-	const DELETED_AT_DESC = "-deletedAt";
-	const SIZE_DESC = "-size";
-	const UPDATED_AT_DESC = "-updatedAt";
+	const RELEVANCY_DESC = "RELEVANCY_DESC";
+	const NAME_ASC = "NAME_ASC";
+	const NAME_DESC = "NAME_DESC";
+	const VIEWS_DESC = "VIEWS_DESC";
+	const RATINGS_DESC = "RATINGS_DESC";
+	const VOTES_DESC = "VOTES_DESC";
+	const START_DATE_DESC = "START_DATE_DESC";
+	const START_DATE_ASC = "START_DATE_ASC";
+	const LIKES_DESC = "LIKES_DESC";
 }
 

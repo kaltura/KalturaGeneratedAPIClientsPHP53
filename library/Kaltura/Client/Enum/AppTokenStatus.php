@@ -38,8 +38,8 @@ namespace Kaltura\Client\Enum;
  */
 class AppTokenStatus extends \Kaltura\Client\EnumBase
 {
+	const DELETED = 0;
 	const DISABLED = 1;
 	const ACTIVE = 2;
-	const DELETED = 3;
 }
 

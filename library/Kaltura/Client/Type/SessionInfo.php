@@ -33,10 +33,11 @@
 namespace Kaltura\Client\Type;
 
 /**
+ * Kaltura Session
  * @package Kaltura
  * @subpackage Client
  */
-class SessionInfo extends \Kaltura\Client\ObjectBase
+class SessionInfo extends \Kaltura\Client\Type\Session
 {
 	public function getKalturaObjectType()
 	{
@@ -50,59 +51,5 @@ class SessionInfo extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->ks))
-			$this->ks = (string)$xml->ks;
-		if(count($xml->sessionType))
-			$this->sessionType = (int)$xml->sessionType;
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->userId))
-			$this->userId = (string)$xml->userId;
-		if(count($xml->expiry))
-			$this->expiry = (int)$xml->expiry;
-		if(count($xml->privileges))
-			$this->privileges = (string)$xml->privileges;
 	}
-	/**
-	 * 
-	 * @var string
-	 * @readonly
-	 */
-	public $ks = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\SessionType
-	 * @readonly
-	 */
-	public $sessionType = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $partnerId = null;
-
-	/**
-	 * 
-	 * @var string
-	 * @readonly
-	 */
-	public $userId = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $expiry = null;
-
-	/**
-	 * 
-	 * @var string
-	 * @readonly
-	 */
-	public $privileges = null;
-
 }

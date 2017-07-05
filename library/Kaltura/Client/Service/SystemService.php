@@ -34,7 +34,6 @@
 namespace Kaltura\Client\Service;
 
 /**
- * System service is used for internal system helpers & to retrieve system level information
  * @package Kaltura
  * @subpackage Client
  */
@@ -46,32 +45,38 @@ class SystemService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Returns country details by the provided IP, if not provided - by the client IP
 	 * 
-	 * @return int
+	 * @return \Kaltura\Client\Type\Country
 	 */
-	function getTime()
+	function getCountry($ip = null)
 	{
-		$kparams = array();
-		$this->client->queueServiceActionCall("system", "getTime", null, $kparams);
 		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "ip", $ip);
+		$this->client->queueServiceActionCall("system", "getCountry", "KalturaCountry", $kparams);
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCountry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Country");
 		return $resultObject;
 	}
 
 	/**
+	 * Returns current server timestamp
 	 * 
-	 * @return string
+	 * @return bigint
 	 */
-	function getVersion()
+	function getTime()
 	{
-		$kparams = array();
-		$this->client->queueServiceActionCall("system", "getVersion", null, $kparams);
 		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->queueServiceActionCall("system", "getTime", null, $kparams);
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
@@ -80,32 +85,36 @@ class SystemService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Returns current server version
+	 * 
+	 * @return string
+	 */
+	function getVersion()
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->queueServiceActionCall("system", "getVersion", null, $kparams);
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * Returns true
 	 * 
 	 * @return bool
 	 */
 	function ping()
 	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
 		$kparams = array();
 		$this->client->queueServiceActionCall("system", "ping", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
-	}
-
-	/**
-	 * 
-	 * @return bool
-	 */
-	function pingDatabase()
-	{
-		$kparams = array();
-		$this->client->queueServiceActionCall("system", "pingDatabase", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);

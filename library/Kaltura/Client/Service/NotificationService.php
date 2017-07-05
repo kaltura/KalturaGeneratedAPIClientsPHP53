@@ -34,7 +34,6 @@
 namespace Kaltura\Client\Service;
 
 /**
- * Notification Service
  * @package Kaltura
  * @subpackage Client
  */
@@ -46,23 +45,63 @@ class NotificationService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Return the notifications for a specific entry id and type
+	 * TBD
 	 * 
-	 * @return \Kaltura\Client\Type\ClientNotification
+	 * @return bool
 	 */
-	function getClientNotification($entryId, $type)
+	function initiateCleanup()
 	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "type", $type);
-		$this->client->queueServiceActionCall("notification", "getClientNotification", "KalturaClientNotification", $kparams);
 		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->queueServiceActionCall("notification", "initiateCleanup", null, $kparams);
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaClientNotification");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ClientNotification");
+		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * TBD
+	 * 
+	 * @return \Kaltura\Client\Type\RegistryResponse
+	 */
+	function register($identifier, $type)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "identifier", $identifier);
+		$this->client->addParam($kparams, "type", $type);
+		$this->client->queueServiceActionCall("notification", "register", "KalturaRegistryResponse", $kparams);
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaRegistryResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\RegistryResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Registers the device push token to the push service
+	 * 
+	 * @return bool
+	 */
+	function setDevicePushToken($pushToken)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "pushToken", $pushToken);
+		$this->client->queueServiceActionCall("notification", "setDevicePushToken", null, $kparams);
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 }

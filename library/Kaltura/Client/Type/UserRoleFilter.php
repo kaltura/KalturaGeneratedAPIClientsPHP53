@@ -33,10 +33,11 @@
 namespace Kaltura\Client\Type;
 
 /**
+ * User roles filter
  * @package Kaltura
  * @subpackage Client
  */
-class UserRoleFilter extends \Kaltura\Client\Type\UserRoleBaseFilter
+class UserRoleFilter extends \Kaltura\Client\Type\Filter
 {
 	public function getKalturaObjectType()
 	{
@@ -50,5 +51,13 @@ class UserRoleFilter extends \Kaltura\Client\Type\UserRoleBaseFilter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 	}
+	/**
+	 * Comma separated roles identifiers
+	 * @var string
+	 */
+	public $idIn = null;
+
 }

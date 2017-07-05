@@ -33,10 +33,11 @@
 namespace Kaltura\Client\Type;
 
 /**
+ * Asset info
  * @package Kaltura
  * @subpackage Client
  */
-class Asset extends \Kaltura\Client\ObjectBase
+abstract class Asset extends \Kaltura\Client\Type\BaseAssetInfo
 {
 	public function getKalturaObjectType()
 	{
@@ -50,127 +51,99 @@ class Asset extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->id))
-			$this->id = (string)$xml->id;
-		if(count($xml->entryId))
-			$this->entryId = (string)$xml->entryId;
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->version))
-			$this->version = (int)$xml->version;
-		if(count($xml->size))
-			$this->size = (int)$xml->size;
+		if(count($xml->metas))
+		{
+			if(empty($xml->metas))
+				$this->metas = array();
+			else
+				$this->metas = \Kaltura\Client\ParseUtils::unmarshalMap($xml->metas, "KalturaValue");
+		}
 		if(count($xml->tags))
-			$this->tags = (string)$xml->tags;
-		if(count($xml->fileExt))
-			$this->fileExt = (string)$xml->fileExt;
-		if(count($xml->createdAt))
-			$this->createdAt = (int)$xml->createdAt;
-		if(count($xml->updatedAt))
-			$this->updatedAt = (int)$xml->updatedAt;
-		if(count($xml->deletedAt))
-			$this->deletedAt = (int)$xml->deletedAt;
-		if(count($xml->description))
-			$this->description = (string)$xml->description;
-		if(count($xml->partnerData))
-			$this->partnerData = (string)$xml->partnerData;
-		if(count($xml->partnerDescription))
-			$this->partnerDescription = (string)$xml->partnerDescription;
-		if(count($xml->actualSourceAssetParamsIds))
-			$this->actualSourceAssetParamsIds = (string)$xml->actualSourceAssetParamsIds;
+		{
+			if(empty($xml->tags))
+				$this->tags = array();
+			else
+				$this->tags = \Kaltura\Client\ParseUtils::unmarshalMap($xml->tags, "KalturaStringValueArray");
+		}
+		if(count($xml->startDate))
+			$this->startDate = (string)$xml->startDate;
+		if(count($xml->endDate))
+			$this->endDate = (string)$xml->endDate;
+		if(count($xml->enableCdvr))
+		{
+			if(!empty($xml->enableCdvr))
+				$this->enableCdvr = true;
+			else
+				$this->enableCdvr = false;
+		}
+		if(count($xml->enableCatchUp))
+		{
+			if(!empty($xml->enableCatchUp))
+				$this->enableCatchUp = true;
+			else
+				$this->enableCatchUp = false;
+		}
+		if(count($xml->enableStartOver))
+		{
+			if(!empty($xml->enableStartOver))
+				$this->enableStartOver = true;
+			else
+				$this->enableStartOver = false;
+		}
+		if(count($xml->enableTrickPlay))
+		{
+			if(!empty($xml->enableTrickPlay))
+				$this->enableTrickPlay = true;
+			else
+				$this->enableTrickPlay = false;
+		}
 	}
 	/**
-	 * The ID of the Flavor Asset
-	 * @var string
-	 * @readonly
+	 * Dynamic collection of key-value pairs according to the String Meta defined in the system
+	 * @var array<string, KalturaValue>
 	 */
-	public $id = null;
+	public $metas;
 
 	/**
-	 * The entry ID of the Flavor Asset
-	 * @var string
-	 * @readonly
+	 * Dynamic collection of key-value pairs according to the Tag Types defined in the system
+	 * @var array<string, KalturaStringValueArray>
 	 */
-	public $entryId = null;
+	public $tags;
 
 	/**
-	 * 
+	 * Date and time represented as epoch. For VOD – since when the asset is available in the catalog. For EPG/Linear – when the program is aired (can be in the future).
 	 * @var int
-	 * @readonly
 	 */
-	public $partnerId = null;
+	public $startDate = null;
 
 	/**
-	 * The version of the Flavor Asset
+	 * Date and time represented as epoch. For VOD – till when the asset be available in the catalog. For EPG/Linear – program end time and date
 	 * @var int
-	 * @readonly
 	 */
-	public $version = null;
+	public $endDate = null;
 
 	/**
-	 * The size (in KBytes) of the Flavor Asset
-	 * @var int
-	 * @readonly
+	 * Enable cDVR
+	 * @var bool
 	 */
-	public $size = null;
+	public $enableCdvr = null;
 
 	/**
-	 * Tags used to identify the Flavor Asset in various scenarios
-	 * @var string
+	 * Enable catch-up
+	 * @var bool
 	 */
-	public $tags = null;
+	public $enableCatchUp = null;
 
 	/**
-	 * The file extension
-	 * @var string
-	 * @insertonly
+	 * Enable start over
+	 * @var bool
 	 */
-	public $fileExt = null;
+	public $enableStartOver = null;
 
 	/**
-	 * 
-	 * @var int
-	 * @readonly
+	 * Enable trick-play
+	 * @var bool
 	 */
-	public $createdAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $updatedAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $deletedAt = null;
-
-	/**
-	 * System description, error message, warnings and failure cause.
-	 * @var string
-	 * @readonly
-	 */
-	public $description = null;
-
-	/**
-	 * Partner private data
-	 * @var string
-	 */
-	public $partnerData = null;
-
-	/**
-	 * Partner friendly description
-	 * @var string
-	 */
-	public $partnerDescription = null;
-
-	/**
-	 * Comma separated list of source flavor params ids
-	 * @var string
-	 */
-	public $actualSourceAssetParamsIds = null;
+	public $enableTrickPlay = null;
 
 }
