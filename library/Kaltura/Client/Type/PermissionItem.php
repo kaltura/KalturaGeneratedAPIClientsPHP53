@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class PermissionItem extends \Kaltura\Client\ObjectBase
+class PermissionItem extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
@@ -51,57 +51,21 @@ abstract class PermissionItem extends \Kaltura\Client\ObjectBase
 			return;
 		
 		if(count($xml->id))
-			$this->id = (int)$xml->id;
-		if(count($xml->type))
-			$this->type = (string)$xml->type;
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->tags))
-			$this->tags = (string)$xml->tags;
-		if(count($xml->createdAt))
-			$this->createdAt = (int)$xml->createdAt;
-		if(count($xml->updatedAt))
-			$this->updatedAt = (int)$xml->updatedAt;
+			$this->id = (string)$xml->id;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 	}
 	/**
-	 * 
+	 * Permission item identifier
 	 * @var int
 	 * @readonly
 	 */
 	public $id = null;
 
 	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\PermissionItemType
-	 * @readonly
-	 */
-	public $type = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $partnerId = null;
-
-	/**
-	 * 
+	 * Permission item name
 	 * @var string
 	 */
-	public $tags = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $createdAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $updatedAt = null;
+	public $name = null;
 
 }

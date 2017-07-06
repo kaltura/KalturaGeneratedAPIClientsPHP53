@@ -33,6 +33,7 @@
 namespace Kaltura\Client\Type;
 
 /**
+ * Base list wrapper
  * @package Kaltura
  * @subpackage Client
  */
@@ -54,9 +55,8 @@ class ListResponse extends \Kaltura\Client\ObjectBase
 			$this->totalCount = (int)$xml->totalCount;
 	}
 	/**
-	 * 
+	 * Total items
 	 * @var int
-	 * @readonly
 	 */
 	public $totalCount = null;
 

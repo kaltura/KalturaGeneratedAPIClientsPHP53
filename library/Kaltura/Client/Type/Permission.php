@@ -51,113 +51,34 @@ class Permission extends \Kaltura\Client\ObjectBase
 			return;
 		
 		if(count($xml->id))
-			$this->id = (int)$xml->id;
-		if(count($xml->type))
-			$this->type = (int)$xml->type;
+			$this->id = (string)$xml->id;
 		if(count($xml->name))
 			$this->name = (string)$xml->name;
-		if(count($xml->friendlyName))
-			$this->friendlyName = (string)$xml->friendlyName;
-		if(count($xml->description))
-			$this->description = (string)$xml->description;
-		if(count($xml->status))
-			$this->status = (int)$xml->status;
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->dependsOnPermissionNames))
-			$this->dependsOnPermissionNames = (string)$xml->dependsOnPermissionNames;
-		if(count($xml->tags))
-			$this->tags = (string)$xml->tags;
-		if(count($xml->permissionItemsIds))
-			$this->permissionItemsIds = (string)$xml->permissionItemsIds;
-		if(count($xml->createdAt))
-			$this->createdAt = (int)$xml->createdAt;
-		if(count($xml->updatedAt))
-			$this->updatedAt = (int)$xml->updatedAt;
-		if(count($xml->partnerGroup))
-			$this->partnerGroup = (string)$xml->partnerGroup;
+		if(count($xml->permissionItems))
+		{
+			if(empty($xml->permissionItems))
+				$this->permissionItems = array();
+			else
+				$this->permissionItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->permissionItems, "KalturaPermissionItem");
+		}
 	}
 	/**
-	 * 
+	 * Permission identifier
 	 * @var int
 	 * @readonly
 	 */
 	public $id = null;
 
 	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\PermissionType
-	 * @readonly
-	 */
-	public $type = null;
-
-	/**
-	 * 
+	 * Permission name
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
-	 * 
-	 * @var string
+	 * List of permission items associated with the permission
+	 * @var array<KalturaPermissionItem>
 	 */
-	public $friendlyName = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $description = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\PermissionStatus
-	 */
-	public $status = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $partnerId = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $dependsOnPermissionNames = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $tags = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $permissionItemsIds = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $createdAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $updatedAt = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $partnerGroup = null;
+	public $permissionItems;
 
 }
