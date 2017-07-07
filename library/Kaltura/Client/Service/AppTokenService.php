@@ -34,6 +34,7 @@
 namespace Kaltura\Client\Service;
 
 /**
+ * Manage application authentication tokens
  * @package Kaltura
  * @subpackage Client
  */
@@ -51,12 +52,11 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	 */
 	function add(\Kaltura\Client\Type\AppToken $appToken)
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		$this->client->addParam($kparams, "appToken", $appToken->toParams());
 		$this->client->queueServiceActionCall("apptoken", "add", "KalturaAppToken", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
@@ -68,21 +68,17 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Delete application authentication token by id
 	 * 
-	 * @return bool
 	 */
 	function delete($id)
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall("apptoken", "delete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
 	}
 
 	/**
@@ -92,12 +88,11 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	 */
 	function get($id)
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->queueServiceActionCall("apptoken", "get", "KalturaAppToken", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
@@ -107,28 +102,70 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Starts a new KS (Kaltura Session) based on application authentication token id
+	 * List application authentication tokens by filter and pager
+	 * 
+	 * @return \Kaltura\Client\Type\AppTokenListResponse
+	 */
+	function listAction(\Kaltura\Client\Type\AppTokenFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("apptoken", "list", "KalturaAppTokenListResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAppTokenListResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AppTokenListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * Starts a new KS (kaltura Session) based on application authentication token id
 	 * 
 	 * @return \Kaltura\Client\Type\SessionInfo
 	 */
-	function startSession($id, $tokenHash, $userId = null, $type = null, $expiry = null, $udid = null)
+	function startSession($id, $tokenHash, $userId = null, $type = null, $expiry = null)
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "tokenHash", $tokenHash);
 		$this->client->addParam($kparams, "userId", $userId);
 		$this->client->addParam($kparams, "type", $type);
 		$this->client->addParam($kparams, "expiry", $expiry);
-		$this->client->addParam($kparams, "udid", $udid);
 		$this->client->queueServiceActionCall("apptoken", "startSession", "KalturaSessionInfo", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSessionInfo");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SessionInfo");
+		return $resultObject;
+	}
+
+	/**
+	 * Update application authentication token by id
+	 * 
+	 * @return \Kaltura\Client\Type\AppToken
+	 */
+	function update($id, \Kaltura\Client\Type\AppToken $appToken)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "appToken", $appToken->toParams());
+		$this->client->queueServiceActionCall("apptoken", "update", "KalturaAppToken", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAppToken");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\AppToken");
 		return $resultObject;
 	}
 }

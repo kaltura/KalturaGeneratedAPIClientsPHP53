@@ -33,6 +33,7 @@
 namespace Kaltura\Client\Type;
 
 /**
+ * A key value pair representation to return an array of key-value pairs (associative array)
  * @package Kaltura
  * @subpackage Client
  */

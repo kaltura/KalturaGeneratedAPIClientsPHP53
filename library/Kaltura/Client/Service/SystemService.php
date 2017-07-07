@@ -34,6 +34,7 @@
 namespace Kaltura\Client\Service;
 
 /**
+ * System service is used for internal system helpers & to retrieve system level information
  * @package Kaltura
  * @subpackage Client
  */
@@ -45,57 +46,32 @@ class SystemService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Returns country details by the provided IP, if not provided - by the client IP
 	 * 
-	 * @return \Kaltura\Client\Type\Country
-	 */
-	function getCountry($ip = null)
-	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
-		$kparams = array();
-		$this->client->addParam($kparams, "ip", $ip);
-		$this->client->queueServiceActionCall("system", "getCountry", "KalturaCountry", $kparams);
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCountry");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Country");
-		return $resultObject;
-	}
-
-	/**
-	 * Returns current server timestamp
-	 * 
-	 * @return bigint
+	 * @return int
 	 */
 	function getTime()
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		$this->client->queueServiceActionCall("system", "getTime", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
 	/**
-	 * Returns current server version
 	 * 
 	 * @return string
 	 */
 	function getVersion()
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		$this->client->queueServiceActionCall("system", "getVersion", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
@@ -104,17 +80,32 @@ class SystemService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Returns true
 	 * 
 	 * @return bool
 	 */
 	function ping()
 	{
-		if ($this->client->isMultiRequest())
-			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
-		
 		$kparams = array();
 		$this->client->queueServiceActionCall("system", "ping", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * 
+	 * @return bool
+	 */
+	function pingDatabase()
+	{
+		$kparams = array();
+		$this->client->queueServiceActionCall("system", "pingDatabase", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);

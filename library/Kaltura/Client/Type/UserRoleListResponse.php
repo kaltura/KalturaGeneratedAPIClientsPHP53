@@ -33,7 +33,6 @@
 namespace Kaltura\Client\Type;
 
 /**
- * User-roles list
  * @package Kaltura
  * @subpackage Client
  */
@@ -60,8 +59,9 @@ class UserRoleListResponse extends \Kaltura\Client\Type\ListResponse
 		}
 	}
 	/**
-	 * A list of generic rules
+	 * 
 	 * @var array<KalturaUserRole>
+	 * @readonly
 	 */
 	public $objects;
 

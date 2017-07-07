@@ -51,34 +51,88 @@ class UserRole extends \Kaltura\Client\ObjectBase
 			return;
 		
 		if(count($xml->id))
-			$this->id = (string)$xml->id;
+			$this->id = (int)$xml->id;
 		if(count($xml->name))
 			$this->name = (string)$xml->name;
-		if(count($xml->permissions))
-		{
-			if(empty($xml->permissions))
-				$this->permissions = array();
-			else
-				$this->permissions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->permissions, "KalturaPermission");
-		}
+		if(count($xml->systemName))
+			$this->systemName = (string)$xml->systemName;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->status))
+			$this->status = (int)$xml->status;
+		if(count($xml->partnerId))
+			$this->partnerId = (int)$xml->partnerId;
+		if(count($xml->permissionNames))
+			$this->permissionNames = (string)$xml->permissionNames;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->createdAt))
+			$this->createdAt = (int)$xml->createdAt;
+		if(count($xml->updatedAt))
+			$this->updatedAt = (int)$xml->updatedAt;
 	}
 	/**
-	 * User role identifier
+	 * 
 	 * @var int
 	 * @readonly
 	 */
 	public $id = null;
 
 	/**
-	 * User role name
+	 * 
 	 * @var string
 	 */
 	public $name = null;
 
 	/**
-	 * List of permissions associated with the user role
-	 * @var array<KalturaPermission>
+	 * 
+	 * @var string
 	 */
-	public $permissions;
+	public $systemName = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $description = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserRoleStatus
+	 */
+	public $status = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $partnerId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $permissionNames = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $tags = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $createdAt = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $updatedAt = null;
 
 }
