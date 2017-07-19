@@ -66,6 +66,26 @@ class DataService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Update the dataContent of data entry using a resource
+	 * 
+	 * @return string
+	 */
+	function addContent($entryId, \Kaltura\Client\Type\GenericDataCenterContentResource $resource)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->addParam($kparams, "resource", $resource->toParams());
+		$this->client->queueServiceActionCall("data", "addContent", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Delete a data entry.
 	 * 
 	 */

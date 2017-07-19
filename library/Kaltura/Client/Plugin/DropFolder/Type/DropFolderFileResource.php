@@ -37,7 +37,7 @@ namespace Kaltura\Client\Plugin\DropFolder\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderFileResource extends \Kaltura\Client\Type\DataCenterContentResource
+class DropFolderFileResource extends \Kaltura\Client\Type\GenericDataCenterContentResource
 {
 	public function getKalturaObjectType()
 	{

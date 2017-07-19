@@ -37,7 +37,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ServerFileResource extends \Kaltura\Client\Type\DataCenterContentResource
+class ServerFileResource extends \Kaltura\Client\Type\GenericDataCenterContentResource
 {
 	public function getKalturaObjectType()
 	{

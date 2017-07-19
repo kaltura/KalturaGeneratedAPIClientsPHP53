@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ScheduledTask\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class MailNotificationObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\ObjectTask
+abstract class GenericDataCenterContentResource extends \Kaltura\Client\Type\DataCenterContentResource
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaMailNotificationObjectTask';
+		return 'KalturaGenericDataCenterContentResource';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,58 +50,5 @@ class MailNotificationObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Ty
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->mailTo))
-			$this->mailTo = (string)$xml->mailTo;
-		if(count($xml->sender))
-			$this->sender = (string)$xml->sender;
-		if(count($xml->subject))
-			$this->subject = (string)$xml->subject;
-		if(count($xml->message))
-			$this->message = (string)$xml->message;
-		if(count($xml->link))
-			$this->link = (string)$xml->link;
-		if(count($xml->sendToUsers))
-		{
-			if(!empty($xml->sendToUsers))
-				$this->sendToUsers = true;
-			else
-				$this->sendToUsers = false;
-		}
 	}
-	/**
-	 * The mail to send the notification to
-	 * @var string
-	 */
-	public $mailTo = null;
-
-	/**
-	 * The sender in the mail
-	 * @var string
-	 */
-	public $sender = null;
-
-	/**
-	 * The subject of the entry
-	 * @var string
-	 */
-	public $subject = null;
-
-	/**
-	 * The message to send in the notification mail
-	 * @var string
-	 */
-	public $message = null;
-
-	/**
-	 * The basic link for the KMC site
-	 * @var string
-	 */
-	public $link = null;
-
-	/**
-	 * Send the mail to each user
-	 * @var bool
-	 */
-	public $sendToUsers = null;
-
 }
