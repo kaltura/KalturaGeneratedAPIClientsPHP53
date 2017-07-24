@@ -68,6 +68,8 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 			$this->isEncrypted = (int)$xml->isEncrypted;
 		if(count($xml->contentAwareness))
 			$this->contentAwareness = (float)$xml->contentAwareness;
+		if(count($xml->chunkedEncodeMode))
+			$this->chunkedEncodeMode = (int)$xml->chunkedEncodeMode;
 		if(count($xml->twoPass))
 			$this->twoPass = (int)$xml->twoPass;
 		if(count($xml->tags))
@@ -128,6 +130,12 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 	 * @var float
 	 */
 	public $contentAwareness = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $chunkedEncodeMode = null;
 
 	/**
 	 * 
