@@ -118,6 +118,7 @@ class TypeMap
 		'KalturaDeliveryProfile' => 'Kaltura\Client\Type\DeliveryProfile',
 		'KalturaFileSyncDescriptor' => 'Kaltura\Client\Type\FileSyncDescriptor',
 		'KalturaDestFileSyncDescriptor' => 'Kaltura\Client\Type\DestFileSyncDescriptor',
+		'KalturaPager' => 'Kaltura\Client\Type\Pager',
 		'KalturaFilterPager' => 'Kaltura\Client\Type\FilterPager',
 		'KalturaResponseProfileMapping' => 'Kaltura\Client\Type\ResponseProfileMapping',
 		'KalturaDetachedResponseProfile' => 'Kaltura\Client\Type\DetachedResponseProfile',
