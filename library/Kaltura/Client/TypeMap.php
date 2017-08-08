@@ -656,6 +656,7 @@ class TypeMap
 		'KalturaEmailNotificationDispatchJobData' => 'Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationDispatchJobData',
 		'KalturaEndUserReportInputFilter' => 'Kaltura\Client\Type\EndUserReportInputFilter',
 		'KalturaEntryDistributionBaseFilter' => 'Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionBaseFilter',
+		'KalturaEntryIndexAdvancedFilter' => 'Kaltura\Client\Type\EntryIndexAdvancedFilter',
 		'KalturaEntryReferrerLiveStats' => 'Kaltura\Client\Type\EntryReferrerLiveStats',
 		'KalturaEntryResource' => 'Kaltura\Client\Type\EntryResource',
 		'KalturaEntryServerNodeFilter' => 'Kaltura\Client\Type\EntryServerNodeFilter',
