@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
+class LiveEntryServerNodeRecordingInfo extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaLiveEntryServerNode';
+		return 'KalturaLiveEntryServerNodeRecordingInfo';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,31 +50,21 @@ class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->streams))
-		{
-			if(empty($xml->streams))
-				$this->streams = array();
-			else
-				$this->streams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->streams, "KalturaLiveStreamParams");
-		}
-		if(count($xml->recordingInfo))
-		{
-			if(empty($xml->recordingInfo))
-				$this->recordingInfo = array();
-			else
-				$this->recordingInfo = \Kaltura\Client\ParseUtils::unmarshalArray($xml->recordingInfo, "KalturaLiveEntryServerNodeRecordingInfo");
-		}
+		if(count($xml->recordedEntryId))
+			$this->recordedEntryId = (string)$xml->recordedEntryId;
+		if(count($xml->duration))
+			$this->duration = (int)$xml->duration;
 	}
 	/**
-	 * parameters of the stream we got
-	 * @var array<KalturaLiveStreamParams>
+	 * 
+	 * @var string
 	 */
-	public $streams;
+	public $recordedEntryId = null;
 
 	/**
 	 * 
-	 * @var array<KalturaLiveEntryServerNodeRecordingInfo>
+	 * @var int
 	 */
-	public $recordingInfo;
+	public $duration = null;
 
 }
