@@ -90,11 +90,10 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 	 */
-	function freeExclusiveDropFolder($dropFolderId, $status, $errorCode = null, $errorDescription = null)
+	function freeExclusiveDropFolder($dropFolderId, $errorCode = null, $errorDescription = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
-		$this->client->addParam($kparams, "status", $status);
 		$this->client->addParam($kparams, "errorCode", $errorCode);
 		$this->client->addParam($kparams, "errorDescription", $errorDescription);
 		$this->client->queueServiceActionCall("dropfolder_dropfolder", "freeExclusiveDropFolder", "KalturaDropFolder", $kparams);
