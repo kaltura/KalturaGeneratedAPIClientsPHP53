@@ -103,6 +103,8 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 			$this->detectGOP = (int)$xml->detectGOP;
 		if(count($xml->mediaInfoXslTransformation))
 			$this->mediaInfoXslTransformation = (string)$xml->mediaInfoXslTransformation;
+		if(count($xml->defaultReplacementOptions) && !empty($xml->defaultReplacementOptions))
+			$this->defaultReplacementOptions = \Kaltura\Client\ParseUtils::unmarshalObject($xml->defaultReplacementOptions, "KalturaEntryReplacementOptions");
 	}
 	/**
 	 * The id of the Conversion Profile
@@ -253,5 +255,11 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $mediaInfoXslTransformation = null;
+
+	/**
+	 * Default replacement options to be applied to entries
+	 * @var \Kaltura\Client\Type\EntryReplacementOptions
+	 */
+	public $defaultReplacementOptions;
 
 }
