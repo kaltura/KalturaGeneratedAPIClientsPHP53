@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Caption\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseProfileHolder extends \Kaltura\Client\Type\BaseResponseProfile
+class CopyCaptionsJobData extends \Kaltura\Client\Type\JobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaResponseProfileHolder';
+		return 'KalturaCopyCaptionsJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,21 +50,50 @@ class ResponseProfileHolder extends \Kaltura\Client\Type\BaseResponseProfile
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->id))
-			$this->id = (string)$xml->id;
-		if(count($xml->systemName))
-			$this->systemName = (string)$xml->systemName;
+		if(count($xml->sourceEntryId))
+			$this->sourceEntryId = (string)$xml->sourceEntryId;
+		if(count($xml->entryId))
+			$this->entryId = (string)$xml->entryId;
+		if(count($xml->offset))
+			$this->offset = (int)$xml->offset;
+		if(count($xml->duration))
+			$this->duration = (int)$xml->duration;
+		if(count($xml->fullCopy))
+		{
+			if(!empty($xml->fullCopy))
+				$this->fullCopy = true;
+			else
+				$this->fullCopy = false;
+		}
 	}
 	/**
-	 * Auto generated numeric identifier
-	 * @var int
-	 */
-	public $id = null;
-
-	/**
-	 * Unique system name
+	 * source entry Id
 	 * @var string
 	 */
-	public $systemName = null;
+	public $sourceEntryId = null;
+
+	/**
+	 * entry Id
+	 * @var string
+	 */
+	public $entryId = null;
+
+	/**
+	 * clip offset
+	 * @var int
+	 */
+	public $offset = null;
+
+	/**
+	 * clip duration
+	 * @var int
+	 */
+	public $duration = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $fullCopy = null;
 
 }

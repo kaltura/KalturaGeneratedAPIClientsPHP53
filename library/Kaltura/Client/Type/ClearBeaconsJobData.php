@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ResponseProfileHolder extends \Kaltura\Client\Type\BaseResponseProfile
+class ClearBeaconsJobData extends \Kaltura\Client\Type\JobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaResponseProfileHolder';
+		return 'KalturaClearBeaconsJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,21 +50,22 @@ class ResponseProfileHolder extends \Kaltura\Client\Type\BaseResponseProfile
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->id))
-			$this->id = (string)$xml->id;
-		if(count($xml->systemName))
-			$this->systemName = (string)$xml->systemName;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
+		if(count($xml->relatedObjectType))
+			$this->relatedObjectType = (int)$xml->relatedObjectType;
 	}
 	/**
-	 * Auto generated numeric identifier
-	 * @var int
+	 * Beacon object Id to clear info for
+	 * @var string
+	 * @readonly
 	 */
-	public $id = null;
+	public $objectId = null;
 
 	/**
-	 * Unique system name
-	 * @var string
+	 * Beacon object Type to clear info for
+	 * @var int
 	 */
-	public $systemName = null;
+	public $relatedObjectType = null;
 
 }

@@ -94,5 +94,6 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const LIVE_REPORT_EXPORT = "40";
 	const RECALCULATE_CACHE = "41";
 	const LIVE_TO_VOD = "42";
+	const COPY_CAPTIONS = "43";
 }
 
