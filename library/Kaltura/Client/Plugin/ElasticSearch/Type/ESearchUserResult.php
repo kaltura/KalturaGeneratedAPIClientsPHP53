@@ -30,34 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Plugin\ElasticSearch\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderType extends \Kaltura\Client\EnumBase
+class ESearchUserResult extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResult
 {
-	const AVN = "avnDistribution.AVN";
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
-	const FACEBOOK = "facebookDistribution.FACEBOOK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
-	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const UNICORN = "unicornDistribution.UNICORN";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
-	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
-	const GENERIC = "1";
-	const SYNDICATION = "2";
+	public function getKalturaObjectType()
+	{
+		return 'KalturaESearchUserResult';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

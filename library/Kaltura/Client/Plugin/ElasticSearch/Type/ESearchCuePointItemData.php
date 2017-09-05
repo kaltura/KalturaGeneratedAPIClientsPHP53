@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\WebexDropFolder\Type;
+namespace Kaltura\Client\Plugin\ElasticSearch\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class WebexDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
+class ESearchCuePointItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchItemData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaWebexDropFolder';
+		return 'KalturaESearchCuePointItemData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,82 +50,93 @@ class WebexDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->webexUserId))
-			$this->webexUserId = (string)$xml->webexUserId;
-		if(count($xml->webexPassword))
-			$this->webexPassword = (string)$xml->webexPassword;
-		if(count($xml->webexSiteId))
-			$this->webexSiteId = (int)$xml->webexSiteId;
-		if(count($xml->webexPartnerId))
-			$this->webexPartnerId = (string)$xml->webexPartnerId;
-		if(count($xml->webexServiceUrl))
-			$this->webexServiceUrl = (string)$xml->webexServiceUrl;
-		if(count($xml->webexHostIdMetadataFieldName))
-			$this->webexHostIdMetadataFieldName = (string)$xml->webexHostIdMetadataFieldName;
-		if(count($xml->deleteFromRecycleBin))
-		{
-			if(!empty($xml->deleteFromRecycleBin))
-				$this->deleteFromRecycleBin = true;
-			else
-				$this->deleteFromRecycleBin = false;
-		}
-		if(count($xml->webexServiceType))
-			$this->webexServiceType = (string)$xml->webexServiceType;
-		if(count($xml->deleteFromTimestamp))
-			$this->deleteFromTimestamp = (int)$xml->deleteFromTimestamp;
+		if(count($xml->cuePointType))
+			$this->cuePointType = (string)$xml->cuePointType;
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->text))
+			$this->text = (string)$xml->text;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->startTime))
+			$this->startTime = (string)$xml->startTime;
+		if(count($xml->endTime))
+			$this->endTime = (string)$xml->endTime;
+		if(count($xml->subType))
+			$this->subType = (string)$xml->subType;
+		if(count($xml->answers))
+			$this->answers = (string)$xml->answers;
+		if(count($xml->hint))
+			$this->hint = (string)$xml->hint;
+		if(count($xml->explanation))
+			$this->explanation = (string)$xml->explanation;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $webexUserId = null;
+	public $cuePointType = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $webexPassword = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $webexSiteId = null;
+	public $id = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $webexPartnerId = null;
+	public $name = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $webexServiceUrl = null;
+	public $text = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $webexHostIdMetadataFieldName = null;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $deleteFromRecycleBin = null;
+	public $tags = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $webexServiceType = null;
+	public $startTime = null;
 
 	/**
 	 * 
-	 * @var int
+	 * @var string
 	 */
-	public $deleteFromTimestamp = null;
+	public $endTime = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $subType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $answers = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $hint = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $explanation = null;
 
 }

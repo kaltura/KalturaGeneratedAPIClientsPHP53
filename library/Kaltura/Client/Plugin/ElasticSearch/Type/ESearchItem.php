@@ -30,34 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Plugin\ElasticSearch\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderType extends \Kaltura\Client\EnumBase
+abstract class ESearchItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchBaseItem
 {
-	const AVN = "avnDistribution.AVN";
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
-	const FACEBOOK = "facebookDistribution.FACEBOOK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
-	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const UNICORN = "unicornDistribution.UNICORN";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
-	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
-	const GENERIC = "1";
-	const SYNDICATION = "2";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaESearchItem';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->searchTerm))
+			$this->searchTerm = (string)$xml->searchTerm;
+		if(count($xml->itemType))
+			$this->itemType = (int)$xml->itemType;
+		if(count($xml->range) && !empty($xml->range))
+			$this->range = \Kaltura\Client\ParseUtils::unmarshalObject($xml->range, "KalturaESearchRange");
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $searchTerm = null;
 
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchItemType
+	 */
+	public $itemType = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchRange
+	 */
+	public $range;
+
+}
