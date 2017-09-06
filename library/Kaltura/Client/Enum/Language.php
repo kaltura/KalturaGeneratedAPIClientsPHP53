@@ -176,9 +176,9 @@ class Language extends \Kaltura\Client\EnumBase
 	const EEE = "E";
 	const EGL = "Emilian";
 	const EN = "English";
-	const ENM = "English	 Middle (1100-1500)";
 	const EN_US = "English (American)";
 	const EN_GB = "English (British)";
+	const ENM = "English Middle (1100-1500)";
 	const MYV = "Erzya";
 	const EO = "Esperanto";
 	const ET = "Estonian";
@@ -386,7 +386,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const NIU = "Niuean";
 	const NOG = "Nogai";
 	const NON = "Norse Old";
-	const NSO = "Northern Sotho	 Pedi Sepedi";
+	const NSO = "Northern Sotho Pedi Sepedi";
 	const NO = "Norwegian";
 	const NOV = "Novial";
 	const NYM = "Nyamwezi";
@@ -514,9 +514,9 @@ class Language extends \Kaltura\Client\EnumBase
 	const TLY = "Talysh";
 	const TTQ = "Tamajaq Tawallammat";
 	const TAQ = "Tamasheq";
-	const TZM = "Tamazight	 Central Atlas";
+	const TZM = "Tamazight Central Atlas";
 	const TA = "Tamil";
-	const TAR = "Tarahumara	 Central";
+	const TAR = "Tarahumara Central";
 	const TTT = "Tat Muslim";
 	const TT = "Tatar";
 	const TE = "Telugu";
@@ -543,7 +543,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const TPN = "Tupinamb";
 	const TUV = "Turkana";
 	const TR = "Turkish";
-	const OTA = "Turkish	 Ottoman";
+	const OTA = "Turkish Ottoman";
 	const TK = "Turkmen";
 	const TUS = "Tuscarora";
 	const TVL = "Tuvalu";

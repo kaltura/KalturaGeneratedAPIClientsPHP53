@@ -38,7 +38,6 @@ namespace Kaltura\Client\Plugin\Integration\Enum;
  */
 class IntegrationTriggerType extends \Kaltura\Client\EnumBase
 {
-	const BPM_EVENT_NOTIFICATION = "bpmEventNotificationIntegration.BpmEventNotification";
 	const MANUAL = "1";
 }
 

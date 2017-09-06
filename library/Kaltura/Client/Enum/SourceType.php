@@ -38,7 +38,6 @@ namespace Kaltura\Client\Enum;
  */
 class SourceType extends \Kaltura\Client\EnumBase
 {
-	const LIMELIGHT_LIVE = "limeLight.LIVE_STREAM";
 	const VELOCIX_LIVE = "velocix.VELOCIX_LIVE";
 	const FILE = "1";
 	const WEBCAM = "2";
