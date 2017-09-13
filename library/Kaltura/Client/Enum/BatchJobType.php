@@ -38,10 +38,10 @@ namespace Kaltura\Client\Enum;
  */
 class BatchJobType extends \Kaltura\Client\EnumBase
 {
-	const CONVERT = "0";
 	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
 	const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
 	const DISTRIBUTION_DELETE = "contentDistribution.DistributionDelete";
+	const CONVERT = "0";
 	const DISTRIBUTION_DISABLE = "contentDistribution.DistributionDisable";
 	const DISTRIBUTION_ENABLE = "contentDistribution.DistributionEnable";
 	const DISTRIBUTION_FETCH_REPORT = "contentDistribution.DistributionFetchReport";
@@ -56,6 +56,7 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const INDEX_TAGS = "tagSearch.IndexTagsByPrivacyContext";
 	const TAG_RESOLVE = "tagSearch.TagResolve";
 	const VIRUS_SCAN = "virusScan.VirusScan";
+	const WIDEVINE_REPOSITORY_SYNC = "widevine.WidevineRepositorySync";
 	const IMPORT = "1";
 	const DELETE = "2";
 	const FLATTEN = "3";
@@ -95,5 +96,6 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const RECALCULATE_CACHE = "41";
 	const LIVE_TO_VOD = "42";
 	const COPY_CAPTIONS = "43";
+	const CHUNKED_ENCODE_JOB_SCHEDULER = "44";
 }
 
