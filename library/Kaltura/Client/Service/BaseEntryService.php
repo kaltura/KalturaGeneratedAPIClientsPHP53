@@ -147,7 +147,7 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */
-	function cloneAction($entryId, array $cloneOptions = null)
+	function cloneAction($entryId, array $cloneOptions = null, $setSourceAsRootEntryId = false)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
@@ -156,6 +156,7 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 			{
 				$this->client->addParam($kparams, "cloneOptions:$index", $obj->toParams());
 			}
+		$this->client->addParam($kparams, "setSourceAsRootEntryId", $setSourceAsRootEntryId);
 		$this->client->queueServiceActionCall("baseentry", "clone", "KalturaBaseEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
