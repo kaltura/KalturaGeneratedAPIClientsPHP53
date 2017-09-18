@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Quiz\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuestionCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
+class SessionResponse extends \Kaltura\Client\Type\StartWidgetSessionResponse
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaQuestionCuePoint';
+		return 'KalturaSessionResponse';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,42 +50,5 @@ class QuestionCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->optionalAnswers))
-		{
-			if(empty($xml->optionalAnswers))
-				$this->optionalAnswers = array();
-			else
-				$this->optionalAnswers = \Kaltura\Client\ParseUtils::unmarshalArray($xml->optionalAnswers, "KalturaOptionalAnswer");
-		}
-		if(count($xml->hint))
-			$this->hint = (string)$xml->hint;
-		if(count($xml->question))
-			$this->question = (string)$xml->question;
-		if(count($xml->explanation))
-			$this->explanation = (string)$xml->explanation;
 	}
-	/**
-	 * Array of key value answerKey->optionAnswer objects
-	 * @var array<KalturaOptionalAnswer>
-	 */
-	public $optionalAnswers;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $hint = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $question = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $explanation = null;
-
 }

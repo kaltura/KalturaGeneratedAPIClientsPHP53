@@ -284,6 +284,26 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Loges a user to the destination account as long the ks user id exists in the desc acount and the loginData id match for both accounts
+	 * 
+	 * @return \Kaltura\Client\Type\SessionResponse
+	 */
+	function loginByKs($requestedPartnerId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "requestedPartnerId", $requestedPartnerId);
+		$this->client->queueServiceActionCall("user", "loginByKs", "KalturaSessionResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaSessionResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\SessionResponse");
+		return $resultObject;
+	}
+
+	/**
 	 * Logs a user into a partner account with a user login ID and a user password.
 	 * 
 	 * @return string

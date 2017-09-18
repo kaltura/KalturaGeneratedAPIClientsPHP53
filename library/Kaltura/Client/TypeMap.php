@@ -631,6 +631,7 @@ class TypeMap
 		'KalturaSearchOperator' => 'Kaltura\Client\Type\SearchOperator',
 		'KalturaServerNodeBaseFilter' => 'Kaltura\Client\Type\ServerNodeBaseFilter',
 		'KalturaServerNodeListResponse' => 'Kaltura\Client\Type\ServerNodeListResponse',
+		'KalturaSessionResponse' => 'Kaltura\Client\Type\SessionResponse',
 		'KalturaSessionRestriction' => 'Kaltura\Client\Type\SessionRestriction',
 		'KalturaShortLinkBaseFilter' => 'Kaltura\Client\Plugin\ShortLink\Type\ShortLinkBaseFilter',
 		'KalturaShortLinkListResponse' => 'Kaltura\Client\Plugin\ShortLink\Type\ShortLinkListResponse',
