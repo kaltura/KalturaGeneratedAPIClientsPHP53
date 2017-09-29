@@ -137,6 +137,8 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			$this->entitledUsersEdit = (string)$xml->entitledUsersEdit;
 		if(count($xml->entitledUsersPublish))
 			$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
+		if(count($xml->entitledUsersView))
+			$this->entitledUsersView = (string)$xml->entitledUsersView;
 		if(count($xml->capabilities))
 			$this->capabilities = (string)$xml->capabilities;
 		if(count($xml->templateEntryId))
@@ -398,16 +400,22 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	public $operationAttributes;
 
 	/**
-	 * list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+	 * list of user ids that are entitled to edit the entry (no server enforcement) The difference between entitledUsersEdit, entitledUsersPublish and entitledUsersView is applicative only
 	 * @var string
 	 */
 	public $entitledUsersEdit = null;
 
 	/**
-	 * list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit and entitledUsersPublish is applicative only
+	 * list of user ids that are entitled to publish the entry (no server enforcement) The difference between entitledUsersEdit, entitledUsersPublish and entitledUsersView is applicative only
 	 * @var string
 	 */
 	public $entitledUsersPublish = null;
+
+	/**
+	 * list of user ids that are entitled to view the entry (no server enforcement) The difference between entitledUsersEdit, entitledUsersPublish and entitledUsersView is applicative only
+	 * @var string
+	 */
+	public $entitledUsersView = null;
 
 	/**
 	 * Comma seperated string of the capabilities of the entry. Any capability needed can be added to this list.

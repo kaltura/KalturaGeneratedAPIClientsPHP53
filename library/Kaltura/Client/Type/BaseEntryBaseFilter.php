@@ -194,6 +194,10 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->entitledUsersPublishMatchAnd = (string)$xml->entitledUsersPublishMatchAnd;
 		if(count($xml->entitledUsersPublishMatchOr))
 			$this->entitledUsersPublishMatchOr = (string)$xml->entitledUsersPublishMatchOr;
+		if(count($xml->entitledUsersViewMatchAnd))
+			$this->entitledUsersViewMatchAnd = (string)$xml->entitledUsersViewMatchAnd;
+		if(count($xml->entitledUsersViewMatchOr))
+			$this->entitledUsersViewMatchOr = (string)$xml->entitledUsersViewMatchOr;
 		if(count($xml->tagsNameMultiLikeOr))
 			$this->tagsNameMultiLikeOr = (string)$xml->tagsNameMultiLikeOr;
 		if(count($xml->tagsAdminTagsMultiLikeOr))
@@ -639,6 +643,18 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	 * @var string
 	 */
 	public $entitledUsersPublishMatchOr = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entitledUsersViewMatchAnd = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entitledUsersViewMatchOr = null;
 
 	/**
 	 * 

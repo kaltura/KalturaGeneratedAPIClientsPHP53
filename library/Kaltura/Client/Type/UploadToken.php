@@ -68,6 +68,8 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
+		if(count($xml->uploadUrl))
+			$this->uploadUrl = (string)$xml->uploadUrl;
 	}
 	/**
 	 * Upload token unique ID
@@ -131,5 +133,12 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $updatedAt = null;
+
+	/**
+	 * Upload url - to explicitly determine to which domain to adress the uploadToken->upload call
+	 * @var string
+	 * @readonly
+	 */
+	public $uploadUrl = null;
 
 }
