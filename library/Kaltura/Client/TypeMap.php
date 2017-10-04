@@ -61,7 +61,7 @@ class TypeMap
 		'KalturaAsset' => 'Kaltura\Client\Type\Asset',
 		'KalturaAssetDistributionCondition' => 'Kaltura\Client\Plugin\ContentDistribution\Type\AssetDistributionCondition',
 		'KalturaAssetDistributionRule' => 'Kaltura\Client\Plugin\ContentDistribution\Type\AssetDistributionRule',
-		'KalturaString' => 'Kaltura\Client\Type\String',
+		'KalturaString' => 'Kaltura\Client\Type\Str',
 		'KalturaAssetParams' => 'Kaltura\Client\Type\AssetParams',
 		'KalturaResource' => 'Kaltura\Client\Type\Resource',
 		'KalturaContentResource' => 'Kaltura\Client\Type\ContentResource',

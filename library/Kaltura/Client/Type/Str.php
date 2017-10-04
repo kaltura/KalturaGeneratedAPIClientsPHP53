@@ -37,7 +37,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class String extends \Kaltura\Client\ObjectBase
+class Str extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
