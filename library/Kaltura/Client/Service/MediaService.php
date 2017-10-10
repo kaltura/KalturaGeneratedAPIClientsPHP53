@@ -470,6 +470,23 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Get volume map by entry id
+	 * 
+	 * @return file
+	 */
+	function getVolumeMap($entryId)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall('media', 'getVolumeMap', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
 	 * List media entries by filter with paging support.
 	 * 
 	 * @return \Kaltura\Client\Type\MediaListResponse
