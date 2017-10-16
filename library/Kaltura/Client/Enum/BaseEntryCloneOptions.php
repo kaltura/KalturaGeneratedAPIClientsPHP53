@@ -48,5 +48,6 @@ class BaseEntryCloneOptions extends \Kaltura\Client\EnumBase
 	const ACCESS_CONTROL = "4";
 	const METADATA = "5";
 	const FLAVORS = "6";
+	const CAPTIONS = "7";
 }
 
