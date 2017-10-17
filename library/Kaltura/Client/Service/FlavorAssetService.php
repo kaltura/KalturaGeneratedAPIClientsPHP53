@@ -261,6 +261,23 @@ class FlavorAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Get volume map by entry id
+	 * 
+	 * @return file
+	 */
+	function getVolumeMap($flavorId)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "flavorId", $flavorId);
+		$this->client->queueServiceActionCall('flavorasset', 'getVolumeMap', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
 	 * Get web playable Flavor Assets for Entry
 	 * 
 	 * @return array
