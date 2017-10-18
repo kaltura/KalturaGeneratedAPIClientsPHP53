@@ -70,6 +70,8 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->uploadUrl))
 			$this->uploadUrl = (string)$xml->uploadUrl;
+		if(count($xml->autoFinalize))
+			$this->autoFinalize = (int)$xml->autoFinalize;
 	}
 	/**
 	 * Upload token unique ID
@@ -140,5 +142,12 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $uploadUrl = null;
+
+	/**
+	 * autoFinalize - Should the upload be finalized once the file size on disk matches the file size reproted when adding the upload token.
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 * @insertonly
+	 */
+	public $autoFinalize = null;
 
 }
