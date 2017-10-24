@@ -91,6 +91,7 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Create recorded entry id if it doesn't exist and make sure it happens on the DC that the live entry was created on.
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
@@ -215,7 +216,7 @@ class LiveChannelService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Sey recorded video to live entry
+	 * Set recorded video to live entry
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
