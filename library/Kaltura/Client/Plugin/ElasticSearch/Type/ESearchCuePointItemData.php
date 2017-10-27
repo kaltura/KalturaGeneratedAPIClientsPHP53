@@ -66,6 +66,8 @@ class ESearchCuePointItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\
 			$this->endTime = (string)$xml->endTime;
 		if(count($xml->subType))
 			$this->subType = (string)$xml->subType;
+		if(count($xml->question))
+			$this->question = (string)$xml->question;
 		if(count($xml->answers))
 			$this->answers = (string)$xml->answers;
 		if(count($xml->hint))
@@ -120,6 +122,12 @@ class ESearchCuePointItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\
 	 * @var string
 	 */
 	public $subType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $question = null;
 
 	/**
 	 * 
