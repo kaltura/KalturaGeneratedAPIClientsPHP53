@@ -67,7 +67,7 @@ class ESearchService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
 	 */
-	function searchCategory(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
+	function searchCategory(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchObject $searchParams, \Kaltura\Client\Type\Pager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "searchParams", $searchParams->toParams());
@@ -88,7 +88,7 @@ class ESearchService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
 	 */
-	function searchEntry(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
+	function searchEntry(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchObject $searchParams, \Kaltura\Client\Type\Pager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "searchParams", $searchParams->toParams());
@@ -109,7 +109,7 @@ class ESearchService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
 	 */
-	function searchUser(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
+	function searchUser(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchObject $searchParams, \Kaltura\Client\Type\Pager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "searchParams", $searchParams->toParams());
