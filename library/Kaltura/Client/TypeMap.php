@@ -483,6 +483,7 @@ class TypeMap
 		'KalturaESearchMetadataItemData' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchMetadataItemData',
 		'KalturaESearchOperator' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOperator',
 		'KalturaESearchParams' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams',
+		'KalturaESearchQuery' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchQuery',
 		'KalturaESearchUserOrderByItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserOrderByItem',
 		'KalturaESearchUserResult' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserResult',
 		'KalturaCategoryUserBaseFilter' => 'Kaltura\Client\Type\CategoryUserBaseFilter',
