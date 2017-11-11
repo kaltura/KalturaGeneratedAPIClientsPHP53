@@ -52,6 +52,8 @@ class FileSyncDescriptor extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->fileSyncLocalPath))
 			$this->fileSyncLocalPath = (string)$xml->fileSyncLocalPath;
+		if(count($xml->fileEncryptionKey))
+			$this->fileEncryptionKey = (string)$xml->fileEncryptionKey;
 		if(count($xml->fileSyncRemoteUrl))
 			$this->fileSyncRemoteUrl = (string)$xml->fileSyncRemoteUrl;
 		if(count($xml->fileSyncObjectSubType))
@@ -62,6 +64,12 @@ class FileSyncDescriptor extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $fileSyncLocalPath = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $fileEncryptionKey = null;
 
 	/**
 	 * The translated path as used by the scheduler

@@ -36,11 +36,9 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class RecordingStatus extends \Kaltura\Client\EnumBase
+class ViewMode extends \Kaltura\Client\EnumBase
 {
-	const STOPPED = 0;
-	const PAUSED = 1;
-	const ACTIVE = 2;
-	const DISABLED = 3;
+	const PREVIEW = 0;
+	const ALLOW_ALL = 1;
 }
 

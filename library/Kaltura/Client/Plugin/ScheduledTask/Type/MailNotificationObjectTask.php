@@ -58,6 +58,8 @@ class MailNotificationObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Ty
 			$this->subject = (string)$xml->subject;
 		if(count($xml->message))
 			$this->message = (string)$xml->message;
+		if(count($xml->footer))
+			$this->footer = (string)$xml->footer;
 		if(count($xml->link))
 			$this->link = (string)$xml->link;
 		if(count($xml->sendToUsers))
@@ -91,6 +93,12 @@ class MailNotificationObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Ty
 	 * @var string
 	 */
 	public $message = null;
+
+	/**
+	 * The footer of the message to send in the notification mail
+	 * @var string
+	 */
+	public $footer = null;
 
 	/**
 	 * The basic link for the KMC site

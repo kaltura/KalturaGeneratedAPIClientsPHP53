@@ -172,21 +172,20 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Move categories that belong to the same parent category to a target categroy - enabled only for ks with disable entitlement
 	 * 
-	 * @return \Kaltura\Client\Type\CategoryListResponse
+	 * @return bool
 	 */
 	function move($categoryIds, $targetCategoryParentId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "categoryIds", $categoryIds);
 		$this->client->addParam($kparams, "targetCategoryParentId", $targetCategoryParentId);
-		$this->client->queueServiceActionCall("category", "move", "KalturaCategoryListResponse", $kparams);
+		$this->client->queueServiceActionCall("category", "move", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategoryListResponse");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\CategoryListResponse");
+		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 

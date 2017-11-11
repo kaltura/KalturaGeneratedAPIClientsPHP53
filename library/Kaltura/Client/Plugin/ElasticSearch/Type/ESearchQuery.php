@@ -50,13 +50,13 @@ class ESearchQuery extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchObje
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->eSerachQuery))
-			$this->eSerachQuery = (string)$xml->eSerachQuery;
+		if(count($xml->eSearchQuery))
+			$this->eSearchQuery = (string)$xml->eSearchQuery;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $eSerachQuery = null;
+	public $eSearchQuery = null;
 
 }

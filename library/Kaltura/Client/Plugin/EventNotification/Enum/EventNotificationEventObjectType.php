@@ -83,5 +83,6 @@ class EventNotificationEventObjectType extends \Kaltura\Client\EnumBase
 	const USERROLE = "35";
 	const WIDGET = "36";
 	const CATEGORYENTRY = "37";
+	const LIVE_STREAM = "38";
 }
 

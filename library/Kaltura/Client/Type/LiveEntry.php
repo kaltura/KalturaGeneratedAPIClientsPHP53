@@ -90,6 +90,17 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 			$this->liveStatus = (int)$xml->liveStatus;
 		if(count($xml->segmentDuration))
 			$this->segmentDuration = (int)$xml->segmentDuration;
+		if(count($xml->explicitLive))
+		{
+			if(!empty($xml->explicitLive))
+				$this->explicitLive = true;
+			else
+				$this->explicitLive = false;
+		}
+		if(count($xml->viewMode))
+			$this->viewMode = (int)$xml->viewMode;
+		if(count($xml->recordingStatus))
+			$this->recordingStatus = (int)$xml->recordingStatus;
 	}
 	/**
 	 * The message to be presented when the stream is offline
@@ -183,5 +194,23 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	 * @var int
 	 */
 	public $segmentDuration = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $explicitLive = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\ViewMode
+	 */
+	public $viewMode = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\RecordingStatus
+	 */
+	public $recordingStatus = null;
 
 }
