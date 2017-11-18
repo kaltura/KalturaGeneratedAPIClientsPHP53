@@ -337,7 +337,7 @@ class User extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var bool
-	 * @readonly
+	 * @insertonly
 	 */
 	public $loginEnabled = null;
 
@@ -357,7 +357,7 @@ class User extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var bool
-	 * @readonly
+	 * @insertonly
 	 */
 	public $isAccountOwner = null;
 

@@ -30,17 +30,18 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Schedule\Type;
+namespace Kaltura\Client\Type;
 
 /**
+ * A string representation to return an array of strings
  * @package Kaltura
  * @subpackage Client
  */
-class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\EntryScheduleEvent
+class Str extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaLiveStreamScheduleEvent';
+		return 'KalturaString';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,13 +51,13 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\Entry
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->projectedAudience))
-			$this->projectedAudience = (int)$xml->projectedAudience;
+		if(count($xml->value))
+			$this->value = (string)$xml->value;
 	}
 	/**
-	 * Defines the expected audience.
-	 * @var int
+	 * 
+	 * @var string
 	 */
-	public $projectedAudience = null;
+	public $value = null;
 
 }

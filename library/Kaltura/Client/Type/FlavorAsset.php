@@ -84,6 +84,8 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 			$this->language = (string)$xml->language;
 		if(count($xml->label))
 			$this->label = (string)$xml->label;
+		if(count($xml->isDefault))
+			$this->isDefault = (int)$xml->isDefault;
 	}
 	/**
 	 * The Flavor Params used to create this Flavor Asset
@@ -166,5 +168,11 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 	 * @var string
 	 */
 	public $label = null;
+
+	/**
+	 * Is default flavor asset of the entry (This field will be taken into account selectign which audio flavor will be selected as default)
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $isDefault = null;
 
 }
