@@ -177,6 +177,7 @@ class TypeMap
 		'KalturaFeatureStatus' => 'Kaltura\Client\Type\FeatureStatus',
 		'KalturaFeedItemInfo' => 'Kaltura\Client\Plugin\FeedDropFolder\Type\FeedItemInfo',
 		'KalturaFileAsset' => 'Kaltura\Client\Type\FileAsset',
+		'KalturaFileContainer' => 'Kaltura\Client\Type\FileContainer',
 		'KalturaFileExistsResponse' => 'Kaltura\Client\Type\FileExistsResponse',
 		'KalturaFileSync' => 'Kaltura\Client\Plugin\FileSync\Type\FileSync',
 		'KalturaFlavorAsset' => 'Kaltura\Client\Type\FlavorAsset',

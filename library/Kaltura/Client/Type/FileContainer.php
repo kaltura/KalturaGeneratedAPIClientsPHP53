@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\VirusScan\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VirusScanJobData extends \Kaltura\Client\Type\JobData
+class FileContainer extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaVirusScanJobData';
+		return 'KalturaFileContainer';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,37 +50,29 @@ class VirusScanJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->fileContainer) && !empty($xml->fileContainer))
-			$this->fileContainer = \Kaltura\Client\ParseUtils::unmarshalObject($xml->fileContainer, "KalturaFileContainer");
-		if(count($xml->flavorAssetId))
-			$this->flavorAssetId = (string)$xml->flavorAssetId;
-		if(count($xml->scanResult))
-			$this->scanResult = (int)$xml->scanResult;
-		if(count($xml->virusFoundAction))
-			$this->virusFoundAction = (int)$xml->virusFoundAction;
+		if(count($xml->filePath))
+			$this->filePath = (string)$xml->filePath;
+		if(count($xml->encryptionKey))
+			$this->encryptionKey = (string)$xml->encryptionKey;
+		if(count($xml->fileSize))
+			$this->fileSize = (int)$xml->fileSize;
 	}
 	/**
 	 * 
-	 * @var \Kaltura\Client\Type\FileContainer
+	 * @var string
 	 */
-	public $fileContainer;
+	public $filePath = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $flavorAssetId = null;
+	public $encryptionKey = null;
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\VirusScan\Enum\VirusScanJobResult
+	 * @var int
 	 */
-	public $scanResult = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\VirusScan\Enum\VirusFoundAction
-	 */
-	public $virusFoundAction = null;
+	public $fileSize = null;
 
 }
