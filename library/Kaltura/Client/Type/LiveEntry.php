@@ -91,12 +91,7 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 		if(count($xml->segmentDuration))
 			$this->segmentDuration = (int)$xml->segmentDuration;
 		if(count($xml->explicitLive))
-		{
-			if(!empty($xml->explicitLive))
-				$this->explicitLive = true;
-			else
-				$this->explicitLive = false;
-		}
+			$this->explicitLive = (int)$xml->explicitLive;
 		if(count($xml->viewMode))
 			$this->viewMode = (int)$xml->viewMode;
 		if(count($xml->recordingStatus))
@@ -197,7 +192,7 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 
 	/**
 	 * 
-	 * @var bool
+	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $explicitLive = null;
 

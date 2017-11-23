@@ -66,6 +66,8 @@ abstract class AppTokenBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->statusEqual = (int)$xml->statusEqual;
 		if(count($xml->statusIn))
 			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->sessionUserIdEqual))
+			$this->sessionUserIdEqual = (string)$xml->sessionUserIdEqual;
 	}
 	/**
 	 * 
@@ -114,5 +116,11 @@ abstract class AppTokenBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var string
 	 */
 	public $statusIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $sessionUserIdEqual = null;
 
 }

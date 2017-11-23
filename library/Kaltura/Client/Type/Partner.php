@@ -196,6 +196,13 @@ class Partner extends \Kaltura\Client\ObjectBase
 			else
 				$this->timeAlignedRenditions = false;
 		}
+		if(count($xml->eSearchLanguages))
+		{
+			if(empty($xml->eSearchLanguages))
+				$this->eSearchLanguages = array();
+			else
+				$this->eSearchLanguages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->eSearchLanguages, "KalturaESearchLanguageItem");
+		}
 	}
 	/**
 	 * 
@@ -537,5 +544,11 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $timeAlignedRenditions = null;
+
+	/**
+	 * 
+	 * @var array<KalturaESearchLanguageItem>
+	 */
+	public $eSearchLanguages;
 
 }

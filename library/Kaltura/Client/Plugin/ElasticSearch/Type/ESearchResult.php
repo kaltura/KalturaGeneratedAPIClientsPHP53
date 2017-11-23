@@ -52,6 +52,8 @@ abstract class ESearchResult extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->object) && !empty($xml->object))
 			$this->object = \Kaltura\Client\ParseUtils::unmarshalObject($xml->object, "KalturaObjectBase");
+		if(count($xml->highlight))
+			$this->highlight = (string)$xml->highlight;
 		if(count($xml->itemsData))
 		{
 			if(empty($xml->itemsData))
@@ -65,6 +67,12 @@ abstract class ESearchResult extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Type\KalturaObjectBase
 	 */
 	public $object;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $highlight = null;
 
 	/**
 	 * 

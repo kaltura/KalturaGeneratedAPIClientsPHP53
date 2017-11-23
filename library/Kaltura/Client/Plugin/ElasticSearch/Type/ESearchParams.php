@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchObject
+class ESearchParams extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
@@ -54,8 +54,17 @@ class ESearchParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchObj
 			$this->searchOperator = \Kaltura\Client\ParseUtils::unmarshalObject($xml->searchOperator, "KalturaESearchOperator");
 		if(count($xml->objectStatuses))
 			$this->objectStatuses = (string)$xml->objectStatuses;
+		if(count($xml->objectId))
+			$this->objectId = (string)$xml->objectId;
 		if(count($xml->orderBy) && !empty($xml->orderBy))
 			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaESearchOrderBy");
+		if(count($xml->useHighlight))
+		{
+			if(!empty($xml->useHighlight))
+				$this->useHighlight = true;
+			else
+				$this->useHighlight = false;
+		}
 	}
 	/**
 	 * 
@@ -71,8 +80,20 @@ class ESearchParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchObj
 
 	/**
 	 * 
+	 * @var string
+	 */
+	public $objectId = null;
+
+	/**
+	 * 
 	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy
 	 */
 	public $orderBy;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $useHighlight = null;
 
 }

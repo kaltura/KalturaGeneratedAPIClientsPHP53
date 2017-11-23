@@ -74,6 +74,8 @@ class AppToken extends \Kaltura\Client\ObjectBase
 			$this->sessionPrivileges = (string)$xml->sessionPrivileges;
 		if(count($xml->hashType))
 			$this->hashType = (string)$xml->hashType;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 	}
 	/**
 	 * The id of the application token
@@ -152,5 +154,11 @@ class AppToken extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\AppTokenHashType
 	 */
 	public $hashType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $description = null;
 
 }

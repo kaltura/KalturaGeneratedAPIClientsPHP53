@@ -30,33 +30,46 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchQuery extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchBaseItem
+class ESearchLanguage extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaESearchQuery';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->eSearchQuery))
-			$this->eSearchQuery = (string)$xml->eSearchQuery;
-	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $eSearchQuery = null;
-
+	const ARABIC = "Arabic";
+	const BASQUE = "Basque";
+	const BRAZILIAN = "Brazilian";
+	const BULGARIAN = "Bulgarian";
+	const CATALAN = "Catalan";
+	const CHINESE = "Chinese";
+	const CZECH = "Czech";
+	const DANISH = "Danish";
+	const DUTCH = "Dutch";
+	const ENGLISH = "English";
+	const FINNISH = "Finnish";
+	const FRENCH = "French";
+	const GALICIAN = "Galician";
+	const GERMAN = "German";
+	const GREEK = "Greek";
+	const HINDI = "Hindi";
+	const HUNGRIAN = "Hungarian";
+	const INDONESIAN = "Indonesian";
+	const ITALIAN = "Italian";
+	const JAPANESE = "Japanese";
+	const KOREAN = "Korean";
+	const LATVIAN = "Latvian";
+	const LITHUANIAN = "Lithuanian";
+	const NORWEGIAN = "Norwegian";
+	const PERSIAN = "Persian";
+	const PORTUGUESE = "Prtuguese";
+	const ROMANIAN = "Romanian";
+	const RUSSIAN = "Russian";
+	const SORANI = "Sorani";
+	const SPANISH = "Spanish";
+	const SWEDISH = "Swedish";
+	const THAI = "Thai";
+	const TURKISH = "Turkish";
 }
+

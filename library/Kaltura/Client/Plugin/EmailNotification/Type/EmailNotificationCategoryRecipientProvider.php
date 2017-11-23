@@ -53,6 +53,8 @@ class EmailNotificationCategoryRecipientProvider extends \Kaltura\Client\Plugin\
 		
 		if(count($xml->categoryId) && !empty($xml->categoryId))
 			$this->categoryId = \Kaltura\Client\ParseUtils::unmarshalObject($xml->categoryId, "KalturaStringValue");
+		if(count($xml->categoryIds) && !empty($xml->categoryIds))
+			$this->categoryIds = \Kaltura\Client\ParseUtils::unmarshalObject($xml->categoryIds, "KalturaStringValue");
 		if(count($xml->categoryUserFilter) && !empty($xml->categoryUserFilter))
 			$this->categoryUserFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->categoryUserFilter, "KalturaCategoryUserProviderFilter");
 	}
@@ -61,6 +63,12 @@ class EmailNotificationCategoryRecipientProvider extends \Kaltura\Client\Plugin\
 	 * @var \Kaltura\Client\Type\StringValue
 	 */
 	public $categoryId;
+
+	/**
+	 * The IDs of the categories whose subscribers should receive the email notification.
+	 * @var \Kaltura\Client\Type\StringValue
+	 */
+	public $categoryIds;
 
 	/**
 	 * 

@@ -50,5 +50,13 @@ abstract class ESearchItemData extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->highlight))
+			$this->highlight = (string)$xml->highlight;
 	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $highlight = null;
+
 }
