@@ -73,6 +73,8 @@ class VoicebaseJobProviderData extends \Kaltura\Client\Plugin\Integration\Type\I
 			else
 				$this->replaceMediaContent = false;
 		}
+		if(count($xml->additionalParameters))
+			$this->additionalParameters = (string)$xml->additionalParameters;
 	}
 	/**
 	 * Entry ID
@@ -130,5 +132,12 @@ class VoicebaseJobProviderData extends \Kaltura\Client\Plugin\Integration\Type\I
 	 * @var bool
 	 */
 	public $replaceMediaContent = null;
+
+	/**
+	 * additional parameters to send to VoiceBase
+	 * @var string
+	 * @readonly
+	 */
+	public $additionalParameters = null;
 
 }
