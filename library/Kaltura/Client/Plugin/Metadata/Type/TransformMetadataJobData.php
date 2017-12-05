@@ -50,8 +50,8 @@ class TransformMetadataJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->srcXslPath))
-			$this->srcXslPath = (string)$xml->srcXslPath;
+		if(count($xml->srcXsl) && !empty($xml->srcXsl))
+			$this->srcXsl = \Kaltura\Client\ParseUtils::unmarshalObject($xml->srcXsl, "KalturaFileContainer");
 		if(count($xml->srcVersion))
 			$this->srcVersion = (int)$xml->srcVersion;
 		if(count($xml->destVersion))
@@ -63,9 +63,9 @@ class TransformMetadataJobData extends \Kaltura\Client\Type\JobData
 	}
 	/**
 	 * 
-	 * @var string
+	 * @var \Kaltura\Client\Type\FileContainer
 	 */
-	public $srcXslPath = null;
+	public $srcXsl;
 
 	/**
 	 * 
