@@ -148,6 +148,7 @@ class TypeMap
 		'KalturaDropFolder' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolder',
 		'KalturaDropFolderFile' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile',
 		'KalturaESearchBaseItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchBaseItem',
+		'KalturaESearchHighlight' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchHighlight',
 		'KalturaESearchItemData' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchItemData',
 		'KalturaESearchItemDataResult' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchItemDataResult',
 		'KalturaESearchOrderByItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderByItem',

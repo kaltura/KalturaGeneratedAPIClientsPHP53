@@ -52,11 +52,19 @@ class MediaEntryFilterForPlaylist extends \Kaltura\Client\Type\MediaEntryFilter
 		
 		if(count($xml->limit))
 			$this->limit = (int)$xml->limit;
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
 	}
 	/**
 	 * 
 	 * @var int
 	 */
 	public $limit = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $name = null;
 
 }

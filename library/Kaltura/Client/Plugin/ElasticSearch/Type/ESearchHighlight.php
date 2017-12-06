@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class ESearchItemData extends \Kaltura\Client\ObjectBase
+class ESearchHighlight extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchItemData';
+		return 'KalturaESearchHighlight';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,18 +50,26 @@ abstract class ESearchItemData extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->highlight))
+		if(count($xml->fieldName))
+			$this->fieldName = (string)$xml->fieldName;
+		if(count($xml->hits))
 		{
-			if(empty($xml->highlight))
-				$this->highlight = array();
+			if(empty($xml->hits))
+				$this->hits = array();
 			else
-				$this->highlight = \Kaltura\Client\ParseUtils::unmarshalArray($xml->highlight, "KalturaESearchHighlight");
+				$this->hits = \Kaltura\Client\ParseUtils::unmarshalArray($xml->hits, "KalturaString");
 		}
 	}
 	/**
 	 * 
-	 * @var array<KalturaESearchHighlight>
+	 * @var string
 	 */
-	public $highlight;
+	public $fieldName = null;
+
+	/**
+	 * 
+	 * @var array<KalturaString>
+	 */
+	public $hits;
 
 }
