@@ -74,6 +74,8 @@ class ESearchCuePointItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\
 			$this->hint = (string)$xml->hint;
 		if(count($xml->explanation))
 			$this->explanation = (string)$xml->explanation;
+		if(count($xml->assetId))
+			$this->assetId = (string)$xml->assetId;
 	}
 	/**
 	 * 
@@ -146,5 +148,11 @@ class ESearchCuePointItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\
 	 * @var string
 	 */
 	public $explanation = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $assetId = null;
 
 }

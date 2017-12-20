@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class ESearchParams extends \Kaltura\Client\ObjectBase
+abstract class ESearchAbstractEntryItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryBaseItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchParams';
+		return 'KalturaESearchAbstractEntryItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,42 +50,29 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->objectStatuses))
-			$this->objectStatuses = (string)$xml->objectStatuses;
-		if(count($xml->objectId))
-			$this->objectId = (string)$xml->objectId;
-		if(count($xml->orderBy) && !empty($xml->orderBy))
-			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaESearchOrderBy");
-		if(count($xml->useHighlight))
-		{
-			if(!empty($xml->useHighlight))
-				$this->useHighlight = true;
-			else
-				$this->useHighlight = false;
-		}
+		if(count($xml->searchTerm))
+			$this->searchTerm = (string)$xml->searchTerm;
+		if(count($xml->itemType))
+			$this->itemType = (int)$xml->itemType;
+		if(count($xml->range) && !empty($xml->range))
+			$this->range = \Kaltura\Client\ParseUtils::unmarshalObject($xml->range, "KalturaESearchRange");
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $objectStatuses = null;
+	public $searchTerm = null;
 
 	/**
 	 * 
-	 * @var string
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchItemType
 	 */
-	public $objectId = null;
+	public $itemType = null;
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchRange
 	 */
-	public $orderBy;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $useHighlight = null;
+	public $range;
 
 }

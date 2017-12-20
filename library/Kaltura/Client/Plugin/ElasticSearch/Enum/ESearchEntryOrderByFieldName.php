@@ -38,12 +38,12 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
  */
 class ESearchEntryOrderByFieldName extends \Kaltura\Client\EnumBase
 {
-	const ENTRY_CREATED_AT = "created_at";
-	const ENTRY_END_DATE = "end_date";
-	const ENTRY_NAME = "name.keyword";
-	const ENTRY_START_DATE = "start_date";
-	const ENTRY_UPDATED_AT = "updated_at";
-	const ENTRY_VIEWS = "views";
-	const ENTRY_VOTES = "votes";
+	const CREATED_AT = "created_at";
+	const END_DATE = "end_date";
+	const NAME = "name";
+	const START_DATE = "start_date";
+	const UPDATED_AT = "updated_at";
+	const VIEWS = "views";
+	const VOTES = "votes";
 }
 

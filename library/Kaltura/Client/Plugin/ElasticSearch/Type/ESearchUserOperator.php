@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class ESearchParams extends \Kaltura\Client\ObjectBase
+class ESearchUserOperator extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserBaseItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchParams';
+		return 'KalturaESearchUserOperator';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,42 +50,26 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->objectStatuses))
-			$this->objectStatuses = (string)$xml->objectStatuses;
-		if(count($xml->objectId))
-			$this->objectId = (string)$xml->objectId;
-		if(count($xml->orderBy) && !empty($xml->orderBy))
-			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaESearchOrderBy");
-		if(count($xml->useHighlight))
+		if(count($xml->operator))
+			$this->operator = (int)$xml->operator;
+		if(count($xml->searchItems))
 		{
-			if(!empty($xml->useHighlight))
-				$this->useHighlight = true;
+			if(empty($xml->searchItems))
+				$this->searchItems = array();
 			else
-				$this->useHighlight = false;
+				$this->searchItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->searchItems, "KalturaESearchUserBaseItem");
 		}
 	}
 	/**
 	 * 
-	 * @var string
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchOperatorType
 	 */
-	public $objectStatuses = null;
+	public $operator = null;
 
 	/**
 	 * 
-	 * @var string
+	 * @var array<KalturaESearchUserBaseItem>
 	 */
-	public $objectId = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy
-	 */
-	public $orderBy;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $useHighlight = null;
+	public $searchItems;
 
 }

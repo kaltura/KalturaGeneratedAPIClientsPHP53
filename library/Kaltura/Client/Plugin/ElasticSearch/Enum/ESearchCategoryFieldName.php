@@ -38,31 +38,31 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
  */
 class ESearchCategoryFieldName extends \Kaltura\Client\EnumBase
 {
-	const CATEGORY_CONTRIBUTION_POLICY = "contribution_policy";
-	const CATEGORY_CREATED_AT = "created_at";
-	const CATEGORY_DEPTH = "depth";
-	const CATEGORY_DESCRIPTION = "description";
-	const CATEGORY_DIRECT_ENTRIES_COUNT = "direct_entries_count";
-	const CATEGORY_DIRECT_SUB_CATEGORIES_COUNT = "direct_sub_categories_count";
-	const CATEGORY_DISPLAY_IN_SEARCH = "display_in_search";
-	const CATEGORY_ENTRIES_COUNT = "entries_count";
-	const CATEGORY_FULL_IDS = "full_ids";
-	const CATEGORY_FULL_NAME = "full_name";
-	const CATEGORY_INHERITANCE_TYPE = "inheritance_type";
-	const CATEGORY_INHERITED_PARENT_ID = "inherited_parent_id";
-	const CATEGORY_KUSER_ID = "kuser_id";
-	const CATEGORY_KUSER_IDS = "kuser_ids";
-	const CATEGORY_MEMBERS_COUNT = "members_count";
-	const CATEGORY_MODERATION = "moderation";
-	const CATEGORY_NAME = "name";
-	const CATEGORY_PARENT_ID = "parent_id";
-	const CATEGORY_PENDING_ENTRIES_COUNT = "pending_entries_count";
-	const CATEGORY_PENDING_MEMBERS_COUNT = "pending_members_count";
-	const CATEGORY_PRIVACY = "privacy";
-	const CATEGORY_PRIVACY_CONTEXT = "privacy_context";
-	const CATEGORY_PRIVACY_CONTEXTS = "privacy_contexts";
-	const CATEGORY_REFERENCE_ID = "reference_id";
-	const CATEGORY_TAGS = "tags";
-	const CATEGORY_UPDATED_AT = "updated_at";
+	const CONTRIBUTION_POLICY = "contribution_policy";
+	const CREATED_AT = "created_at";
+	const DEPTH = "depth";
+	const DESCRIPTION = "description";
+	const DIRECT_ENTRIES_COUNT = "direct_entries_count";
+	const DIRECT_SUB_CATEGORIES_COUNT = "direct_sub_categories_count";
+	const DISPLAY_IN_SEARCH = "display_in_search";
+	const ENTRIES_COUNT = "entries_count";
+	const FULL_IDS = "full_ids";
+	const FULL_NAME = "full_name";
+	const INHERITANCE_TYPE = "inheritance_type";
+	const INHERITED_PARENT_ID = "inherited_parent_id";
+	const MEMBERS_COUNT = "members_count";
+	const MODERATION = "moderation";
+	const NAME = "name";
+	const PARENT_ID = "parent_id";
+	const PENDING_ENTRIES_COUNT = "pending_entries_count";
+	const PENDING_MEMBERS_COUNT = "pending_members_count";
+	const PRIVACY = "privacy";
+	const PRIVACY_CONTEXT = "privacy_context";
+	const PRIVACY_CONTEXTS = "privacy_contexts";
+	const REFERENCE_ID = "reference_id";
+	const TAGS = "tags";
+	const UPDATED_AT = "updated_at";
+	const USER_ID = "user_id";
+	const USER_IDS = "user_ids";
 }
 

@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class ESearchParams extends \Kaltura\Client\ObjectBase
+class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAbstractEntryItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchParams';
+		return 'KalturaESearchEntryMetadataItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,42 +50,29 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->objectStatuses))
-			$this->objectStatuses = (string)$xml->objectStatuses;
-		if(count($xml->objectId))
-			$this->objectId = (string)$xml->objectId;
-		if(count($xml->orderBy) && !empty($xml->orderBy))
-			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaESearchOrderBy");
-		if(count($xml->useHighlight))
-		{
-			if(!empty($xml->useHighlight))
-				$this->useHighlight = true;
-			else
-				$this->useHighlight = false;
-		}
+		if(count($xml->xpath))
+			$this->xpath = (string)$xml->xpath;
+		if(count($xml->metadataProfileId))
+			$this->metadataProfileId = (int)$xml->metadataProfileId;
+		if(count($xml->metadataFieldId))
+			$this->metadataFieldId = (int)$xml->metadataFieldId;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $objectStatuses = null;
+	public $xpath = null;
 
 	/**
 	 * 
-	 * @var string
+	 * @var int
 	 */
-	public $objectId = null;
+	public $metadataProfileId = null;
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy
+	 * @var int
 	 */
-	public $orderBy;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $useHighlight = null;
+	public $metadataFieldId = null;
 
 }

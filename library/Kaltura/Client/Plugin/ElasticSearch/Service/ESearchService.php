@@ -46,28 +46,9 @@ class ESearchService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
-	 * @return array
-	 */
-	function getAllowedSearchTypes(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchItem $searchItem)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "searchItem", $searchItem->toParams());
-		$this->client->queueServiceActionCall("elasticsearch_esearch", "getAllowedSearchTypes", "KalturaKeyValue", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalArray($resultXmlObject->result, "KalturaKeyValue");
-		$this->client->validateObjectType($resultObject, "array");
-		return $resultObject;
-	}
-
-	/**
-	 * 
 	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
 	 */
-	function searchCategory(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
+	function searchCategory(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "searchParams", $searchParams->toParams());
@@ -88,7 +69,7 @@ class ESearchService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
 	 */
-	function searchEntry(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
+	function searchEntry(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "searchParams", $searchParams->toParams());
@@ -109,7 +90,7 @@ class ESearchService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
 	 */
-	function searchUser(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
+	function searchUser(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "searchParams", $searchParams->toParams());

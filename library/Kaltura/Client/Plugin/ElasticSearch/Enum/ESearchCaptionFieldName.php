@@ -38,8 +38,8 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
  */
 class ESearchCaptionFieldName extends \Kaltura\Client\EnumBase
 {
-	const CAPTION_CONTENT = "caption_assets.lines.content";
-	const CAPTION_END_TIME = "caption_assets.lines.end_time";
-	const CAPTION_START_TIME = "caption_assets.lines.start_time";
+	const CONTENT = "content";
+	const END_TIME = "end_time";
+	const START_TIME = "start_time";
 }
 
