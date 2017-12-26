@@ -27,28 +27,3 @@
 // @ignore
 // ===================================================================================================
 
-/**
- * @namespace
- */
-namespace Kaltura\Client\Type;
-
-/**
- * @package Kaltura
- * @subpackage Client
- */
-class MediaEntryFilter extends \Kaltura\Client\Type\MediaEntryBaseFilter
-{
-	public function getKalturaObjectType()
-	{
-		return 'KalturaMediaEntryFilter';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-	}
-}
