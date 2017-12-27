@@ -79,10 +79,6 @@ class MediaEntry extends \Kaltura\Client\Type\PlayableEntry
 			else
 				$this->streams = \Kaltura\Client\ParseUtils::unmarshalArray($xml->streams, "KalturaStreamContainer");
 		}
-		if(count($xml->isSequenceEntry))
-			$this->isSequenceEntry = (int)$xml->isSequenceEntry;
-		if(count($xml->sequenceEntryIds))
-			$this->sequenceEntryIds = (string)$xml->sequenceEntryIds;
 	}
 	/**
 	 * The media type of the entry
@@ -164,17 +160,5 @@ class MediaEntry extends \Kaltura\Client\Type\PlayableEntry
 	 * @var array<KalturaStreamContainer>
 	 */
 	public $streams;
-
-	/**
-	 * True if the entry is a sequence entry
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $isSequenceEntry = null;
-
-	/**
-	 * The sequence entries of the entry
-	 * @var string
-	 */
-	public $sequenceEntryIds = null;
 
 }
