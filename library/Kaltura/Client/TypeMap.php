@@ -925,6 +925,7 @@ class TypeMap
 		'KalturaDoubleClickDistributionProviderBaseFilter' => 'Kaltura\Client\Plugin\DoubleClickDistribution\Type\DoubleClickDistributionProviderBaseFilter',
 		'KalturaDropFolderImportJobData' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolderImportJobData',
 		'KalturaESearchCaptionItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCaptionItem',
+		'KalturaESearchCategoryEntryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryEntryItem',
 		'KalturaESearchCategoryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryItem',
 		'KalturaESearchCategoryMetadataItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryMetadataItem',
 		'KalturaESearchCuePointItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCuePointItem',

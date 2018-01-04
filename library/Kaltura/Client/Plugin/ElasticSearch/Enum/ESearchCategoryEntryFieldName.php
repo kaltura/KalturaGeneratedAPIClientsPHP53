@@ -36,40 +36,12 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryFieldName extends \Kaltura\Client\EnumBase
+class ESearchCategoryEntryFieldName extends \Kaltura\Client\EnumBase
 {
-	const ACCESS_CONTROL_ID = "access_control_id";
-	const ADMIN_TAGS = "admin_tags";
-	const CONVERSION_PROFILE_ID = "conversion_profile_id";
-	const CREATED_AT = "created_at";
-	const CREATOR_ID = "creator_kuser_id";
-	const CREDIT = "credit";
-	const DESCRIPTION = "description";
-	const END_DATE = "end_date";
-	const ENTITLED_USER_EDIT = "entitled_kusers_edit";
-	const ENTITLED_USER_PUBLISH = "entitled_kusers_publish";
-	const ENTRY_TYPE = "entry_type";
-	const EXTERNAL_SOURCE_TYPE = "external_source_type";
+	const ANCESTOR_ID = "ancestor_id";
+	const ANCESTOR_NAME = "ancestor_name";
+	const FULL_IDS = "full_ids";
 	const ID = "id";
-	const IS_LIVE = "is_live";
-	const IS_QUIZ = "is_quiz";
-	const USER_ID = "kuser_id";
-	const LENGTH_IN_MSECS = "length_in_msecs";
-	const MEDIA_TYPE = "media_type";
-	const MODERATION_STATUS = "moderation_status";
 	const NAME = "name";
-	const PARENT_ENTRY_ID = "parent_id";
-	const PUSH_PUBLISH = "push_publish";
-	const RECORDED_ENTRY_ID = "recorded_entry_id";
-	const REDIRECT_ENTRY_ID = "redirect_entry_id";
-	const REFERENCE_ID = "reference_id";
-	const SITE_URL = "site_url";
-	const SOURCE_TYPE = "source_type";
-	const START_DATE = "start_date";
-	const TAGS = "tags";
-	const TEMPLATE_ENTRY_ID = "template_entry_id";
-	const UPDATED_AT = "updated_at";
-	const VIEWS = "views";
-	const VOTES = "votes";
 }
 
