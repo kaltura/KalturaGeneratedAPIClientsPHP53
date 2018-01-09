@@ -56,13 +56,6 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 			$this->objectId = (string)$xml->objectId;
 		if(count($xml->orderBy) && !empty($xml->orderBy))
 			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaESearchOrderBy");
-		if(count($xml->useHighlight))
-		{
-			if(!empty($xml->useHighlight))
-				$this->useHighlight = true;
-			else
-				$this->useHighlight = false;
-		}
 	}
 	/**
 	 * 
@@ -81,11 +74,5 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy
 	 */
 	public $orderBy;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $useHighlight = null;
 
 }

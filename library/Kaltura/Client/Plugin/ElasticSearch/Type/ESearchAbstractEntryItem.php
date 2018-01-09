@@ -56,6 +56,13 @@ abstract class ESearchAbstractEntryItem extends \Kaltura\Client\Plugin\ElasticSe
 			$this->itemType = (int)$xml->itemType;
 		if(count($xml->range) && !empty($xml->range))
 			$this->range = \Kaltura\Client\ParseUtils::unmarshalObject($xml->range, "KalturaESearchRange");
+		if(count($xml->addHighlight))
+		{
+			if(!empty($xml->addHighlight))
+				$this->addHighlight = true;
+			else
+				$this->addHighlight = false;
+		}
 	}
 	/**
 	 * 
@@ -74,5 +81,11 @@ abstract class ESearchAbstractEntryItem extends \Kaltura\Client\Plugin\ElasticSe
 	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchRange
 	 */
 	public $range;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $addHighlight = null;
 
 }
