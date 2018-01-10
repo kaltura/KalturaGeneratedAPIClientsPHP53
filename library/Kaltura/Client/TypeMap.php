@@ -355,6 +355,7 @@ class TypeMap
 		'KalturaAssetDistributionPropertyCondition' => 'Kaltura\Client\Plugin\ContentDistribution\Type\AssetDistributionPropertyCondition',
 		'KalturaAssetParamsOutput' => 'Kaltura\Client\Type\AssetParamsOutput',
 		'KalturaAssetPropertiesCompareCondition' => 'Kaltura\Client\Type\AssetPropertiesCompareCondition',
+		'KalturaAssetTypeCondition' => 'Kaltura\Client\Type\AssetTypeCondition',
 		'KalturaAssetsParamsResourceContainers' => 'Kaltura\Client\Type\AssetsParamsResourceContainers',
 		'KalturaAttachmentAssetListResponse' => 'Kaltura\Client\Plugin\Attachment\Type\AttachmentAssetListResponse',
 		'KalturaAttachmentServeOptions' => 'Kaltura\Client\Plugin\Attachment\Type\AttachmentServeOptions',
