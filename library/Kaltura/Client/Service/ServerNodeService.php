@@ -164,6 +164,26 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Mark server node offline
+	 * 
+	 * @return \Kaltura\Client\Type\ServerNode
+	 */
+	function markOffline($serverNodeId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "serverNodeId", $serverNodeId);
+		$this->client->queueServiceActionCall("servernode", "markOffline", "KalturaServerNode", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaServerNode");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ServerNode");
+		return $resultObject;
+	}
+
+	/**
 	 * Update server node status
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
