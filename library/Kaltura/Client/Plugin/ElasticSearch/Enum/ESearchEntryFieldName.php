@@ -69,7 +69,6 @@ class ESearchEntryFieldName extends \Kaltura\Client\EnumBase
 	const TAGS = "tags";
 	const TEMPLATE_ENTRY_ID = "template_entry_id";
 	const UPDATED_AT = "updated_at";
-	const VIEWS = "views";
-	const VOTES = "votes";
+	const USER_NAMES = "user_names";
 }
 
