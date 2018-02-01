@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchCaptionItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAbstractEntryItem
+class ESearchCaptionItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryAbstractNestedItem
 {
 	public function getKalturaObjectType()
 	{

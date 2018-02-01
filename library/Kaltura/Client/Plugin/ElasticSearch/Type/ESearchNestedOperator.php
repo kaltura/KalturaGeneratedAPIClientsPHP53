@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryAbstractNestedItem
+class ESearchNestedOperator extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryNestedBaseItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchEntryMetadataItem';
+		return 'KalturaESearchNestedOperator';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,29 +50,26 @@ class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->xpath))
-			$this->xpath = (string)$xml->xpath;
-		if(count($xml->metadataProfileId))
-			$this->metadataProfileId = (int)$xml->metadataProfileId;
-		if(count($xml->metadataFieldId))
-			$this->metadataFieldId = (int)$xml->metadataFieldId;
+		if(count($xml->operator))
+			$this->operator = (int)$xml->operator;
+		if(count($xml->searchItems))
+		{
+			if(empty($xml->searchItems))
+				$this->searchItems = array();
+			else
+				$this->searchItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->searchItems, "KalturaESearchEntryNestedBaseItem");
+		}
 	}
 	/**
 	 * 
-	 * @var string
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchOperatorType
 	 */
-	public $xpath = null;
+	public $operator = null;
 
 	/**
 	 * 
-	 * @var int
+	 * @var array<KalturaESearchEntryNestedBaseItem>
 	 */
-	public $metadataProfileId = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $metadataFieldId = null;
+	public $searchItems;
 
 }

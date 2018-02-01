@@ -63,6 +63,8 @@ class QuestionCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 			$this->question = (string)$xml->question;
 		if(count($xml->explanation))
 			$this->explanation = (string)$xml->explanation;
+		if(count($xml->questionType))
+			$this->questionType = (int)$xml->questionType;
 	}
 	/**
 	 * Array of key value answerKey->optionAnswer objects
@@ -87,5 +89,11 @@ class QuestionCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 * @var string
 	 */
 	public $explanation = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\CuePoint\Enum\QuestionType
+	 */
+	public $questionType = null;
 
 }

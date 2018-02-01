@@ -30,49 +30,20 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Plugin\CuePoint\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryAbstractNestedItem
+class QuestionType extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaESearchEntryMetadataItem';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->xpath))
-			$this->xpath = (string)$xml->xpath;
-		if(count($xml->metadataProfileId))
-			$this->metadataProfileId = (int)$xml->metadataProfileId;
-		if(count($xml->metadataFieldId))
-			$this->metadataFieldId = (int)$xml->metadataFieldId;
-	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $xpath = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $metadataProfileId = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $metadataFieldId = null;
-
+	const MULTIPLE_CHOICE_ANSWER = 1;
+	const TRUE_FALSE = 2;
+	const REFLECTION_POINT = 3;
+	const MULTIPLE_ANSWER_QUESTION = 4;
+	const FILL_IN_BLANK = 5;
+	const HOT_SPOT = 6;
+	const GO_TO = 7;
 }
+

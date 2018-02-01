@@ -49,5 +49,6 @@ class ESearchCuePointFieldName extends \Kaltura\Client\EnumBase
 	const SUB_TYPE = "sub_type";
 	const TAGS = "tags";
 	const TEXT = "text";
+	const TYPE = "type";
 }
 

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchCuePointItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAbstractEntryItem
+class ESearchCuePointItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryAbstractNestedItem
 {
 	public function getKalturaObjectType()
 	{
@@ -52,19 +52,11 @@ class ESearchCuePointItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESea
 		
 		if(count($xml->fieldName))
 			$this->fieldName = (string)$xml->fieldName;
-		if(count($xml->cuePointType))
-			$this->cuePointType = (string)$xml->cuePointType;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchCuePointFieldName
 	 */
 	public $fieldName = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\CuePoint\Enum\CuePointType
-	 */
-	public $cuePointType = null;
 
 }

@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryAbstractNestedItem
+abstract class ESearchEntryNestedBaseItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryBaseNestedObject
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchEntryMetadataItem';
+		return 'KalturaESearchEntryNestedBaseItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,29 +50,5 @@ class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->xpath))
-			$this->xpath = (string)$xml->xpath;
-		if(count($xml->metadataProfileId))
-			$this->metadataProfileId = (int)$xml->metadataProfileId;
-		if(count($xml->metadataFieldId))
-			$this->metadataFieldId = (int)$xml->metadataFieldId;
 	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $xpath = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $metadataProfileId = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $metadataFieldId = null;
-
 }

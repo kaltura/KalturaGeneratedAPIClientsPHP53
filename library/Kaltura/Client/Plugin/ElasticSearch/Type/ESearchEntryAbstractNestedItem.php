@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryAbstractNestedItem
+abstract class ESearchEntryAbstractNestedItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryNestedBaseItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchEntryMetadataItem';
+		return 'KalturaESearchEntryAbstractNestedItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,29 +50,42 @@ class ESearchEntryMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->xpath))
-			$this->xpath = (string)$xml->xpath;
-		if(count($xml->metadataProfileId))
-			$this->metadataProfileId = (int)$xml->metadataProfileId;
-		if(count($xml->metadataFieldId))
-			$this->metadataFieldId = (int)$xml->metadataFieldId;
+		if(count($xml->searchTerm))
+			$this->searchTerm = (string)$xml->searchTerm;
+		if(count($xml->itemType))
+			$this->itemType = (int)$xml->itemType;
+		if(count($xml->range) && !empty($xml->range))
+			$this->range = \Kaltura\Client\ParseUtils::unmarshalObject($xml->range, "KalturaESearchRange");
+		if(count($xml->addHighlight))
+		{
+			if(!empty($xml->addHighlight))
+				$this->addHighlight = true;
+			else
+				$this->addHighlight = false;
+		}
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $xpath = null;
+	public $searchTerm = null;
 
 	/**
 	 * 
-	 * @var int
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchItemType
 	 */
-	public $metadataProfileId = null;
+	public $itemType = null;
 
 	/**
 	 * 
-	 * @var int
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchRange
 	 */
-	public $metadataFieldId = null;
+	public $range;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $addHighlight = null;
 
 }
