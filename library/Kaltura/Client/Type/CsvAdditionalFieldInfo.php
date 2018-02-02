@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchCaptionItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchItemData
+class CsvAdditionalFieldInfo extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchCaptionItemData';
+		return 'KalturaCsvAdditionalFieldInfo';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,53 +50,21 @@ class ESearchCaptionItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\E
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->line))
-			$this->line = (string)$xml->line;
-		if(count($xml->startsAt))
-			$this->startsAt = (int)$xml->startsAt;
-		if(count($xml->endsAt))
-			$this->endsAt = (int)$xml->endsAt;
-		if(count($xml->language))
-			$this->language = (string)$xml->language;
-		if(count($xml->captionAssetId))
-			$this->captionAssetId = (string)$xml->captionAssetId;
-		if(count($xml->label))
-			$this->label = (string)$xml->label;
+		if(count($xml->fieldName))
+			$this->fieldName = (string)$xml->fieldName;
+		if(count($xml->xpath))
+			$this->xpath = (string)$xml->xpath;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
-	public $line = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $startsAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $endsAt = null;
+	public $fieldName = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $language = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $captionAssetId = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $label = null;
+	public $xpath = null;
 
 }

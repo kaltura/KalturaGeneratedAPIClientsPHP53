@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchCaptionItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchItemData
+class UsersCsvJobData extends \Kaltura\Client\Type\JobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchCaptionItemData';
+		return 'KalturaUsersCsvJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,53 +50,58 @@ class ESearchCaptionItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\E
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->line))
-			$this->line = (string)$xml->line;
-		if(count($xml->startsAt))
-			$this->startsAt = (int)$xml->startsAt;
-		if(count($xml->endsAt))
-			$this->endsAt = (int)$xml->endsAt;
-		if(count($xml->language))
-			$this->language = (string)$xml->language;
-		if(count($xml->captionAssetId))
-			$this->captionAssetId = (string)$xml->captionAssetId;
-		if(count($xml->label))
-			$this->label = (string)$xml->label;
+		if(count($xml->filter) && !empty($xml->filter))
+			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaUserFilter");
+		if(count($xml->metadataProfileId))
+			$this->metadataProfileId = (int)$xml->metadataProfileId;
+		if(count($xml->additionalFields))
+		{
+			if(empty($xml->additionalFields))
+				$this->additionalFields = array();
+			else
+				$this->additionalFields = \Kaltura\Client\ParseUtils::unmarshalArray($xml->additionalFields, "KalturaCsvAdditionalFieldInfo");
+		}
+		if(count($xml->userName))
+			$this->userName = (string)$xml->userName;
+		if(count($xml->userMail))
+			$this->userMail = (string)$xml->userMail;
+		if(count($xml->outputPath))
+			$this->outputPath = (string)$xml->outputPath;
 	}
 	/**
-	 * 
-	 * @var string
+	 * The filter should return the list of users that need to be specified in the csv.
+	 * @var \Kaltura\Client\Type\UserFilter
 	 */
-	public $line = null;
+	public $filter;
 
 	/**
-	 * 
+	 * The metadata profile we should look the xpath in
 	 * @var int
 	 */
-	public $startsAt = null;
+	public $metadataProfileId = null;
 
 	/**
-	 * 
-	 * @var int
+	 * The xpath to look in the metadataProfileId  and the wanted csv field name
+	 * @var array<KalturaCsvAdditionalFieldInfo>
 	 */
-	public $endsAt = null;
+	public $additionalFields;
 
 	/**
-	 * 
+	 * The users name
 	 * @var string
 	 */
-	public $language = null;
+	public $userName = null;
 
 	/**
-	 * 
+	 * The users email
 	 * @var string
 	 */
-	public $captionAssetId = null;
+	public $userMail = null;
 
 	/**
-	 * 
+	 * The file location
 	 * @var string
 	 */
-	public $label = null;
+	public $outputPath = null;
 
 }

@@ -175,6 +175,31 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * add batch job that sends an email with a link to download an updated CSV that contains list of users
+	 * 
+	 * @return string
+	 */
+	function exportToCsv(\Kaltura\Client\Type\UserFilter $filter, $metadataProfileId = null, array $additionalFields = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->addParam($kparams, "metadataProfileId", $metadataProfileId);
+		if ($additionalFields !== null)
+			foreach($additionalFields as $index => $obj)
+			{
+				$this->client->addParam($kparams, "additionalFields:$index", $obj->toParams());
+			}
+		$this->client->queueServiceActionCall("user", "exportToCsv", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Retrieves a user object for a specified user ID.
 	 * 
 	 * @return \Kaltura\Client\Type\User
@@ -357,6 +382,25 @@ class UserService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Will serve a requested csv
+	 * 
+	 * @return string
+	 */
+	function serveCsv($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("user", "serveCsv", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
 	}
 
 	/**
