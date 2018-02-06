@@ -56,8 +56,8 @@ class TransformMetadataJobData extends \Kaltura\Client\Type\JobData
 			$this->srcVersion = (int)$xml->srcVersion;
 		if(count($xml->destVersion))
 			$this->destVersion = (int)$xml->destVersion;
-		if(count($xml->destXsdPath))
-			$this->destXsdPath = (string)$xml->destXsdPath;
+		if(count($xml->destXsd) && !empty($xml->destXsd))
+			$this->destXsd = \Kaltura\Client\ParseUtils::unmarshalObject($xml->destXsd, "KalturaFileContainer");
 		if(count($xml->metadataProfileId))
 			$this->metadataProfileId = (int)$xml->metadataProfileId;
 	}
@@ -81,9 +81,9 @@ class TransformMetadataJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * 
-	 * @var string
+	 * @var \Kaltura\Client\Type\FileContainer
 	 */
-	public $destXsdPath = null;
+	public $destXsd;
 
 	/**
 	 * 
