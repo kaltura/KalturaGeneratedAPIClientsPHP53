@@ -183,8 +183,6 @@ class LanguageCode extends \Kaltura\Client\EnumBase
 	const YI = "yi";
 	const YO = "yo";
 	const ZH = "zh";
-	const ZH_HANS = "zh_s";
-	const ZH_HANT = "zh_t";
 	const ZU = "zu";
 }
 
