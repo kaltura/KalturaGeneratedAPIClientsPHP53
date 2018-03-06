@@ -58,6 +58,8 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 			$this->entryMrssXslt = (string)$xml->entryMrssXslt;
 		if(count($xml->isRequired))
 			$this->isRequired = (int)$xml->isRequired;
+		if(count($xml->type))
+			$this->type = (string)$xml->type;
 		if(count($xml->updateOnChange))
 		{
 			if(!empty($xml->updateOnChange))
@@ -112,6 +114,12 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\ContentDistribution\Enum\DistributionFieldRequiredStatus
 	 */
 	public $isRequired = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $type = null;
 
 	/**
 	 * Trigger distribution update when this field changes or not ?
