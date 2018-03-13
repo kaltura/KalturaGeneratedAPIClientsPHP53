@@ -39,6 +39,7 @@ namespace Kaltura\Client;
 class TypeMap
 {
 	private static $map = array(
+		'KalturaApiExceptionArg' => 'Kaltura\Client\ApiExceptionArg',
 		'KalturaListResponse' => 'Kaltura\Client\Type\ListResponse',
 		'KalturaBaseRestriction' => 'Kaltura\Client\Type\BaseRestriction',
 		'KalturaAccessControl' => 'Kaltura\Client\Type\AccessControl',
