@@ -39,6 +39,9 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
 class ESearchCategoryOrderByFieldName extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT = "created_at";
+	const ENTRIES_COUNT = "entries_count";
+	const MEMBERS_COUNT = "members_count";
+	const NAME = "name";
 	const UPDATED_AT = "updated_at";
 }
 
