@@ -163,6 +163,23 @@ class ScheduledTaskProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Serves dry run results by its request id
+	 * 
+	 * @return file
+	 */
+	function serveDryRunResults($requestId)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "requestId", $requestId);
+		$this->client->queueServiceActionCall('scheduledtask_scheduledtaskprofile', 'serveDryRunResults', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
 	 * Update an existing scheduled task profile
 	 * 
 	 * @return \Kaltura\Client\Plugin\ScheduledTask\Type\ScheduledTaskProfile

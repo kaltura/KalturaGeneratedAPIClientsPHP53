@@ -30,65 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ScheduledTask\Type;
+namespace Kaltura\Client\Plugin\ScheduledTask\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduledTaskJobData extends \Kaltura\Client\Type\JobData
+class DryRunFileType extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaScheduledTaskJobData';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->maxResults))
-			$this->maxResults = (int)$xml->maxResults;
-		if(count($xml->totalCount))
-			$this->totalCount = (int)$xml->totalCount;
-		if(count($xml->fileFormat))
-			$this->fileFormat = (int)$xml->fileFormat;
-		if(count($xml->resultsFilePath))
-			$this->resultsFilePath = (string)$xml->resultsFilePath;
-		if(count($xml->referenceTime))
-			$this->referenceTime = (int)$xml->referenceTime;
-	}
-	/**
-	 * 
-	 * @var int
-	 */
-	public $maxResults = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $totalCount = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\ScheduledTask\Enum\DryRunFileType
-	 */
-	public $fileFormat = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $resultsFilePath = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $referenceTime = null;
-
+	const LIST_RESPONSE = 1;
+	const CSV = 2;
 }
+
