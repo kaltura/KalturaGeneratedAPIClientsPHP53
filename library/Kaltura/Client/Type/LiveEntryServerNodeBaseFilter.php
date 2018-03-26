@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class LiveEntryServerNodeBaseFilter extends \Kaltura\Client\Type\EntryServerNodeFilter
+class LiveEntryServerNodeBaseFilter extends \Kaltura\Client\Type\EntryServerNodeFilter
 {
 	public function getKalturaObjectType()
 	{
