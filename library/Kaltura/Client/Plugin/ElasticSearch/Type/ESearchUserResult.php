@@ -50,5 +50,13 @@ class ESearchUserResult extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearc
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->object) && !empty($xml->object))
+			$this->object = \Kaltura\Client\ParseUtils::unmarshalObject($xml->object, "KalturaUser");
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\User
+	 */
+	public $object;
+
 }

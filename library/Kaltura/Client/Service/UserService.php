@@ -179,10 +179,11 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return string
 	 */
-	function exportToCsv(\Kaltura\Client\Type\UserFilter $filter, $metadataProfileId = null, array $additionalFields = null)
+	function exportToCsv(\Kaltura\Client\Type\UserFilter $filter = null, $metadataProfileId = null, array $additionalFields = null)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "filter", $filter->toParams());
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
 		$this->client->addParam($kparams, "metadataProfileId", $metadataProfileId);
 		if ($additionalFields !== null)
 			foreach($additionalFields as $index => $obj)

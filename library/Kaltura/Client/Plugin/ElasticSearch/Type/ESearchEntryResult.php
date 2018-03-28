@@ -50,5 +50,13 @@ class ESearchEntryResult extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESear
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->object) && !empty($xml->object))
+			$this->object = \Kaltura\Client\ParseUtils::unmarshalObject($xml->object, "KalturaBaseEntry");
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\BaseEntry
+	 */
+	public $object;
+
 }

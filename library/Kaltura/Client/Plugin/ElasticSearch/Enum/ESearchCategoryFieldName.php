@@ -48,6 +48,7 @@ class ESearchCategoryFieldName extends \Kaltura\Client\EnumBase
 	const ENTRIES_COUNT = "entries_count";
 	const FULL_IDS = "full_ids";
 	const FULL_NAME = "full_name";
+	const ID = "id";
 	const INHERITANCE_TYPE = "inheritance_type";
 	const INHERITED_PARENT_ID = "inherited_parent_id";
 	const MEMBERS_COUNT = "members_count";

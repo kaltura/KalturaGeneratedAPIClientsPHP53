@@ -50,5 +50,13 @@ class ESearchCategoryResult extends \Kaltura\Client\Plugin\ElasticSearch\Type\ES
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->object) && !empty($xml->object))
+			$this->object = \Kaltura\Client\ParseUtils::unmarshalObject($xml->object, "KalturaCategory");
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\Category
+	 */
+	public $object;
+
 }
