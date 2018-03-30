@@ -96,6 +96,8 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 			$this->viewMode = (int)$xml->viewMode;
 		if(count($xml->recordingStatus))
 			$this->recordingStatus = (int)$xml->recordingStatus;
+		if(count($xml->lastBroadcastEndTime))
+			$this->lastBroadcastEndTime = (int)$xml->lastBroadcastEndTime;
 	}
 	/**
 	 * The message to be presented when the stream is offline
@@ -207,5 +209,12 @@ abstract class LiveEntry extends \Kaltura\Client\Type\MediaEntry
 	 * @var \Kaltura\Client\Enum\RecordingStatus
 	 */
 	public $recordingStatus = null;
+
+	/**
+	 * The time the last broadcast finished.
+	 * @var int
+	 * @readonly
+	 */
+	public $lastBroadcastEndTime = null;
 
 }
