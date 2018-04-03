@@ -228,6 +228,27 @@ class CuePointService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
+	 */
+	function updateCuePointsTimes($id, $startTime, $endTime = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "startTime", $startTime);
+		$this->client->addParam($kparams, "endTime", $endTime);
+		$this->client->queueServiceActionCall("cuepoint_cuepoint", "updateCuePointsTimes", "KalturaCuePoint", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCuePoint");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\CuePoint\\Type\\CuePoint");
+		return $resultObject;
+	}
+
+	/**
 	 * Update cuePoint status by id
 	 * 
 	 */

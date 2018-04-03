@@ -33,14 +33,19 @@
 namespace Kaltura\Client\Type;
 
 /**
+ * Created by IntelliJ IDEA.
+ *  User: roie.beck
+ *  Date: 3/12/2018
+ *  Time: 11:20 AM
+ *  /
  * @package Kaltura
  * @subpackage Client
  */
-class ConcatJobData extends \Kaltura\Client\Type\JobData
+class ClipConcatJobData extends \Kaltura\Client\Type\JobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaConcatJobData';
+		return 'KalturaClipConcatJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,71 +55,34 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->srcFiles))
+		if(count($xml->partnerId))
+			$this->partnerId = (int)$xml->partnerId;
+		if(count($xml->priority))
+			$this->priority = (int)$xml->priority;
+		if(count($xml->operationAttributes))
 		{
-			if(empty($xml->srcFiles))
-				$this->srcFiles = array();
+			if(empty($xml->operationAttributes))
+				$this->operationAttributes = array();
 			else
-				$this->srcFiles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->srcFiles, "KalturaString");
-		}
-		if(count($xml->destFilePath))
-			$this->destFilePath = (string)$xml->destFilePath;
-		if(count($xml->flavorAssetId))
-			$this->flavorAssetId = (string)$xml->flavorAssetId;
-		if(count($xml->offset))
-			$this->offset = (float)$xml->offset;
-		if(count($xml->duration))
-			$this->duration = (float)$xml->duration;
-		if(count($xml->concatenatedDuration))
-			$this->concatenatedDuration = (float)$xml->concatenatedDuration;
-		if(count($xml->shouldSort))
-		{
-			if(!empty($xml->shouldSort))
-				$this->shouldSort = true;
-			else
-				$this->shouldSort = false;
+				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaObject");
 		}
 	}
 	/**
-	 * Source files to be concatenated
-	 * @var array<KalturaString>
+	 * $partnerId
+	 * @var int
 	 */
-	public $srcFiles;
+	public $partnerId = null;
 
 	/**
-	 * Output file
-	 * @var string
+	 * $priority
+	 * @var int
 	 */
-	public $destFilePath = null;
+	public $priority = null;
 
 	/**
-	 * Flavor asset to be ingested with the output
-	 * @var string
+	 * clip operations
+	 * @var array<KalturaObject>
 	 */
-	public $flavorAssetId = null;
-
-	/**
-	 * Clipping offset in seconds
-	 * @var float
-	 */
-	public $offset = null;
-
-	/**
-	 * Clipping duration in seconds
-	 * @var float
-	 */
-	public $duration = null;
-
-	/**
-	 * duration of the concated video
-	 * @var float
-	 */
-	public $concatenatedDuration = null;
-
-	/**
-	 * Should Sort the clip parts
-	 * @var bool
-	 */
-	public $shouldSort = null;
+	public $operationAttributes;
 
 }

@@ -55,6 +55,8 @@ class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
 			$this->offset = (int)$xml->offset;
 		if(count($xml->duration))
 			$this->duration = (int)$xml->duration;
+		if(count($xml->globalOffsetInDestination))
+			$this->globalOffsetInDestination = (int)$xml->globalOffsetInDestination;
 	}
 	/**
 	 * Offset in milliseconds
@@ -67,5 +69,11 @@ class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
 	 * @var int
 	 */
 	public $duration = null;
+
+	/**
+	 * global Offset In Destination in milliseconds
+	 * @var int
+	 */
+	public $globalOffsetInDestination = null;
 
 }
