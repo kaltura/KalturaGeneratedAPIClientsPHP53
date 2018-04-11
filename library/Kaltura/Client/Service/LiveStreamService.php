@@ -263,17 +263,21 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Regenerate new secure token for liveStream
 	 * 
+	 * @return \Kaltura\Client\Type\LiveEntry
 	 */
 	function regenerateStreamToken($entryId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("livestream", "regenerateStreamToken", null, $kparams);
+		$this->client->queueServiceActionCall("livestream", "regenerateStreamToken", "KalturaLiveEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
+		return $resultObject;
 	}
 
 	/**
