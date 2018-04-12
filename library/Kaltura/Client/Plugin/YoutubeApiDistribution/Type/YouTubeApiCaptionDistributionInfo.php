@@ -56,8 +56,6 @@ class YouTubeApiCaptionDistributionInfo extends \Kaltura\Client\ObjectBase
 			$this->label = (string)$xml->label;
 		if(count($xml->filePath))
 			$this->filePath = (string)$xml->filePath;
-		if(count($xml->encryptionKey))
-			$this->encryptionKey = (string)$xml->encryptionKey;
 		if(count($xml->remoteId))
 			$this->remoteId = (string)$xml->remoteId;
 		if(count($xml->action))
@@ -84,12 +82,6 @@ class YouTubeApiCaptionDistributionInfo extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $filePath = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $encryptionKey = null;
 
 	/**
 	 * 
