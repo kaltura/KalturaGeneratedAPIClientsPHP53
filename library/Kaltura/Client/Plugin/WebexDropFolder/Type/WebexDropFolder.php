@@ -71,6 +71,8 @@ class WebexDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 		}
 		if(count($xml->webexServiceType))
 			$this->webexServiceType = (string)$xml->webexServiceType;
+		if(count($xml->webexSiteName))
+			$this->webexSiteName = (string)$xml->webexSiteName;
 		if(count($xml->deleteFromTimestamp))
 			$this->deleteFromTimestamp = (int)$xml->deleteFromTimestamp;
 	}
@@ -121,6 +123,12 @@ class WebexDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 	 * @var string
 	 */
 	public $webexServiceType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $webexSiteName = null;
 
 	/**
 	 * 
