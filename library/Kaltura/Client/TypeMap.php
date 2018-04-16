@@ -935,6 +935,7 @@ class TypeMap
 		'KalturaESearchCategoryEntryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryEntryItem',
 		'KalturaESearchCategoryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryItem',
 		'KalturaESearchCategoryMetadataItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryMetadataItem',
+		'KalturaESearchCategoryUserItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryUserItem',
 		'KalturaESearchEntryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryItem',
 		'KalturaESearchUnifiedItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUnifiedItem',
 		'KalturaESearchUserItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserItem',

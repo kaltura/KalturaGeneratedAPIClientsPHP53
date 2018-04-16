@@ -30,39 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
+namespace Kaltura\Client\Plugin\ElasticSearch\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchCategoryFieldName extends \Kaltura\Client\EnumBase
+class ESearchCategoryUserItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAbstractCategoryItem
 {
-	const CONTRIBUTION_POLICY = "contribution_policy";
-	const CREATED_AT = "created_at";
-	const DEPTH = "depth";
-	const DESCRIPTION = "description";
-	const DIRECT_ENTRIES_COUNT = "direct_entries_count";
-	const DIRECT_SUB_CATEGORIES_COUNT = "direct_sub_categories_count";
-	const DISPLAY_IN_SEARCH = "display_in_search";
-	const ENTRIES_COUNT = "entries_count";
-	const FULL_IDS = "full_ids";
-	const FULL_NAME = "full_name";
-	const ID = "id";
-	const INHERITANCE_TYPE = "inheritance_type";
-	const INHERITED_PARENT_ID = "inherited_parent_id";
-	const MEMBERS_COUNT = "members_count";
-	const MODERATION = "moderation";
-	const NAME = "name";
-	const PARENT_ID = "parent_id";
-	const PENDING_ENTRIES_COUNT = "pending_entries_count";
-	const PENDING_MEMBERS_COUNT = "pending_members_count";
-	const PRIVACY = "privacy";
-	const PRIVACY_CONTEXT = "privacy_context";
-	const PRIVACY_CONTEXTS = "privacy_contexts";
-	const REFERENCE_ID = "reference_id";
-	const TAGS = "tags";
-	const UPDATED_AT = "updated_at";
-	const USER_ID = "user_id";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaESearchCategoryUserItem';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->fieldName))
+			$this->fieldName = (string)$xml->fieldName;
+		if(count($xml->permissionLevel))
+			$this->permissionLevel = (int)$xml->permissionLevel;
+		if(count($xml->permissionName))
+			$this->permissionName = (string)$xml->permissionName;
+	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchCategoryUserFieldName
+	 */
+	public $fieldName = null;
 
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\CategoryUserPermissionLevel
+	 */
+	public $permissionLevel = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $permissionName = null;
+
+}
