@@ -68,6 +68,13 @@ class ITunesSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 			$this->adultContent = (string)$xml->adultContent;
 		if(count($xml->feedAuthor))
 			$this->feedAuthor = (string)$xml->feedAuthor;
+		if(count($xml->enforceFeedAuthor))
+		{
+			if(!empty($xml->enforceFeedAuthor))
+				$this->enforceFeedAuthor = true;
+			else
+				$this->enforceFeedAuthor = false;
+		}
 		if(count($xml->enforceOrder))
 			$this->enforceOrder = (int)$xml->enforceOrder;
 	}
@@ -125,6 +132,12 @@ class ITunesSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 	 * @var string
 	 */
 	public $feedAuthor = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $enforceFeedAuthor = null;
 
 	/**
 	 * true in case you want to enfore the palylist order on the
