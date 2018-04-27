@@ -30,63 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Enum;
 
 /**
- * Clip operation attributes
  * @package Kaltura
  * @subpackage Client
  */
-class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
+class EffectType extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaClipAttributes';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->offset))
-			$this->offset = (int)$xml->offset;
-		if(count($xml->duration))
-			$this->duration = (int)$xml->duration;
-		if(count($xml->globalOffsetInDestination))
-			$this->globalOffsetInDestination = (int)$xml->globalOffsetInDestination;
-		if(count($xml->effectArray))
-		{
-			if(empty($xml->effectArray))
-				$this->effectArray = array();
-			else
-				$this->effectArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->effectArray, "KalturaEffect");
-		}
-	}
-	/**
-	 * Offset in milliseconds
-	 * @var int
-	 */
-	public $offset = null;
-
-	/**
-	 * Duration in milliseconds
-	 * @var int
-	 */
-	public $duration = null;
-
-	/**
-	 * global Offset In Destination in milliseconds
-	 * @var int
-	 */
-	public $globalOffsetInDestination = null;
-
-	/**
-	 * global Offset In Destination in milliseconds
-	 * @var array<KalturaEffect>
-	 */
-	public $effectArray;
-
+	const VIDEO_FADE_IN = 1;
+	const VIDEO_FADE_OUT = 2;
 }
+

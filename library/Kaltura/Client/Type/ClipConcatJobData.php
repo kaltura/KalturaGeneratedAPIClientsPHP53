@@ -33,11 +33,6 @@
 namespace Kaltura\Client\Type;
 
 /**
- * Created by IntelliJ IDEA.
- *  User: roie.beck
- *  Date: 3/12/2018
- *  Time: 11:20 AM
- *  /
  * @package Kaltura
  * @subpackage Client
  */

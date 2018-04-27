@@ -165,6 +165,7 @@ class TypeMap
 		'KalturaESearchResult' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResult',
 		'KalturaESearchResponse' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse',
 		'KalturaESearchUserBaseItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserBaseItem',
+		'KalturaEffect' => 'Kaltura\Client\Type\Effect',
 		'KalturaEmailIngestionProfile' => 'Kaltura\Client\Type\EmailIngestionProfile',
 		'KalturaStringValue' => 'Kaltura\Client\Type\StringValue',
 		'KalturaEmailNotificationRecipient' => 'Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipient',
