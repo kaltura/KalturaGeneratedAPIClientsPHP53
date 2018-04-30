@@ -30,24 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryServerNodeStatus extends \Kaltura\Client\EnumBase
+class ClippingTaskEntryServerNode extends \Kaltura\Client\Type\TaskEntryServerNode
 {
-	const ERROR = -1;
-	const STOPPED = 0;
-	const PLAYABLE = 1;
-	const BROADCASTING = 2;
-	const AUTHENTICATED = 3;
-	const MARKED_FOR_DELETION = 4;
-	const TASK_PENDING = 5;
-	const TASK_QUEUED = 6;
-	const TASK_PROCESSING = 7;
-	const TASK_UPLOADING = 8;
-	const TASK_FINISHED = 9;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaClippingTaskEntryServerNode';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->clipAttributes) && !empty($xml->clipAttributes))
+			$this->clipAttributes = \Kaltura\Client\ParseUtils::unmarshalObject($xml->clipAttributes, "KalturaClipAttributes");
+		if(count($xml->clippedEntryId))
+			$this->clippedEntryId = (string)$xml->clippedEntryId;
+		if(count($xml->liveEntryId))
+			$this->liveEntryId = (string)$xml->liveEntryId;
+	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\ClipAttributes
+	 */
+	public $clipAttributes;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $clippedEntryId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $liveEntryId = null;
+
+}

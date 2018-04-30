@@ -107,6 +107,26 @@ class EntryServerNodeService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return \Kaltura\Client\Type\EntryServerNode
+	 */
+	function updateStatus($id, $status)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "status", $status);
+		$this->client->queueServiceActionCall("entryservernode", "updateStatus", "KalturaEntryServerNode", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryServerNode");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\EntryServerNode");
+		return $resultObject;
+	}
+
+	/**
 	 * Validates server node still registered on entry
 	 * 
 	 */

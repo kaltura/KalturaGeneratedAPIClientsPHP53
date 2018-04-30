@@ -40,5 +40,6 @@ class EntryServerNodeType extends \Kaltura\Client\EnumBase
 {
 	const LIVE_PRIMARY = "0";
 	const LIVE_BACKUP = "1";
+	const LIVE_CLIPPING_TASK = "2";
 }
 
