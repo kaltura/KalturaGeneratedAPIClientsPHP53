@@ -139,6 +139,8 @@ class User extends \Kaltura\Client\ObjectBase
 			$this->allowedPartnerIds = (string)$xml->allowedPartnerIds;
 		if(count($xml->allowedPartnerPackages))
 			$this->allowedPartnerPackages = (string)$xml->allowedPartnerPackages;
+		if(count($xml->userMode))
+			$this->userMode = (int)$xml->userMode;
 	}
 	/**
 	 * 
@@ -372,5 +374,11 @@ class User extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $allowedPartnerPackages = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserMode
+	 */
+	public $userMode = null;
 
 }

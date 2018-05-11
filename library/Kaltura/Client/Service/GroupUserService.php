@@ -104,4 +104,25 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\GroupUserListResponse");
 		return $resultObject;
 	}
+
+	/**
+	 * sync by userId and groupIds
+	 * 
+	 * @return \Kaltura\Client\Type\BulkUpload
+	 */
+	function sync($userId, $groupIds)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userId", $userId);
+		$this->client->addParam($kparams, "groupIds", $groupIds);
+		$this->client->queueServiceActionCall("groupuser", "sync", "KalturaBulkUpload", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		return $resultObject;
+	}
 }

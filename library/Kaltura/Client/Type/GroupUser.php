@@ -62,6 +62,8 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->updatedAt))
 			$this->updatedAt = (int)$xml->updatedAt;
+		if(count($xml->creationMode))
+			$this->creationMode = (int)$xml->creationMode;
 	}
 	/**
 	 * 
@@ -104,5 +106,12 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $updatedAt = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\GroupUserCreationMode
+	 * @insertonly
+	 */
+	public $creationMode = null;
 
 }
