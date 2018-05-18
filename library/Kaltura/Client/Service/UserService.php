@@ -35,7 +35,7 @@ namespace Kaltura\Client\Service;
 
 /**
  * Manage partner users on Kaltura's side
- *  The userId in kaltura is the unique Id in the partner's system, and the [partnerId,Id] couple are unique key in kaltura's DB
+ *  The userId in kaltura is the unique ID in the partner's system, and the [partnerId,Id] couple are unique key in kaltura's DB
  * @package Kaltura
  * @subpackage Client
  */
@@ -175,7 +175,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * add batch job that sends an email with a link to download an updated CSV that contains list of users
+	 * Creates a batch job that sends an email with a link to download a CSV containing a list of users
 	 * 
 	 * @return string
 	 */
@@ -310,7 +310,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Loges a user to the destination account as long the ks user id exists in the desc acount and the loginData id match for both accounts
+	 * Logs a user to the destination account provided the KS' user ID is associated with the destination account and the loginData ID matches
 	 * 
 	 * @return \Kaltura\Client\Type\SessionResponse
 	 */
@@ -386,7 +386,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Will serve a requested csv
+	 * Will serve a requested CSV
 	 * 
 	 * @return string
 	 */
@@ -405,7 +405,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Set initial users password
+	 * Set initial user password
 	 * 
 	 */
 	function setInitialPassword($hashKey, $newPassword)
