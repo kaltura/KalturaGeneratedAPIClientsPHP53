@@ -110,11 +110,13 @@ class GroupUserService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
-	function sync($userId, $groupIds)
+	function sync($userId, $groupIds, $removeFromExistingGroups = true, $createNewGroups = true)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "userId", $userId);
 		$this->client->addParam($kparams, "groupIds", $groupIds);
+		$this->client->addParam($kparams, "removeFromExistingGroups", $removeFromExistingGroups);
+		$this->client->addParam($kparams, "createNewGroups", $createNewGroups);
 		$this->client->queueServiceActionCall("groupuser", "sync", "KalturaBulkUpload", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
