@@ -30,17 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\Reach\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class VendorCatalogItemOutputFormat extends \Kaltura\Client\EnumBase
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
+	const SRT = 1;
+	const DFXP = 2;
 }
 

@@ -30,17 +30,34 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
+ * API class for recipient provider which constructs a dynamic list of recipients according to a user filter
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class EmailNotificationGroupRecipientProvider extends \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientProvider
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaEmailNotificationGroupRecipientProvider';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->groupId))
+			$this->groupId = (string)$xml->groupId;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $groupId = null;
 
+}

@@ -68,6 +68,13 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 			$this->parentId = (string)$xml->parentId;
 		if(count($xml->accuracy))
 			$this->accuracy = (int)$xml->accuracy;
+		if(count($xml->displayOnPlayer))
+		{
+			if(!empty($xml->displayOnPlayer))
+				$this->displayOnPlayer = true;
+			else
+				$this->displayOnPlayer = false;
+		}
 	}
 	/**
 	 * The Caption Params used to create this Caption Asset
@@ -127,5 +134,11 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 	 * @var int
 	 */
 	public $accuracy = null;
+
+	/**
+	 * The Accuracy of the caption content
+	 * @var bool
+	 */
+	public $displayOnPlayer = null;
 
 }

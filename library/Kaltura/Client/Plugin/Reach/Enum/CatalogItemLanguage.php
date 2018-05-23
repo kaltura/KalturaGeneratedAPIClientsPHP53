@@ -30,17 +30,32 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\Reach\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
+	const AR = "Arabic";
+	const YUE = "Cantonese";
+	const ZH = "Chinese";
+	const NL = "Dutch";
+	const EN = "English";
+	const EN_US = "English (American)";
+	const EN_GB = "English (British)";
+	const FR = "French";
+	const DE = "German";
+	const HE = "Hebrew";
+	const HI = "Hindi";
+	const IT = "Italian";
+	const JA = "Japanese";
+	const KO = "Korean";
+	const CMN = "Mandarin Chinese";
+	const PT = "Portuguese";
+	const RU = "Russian";
+	const ES = "Spanish";
+	const TR = "Turkish";
 }
 

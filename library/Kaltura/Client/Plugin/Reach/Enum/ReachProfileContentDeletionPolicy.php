@@ -30,17 +30,18 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\Reach\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class ReachProfileContentDeletionPolicy extends \Kaltura\Client\EnumBase
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
+	const DO_NOTHING = 1;
+	const DELETE_ONCE_PROCESSED = 2;
+	const DELETE_AFTER_WEEK = 3;
+	const DELETE_AFTER_MONTH = 4;
+	const DELETE_AFTER_THREE_MONTHS = 5;
 }
 

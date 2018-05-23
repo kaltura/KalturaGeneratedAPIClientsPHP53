@@ -196,6 +196,10 @@ class Partner extends \Kaltura\Client\ObjectBase
 			else
 				$this->timeAlignedRenditions = false;
 		}
+		if(count($xml->ovpEnvironmentUrl))
+			$this->ovpEnvironmentUrl = (string)$xml->ovpEnvironmentUrl;
+		if(count($xml->ottEnvironmentUrl))
+			$this->ottEnvironmentUrl = (string)$xml->ottEnvironmentUrl;
 		if(count($xml->eSearchLanguages))
 		{
 			if(empty($xml->eSearchLanguages))
@@ -203,12 +207,6 @@ class Partner extends \Kaltura\Client\ObjectBase
 			else
 				$this->eSearchLanguages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->eSearchLanguages, "KalturaESearchLanguageItem");
 		}
-		if(count($xml->publisherEnvironmentType))
-			$this->publisherEnvironmentType = (int)$xml->publisherEnvironmentType;
-		if(count($xml->ovpEnvironmentUrl))
-			$this->ovpEnvironmentUrl = (string)$xml->ovpEnvironmentUrl;
-		if(count($xml->ottEnvironmentUrl))
-			$this->ottEnvironmentUrl = (string)$xml->ottEnvironmentUrl;
 	}
 	/**
 	 * 
@@ -553,19 +551,6 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var array<KalturaESearchLanguageItem>
-	 */
-	public $eSearchLanguages;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $publisherEnvironmentType = null;
-
-	/**
-	 * 
 	 * @var string
 	 * @readonly
 	 */
@@ -577,5 +562,11 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $ottEnvironmentUrl = null;
+
+	/**
+	 * 
+	 * @var array<KalturaESearchLanguageItem>
+	 */
+	public $eSearchLanguages;
 
 }

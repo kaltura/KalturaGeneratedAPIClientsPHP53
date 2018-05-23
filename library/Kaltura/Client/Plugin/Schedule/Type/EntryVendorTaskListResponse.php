@@ -30,17 +30,39 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\Schedule\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class EntryVendorTaskListResponse extends \Kaltura\Client\Type\ListResponse
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaEntryVendorTaskListResponse';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->objects))
+		{
+			if(empty($xml->objects))
+				$this->objects = array();
+			else
+				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaEntryVendorTask");
+		}
+	}
+	/**
+	 * 
+	 * @var array<KalturaEntryVendorTask>
+	 * @readonly
+	 */
+	public $objects;
 
+}

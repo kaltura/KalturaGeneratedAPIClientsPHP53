@@ -30,17 +30,20 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\Reach\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class EntryVendorTaskStatus extends \Kaltura\Client\EnumBase
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
+	const PENDING = 1;
+	const READY = 2;
+	const PROCESSING = 3;
+	const PENDING_MODERATION = 4;
+	const REJECTED = 5;
+	const ERROR = 6;
+	const ABORTED = 7;
 }
 

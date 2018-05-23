@@ -30,17 +30,41 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class Dictionary extends \Kaltura\Client\ObjectBase
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaDictionary';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
+		if(count($xml->data))
+			$this->data = (string)$xml->data;
+	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemLanguage
+	 */
+	public $language = null;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $data = null;
+
+}

@@ -30,17 +30,34 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\EmailNotification\Enum;
+namespace Kaltura\Client\Plugin\EmailNotification\Type;
 
 /**
+ * JobData representing the dynamic user receipient array
  * @package Kaltura
  * @subpackage Client
  */
-class EmailNotificationRecipientProviderType extends \Kaltura\Client\EnumBase
+class EmailNotificationGroupRecipientJobData extends \Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationRecipientJobData
 {
-	const STATIC_LIST = "1";
-	const CATEGORY = "2";
-	const USER = "3";
-	const GROUP = "4";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaEmailNotificationGroupRecipientJobData';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->groupId))
+			$this->groupId = (string)$xml->groupId;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $groupId = null;
 
+}
