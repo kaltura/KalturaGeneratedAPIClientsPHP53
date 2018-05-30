@@ -82,6 +82,13 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 			$this->thumbOffset = (int)$xml->thumbOffset;
 		if(count($xml->systemName))
 			$this->systemName = (string)$xml->systemName;
+		if(count($xml->isMomentary))
+		{
+			if(!empty($xml->isMomentary))
+				$this->isMomentary = true;
+			else
+				$this->isMomentary = false;
+		}
 	}
 	/**
 	 * 
@@ -186,5 +193,11 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $systemName = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $isMomentary = null;
 
 }
