@@ -156,6 +156,18 @@ class YouTubeDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribut
 		}
 		if(count($xml->apiAuthorizeUrl))
 			$this->apiAuthorizeUrl = (string)$xml->apiAuthorizeUrl;
+		if(count($xml->privacyStatus))
+			$this->privacyStatus = (string)$xml->privacyStatus;
+		if(count($xml->enableContentId))
+			$this->enableContentId = (string)$xml->enableContentId;
+		if(count($xml->thirdPartyAds))
+			$this->thirdPartyAds = (string)$xml->thirdPartyAds;
+		if(count($xml->productListingAds))
+			$this->productListingAds = (string)$xml->productListingAds;
+		if(count($xml->domainWhitelist))
+			$this->domainWhitelist = (string)$xml->domainWhitelist;
+		if(count($xml->notifySubscribers))
+			$this->notifySubscribers = (string)$xml->notifySubscribers;
 	}
 	/**
 	 * 
@@ -384,5 +396,41 @@ class YouTubeDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribut
 	 * @var string
 	 */
 	public $apiAuthorizeUrl = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $privacyStatus = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $enableContentId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $thirdPartyAds = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $productListingAds = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $domainWhitelist = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $notifySubscribers = null;
 
 }

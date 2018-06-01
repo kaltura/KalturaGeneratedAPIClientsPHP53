@@ -197,6 +197,7 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var bool
+	 * @readonly
 	 */
 	public $isMomentary = null;
 
