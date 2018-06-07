@@ -54,6 +54,8 @@ class YouTubeDistributionJobProviderData extends \Kaltura\Client\Plugin\ContentD
 			$this->videoAssetFilePath = (string)$xml->videoAssetFilePath;
 		if(count($xml->thumbAssetFilePath))
 			$this->thumbAssetFilePath = (string)$xml->thumbAssetFilePath;
+		if(count($xml->thumbAssetId))
+			$this->thumbAssetId = (string)$xml->thumbAssetId;
 		if(count($xml->captionAssetIds))
 			$this->captionAssetIds = (string)$xml->captionAssetIds;
 		if(count($xml->sftpDirectory))
@@ -96,6 +98,12 @@ class YouTubeDistributionJobProviderData extends \Kaltura\Client\Plugin\ContentD
 	 * @var string
 	 */
 	public $thumbAssetFilePath = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $thumbAssetId = null;
 
 	/**
 	 * 
