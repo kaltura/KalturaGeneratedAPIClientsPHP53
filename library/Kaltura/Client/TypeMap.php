@@ -709,6 +709,7 @@ class TypeMap
 		'KalturaUrlTokenizerLimeLight' => 'Kaltura\Client\Type\UrlTokenizerLimeLight',
 		'KalturaUrlTokenizerVelocix' => 'Kaltura\Client\Type\UrlTokenizerVelocix',
 		'KalturaUrlTokenizerVnpt' => 'Kaltura\Client\Type\UrlTokenizerVnpt',
+		'KalturaUrlTokenizerWowzaSecureToken' => 'Kaltura\Client\Type\UrlTokenizerWowzaSecureToken',
 		'KalturaUserAgentRestriction' => 'Kaltura\Client\Type\UserAgentRestriction',
 		'KalturaUserEntryListResponse' => 'Kaltura\Client\Type\UserEntryListResponse',
 		'KalturaUserListResponse' => 'Kaltura\Client\Type\UserListResponse',
