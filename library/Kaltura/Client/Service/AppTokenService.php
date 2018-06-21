@@ -66,7 +66,7 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Delete application authentication token by id
+	 * Delete application authentication token by ID
 	 * 
 	 */
 	function delete($id)
@@ -82,7 +82,7 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Get application authentication token by id
+	 * Get application authentication token by ID
 	 * 
 	 * @return \Kaltura\Client\Type\AppToken
 	 */
@@ -125,7 +125,7 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Starts a new KS (kaltura Session) based on application authentication token id
+	 * Starts a new KS (kaltura Session) based on an application authentication token ID
 	 * 
 	 * @return \Kaltura\Client\Type\SessionInfo
 	 */
@@ -149,7 +149,7 @@ class AppTokenService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update application authentication token by id
+	 * Update application authentication token by ID
 	 * 
 	 * @return \Kaltura\Client\Type\AppToken
 	 */
