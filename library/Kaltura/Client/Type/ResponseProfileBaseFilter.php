@@ -51,7 +51,7 @@ abstract class ResponseProfileBaseFilter extends \Kaltura\Client\Type\Filter
 			return;
 		
 		if(count($xml->idEqual))
-			$this->idEqual = (int)$xml->idEqual;
+			$this->idEqual = (string)$xml->idEqual;
 		if(count($xml->idIn))
 			$this->idIn = (string)$xml->idIn;
 		if(count($xml->systemNameEqual))
