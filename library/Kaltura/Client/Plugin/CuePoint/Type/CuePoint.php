@@ -89,6 +89,8 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 			else
 				$this->isMomentary = false;
 		}
+		if(count($xml->copiedFrom))
+			$this->copiedFrom = (string)$xml->copiedFrom;
 	}
 	/**
 	 * 
@@ -200,5 +202,12 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $isMomentary = null;
+
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $copiedFrom = null;
 
 }
