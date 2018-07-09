@@ -57,11 +57,19 @@ abstract class DeliveryServerNode extends \Kaltura\Client\Type\ServerNode
 			else
 				$this->deliveryProfileIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->deliveryProfileIds, "KalturaKeyValue");
 		}
+		if(count($xml->config))
+			$this->config = (string)$xml->config;
 	}
 	/**
 	 * Delivery profile ids
 	 * @var array<KalturaKeyValue>
 	 */
 	public $deliveryProfileIds;
+
+	/**
+	 * Override server node default configuration - json format
+	 * @var string
+	 */
+	public $config = null;
 
 }

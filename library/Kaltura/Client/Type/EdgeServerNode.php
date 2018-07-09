@@ -52,19 +52,11 @@ class EdgeServerNode extends \Kaltura\Client\Type\DeliveryServerNode
 		
 		if(count($xml->playbackDomain))
 			$this->playbackDomain = (string)$xml->playbackDomain;
-		if(count($xml->config))
-			$this->config = (string)$xml->config;
 	}
 	/**
 	 * Delivery server playback Domain
 	 * @var string
 	 */
 	public $playbackDomain = null;
-
-	/**
-	 * Overdie edge server default configuration - json format
-	 * @var string
-	 */
-	public $config = null;
 
 }
