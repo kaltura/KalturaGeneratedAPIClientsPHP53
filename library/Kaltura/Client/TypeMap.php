@@ -150,6 +150,7 @@ class TypeMap
 		'KalturaDropFolderFileHandlerConfig' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolderFileHandlerConfig',
 		'KalturaDropFolder' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolder',
 		'KalturaDropFolderFile' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile',
+		'KalturaESearchBaseFilter' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchBaseFilter',
 		'KalturaESearchBaseItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchBaseItem',
 		'KalturaESearchCategoryBaseItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryBaseItem',
 		'KalturaESearchHighlight' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchHighlight',
