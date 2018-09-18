@@ -142,6 +142,28 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Get the edge server node full path
+	 * 
+	 * @return string
+	 */
+	function getFullPath($hostName, $protocol = "http", $deliveryFormat = null, $deliveryType = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "hostName", $hostName);
+		$this->client->addParam($kparams, "protocol", $protocol);
+		$this->client->addParam($kparams, "deliveryFormat", $deliveryFormat);
+		$this->client->addParam($kparams, "deliveryType", $deliveryType);
+		$this->client->queueServiceActionCall("servernode", "getFullPath", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNodeListResponse
 	 */
@@ -188,12 +210,13 @@ class ServerNodeService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\ServerNode
 	 */
-	function reportStatus($hostName, \Kaltura\Client\Type\ServerNode $serverNode = null)
+	function reportStatus($hostName, \Kaltura\Client\Type\ServerNode $serverNode = null, $serverNodeStatus = 1)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "hostName", $hostName);
 		if ($serverNode !== null)
 			$this->client->addParam($kparams, "serverNode", $serverNode->toParams());
+		$this->client->addParam($kparams, "serverNodeStatus", $serverNodeStatus);
 		$this->client->queueServiceActionCall("servernode", "reportStatus", "KalturaServerNode", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

@@ -52,11 +52,19 @@ class AccessControlServeRemoteEdgeServerAction extends \Kaltura\Client\Type\Rule
 		
 		if(count($xml->edgeServerIds))
 			$this->edgeServerIds = (string)$xml->edgeServerIds;
+		if(count($xml->seamlessFallbackEnabled))
+			$this->seamlessFallbackEnabled = (int)$xml->seamlessFallbackEnabled;
 	}
 	/**
 	 * Comma separated list of edge servers playBack should be done from
 	 * @var string
 	 */
 	public $edgeServerIds = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $seamlessFallbackEnabled = null;
 
 }
