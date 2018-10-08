@@ -52,6 +52,8 @@ class PostConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 		
 		if(count($xml->flavorAssetId))
 			$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->flavorAssetEncryptionKey))
+			$this->flavorAssetEncryptionKey = (string)$xml->flavorAssetEncryptionKey;
 		if(count($xml->createThumb))
 		{
 			if(!empty($xml->createThumb))
@@ -75,6 +77,12 @@ class PostConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 	 * @var string
 	 */
 	public $flavorAssetId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $flavorAssetEncryptionKey = null;
 
 	/**
 	 * Indicates if a thumbnail should be created
