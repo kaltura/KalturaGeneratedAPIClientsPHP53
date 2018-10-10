@@ -67,6 +67,7 @@ class ReportType extends \Kaltura\Client\EnumBase
 	const VPAAS_USAGE = "26";
 	const ENTRY_USAGE = "27";
 	const REACH_USAGE = "28";
+	const TOP_CUSTOM_VAR1 = "29";
 	const PARTNER_USAGE = "201";
 }
 

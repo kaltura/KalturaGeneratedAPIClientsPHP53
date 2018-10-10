@@ -68,6 +68,12 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 		}
 		if(count($xml->categories))
 			$this->categories = (string)$xml->categories;
+		if(count($xml->customVar1In))
+			$this->customVar1In = (string)$xml->customVar1In;
+		if(count($xml->customVar2In))
+			$this->customVar2In = (string)$xml->customVar2In;
+		if(count($xml->customVar3In))
+			$this->customVar3In = (string)$xml->customVar3In;
 		if(count($xml->timeZoneOffset))
 			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
 		if(count($xml->interval))
@@ -96,6 +102,24 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $categories = null;
+
+	/**
+	 * Filter by customVar1
+	 * @var string
+	 */
+	public $customVar1In = null;
+
+	/**
+	 * Filter by customVar2
+	 * @var string
+	 */
+	public $customVar2In = null;
+
+	/**
+	 * Filter by customVar3
+	 * @var string
+	 */
+	public $customVar3In = null;
 
 	/**
 	 * Time zone offset in minutes
