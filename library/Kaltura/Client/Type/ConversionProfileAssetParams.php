@@ -74,6 +74,8 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 			$this->twoPass = (int)$xml->twoPass;
 		if(count($xml->tags))
 			$this->tags = (string)$xml->tags;
+		if(count($xml->overloadParams))
+			$this->overloadParams = (string)$xml->overloadParams;
 	}
 	/**
 	 * The id of the conversion profile
@@ -148,5 +150,11 @@ class ConversionProfileAssetParams extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $tags = null;
+
+	/**
+	 * JSON string containing an array of flavotParams field-value pairs.
+	 * @var string
+	 */
+	public $overloadParams = null;
 
 }
