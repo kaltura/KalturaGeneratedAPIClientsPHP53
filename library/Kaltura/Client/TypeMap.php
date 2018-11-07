@@ -941,6 +941,7 @@ class TypeMap
 		'KalturaDocumentFlavorParamsOutput' => 'Kaltura\Client\Plugin\Document\Type\DocumentFlavorParamsOutput',
 		'KalturaDoubleClickDistributionProviderBaseFilter' => 'Kaltura\Client\Plugin\DoubleClickDistribution\Type\DoubleClickDistributionProviderBaseFilter',
 		'KalturaDropFolderImportJobData' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolderImportJobData',
+		'KalturaDropFolderXmlBulkUploadJobData' => 'Kaltura\Client\Type\DropFolderXmlBulkUploadJobData',
 		'KalturaESearchCategoryEntryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryEntryItem',
 		'KalturaESearchCategoryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryItem',
 		'KalturaESearchCategoryMetadataItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchCategoryMetadataItem',
