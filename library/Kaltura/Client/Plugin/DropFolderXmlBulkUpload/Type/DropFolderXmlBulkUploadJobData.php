@@ -30,7 +30,7 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\DropFolderXmlBulkUpload\Type;
 
 /**
  * Represents the Bulk upload job data for drop folder xml bulk upload
