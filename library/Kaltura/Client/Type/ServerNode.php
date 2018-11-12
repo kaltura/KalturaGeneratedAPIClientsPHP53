@@ -78,6 +78,8 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 			$this->dc = (int)$xml->dc;
 		if(count($xml->parentId))
 			$this->parentId = (string)$xml->parentId;
+		if(count($xml->environment))
+			$this->environment = (string)$xml->environment;
 	}
 	/**
 	 * 
@@ -170,5 +172,11 @@ abstract class ServerNode extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $parentId = null;
+
+	/**
+	 * Environment
+	 * @var string
+	 */
+	public $environment = null;
 
 }

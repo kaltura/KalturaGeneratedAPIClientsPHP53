@@ -104,6 +104,10 @@ abstract class ServerNodeBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->parentIdMultiLikeOr = (string)$xml->parentIdMultiLikeOr;
 		if(count($xml->parentIdMultiLikeAnd))
 			$this->parentIdMultiLikeAnd = (string)$xml->parentIdMultiLikeAnd;
+		if(count($xml->environmentEqual))
+			$this->environmentEqual = (string)$xml->environmentEqual;
+		if(count($xml->environmentIn))
+			$this->environmentIn = (string)$xml->environmentIn;
 	}
 	/**
 	 * 
@@ -266,5 +270,17 @@ abstract class ServerNodeBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var string
 	 */
 	public $parentIdMultiLikeAnd = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $environmentEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $environmentIn = null;
 
 }
