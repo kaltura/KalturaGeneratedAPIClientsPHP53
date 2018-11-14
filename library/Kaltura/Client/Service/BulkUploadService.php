@@ -152,7 +152,7 @@ class BulkUploadService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * serveLog action returan the original file.
+	 * serveLog action return the original file.
 	 * 
 	 * @return file
 	 */
