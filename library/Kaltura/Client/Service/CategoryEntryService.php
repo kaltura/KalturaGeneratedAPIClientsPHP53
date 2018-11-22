@@ -197,4 +197,28 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 	}
+
+	/**
+	 * 
+	 * @return \Kaltura\Client\Type\BulkUpload
+	 */
+	function updateStatusfrombulk($fileData, \Kaltura\Client\Type\BulkUploadJobData $bulkUploadData = null, \Kaltura\Client\Type\BulkUploadCategoryEntryData $bulkUploadCategoryEntryData = null)
+	{
+		$kparams = array();
+		$kfiles = array();
+		$this->client->addParam($kfiles, "fileData", $fileData);
+		if ($bulkUploadData !== null)
+			$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+		if ($bulkUploadCategoryEntryData !== null)
+			$this->client->addParam($kparams, "bulkUploadCategoryEntryData", $bulkUploadCategoryEntryData->toParams());
+		$this->client->queueServiceActionCall("categoryentry", "updateStatusfrombulk", "KalturaBulkUpload", $kparams, $kfiles);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		return $resultObject;
+	}
 }
