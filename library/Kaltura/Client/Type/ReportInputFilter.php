@@ -74,12 +74,16 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->customVar2In = (string)$xml->customVar2In;
 		if(count($xml->customVar3In))
 			$this->customVar3In = (string)$xml->customVar3In;
-		if(count($xml->devicesIn))
-			$this->devicesIn = (string)$xml->devicesIn;
-		if(count($xml->countriesIn))
-			$this->countriesIn = (string)$xml->countriesIn;
-		if(count($xml->regionsIn))
-			$this->regionsIn = (string)$xml->regionsIn;
+		if(count($xml->deviceIn))
+			$this->deviceIn = (string)$xml->deviceIn;
+		if(count($xml->countryIn))
+			$this->countryIn = (string)$xml->countryIn;
+		if(count($xml->regionIn))
+			$this->regionIn = (string)$xml->regionIn;
+		if(count($xml->operatingSystemFamilyIn))
+			$this->operatingSystemFamilyIn = (string)$xml->operatingSystemFamilyIn;
+		if(count($xml->browserFamilyIn))
+			$this->browserFamilyIn = (string)$xml->browserFamilyIn;
 		if(count($xml->timeZoneOffset))
 			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
 		if(count($xml->interval))
@@ -131,19 +135,31 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * Filter by device
 	 * @var string
 	 */
-	public $devicesIn = null;
+	public $deviceIn = null;
 
 	/**
 	 * Filter by country
 	 * @var string
 	 */
-	public $countriesIn = null;
+	public $countryIn = null;
 
 	/**
 	 * Filter by region
 	 * @var string
 	 */
-	public $regionsIn = null;
+	public $regionIn = null;
+
+	/**
+	 * Filter by operating system family
+	 * @var string
+	 */
+	public $operatingSystemFamilyIn = null;
+
+	/**
+	 * Filter by browser family
+	 * @var string
+	 */
+	public $browserFamilyIn = null;
 
 	/**
 	 * Time zone offset in minutes
