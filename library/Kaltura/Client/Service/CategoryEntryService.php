@@ -202,7 +202,7 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
-	function updateStatusfrombulk($fileData, \Kaltura\Client\Type\BulkUploadJobData $bulkUploadData = null, \Kaltura\Client\Type\BulkUploadCategoryEntryData $bulkUploadCategoryEntryData = null)
+	function updateStatusFromBulk($fileData, \Kaltura\Client\Type\BulkUploadJobData $bulkUploadData = null, \Kaltura\Client\Type\BulkUploadCategoryEntryData $bulkUploadCategoryEntryData = null)
 	{
 		$kparams = array();
 		$kfiles = array();
@@ -211,7 +211,7 @@ class CategoryEntryService extends \Kaltura\Client\ServiceBase
 			$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
 		if ($bulkUploadCategoryEntryData !== null)
 			$this->client->addParam($kparams, "bulkUploadCategoryEntryData", $bulkUploadCategoryEntryData->toParams());
-		$this->client->queueServiceActionCall("categoryentry", "updateStatusfrombulk", "KalturaBulkUpload", $kparams, $kfiles);
+		$this->client->queueServiceActionCall("categoryentry", "updateStatusFromBulk", "KalturaBulkUpload", $kparams, $kfiles);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
