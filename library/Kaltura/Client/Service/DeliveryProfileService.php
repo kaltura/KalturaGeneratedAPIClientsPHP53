@@ -130,7 +130,7 @@ class DeliveryProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update exisiting delivery
+	 * Update existing delivery profile
 	 * 
 	 * @return \Kaltura\Client\Type\DeliveryProfile
 	 */

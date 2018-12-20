@@ -85,7 +85,7 @@ class MixingService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Appends a media entry to a the end of the mix timeline, this will save the mix timeline as a new version.
+	 * Appends a media entry to the end of the mix timeline, this will save the mix timeline as a new version.
 	 * 
 	 * @return \Kaltura\Client\Type\MixEntry
 	 */

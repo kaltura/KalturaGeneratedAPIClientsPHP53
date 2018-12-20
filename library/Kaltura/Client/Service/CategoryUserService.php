@@ -111,7 +111,7 @@ class CategoryUserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Copy all memeber from parent category
+	 * Copy all member from parent category
 	 * 
 	 */
 	function copyFromCategory($categoryId)

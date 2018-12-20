@@ -158,7 +158,7 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Add new entry after the file was recored on the server and the token id exists
+	 * Add new entry after the file was recorded on the server and the token id exists
 	 * 
 	 * @return \Kaltura\Client\Type\MediaEntry
 	 */
@@ -660,7 +660,7 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update entry thumbnail using url
+	 * Update entry thumbnail using URL
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */

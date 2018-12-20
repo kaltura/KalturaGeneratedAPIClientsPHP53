@@ -131,7 +131,7 @@ class WidgetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update exisiting widget
+	 * Update existing widget
 	 * 
 	 * @return \Kaltura\Client\Type\Widget
 	 */

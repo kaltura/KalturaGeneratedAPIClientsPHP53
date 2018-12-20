@@ -513,7 +513,7 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update entry thumbnail using url.
+	 * Update entry thumbnail using URL.
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry
 	 */

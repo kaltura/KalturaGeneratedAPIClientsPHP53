@@ -70,7 +70,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * report getBaseTotal action allows to get a the total base for storage reports
+	 * report getBaseTotal action allows to get the total base for storage reports
 	 * 
 	 * @return array
 	 */
@@ -200,7 +200,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * will create a Csv file for the given report and return the URL to access it
+	 * will create a CSV file for the given report and return the URL to access it
 	 * 
 	 * @return string
 	 */

@@ -35,7 +35,7 @@ namespace Kaltura\Client\Service;
 
 /**
  * Playlist service lets you create,manage and play your playlists
- *  Playlists could be static (containing a fixed list of entries) or dynamic (baseed on a filter)
+ *  Playlists could be static (containing a fixed list of entries) or dynamic (based on a filter)
  * @package Kaltura
  * @subpackage Client
  */
@@ -158,7 +158,7 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Revrieve playlist for playing purpose, based on media entry filters
+	 * Retrieve playlist for playing purpose, based on media entry filters
 	 * 
 	 * @return array
 	 */
@@ -251,7 +251,7 @@ class PlaylistService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Update existing playlist
-	 * 	 Note - you cannot change playlist type. updated playlist must be of the same type.
+	 * 	 Note - you cannot change playlist type. Updated playlist must be of the same type.
 	 * 
 	 * @return \Kaltura\Client\Type\Playlist
 	 */

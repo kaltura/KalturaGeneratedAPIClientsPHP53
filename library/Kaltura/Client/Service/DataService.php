@@ -146,7 +146,7 @@ class DataService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * serve action returan the file from dataContent field.
+	 * return the file from dataContent field.
 	 * 
 	 * @return file
 	 */
