@@ -102,6 +102,7 @@ class TypeMap
 		'KalturaCaptionAsset' => 'Kaltura\Client\Plugin\Caption\Type\CaptionAsset',
 		'KalturaCaptionAssetItem' => 'Kaltura\Client\Plugin\CaptionSearch\Type\CaptionAssetItem',
 		'KalturaCaptionParams' => 'Kaltura\Client\Plugin\Caption\Type\CaptionParams',
+		'KalturaCaptionPlaybackPluginData' => 'Kaltura\Client\Plugin\Caption\Type\CaptionPlaybackPluginData',
 		'KalturaCategory' => 'Kaltura\Client\Type\Category',
 		'KalturaCategoryEntry' => 'Kaltura\Client\Type\CategoryEntry',
 		'KalturaCategoryUser' => 'Kaltura\Client\Type\CategoryUser',

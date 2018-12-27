@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Caption\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class PlaybackContext extends \Kaltura\Client\ObjectBase
+class CaptionPlaybackPluginData extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaPlaybackContext';
+		return 'KalturaCaptionPlaybackPluginData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,70 +50,58 @@ class PlaybackContext extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->sources))
+		if(count($xml->label))
+			$this->label = (string)$xml->label;
+		if(count($xml->format))
+			$this->format = (string)$xml->format;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
+		if(count($xml->webVttUrl))
+			$this->webVttUrl = (string)$xml->webVttUrl;
+		if(count($xml->url))
+			$this->url = (string)$xml->url;
+		if(count($xml->isDefault))
 		{
-			if(empty($xml->sources))
-				$this->sources = array();
+			if(!empty($xml->isDefault))
+				$this->isDefault = true;
 			else
-				$this->sources = \Kaltura\Client\ParseUtils::unmarshalArray($xml->sources, "KalturaPlaybackSource");
-		}
-		if(count($xml->playbackCaptions))
-		{
-			if(empty($xml->playbackCaptions))
-				$this->playbackCaptions = array();
-			else
-				$this->playbackCaptions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->playbackCaptions, "KalturaCaptionPlaybackPluginData");
-		}
-		if(count($xml->flavorAssets))
-		{
-			if(empty($xml->flavorAssets))
-				$this->flavorAssets = array();
-			else
-				$this->flavorAssets = \Kaltura\Client\ParseUtils::unmarshalArray($xml->flavorAssets, "KalturaFlavorAsset");
-		}
-		if(count($xml->actions))
-		{
-			if(empty($xml->actions))
-				$this->actions = array();
-			else
-				$this->actions = \Kaltura\Client\ParseUtils::unmarshalArray($xml->actions, "KalturaRuleAction");
-		}
-		if(count($xml->messages))
-		{
-			if(empty($xml->messages))
-				$this->messages = array();
-			else
-				$this->messages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->messages, "KalturaAccessControlMessage");
+				$this->isDefault = false;
 		}
 	}
 	/**
 	 * 
-	 * @var array<KalturaPlaybackSource>
+	 * @var string
 	 */
-	public $sources;
+	public $label = null;
 
 	/**
 	 * 
-	 * @var array<KalturaCaptionPlaybackPluginData>
+	 * @var string
 	 */
-	public $playbackCaptions;
+	public $format = null;
 
 	/**
 	 * 
-	 * @var array<KalturaFlavorAsset>
+	 * @var string
 	 */
-	public $flavorAssets;
+	public $language = null;
 
 	/**
-	 * Array of actions as received from the rules that invalidated
-	 * @var array<KalturaRuleAction>
+	 * 
+	 * @var string
 	 */
-	public $actions;
+	public $webVttUrl = null;
 
 	/**
-	 * Array of actions as received from the rules that invalidated
-	 * @var array<KalturaAccessControlMessage>
+	 * 
+	 * @var string
 	 */
-	public $messages;
+	public $url = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $isDefault = null;
 
 }
