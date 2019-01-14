@@ -397,6 +397,7 @@ class TypeMap
 		'KalturaBulkUploadResultCategoryEntry' => 'Kaltura\Client\Type\BulkUploadResultCategoryEntry',
 		'KalturaBulkUploadResultCategoryUser' => 'Kaltura\Client\Type\BulkUploadResultCategoryUser',
 		'KalturaBulkUploadResultEntry' => 'Kaltura\Client\Type\BulkUploadResultEntry',
+		'KalturaBulkUploadResultJob' => 'Kaltura\Client\Plugin\BulkUploadFilter\Type\BulkUploadResultJob',
 		'KalturaBulkUploadResultScheduleEvent' => 'Kaltura\Client\Plugin\ScheduleBulkUpload\Type\BulkUploadResultScheduleEvent',
 		'KalturaBulkUploadResultScheduleResource' => 'Kaltura\Client\Plugin\ScheduleBulkUpload\Type\BulkUploadResultScheduleResource',
 		'KalturaBulkUploadResultUser' => 'Kaltura\Client\Type\BulkUploadResultUser',
