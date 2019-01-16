@@ -56,6 +56,13 @@ abstract class EntryScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\S
 			$this->entryIds = (string)$xml->entryIds;
 		if(count($xml->categoryIds))
 			$this->categoryIds = (string)$xml->categoryIds;
+		if(count($xml->blackoutConflicts))
+		{
+			if(empty($xml->blackoutConflicts))
+				$this->blackoutConflicts = array();
+			else
+				$this->blackoutConflicts = \Kaltura\Client\ParseUtils::unmarshalArray($xml->blackoutConflicts, "KalturaScheduleEvent");
+		}
 	}
 	/**
 	 * Entry to be used as template during content ingestion
@@ -74,5 +81,12 @@ abstract class EntryScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\S
 	 * @var string
 	 */
 	public $categoryIds = null;
+
+	/**
+	 * Blackout schedule events the conflict with this event
+	 * @var array<KalturaScheduleEvent>
+	 * @readonly
+	 */
+	public $blackoutConflicts;
 
 }

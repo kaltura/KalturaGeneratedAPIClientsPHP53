@@ -36,10 +36,10 @@ namespace Kaltura\Client\Plugin\Schedule\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduleEventType extends \Kaltura\Client\EnumBase
+class ScheduleEventConflictType extends \Kaltura\Client\EnumBase
 {
-	const RECORD = 1;
-	const LIVE_STREAM = 2;
-	const BLACKOUT = 3;
+	const RESOURCE_CONFLICT = 1;
+	const BLACKOUT_CONFLICT = 2;
+	const BOTH = 3;
 }
 

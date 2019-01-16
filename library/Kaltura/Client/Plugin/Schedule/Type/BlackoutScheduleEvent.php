@@ -30,16 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Schedule\Enum;
+namespace Kaltura\Client\Plugin\Schedule\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ScheduleEventType extends \Kaltura\Client\EnumBase
+class BlackoutScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent
 {
-	const RECORD = 1;
-	const LIVE_STREAM = 2;
-	const BLACKOUT = 3;
+	public function getKalturaObjectType()
+	{
+		return 'KalturaBlackoutScheduleEvent';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

@@ -153,12 +153,13 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventListResponse
 	 */
-	function getConflicts($resourceIds, \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent $scheduleEvent, $scheduleEventIdToIgnore = null)
+	function getConflicts($resourceIds, \Kaltura\Client\Plugin\Schedule\Type\ScheduleEvent $scheduleEvent, $scheduleEventIdToIgnore = null, $scheduleEventConflictType = 1)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "resourceIds", $resourceIds);
 		$this->client->addParam($kparams, "scheduleEvent", $scheduleEvent->toParams());
 		$this->client->addParam($kparams, "scheduleEventIdToIgnore", $scheduleEventIdToIgnore);
+		$this->client->addParam($kparams, "scheduleEventConflictType", $scheduleEventConflictType);
 		$this->client->queueServiceActionCall("schedule_scheduleevent", "getConflicts", "KalturaScheduleEventListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

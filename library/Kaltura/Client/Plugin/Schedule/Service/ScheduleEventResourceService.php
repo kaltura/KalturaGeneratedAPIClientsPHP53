@@ -108,13 +108,14 @@ class ScheduleEventResourceService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\Schedule\Type\ScheduleEventResourceListResponse
 	 */
-	function listAction(\Kaltura\Client\Plugin\Schedule\Type\ScheduleEventResourceFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null)
+	function listAction(\Kaltura\Client\Plugin\Schedule\Type\ScheduleEventResourceFilter $filter = null, \Kaltura\Client\Type\FilterPager $pager = null, $filterBlackoutConflicts = true)
 	{
 		$kparams = array();
 		if ($filter !== null)
 			$this->client->addParam($kparams, "filter", $filter->toParams());
 		if ($pager !== null)
 			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->addParam($kparams, "filterBlackoutConflicts", $filterBlackoutConflicts);
 		$this->client->queueServiceActionCall("schedule_scheduleeventresource", "list", "KalturaScheduleEventResourceListResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
