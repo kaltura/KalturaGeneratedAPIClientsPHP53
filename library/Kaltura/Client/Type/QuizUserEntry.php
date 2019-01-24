@@ -52,6 +52,8 @@ class QuizUserEntry extends \Kaltura\Client\Type\UserEntry
 		
 		if(count($xml->score))
 			$this->score = (float)$xml->score;
+		if(count($xml->feedback))
+			$this->feedback = (string)$xml->feedback;
 	}
 	/**
 	 * 
@@ -59,5 +61,11 @@ class QuizUserEntry extends \Kaltura\Client\Type\UserEntry
 	 * @readonly
 	 */
 	public $score = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $feedback = null;
 
 }
