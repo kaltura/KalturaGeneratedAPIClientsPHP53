@@ -149,7 +149,7 @@ class VirusScanProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update exisitng virus scan profile, it is possible to update the virus scan profile id too
+	 * Update existing virus scan profile, it is possible to update the virus scan profile id too
 	 * 
 	 * @return \Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfile
 	 */

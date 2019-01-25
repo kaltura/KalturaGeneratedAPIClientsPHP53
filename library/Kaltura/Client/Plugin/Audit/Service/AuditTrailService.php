@@ -34,7 +34,8 @@
 namespace Kaltura\Client\Plugin\Audit\Service;
 
 /**
- * Audit Trail service
+ * The Audit Trail service allows you to keep track of changes made to various Kaltura objects. 
+ *  This service is disabled by default.
  * @package Kaltura
  * @subpackage Client
  */

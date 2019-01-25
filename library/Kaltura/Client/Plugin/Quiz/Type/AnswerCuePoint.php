@@ -69,6 +69,8 @@ class AnswerCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 		}
 		if(count($xml->explanation))
 			$this->explanation = (string)$xml->explanation;
+		if(count($xml->feedback))
+			$this->feedback = (string)$xml->feedback;
 	}
 	/**
 	 * 
@@ -116,5 +118,11 @@ class AnswerCuePoint extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 * @readonly
 	 */
 	public $explanation = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $feedback = null;
 
 }

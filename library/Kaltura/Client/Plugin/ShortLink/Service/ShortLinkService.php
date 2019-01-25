@@ -147,7 +147,7 @@ class ShortLinkService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update exisitng short link
+	 * Update existing short link
 	 * 
 	 * @return \Kaltura\Client\Plugin\ShortLink\Type\ShortLink
 	 */

@@ -270,7 +270,7 @@ class MetadataProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Update an existing metadata object xslt file
+	 * Update an existing metadata object XSLT file
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\MetadataProfile
 	 */

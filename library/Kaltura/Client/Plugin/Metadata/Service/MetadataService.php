@@ -69,7 +69,7 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Allows you to add a metadata xml data from remote URL.
+	 * Allows you to add a metadata XML data from remote URL.
 	 * 	 Enables different permissions than addFromUrl action.
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
@@ -117,7 +117,7 @@ class MetadataService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Allows you to add a metadata xml data from remote URL
+	 * Allows you to add a metadata XML data from remote URL
 	 * 
 	 * @return \Kaltura\Client\Plugin\Metadata\Type\Metadata
 	 */

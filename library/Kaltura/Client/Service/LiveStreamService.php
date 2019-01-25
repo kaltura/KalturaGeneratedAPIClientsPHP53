@@ -141,7 +141,7 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Creates perioding metadata sync-point events on a live stream
+	 * Creates periodic metadata sync-point events on a live stream
 	 * 
 	 */
 	function createPeriodicSyncPoints($entryId, $interval, $duration)
