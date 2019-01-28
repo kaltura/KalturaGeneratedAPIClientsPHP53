@@ -67,6 +67,8 @@ class CaptionPlaybackPluginData extends \Kaltura\Client\ObjectBase
 			else
 				$this->isDefault = false;
 		}
+		if(count($xml->languageCode))
+			$this->languageCode = (string)$xml->languageCode;
 	}
 	/**
 	 * 
@@ -103,5 +105,11 @@ class CaptionPlaybackPluginData extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $isDefault = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $languageCode = null;
 
 }
