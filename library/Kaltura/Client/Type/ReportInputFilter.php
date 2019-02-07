@@ -96,6 +96,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->mediaTypeIn = (string)$xml->mediaTypeIn;
 		if(count($xml->sourceTypeIn))
 			$this->sourceTypeIn = (string)$xml->sourceTypeIn;
+		if(count($xml->ownerIdsIn))
+			$this->ownerIdsIn = (string)$xml->ownerIdsIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -204,5 +206,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $sourceTypeIn = null;
+
+	/**
+	 * Filter by entry owner
+	 * @var string
+	 */
+	public $ownerIdsIn = null;
 
 }

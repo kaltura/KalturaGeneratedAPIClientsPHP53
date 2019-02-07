@@ -43,9 +43,15 @@ class ESearchEntryOrderByFieldName extends \Kaltura\Client\EnumBase
 	const LAST_PLAYED_AT = "last_played_at";
 	const NAME = "name";
 	const PLAYS = "plays";
+	const PLAYS_LAST_1_DAY = "plays_last_1_day";
+	const PLAYS_LAST_30_DAYS = "plays_last_30_days";
+	const PLAYS_LAST_7_DAYS = "plays_last_7_days";
 	const START_DATE = "start_date";
 	const UPDATED_AT = "updated_at";
 	const VIEWS = "views";
+	const VIEWS_LAST_1_DAY = "views_last_1_day";
+	const VIEWS_LAST_30_DAYS = "views_last_30_days";
+	const VIEWS_LAST_7_DAYS = "views_last_7_days";
 	const VOTES = "votes";
 }
 
