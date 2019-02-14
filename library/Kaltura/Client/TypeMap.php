@@ -293,6 +293,7 @@ class TypeMap
 		'KalturaReportGraph' => 'Kaltura\Client\Type\ReportGraph',
 		'KalturaReportInputBaseFilter' => 'Kaltura\Client\Type\ReportInputBaseFilter',
 		'KalturaReportResponse' => 'Kaltura\Client\Type\ReportResponse',
+		'KalturaReportResponseOptions' => 'Kaltura\Client\Type\ReportResponseOptions',
 		'KalturaReportTable' => 'Kaltura\Client\Type\ReportTable',
 		'KalturaReportTotal' => 'Kaltura\Client\Type\ReportTotal',
 		'KalturaRequestConfiguration' => 'Kaltura\Client\Type\RequestConfiguration',
