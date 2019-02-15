@@ -52,11 +52,24 @@ class ReportResponseOptions extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->delimiter))
 			$this->delimiter = (string)$xml->delimiter;
+		if(count($xml->skipEmptyDates))
+		{
+			if(!empty($xml->skipEmptyDates))
+				$this->skipEmptyDates = true;
+			else
+				$this->skipEmptyDates = false;
+		}
 	}
 	/**
 	 * 
 	 * @var string
 	 */
 	public $delimiter = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $skipEmptyDates = null;
 
 }
