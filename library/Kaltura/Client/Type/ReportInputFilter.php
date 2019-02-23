@@ -100,6 +100,10 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->ownerIdsIn = (string)$xml->ownerIdsIn;
 		if(count($xml->entryOperator) && !empty($xml->entryOperator))
 			$this->entryOperator = \Kaltura\Client\ParseUtils::unmarshalObject($xml->entryOperator, "KalturaESearchEntryOperator");
+		if(count($xml->entryCreatedAtGreaterThanOrEqual))
+			$this->entryCreatedAtGreaterThanOrEqual = (int)$xml->entryCreatedAtGreaterThanOrEqual;
+		if(count($xml->entryCreatedAtLessThanOrEqual))
+			$this->entryCreatedAtLessThanOrEqual = (int)$xml->entryCreatedAtLessThanOrEqual;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -220,5 +224,17 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryOperator
 	 */
 	public $entryOperator;
+
+	/**
+	 * Entry created at greater than or equal as Unix timestamp
+	 * @var int
+	 */
+	public $entryCreatedAtGreaterThanOrEqual = null;
+
+	/**
+	 * Entry created at less than or equal as Unix timestamp
+	 * @var int
+	 */
+	public $entryCreatedAtLessThanOrEqual = null;
 
 }

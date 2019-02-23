@@ -59,7 +59,7 @@ class ClipConcatJobData extends \Kaltura\Client\Type\JobData
 			if(empty($xml->operationAttributes))
 				$this->operationAttributes = array();
 			else
-				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaObject");
+				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
 		}
 	}
 	/**
@@ -76,7 +76,7 @@ class ClipConcatJobData extends \Kaltura\Client\Type\JobData
 
 	/**
 	 * clip operations
-	 * @var array<KalturaObject>
+	 * @var array<KalturaOperationAttributes>
 	 */
 	public $operationAttributes;
 
