@@ -104,6 +104,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->entryCreatedAtGreaterThanOrEqual = (int)$xml->entryCreatedAtGreaterThanOrEqual;
 		if(count($xml->entryCreatedAtLessThanOrEqual))
 			$this->entryCreatedAtLessThanOrEqual = (int)$xml->entryCreatedAtLessThanOrEqual;
+		if(count($xml->entryIdIn))
+			$this->entryIdIn = (string)$xml->entryIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -236,5 +238,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var int
 	 */
 	public $entryCreatedAtLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entryIdIn = null;
 
 }

@@ -164,17 +164,21 @@ class UserEntryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return \Kaltura\Client\Type\UserEntry
 	 */
 	function update($id, \Kaltura\Client\Type\UserEntry $userEntry)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "userEntry", $userEntry->toParams());
-		$this->client->queueServiceActionCall("userentry", "update", null, $kparams);
+		$this->client->queueServiceActionCall("userentry", "update", "KalturaUserEntry", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUserEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\UserEntry");
+		return $resultObject;
 	}
 }
