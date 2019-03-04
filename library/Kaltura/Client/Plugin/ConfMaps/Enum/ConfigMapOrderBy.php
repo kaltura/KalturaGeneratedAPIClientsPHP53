@@ -27,18 +27,3 @@
 // @ignore
 // ===================================================================================================
 
-/**
- * @namespace
- */
-namespace Kaltura\Client\Enum;
-
-/**
- * @package Kaltura
- * @subpackage Client
- */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
-{
-	const FS = "FileSystem";
-	const DB = "database";
-}
-

@@ -30,15 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\ConfMaps\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+abstract class ConfMapsBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 {
-	const FS = "FileSystem";
-	const DB = "database";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaConfMapsBaseFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->nameEqual))
+			$this->nameEqual = (string)$xml->nameEqual;
+		if(count($xml->relatedHostEqual))
+			$this->relatedHostEqual = (string)$xml->relatedHostEqual;
+		if(count($xml->versionEqual))
+			$this->versionEqual = (int)$xml->versionEqual;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $nameEqual = null;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $relatedHostEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $versionEqual = null;
+
+}

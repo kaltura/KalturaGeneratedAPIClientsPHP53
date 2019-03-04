@@ -30,15 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class BeaconScheduledResourceOrderByFieldName extends \Kaltura\Client\EnumBase
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	const STATUS = "app_status";
+	const RECORDING = "recording_phase";
+	const RESOURCE_NAME = "resource_Name";
+	const UPDATED_AT = "updated_at";
 }
 

@@ -30,15 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\ElasticSearch\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+abstract class ESearchBaseFilter extends \Kaltura\Client\ObjectBase
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	public function getKalturaObjectType()
+	{
+		return 'KalturaESearchBaseFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

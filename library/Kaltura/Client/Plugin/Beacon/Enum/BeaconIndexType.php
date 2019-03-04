@@ -30,15 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class BeaconIndexType extends \Kaltura\Client\EnumBase
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	const LOG = "Log";
+	const STATE = "State";
 }
 

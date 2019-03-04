@@ -30,15 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class BeaconOrderBy extends \Kaltura\Client\EnumBase
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	const OBJECT_ID_ASC = "+objectId";
+	const UPDATED_AT_ASC = "+updatedAt";
+	const OBJECT_ID_DESC = "-objectId";
+	const UPDATED_AT_DESC = "-updatedAt";
 }
 

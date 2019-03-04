@@ -30,15 +30,41 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class BeaconScheduledResourceSearchParams extends \Kaltura\Client\Plugin\Beacon\Type\BeaconSearchParams
 {
-	const FS = "FileSystem";
-	const DB = "database";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaBeaconScheduledResourceSearchParams';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->searchOperator) && !empty($xml->searchOperator))
+			$this->searchOperator = \Kaltura\Client\ParseUtils::unmarshalObject($xml->searchOperator, "KalturaBeaconScheduledResourceOperator");
+		if(count($xml->orderBy) && !empty($xml->orderBy))
+			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaBeaconSearchScheduledResourceOrderBy");
+	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Beacon\Type\BeaconScheduledResourceOperator
+	 */
+	public $searchOperator;
 
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Beacon\Type\BeaconSearchScheduledResourceOrderBy
+	 */
+	public $orderBy;
+
+}

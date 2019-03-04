@@ -30,15 +30,58 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\SearchHistory;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class SearchHistoryPlugin extends \Kaltura\Client\Plugin
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	/**
+	 * @var Service\SearchHistoryService
+	 */
+	protected $searchHistory = null;
+
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return SearchHistoryPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new SearchHistoryPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+			'searchHistory' => $this->getSearchHistoryService(),
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'searchHistory';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\SearchHistory\Service\SearchHistoryService
+	 */
+	public function getSearchHistoryService()
+	{
+		if (is_null($this->searchHistory))
+			$this->searchHistory = new Service\SearchHistoryService($this->_client);
+		return $this->searchHistory;
+	}
 }
 

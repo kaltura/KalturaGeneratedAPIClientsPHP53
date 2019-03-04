@@ -30,15 +30,58 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class BeaconPlugin extends \Kaltura\Client\Plugin
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	/**
+	 * @var Service\BeaconService
+	 */
+	protected $beacon = null;
+
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return BeaconPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new BeaconPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+			'beacon' => $this->getBeaconService(),
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'beacon';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Beacon\Service\BeaconService
+	 */
+	public function getBeaconService()
+	{
+		if (is_null($this->beacon))
+			$this->beacon = new Service\BeaconService($this->_client);
+		return $this->beacon;
+	}
 }
 

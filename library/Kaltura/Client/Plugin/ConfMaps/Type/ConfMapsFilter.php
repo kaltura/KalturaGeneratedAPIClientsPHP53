@@ -30,15 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\ConfMaps\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class ConfMapsFilter extends \Kaltura\Client\Plugin\ConfMaps\Type\ConfMapsBaseFilter
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	public function getKalturaObjectType()
+	{
+		return 'KalturaConfMapsFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

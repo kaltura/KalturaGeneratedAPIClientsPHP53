@@ -30,15 +30,20 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class BeaconScheduledResourceFieldName extends \Kaltura\Client\EnumBase
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	const EVENT_TYPE = "event_type";
+	const IS_LOG = "is_log";
+	const OBJECT_ID = "object_id";
+	const RECORDING = "recording";
+	const RESOURCE_NAME = "resource_name";
+	const STATUS = "status";
+	const UPDATED_AT = "updated_at";
 }
 

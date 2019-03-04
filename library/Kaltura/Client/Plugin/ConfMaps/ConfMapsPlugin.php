@@ -30,15 +30,58 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\ConfMaps;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class ConfMapsPlugin extends \Kaltura\Client\Plugin
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	/**
+	 * @var Service\ConfMapsService
+	 */
+	protected $confMaps = null;
+
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return ConfMapsPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new ConfMapsPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+			'confMaps' => $this->getConfMapsService(),
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'confMaps';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\ConfMaps\Service\ConfMapsService
+	 */
+	public function getConfMapsService()
+	{
+		if (is_null($this->confMaps))
+			$this->confMaps = new Service\ConfMapsService($this->_client);
+		return $this->confMaps;
+	}
 }
 

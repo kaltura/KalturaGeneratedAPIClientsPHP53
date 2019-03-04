@@ -30,15 +30,73 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+abstract class BeaconBaseFilter extends \Kaltura\Client\Type\Filter
 {
-	const FS = "FileSystem";
-	const DB = "database";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaBeaconBaseFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->updatedAtGreaterThanOrEqual))
+			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
+		if(count($xml->updatedAtLessThanOrEqual))
+			$this->updatedAtLessThanOrEqual = (int)$xml->updatedAtLessThanOrEqual;
+		if(count($xml->relatedObjectTypeIn))
+			$this->relatedObjectTypeIn = (string)$xml->relatedObjectTypeIn;
+		if(count($xml->relatedObjectTypeEqual))
+			$this->relatedObjectTypeEqual = (string)$xml->relatedObjectTypeEqual;
+		if(count($xml->eventTypeIn))
+			$this->eventTypeIn = (string)$xml->eventTypeIn;
+		if(count($xml->objectIdIn))
+			$this->objectIdIn = (string)$xml->objectIdIn;
+	}
+	/**
+	 * 
+	 * @var int
+	 */
+	public $updatedAtGreaterThanOrEqual = null;
 
+	/**
+	 * 
+	 * @var int
+	 */
+	public $updatedAtLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $relatedObjectTypeIn = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Beacon\Enum\BeaconObjectTypes
+	 */
+	public $relatedObjectTypeEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $eventTypeIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $objectIdIn = null;
+
+}

@@ -30,15 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\ConfMaps\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class ConfMapsStatus extends \Kaltura\Client\EnumBase
 {
-	const FS = "FileSystem";
-	const DB = "database";
+	const STATUS_DISABLED = 0;
+	const STATUS_ENABLED = 1;
 }
 

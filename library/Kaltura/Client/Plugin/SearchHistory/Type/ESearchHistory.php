@@ -30,15 +30,52 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\SearchHistory\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class ESearchHistory extends \Kaltura\Client\ObjectBase
 {
-	const FS = "FileSystem";
-	const DB = "database";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaESearchHistory';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->searchTerm))
+			$this->searchTerm = (string)$xml->searchTerm;
+		if(count($xml->searchedObject))
+			$this->searchedObject = (string)$xml->searchedObject;
+		if(count($xml->timestamp))
+			$this->timestamp = (int)$xml->timestamp;
+	}
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $searchTerm = null;
 
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $searchedObject = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $timestamp = null;
+
+}

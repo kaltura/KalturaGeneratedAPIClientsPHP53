@@ -30,15 +30,33 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Beacon\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConfMapsSourceLocation extends \Kaltura\Client\EnumBase
+class BeaconFilter extends \Kaltura\Client\Plugin\Beacon\Type\BeaconBaseFilter
 {
-	const FS = "FileSystem";
-	const DB = "database";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaBeaconFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->indexTypeEqual))
+			$this->indexTypeEqual = (string)$xml->indexTypeEqual;
+	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Beacon\Enum\BeaconIndexType
+	 */
+	public $indexTypeEqual = null;
 
+}
