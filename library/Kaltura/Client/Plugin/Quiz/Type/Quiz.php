@@ -71,6 +71,8 @@ class Quiz extends \Kaltura\Client\ObjectBase
 			$this->allowDownload = (int)$xml->allowDownload;
 		if(count($xml->showGradeAfterSubmission))
 			$this->showGradeAfterSubmission = (int)$xml->showGradeAfterSubmission;
+		if(count($xml->maxRetakesAllowed))
+			$this->maxRetakesAllowed = (int)$xml->maxRetakesAllowed;
 	}
 	/**
 	 * 
@@ -120,5 +122,11 @@ class Quiz extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $showGradeAfterSubmission = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $maxRetakesAllowed = null;
 
 }

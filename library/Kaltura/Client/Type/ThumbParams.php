@@ -89,6 +89,8 @@ class ThumbParams extends \Kaltura\Client\Type\AssetParams
 		}
 		if(count($xml->videoOffsetInPercentage))
 			$this->videoOffsetInPercentage = (int)$xml->videoOffsetInPercentage;
+		if(count($xml->interval))
+			$this->interval = (int)$xml->interval;
 	}
 	/**
 	 * 
@@ -191,5 +193,11 @@ class ThumbParams extends \Kaltura\Client\Type\AssetParams
 	 * @var int
 	 */
 	public $videoOffsetInPercentage = null;
+
+	/**
+	 * interval in seconds for creating thumbnail
+	 * @var int
+	 */
+	public $interval = null;
 
 }

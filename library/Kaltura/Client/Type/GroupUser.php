@@ -50,6 +50,8 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->id))
+			$this->id = (string)$xml->id;
 		if(count($xml->userId))
 			$this->userId = (string)$xml->userId;
 		if(count($xml->groupId))
@@ -64,7 +66,16 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->creationMode))
 			$this->creationMode = (int)$xml->creationMode;
+		if(count($xml->userRole))
+			$this->userRole = (int)$xml->userRole;
 	}
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $id = null;
+
 	/**
 	 * 
 	 * @var string
@@ -113,5 +124,11 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 	 * @insertonly
 	 */
 	public $creationMode = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\GroupUserRole
+	 */
+	public $userRole = null;
 
 }

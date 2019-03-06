@@ -36,37 +36,9 @@ namespace Kaltura\Client\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ContainerFormat extends \Kaltura\Client\EnumBase
+class GroupUserRole extends \Kaltura\Client\EnumBase
 {
-	const _3GP = "3gp";
-	const APPLEHTTP = "applehttp";
-	const AVI = "avi";
-	const BIF = "bif";
-	const BMP = "bmp";
-	const COPY = "copy";
-	const FLV = "flv";
-	const HLS = "hls";
-	const ISMA = "isma";
-	const ISMV = "ismv";
-	const JPG = "jpg";
-	const M2TS = "m2ts";
-	const M4V = "m4v";
-	const MKV = "mkv";
-	const MOV = "mov";
-	const MP3 = "mp3";
-	const MP4 = "mp4";
-	const MPEG = "mpeg";
-	const MPEGTS = "mpegts";
-	const MXF = "mxf";
-	const OGG = "ogg";
-	const OGV = "ogv";
-	const PDF = "pdf";
-	const PNG = "png";
-	const SWF = "swf";
-	const WAV = "wav";
-	const WEBM = "webm";
-	const WMA = "wma";
-	const WMV = "wmv";
-	const WVM = "wvm";
+	const MEMBER = 1;
+	const MANAGER = 2;
 }
 
