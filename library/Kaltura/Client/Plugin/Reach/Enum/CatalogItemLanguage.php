@@ -30,35 +30,33 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Reach\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConditionType extends \Kaltura\Client\EnumBase
+class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 {
-	const EVENT_NOTIFICATION_FIELD = "eventNotification.BooleanField";
-	const EVENT_NOTIFICATION_OBJECT_CHANGED = "eventNotification.ObjectChanged";
-	const METADATA_FIELD_CHANGED = "metadata.FieldChanged";
-	const METADATA_FIELD_COMPARE = "metadata.FieldCompare";
-	const METADATA_FIELD_MATCH = "metadata.FieldMatch";
-	const EVENT_CATEGORY_ENTRY = "reach.CategoryEntry";
-	const AUTHENTICATED = "1";
-	const COUNTRY = "2";
-	const IP_ADDRESS = "3";
-	const SITE = "4";
-	const USER_AGENT = "5";
-	const FIELD_MATCH = "6";
-	const FIELD_COMPARE = "7";
-	const ASSET_PROPERTIES_COMPARE = "8";
-	const USER_ROLE = "9";
-	const GEO_DISTANCE = "10";
-	const OR_OPERATOR = "11";
-	const HASH = "12";
-	const DELIVERY_PROFILE = "13";
-	const ACTIVE_EDGE_VALIDATE = "14";
-	const ANONYMOUS_IP = "15";
-	const ASSET_TYPE = "16";
+	const AR = "Arabic";
+	const YUE = "Cantonese";
+	const ZH = "Chinese";
+	const NL = "Dutch";
+	const EN = "English";
+	const EN_US = "English (American)";
+	const EN_GB = "English (British)";
+	const FR = "French";
+	const DE = "German";
+	const HE = "Hebrew";
+	const HI = "Hindi";
+	const IT = "Italian";
+	const JA = "Japanese";
+	const KO = "Korean";
+	const CMN = "Mandarin Chinese";
+	const PT = "Portuguese";
+	const RU = "Russian";
+	const ES = "Spanish";
+	const TH = "Thai";
+	const TR = "Turkish";
 }
 

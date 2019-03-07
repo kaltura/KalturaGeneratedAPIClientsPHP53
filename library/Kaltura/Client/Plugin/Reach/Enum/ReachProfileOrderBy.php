@@ -30,35 +30,19 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Reach\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ConditionType extends \Kaltura\Client\EnumBase
+class ReachProfileOrderBy extends \Kaltura\Client\EnumBase
 {
-	const EVENT_NOTIFICATION_FIELD = "eventNotification.BooleanField";
-	const EVENT_NOTIFICATION_OBJECT_CHANGED = "eventNotification.ObjectChanged";
-	const METADATA_FIELD_CHANGED = "metadata.FieldChanged";
-	const METADATA_FIELD_COMPARE = "metadata.FieldCompare";
-	const METADATA_FIELD_MATCH = "metadata.FieldMatch";
-	const EVENT_CATEGORY_ENTRY = "reach.CategoryEntry";
-	const AUTHENTICATED = "1";
-	const COUNTRY = "2";
-	const IP_ADDRESS = "3";
-	const SITE = "4";
-	const USER_AGENT = "5";
-	const FIELD_MATCH = "6";
-	const FIELD_COMPARE = "7";
-	const ASSET_PROPERTIES_COMPARE = "8";
-	const USER_ROLE = "9";
-	const GEO_DISTANCE = "10";
-	const OR_OPERATOR = "11";
-	const HASH = "12";
-	const DELIVERY_PROFILE = "13";
-	const ACTIVE_EDGE_VALIDATE = "14";
-	const ANONYMOUS_IP = "15";
-	const ASSET_TYPE = "16";
+	const CREATED_AT_ASC = "+createdAt";
+	const ID_ASC = "+id";
+	const UPDATED_AT_ASC = "+updatedAt";
+	const CREATED_AT_DESC = "-createdAt";
+	const ID_DESC = "-id";
+	const UPDATED_AT_DESC = "-updatedAt";
 }
 

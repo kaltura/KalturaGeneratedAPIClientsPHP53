@@ -73,6 +73,8 @@ class Quiz extends \Kaltura\Client\ObjectBase
 			$this->showGradeAfterSubmission = (int)$xml->showGradeAfterSubmission;
 		if(count($xml->maxRetakesAllowed))
 			$this->maxRetakesAllowed = (int)$xml->maxRetakesAllowed;
+		if(count($xml->scoreType))
+			$this->scoreType = (int)$xml->scoreType;
 	}
 	/**
 	 * 
@@ -128,5 +130,11 @@ class Quiz extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 */
 	public $maxRetakesAllowed = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\CuePoint\Enum\ScoreType
+	 */
+	public $scoreType = null;
 
 }

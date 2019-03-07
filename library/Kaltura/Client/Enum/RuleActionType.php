@@ -39,6 +39,7 @@ namespace Kaltura\Client\Enum;
 class RuleActionType extends \Kaltura\Client\EnumBase
 {
 	const DRM_POLICY = "drm.DRM_POLICY";
+	const ADD_ENTRY_VENDOR_TASK = "reach.ADD_ENTRY_VENDOR_TASK";
 	const BLOCK = "1";
 	const PREVIEW = "2";
 	const LIMIT_FLAVORS = "3";
