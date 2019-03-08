@@ -27,3 +27,36 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Type;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class BooleanEventNotificationCondition extends \Kaltura\Client\Type\Condition
+{
+	public function getKalturaObjectType()
+	{
+		return 'KalturaBooleanEventNotificationCondition';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->booleanEventNotificationIds))
+			$this->booleanEventNotificationIds = (string)$xml->booleanEventNotificationIds;
+	}
+	/**
+	 * The boolean event notification ids
+	 * @var string
+	 */
+	public $booleanEventNotificationIds = null;
+
+}

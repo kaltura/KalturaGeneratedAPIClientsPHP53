@@ -60,5 +60,6 @@ class ConditionType extends \Kaltura\Client\EnumBase
 	const ACTIVE_EDGE_VALIDATE = "14";
 	const ANONYMOUS_IP = "15";
 	const ASSET_TYPE = "16";
+	const BOOLEAN = "17";
 }
 

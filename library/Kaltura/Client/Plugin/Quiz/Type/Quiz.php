@@ -71,8 +71,8 @@ class Quiz extends \Kaltura\Client\ObjectBase
 			$this->allowDownload = (int)$xml->allowDownload;
 		if(count($xml->showGradeAfterSubmission))
 			$this->showGradeAfterSubmission = (int)$xml->showGradeAfterSubmission;
-		if(count($xml->maxRetakesAllowed))
-			$this->maxRetakesAllowed = (int)$xml->maxRetakesAllowed;
+		if(count($xml->attemptsAllowed))
+			$this->attemptsAllowed = (int)$xml->attemptsAllowed;
 		if(count($xml->scoreType))
 			$this->scoreType = (int)$xml->scoreType;
 	}
@@ -129,7 +129,7 @@ class Quiz extends \Kaltura\Client\ObjectBase
 	 * 
 	 * @var int
 	 */
-	public $maxRetakesAllowed = null;
+	public $attemptsAllowed = null;
 
 	/**
 	 * 

@@ -406,6 +406,7 @@ class TypeMap
 		'KalturaBeaconScheduledResourceOperator' => 'Kaltura\Client\Plugin\Beacon\Type\BeaconScheduledResourceOperator',
 		'KalturaBeaconScheduledResourceSearchParams' => 'Kaltura\Client\Plugin\Beacon\Type\BeaconScheduledResourceSearchParams',
 		'KalturaBlackoutScheduleEvent' => 'Kaltura\Client\Plugin\Schedule\Type\BlackoutScheduleEvent',
+		'KalturaBooleanEventNotificationCondition' => 'Kaltura\Client\Type\BooleanEventNotificationCondition',
 		'KalturaBpmEventNotificationIntegrationJobTriggerData' => 'Kaltura\Client\Plugin\BpmEventNotificationIntegration\Type\BpmEventNotificationIntegrationJobTriggerData',
 		'KalturaBulkDownloadJobData' => 'Kaltura\Client\Type\BulkDownloadJobData',
 		'KalturaBulkServiceFilterData' => 'Kaltura\Client\Plugin\BulkUploadFilter\Type\BulkServiceFilterData',
