@@ -27,20 +27,3 @@
 // @ignore
 // ===================================================================================================
 
-/**
- * @namespace
- */
-namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
-
-/**
- * @package Kaltura
- * @subpackage Client
- */
-class ESearchUserOrderByFieldName extends \Kaltura\Client\EnumBase
-{
-	const CREATED_AT = "created_at";
-	const USER_ID = "puser_id";
-	const SCREEN_NAME = "screen_name";
-	const UPDATED_AT = "updated_at";
-}
-

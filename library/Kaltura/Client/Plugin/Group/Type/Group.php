@@ -30,17 +30,43 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
+namespace Kaltura\Client\Plugin\Group\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchUserOrderByFieldName extends \Kaltura\Client\EnumBase
+class Group extends \Kaltura\Client\Type\User
 {
-	const CREATED_AT = "created_at";
-	const USER_ID = "puser_id";
-	const SCREEN_NAME = "screen_name";
-	const UPDATED_AT = "updated_at";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaGroup';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->type))
+			$this->type = (int)$xml->type;
+		if(count($xml->membersCount))
+			$this->membersCount = (int)$xml->membersCount;
+	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserType
+	 * @insertonly
+	 */
+	public $type = null;
 
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $membersCount = null;
+
+}

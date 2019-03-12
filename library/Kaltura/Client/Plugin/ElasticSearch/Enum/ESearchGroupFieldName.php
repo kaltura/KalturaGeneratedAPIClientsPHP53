@@ -36,11 +36,18 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchUserOrderByFieldName extends \Kaltura\Client\EnumBase
+class ESearchGroupFieldName extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT = "created_at";
-	const USER_ID = "puser_id";
+	const EMAIL = "email";
+	const FIRST_NAME = "first_name";
+	const GROUP_IDS = "group_ids";
+	const LAST_NAME = "last_name";
+	const PERMISSION_NAMES = "permission_names";
+	const ROLE_IDS = "role_ids";
 	const SCREEN_NAME = "screen_name";
+	const TAGS = "tags";
 	const UPDATED_AT = "updated_at";
+	const USER_ID = "user_id";
 }
 

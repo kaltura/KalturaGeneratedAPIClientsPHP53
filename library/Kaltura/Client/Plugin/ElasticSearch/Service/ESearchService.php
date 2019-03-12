@@ -88,6 +88,27 @@ class ESearchService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchGroupResponse
+	 */
+	function searchGroup(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchGroupParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "searchParams", $searchParams->toParams());
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("elasticsearch_esearch", "searchGroup", "KalturaESearchGroupResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaESearchGroupResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\ElasticSearch\\Type\\ESearchGroupResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * 
 	 * @return \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserResponse
 	 */
 	function searchUser(\Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserParams $searchParams, \Kaltura\Client\Type\Pager $pager = null)
