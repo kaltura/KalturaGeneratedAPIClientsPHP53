@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Group\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class Group extends \Kaltura\Client\Type\User
+class Group extends \Kaltura\Client\Type\BaseUser
 {
 	public function getKalturaObjectType()
 	{
@@ -50,18 +50,9 @@ class Group extends \Kaltura\Client\Type\User
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->type))
-			$this->type = (int)$xml->type;
 		if(count($xml->membersCount))
 			$this->membersCount = (int)$xml->membersCount;
 	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserType
-	 * @insertonly
-	 */
-	public $type = null;
-
 	/**
 	 * 
 	 * @var int

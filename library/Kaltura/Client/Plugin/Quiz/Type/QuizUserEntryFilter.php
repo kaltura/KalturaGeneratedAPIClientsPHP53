@@ -50,13 +50,5 @@ class QuizUserEntryFilter extends \Kaltura\Client\Type\QuizUserEntryBaseFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->versionEqual))
-			$this->versionEqual = (int)$xml->versionEqual;
 	}
-	/**
-	 * 
-	 * @var int
-	 */
-	public $versionEqual = null;
-
 }

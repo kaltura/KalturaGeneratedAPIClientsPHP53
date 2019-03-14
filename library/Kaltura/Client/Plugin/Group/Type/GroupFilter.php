@@ -30,17 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Group\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuizUserEntryOrderBy extends \Kaltura\Client\EnumBase
+class GroupFilter extends \Kaltura\Client\Type\UserFilter
 {
-	const CREATED_AT_ASC = "+createdAt";
-	const UPDATED_AT_ASC = "+updatedAt";
-	const CREATED_AT_DESC = "-createdAt";
-	const UPDATED_AT_DESC = "-updatedAt";
+	public function getKalturaObjectType()
+	{
+		return 'KalturaGroupFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

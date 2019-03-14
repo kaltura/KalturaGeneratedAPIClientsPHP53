@@ -30,17 +30,58 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Group;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuizUserEntryOrderBy extends \Kaltura\Client\EnumBase
+class GroupPlugin extends \Kaltura\Client\Plugin
 {
-	const CREATED_AT_ASC = "+createdAt";
-	const UPDATED_AT_ASC = "+updatedAt";
-	const CREATED_AT_DESC = "-createdAt";
-	const UPDATED_AT_DESC = "-updatedAt";
+	/**
+	 * @var Service\GroupService
+	 */
+	protected $group = null;
+
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return GroupPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new GroupPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+			'group' => $this->getGroupService(),
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'group';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Group\Service\GroupService
+	 */
+	public function getGroupService()
+	{
+		if (is_null($this->group))
+			$this->group = new Service\GroupService($this->_client);
+		return $this->group;
+	}
 }
 

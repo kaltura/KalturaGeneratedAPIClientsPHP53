@@ -30,17 +30,39 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Group\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuizUserEntryOrderBy extends \Kaltura\Client\EnumBase
+class GroupListResponse extends \Kaltura\Client\Type\ListResponse
 {
-	const CREATED_AT_ASC = "+createdAt";
-	const UPDATED_AT_ASC = "+updatedAt";
-	const CREATED_AT_DESC = "-createdAt";
-	const UPDATED_AT_DESC = "-updatedAt";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaGroupListResponse';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->objects))
+		{
+			if(empty($xml->objects))
+				$this->objects = array();
+			else
+				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaGroup");
+		}
+	}
+	/**
+	 * 
+	 * @var array<KalturaGroup>
+	 * @readonly
+	 */
+	public $objects;
 
+}
