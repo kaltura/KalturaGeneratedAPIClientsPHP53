@@ -55,7 +55,7 @@ class ESearchGroupOrderByItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\
 	}
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchGroupOrderByFieldName
+	 * @var \Kaltura\Client\Plugin\Group\Enum\ESearchGroupOrderByFieldName
 	 */
 	public $sortField = null;
 

@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Plugin\Group\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchGroupOperator extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserOperator
+class ESearchGroupItem extends \Kaltura\Client\Plugin\Group\Type\ESearchAbstractGroupItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchGroupOperator';
+		return 'KalturaESearchGroupItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,5 +50,13 @@ class ESearchGroupOperator extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESe
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->fieldName))
+			$this->fieldName = (string)$xml->fieldName;
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Group\Enum\ESearchGroupFieldName
+	 */
+	public $fieldName = null;
+
 }

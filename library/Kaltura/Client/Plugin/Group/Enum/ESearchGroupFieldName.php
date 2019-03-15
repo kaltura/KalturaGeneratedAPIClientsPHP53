@@ -30,25 +30,24 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Plugin\Group\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchGroupMetadataItem extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserMetadataItem
+class ESearchGroupFieldName extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaESearchGroupMetadataItem';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-	}
+	const CREATED_AT = "created_at";
+	const EMAIL = "email";
+	const FIRST_NAME = "first_name";
+	const GROUP_IDS = "group_ids";
+	const LAST_NAME = "last_name";
+	const PERMISSION_NAMES = "permission_names";
+	const ROLE_IDS = "role_ids";
+	const SCREEN_NAME = "screen_name";
+	const TAGS = "tags";
+	const UPDATED_AT = "updated_at";
+	const USER_ID = "user_id";
 }
+

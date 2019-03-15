@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Plugin\Group\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchGroupParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams
+abstract class ESearchAbstractGroupItem extends \Kaltura\Client\Plugin\Group\Type\ESearchGroupBaseItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchGroupParams';
+		return 'KalturaESearchAbstractGroupItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,13 +50,42 @@ class ESearchGroupParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESear
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->searchOperator) && !empty($xml->searchOperator))
-			$this->searchOperator = \Kaltura\Client\ParseUtils::unmarshalObject($xml->searchOperator, "KalturaESearchGroupOperator");
+		if(count($xml->searchTerm))
+			$this->searchTerm = (string)$xml->searchTerm;
+		if(count($xml->itemType))
+			$this->itemType = (int)$xml->itemType;
+		if(count($xml->range) && !empty($xml->range))
+			$this->range = \Kaltura\Client\ParseUtils::unmarshalObject($xml->range, "KalturaESearchRange");
+		if(count($xml->addHighlight))
+		{
+			if(!empty($xml->addHighlight))
+				$this->addHighlight = true;
+			else
+				$this->addHighlight = false;
+		}
 	}
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\Group\Type\ESearchGroupOperator
+	 * @var string
 	 */
-	public $searchOperator;
+	public $searchTerm = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchItemType
+	 */
+	public $itemType = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchRange
+	 */
+	public $range;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $addHighlight = null;
 
 }

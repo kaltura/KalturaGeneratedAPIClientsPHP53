@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Plugin\Group\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchGroupParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams
+class ESearchGroupOperator extends \Kaltura\Client\Plugin\Group\Type\ESearchGroupBaseItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchGroupParams';
+		return 'KalturaESearchGroupOperator';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,13 +50,26 @@ class ESearchGroupParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESear
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->searchOperator) && !empty($xml->searchOperator))
-			$this->searchOperator = \Kaltura\Client\ParseUtils::unmarshalObject($xml->searchOperator, "KalturaESearchGroupOperator");
+		if(count($xml->operator))
+			$this->operator = (int)$xml->operator;
+		if(count($xml->searchItems))
+		{
+			if(empty($xml->searchItems))
+				$this->searchItems = array();
+			else
+				$this->searchItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->searchItems, "KalturaESearchGroupBaseItem");
+		}
 	}
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\Group\Type\ESearchGroupOperator
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchOperatorType
 	 */
-	public $searchOperator;
+	public $operator = null;
+
+	/**
+	 * 
+	 * @var array<KalturaESearchGroupBaseItem>
+	 */
+	public $searchItems;
 
 }
