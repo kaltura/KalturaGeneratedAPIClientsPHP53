@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Type;
+namespace Kaltura\Client\Plugin\ElasticSearch\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryVendorTaskCsvJobData extends \Kaltura\Client\Type\ExportCsvJobData
+class MediaEsearchExportToCsvJobData extends \Kaltura\Client\Type\ExportCsvJobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaEntryVendorTaskCsvJobData';
+		return 'KalturaMediaEsearchExportToCsvJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,13 +50,13 @@ class EntryVendorTaskCsvJobData extends \Kaltura\Client\Type\ExportCsvJobData
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->filter) && !empty($xml->filter))
-			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaEntryVendorTaskFilter");
+		if(count($xml->searchParams) && !empty($xml->searchParams))
+			$this->searchParams = \Kaltura\Client\ParseUtils::unmarshalObject($xml->searchParams, "KalturaESearchEntryParams");
 	}
 	/**
-	 * The filter should return the list of users that need to be specified in the csv.
-	 * @var \Kaltura\Client\Plugin\Reach\Type\EntryVendorTaskFilter
+	 * Esearch parameters for the entry search
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryParams
 	 */
-	public $filter;
+	public $searchParams;
 
 }

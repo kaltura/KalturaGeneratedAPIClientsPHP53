@@ -119,6 +119,11 @@ class Client extends Base
 	protected $entryServerNode = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\ExportcsvService
+	 */
+	protected $exportcsv = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\FileAssetService
 	 */
 	protected $fileAsset = null;
@@ -317,8 +322,8 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:19-03-19');
-		$this->setApiVersion('14.16.0');
+		$this->setClientTag('php5:19-03-26');
+		$this->setApiVersion('14.17.0');
 	}
 	
 	/**
@@ -464,6 +469,15 @@ class Client extends Base
 		if (is_null($this->entryServerNode))
 			$this->entryServerNode = new \Kaltura\Client\Service\EntryServerNodeService($this);
 		return $this->entryServerNode;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\ExportcsvService
+	 */
+	public function getExportcsvService()
+	{
+		if (is_null($this->exportcsv))
+			$this->exportcsv = new \Kaltura\Client\Service\ExportcsvService($this);
+		return $this->exportcsv;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\FileAssetService

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class UsersCsvJobData extends \Kaltura\Client\Type\JobData
+class UsersCsvJobData extends \Kaltura\Client\Type\ExportCsvJobData
 {
 	public function getKalturaObjectType()
 	{
@@ -61,12 +61,6 @@ class UsersCsvJobData extends \Kaltura\Client\Type\JobData
 			else
 				$this->additionalFields = \Kaltura\Client\ParseUtils::unmarshalArray($xml->additionalFields, "KalturaCsvAdditionalFieldInfo");
 		}
-		if(count($xml->userName))
-			$this->userName = (string)$xml->userName;
-		if(count($xml->userMail))
-			$this->userMail = (string)$xml->userMail;
-		if(count($xml->outputPath))
-			$this->outputPath = (string)$xml->outputPath;
 	}
 	/**
 	 * The filter should return the list of users that need to be specified in the csv.
@@ -85,23 +79,5 @@ class UsersCsvJobData extends \Kaltura\Client\Type\JobData
 	 * @var array<KalturaCsvAdditionalFieldInfo>
 	 */
 	public $additionalFields;
-
-	/**
-	 * The users name
-	 * @var string
-	 */
-	public $userName = null;
-
-	/**
-	 * The users email
-	 * @var string
-	 */
-	public $userMail = null;
-
-	/**
-	 * The file location
-	 * @var string
-	 */
-	public $outputPath = null;
 
 }

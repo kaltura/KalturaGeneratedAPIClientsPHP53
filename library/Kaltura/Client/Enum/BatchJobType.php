@@ -41,10 +41,10 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
 	const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
 	const DISTRIBUTION_DELETE = "contentDistribution.DistributionDelete";
+	const CONVERT = "0";
 	const DISTRIBUTION_DISABLE = "contentDistribution.DistributionDisable";
 	const DISTRIBUTION_ENABLE = "contentDistribution.DistributionEnable";
 	const DISTRIBUTION_FETCH_REPORT = "contentDistribution.DistributionFetchReport";
-	const CONVERT = "0";
 	const DISTRIBUTION_SUBMIT = "contentDistribution.DistributionSubmit";
 	const DISTRIBUTION_SYNC = "contentDistribution.DistributionSync";
 	const DISTRIBUTION_UPDATE = "contentDistribution.DistributionUpdate";
@@ -103,5 +103,6 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const USERS_CSV = "46";
 	const CLIP_CONCAT = "47";
 	const COPY_CUE_POINTS = "48";
+	const EXPORT_CSV = "49";
 }
 

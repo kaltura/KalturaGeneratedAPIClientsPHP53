@@ -407,6 +407,25 @@ class MediaService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Creates a batch job that sends an email with a link to download a CSV containing a list of entries
+	 * 
+	 * @return string
+	 */
+	function exportToCsv(\Kaltura\Client\Plugin\ElasticSearch\Type\MediaEsearchExportToCsvJobData $data)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "data", $data->toParams());
+		$this->client->queueServiceActionCall("media", "exportToCsv", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Flag inappropriate media entry for moderation
 	 * 
 	 */

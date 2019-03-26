@@ -27,36 +27,40 @@
 // @ignore
 // ===================================================================================================
 
+
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Type;
+namespace Kaltura\Client\Service;
 
 /**
+ * Export CSV service is used to manage CSV exports of objects
  * @package Kaltura
  * @subpackage Client
  */
-class EntryVendorTaskCsvJobData extends \Kaltura\Client\Type\ExportCsvJobData
+class ExportcsvService extends \Kaltura\Client\ServiceBase
 {
-	public function getKalturaObjectType()
+	function __construct(\Kaltura\Client\Client $client = null)
 	{
-		return 'KalturaEntryVendorTaskCsvJobData';
+		parent::__construct($client);
 	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->filter) && !empty($xml->filter))
-			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaEntryVendorTaskFilter");
-	}
-	/**
-	 * The filter should return the list of users that need to be specified in the csv.
-	 * @var \Kaltura\Client\Plugin\Reach\Type\EntryVendorTaskFilter
-	 */
-	public $filter;
 
+	/**
+	 * Will serve a requested CSV
+	 * 
+	 * @return string
+	 */
+	function serveCsv($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("exportcsv", "serveCsv", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
 }

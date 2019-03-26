@@ -106,6 +106,8 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->flavorParamsIds))
 			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
+		if(count($xml->vendorTaskProcessingRegion))
+			$this->vendorTaskProcessingRegion = (int)$xml->vendorTaskProcessingRegion;
 	}
 	/**
 	 * 
@@ -250,5 +252,11 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $flavorParamsIds = null;
+
+	/**
+	 * Indicates in which region the task processing should task place
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorTaskProcessingRegion
+	 */
+	public $vendorTaskProcessingRegion = null;
 
 }

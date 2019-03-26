@@ -81,5 +81,6 @@ class MailType extends \Kaltura\Client\EnumBase
 	const MAIL_TYPE_LIVE_REPORT_EXPORT_FAILURE = "131";
 	const MAIL_TYPE_LIVE_REPORT_EXPORT_ABORT = "132";
 	const MAIL_TYPE_USERS_CSV = "133";
+	const MAIL_TYPE_OBJECTS_CSV = "135";
 }
 
