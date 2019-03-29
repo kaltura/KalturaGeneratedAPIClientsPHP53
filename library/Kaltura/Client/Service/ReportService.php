@@ -70,6 +70,25 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return \Kaltura\Client\Type\ReportExportResponse
+	 */
+	function exportToCsv(\Kaltura\Client\Type\ReportExportParams $params)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "params", $params->toParams());
+		$this->client->queueServiceActionCall("report", "exportToCsv", "KalturaReportExportResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaReportExportResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\ReportExportResponse");
+		return $resultObject;
+	}
+
+	/**
 	 * report getBaseTotal action allows to get the total base for storage reports
 	 * 
 	 * @return array
