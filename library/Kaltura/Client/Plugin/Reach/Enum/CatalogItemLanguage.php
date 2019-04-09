@@ -41,21 +41,26 @@ class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 	const AR = "Arabic";
 	const YUE = "Cantonese";
 	const ZH = "Chinese";
+	const DA = "Danish";
 	const NL = "Dutch";
 	const EN = "English";
 	const EN_US = "English (American)";
 	const EN_GB = "English (British)";
+	const FI = "Finnish";
 	const FR = "French";
 	const DE = "German";
 	const HE = "Hebrew";
 	const HI = "Hindi";
+	const IS = "Icelandic";
 	const IT = "Italian";
 	const JA = "Japanese";
 	const KO = "Korean";
 	const CMN = "Mandarin Chinese";
+	const NO = "Norwegian";
 	const PT = "Portuguese";
 	const RU = "Russian";
 	const ES = "Spanish";
+	const SV = "Swedish";
 	const TH = "Thai";
 	const TR = "Turkish";
 }

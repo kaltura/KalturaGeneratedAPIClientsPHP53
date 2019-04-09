@@ -30,17 +30,33 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VendorServiceFeature extends \Kaltura\Client\EnumBase
+class BulkUploadResultUserEntry extends \Kaltura\Client\Type\BulkUploadResult
 {
-	const CAPTIONS = 1;
-	const TRANSLATION = 2;
-	const ALIGNMENT = 3;
-	const AUDIO_DESCRIPTION = 4;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaBulkUploadResultUserEntry';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->userEntryId))
+			$this->userEntryId = (int)$xml->userEntryId;
+	}
+	/**
+	 * 
+	 * @var int
+	 */
+	public $userEntryId = null;
 
+}

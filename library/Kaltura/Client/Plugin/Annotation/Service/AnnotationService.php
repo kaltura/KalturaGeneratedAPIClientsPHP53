@@ -89,21 +89,22 @@ class AnnotationService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Clone cuePoint with id to given entry
 	 * 
-	 * @return \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
+	 * @return \Kaltura\Client\Plugin\Annotation\Type\Annotation
 	 */
-	function cloneAction($id, $entryId)
+	function cloneAction($id, $entryId, $parentId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("annotation_annotation", "clone", "KalturaCuePoint", $kparams);
+		$this->client->addParam($kparams, "parentId", $parentId);
+		$this->client->queueServiceActionCall("annotation_annotation", "clone", "KalturaAnnotation", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCuePoint");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\CuePoint\\Type\\CuePoint");
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAnnotation");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Annotation\\Type\\Annotation");
 		return $resultObject;
 	}
 

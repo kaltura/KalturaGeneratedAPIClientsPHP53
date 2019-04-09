@@ -80,6 +80,10 @@ abstract class PartnerBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->partnerGroupTypeEqual = (int)$xml->partnerGroupTypeEqual;
 		if(count($xml->partnerNameDescriptionWebsiteAdminNameAdminEmailLike))
 			$this->partnerNameDescriptionWebsiteAdminNameAdminEmailLike = (string)$xml->partnerNameDescriptionWebsiteAdminNameAdminEmailLike;
+		if(count($xml->createdAtGreaterThanOrEqual))
+			$this->createdAtGreaterThanOrEqual = (int)$xml->createdAtGreaterThanOrEqual;
+		if(count($xml->idGreaterThan))
+			$this->idGreaterThan = (int)$xml->idGreaterThan;
 	}
 	/**
 	 * 
@@ -170,5 +174,17 @@ abstract class PartnerBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var string
 	 */
 	public $partnerNameDescriptionWebsiteAdminNameAdminEmailLike = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $createdAtGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $idGreaterThan = null;
 
 }

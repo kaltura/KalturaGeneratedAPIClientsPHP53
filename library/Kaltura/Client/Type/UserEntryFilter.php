@@ -58,6 +58,8 @@ class UserEntryFilter extends \Kaltura\Client\Type\UserEntryBaseFilter
 			$this->privacyContextEqual = (string)$xml->privacyContextEqual;
 		if(count($xml->privacyContextIn))
 			$this->privacyContextIn = (string)$xml->privacyContextIn;
+		if(count($xml->partnerId))
+			$this->partnerId = (int)$xml->partnerId;
 	}
 	/**
 	 * 
@@ -82,5 +84,11 @@ class UserEntryFilter extends \Kaltura\Client\Type\UserEntryBaseFilter
 	 * @var string
 	 */
 	public $privacyContextIn = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $partnerId = null;
 
 }

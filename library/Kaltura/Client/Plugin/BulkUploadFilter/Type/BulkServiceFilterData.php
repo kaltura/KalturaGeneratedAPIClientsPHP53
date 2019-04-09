@@ -37,7 +37,7 @@ namespace Kaltura\Client\Plugin\BulkUploadFilter\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkServiceFilterData extends \Kaltura\Client\Plugin\BulkUpload\Type\BulkServiceData
+class BulkServiceFilterData extends \Kaltura\Client\Plugin\BulkUploadFilter\Type\BulkServiceFilterDataBase
 {
 	public function getKalturaObjectType()
 	{
@@ -51,17 +51,9 @@ class BulkServiceFilterData extends \Kaltura\Client\Plugin\BulkUpload\Type\BulkS
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->filter) && !empty($xml->filter))
-			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaFilter");
 		if(count($xml->templateObject) && !empty($xml->templateObject))
 			$this->templateObject = \Kaltura\Client\ParseUtils::unmarshalObject($xml->templateObject, "KalturaObjectBase");
 	}
-	/**
-	 * Filter for extracting the objects list to upload
-	 * @var \Kaltura\Client\Type\Filter
-	 */
-	public $filter;
-
 	/**
 	 * Template object for new object creation
 	 * @var \Kaltura\Client\Type\KalturaObjectBase

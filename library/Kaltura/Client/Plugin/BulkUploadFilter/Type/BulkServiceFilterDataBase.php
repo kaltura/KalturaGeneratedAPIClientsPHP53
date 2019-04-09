@@ -30,17 +30,34 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\BulkUploadFilter\Type;
 
 /**
+ * Represents the Bulk service input for filter bulk upload
  * @package Kaltura
  * @subpackage Client
  */
-class VendorServiceFeature extends \Kaltura\Client\EnumBase
+class BulkServiceFilterDataBase extends \Kaltura\Client\Plugin\BulkUpload\Type\BulkServiceData
 {
-	const CAPTIONS = 1;
-	const TRANSLATION = 2;
-	const ALIGNMENT = 3;
-	const AUDIO_DESCRIPTION = 4;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaBulkServiceFilterDataBase';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->filter) && !empty($xml->filter))
+			$this->filter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->filter, "KalturaFilter");
+	}
+	/**
+	 * Filter for extracting the objects list to upload
+	 * @var \Kaltura\Client\Type\Filter
+	 */
+	public $filter;
 
+}
