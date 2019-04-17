@@ -58,7 +58,7 @@ class User extends \Kaltura\Client\Type\BaseUser
 			$this->gender = (int)$xml->gender;
 		if(count($xml->isAdmin))
 		{
-			if(!empty($xml->isAdmin))
+			if(!empty($xml->isAdmin) && $xml->isAdmin != 'false')
 				$this->isAdmin = true;
 			else
 				$this->isAdmin = false;
@@ -69,7 +69,7 @@ class User extends \Kaltura\Client\Type\BaseUser
 			$this->roleNames = (string)$xml->roleNames;
 		if(count($xml->isAccountOwner))
 		{
-			if(!empty($xml->isAccountOwner))
+			if(!empty($xml->isAccountOwner) && $xml->isAccountOwner != 'false')
 				$this->isAccountOwner = true;
 			else
 				$this->isAccountOwner = false;
@@ -82,7 +82,7 @@ class User extends \Kaltura\Client\Type\BaseUser
 			$this->lastName = (string)$xml->lastName;
 		if(count($xml->loginEnabled))
 		{
-			if(!empty($xml->loginEnabled))
+			if(!empty($xml->loginEnabled) && $xml->loginEnabled != 'false')
 				$this->loginEnabled = true;
 			else
 				$this->loginEnabled = false;

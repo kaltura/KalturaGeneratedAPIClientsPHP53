@@ -77,7 +77,7 @@ class HuluDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribution
 			$this->videoMediaType = (string)$xml->videoMediaType;
 		if(count($xml->disableEpisodeNumberCustomValidation))
 		{
-			if(!empty($xml->disableEpisodeNumberCustomValidation))
+			if(!empty($xml->disableEpisodeNumberCustomValidation) && $xml->disableEpisodeNumberCustomValidation != 'false')
 				$this->disableEpisodeNumberCustomValidation = true;
 			else
 				$this->disableEpisodeNumberCustomValidation = false;

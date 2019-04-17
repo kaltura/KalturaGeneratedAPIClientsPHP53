@@ -54,14 +54,14 @@ class ExtractMediaJobData extends \Kaltura\Client\Type\ConvartableJobData
 			$this->flavorAssetId = (string)$xml->flavorAssetId;
 		if(count($xml->calculateComplexity))
 		{
-			if(!empty($xml->calculateComplexity))
+			if(!empty($xml->calculateComplexity) && $xml->calculateComplexity != 'false')
 				$this->calculateComplexity = true;
 			else
 				$this->calculateComplexity = false;
 		}
 		if(count($xml->extractId3Tags))
 		{
-			if(!empty($xml->extractId3Tags))
+			if(!empty($xml->extractId3Tags) && $xml->extractId3Tags != 'false')
 				$this->extractId3Tags = true;
 			else
 				$this->extractId3Tags = false;

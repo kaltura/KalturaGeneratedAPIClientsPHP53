@@ -52,7 +52,7 @@ class BusinessProcessStartNotificationTemplate extends \Kaltura\Client\Plugin\Bu
 		
 		if(count($xml->abortOnDeletion))
 		{
-			if(!empty($xml->abortOnDeletion))
+			if(!empty($xml->abortOnDeletion) && $xml->abortOnDeletion != 'false')
 				$this->abortOnDeletion = true;
 			else
 				$this->abortOnDeletion = false;

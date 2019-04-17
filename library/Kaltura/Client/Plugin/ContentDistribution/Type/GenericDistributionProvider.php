@@ -60,7 +60,7 @@ class GenericDistributionProvider extends \Kaltura\Client\Plugin\ContentDistribu
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->isDefault))
 		{
-			if(!empty($xml->isDefault))
+			if(!empty($xml->isDefault) && $xml->isDefault != 'false')
 				$this->isDefault = true;
 			else
 				$this->isDefault = false;

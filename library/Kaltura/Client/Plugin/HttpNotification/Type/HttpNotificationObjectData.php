@@ -57,7 +57,7 @@ class HttpNotificationObjectData extends \Kaltura\Client\Plugin\HttpNotification
 			$this->format = (int)$xml->format;
 		if(count($xml->ignoreNull))
 		{
-			if(!empty($xml->ignoreNull))
+			if(!empty($xml->ignoreNull) && $xml->ignoreNull != 'false')
 				$this->ignoreNull = true;
 			else
 				$this->ignoreNull = false;

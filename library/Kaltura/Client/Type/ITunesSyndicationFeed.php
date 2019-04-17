@@ -70,7 +70,7 @@ class ITunesSyndicationFeed extends \Kaltura\Client\Type\BaseSyndicationFeed
 			$this->feedAuthor = (string)$xml->feedAuthor;
 		if(count($xml->enforceFeedAuthor))
 		{
-			if(!empty($xml->enforceFeedAuthor))
+			if(!empty($xml->enforceFeedAuthor) && $xml->enforceFeedAuthor != 'false')
 				$this->enforceFeedAuthor = true;
 			else
 				$this->enforceFeedAuthor = false;

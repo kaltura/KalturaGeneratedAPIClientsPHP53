@@ -56,7 +56,7 @@ abstract class Condition extends \Kaltura\Client\ObjectBase
 			$this->description = (string)$xml->description;
 		if(count($xml->not))
 		{
-			if(!empty($xml->not))
+			if(!empty($xml->not) && $xml->not != 'false')
 				$this->not = true;
 			else
 				$this->not = false;

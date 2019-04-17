@@ -69,35 +69,35 @@ class CrossKalturaDistributionProfile extends \Kaltura\Client\Plugin\ContentDist
 		}
 		if(count($xml->distributeCaptions))
 		{
-			if(!empty($xml->distributeCaptions))
+			if(!empty($xml->distributeCaptions) && $xml->distributeCaptions != 'false')
 				$this->distributeCaptions = true;
 			else
 				$this->distributeCaptions = false;
 		}
 		if(count($xml->distributeCuePoints))
 		{
-			if(!empty($xml->distributeCuePoints))
+			if(!empty($xml->distributeCuePoints) && $xml->distributeCuePoints != 'false')
 				$this->distributeCuePoints = true;
 			else
 				$this->distributeCuePoints = false;
 		}
 		if(count($xml->distributeRemoteFlavorAssetContent))
 		{
-			if(!empty($xml->distributeRemoteFlavorAssetContent))
+			if(!empty($xml->distributeRemoteFlavorAssetContent) && $xml->distributeRemoteFlavorAssetContent != 'false')
 				$this->distributeRemoteFlavorAssetContent = true;
 			else
 				$this->distributeRemoteFlavorAssetContent = false;
 		}
 		if(count($xml->distributeRemoteThumbAssetContent))
 		{
-			if(!empty($xml->distributeRemoteThumbAssetContent))
+			if(!empty($xml->distributeRemoteThumbAssetContent) && $xml->distributeRemoteThumbAssetContent != 'false')
 				$this->distributeRemoteThumbAssetContent = true;
 			else
 				$this->distributeRemoteThumbAssetContent = false;
 		}
 		if(count($xml->distributeRemoteCaptionAssetContent))
 		{
-			if(!empty($xml->distributeRemoteCaptionAssetContent))
+			if(!empty($xml->distributeRemoteCaptionAssetContent) && $xml->distributeRemoteCaptionAssetContent != 'false')
 				$this->distributeRemoteCaptionAssetContent = true;
 			else
 				$this->distributeRemoteCaptionAssetContent = false;

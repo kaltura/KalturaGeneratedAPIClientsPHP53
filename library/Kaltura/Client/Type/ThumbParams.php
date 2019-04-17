@@ -82,7 +82,7 @@ class ThumbParams extends \Kaltura\Client\Type\AssetParams
 			$this->density = (int)$xml->density;
 		if(count($xml->stripProfiles))
 		{
-			if(!empty($xml->stripProfiles))
+			if(!empty($xml->stripProfiles) && $xml->stripProfiles != 'false')
 				$this->stripProfiles = true;
 			else
 				$this->stripProfiles = false;

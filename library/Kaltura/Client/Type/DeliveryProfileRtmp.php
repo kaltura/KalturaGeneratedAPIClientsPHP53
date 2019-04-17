@@ -52,7 +52,7 @@ class DeliveryProfileRtmp extends \Kaltura\Client\Type\DeliveryProfile
 		
 		if(count($xml->enforceRtmpe))
 		{
-			if(!empty($xml->enforceRtmpe))
+			if(!empty($xml->enforceRtmpe) && $xml->enforceRtmpe != 'false')
 				$this->enforceRtmpe = true;
 			else
 				$this->enforceRtmpe = false;

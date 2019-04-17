@@ -52,7 +52,7 @@ class UiConfAdmin extends \Kaltura\Client\Type\UiConf
 		
 		if(count($xml->isPublic))
 		{
-			if(!empty($xml->isPublic))
+			if(!empty($xml->isPublic) && $xml->isPublic != 'false')
 				$this->isPublic = true;
 			else
 				$this->isPublic = false;

@@ -54,7 +54,7 @@ class UrlTokenizerVnpt extends \Kaltura\Client\Type\UrlTokenizer
 			$this->tokenizationFormat = (int)$xml->tokenizationFormat;
 		if(count($xml->shouldIncludeClientIp))
 		{
-			if(!empty($xml->shouldIncludeClientIp))
+			if(!empty($xml->shouldIncludeClientIp) && $xml->shouldIncludeClientIp != 'false')
 				$this->shouldIncludeClientIp = true;
 			else
 				$this->shouldIncludeClientIp = false;

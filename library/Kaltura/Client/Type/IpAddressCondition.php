@@ -52,7 +52,7 @@ class IpAddressCondition extends \Kaltura\Client\Type\MatchCondition
 		
 		if(count($xml->acceptInternalIps))
 		{
-			if(!empty($xml->acceptInternalIps))
+			if(!empty($xml->acceptInternalIps) && $xml->acceptInternalIps != 'false')
 				$this->acceptInternalIps = true;
 			else
 				$this->acceptInternalIps = false;

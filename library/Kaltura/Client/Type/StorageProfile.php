@@ -78,7 +78,7 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->storagePassword = (string)$xml->storagePassword;
 		if(count($xml->storageFtpPassiveMode))
 		{
-			if(!empty($xml->storageFtpPassiveMode))
+			if(!empty($xml->storageFtpPassiveMode) && $xml->storageFtpPassiveMode != 'false')
 				$this->storageFtpPassiveMode = true;
 			else
 				$this->storageFtpPassiveMode = false;
@@ -112,7 +112,7 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->allowAutoDelete = (int)$xml->allowAutoDelete;
 		if(count($xml->createFileLink))
 		{
-			if(!empty($xml->createFileLink))
+			if(!empty($xml->createFileLink) && $xml->createFileLink != 'false')
 				$this->createFileLink = true;
 			else
 				$this->createFileLink = false;
@@ -139,7 +139,7 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->passPhrase = (string)$xml->passPhrase;
 		if(count($xml->shouldExportThumbs))
 		{
-			if(!empty($xml->shouldExportThumbs))
+			if(!empty($xml->shouldExportThumbs) && $xml->shouldExportThumbs != 'false')
 				$this->shouldExportThumbs = true;
 			else
 				$this->shouldExportThumbs = false;

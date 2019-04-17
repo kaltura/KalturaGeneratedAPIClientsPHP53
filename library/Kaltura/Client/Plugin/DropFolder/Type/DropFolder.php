@@ -96,7 +96,7 @@ class DropFolder extends \Kaltura\Client\ObjectBase
 			$this->lastAccessedAt = (int)$xml->lastAccessedAt;
 		if(count($xml->incremental))
 		{
-			if(!empty($xml->incremental))
+			if(!empty($xml->incremental) && $xml->incremental != 'false')
 				$this->incremental = true;
 			else
 				$this->incremental = false;
@@ -109,14 +109,14 @@ class DropFolder extends \Kaltura\Client\ObjectBase
 			$this->categoriesMetadataFieldName = (string)$xml->categoriesMetadataFieldName;
 		if(count($xml->enforceEntitlement))
 		{
-			if(!empty($xml->enforceEntitlement))
+			if(!empty($xml->enforceEntitlement) && $xml->enforceEntitlement != 'false')
 				$this->enforceEntitlement = true;
 			else
 				$this->enforceEntitlement = false;
 		}
 		if(count($xml->shouldValidateKS))
 		{
-			if(!empty($xml->shouldValidateKS))
+			if(!empty($xml->shouldValidateKS) && $xml->shouldValidateKS != 'false')
 				$this->shouldValidateKS = true;
 			else
 				$this->shouldValidateKS = false;

@@ -53,7 +53,7 @@ class MetadataReplacementOptionsItem extends \Kaltura\Client\Type\PluginReplacem
 		
 		if(count($xml->shouldCopyMetadata))
 		{
-			if(!empty($xml->shouldCopyMetadata))
+			if(!empty($xml->shouldCopyMetadata) && $xml->shouldCopyMetadata != 'false')
 				$this->shouldCopyMetadata = true;
 			else
 				$this->shouldCopyMetadata = false;

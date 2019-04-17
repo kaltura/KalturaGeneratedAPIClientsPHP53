@@ -70,14 +70,14 @@ class EventNotificationTemplate extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->manualDispatchEnabled))
 		{
-			if(!empty($xml->manualDispatchEnabled))
+			if(!empty($xml->manualDispatchEnabled) && $xml->manualDispatchEnabled != 'false')
 				$this->manualDispatchEnabled = true;
 			else
 				$this->manualDispatchEnabled = false;
 		}
 		if(count($xml->automaticDispatchEnabled))
 		{
-			if(!empty($xml->automaticDispatchEnabled))
+			if(!empty($xml->automaticDispatchEnabled) && $xml->automaticDispatchEnabled != 'false')
 				$this->automaticDispatchEnabled = true;
 			else
 				$this->automaticDispatchEnabled = false;

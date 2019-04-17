@@ -64,7 +64,7 @@ class DoubleClickDistributionProfile extends \Kaltura\Client\Plugin\ContentDistr
 			$this->itemsPerPage = (string)$xml->itemsPerPage;
 		if(count($xml->ignoreSchedulingInFeed))
 		{
-			if(!empty($xml->ignoreSchedulingInFeed))
+			if(!empty($xml->ignoreSchedulingInFeed) && $xml->ignoreSchedulingInFeed != 'false')
 				$this->ignoreSchedulingInFeed = true;
 			else
 				$this->ignoreSchedulingInFeed = false;

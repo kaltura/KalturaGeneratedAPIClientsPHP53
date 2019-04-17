@@ -56,21 +56,21 @@ abstract class DistributionProvider extends \Kaltura\Client\ObjectBase
 			$this->name = (string)$xml->name;
 		if(count($xml->scheduleUpdateEnabled))
 		{
-			if(!empty($xml->scheduleUpdateEnabled))
+			if(!empty($xml->scheduleUpdateEnabled) && $xml->scheduleUpdateEnabled != 'false')
 				$this->scheduleUpdateEnabled = true;
 			else
 				$this->scheduleUpdateEnabled = false;
 		}
 		if(count($xml->availabilityUpdateEnabled))
 		{
-			if(!empty($xml->availabilityUpdateEnabled))
+			if(!empty($xml->availabilityUpdateEnabled) && $xml->availabilityUpdateEnabled != 'false')
 				$this->availabilityUpdateEnabled = true;
 			else
 				$this->availabilityUpdateEnabled = false;
 		}
 		if(count($xml->deleteInsteadUpdate))
 		{
-			if(!empty($xml->deleteInsteadUpdate))
+			if(!empty($xml->deleteInsteadUpdate) && $xml->deleteInsteadUpdate != 'false')
 				$this->deleteInsteadUpdate = true;
 			else
 				$this->deleteInsteadUpdate = false;

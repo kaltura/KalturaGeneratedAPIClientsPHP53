@@ -56,7 +56,7 @@ class PlayerEmbedCodeType extends \Kaltura\Client\ObjectBase
 			$this->label = (string)$xml->label;
 		if(count($xml->entryOnly))
 		{
-			if(!empty($xml->entryOnly))
+			if(!empty($xml->entryOnly) && $xml->entryOnly != 'false')
 				$this->entryOnly = true;
 			else
 				$this->entryOnly = false;

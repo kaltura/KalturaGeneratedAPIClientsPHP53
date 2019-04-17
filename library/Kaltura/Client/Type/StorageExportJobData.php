@@ -52,14 +52,14 @@ class StorageExportJobData extends \Kaltura\Client\Type\StorageJobData
 		
 		if(count($xml->force))
 		{
-			if(!empty($xml->force))
+			if(!empty($xml->force) && $xml->force != 'false')
 				$this->force = true;
 			else
 				$this->force = false;
 		}
 		if(count($xml->createLink))
 		{
-			if(!empty($xml->createLink))
+			if(!empty($xml->createLink) && $xml->createLink != 'false')
 				$this->createLink = true;
 			else
 				$this->createLink = false;

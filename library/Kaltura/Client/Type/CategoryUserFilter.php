@@ -52,7 +52,7 @@ class CategoryUserFilter extends \Kaltura\Client\Type\CategoryUserBaseFilter
 		
 		if(count($xml->categoryDirectMembers))
 		{
-			if(!empty($xml->categoryDirectMembers))
+			if(!empty($xml->categoryDirectMembers) && $xml->categoryDirectMembers != 'false')
 				$this->categoryDirectMembers = true;
 			else
 				$this->categoryDirectMembers = false;

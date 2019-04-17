@@ -52,7 +52,7 @@ class PdfFlavorParams extends \Kaltura\Client\Type\FlavorParams
 		
 		if(count($xml->readonly))
 		{
-			if(!empty($xml->readonly))
+			if(!empty($xml->readonly) && $xml->readonly != 'false')
 				$this->readonly = true;
 			else
 				$this->readonly = false;

@@ -69,7 +69,7 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 			$this->concatenatedDuration = (float)$xml->concatenatedDuration;
 		if(count($xml->shouldSort))
 		{
-			if(!empty($xml->shouldSort))
+			if(!empty($xml->shouldSort) && $xml->shouldSort != 'false')
 				$this->shouldSort = true;
 			else
 				$this->shouldSort = false;

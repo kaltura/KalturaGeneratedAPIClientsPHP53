@@ -66,7 +66,7 @@ class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 		}
 		if(count($xml->isPlayableUser))
 		{
-			if(!empty($xml->isPlayableUser))
+			if(!empty($xml->isPlayableUser) && $xml->isPlayableUser != 'false')
 				$this->isPlayableUser = true;
 			else
 				$this->isPlayableUser = false;

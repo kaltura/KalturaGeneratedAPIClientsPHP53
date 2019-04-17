@@ -78,7 +78,7 @@ class BulkUploadResultCategory extends \Kaltura\Client\Type\BulkUploadResult
 			$this->partnerSortValue = (int)$xml->partnerSortValue;
 		if(count($xml->moderation))
 		{
-			if(!empty($xml->moderation))
+			if(!empty($xml->moderation) && $xml->moderation != 'false')
 				$this->moderation = true;
 			else
 				$this->moderation = false;

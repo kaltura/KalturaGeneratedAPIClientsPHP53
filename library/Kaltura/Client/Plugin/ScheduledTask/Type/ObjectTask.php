@@ -54,7 +54,7 @@ abstract class ObjectTask extends \Kaltura\Client\ObjectBase
 			$this->type = (string)$xml->type;
 		if(count($xml->stopProcessingOnError))
 		{
-			if(!empty($xml->stopProcessingOnError))
+			if(!empty($xml->stopProcessingOnError) && $xml->stopProcessingOnError != 'false')
 				$this->stopProcessingOnError = true;
 			else
 				$this->stopProcessingOnError = false;

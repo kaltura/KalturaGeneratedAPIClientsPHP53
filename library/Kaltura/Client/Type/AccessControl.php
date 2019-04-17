@@ -73,7 +73,7 @@ class AccessControl extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->containsUnsuportedRestrictions))
 		{
-			if(!empty($xml->containsUnsuportedRestrictions))
+			if(!empty($xml->containsUnsuportedRestrictions) && $xml->containsUnsuportedRestrictions != 'false')
 				$this->containsUnsuportedRestrictions = true;
 			else
 				$this->containsUnsuportedRestrictions = false;

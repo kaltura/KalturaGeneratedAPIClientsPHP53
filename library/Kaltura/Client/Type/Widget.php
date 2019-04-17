@@ -76,7 +76,7 @@ class Widget extends \Kaltura\Client\ObjectBase
 			$this->widgetHTML = (string)$xml->widgetHTML;
 		if(count($xml->enforceEntitlement))
 		{
-			if(!empty($xml->enforceEntitlement))
+			if(!empty($xml->enforceEntitlement) && $xml->enforceEntitlement != 'false')
 				$this->enforceEntitlement = true;
 			else
 				$this->enforceEntitlement = false;
@@ -85,7 +85,7 @@ class Widget extends \Kaltura\Client\ObjectBase
 			$this->privacyContext = (string)$xml->privacyContext;
 		if(count($xml->addEmbedHtml5Support))
 		{
-			if(!empty($xml->addEmbedHtml5Support))
+			if(!empty($xml->addEmbedHtml5Support) && $xml->addEmbedHtml5Support != 'false')
 				$this->addEmbedHtml5Support = true;
 			else
 				$this->addEmbedHtml5Support = false;

@@ -52,7 +52,7 @@ class DistributionDeleteJobData extends \Kaltura\Client\Plugin\ContentDistributi
 		
 		if(count($xml->keepDistributionItem))
 		{
-			if(!empty($xml->keepDistributionItem))
+			if(!empty($xml->keepDistributionItem) && $xml->keepDistributionItem != 'false')
 				$this->keepDistributionItem = true;
 			else
 				$this->keepDistributionItem = false;

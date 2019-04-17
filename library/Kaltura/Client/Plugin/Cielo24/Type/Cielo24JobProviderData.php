@@ -70,7 +70,7 @@ class Cielo24JobProviderData extends \Kaltura\Client\Plugin\Integration\Type\Int
 			$this->spokenLanguage = (string)$xml->spokenLanguage;
 		if(count($xml->replaceMediaContent))
 		{
-			if(!empty($xml->replaceMediaContent))
+			if(!empty($xml->replaceMediaContent) && $xml->replaceMediaContent != 'false')
 				$this->replaceMediaContent = true;
 			else
 				$this->replaceMediaContent = false;

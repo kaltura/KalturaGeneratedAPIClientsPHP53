@@ -52,7 +52,7 @@ class DeliveryProfileAkamaiHttp extends \Kaltura\Client\Type\DeliveryProfile
 		
 		if(count($xml->useIntelliseek))
 		{
-			if(!empty($xml->useIntelliseek))
+			if(!empty($xml->useIntelliseek) && $xml->useIntelliseek != 'false')
 				$this->useIntelliseek = true;
 			else
 				$this->useIntelliseek = false;

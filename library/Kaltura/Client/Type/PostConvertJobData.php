@@ -56,7 +56,7 @@ class PostConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 			$this->flavorAssetEncryptionKey = (string)$xml->flavorAssetEncryptionKey;
 		if(count($xml->createThumb))
 		{
-			if(!empty($xml->createThumb))
+			if(!empty($xml->createThumb) && $xml->createThumb != 'false')
 				$this->createThumb = true;
 			else
 				$this->createThumb = false;

@@ -62,14 +62,14 @@ class FlavorAsset extends \Kaltura\Client\Type\Asset
 			$this->frameRate = (float)$xml->frameRate;
 		if(count($xml->isOriginal))
 		{
-			if(!empty($xml->isOriginal))
+			if(!empty($xml->isOriginal) && $xml->isOriginal != 'false')
 				$this->isOriginal = true;
 			else
 				$this->isOriginal = false;
 		}
 		if(count($xml->isWeb))
 		{
-			if(!empty($xml->isWeb))
+			if(!empty($xml->isWeb) && $xml->isWeb != 'false')
 				$this->isWeb = true;
 			else
 				$this->isWeb = false;

@@ -68,7 +68,7 @@ class VoicebaseJobProviderData extends \Kaltura\Client\Plugin\Integration\Type\I
 			$this->fileLocation = (string)$xml->fileLocation;
 		if(count($xml->replaceMediaContent))
 		{
-			if(!empty($xml->replaceMediaContent))
+			if(!empty($xml->replaceMediaContent) && $xml->replaceMediaContent != 'false')
 				$this->replaceMediaContent = true;
 			else
 				$this->replaceMediaContent = false;

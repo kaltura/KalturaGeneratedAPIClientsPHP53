@@ -70,7 +70,7 @@ class FtpDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribution\
 			$this->sftpPrivateKey = (string)$xml->sftpPrivateKey;
 		if(count($xml->disableMetadata))
 		{
-			if(!empty($xml->disableMetadata))
+			if(!empty($xml->disableMetadata) && $xml->disableMetadata != 'false')
 				$this->disableMetadata = true;
 			else
 				$this->disableMetadata = false;
@@ -91,7 +91,7 @@ class FtpDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribution\
 			$this->asperaPrivateKey = (string)$xml->asperaPrivateKey;
 		if(count($xml->sendMetadataAfterAssets))
 		{
-			if(!empty($xml->sendMetadataAfterAssets))
+			if(!empty($xml->sendMetadataAfterAssets) && $xml->sendMetadataAfterAssets != 'false')
 				$this->sendMetadataAfterAssets = true;
 			else
 				$this->sendMetadataAfterAssets = false;

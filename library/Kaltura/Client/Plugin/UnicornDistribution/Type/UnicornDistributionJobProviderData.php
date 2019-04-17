@@ -56,7 +56,7 @@ class UnicornDistributionJobProviderData extends \Kaltura\Client\Plugin\ContentD
 			$this->title = (string)$xml->title;
 		if(count($xml->mediaChanged))
 		{
-			if(!empty($xml->mediaChanged))
+			if(!empty($xml->mediaChanged) && $xml->mediaChanged != 'false')
 				$this->mediaChanged = true;
 			else
 				$this->mediaChanged = false;

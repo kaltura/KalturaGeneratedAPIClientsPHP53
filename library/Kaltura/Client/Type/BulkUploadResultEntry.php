@@ -78,7 +78,7 @@ class BulkUploadResultEntry extends \Kaltura\Client\Type\BulkUploadResult
 			$this->thumbnailUrl = (string)$xml->thumbnailUrl;
 		if(count($xml->thumbnailSaved))
 		{
-			if(!empty($xml->thumbnailSaved))
+			if(!empty($xml->thumbnailSaved) && $xml->thumbnailSaved != 'false')
 				$this->thumbnailSaved = true;
 			else
 				$this->thumbnailSaved = false;

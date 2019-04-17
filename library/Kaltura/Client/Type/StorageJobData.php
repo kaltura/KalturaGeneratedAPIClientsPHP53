@@ -64,7 +64,7 @@ class StorageJobData extends \Kaltura\Client\Type\JobData
 			$this->serverPassPhrase = (string)$xml->serverPassPhrase;
 		if(count($xml->ftpPassiveMode))
 		{
-			if(!empty($xml->ftpPassiveMode))
+			if(!empty($xml->ftpPassiveMode) && $xml->ftpPassiveMode != 'false')
 				$this->ftpPassiveMode = true;
 			else
 				$this->ftpPassiveMode = false;

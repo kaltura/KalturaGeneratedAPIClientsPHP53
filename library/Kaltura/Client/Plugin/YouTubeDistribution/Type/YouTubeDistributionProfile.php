@@ -90,21 +90,21 @@ class YouTubeDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribut
 			$this->adServerPartnerId = (string)$xml->adServerPartnerId;
 		if(count($xml->enableAdServer))
 		{
-			if(!empty($xml->enableAdServer))
+			if(!empty($xml->enableAdServer) && $xml->enableAdServer != 'false')
 				$this->enableAdServer = true;
 			else
 				$this->enableAdServer = false;
 		}
 		if(count($xml->allowPreRollAds))
 		{
-			if(!empty($xml->allowPreRollAds))
+			if(!empty($xml->allowPreRollAds) && $xml->allowPreRollAds != 'false')
 				$this->allowPreRollAds = true;
 			else
 				$this->allowPreRollAds = false;
 		}
 		if(count($xml->allowPostRollAds))
 		{
-			if(!empty($xml->allowPostRollAds))
+			if(!empty($xml->allowPostRollAds) && $xml->allowPostRollAds != 'false')
 				$this->allowPostRollAds = true;
 			else
 				$this->allowPostRollAds = false;
@@ -125,7 +125,7 @@ class YouTubeDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribut
 			$this->allowInvideo = (string)$xml->allowInvideo;
 		if(count($xml->allowMidRollAds))
 		{
-			if(!empty($xml->allowMidRollAds))
+			if(!empty($xml->allowMidRollAds) && $xml->allowMidRollAds != 'false')
 				$this->allowMidRollAds = true;
 			else
 				$this->allowMidRollAds = false;
@@ -142,14 +142,14 @@ class YouTubeDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribut
 			$this->captionAutosync = (string)$xml->captionAutosync;
 		if(count($xml->deleteReference))
 		{
-			if(!empty($xml->deleteReference))
+			if(!empty($xml->deleteReference) && $xml->deleteReference != 'false')
 				$this->deleteReference = true;
 			else
 				$this->deleteReference = false;
 		}
 		if(count($xml->releaseClaims))
 		{
-			if(!empty($xml->releaseClaims))
+			if(!empty($xml->releaseClaims) && $xml->releaseClaims != 'false')
 				$this->releaseClaims = true;
 			else
 				$this->releaseClaims = false;

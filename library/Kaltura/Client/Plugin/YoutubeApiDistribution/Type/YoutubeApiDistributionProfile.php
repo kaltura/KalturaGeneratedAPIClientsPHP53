@@ -72,7 +72,7 @@ class YoutubeApiDistributionProfile extends \Kaltura\Client\Plugin\ContentDistri
 			$this->googleTokenData = (string)$xml->googleTokenData;
 		if(count($xml->assumeSuccess))
 		{
-			if(!empty($xml->assumeSuccess))
+			if(!empty($xml->assumeSuccess) && $xml->assumeSuccess != 'false')
 				$this->assumeSuccess = true;
 			else
 				$this->assumeSuccess = false;

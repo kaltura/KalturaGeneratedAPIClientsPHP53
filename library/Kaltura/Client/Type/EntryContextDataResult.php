@@ -52,35 +52,35 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 		
 		if(count($xml->isSiteRestricted))
 		{
-			if(!empty($xml->isSiteRestricted))
+			if(!empty($xml->isSiteRestricted) && $xml->isSiteRestricted != 'false')
 				$this->isSiteRestricted = true;
 			else
 				$this->isSiteRestricted = false;
 		}
 		if(count($xml->isCountryRestricted))
 		{
-			if(!empty($xml->isCountryRestricted))
+			if(!empty($xml->isCountryRestricted) && $xml->isCountryRestricted != 'false')
 				$this->isCountryRestricted = true;
 			else
 				$this->isCountryRestricted = false;
 		}
 		if(count($xml->isSessionRestricted))
 		{
-			if(!empty($xml->isSessionRestricted))
+			if(!empty($xml->isSessionRestricted) && $xml->isSessionRestricted != 'false')
 				$this->isSessionRestricted = true;
 			else
 				$this->isSessionRestricted = false;
 		}
 		if(count($xml->isIpAddressRestricted))
 		{
-			if(!empty($xml->isIpAddressRestricted))
+			if(!empty($xml->isIpAddressRestricted) && $xml->isIpAddressRestricted != 'false')
 				$this->isIpAddressRestricted = true;
 			else
 				$this->isIpAddressRestricted = false;
 		}
 		if(count($xml->isUserAgentRestricted))
 		{
-			if(!empty($xml->isUserAgentRestricted))
+			if(!empty($xml->isUserAgentRestricted) && $xml->isUserAgentRestricted != 'false')
 				$this->isUserAgentRestricted = true;
 			else
 				$this->isUserAgentRestricted = false;
@@ -89,14 +89,14 @@ class EntryContextDataResult extends \Kaltura\Client\Type\ContextDataResult
 			$this->previewLength = (int)$xml->previewLength;
 		if(count($xml->isScheduledNow))
 		{
-			if(!empty($xml->isScheduledNow))
+			if(!empty($xml->isScheduledNow) && $xml->isScheduledNow != 'false')
 				$this->isScheduledNow = true;
 			else
 				$this->isScheduledNow = false;
 		}
 		if(count($xml->isAdmin))
 		{
-			if(!empty($xml->isAdmin))
+			if(!empty($xml->isAdmin) && $xml->isAdmin != 'false')
 				$this->isAdmin = true;
 			else
 				$this->isAdmin = false;

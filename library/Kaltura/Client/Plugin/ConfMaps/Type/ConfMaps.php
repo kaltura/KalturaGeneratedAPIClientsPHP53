@@ -56,7 +56,7 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 			$this->content = (string)$xml->content;
 		if(count($xml->isEditable))
 		{
-			if(!empty($xml->isEditable))
+			if(!empty($xml->isEditable) && $xml->isEditable != 'false')
 				$this->isEditable = true;
 			else
 				$this->isEditable = false;

@@ -54,14 +54,14 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->keywords = (string)$xml->keywords;
 		if(count($xml->searchInTags))
 		{
-			if(!empty($xml->searchInTags))
+			if(!empty($xml->searchInTags) && $xml->searchInTags != 'false')
 				$this->searchInTags = true;
 			else
 				$this->searchInTags = false;
 		}
 		if(count($xml->searchInAdminTags))
 		{
-			if(!empty($xml->searchInAdminTags))
+			if(!empty($xml->searchInAdminTags) && $xml->searchInAdminTags != 'false')
 				$this->searchInAdminTags = true;
 			else
 				$this->searchInAdminTags = false;

@@ -62,7 +62,7 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 			$this->type = (string)$xml->type;
 		if(count($xml->updateOnChange))
 		{
-			if(!empty($xml->updateOnChange))
+			if(!empty($xml->updateOnChange) && $xml->updateOnChange != 'false')
 				$this->updateOnChange = true;
 			else
 				$this->updateOnChange = false;
@@ -76,14 +76,14 @@ class DistributionFieldConfig extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->isDefault))
 		{
-			if(!empty($xml->isDefault))
+			if(!empty($xml->isDefault) && $xml->isDefault != 'false')
 				$this->isDefault = true;
 			else
 				$this->isDefault = false;
 		}
 		if(count($xml->triggerDeleteOnError))
 		{
-			if(!empty($xml->triggerDeleteOnError))
+			if(!empty($xml->triggerDeleteOnError) && $xml->triggerDeleteOnError != 'false')
 				$this->triggerDeleteOnError = true;
 			else
 				$this->triggerDeleteOnError = false;

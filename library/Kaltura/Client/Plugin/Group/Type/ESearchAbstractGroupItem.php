@@ -58,7 +58,7 @@ abstract class ESearchAbstractGroupItem extends \Kaltura\Client\Plugin\Group\Typ
 			$this->range = \Kaltura\Client\ParseUtils::unmarshalObject($xml->range, "KalturaESearchRange");
 		if(count($xml->addHighlight))
 		{
-			if(!empty($xml->addHighlight))
+			if(!empty($xml->addHighlight) && $xml->addHighlight != 'false')
 				$this->addHighlight = true;
 			else
 				$this->addHighlight = false;

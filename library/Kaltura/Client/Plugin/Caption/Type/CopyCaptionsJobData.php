@@ -61,7 +61,7 @@ class CopyCaptionsJobData extends \Kaltura\Client\Type\JobData
 		}
 		if(count($xml->fullCopy))
 		{
-			if(!empty($xml->fullCopy))
+			if(!empty($xml->fullCopy) && $xml->fullCopy != 'false')
 				$this->fullCopy = true;
 			else
 				$this->fullCopy = false;

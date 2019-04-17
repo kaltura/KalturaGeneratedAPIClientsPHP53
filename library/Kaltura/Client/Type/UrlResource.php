@@ -55,7 +55,7 @@ class UrlResource extends \Kaltura\Client\Type\ContentResource
 			$this->url = (string)$xml->url;
 		if(count($xml->forceAsyncDownload))
 		{
-			if(!empty($xml->forceAsyncDownload))
+			if(!empty($xml->forceAsyncDownload) && $xml->forceAsyncDownload != 'false')
 				$this->forceAsyncDownload = true;
 			else
 				$this->forceAsyncDownload = false;

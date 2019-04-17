@@ -52,7 +52,7 @@ class DeliveryProfileVodPackagerPlayServer extends \Kaltura\Client\Type\Delivery
 		
 		if(count($xml->adStitchingEnabled))
 		{
-			if(!empty($xml->adStitchingEnabled))
+			if(!empty($xml->adStitchingEnabled) && $xml->adStitchingEnabled != 'false')
 				$this->adStitchingEnabled = true;
 			else
 				$this->adStitchingEnabled = false;

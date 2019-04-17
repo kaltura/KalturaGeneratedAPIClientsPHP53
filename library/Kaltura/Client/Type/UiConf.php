@@ -82,7 +82,7 @@ class UiConf extends \Kaltura\Client\ObjectBase
 			$this->confVars = (string)$xml->confVars;
 		if(count($xml->useCdn))
 		{
-			if(!empty($xml->useCdn))
+			if(!empty($xml->useCdn) && $xml->useCdn != 'false')
 				$this->useCdn = true;
 			else
 				$this->useCdn = false;

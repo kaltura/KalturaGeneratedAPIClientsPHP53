@@ -64,7 +64,7 @@ class MailNotificationObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Ty
 			$this->link = (string)$xml->link;
 		if(count($xml->sendToUsers))
 		{
-			if(!empty($xml->sendToUsers))
+			if(!empty($xml->sendToUsers) && $xml->sendToUsers != 'false')
 				$this->sendToUsers = true;
 			else
 				$this->sendToUsers = false;

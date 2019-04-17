@@ -55,7 +55,7 @@ class ServerFileResource extends \Kaltura\Client\Type\GenericDataCenterContentRe
 			$this->localFilePath = (string)$xml->localFilePath;
 		if(count($xml->keepOriginalFile))
 		{
-			if(!empty($xml->keepOriginalFile))
+			if(!empty($xml->keepOriginalFile) && $xml->keepOriginalFile != 'false')
 				$this->keepOriginalFile = true;
 			else
 				$this->keepOriginalFile = false;

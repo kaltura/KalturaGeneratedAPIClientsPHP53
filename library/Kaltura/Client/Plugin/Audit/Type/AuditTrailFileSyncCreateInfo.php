@@ -58,7 +58,7 @@ class AuditTrailFileSyncCreateInfo extends \Kaltura\Client\Plugin\Audit\Type\Aud
 			$this->dc = (int)$xml->dc;
 		if(count($xml->original))
 		{
-			if(!empty($xml->original))
+			if(!empty($xml->original) && $xml->original != 'false')
 				$this->original = true;
 			else
 				$this->original = false;

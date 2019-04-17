@@ -66,7 +66,7 @@ abstract class ConfigurableDistributionProfile extends \Kaltura\Client\Plugin\Co
 		}
 		if(count($xml->useCategoryEntries))
 		{
-			if(!empty($xml->useCategoryEntries))
+			if(!empty($xml->useCategoryEntries) && $xml->useCategoryEntries != 'false')
 				$this->useCategoryEntries = true;
 			else
 				$this->useCategoryEntries = false;

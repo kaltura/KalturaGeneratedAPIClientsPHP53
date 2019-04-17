@@ -52,7 +52,7 @@ class MixEntry extends \Kaltura\Client\Type\PlayableEntry
 		
 		if(count($xml->hasRealThumbnail))
 		{
-			if(!empty($xml->hasRealThumbnail))
+			if(!empty($xml->hasRealThumbnail) && $xml->hasRealThumbnail != 'false')
 				$this->hasRealThumbnail = true;
 			else
 				$this->hasRealThumbnail = false;

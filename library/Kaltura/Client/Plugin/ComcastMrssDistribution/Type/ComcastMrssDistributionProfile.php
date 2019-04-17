@@ -75,21 +75,21 @@ class ComcastMrssDistributionProfile extends \Kaltura\Client\Plugin\ContentDistr
 			$this->cPlatformTvSeriesField = (string)$xml->cPlatformTvSeriesField;
 		if(count($xml->shouldIncludeCuePoints))
 		{
-			if(!empty($xml->shouldIncludeCuePoints))
+			if(!empty($xml->shouldIncludeCuePoints) && $xml->shouldIncludeCuePoints != 'false')
 				$this->shouldIncludeCuePoints = true;
 			else
 				$this->shouldIncludeCuePoints = false;
 		}
 		if(count($xml->shouldIncludeCaptions))
 		{
-			if(!empty($xml->shouldIncludeCaptions))
+			if(!empty($xml->shouldIncludeCaptions) && $xml->shouldIncludeCaptions != 'false')
 				$this->shouldIncludeCaptions = true;
 			else
 				$this->shouldIncludeCaptions = false;
 		}
 		if(count($xml->shouldAddThumbExtension))
 		{
-			if(!empty($xml->shouldAddThumbExtension))
+			if(!empty($xml->shouldAddThumbExtension) && $xml->shouldAddThumbExtension != 'false')
 				$this->shouldAddThumbExtension = true;
 			else
 				$this->shouldAddThumbExtension = false;

@@ -64,7 +64,7 @@ class ResponseProfileCacheRecalculateOptions extends \Kaltura\Client\ObjectBase
 			$this->jobCreatedAt = (int)$xml->jobCreatedAt;
 		if(count($xml->isFirstLoop))
 		{
-			if(!empty($xml->isFirstLoop))
+			if(!empty($xml->isFirstLoop) && $xml->isFirstLoop != 'false')
 				$this->isFirstLoop = true;
 			else
 				$this->isFirstLoop = false;

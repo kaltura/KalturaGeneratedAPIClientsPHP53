@@ -84,7 +84,7 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 			$this->systemName = (string)$xml->systemName;
 		if(count($xml->isMomentary))
 		{
-			if(!empty($xml->isMomentary))
+			if(!empty($xml->isMomentary) && $xml->isMomentary != 'false')
 				$this->isMomentary = true;
 			else
 				$this->isMomentary = false;

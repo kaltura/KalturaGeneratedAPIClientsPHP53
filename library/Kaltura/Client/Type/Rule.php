@@ -81,7 +81,7 @@ class Rule extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->stopProcessing))
 		{
-			if(!empty($xml->stopProcessing))
+			if(!empty($xml->stopProcessing) && $xml->stopProcessing != 'false')
 				$this->stopProcessing = true;
 			else
 				$this->stopProcessing = false;

@@ -62,7 +62,7 @@ class GenericDistributionProfileAction extends \Kaltura\Client\ObjectBase
 			$this->password = (string)$xml->password;
 		if(count($xml->ftpPassiveMode))
 		{
-			if(!empty($xml->ftpPassiveMode))
+			if(!empty($xml->ftpPassiveMode) && $xml->ftpPassiveMode != 'false')
 				$this->ftpPassiveMode = true;
 			else
 				$this->ftpPassiveMode = false;

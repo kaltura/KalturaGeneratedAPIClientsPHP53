@@ -52,7 +52,7 @@ class DeliveryProfileAkamaiAppleHttpManifest extends \Kaltura\Client\Type\Delive
 		
 		if(count($xml->supportClipping))
 		{
-			if(!empty($xml->supportClipping))
+			if(!empty($xml->supportClipping) && $xml->supportClipping != 'false')
 				$this->supportClipping = true;
 			else
 				$this->supportClipping = false;

@@ -54,7 +54,7 @@ class AccessControlLimitDeliveryProfilesAction extends \Kaltura\Client\Type\Rule
 			$this->deliveryProfileIds = (string)$xml->deliveryProfileIds;
 		if(count($xml->isBlockedList))
 		{
-			if(!empty($xml->isBlockedList))
+			if(!empty($xml->isBlockedList) && $xml->isBlockedList != 'false')
 				$this->isBlockedList = true;
 			else
 				$this->isBlockedList = false;

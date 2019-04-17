@@ -70,7 +70,7 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 			$this->accuracy = (int)$xml->accuracy;
 		if(count($xml->displayOnPlayer))
 		{
-			if(!empty($xml->displayOnPlayer))
+			if(!empty($xml->displayOnPlayer) && $xml->displayOnPlayer != 'false')
 				$this->displayOnPlayer = true;
 			else
 				$this->displayOnPlayer = false;

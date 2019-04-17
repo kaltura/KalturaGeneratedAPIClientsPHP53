@@ -56,7 +56,7 @@ class ResponseProfileMapping extends \Kaltura\Client\ObjectBase
 			$this->filterProperty = (string)$xml->filterProperty;
 		if(count($xml->allowNull))
 		{
-			if(!empty($xml->allowNull))
+			if(!empty($xml->allowNull) && $xml->allowNull != 'false')
 				$this->allowNull = true;
 			else
 				$this->allowNull = false;

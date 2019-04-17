@@ -52,14 +52,14 @@ class DeliveryProfileLivePackagerHls extends \Kaltura\Client\Type\DeliveryProfil
 		
 		if(count($xml->disableExtraAttributes))
 		{
-			if(!empty($xml->disableExtraAttributes))
+			if(!empty($xml->disableExtraAttributes) && $xml->disableExtraAttributes != 'false')
 				$this->disableExtraAttributes = true;
 			else
 				$this->disableExtraAttributes = false;
 		}
 		if(count($xml->forceProxy))
 		{
-			if(!empty($xml->forceProxy))
+			if(!empty($xml->forceProxy) && $xml->forceProxy != 'false')
 				$this->forceProxy = true;
 			else
 				$this->forceProxy = false;

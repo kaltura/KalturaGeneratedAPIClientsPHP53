@@ -70,7 +70,7 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->allowEmbed))
 		{
-			if(!empty($xml->allowEmbed))
+			if(!empty($xml->allowEmbed) && $xml->allowEmbed != 'false')
 				$this->allowEmbed = true;
 			else
 				$this->allowEmbed = false;
@@ -81,14 +81,14 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 			$this->flavorParamId = (int)$xml->flavorParamId;
 		if(count($xml->transcodeExistingContent))
 		{
-			if(!empty($xml->transcodeExistingContent))
+			if(!empty($xml->transcodeExistingContent) && $xml->transcodeExistingContent != 'false')
 				$this->transcodeExistingContent = true;
 			else
 				$this->transcodeExistingContent = false;
 		}
 		if(count($xml->addToDefaultConversionProfile))
 		{
-			if(!empty($xml->addToDefaultConversionProfile))
+			if(!empty($xml->addToDefaultConversionProfile) && $xml->addToDefaultConversionProfile != 'false')
 				$this->addToDefaultConversionProfile = true;
 			else
 				$this->addToDefaultConversionProfile = false;
@@ -101,7 +101,7 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 			$this->entriesOrderBy = (string)$xml->entriesOrderBy;
 		if(count($xml->enforceEntitlement))
 		{
-			if(!empty($xml->enforceEntitlement))
+			if(!empty($xml->enforceEntitlement) && $xml->enforceEntitlement != 'false')
 				$this->enforceEntitlement = true;
 			else
 				$this->enforceEntitlement = false;
@@ -112,7 +112,7 @@ abstract class BaseSyndicationFeed extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->useCategoryEntries))
 		{
-			if(!empty($xml->useCategoryEntries))
+			if(!empty($xml->useCategoryEntries) && $xml->useCategoryEntries != 'false')
 				$this->useCategoryEntries = true;
 			else
 				$this->useCategoryEntries = false;

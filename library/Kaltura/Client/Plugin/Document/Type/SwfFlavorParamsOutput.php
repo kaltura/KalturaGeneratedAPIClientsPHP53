@@ -54,7 +54,7 @@ class SwfFlavorParamsOutput extends \Kaltura\Client\Type\FlavorParamsOutput
 			$this->flashVersion = (int)$xml->flashVersion;
 		if(count($xml->poly2Bitmap))
 		{
-			if(!empty($xml->poly2Bitmap))
+			if(!empty($xml->poly2Bitmap) && $xml->poly2Bitmap != 'false')
 				$this->poly2Bitmap = true;
 			else
 				$this->poly2Bitmap = false;

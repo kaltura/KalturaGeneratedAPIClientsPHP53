@@ -62,7 +62,7 @@ class MoveCategoryEntriesJobData extends \Kaltura\Client\Type\JobData
 			$this->lastMovedCategoryEntryPageIndex = (int)$xml->lastMovedCategoryEntryPageIndex;
 		if(count($xml->moveFromChildren))
 		{
-			if(!empty($xml->moveFromChildren))
+			if(!empty($xml->moveFromChildren) && $xml->moveFromChildren != 'false')
 				$this->moveFromChildren = true;
 			else
 				$this->moveFromChildren = false;

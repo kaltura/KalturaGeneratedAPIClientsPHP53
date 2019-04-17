@@ -76,7 +76,7 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 			$this->isDefault = (int)$xml->isDefault;
 		if(count($xml->isPartnerDefault))
 		{
-			if(!empty($xml->isPartnerDefault))
+			if(!empty($xml->isPartnerDefault) && $xml->isPartnerDefault != 'false')
 				$this->isPartnerDefault = true;
 			else
 				$this->isPartnerDefault = false;

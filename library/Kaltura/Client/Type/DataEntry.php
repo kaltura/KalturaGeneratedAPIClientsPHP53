@@ -54,7 +54,7 @@ class DataEntry extends \Kaltura\Client\Type\BaseEntry
 			$this->dataContent = (string)$xml->dataContent;
 		if(count($xml->retrieveDataContentByGet))
 		{
-			if(!empty($xml->retrieveDataContentByGet))
+			if(!empty($xml->retrieveDataContentByGet) && $xml->retrieveDataContentByGet != 'false')
 				$this->retrieveDataContentByGet = true;
 			else
 				$this->retrieveDataContentByGet = false;

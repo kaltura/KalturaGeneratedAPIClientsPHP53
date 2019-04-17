@@ -80,7 +80,7 @@ class MetadataProfile extends \Kaltura\Client\ObjectBase
 			$this->createMode = (int)$xml->createMode;
 		if(count($xml->disableReIndexing))
 		{
-			if(!empty($xml->disableReIndexing))
+			if(!empty($xml->disableReIndexing) && $xml->disableReIndexing != 'false')
 				$this->disableReIndexing = true;
 			else
 				$this->disableReIndexing = false;

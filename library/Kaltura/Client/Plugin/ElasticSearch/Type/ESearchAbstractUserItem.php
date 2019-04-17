@@ -58,7 +58,7 @@ abstract class ESearchAbstractUserItem extends \Kaltura\Client\Plugin\ElasticSea
 			$this->range = \Kaltura\Client\ParseUtils::unmarshalObject($xml->range, "KalturaESearchRange");
 		if(count($xml->addHighlight))
 		{
-			if(!empty($xml->addHighlight))
+			if(!empty($xml->addHighlight) && $xml->addHighlight != 'false')
 				$this->addHighlight = true;
 			else
 				$this->addHighlight = false;

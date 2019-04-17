@@ -52,7 +52,7 @@ class DeliveryProfileVodPackagerHls extends \Kaltura\Client\Type\DeliveryProfile
 		
 		if(count($xml->allowFairplayOffline))
 		{
-			if(!empty($xml->allowFairplayOffline))
+			if(!empty($xml->allowFairplayOffline) && $xml->allowFairplayOffline != 'false')
 				$this->allowFairplayOffline = true;
 			else
 				$this->allowFairplayOffline = false;

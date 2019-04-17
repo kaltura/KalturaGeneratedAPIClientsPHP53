@@ -70,14 +70,14 @@ class FreewheelGenericDistributionProfile extends \Kaltura\Client\Plugin\Content
 			$this->categoryId = (string)$xml->categoryId;
 		if(count($xml->replaceGroup))
 		{
-			if(!empty($xml->replaceGroup))
+			if(!empty($xml->replaceGroup) && $xml->replaceGroup != 'false')
 				$this->replaceGroup = true;
 			else
 				$this->replaceGroup = false;
 		}
 		if(count($xml->replaceAirDates))
 		{
-			if(!empty($xml->replaceAirDates))
+			if(!empty($xml->replaceAirDates) && $xml->replaceAirDates != 'false')
 				$this->replaceAirDates = true;
 			else
 				$this->replaceAirDates = false;

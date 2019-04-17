@@ -54,7 +54,7 @@ class ConvertEntryFlavorsObjectTask extends \Kaltura\Client\Plugin\ScheduledTask
 			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
 		if(count($xml->reconvert))
 		{
-			if(!empty($xml->reconvert))
+			if(!empty($xml->reconvert) && $xml->reconvert != 'false')
 				$this->reconvert = true;
 			else
 				$this->reconvert = false;

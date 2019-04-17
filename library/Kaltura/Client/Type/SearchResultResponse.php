@@ -59,7 +59,7 @@ class SearchResultResponse extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->needMediaInfo))
 		{
-			if(!empty($xml->needMediaInfo))
+			if(!empty($xml->needMediaInfo) && $xml->needMediaInfo != 'false')
 				$this->needMediaInfo = true;
 			else
 				$this->needMediaInfo = false;

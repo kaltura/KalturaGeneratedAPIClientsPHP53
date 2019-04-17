@@ -84,7 +84,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->describeYourself = (string)$xml->describeYourself;
 		if(count($xml->adultContent))
 		{
-			if(!empty($xml->adultContent))
+			if(!empty($xml->adultContent) && $xml->adultContent != 'false')
 				$this->adultContent = true;
 			else
 				$this->adultContent = false;
@@ -138,7 +138,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->partnerGroupType = (int)$xml->partnerGroupType;
 		if(count($xml->defaultEntitlementEnforcement))
 		{
-			if(!empty($xml->defaultEntitlementEnforcement))
+			if(!empty($xml->defaultEntitlementEnforcement) && $xml->defaultEntitlementEnforcement != 'false')
 				$this->defaultEntitlementEnforcement = true;
 			else
 				$this->defaultEntitlementEnforcement = false;
@@ -165,7 +165,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->templatePartnerId = (int)$xml->templatePartnerId;
 		if(count($xml->ignoreSeoLinks))
 		{
-			if(!empty($xml->ignoreSeoLinks))
+			if(!empty($xml->ignoreSeoLinks) && $xml->ignoreSeoLinks != 'false')
 				$this->ignoreSeoLinks = true;
 			else
 				$this->ignoreSeoLinks = false;
@@ -176,7 +176,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->cdnHost = (string)$xml->cdnHost;
 		if(count($xml->isFirstLogin))
 		{
-			if(!empty($xml->isFirstLogin))
+			if(!empty($xml->isFirstLogin) && $xml->isFirstLogin != 'false')
 				$this->isFirstLogin = true;
 			else
 				$this->isFirstLogin = false;
@@ -191,7 +191,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->referenceId = (string)$xml->referenceId;
 		if(count($xml->timeAlignedRenditions))
 		{
-			if(!empty($xml->timeAlignedRenditions))
+			if(!empty($xml->timeAlignedRenditions) && $xml->timeAlignedRenditions != 'false')
 				$this->timeAlignedRenditions = true;
 			else
 				$this->timeAlignedRenditions = false;
