@@ -39,11 +39,13 @@ namespace Kaltura\Client\Plugin\EventCuePoint\Enum;
 class EventCuePointOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
+	const INT_ID_ASC = "+intId";
 	const PARTNER_SORT_VALUE_ASC = "+partnerSortValue";
 	const START_TIME_ASC = "+startTime";
 	const TRIGGERED_AT_ASC = "+triggeredAt";
 	const UPDATED_AT_ASC = "+updatedAt";
 	const CREATED_AT_DESC = "-createdAt";
+	const INT_ID_DESC = "-intId";
 	const PARTNER_SORT_VALUE_DESC = "-partnerSortValue";
 	const START_TIME_DESC = "-startTime";
 	const TRIGGERED_AT_DESC = "-triggeredAt";

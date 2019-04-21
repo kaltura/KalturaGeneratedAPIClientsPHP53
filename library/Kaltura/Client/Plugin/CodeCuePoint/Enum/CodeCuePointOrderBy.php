@@ -41,6 +41,7 @@ class CodeCuePointOrderBy extends \Kaltura\Client\EnumBase
 	const CREATED_AT_ASC = "+createdAt";
 	const DURATION_ASC = "+duration";
 	const END_TIME_ASC = "+endTime";
+	const INT_ID_ASC = "+intId";
 	const PARTNER_SORT_VALUE_ASC = "+partnerSortValue";
 	const START_TIME_ASC = "+startTime";
 	const TRIGGERED_AT_ASC = "+triggeredAt";
@@ -48,6 +49,7 @@ class CodeCuePointOrderBy extends \Kaltura\Client\EnumBase
 	const CREATED_AT_DESC = "-createdAt";
 	const DURATION_DESC = "-duration";
 	const END_TIME_DESC = "-endTime";
+	const INT_ID_DESC = "-intId";
 	const PARTNER_SORT_VALUE_DESC = "-partnerSortValue";
 	const START_TIME_DESC = "-startTime";
 	const TRIGGERED_AT_DESC = "-triggeredAt";
