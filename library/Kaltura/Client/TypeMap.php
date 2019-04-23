@@ -1020,6 +1020,7 @@ class TypeMap
 		'KalturaESearchEntryItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryItem',
 		'KalturaESearchGroupItem' => 'Kaltura\Client\Plugin\Group\Type\ESearchGroupItem',
 		'KalturaESearchGroupMetadataItem' => 'Kaltura\Client\Plugin\Group\Type\ESearchGroupMetadataItem',
+		'KalturaESearchGroupUserItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchGroupUserItem',
 		'KalturaESearchUnifiedItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUnifiedItem',
 		'KalturaESearchUserItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserItem',
 		'KalturaESearchUserMetadataItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserMetadataItem',
