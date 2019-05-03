@@ -68,6 +68,8 @@ class BatchHistoryData extends \Kaltura\Client\ObjectBase
 			$this->hostName = (string)$xml->hostName;
 		if(count($xml->sessionId))
 			$this->sessionId = (string)$xml->sessionId;
+		if(count($xml->schedulerName))
+			$this->schedulerName = (string)$xml->schedulerName;
 	}
 	/**
 	 * 
@@ -122,5 +124,11 @@ class BatchHistoryData extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $sessionId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $schedulerName = null;
 
 }

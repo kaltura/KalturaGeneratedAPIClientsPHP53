@@ -84,6 +84,8 @@ class TrackEntry extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->userIp))
 			$this->userIp = (string)$xml->userIp;
+		if(count($xml->sessionId))
+			$this->sessionId = (int)$xml->sessionId;
 	}
 	/**
 	 * 
@@ -186,5 +188,11 @@ class TrackEntry extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $userIp = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $sessionId = null;
 
 }
