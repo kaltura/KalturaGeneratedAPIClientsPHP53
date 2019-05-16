@@ -229,8 +229,8 @@ class Language extends \Kaltura\Client\EnumBase
 	const HNI = "Hani";
 	const HA = "Hausa";
 	const HAW = "Hawaiian";
-	const HE = "Hebrew";
 	const IW = "Hebrew";
+	const HE = "Hebrew";
 	const HEI = "Heiltsuk";
 	const HID = "Hidatsa";
 	const HIL = "Hiligaynon";
@@ -337,6 +337,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const LUN = "Lunda";
 	const LUO = "Luo (Kenya and Tanzania)";
 	const LUT = "Lushootseed";
+	const LB = "Luxembourgish (Letzeburgesch)";
 	const MK = "Macedonian";
 	const MAD = "Madurese";
 	const MAG = "Magahi";
@@ -580,8 +581,8 @@ class Language extends \Kaltura\Client\EnumBase
 	const WYM = "Wymysorys";
 	const XH = "Xhosa";
 	const AME = "Yanesha";
-	const YI = "Yiddish";
 	const JI = "Yiddish";
+	const YI = "Yiddish";
 	const YO = "Yoruba";
 	const ZAI = "Zapotec Isthmus";
 	const DJE = "Zarma";

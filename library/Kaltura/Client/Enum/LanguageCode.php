@@ -109,6 +109,7 @@ class LanguageCode extends \Kaltura\Client\EnumBase
 	const KU = "ku";
 	const KY = "ky";
 	const LA = "la";
+	const LB = "lb";
 	const LI = "li";
 	const LN = "ln";
 	const LO = "lo";

@@ -87,6 +87,8 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 			$this->streamUsername = (string)$xml->streamUsername;
 		if(count($xml->primaryServerNodeId))
 			$this->primaryServerNodeId = (int)$xml->primaryServerNodeId;
+		if(count($xml->sipToken))
+			$this->sipToken = (string)$xml->sipToken;
 	}
 	/**
 	 * The stream id as provided by the provider
@@ -187,5 +189,12 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 	 * @readonly
 	 */
 	public $primaryServerNodeId = null;
+
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $sipToken = null;
 
 }
