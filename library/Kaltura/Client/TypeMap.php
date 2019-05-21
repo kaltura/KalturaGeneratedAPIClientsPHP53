@@ -281,6 +281,7 @@ class TypeMap
 		'KalturaModerationFlag' => 'Kaltura\Client\Type\ModerationFlag',
 		'KalturaObjectTask' => 'Kaltura\Client\Plugin\ScheduledTask\Type\ObjectTask',
 		'KalturaOptionalAnswer' => 'Kaltura\Client\Plugin\Quiz\Type\OptionalAnswer',
+		'KalturaPartnerPublicInfo' => 'Kaltura\Client\Type\PartnerPublicInfo',
 		'KalturaPartnerStatistics' => 'Kaltura\Client\Type\PartnerStatistics',
 		'KalturaPartnerUsage' => 'Kaltura\Client\Type\PartnerUsage',
 		'KalturaPermission' => 'Kaltura\Client\Type\Permission',

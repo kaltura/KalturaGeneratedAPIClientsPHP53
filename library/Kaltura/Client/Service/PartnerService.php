@@ -106,6 +106,26 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Returns partner public info by Id
+	 * 
+	 * @return \Kaltura\Client\Type\PartnerPublicInfo
+	 */
+	function getPublicInfo($id = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("partner", "getPublicInfo", "KalturaPartnerPublicInfo", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaPartnerPublicInfo");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\PartnerPublicInfo");
+		return $resultObject;
+	}
+
+	/**
 	 * Retrieve partner secret and admin secret
 	 * 
 	 * @return \Kaltura\Client\Type\Partner
