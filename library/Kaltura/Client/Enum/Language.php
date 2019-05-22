@@ -362,6 +362,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const MNI = "Meitei";
 	const MEN = "Mende (Sierra Leone)";
 	const MEZ = "Menominee";
+	const CRG = "Michif";
 	const MIC = "Micmac";
 	const MNP = "Min Bei Chinese";
 	const CDO = "Min Dong Chinese";
@@ -581,8 +582,8 @@ class Language extends \Kaltura\Client\EnumBase
 	const WYM = "Wymysorys";
 	const XH = "Xhosa";
 	const AME = "Yanesha";
-	const JI = "Yiddish";
 	const YI = "Yiddish";
+	const JI = "Yiddish";
 	const YO = "Yoruba";
 	const ZAI = "Zapotec Isthmus";
 	const DJE = "Zarma";
