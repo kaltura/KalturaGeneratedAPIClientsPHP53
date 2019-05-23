@@ -54,6 +54,13 @@ class PartnerPublicInfo extends \Kaltura\Client\ObjectBase
 			$this->analyticsUrl = (string)$xml->analyticsUrl;
 		if(count($xml->ottEnvironmentUrl))
 			$this->ottEnvironmentUrl = (string)$xml->ottEnvironmentUrl;
+		if(count($xml->analyticsPersistentSessionId))
+		{
+			if(!empty($xml->analyticsPersistentSessionId) && $xml->analyticsPersistentSessionId != 'false')
+				$this->analyticsPersistentSessionId = true;
+			else
+				$this->analyticsPersistentSessionId = false;
+		}
 	}
 	/**
 	 * 
@@ -66,5 +73,11 @@ class PartnerPublicInfo extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $ottEnvironmentUrl = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $analyticsPersistentSessionId = null;
 
 }
