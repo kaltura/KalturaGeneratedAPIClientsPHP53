@@ -70,7 +70,7 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\BulkUpload
 	 */
-	function addFromBulkUpload($fileData, \Kaltura\Client\Plugin\ScheduleBulkUpload\Type\BulkUploadICalJobData $bulkUploadData = null)
+	function addFromBulkUpload($fileData, \Kaltura\Client\Plugin\ScheduleBulkUpload\Type\BulkUploadScheduleEventJobData $bulkUploadData = null)
 	{
 		$kparams = array();
 		$kfiles = array();

@@ -38,13 +38,13 @@ namespace Kaltura\Client\Enum;
  */
 class BatchJobType extends \Kaltura\Client\EnumBase
 {
+	const CONVERT = "0";
 	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
 	const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
 	const DISTRIBUTION_DELETE = "contentDistribution.DistributionDelete";
 	const DISTRIBUTION_DISABLE = "contentDistribution.DistributionDisable";
 	const DISTRIBUTION_ENABLE = "contentDistribution.DistributionEnable";
 	const DISTRIBUTION_FETCH_REPORT = "contentDistribution.DistributionFetchReport";
-	const CONVERT = "0";
 	const DISTRIBUTION_SUBMIT = "contentDistribution.DistributionSubmit";
 	const DISTRIBUTION_SYNC = "contentDistribution.DistributionSync";
 	const DISTRIBUTION_UPDATE = "contentDistribution.DistributionUpdate";

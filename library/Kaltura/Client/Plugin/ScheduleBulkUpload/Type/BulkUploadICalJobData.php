@@ -37,7 +37,7 @@ namespace Kaltura\Client\Plugin\ScheduleBulkUpload\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class BulkUploadICalJobData extends \Kaltura\Client\Type\BulkUploadJobData
+class BulkUploadICalJobData extends \Kaltura\Client\Plugin\ScheduleBulkUpload\Type\BulkUploadScheduleEventJobData
 {
 	public function getKalturaObjectType()
 	{

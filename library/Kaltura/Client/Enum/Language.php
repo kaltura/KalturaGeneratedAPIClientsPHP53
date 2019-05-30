@@ -229,8 +229,8 @@ class Language extends \Kaltura\Client\EnumBase
 	const HNI = "Hani";
 	const HA = "Hausa";
 	const HAW = "Hawaiian";
-	const IW = "Hebrew";
 	const HE = "Hebrew";
+	const IW = "Hebrew";
 	const HEI = "Heiltsuk";
 	const HID = "Hidatsa";
 	const HIL = "Hiligaynon";

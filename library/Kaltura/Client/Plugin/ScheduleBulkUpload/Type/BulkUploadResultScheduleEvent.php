@@ -52,11 +52,139 @@ class BulkUploadResultScheduleEvent extends \Kaltura\Client\Type\BulkUploadResul
 		
 		if(count($xml->referenceId))
 			$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->templateEntryId))
+			$this->templateEntryId = (string)$xml->templateEntryId;
+		if(count($xml->eventType))
+			$this->eventType = (int)$xml->eventType;
+		if(count($xml->title))
+			$this->title = (string)$xml->title;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
+		if(count($xml->tags))
+			$this->tags = (string)$xml->tags;
+		if(count($xml->categoryIds))
+			$this->categoryIds = (string)$xml->categoryIds;
+		if(count($xml->resourceId))
+			$this->resourceId = (string)$xml->resourceId;
+		if(count($xml->startTime))
+			$this->startTime = (int)$xml->startTime;
+		if(count($xml->duration))
+			$this->duration = (int)$xml->duration;
+		if(count($xml->endTime))
+			$this->endTime = (int)$xml->endTime;
+		if(count($xml->recurrence))
+			$this->recurrence = (string)$xml->recurrence;
+		if(count($xml->coEditors))
+			$this->coEditors = (string)$xml->coEditors;
+		if(count($xml->coPublishers))
+			$this->coPublishers = (string)$xml->coPublishers;
+		if(count($xml->eventOrganizerId))
+			$this->eventOrganizerId = (string)$xml->eventOrganizerId;
+		if(count($xml->contentOwnerId))
+			$this->contentOwnerId = (string)$xml->contentOwnerId;
+		if(count($xml->templateEntryType))
+			$this->templateEntryType = (string)$xml->templateEntryType;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
 	public $referenceId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $templateEntryId = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Schedule\Enum\ScheduleEventType
+	 */
+	public $eventType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $title = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $description = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $tags = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $categoryIds = null;
+
+	/**
+	 * ID of the resource specified for the new event.
+	 * @var string
+	 */
+	public $resourceId = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $startTime = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $duration = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $endTime = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $recurrence = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $coEditors = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $coPublishers = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $eventOrganizerId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $contentOwnerId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $templateEntryType = null;
 
 }
