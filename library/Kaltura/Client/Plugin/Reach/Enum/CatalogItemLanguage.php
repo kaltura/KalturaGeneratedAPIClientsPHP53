@@ -57,6 +57,7 @@ class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 	const KO = "Korean";
 	const CMN = "Mandarin Chinese";
 	const NO = "Norwegian";
+	const PL = "Polish";
 	const PT = "Portuguese";
 	const RU = "Russian";
 	const ES = "Spanish";
