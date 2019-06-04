@@ -60,6 +60,10 @@ class BulkUploadCsvJobData extends \Kaltura\Client\Type\BulkUploadJobData
 			else
 				$this->columns = \Kaltura\Client\ParseUtils::unmarshalArray($xml->columns, "KalturaString");
 		}
+		if(count($xml->processObjectId))
+			$this->processObjectId = (string)$xml->processObjectId;
+		if(count($xml->processObjectType))
+			$this->processObjectType = (string)$xml->processObjectType;
 	}
 	/**
 	 * The version of the csv file
@@ -73,5 +77,17 @@ class BulkUploadCsvJobData extends \Kaltura\Client\Type\BulkUploadJobData
 	 * @var array<KalturaString>
 	 */
 	public $columns;
+
+	/**
+	 * The object in process
+	 * @var string
+	 */
+	public $processObjectId = null;
+
+	/**
+	 * The type of the object in process
+	 * @var string
+	 */
+	public $processObjectType = null;
 
 }
