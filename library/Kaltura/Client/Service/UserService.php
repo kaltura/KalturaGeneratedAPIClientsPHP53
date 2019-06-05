@@ -201,6 +201,25 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * get QR image content
+	 * 
+	 * @return string
+	 */
+	function generateQrCode($hashKey)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "hashKey", $hashKey);
+		$this->client->queueServiceActionCall("user", "generateQrCode", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Retrieves a user object for a specified user ID.
 	 * 
 	 * @return \Kaltura\Client\Type\User

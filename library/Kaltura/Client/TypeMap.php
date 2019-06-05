@@ -72,6 +72,7 @@ class TypeMap
 		'KalturaAuditTrailInfo' => 'Kaltura\Client\Plugin\Audit\Type\AuditTrailInfo',
 		'KalturaAuditTrail' => 'Kaltura\Client\Plugin\Audit\Type\AuditTrail',
 		'KalturaAuditTrailChangeItem' => 'Kaltura\Client\Plugin\Audit\Type\AuditTrailChangeItem',
+		'KalturaAuthentication' => 'Kaltura\Client\Type\Authentication',
 		'KalturaOperationAttributes' => 'Kaltura\Client\Type\OperationAttributes',
 		'KalturaBaseEntry' => 'Kaltura\Client\Type\BaseEntry',
 		'KalturaBaseEntryCloneOptionItem' => 'Kaltura\Client\Type\BaseEntryCloneOptionItem',
