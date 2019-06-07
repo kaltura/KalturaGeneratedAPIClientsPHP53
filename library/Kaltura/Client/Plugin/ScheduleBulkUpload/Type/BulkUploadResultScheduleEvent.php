@@ -99,7 +99,7 @@ class BulkUploadResultScheduleEvent extends \Kaltura\Client\Type\BulkUploadResul
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\Schedule\Enum\ScheduleEventType
+	 * @var int
 	 */
 	public $eventType = null;
 

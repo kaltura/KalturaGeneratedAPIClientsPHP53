@@ -30,18 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VendorServiceFeature extends \Kaltura\Client\EnumBase
+class VendorChapteringCatalogItemFilter extends \Kaltura\Client\Plugin\Reach\Type\VendorCaptionsCatalogItemBaseFilter
 {
-	const CAPTIONS = 1;
-	const TRANSLATION = 2;
-	const ALIGNMENT = 3;
-	const AUDIO_DESCRIPTION = 4;
-	const CHAPTERING = 5;
+	public function getKalturaObjectType()
+	{
+		return 'KalturaVendorChapteringCatalogItemFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

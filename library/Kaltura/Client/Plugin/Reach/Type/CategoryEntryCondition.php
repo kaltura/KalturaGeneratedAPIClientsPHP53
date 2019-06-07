@@ -52,6 +52,8 @@ class CategoryEntryCondition extends \Kaltura\Client\Type\Condition
 		
 		if(count($xml->categoryId))
 			$this->categoryId = (int)$xml->categoryId;
+		if(count($xml->categoryIds))
+			$this->categoryIds = (string)$xml->categoryIds;
 		if(count($xml->categoryUserPermission))
 			$this->categoryUserPermission = (int)$xml->categoryUserPermission;
 		if(count($xml->comparison))
@@ -62,6 +64,12 @@ class CategoryEntryCondition extends \Kaltura\Client\Type\Condition
 	 * @var int
 	 */
 	public $categoryId = null;
+
+	/**
+	 * Category id's to check condition for
+	 * @var string
+	 */
+	public $categoryIds = null;
 
 	/**
 	 * Minimum category user level permission to validate

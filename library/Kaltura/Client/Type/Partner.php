@@ -210,12 +210,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 				$this->eSearchLanguages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->eSearchLanguages, "KalturaESearchLanguageItem");
 		}
 		if(count($xml->authenticationType))
-		{
-			if(!empty($xml->authenticationType) && $xml->authenticationType != 'false')
-				$this->authenticationType = true;
-			else
-				$this->authenticationType = false;
-		}
+			$this->authenticationType = (int)$xml->authenticationType;
 	}
 	/**
 	 * 
@@ -587,7 +582,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var bool
+	 * @var int
 	 * @readonly
 	 */
 	public $authenticationType = null;
