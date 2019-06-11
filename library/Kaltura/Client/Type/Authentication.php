@@ -30,16 +30,33 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class PartnerAuthenticationType extends \Kaltura\Client\EnumBase
+class Authentication extends \Kaltura\Client\ObjectBase
 {
-	const PASSWORD_ONLY = 0;
-	const TWO_FACTOR_AUTH = 1;
-	const SSO = 2;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaAuthentication';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->qrCode))
+			$this->qrCode = (string)$xml->qrCode;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $qrCode = null;
 
+}

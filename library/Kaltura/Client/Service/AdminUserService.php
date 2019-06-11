@@ -85,18 +85,22 @@ class AdminUserService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Set initial users password
 	 * 
+	 * @return \Kaltura\Client\Type\Authentication
 	 */
 	function setInitialPassword($hashKey, $newPassword)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "hashKey", $hashKey);
 		$this->client->addParam($kparams, "newPassword", $newPassword);
-		$this->client->queueServiceActionCall("adminuser", "setInitialPassword", null, $kparams);
+		$this->client->queueServiceActionCall("adminuser", "setInitialPassword", "KalturaAuthentication", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAuthentication");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Authentication");
+		return $resultObject;
 	}
 
 	/**

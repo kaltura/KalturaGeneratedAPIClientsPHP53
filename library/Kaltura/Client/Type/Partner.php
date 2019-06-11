@@ -582,7 +582,7 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var int
+	 * @var \Kaltura\Client\Enum\PartnerAuthenticationType
 	 * @readonly
 	 */
 	public $authenticationType = null;
