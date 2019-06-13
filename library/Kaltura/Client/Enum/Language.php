@@ -65,6 +65,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const ALN = "Albanian (Gheg)";
 	const ALS = "Albanian (Tosk)";
 	const ALE = "Aleut";
+	const ALG = "Algonquian languages";
 	const ALQ = "Algonquin";
 	const ALT = "Altai (Southern)";
 	const AM = "Amharic";
@@ -85,6 +86,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const ASB = "Assiniboine";
 	const AII = "Assyrian Neo-Aramaic";
 	const AST = "Asturian";
+	const ATH = "Athapascan languages";
 	const ATJ = "Atikamekw";
 	const AWA = "Awadhi";
 	const AY = "Aymara";
@@ -152,6 +154,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const COO = "Comox";
 	const COP = "Coptic";
 	const CO = "Corsican";
+	const CR = "Cree";
 	const MUS = "Creek";
 	const CRH = "Crimean Tatar";
 	const HR = "Croatian";
@@ -244,15 +247,17 @@ class Language extends \Kaltura\Client\EnumBase
 	const KPO = "Ikposo";
 	const ILO = "Iloko";
 	const SMN = "Inari Sami";
-	const IN = "Indonesian";
 	const ID = "Indonesian";
+	const IN = "Indonesian";
 	const IZH = "Ingrian";
 	const INH = "Ingush";
 	const IA = "Interlingua";
 	const IE = "Interlingue";
+	const IKT = "Inuinnaqtun";
 	const IU = "Inuktitut";
 	const IK = "Inupiak";
 	const GA = "Irish";
+	const IRO = "Iroquoian languages";
 	const IT = "Italian";
 	const ITL = "Itelmen";
 	const JA = "Japanese";
@@ -389,6 +394,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const NIO = "Nganasan";
 	const NCG = "Nisgaa";
 	const NIU = "Niuean";
+	const ZXX = "No linguistic content";
 	const NOG = "Nogai";
 	const NON = "Norse Old";
 	const NSO = "Northern Sotho Pedi Sepedi";
@@ -403,6 +409,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const OJB = "Ojibwa Northwestern";
 	const OJS = "Ojibwa Severn";
 	const OJW = "Ojibwa Western";
+	const OJ = "Ojibwe, Ojibwa";
 	const RYU = "Okinawan Central";
 	const ANG = "Old English";
 	const ONE = "Oneida";
@@ -453,7 +460,9 @@ class Language extends \Kaltura\Client\EnumBase
 	const SAH = "Sakha";
 	const SLR = "Salar";
 	const STR = "Salish Straits";
+	const SAL = "Salishan languages";
 	const SJD = "Sami Kildin";
+	const SMI = "Sami languages";
 	const SM = "Samoan";
 	const SG = "Sangro";
 	const SA = "Sanskrit";
@@ -494,6 +503,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const DSB = "Sorbian Lower";
 	const HSB = "Sorbian Upper";
 	const SMA = "Southern Sami";
+	const TCE = "Southern Tutchone";
 	const ES = "Spanish";
 	const SRN = "Sranan";
 	const STO = "Stoney";
