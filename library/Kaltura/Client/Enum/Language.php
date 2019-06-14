@@ -379,6 +379,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const MO = "Moldavian";
 	const MNW = "Mon";
 	const MN = "Mongolian";
+	const MOE = "Montagnais";
 	const MFE = "Morisyen";
 	const MOS = "Mossi";
 	const MXI = "Mozarabic";
@@ -410,6 +411,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const OJS = "Ojibwa Severn";
 	const OJW = "Ojibwa Western";
 	const OJ = "Ojibwe, Ojibwa";
+	const OKA = "Okanagan";
 	const RYU = "Okinawan Central";
 	const ANG = "Old English";
 	const ONE = "Oneida";
@@ -489,6 +491,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const SHS = "Shuswap";
 	const SCN = "Sicilian";
 	const SID = "Sidamo";
+	const BLA = "Siksika";
 	const SZL = "Silesian";
 	const SD = "Sindhi";
 	const SI = "Sinhalese";

@@ -53,6 +53,7 @@ class LanguageCode extends \Kaltura\Client\EnumBase
 	const BG = "bg";
 	const BH = "bh";
 	const BI = "bi";
+	const BLA = "bla";
 	const BN = "bn";
 	const BO = "bo";
 	const BR = "br";
@@ -128,6 +129,7 @@ class LanguageCode extends \Kaltura\Client\EnumBase
 	const ML = "ml";
 	const MN = "mn";
 	const MO = "mo";
+	const MOE = "moe";
 	const MR = "mr";
 	const MS = "ms";
 	const MT = "mt";
@@ -141,6 +143,7 @@ class LanguageCode extends \Kaltura\Client\EnumBase
 	const OJ = "oj";
 	const OJS = "ojs";
 	const OJW = "ojw";
+	const OKA = "oka";
 	const OM = "om";
 	const OR_ = "or";
 	const PA = "pa";
