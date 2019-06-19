@@ -39,6 +39,9 @@ namespace Kaltura\Client\Enum;
 class ReportInterval extends \Kaltura\Client\EnumBase
 {
 	const DAYS = "days";
+	const HOURS = "hours";
+	const MINUTES = "minutes";
 	const MONTHS = "months";
+	const TEN_SECONDS = "ten_seconds";
 }
 
