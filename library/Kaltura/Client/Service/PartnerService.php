@@ -130,12 +130,13 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Type\Partner
 	 */
-	function getSecrets($partnerId, $adminEmail, $cmsPassword)
+	function getSecrets($partnerId, $adminEmail, $cmsPassword, $otp = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "partnerId", $partnerId);
 		$this->client->addParam($kparams, "adminEmail", $adminEmail);
 		$this->client->addParam($kparams, "cmsPassword", $cmsPassword);
+		$this->client->addParam($kparams, "otp", $otp);
 		$this->client->queueServiceActionCall("partner", "getSecrets", "KalturaPartner", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
