@@ -470,7 +470,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * Updates a user's login data: email, password, name.
 	 * 
 	 */
-	function updateLoginData($oldLoginId, $password, $newLoginId = "", $newPassword = "", $newFirstName = null, $newLastName = null)
+	function updateLoginData($oldLoginId, $password, $newLoginId = "", $newPassword = "", $newFirstName = null, $newLastName = null, $otp = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "oldLoginId", $oldLoginId);
@@ -479,6 +479,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 		$this->client->addParam($kparams, "newPassword", $newPassword);
 		$this->client->addParam($kparams, "newFirstName", $newFirstName);
 		$this->client->addParam($kparams, "newLastName", $newLastName);
+		$this->client->addParam($kparams, "otp", $otp);
 		$this->client->queueServiceActionCall("user", "updateLoginData", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

@@ -52,11 +52,19 @@ class ESearchEntryParams extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESear
 		
 		if(count($xml->searchOperator) && !empty($xml->searchOperator))
 			$this->searchOperator = \Kaltura\Client\ParseUtils::unmarshalObject($xml->searchOperator, "KalturaESearchEntryOperator");
+		if(count($xml->aggregations) && !empty($xml->aggregations))
+			$this->aggregations = \Kaltura\Client\ParseUtils::unmarshalObject($xml->aggregations, "KalturaESearchAggregation");
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryOperator
 	 */
 	public $searchOperator;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAggregation
+	 */
+	public $aggregations;
 
 }

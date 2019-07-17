@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryResponse extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
+class ESearchAggregationResponseItem extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchEntryResponse';
+		return 'KalturaESearchAggregationResponseItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,33 +50,34 @@ class ESearchEntryResponse extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESe
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->objects))
+		if(count($xml->name))
+			$this->name = (string)$xml->name;
+		if(count($xml->fieldName))
+			$this->fieldName = (string)$xml->fieldName;
+		if(count($xml->buckets))
 		{
-			if(empty($xml->objects))
-				$this->objects = array();
+			if(empty($xml->buckets))
+				$this->buckets = array();
 			else
-				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaESearchEntryResult");
-		}
-		if(count($xml->aggregations))
-		{
-			if(empty($xml->aggregations))
-				$this->aggregations = array();
-			else
-				$this->aggregations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->aggregations, "KalturaESearchAggregationResponseItem");
+				$this->buckets = \Kaltura\Client\ParseUtils::unmarshalArray($xml->buckets, "KalturaESearchAggregationBucket");
 		}
 	}
 	/**
 	 * 
-	 * @var array<KalturaESearchEntryResult>
-	 * @readonly
+	 * @var string
 	 */
-	public $objects;
+	public $name = null;
 
 	/**
 	 * 
-	 * @var array<KalturaESearchAggregationResponseItem>
-	 * @readonly
+	 * @var string
 	 */
-	public $aggregations;
+	public $fieldName = null;
+
+	/**
+	 * 
+	 * @var array<KalturaESearchAggregationBucket>
+	 */
+	public $buckets;
 
 }

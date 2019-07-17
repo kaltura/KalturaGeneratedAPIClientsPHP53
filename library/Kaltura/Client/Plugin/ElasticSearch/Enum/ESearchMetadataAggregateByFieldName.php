@@ -30,53 +30,13 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Plugin\ElasticSearch\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryResponse extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
+class ESearchMetadataAggregateByFieldName extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaESearchEntryResponse';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->objects))
-		{
-			if(empty($xml->objects))
-				$this->objects = array();
-			else
-				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaESearchEntryResult");
-		}
-		if(count($xml->aggregations))
-		{
-			if(empty($xml->aggregations))
-				$this->aggregations = array();
-			else
-				$this->aggregations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->aggregations, "KalturaESearchAggregationResponseItem");
-		}
-	}
-	/**
-	 * 
-	 * @var array<KalturaESearchEntryResult>
-	 * @readonly
-	 */
-	public $objects;
-
-	/**
-	 * 
-	 * @var array<KalturaESearchAggregationResponseItem>
-	 * @readonly
-	 */
-	public $aggregations;
-
 }
+

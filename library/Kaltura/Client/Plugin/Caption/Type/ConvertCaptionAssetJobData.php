@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ElasticSearch\Type;
+namespace Kaltura\Client\Plugin\Caption\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ESearchEntryResponse extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse
+class ConvertCaptionAssetJobData extends \Kaltura\Client\Type\JobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchEntryResponse';
+		return 'KalturaConvertCaptionAssetJobData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,33 +50,45 @@ class ESearchEntryResponse extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESe
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->objects))
-		{
-			if(empty($xml->objects))
-				$this->objects = array();
-			else
-				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaESearchEntryResult");
-		}
-		if(count($xml->aggregations))
-		{
-			if(empty($xml->aggregations))
-				$this->aggregations = array();
-			else
-				$this->aggregations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->aggregations, "KalturaESearchAggregationResponseItem");
-		}
+		if(count($xml->captionAssetId))
+			$this->captionAssetId = (string)$xml->captionAssetId;
+		if(count($xml->fileLocation))
+			$this->fileLocation = (string)$xml->fileLocation;
+		if(count($xml->fileEncryptionKey))
+			$this->fileEncryptionKey = (string)$xml->fileEncryptionKey;
+		if(count($xml->fromType))
+			$this->fromType = (string)$xml->fromType;
+		if(count($xml->toType))
+			$this->toType = (string)$xml->toType;
 	}
 	/**
 	 * 
-	 * @var array<KalturaESearchEntryResult>
-	 * @readonly
+	 * @var string
 	 */
-	public $objects;
+	public $captionAssetId = null;
 
 	/**
 	 * 
-	 * @var array<KalturaESearchAggregationResponseItem>
-	 * @readonly
+	 * @var string
 	 */
-	public $aggregations;
+	public $fileLocation = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $fileEncryptionKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $fromType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $toType = null;
 
 }

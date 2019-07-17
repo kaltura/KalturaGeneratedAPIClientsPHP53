@@ -118,6 +118,8 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 			$this->recommendedDcForDownload = (int)$xml->recommendedDcForDownload;
 		if(count($xml->recommendedDcForExecute))
 			$this->recommendedDcForExecute = (int)$xml->recommendedDcForExecute;
+		if(count($xml->distributeTrigger))
+			$this->distributeTrigger = (int)$xml->distributeTrigger;
 	}
 	/**
 	 * Auto generated unique id
@@ -267,5 +269,11 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 */
 	public $recommendedDcForExecute = null;
+
+	/**
+	 * The event that trigger the automatic distribute
+	 * @var \Kaltura\Client\Plugin\ContentDistribution\Enum\DistributeTrigger
+	 */
+	public $distributeTrigger = null;
 
 }
