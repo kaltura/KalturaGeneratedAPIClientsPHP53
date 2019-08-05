@@ -74,6 +74,24 @@ class CrossKalturaDistributionProfile extends \Kaltura\Client\Plugin\ContentDist
 			else
 				$this->distributeCaptions = false;
 		}
+		if(count($xml->designatedCategories))
+			$this->designatedCategories = (string)$xml->designatedCategories;
+		if(count($xml->distributeCategories))
+		{
+			if(!empty($xml->distributeCategories) && $xml->distributeCategories != 'false')
+				$this->distributeCategories = true;
+			else
+				$this->distributeCategories = false;
+		}
+		if(count($xml->collaboratorsCustomMetadataProfileId))
+			$this->collaboratorsCustomMetadataProfileId = (string)$xml->collaboratorsCustomMetadataProfileId;
+		if(count($xml->collaboratorsFromCustomMetadataProfile))
+		{
+			if(!empty($xml->collaboratorsFromCustomMetadataProfile) && $xml->collaboratorsFromCustomMetadataProfile != 'false')
+				$this->collaboratorsFromCustomMetadataProfile = true;
+			else
+				$this->collaboratorsFromCustomMetadataProfile = false;
+		}
 		if(count($xml->distributeCuePoints))
 		{
 			if(!empty($xml->distributeCuePoints) && $xml->distributeCuePoints != 'false')
@@ -151,6 +169,13 @@ class CrossKalturaDistributionProfile extends \Kaltura\Client\Plugin\ContentDist
 			else
 				$this->mapCaptionParamsIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->mapCaptionParamsIds, "KalturaKeyValue");
 		}
+		if(count($xml->mapAttachmentParamsIds))
+		{
+			if(empty($xml->mapAttachmentParamsIds))
+				$this->mapAttachmentParamsIds = array();
+			else
+				$this->mapAttachmentParamsIds = \Kaltura\Client\ParseUtils::unmarshalArray($xml->mapAttachmentParamsIds, "KalturaKeyValue");
+		}
 	}
 	/**
 	 * 
@@ -193,6 +218,30 @@ class CrossKalturaDistributionProfile extends \Kaltura\Client\Plugin\ContentDist
 	 * @var bool
 	 */
 	public $distributeCaptions = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $designatedCategories = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $distributeCategories = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $collaboratorsCustomMetadataProfileId = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $collaboratorsFromCustomMetadataProfile = null;
 
 	/**
 	 * 
@@ -259,5 +308,11 @@ class CrossKalturaDistributionProfile extends \Kaltura\Client\Plugin\ContentDist
 	 * @var array<KalturaKeyValue>
 	 */
 	public $mapCaptionParamsIds;
+
+	/**
+	 * 
+	 * @var array<KalturaKeyValue>
+	 */
+	public $mapAttachmentParamsIds;
 
 }
