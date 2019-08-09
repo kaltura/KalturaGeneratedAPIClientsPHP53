@@ -871,6 +871,7 @@ class TypeMap
 		'KalturaEntryVendorTaskBaseFilter' => 'Kaltura\Client\Plugin\Reach\Type\EntryVendorTaskBaseFilter',
 		'KalturaEntryVendorTaskFilter' => 'Kaltura\Client\Plugin\Reach\Type\EntryVendorTaskFilter',
 		'KalturaEntryVendorTaskCsvJobData' => 'Kaltura\Client\Plugin\Reach\Type\EntryVendorTaskCsvJobData',
+		'KalturaEventNotificationDispatchScope' => 'Kaltura\Client\Plugin\EventNotification\Type\EventNotificationDispatchScope',
 		'KalturaEventNotificationTemplateFilter' => 'Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplateFilter',
 		'KalturaExtractMediaJobData' => 'Kaltura\Client\Type\ExtractMediaJobData',
 		'KalturaFacebookDistributionJobProviderData' => 'Kaltura\Client\Plugin\FacebookDistribution\Type\FacebookDistributionJobProviderData',
