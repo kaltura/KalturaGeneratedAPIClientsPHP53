@@ -54,6 +54,8 @@ class VendorAudioDescriptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Typ
 			$this->sourceLanguage = (string)$xml->sourceLanguage;
 		if(count($xml->flavorParamsId))
 			$this->flavorParamsId = (int)$xml->flavorParamsId;
+		if(count($xml->clearAudioFlavorParamsId))
+			$this->clearAudioFlavorParamsId = (int)$xml->clearAudioFlavorParamsId;
 	}
 	/**
 	 * 
@@ -66,5 +68,11 @@ class VendorAudioDescriptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Typ
 	 * @var int
 	 */
 	public $flavorParamsId = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $clearAudioFlavorParamsId = null;
 
 }
