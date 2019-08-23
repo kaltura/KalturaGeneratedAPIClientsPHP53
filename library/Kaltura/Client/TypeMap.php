@@ -761,6 +761,7 @@ class TypeMap
 		'KalturaUrlTokenizerCht' => 'Kaltura\Client\Type\UrlTokenizerCht',
 		'KalturaUrlTokenizerCloudFront' => 'Kaltura\Client\Type\UrlTokenizerCloudFront',
 		'KalturaUrlTokenizerKs' => 'Kaltura\Client\Type\UrlTokenizerKs',
+		'KalturaUrlTokenizerL3' => 'Kaltura\Client\Type\UrlTokenizerL3',
 		'KalturaUrlTokenizerLevel3' => 'Kaltura\Client\Type\UrlTokenizerLevel3',
 		'KalturaUrlTokenizerLimeLight' => 'Kaltura\Client\Type\UrlTokenizerLimeLight',
 		'KalturaUrlTokenizerVelocix' => 'Kaltura\Client\Type\UrlTokenizerVelocix',
