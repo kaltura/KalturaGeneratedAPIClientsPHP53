@@ -75,6 +75,8 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 			else
 				$this->displayOnPlayer = false;
 		}
+		if(count($xml->associatedTranscriptIds))
+			$this->associatedTranscriptIds = (string)$xml->associatedTranscriptIds;
 	}
 	/**
 	 * The Caption Params used to create this Caption Asset
@@ -140,5 +142,11 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 	 * @var bool
 	 */
 	public $displayOnPlayer = null;
+
+	/**
+	 * List of associated transcript asset id's, comma separated
+	 * @var string
+	 */
+	public $associatedTranscriptIds = null;
 
 }
