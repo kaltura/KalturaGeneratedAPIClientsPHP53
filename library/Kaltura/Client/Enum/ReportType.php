@@ -84,6 +84,8 @@ class ReportType extends \Kaltura\Client\EnumBase
 	const CONTENT_REPORT_REASONS = "44";
 	const PLAYER_RELATED_INTERACTIONS = "45";
 	const PLAYBACK_RATE = "46";
+	const TOP_USER_CONTENT = "47";
+	const USER_HIGHLIGHTS = "48";
 	const PARTNER_USAGE = "201";
 	const MAP_OVERLAY_COUNTRY_REALTIME = "10001";
 	const MAP_OVERLAY_REGION_REALTIME = "10002";
