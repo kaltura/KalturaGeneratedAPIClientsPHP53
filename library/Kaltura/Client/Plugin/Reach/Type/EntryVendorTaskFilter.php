@@ -52,11 +52,27 @@ class EntryVendorTaskFilter extends \Kaltura\Client\Plugin\Reach\Type\EntryVendo
 		
 		if(count($xml->freeText))
 			$this->freeText = (string)$xml->freeText;
+		if(count($xml->expectedFinishTimeGreaterThanOrEqual))
+			$this->expectedFinishTimeGreaterThanOrEqual = (int)$xml->expectedFinishTimeGreaterThanOrEqual;
+		if(count($xml->expectedFinishTimeLessThanOrEqual))
+			$this->expectedFinishTimeLessThanOrEqual = (int)$xml->expectedFinishTimeLessThanOrEqual;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
 	public $freeText = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $expectedFinishTimeGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $expectedFinishTimeLessThanOrEqual = null;
 
 }

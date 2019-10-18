@@ -100,6 +100,12 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 			$this->creationMode = (int)$xml->creationMode;
 		if(count($xml->taskJobData) && !empty($xml->taskJobData))
 			$this->taskJobData = \Kaltura\Client\ParseUtils::unmarshalObject($xml->taskJobData, "KalturaVendorTaskData");
+		if(count($xml->expectedFinishTime))
+			$this->expectedFinishTime = (int)$xml->expectedFinishTime;
+		if(count($xml->serviceType))
+			$this->serviceType = (int)$xml->serviceType;
+		if(count($xml->serviceFeature))
+			$this->serviceFeature = (int)$xml->serviceFeature;
 	}
 	/**
 	 * 
@@ -267,5 +273,26 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
 	 */
 	public $taskJobData;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $expectedFinishTime = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorServiceType
+	 * @readonly
+	 */
+	public $serviceType = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorServiceFeature
+	 * @readonly
+	 */
+	public $serviceFeature = null;
 
 }
