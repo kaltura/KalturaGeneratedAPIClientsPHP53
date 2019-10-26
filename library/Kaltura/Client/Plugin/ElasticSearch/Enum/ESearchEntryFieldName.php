@@ -40,6 +40,7 @@ class ESearchEntryFieldName extends \Kaltura\Client\EnumBase
 {
 	const ACCESS_CONTROL_ID = "access_control_id";
 	const ADMIN_TAGS = "admin_tags";
+	const CAPTIONS_CONTENT = "captions_content";
 	const CONVERSION_PROFILE_ID = "conversion_profile_id";
 	const CREATED_AT = "created_at";
 	const CREATOR_ID = "creator_kuser_id";
