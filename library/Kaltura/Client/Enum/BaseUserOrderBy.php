@@ -30,65 +30,19 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-abstract class UserBaseFilter extends \Kaltura\Client\Type\BaseUserFilter
+class BaseUserOrderBy extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaUserBaseFilter';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->typeEqual))
-			$this->typeEqual = (int)$xml->typeEqual;
-		if(count($xml->typeIn))
-			$this->typeIn = (string)$xml->typeIn;
-		if(count($xml->isAdminEqual))
-			$this->isAdminEqual = (int)$xml->isAdminEqual;
-		if(count($xml->firstNameStartsWith))
-			$this->firstNameStartsWith = (string)$xml->firstNameStartsWith;
-		if(count($xml->lastNameStartsWith))
-			$this->lastNameStartsWith = (string)$xml->lastNameStartsWith;
-	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserType
-	 */
-	public $typeEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $typeIn = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $isAdminEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $firstNameStartsWith = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $lastNameStartsWith = null;
-
+	const CREATED_AT_ASC = "+createdAt";
+	const ID_ASC = "+id";
+	const UPDATED_AT_ASC = "+updatedAt";
+	const CREATED_AT_DESC = "-createdAt";
+	const ID_DESC = "-id";
+	const UPDATED_AT_DESC = "-updatedAt";
 }
+

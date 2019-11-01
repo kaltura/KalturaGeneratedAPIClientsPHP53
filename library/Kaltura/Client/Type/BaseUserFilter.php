@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class UserBaseFilter extends \Kaltura\Client\Type\BaseUserFilter
+abstract class BaseUserFilter extends \Kaltura\Client\Type\BaseUserBaseFilter
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaUserBaseFilter';
+		return 'KalturaBaseUserFilter';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,45 +50,5 @@ abstract class UserBaseFilter extends \Kaltura\Client\Type\BaseUserFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->typeEqual))
-			$this->typeEqual = (int)$xml->typeEqual;
-		if(count($xml->typeIn))
-			$this->typeIn = (string)$xml->typeIn;
-		if(count($xml->isAdminEqual))
-			$this->isAdminEqual = (int)$xml->isAdminEqual;
-		if(count($xml->firstNameStartsWith))
-			$this->firstNameStartsWith = (string)$xml->firstNameStartsWith;
-		if(count($xml->lastNameStartsWith))
-			$this->lastNameStartsWith = (string)$xml->lastNameStartsWith;
 	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserType
-	 */
-	public $typeEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $typeIn = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $isAdminEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $firstNameStartsWith = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $lastNameStartsWith = null;
-
 }
