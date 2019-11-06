@@ -30,21 +30,43 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\DropFolder\Enum;
+namespace Kaltura\Client\Plugin\ApFeedDropFolder;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DropFolderType extends \Kaltura\Client\EnumBase
+class ApFeedDropFolderPlugin extends \Kaltura\Client\Plugin
 {
-	const AP_FEED = "ApFeedDropFolder.AP_FEED";
-	const FEED = "FeedDropFolder.FEED";
-	const WEBEX = "WebexDropFolder.WEBEX";
-	const LOCAL = "1";
-	const FTP = "2";
-	const SCP = "3";
-	const SFTP = "4";
-	const S3 = "6";
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return ApFeedDropFolderPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new ApFeedDropFolderPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'ApFeedDropFolder';
+	}
 }
 
