@@ -56,12 +56,14 @@ class ESearchEntryFieldName extends \Kaltura\Client\EnumBase
 	const IS_LIVE = "is_live";
 	const IS_QUIZ = "is_quiz";
 	const USER_ID = "kuser_id";
+	const LAST_PLAYED_AT = "last_played_at";
 	const LENGTH_IN_MSECS = "length_in_msecs";
 	const MEDIA_TYPE = "media_type";
 	const MODERATION_STATUS = "moderation_status";
 	const NAME = "name";
 	const PARENT_ENTRY_ID = "parent_id";
 	const PARTNER_SORT_VALUE = "partner_sort_value";
+	const PLAYS = "plays";
 	const PUSH_PUBLISH = "push_publish";
 	const RECORDED_ENTRY_ID = "recorded_entry_id";
 	const REDIRECT_ENTRY_ID = "redirect_entry_id";
