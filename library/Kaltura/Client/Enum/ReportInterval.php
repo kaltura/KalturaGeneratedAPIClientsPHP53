@@ -42,6 +42,7 @@ class ReportInterval extends \Kaltura\Client\EnumBase
 	const HOURS = "hours";
 	const MINUTES = "minutes";
 	const MONTHS = "months";
+	const TEN_MINUTES = "ten_minutes";
 	const TEN_SECONDS = "ten_seconds";
 }
 
