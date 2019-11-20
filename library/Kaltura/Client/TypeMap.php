@@ -805,7 +805,6 @@ class TypeMap
 		'KalturaAkamaiProvisionJobData' => 'Kaltura\Client\Type\AkamaiProvisionJobData',
 		'KalturaAkamaiUniversalProvisionJobData' => 'Kaltura\Client\Type\AkamaiUniversalProvisionJobData',
 		'KalturaAnonymousIPCondition' => 'Kaltura\Client\Type\AnonymousIPCondition',
-		'KalturaApFeedDropFolder' => 'Kaltura\Client\Plugin\ApFeedDropFolder\Type\ApFeedDropFolder',
 		'KalturaAppTokenFilter' => 'Kaltura\Client\Type\AppTokenFilter',
 		'KalturaAssetParamsBaseFilter' => 'Kaltura\Client\Type\AssetParamsBaseFilter',
 		'KalturaAssetResource' => 'Kaltura\Client\Type\AssetResource',

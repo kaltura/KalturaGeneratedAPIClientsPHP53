@@ -65,6 +65,7 @@ class ESearchEntryFieldName extends \Kaltura\Client\EnumBase
 	const PARTNER_SORT_VALUE = "partner_sort_value";
 	const PLAYS = "plays";
 	const PUSH_PUBLISH = "push_publish";
+	const RANK = "rank";
 	const RECORDED_ENTRY_ID = "recorded_entry_id";
 	const REDIRECT_ENTRY_ID = "redirect_entry_id";
 	const REFERENCE_ID = "reference_id";

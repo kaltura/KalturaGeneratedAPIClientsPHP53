@@ -46,6 +46,7 @@ class ESearchEntryOrderByFieldName extends \Kaltura\Client\EnumBase
 	const PLAYS_LAST_1_DAY = "plays_last_1_day";
 	const PLAYS_LAST_30_DAYS = "plays_last_30_days";
 	const PLAYS_LAST_7_DAYS = "plays_last_7_days";
+	const RANK = "rank";
 	const START_DATE = "start_date";
 	const UPDATED_AT = "updated_at";
 	const VIEWS = "views";

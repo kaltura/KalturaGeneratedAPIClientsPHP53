@@ -38,7 +38,6 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  */
 class DropFolderType extends \Kaltura\Client\EnumBase
 {
-	const AP_FEED = "ApFeedDropFolder.AP_FEED";
 	const FEED = "FeedDropFolder.FEED";
 	const WEBEX = "WebexDropFolder.WEBEX";
 	const LOCAL = "1";
