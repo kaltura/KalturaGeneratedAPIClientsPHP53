@@ -54,6 +54,8 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 			$this->name = (string)$xml->name;
 		if(count($xml->content))
 			$this->content = (string)$xml->content;
+		if(count($xml->rawData))
+			$this->rawData = (string)$xml->rawData;
 		if(count($xml->isEditable))
 		{
 			if(!empty($xml->isEditable) && $xml->isEditable != 'false')
@@ -61,8 +63,8 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 			else
 				$this->isEditable = false;
 		}
-		if(count($xml->lastUpdate))
-			$this->lastUpdate = (int)$xml->lastUpdate;
+		if(count($xml->createdAt))
+			$this->createdAt = (int)$xml->createdAt;
 		if(count($xml->relatedHost))
 			$this->relatedHost = (string)$xml->relatedHost;
 		if(count($xml->version))
@@ -88,6 +90,12 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 	public $content = null;
 
 	/**
+	 * 
+	 * @var string
+	 */
+	public $rawData = null;
+
+	/**
 	 * IsEditable - true / false
 	 * @var bool
 	 * @readonly
@@ -99,7 +107,7 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 * @readonly
 	 */
-	public $lastUpdate = null;
+	public $createdAt = null;
 
 	/**
 	 * Regex that represent the host/s that this map affect
