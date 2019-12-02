@@ -144,6 +144,10 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			else
 				$this->shouldExportThumbs = false;
 		}
+		if(count($xml->mappedPackagerUrl))
+			$this->mappedPackagerUrl = (string)$xml->mappedPackagerUrl;
+		if(count($xml->regularPackagerUrl))
+			$this->regularPackagerUrl = (string)$xml->regularPackagerUrl;
 	}
 	/**
 	 * 
@@ -340,5 +344,17 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $shouldExportThumbs = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $mappedPackagerUrl = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $regularPackagerUrl = null;
 
 }
