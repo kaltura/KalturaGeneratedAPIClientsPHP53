@@ -1061,6 +1061,7 @@ class TypeMap
 		'KalturaGenericSyndicationFeedBaseFilter' => 'Kaltura\Client\Type\GenericSyndicationFeedBaseFilter',
 		'KalturaGoogleVideoSyndicationFeedBaseFilter' => 'Kaltura\Client\Type\GoogleVideoSyndicationFeedBaseFilter',
 		'KalturaGroupUserFilter' => 'Kaltura\Client\Type\GroupUserFilter',
+		'KalturaHttpHeaderCondition' => 'Kaltura\Client\Type\HttpHeaderCondition',
 		'KalturaHttpNotificationTemplateBaseFilter' => 'Kaltura\Client\Plugin\HttpNotification\Type\HttpNotificationTemplateBaseFilter',
 		'KalturaHuluDistributionProviderBaseFilter' => 'Kaltura\Client\Plugin\HuluDistribution\Type\HuluDistributionProviderBaseFilter',
 		'KalturaITunesSyndicationFeedBaseFilter' => 'Kaltura\Client\Type\ITunesSyndicationFeedBaseFilter',

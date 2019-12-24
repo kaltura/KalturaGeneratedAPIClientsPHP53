@@ -56,6 +56,8 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 			$this->content = (string)$xml->content;
 		if(count($xml->rawData))
 			$this->rawData = (string)$xml->rawData;
+		if(count($xml->userId))
+			$this->userId = (string)$xml->userId;
 		if(count($xml->isEditable))
 		{
 			if(!empty($xml->isEditable) && $xml->isEditable != 'false')
@@ -94,6 +96,12 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $rawData = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $userId = null;
 
 	/**
 	 * IsEditable - true / false

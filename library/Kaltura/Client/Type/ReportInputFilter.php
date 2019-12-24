@@ -110,6 +110,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->playbackTypeIn = (string)$xml->playbackTypeIn;
 		if(count($xml->playbackContextIdsIn))
 			$this->playbackContextIdsIn = (string)$xml->playbackContextIdsIn;
+		if(count($xml->rootEntryIdIn))
+			$this->rootEntryIdIn = (string)$xml->rootEntryIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -260,5 +262,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $playbackContextIdsIn = null;
+
+	/**
+	 * filter by root entry ids
+	 * @var string
+	 */
+	public $rootEntryIdIn = null;
 
 }
