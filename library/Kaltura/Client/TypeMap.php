@@ -205,6 +205,7 @@ class TypeMap
 		'KalturaEventNotificationParameter' => 'Kaltura\Client\Plugin\EventNotification\Type\EventNotificationParameter',
 		'KalturaEventNotificationTemplate' => 'Kaltura\Client\Plugin\EventNotification\Type\EventNotificationTemplate',
 		'KalturaExclusiveLockKey' => 'Kaltura\Client\Type\ExclusiveLockKey',
+		'KalturaExportToCsvOptions' => 'Kaltura\Client\Type\ExportToCsvOptions',
 		'KalturaObjectIdentifier' => 'Kaltura\Client\Type\ObjectIdentifier',
 		'KalturaExtendingItemMrssParameter' => 'Kaltura\Client\Type\ExtendingItemMrssParameter',
 		'KalturaPlayableEntry' => 'Kaltura\Client\Type\PlayableEntry',

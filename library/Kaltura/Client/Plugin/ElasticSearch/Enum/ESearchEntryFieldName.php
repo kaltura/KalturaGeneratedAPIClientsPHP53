@@ -77,5 +77,6 @@ class ESearchEntryFieldName extends \Kaltura\Client\EnumBase
 	const TEMPLATE_ENTRY_ID = "template_entry_id";
 	const UPDATED_AT = "updated_at";
 	const USER_NAMES = "user_names";
+	const VOTES = "votes";
 }
 
