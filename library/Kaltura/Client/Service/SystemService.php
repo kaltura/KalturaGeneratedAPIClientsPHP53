@@ -47,6 +47,23 @@ class SystemService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return string
+	 */
+	function getHealthCheck()
+	{
+		$kparams = array();
+		$this->client->queueServiceActionCall("system", "getHealthCheck", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * 
 	 * @return int
 	 */
 	function getTime()
