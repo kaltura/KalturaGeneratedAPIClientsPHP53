@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2019  Kaltura Inc.
+// Copyright (C) 2006-2020  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -106,5 +106,6 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const COPY_CUE_POINTS = "48";
 	const EXPORT_CSV = "49";
 	const REPORT_EXPORT = "50";
+	const LIVE_ENTRY_ARCHIVE = "51";
 }
 

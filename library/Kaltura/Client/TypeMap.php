@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2019  Kaltura Inc.
+// Copyright (C) 2006-2020  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -651,6 +651,7 @@ class TypeMap
 		'KalturaLimitFlavorsRestriction' => 'Kaltura\Client\Type\LimitFlavorsRestriction',
 		'KalturaLiveChannelListResponse' => 'Kaltura\Client\Type\LiveChannelListResponse',
 		'KalturaLiveChannelSegmentListResponse' => 'Kaltura\Client\Type\LiveChannelSegmentListResponse',
+		'KalturaLiveEntryArchiveJobData' => 'Kaltura\Client\Type\LiveEntryArchiveJobData',
 		'KalturaLiveEntryScheduleResource' => 'Kaltura\Client\Plugin\Schedule\Type\LiveEntryScheduleResource',
 		'KalturaLiveEntryServerNode' => 'Kaltura\Client\Type\LiveEntryServerNode',
 		'KalturaLiveReportExportJobData' => 'Kaltura\Client\Type\LiveReportExportJobData',

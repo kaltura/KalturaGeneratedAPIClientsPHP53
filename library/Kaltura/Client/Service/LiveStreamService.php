@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2019  Kaltura Inc.
+// Copyright (C) 2006-2020  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -113,6 +113,25 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
+		return $resultObject;
+	}
+
+	/**
+	 * Archive a live entry which was recorded
+	 * 
+	 * @return bool
+	 */
+	function archive($liveEntryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "liveEntryId", $liveEntryId);
+		$this->client->queueServiceActionCall("livestream", "archive", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 
