@@ -271,6 +271,7 @@ class TypeMap
 		'KalturaLiveStats' => 'Kaltura\Client\Type\LiveStats',
 		'KalturaLiveStatsEvent' => 'Kaltura\Client\Type\LiveStatsEvent',
 		'KalturaLiveStreamBitrate' => 'Kaltura\Client\Type\LiveStreamBitrate',
+		'KalturaLiveStreamDetails' => 'Kaltura\Client\Type\LiveStreamDetails',
 		'KalturaLiveStreamEntry' => 'Kaltura\Client\Type\LiveStreamEntry',
 		'KalturaLiveStreamParams' => 'Kaltura\Client\Type\LiveStreamParams',
 		'KalturaBaseEntryBaseFilter' => 'Kaltura\Client\Type\BaseEntryBaseFilter',

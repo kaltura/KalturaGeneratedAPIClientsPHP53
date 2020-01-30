@@ -239,6 +239,26 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Delivering the status of a live stream (on-air/offline) if it is possible
 	 * 
+	 * @return \Kaltura\Client\Type\LiveStreamDetails
+	 */
+	function getDetails($id)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->queueServiceActionCall("livestream", "getDetails", "KalturaLiveStreamDetails", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamDetails");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveStreamDetails");
+		return $resultObject;
+	}
+
+	/**
+	 * Delivering the status of a live stream (on-air/offline) if it is possible
+	 * 
 	 * @return bool
 	 */
 	function isLive($id, $protocol)

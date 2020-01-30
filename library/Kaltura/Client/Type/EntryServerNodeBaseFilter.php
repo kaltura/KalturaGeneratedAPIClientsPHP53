@@ -56,6 +56,8 @@ abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->entryIdIn = (string)$xml->entryIdIn;
 		if(count($xml->serverNodeIdEqual))
 			$this->serverNodeIdEqual = (int)$xml->serverNodeIdEqual;
+		if(count($xml->serverNodeIdIn))
+			$this->serverNodeIdIn = (string)$xml->serverNodeIdIn;
 		if(count($xml->createdAtLessThanOrEqual))
 			$this->createdAtLessThanOrEqual = (int)$xml->createdAtLessThanOrEqual;
 		if(count($xml->createdAtGreaterThanOrEqual))
@@ -90,6 +92,12 @@ abstract class EntryServerNodeBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var int
 	 */
 	public $serverNodeIdEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $serverNodeIdIn = null;
 
 	/**
 	 * 

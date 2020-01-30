@@ -30,42 +30,16 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Type;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class UnlimitedVendorCredit extends \Kaltura\Client\Plugin\Reach\Type\BaseVendorCredit
+class LiveStreamBroadcastStatus extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaUnlimitedVendorCredit';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->credit))
-			$this->credit = (int)$xml->credit;
-		if(count($xml->fromDate))
-			$this->fromDate = (int)$xml->fromDate;
-	}
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $credit = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $fromDate = null;
-
+	const OFFLINE = 1;
+	const PREVIEW = 2;
+	const LIVE = 3;
 }
+
