@@ -582,6 +582,7 @@ class TypeMap
 		'KalturaUserFilter' => 'Kaltura\Client\Type\UserFilter',
 		'KalturaEmailNotificationUserRecipientJobData' => 'Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationUserRecipientJobData',
 		'KalturaEmailNotificationUserRecipientProvider' => 'Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationUserRecipientProvider',
+		'KalturaEntryCaptionAdvancedFilter' => 'Kaltura\Client\Plugin\ElasticSearch\Type\EntryCaptionAdvancedFilter',
 		'KalturaEntryCaptionAssetSearchItem' => 'Kaltura\Client\Plugin\CaptionSearch\Type\EntryCaptionAssetSearchItem',
 		'KalturaEntryContext' => 'Kaltura\Client\Type\EntryContext',
 		'KalturaEntryContextDataParams' => 'Kaltura\Client\Type\EntryContextDataParams',
