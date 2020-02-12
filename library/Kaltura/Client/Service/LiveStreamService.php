@@ -121,10 +121,11 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return bool
 	 */
-	function archive($liveEntryId)
+	function archive($liveEntryId, $vodEntryId)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "liveEntryId", $liveEntryId);
+		$this->client->addParam($kparams, "vodEntryId", $vodEntryId);
 		$this->client->queueServiceActionCall("livestream", "archive", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

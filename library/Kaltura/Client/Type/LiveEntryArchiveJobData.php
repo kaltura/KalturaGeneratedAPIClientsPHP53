@@ -52,11 +52,19 @@ class LiveEntryArchiveJobData extends \Kaltura\Client\Type\JobData
 		
 		if(count($xml->liveEntryId))
 			$this->liveEntryId = (string)$xml->liveEntryId;
+		if(count($xml->vodEntryId))
+			$this->vodEntryId = (string)$xml->vodEntryId;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
 	public $liveEntryId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $vodEntryId = null;
 
 }
