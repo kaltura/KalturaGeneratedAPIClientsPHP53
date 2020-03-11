@@ -213,6 +213,27 @@ class Partner extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->authenticationType))
 			$this->authenticationType = (int)$xml->authenticationType;
+		if(count($xml->extendedFreeTrailExpiryReason))
+			$this->extendedFreeTrailExpiryReason = (string)$xml->extendedFreeTrailExpiryReason;
+		if(count($xml->extendedFreeTrailExpiryDate))
+			$this->extendedFreeTrailExpiryDate = (int)$xml->extendedFreeTrailExpiryDate;
+		if(count($xml->extendedFreeTrail))
+			$this->extendedFreeTrail = (int)$xml->extendedFreeTrail;
+		if(count($xml->extendedFreeTrailEndsWarning))
+		{
+			if(!empty($xml->extendedFreeTrailEndsWarning) && $xml->extendedFreeTrailEndsWarning != 'false')
+				$this->extendedFreeTrailEndsWarning = true;
+			else
+				$this->extendedFreeTrailEndsWarning = false;
+		}
+		if(count($xml->eightyPercentWarning))
+			$this->eightyPercentWarning = (int)$xml->eightyPercentWarning;
+		if(count($xml->usageLimitWarning))
+			$this->usageLimitWarning = (int)$xml->usageLimitWarning;
+		if(count($xml->lastFreeTrialNotificationDay))
+			$this->lastFreeTrialNotificationDay = (int)$xml->lastFreeTrialNotificationDay;
+		if(count($xml->monitorUsage))
+			$this->monitorUsage = (int)$xml->monitorUsage;
 	}
 	/**
 	 * 
@@ -594,5 +615,61 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $authenticationType = null;
+
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $extendedFreeTrailExpiryReason = null;
+
+	/**
+	 * Unix timestamp (In seconds)
+	 * @var int
+	 * @readonly
+	 */
+	public $extendedFreeTrailExpiryDate = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $extendedFreeTrail = null;
+
+	/**
+	 * 
+	 * @var bool
+	 * @readonly
+	 */
+	public $extendedFreeTrailEndsWarning = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $eightyPercentWarning = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $usageLimitWarning = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $lastFreeTrialNotificationDay = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $monitorUsage = null;
 
 }
