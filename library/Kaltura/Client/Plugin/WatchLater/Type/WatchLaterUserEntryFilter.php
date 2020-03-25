@@ -30,16 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\WatchLater\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class UserEntryType extends \Kaltura\Client\EnumBase
+class WatchLaterUserEntryFilter extends \Kaltura\Client\Type\UserEntryFilter
 {
-	const QUIZ = "quiz.QUIZ";
-	const VIEW_HISTORY = "viewHistory.VIEW_HISTORY";
-	const WATCH_LATER = "watchLater.WATCH_LATER";
+	public function getKalturaObjectType()
+	{
+		return 'KalturaWatchLaterUserEntryFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-
