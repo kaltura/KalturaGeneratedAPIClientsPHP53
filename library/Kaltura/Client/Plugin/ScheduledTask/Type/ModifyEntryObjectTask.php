@@ -74,6 +74,13 @@ class ModifyEntryObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\Ob
 			$this->inputEntitledUsersEdit = (string)$xml->inputEntitledUsersEdit;
 		if(count($xml->inputEntitledUsersPublish))
 			$this->inputEntitledUsersPublish = (string)$xml->inputEntitledUsersPublish;
+		if(count($xml->resetMediaRepurposingProcess))
+		{
+			if(!empty($xml->resetMediaRepurposingProcess) && $xml->resetMediaRepurposingProcess != 'false')
+				$this->resetMediaRepurposingProcess = true;
+			else
+				$this->resetMediaRepurposingProcess = false;
+		}
 	}
 	/**
 	 * The input metadata profile id
@@ -116,5 +123,11 @@ class ModifyEntryObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\Ob
 	 * @var string
 	 */
 	public $inputEntitledUsersPublish = null;
+
+	/**
+	 * Should clear the media repurposing data and therefore reset the process
+	 * @var bool
+	 */
+	public $resetMediaRepurposingProcess = null;
 
 }

@@ -89,6 +89,7 @@ class ReportType extends \Kaltura\Client\EnumBase
 	const USER_INTERACTIVE_VIDEO = "49";
 	const INTERACTIVE_VIDEO_TOP_NODES = "50";
 	const LATEST_PLAYED_ENTRIES = "51";
+	const CATEGORY_HIGHLIGHTS = "52";
 	const PARTNER_USAGE = "201";
 	const MAP_OVERLAY_COUNTRY_REALTIME = "10001";
 	const MAP_OVERLAY_REGION_REALTIME = "10002";
