@@ -27,38 +27,36 @@
 // @ignore
 // ===================================================================================================
 
+
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Plugin\Thumbnail\Service;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderType extends \Kaltura\Client\EnumBase
+class ThumbnailService extends \Kaltura\Client\ServiceBase
 {
-	const AVN = "avnDistribution.AVN";
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
-	const FACEBOOK = "facebookDistribution.FACEBOOK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
-	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const PODCAST = "podcastDistribution.PODCAST";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const UNICORN = "unicornDistribution.UNICORN";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
-	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
-	const GENERIC = "1";
-	const SYNDICATION = "2";
-}
+	function __construct(\Kaltura\Client\Client $client = null)
+	{
+		parent::__construct($client);
+	}
 
+	/**
+	 * Retrieves a thumbnail according to the required transformation
+	 * 
+	 */
+	function transform($transformString)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "transformString", $transformString);
+		$this->client->queueServiceActionCall("thumbnail_thumbnail", "transform", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+}

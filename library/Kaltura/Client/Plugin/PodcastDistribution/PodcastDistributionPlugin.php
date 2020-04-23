@@ -30,35 +30,43 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Plugin\PodcastDistribution;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderType extends \Kaltura\Client\EnumBase
+class PodcastDistributionPlugin extends \Kaltura\Client\Plugin
 {
-	const AVN = "avnDistribution.AVN";
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
-	const FACEBOOK = "facebookDistribution.FACEBOOK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
-	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const PODCAST = "podcastDistribution.PODCAST";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const UNICORN = "unicornDistribution.UNICORN";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
-	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
-	const GENERIC = "1";
-	const SYNDICATION = "2";
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return PodcastDistributionPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new PodcastDistributionPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'podcastDistribution';
+	}
 }
 

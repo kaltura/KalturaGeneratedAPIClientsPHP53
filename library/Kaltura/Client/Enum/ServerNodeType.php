@@ -38,6 +38,9 @@ namespace Kaltura\Client\Enum;
  */
 class ServerNodeType extends \Kaltura\Client\EnumBase
 {
+	const CONFERENCE_SERVER = "conference.CONFERENCE_SERVER";
+	const LIVE_CLUSTER_MEDIA_SERVER = "liveCluster.LIVE_CLUSTER_MEDIA_SERVER";
+	const SIP_SERVER = "sip.SIP_SERVER";
 	const WOWZA_MEDIA_SERVER = "wowza.WOWZA_MEDIA_SERVER";
 	const EDGE = "1";
 }

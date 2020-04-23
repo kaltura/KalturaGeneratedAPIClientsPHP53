@@ -30,35 +30,58 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Plugin\CaptureSpace;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderType extends \Kaltura\Client\EnumBase
+class CaptureSpacePlugin extends \Kaltura\Client\Plugin
 {
-	const AVN = "avnDistribution.AVN";
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
-	const FACEBOOK = "facebookDistribution.FACEBOOK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
-	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const PODCAST = "podcastDistribution.PODCAST";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const UNICORN = "unicornDistribution.UNICORN";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
-	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
-	const GENERIC = "1";
-	const SYNDICATION = "2";
+	/**
+	 * @var Service\CaptureSpaceService
+	 */
+	protected $captureSpace = null;
+
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return CaptureSpacePlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new CaptureSpacePlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+			'captureSpace' => $this->getCaptureSpaceService(),
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'captureSpace';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\CaptureSpace\Service\CaptureSpaceService
+	 */
+	public function getCaptureSpaceService()
+	{
+		if (is_null($this->captureSpace))
+			$this->captureSpace = new Service\CaptureSpaceService($this->_client);
+		return $this->captureSpace;
+	}
 }
 

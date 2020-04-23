@@ -30,35 +30,52 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
+namespace Kaltura\Client\Plugin\Sip\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class DistributionProviderType extends \Kaltura\Client\EnumBase
+class SipEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 {
-	const AVN = "avnDistribution.AVN";
-	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
-	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
-	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
-	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
-	const FACEBOOK = "facebookDistribution.FACEBOOK";
-	const FREEWHEEL = "freewheelDistribution.FREEWHEEL";
-	const FREEWHEEL_GENERIC = "freewheelGenericDistribution.FREEWHEEL_GENERIC";
-	const FTP = "ftpDistribution.FTP";
-	const FTP_SCHEDULED = "ftpDistribution.FTP_SCHEDULED";
-	const HULU = "huluDistribution.HULU";
-	const IDETIC = "ideticDistribution.IDETIC";
-	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
-	const MSN = "msnDistribution.MSN";
-	const PODCAST = "podcastDistribution.PODCAST";
-	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
-	const UNICORN = "unicornDistribution.UNICORN";
-	const YAHOO = "yahooDistribution.YAHOO";
-	const YOUTUBE = "youTubeDistribution.YOUTUBE";
-	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
-	const GENERIC = "1";
-	const SYNDICATION = "2";
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaSipEntryServerNode';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->sipRoomId))
+			$this->sipRoomId = (string)$xml->sipRoomId;
+		if(count($xml->sipPrimaryAdpId))
+			$this->sipPrimaryAdpId = (string)$xml->sipPrimaryAdpId;
+		if(count($xml->sipSecondaryAdpId))
+			$this->sipSecondaryAdpId = (string)$xml->sipSecondaryAdpId;
+	}
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $sipRoomId = null;
 
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $sipPrimaryAdpId = null;
+
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $sipSecondaryAdpId = null;
+
+}
