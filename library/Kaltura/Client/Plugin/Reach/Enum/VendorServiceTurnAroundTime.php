@@ -40,6 +40,13 @@ class VendorServiceTurnAroundTime extends \Kaltura\Client\EnumBase
 {
 	const BEST_EFFORT = -1;
 	const IMMEDIATE = 0;
+	const ONE_BUSINESS_DAY = 1;
+	const TWO_BUSINESS_DAYS = 2;
+	const THREE_BUSINESS_DAYS = 3;
+	const FOUR_BUSINESS_DAYS = 4;
+	const FIVE_BUSINESS_DAYS = 5;
+	const SIX_BUSINESS_DAYS = 6;
+	const SEVEN_BUSINESS_DAYS = 7;
 	const THIRTY_MINUTES = 1800;
 	const TWO_HOURS = 7200;
 	const THREE_HOURS = 10800;
@@ -47,9 +54,7 @@ class VendorServiceTurnAroundTime extends \Kaltura\Client\EnumBase
 	const EIGHT_HOURS = 28800;
 	const TWELVE_HOURS = 43200;
 	const TWENTY_FOUR_HOURS = 86400;
-	const ONE_BUSINESS_DAY = 129600;
 	const FORTY_EIGHT_HOURS = 172800;
-	const TWO_BUSINESS_DAYS = 216000;
 	const FOUR_DAYS = 345600;
 	const FIVE_DAYS = 432000;
 	const TEN_DAYS = 864000;

@@ -50,5 +50,21 @@ class PlaylistFilter extends \Kaltura\Client\Type\PlaylistBaseFilter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->playListTypeEqual))
+			$this->playListTypeEqual = (int)$xml->playListTypeEqual;
+		if(count($xml->playListTypeIn))
+			$this->playListTypeIn = (string)$xml->playListTypeIn;
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\PlaylistType
+	 */
+	public $playListTypeEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $playListTypeIn = null;
+
 }

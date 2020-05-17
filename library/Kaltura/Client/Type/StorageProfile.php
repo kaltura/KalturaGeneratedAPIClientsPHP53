@@ -144,10 +144,24 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			else
 				$this->shouldExportThumbs = false;
 		}
-		if(count($xml->mappedPackagerUrl))
-			$this->mappedPackagerUrl = (string)$xml->mappedPackagerUrl;
-		if(count($xml->regularPackagerUrl))
-			$this->regularPackagerUrl = (string)$xml->regularPackagerUrl;
+		if(count($xml->packagerUrl))
+			$this->packagerUrl = (string)$xml->packagerUrl;
+		if(count($xml->exportPeriodically))
+		{
+			if(!empty($xml->exportPeriodically) && $xml->exportPeriodically != 'false')
+				$this->exportPeriodically = true;
+			else
+				$this->exportPeriodically = false;
+		}
+		if(count($xml->excludedFlavorParamsIds))
+			$this->excludedFlavorParamsIds = (string)$xml->excludedFlavorParamsIds;
+		if(count($xml->shouldExportCaptions))
+		{
+			if(!empty($xml->shouldExportCaptions) && $xml->shouldExportCaptions != 'false')
+				$this->shouldExportCaptions = true;
+			else
+				$this->shouldExportCaptions = false;
+		}
 	}
 	/**
 	 * 
@@ -349,12 +363,24 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	 * 
 	 * @var string
 	 */
-	public $mappedPackagerUrl = null;
+	public $packagerUrl = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $exportPeriodically = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $regularPackagerUrl = null;
+	public $excludedFlavorParamsIds = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $shouldExportCaptions = null;
 
 }

@@ -47,5 +47,6 @@ class BulkUploadObjectType extends \Kaltura\Client\EnumBase
 	const CATEGORY_USER = "4";
 	const CATEGORY_ENTRY = "5";
 	const USER_ENTRY = "6";
+	const VENDOR_CATALOG_ITEM = "7";
 }
 

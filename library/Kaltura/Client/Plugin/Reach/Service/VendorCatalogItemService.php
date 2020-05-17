@@ -66,6 +66,30 @@ class VendorCatalogItemService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return \Kaltura\Client\Type\BulkUpload
+	 */
+	function addFromBulkUpload($fileData, \Kaltura\Client\Type\BulkUploadJobData $bulkUploadData = null, \Kaltura\Client\Type\BulkUploadVendorCatalogItemData $bulkUploadVendorCatalogItemData = null)
+	{
+		$kparams = array();
+		$kfiles = array();
+		$this->client->addParam($kfiles, "fileData", $fileData);
+		if ($bulkUploadData !== null)
+			$this->client->addParam($kparams, "bulkUploadData", $bulkUploadData->toParams());
+		if ($bulkUploadVendorCatalogItemData !== null)
+			$this->client->addParam($kparams, "bulkUploadVendorCatalogItemData", $bulkUploadVendorCatalogItemData->toParams());
+		$this->client->queueServiceActionCall("reach_vendorcatalogitem", "addFromBulkUpload", "KalturaBulkUpload", $kparams, $kfiles);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBulkUpload");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BulkUpload");
+		return $resultObject;
+	}
+
+	/**
 	 * Delete vedor catalog item object
 	 * 
 	 */
@@ -102,6 +126,24 @@ class VendorCatalogItemService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return string
+	 */
+	function getServeUrl($vendorPartnerId = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "vendorPartnerId", $vendorPartnerId);
+		$this->client->queueServiceActionCall("reach_vendorcatalogitem", "getServeUrl", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * List KalturaVendorCatalogItem objects
 	 * 
 	 * @return \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItemListResponse
@@ -121,6 +163,22 @@ class VendorCatalogItemService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaVendorCatalogItemListResponse");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Reach\\Type\\VendorCatalogItemListResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * 
+	 * @return file
+	 */
+	function serve($vendorPartnerId = null)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "vendorPartnerId", $vendorPartnerId);
+		$this->client->queueServiceActionCall('reach_vendorcatalogitem', 'serve', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
 		return $resultObject;
 	}
 

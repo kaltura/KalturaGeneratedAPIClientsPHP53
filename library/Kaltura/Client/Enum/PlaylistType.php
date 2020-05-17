@@ -41,5 +41,6 @@ class PlaylistType extends \Kaltura\Client\EnumBase
 	const STATIC_LIST = 3;
 	const DYNAMIC = 10;
 	const EXTERNAL = 101;
+	const PATH = 102;
 }
 

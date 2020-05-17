@@ -126,6 +126,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->applicationVersionIn = (string)$xml->applicationVersionIn;
 		if(count($xml->nodeIdsIn))
 			$this->nodeIdsIn = (string)$xml->nodeIdsIn;
+		if(count($xml->categoriesAncestorIdIn))
+			$this->categoriesAncestorIdIn = (string)$xml->categoriesAncestorIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -324,5 +326,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $nodeIdsIn = null;
+
+	/**
+	 * filter by categories ancestor
+	 * @var string
+	 */
+	public $categoriesAncestorIdIn = null;
 
 }

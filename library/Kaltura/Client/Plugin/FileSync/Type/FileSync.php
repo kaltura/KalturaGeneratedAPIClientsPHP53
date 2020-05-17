@@ -110,6 +110,10 @@ class FileSync extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->originalId))
 			$this->originalId = (int)$xml->originalId;
+		if(count($xml->srcPath))
+			$this->srcPath = (string)$xml->srcPath;
+		if(count($xml->srcEncKey))
+			$this->srcEncKey = (string)$xml->srcEncKey;
 	}
 	/**
 	 * 
@@ -282,5 +286,17 @@ class FileSync extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $originalId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $srcPath = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $srcEncKey = null;
 
 }
