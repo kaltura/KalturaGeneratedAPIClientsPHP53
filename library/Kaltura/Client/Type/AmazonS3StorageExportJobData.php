@@ -62,6 +62,8 @@ class AmazonS3StorageExportJobData extends \Kaltura\Client\Type\StorageExportJob
 			$this->signatureType = (string)$xml->signatureType;
 		if(count($xml->endPoint))
 			$this->endPoint = (string)$xml->endPoint;
+		if(count($xml->storageClass))
+			$this->storageClass = (string)$xml->storageClass;
 	}
 	/**
 	 * 
@@ -98,5 +100,11 @@ class AmazonS3StorageExportJobData extends \Kaltura\Client\Type\StorageExportJob
 	 * @var string
 	 */
 	public $endPoint = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $storageClass = null;
 
 }

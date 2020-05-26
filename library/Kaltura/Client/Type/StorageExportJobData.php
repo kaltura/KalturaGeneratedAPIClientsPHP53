@@ -64,6 +64,10 @@ class StorageExportJobData extends \Kaltura\Client\Type\StorageJobData
 			else
 				$this->createLink = false;
 		}
+		if(count($xml->assetId))
+			$this->assetId = (string)$xml->assetId;
+		if(count($xml->externalUrl))
+			$this->externalUrl = (string)$xml->externalUrl;
 	}
 	/**
 	 * 
@@ -76,5 +80,17 @@ class StorageExportJobData extends \Kaltura\Client\Type\StorageJobData
 	 * @var bool
 	 */
 	public $createLink = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $assetId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $externalUrl = null;
 
 }
