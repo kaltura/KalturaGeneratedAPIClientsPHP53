@@ -487,4 +487,24 @@ class UserService extends \Kaltura\Client\ServiceBase
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
 	}
+
+	/**
+	 * Validate hash key
+	 * 
+	 * @return \Kaltura\Client\Type\Authentication
+	 */
+	function validateHashKey($hashKey)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "hashKey", $hashKey);
+		$this->client->queueServiceActionCall("user", "validateHashKey", "KalturaAuthentication", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaAuthentication");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Authentication");
+		return $resultObject;
+	}
 }

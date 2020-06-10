@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\Reach\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class AlignmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskDataCaptionAsset
+abstract class VendorTaskDataCaptionAsset extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaAlignmentVendorTaskData';
+		return 'KalturaVendorTaskDataCaptionAsset';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,22 +50,14 @@ class AlignmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTa
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->textTranscriptAssetId))
-			$this->textTranscriptAssetId = (string)$xml->textTranscriptAssetId;
-		if(count($xml->jsonTranscriptAssetId))
-			$this->jsonTranscriptAssetId = (string)$xml->jsonTranscriptAssetId;
+		if(count($xml->captionAssetId))
+			$this->captionAssetId = (string)$xml->captionAssetId;
 	}
 	/**
-	 * The id of the text transcript object the vendor should use while runing the alignment task
-	 * @var string
-	 */
-	public $textTranscriptAssetId = null;
-
-	/**
-	 * Optional - The id of the json transcript object the vendor should update once alignment task processing is done
+	 * Optional - The id of the caption asset object
 	 * @var string
 	 * @insertonly
 	 */
-	public $jsonTranscriptAssetId = null;
+	public $captionAssetId = null;
 
 }
