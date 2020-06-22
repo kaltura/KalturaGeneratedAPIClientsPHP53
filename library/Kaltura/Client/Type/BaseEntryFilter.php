@@ -54,6 +54,8 @@ class BaseEntryFilter extends \Kaltura\Client\Type\BaseEntryBaseFilter
 			$this->freeText = (string)$xml->freeText;
 		if(count($xml->excludedFreeTextGroups))
 			$this->excludedFreeTextGroups = (string)$xml->excludedFreeTextGroups;
+		if(count($xml->descriptionLike))
+			$this->descriptionLike = (string)$xml->descriptionLike;
 		if(count($xml->isRoot))
 			$this->isRoot = (int)$xml->isRoot;
 		if(count($xml->categoriesFullNameIn))
@@ -74,6 +76,12 @@ class BaseEntryFilter extends \Kaltura\Client\Type\BaseEntryBaseFilter
 	 * @var string
 	 */
 	public $excludedFreeTextGroups = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $descriptionLike = null;
 
 	/**
 	 * 
