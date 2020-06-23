@@ -86,10 +86,12 @@ class InteractivityService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\Interactivity\Type\Interactivity
 	 */
-	function get($entryId)
+	function get($entryId, \Kaltura\Client\Plugin\Interactivity\Type\InteractivityDataFilter $dataFilter = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "entryId", $entryId);
+		if ($dataFilter !== null)
+			$this->client->addParam($kparams, "dataFilter", $dataFilter->toParams());
 		$this->client->queueServiceActionCall("interactivity_interactivity", "get", "KalturaInteractivity", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
