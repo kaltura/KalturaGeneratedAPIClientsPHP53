@@ -162,6 +162,8 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			else
 				$this->shouldExportCaptions = false;
 		}
+		if(count($xml->excludedEntryTypes))
+			$this->excludedEntryTypes = (string)$xml->excludedEntryTypes;
 	}
 	/**
 	 * 
@@ -382,5 +384,11 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $shouldExportCaptions = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $excludedEntryTypes = null;
 
 }
