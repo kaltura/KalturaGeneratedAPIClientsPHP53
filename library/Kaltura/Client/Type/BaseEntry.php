@@ -145,6 +145,10 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			$this->templateEntryId = (string)$xml->templateEntryId;
 		if(count($xml->displayInSearch))
 			$this->displayInSearch = (int)$xml->displayInSearch;
+		if(count($xml->application))
+			$this->application = (string)$xml->application;
+		if(count($xml->applicationVersion))
+			$this->applicationVersion = (string)$xml->applicationVersion;
 	}
 	/**
 	 * Auto generated 10 characters alphanumeric string
@@ -436,5 +440,19 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\EntryDisplayInSearchType
 	 */
 	public $displayInSearch = null;
+
+	/**
+	 * Entry application
+	 * @var \Kaltura\Client\Enum\EntryApplication
+	 * @insertonly
+	 */
+	public $application = null;
+
+	/**
+	 * Entry application version
+	 * @var string
+	 * @insertonly
+	 */
+	public $applicationVersion = null;
 
 }
