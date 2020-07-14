@@ -171,7 +171,6 @@ abstract class CuePoint extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var string
-	 * @readonly
 	 */
 	public $userId = null;
 
