@@ -92,6 +92,8 @@ class Widget extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->roles))
 			$this->roles = (string)$xml->roles;
+		if(count($xml->privileges))
+			$this->privileges = (string)$xml->privileges;
 	}
 	/**
 	 * 
@@ -194,5 +196,11 @@ class Widget extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $roles = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $privileges = null;
 
 }
