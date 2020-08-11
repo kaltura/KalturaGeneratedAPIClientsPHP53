@@ -191,4 +191,20 @@ class DropFolderService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\DropFolder\\Type\\DropFolder");
 		return $resultObject;
 	}
+
+	/**
+	 * 
+	 */
+	function updateStatus($dropFolderId, $status)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "dropFolderId", $dropFolderId);
+		$this->client->addParam($kparams, "status", $status);
+		$this->client->queueServiceActionCall("dropfolder_dropfolder", "updateStatus", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
 }

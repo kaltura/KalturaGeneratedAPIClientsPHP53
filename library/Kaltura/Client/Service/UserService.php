@@ -392,10 +392,11 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * Reset user's password and send the user an email to generate a new one.
 	 * 
 	 */
-	function resetPassword($email)
+	function resetPassword($email, $linkType = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "email", $email);
+		$this->client->addParam($kparams, "linkType", $linkType);
 		$this->client->queueServiceActionCall("user", "resetPassword", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

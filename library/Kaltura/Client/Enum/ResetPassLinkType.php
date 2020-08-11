@@ -30,16 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Sip\Enum;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class SipSourceType extends \Kaltura\Client\EnumBase
+class ResetPassLinkType extends \Kaltura\Client\EnumBase
 {
-	const PICTURE_IN_PICTURE = 1;
-	const TALKING_HEADS = 2;
-	const SCREEN_SHARE = 3;
+	const KMC = "1";
+	const KMS = "2";
 }
 

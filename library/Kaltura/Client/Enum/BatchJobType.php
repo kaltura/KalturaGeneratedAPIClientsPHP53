@@ -111,5 +111,6 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const STORAGE_PERIODIC_EXPORT = "53";
 	const STORAGE_PERIODIC_PURGE = "54";
 	const STORAGE_PERIODIC_DELETE_LOCAL = "55";
+	const REACH_JOB_CLEANER = "56";
 }
 

@@ -93,6 +93,8 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 			$this->primaryServerNodeId = (int)$xml->primaryServerNodeId;
 		if(count($xml->sipToken))
 			$this->sipToken = (string)$xml->sipToken;
+		if(count($xml->sipSourceType))
+			$this->sipSourceType = (int)$xml->sipSourceType;
 	}
 	/**
 	 * The stream id as provided by the provider
@@ -212,5 +214,12 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 	 * @readonly
 	 */
 	public $sipToken = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Sip\Enum\SipSourceType
+	 * @readonly
+	 */
+	public $sipSourceType = null;
 
 }
