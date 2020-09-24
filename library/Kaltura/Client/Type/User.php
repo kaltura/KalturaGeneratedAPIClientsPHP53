@@ -87,6 +87,10 @@ class User extends \Kaltura\Client\Type\BaseUser
 			else
 				$this->loginEnabled = false;
 		}
+		if(count($xml->registrationInfo))
+			$this->registrationInfo = (string)$xml->registrationInfo;
+		if(count($xml->attendanceInfo))
+			$this->attendanceInfo = (string)$xml->attendanceInfo;
 	}
 	/**
 	 * 
@@ -157,5 +161,17 @@ class User extends \Kaltura\Client\Type\BaseUser
 	 * @insertonly
 	 */
 	public $loginEnabled = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $registrationInfo = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $attendanceInfo = null;
 
 }
