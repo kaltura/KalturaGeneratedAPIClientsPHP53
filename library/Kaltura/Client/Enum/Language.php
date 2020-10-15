@@ -199,6 +199,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const FRP = "Franco-Prove";
 	const FRK = "Frankish";
 	const FR = "French";
+	const FR_CA = "French (Canada)";
 	const FY = "Frisian";
 	const FRR = "Frisian Northern";
 	const FUR = "Friulian";
@@ -232,8 +233,8 @@ class Language extends \Kaltura\Client\EnumBase
 	const HNI = "Hani";
 	const HA = "Hausa";
 	const HAW = "Hawaiian";
-	const HE = "Hebrew";
 	const IW = "Hebrew";
+	const HE = "Hebrew";
 	const HEI = "Heiltsuk";
 	const HID = "Hidatsa";
 	const HIL = "Hiligaynon";
@@ -247,8 +248,8 @@ class Language extends \Kaltura\Client\EnumBase
 	const KPO = "Ikposo";
 	const ILO = "Iloko";
 	const SMN = "Inari Sami";
-	const ID = "Indonesian";
 	const IN = "Indonesian";
+	const ID = "Indonesian";
 	const IZH = "Ingrian";
 	const INH = "Ingush";
 	const IA = "Interlingua";
@@ -528,6 +529,7 @@ class Language extends \Kaltura\Client\EnumBase
 	const TGX = "Tagish";
 	const THT = "Tahltan";
 	const TDD = "Tai Na";
+	const ZH_TW = "Taiwanese Mandarin";
 	const TG = "Tajik";
 	const TLY = "Talysh";
 	const TTQ = "Tamajaq Tawallammat";

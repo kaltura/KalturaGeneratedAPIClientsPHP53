@@ -79,6 +79,7 @@ class LanguageCode extends \Kaltura\Client\EnumBase
 	const FJ = "fj";
 	const FO = "fo";
 	const FR = "fr";
+	const FR_CA = "fr_ca";
 	const FY = "fy";
 	const GA = "ga";
 	const GD = "gd";
@@ -201,6 +202,7 @@ class LanguageCode extends \Kaltura\Client\EnumBase
 	const YI = "yi";
 	const YO = "yo";
 	const ZH = "zh";
+	const ZH_TW = "zh_tw";
 	const ZU = "zu";
 	const ZXX = "zxx";
 }

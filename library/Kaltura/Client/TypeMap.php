@@ -327,6 +327,7 @@ class TypeMap
 		'KalturaRemoteStorageResource' => 'Kaltura\Client\Type\RemoteStorageResource',
 		'KalturaReport' => 'Kaltura\Client\Type\Report',
 		'KalturaReportBaseTotal' => 'Kaltura\Client\Type\ReportBaseTotal',
+		'KalturaReportExportFile' => 'Kaltura\Client\Type\ReportExportFile',
 		'KalturaReportInputBaseFilter' => 'Kaltura\Client\Type\ReportInputBaseFilter',
 		'KalturaESearchEntryOperator' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchEntryOperator',
 		'KalturaReportInputFilter' => 'Kaltura\Client\Type\ReportInputFilter',

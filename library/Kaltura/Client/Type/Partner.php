@@ -172,6 +172,13 @@ class Partner extends \Kaltura\Client\ObjectBase
 			else
 				$this->ignoreSeoLinks = false;
 		}
+		if(count($xml->blockDirectLogin))
+		{
+			if(!empty($xml->blockDirectLogin) && $xml->blockDirectLogin != 'false')
+				$this->blockDirectLogin = true;
+			else
+				$this->blockDirectLogin = false;
+		}
 		if(count($xml->host))
 			$this->host = (string)$xml->host;
 		if(count($xml->cdnHost))
@@ -461,7 +468,6 @@ class Partner extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var array<KalturaKeyValue>
-	 * @insertonly
 	 */
 	public $additionalParams;
 
@@ -527,6 +533,13 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $ignoreSeoLinks = null;
+
+	/**
+	 * 
+	 * @var bool
+	 * @readonly
+	 */
+	public $blockDirectLogin = null;
 
 	/**
 	 * 

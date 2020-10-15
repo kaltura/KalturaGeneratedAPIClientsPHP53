@@ -303,7 +303,7 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return bool
 	 */
-	function isLive($id, $protocol)
+	function isLive($id, $protocol = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);

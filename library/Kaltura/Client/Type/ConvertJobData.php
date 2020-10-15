@@ -73,6 +73,8 @@ class ConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 		}
 		if(count($xml->engineMessage))
 			$this->engineMessage = (string)$xml->engineMessage;
+		if(count($xml->destFileSyncSharedPath))
+			$this->destFileSyncSharedPath = (string)$xml->destFileSyncSharedPath;
 		if(count($xml->userCpu))
 			$this->userCpu = (int)$xml->userCpu;
 	}
@@ -129,6 +131,12 @@ class ConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 	 * @var string
 	 */
 	public $engineMessage = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $destFileSyncSharedPath = null;
 
 	/**
 	 * 
