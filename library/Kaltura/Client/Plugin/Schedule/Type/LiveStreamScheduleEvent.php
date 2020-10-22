@@ -56,6 +56,8 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\Entry
 			$this->sourceEntryId = (string)$xml->sourceEntryId;
 		if(count($xml->preStartTime))
 			$this->preStartTime = (int)$xml->preStartTime;
+		if(count($xml->postEndTime))
+			$this->postEndTime = (int)$xml->postEndTime;
 	}
 	/**
 	 * Defines the expected audience.
@@ -74,5 +76,11 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\Entry
 	 * @var int
 	 */
 	public $preStartTime = null;
+
+	/**
+	 * The time relative time before the endTime considered as postEnd time
+	 * @var int
+	 */
+	public $postEndTime = null;
 
 }

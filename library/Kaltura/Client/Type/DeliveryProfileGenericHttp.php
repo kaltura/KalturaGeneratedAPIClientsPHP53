@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class DeliveryProfileGenericHttp extends \Kaltura\Client\Type\DeliveryProfile
+class DeliveryProfileGenericHttp extends \Kaltura\Client\Type\DeliveryProfileHttp
 {
 	public function getKalturaObjectType()
 	{

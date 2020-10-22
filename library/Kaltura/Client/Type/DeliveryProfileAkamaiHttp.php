@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class DeliveryProfileAkamaiHttp extends \Kaltura\Client\Type\DeliveryProfile
+class DeliveryProfileAkamaiHttp extends \Kaltura\Client\Type\DeliveryProfileHttp
 {
 	public function getKalturaObjectType()
 	{
