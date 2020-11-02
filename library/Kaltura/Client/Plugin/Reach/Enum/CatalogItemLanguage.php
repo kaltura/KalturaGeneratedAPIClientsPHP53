@@ -49,6 +49,7 @@ class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 	const FI = "Finnish";
 	const FR = "French";
 	const FR_CA = "French (Canada)";
+	const GD = "Gaelic (Scottish)";
 	const DE = "German";
 	const EL = "Greek";
 	const HE = "Hebrew";
@@ -65,9 +66,11 @@ class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 	const NO = "Norwegian";
 	const PL = "Polish";
 	const PT = "Portuguese";
+	const PT_BR = "Portuguese (Brazil)";
 	const RO = "Romanian";
 	const RU = "Russian";
 	const ES = "Spanish";
+	const ES_XL = "Spanish (Latin America)";
 	const SV = "Swedish";
 	const ZH_TW = "Taiwanese Mandarin";
 	const TA = "Tamil";
