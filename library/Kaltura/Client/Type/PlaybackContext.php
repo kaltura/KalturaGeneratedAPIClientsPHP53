@@ -85,6 +85,8 @@ class PlaybackContext extends \Kaltura\Client\ObjectBase
 			else
 				$this->messages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->messages, "KalturaAccessControlMessage");
 		}
+		if(count($xml->bumperData) && !empty($xml->bumperData))
+			$this->bumperData = \Kaltura\Client\ParseUtils::unmarshalObject($xml->bumperData, "KalturaTypedArray");
 	}
 	/**
 	 * 
@@ -115,5 +117,11 @@ class PlaybackContext extends \Kaltura\Client\ObjectBase
 	 * @var array<KalturaAccessControlMessage>
 	 */
 	public $messages;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\TypedArray
+	 */
+	public $bumperData;
 
 }

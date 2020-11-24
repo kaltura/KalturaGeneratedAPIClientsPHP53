@@ -72,6 +72,13 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 			$this->turnAroundTime = (int)$xml->turnAroundTime;
 		if(count($xml->pricing) && !empty($xml->pricing))
 			$this->pricing = \Kaltura\Client\ParseUtils::unmarshalObject($xml->pricing, "KalturaVendorCatalogItemPricing");
+		if(count($xml->allowResubmission))
+		{
+			if(!empty($xml->allowResubmission) && $xml->allowResubmission != 'false')
+				$this->allowResubmission = true;
+			else
+				$this->allowResubmission = false;
+		}
 	}
 	/**
 	 * 
@@ -143,5 +150,11 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItemPricing
 	 */
 	public $pricing;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $allowResubmission = null;
 
 }
