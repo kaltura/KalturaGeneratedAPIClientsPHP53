@@ -60,8 +60,8 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 			$this->enableRecordingUpload = (int)$xml->enableRecordingUpload;
 		if(count($xml->createUserIfNotExist))
 			$this->createUserIfNotExist = (int)$xml->createUserIfNotExist;
-		if(count($xml->handleParticipantMode))
-			$this->handleParticipantMode = (int)$xml->handleParticipantMode;
+		if(count($xml->handleParticipantsMode))
+			$this->handleParticipantsMode = (int)$xml->handleParticipantsMode;
 		if(count($xml->zoomUserMatchingMode))
 			$this->zoomUserMatchingMode = (int)$xml->zoomUserMatchingMode;
 		if(count($xml->zoomUserPostfix))
@@ -70,6 +70,8 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 			$this->zoomWebinarCategory = (string)$xml->zoomWebinarCategory;
 		if(count($xml->enableWebinarUploads))
 			$this->enableWebinarUploads = (int)$xml->enableWebinarUploads;
+		if(count($xml->conversionProfileId))
+			$this->conversionProfileId = (int)$xml->conversionProfileId;
 	}
 	/**
 	 * 
@@ -86,6 +88,7 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var string
+	 * @readonly
 	 */
 	public $accountId = null;
 
@@ -105,7 +108,7 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 	 * 
 	 * @var \Kaltura\Client\Plugin\Vendor\Enum\HandleParticipantsMode
 	 */
-	public $handleParticipantMode = null;
+	public $handleParticipantsMode = null;
 
 	/**
 	 * 
@@ -130,5 +133,11 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $enableWebinarUploads = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $conversionProfileId = null;
 
 }

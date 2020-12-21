@@ -78,6 +78,26 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Retrieve zoom integration setting object by partner id
+	 * 
+	 * @return \Kaltura\Client\Plugin\Vendor\Type\ZoomIntegrationSetting
+	 */
+	function get($partnerId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "partnerId", $partnerId);
+		$this->client->queueServiceActionCall("vendor_zoomvendor", "get", "KalturaZoomIntegrationSetting", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaZoomIntegrationSetting");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Vendor\\Type\\ZoomIntegrationSetting");
+		return $resultObject;
+	}
+
+	/**
 	 * 
 	 * @return string
 	 */
