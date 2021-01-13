@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platfroms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2020  Kaltura Inc.
+// Copyright (C) 2006-2021  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -130,6 +130,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->categoriesAncestorIdIn = (string)$xml->categoriesAncestorIdIn;
 		if(count($xml->hotspotIdIn))
 			$this->hotspotIdIn = (string)$xml->hotspotIdIn;
+		if(count($xml->crmIdIn))
+			$this->crmIdIn = (string)$xml->crmIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -340,5 +342,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $hotspotIdIn = null;
+
+	/**
+	 * filter by crm id
+	 * @var string
+	 */
+	public $crmIdIn = null;
 
 }
