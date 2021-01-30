@@ -132,6 +132,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->hotspotIdIn = (string)$xml->hotspotIdIn;
 		if(count($xml->crmIdIn))
 			$this->crmIdIn = (string)$xml->crmIdIn;
+		if(count($xml->playlistIdIn))
+			$this->playlistIdIn = (string)$xml->playlistIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -348,5 +350,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $crmIdIn = null;
+
+	/**
+	 * filter by playlist id
+	 * @var string
+	 */
+	public $playlistIdIn = null;
 
 }
