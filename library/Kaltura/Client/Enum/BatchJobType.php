@@ -53,10 +53,13 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const DROP_FOLDER_WATCHER = "dropFolder.DropFolderWatcher";
 	const EVENT_NOTIFICATION_HANDLER = "eventNotification.EventNotificationHandler";
 	const INTEGRATION = "integration.Integration";
+	const ENTRY_VENDOR_TASK_CSV = "reach.EntryVendorTasksCsv";
+	const SYNC_REACH_CREDIT_TASK = "reach.SyncReachCreditTask";
 	const SCHEDULED_TASK = "scheduledTask.ScheduledTask";
 	const INDEX_TAGS = "tagSearch.IndexTagsByPrivacyContext";
 	const TAG_RESOLVE = "tagSearch.TagResolve";
 	const VIRUS_SCAN = "virusScan.VirusScan";
+	const WIDEVINE_REPOSITORY_SYNC = "widevine.WidevineRepositorySync";
 	const IMPORT = "1";
 	const DELETE = "2";
 	const FLATTEN = "3";
