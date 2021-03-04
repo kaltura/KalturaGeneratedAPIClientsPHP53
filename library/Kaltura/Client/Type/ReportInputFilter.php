@@ -134,6 +134,10 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->crmIdIn = (string)$xml->crmIdIn;
 		if(count($xml->playlistIdIn))
 			$this->playlistIdIn = (string)$xml->playlistIdIn;
+		if(count($xml->domainIn))
+			$this->domainIn = (string)$xml->domainIn;
+		if(count($xml->canonicalUrlIn))
+			$this->canonicalUrlIn = (string)$xml->canonicalUrlIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -356,5 +360,17 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $playlistIdIn = null;
+
+	/**
+	 * filter by domain
+	 * @var string
+	 */
+	public $domainIn = null;
+
+	/**
+	 * filter by canonical url
+	 * @var string
+	 */
+	public $canonicalUrlIn = null;
 
 }

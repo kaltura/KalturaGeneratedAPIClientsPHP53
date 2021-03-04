@@ -71,6 +71,8 @@ class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 			else
 				$this->isPlayableUser = false;
 		}
+		if(count($xml->viewMode))
+			$this->viewMode = (int)$xml->viewMode;
 	}
 	/**
 	 * parameters of the stream we got
@@ -89,5 +91,11 @@ class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 	 * @var bool
 	 */
 	public $isPlayableUser = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\ViewMode
+	 */
+	public $viewMode = null;
 
 }

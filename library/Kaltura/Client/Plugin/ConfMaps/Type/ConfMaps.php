@@ -77,6 +77,8 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 			$this->remarks = (string)$xml->remarks;
 		if(count($xml->status))
 			$this->status = (int)$xml->status;
+		if(count($xml->changeDescription))
+			$this->changeDescription = (string)$xml->changeDescription;
 	}
 	/**
 	 * Name of the map
@@ -149,5 +151,11 @@ class ConfMaps extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\ConfMaps\Enum\ConfMapsStatus
 	 */
 	public $status = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $changeDescription = null;
 
 }
