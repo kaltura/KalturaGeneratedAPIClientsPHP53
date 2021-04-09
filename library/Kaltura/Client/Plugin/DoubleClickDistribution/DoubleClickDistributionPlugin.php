@@ -38,11 +38,6 @@ namespace Kaltura\Client\Plugin\DoubleClickDistribution;
  */
 class DoubleClickDistributionPlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\DoubleClickService
-	 */
-	protected $doubleClick = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -62,7 +57,6 @@ class DoubleClickDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'doubleClick' => $this->getDoubleClickService(),
 		);
 		return $services;
 	}
@@ -73,15 +67,6 @@ class DoubleClickDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'doubleClickDistribution';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\DoubleClickDistribution\Service\DoubleClickService
-	 */
-	public function getDoubleClickService()
-	{
-		if (is_null($this->doubleClick))
-			$this->doubleClick = new Service\DoubleClickService($this->_client);
-		return $this->doubleClick;
 	}
 }
 

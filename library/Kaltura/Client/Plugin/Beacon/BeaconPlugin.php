@@ -38,11 +38,6 @@ namespace Kaltura\Client\Plugin\Beacon;
  */
 class BeaconPlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\BeaconService
-	 */
-	protected $beacon = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -62,7 +57,6 @@ class BeaconPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'beacon' => $this->getBeaconService(),
 		);
 		return $services;
 	}
@@ -73,15 +67,6 @@ class BeaconPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'beacon';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Beacon\Service\BeaconService
-	 */
-	public function getBeaconService()
-	{
-		if (is_null($this->beacon))
-			$this->beacon = new Service\BeaconService($this->_client);
-		return $this->beacon;
 	}
 }
 

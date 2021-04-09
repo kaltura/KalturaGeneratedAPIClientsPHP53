@@ -38,11 +38,6 @@ namespace Kaltura\Client\Plugin\CaptureSpace;
  */
 class CaptureSpacePlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\CaptureSpaceService
-	 */
-	protected $captureSpace = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -62,7 +57,6 @@ class CaptureSpacePlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'captureSpace' => $this->getCaptureSpaceService(),
 		);
 		return $services;
 	}
@@ -73,15 +67,6 @@ class CaptureSpacePlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'captureSpace';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\CaptureSpace\Service\CaptureSpaceService
-	 */
-	public function getCaptureSpaceService()
-	{
-		if (is_null($this->captureSpace))
-			$this->captureSpace = new Service\CaptureSpaceService($this->_client);
-		return $this->captureSpace;
 	}
 }
 

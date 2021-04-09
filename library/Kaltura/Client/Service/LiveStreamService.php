@@ -92,27 +92,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Allocates a conference room or returns ones that has already been allocated
-	 * 
-	 * @return \Kaltura\Client\Plugin\Conference\Type\RoomDetails
-	 */
-	function allocateConferenceRoom($entryId, $env = "")
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "env", $env);
-		$this->client->queueServiceActionCall("livestream", "allocateConferenceRoom", "KalturaRoomDetails", $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaRoomDetails");
-		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Conference\\Type\\RoomDetails");
-		return $resultObject;
-	}
-
-	/**
 	 * Append recorded video to live entry
 	 * 
 	 * @return \Kaltura\Client\Type\LiveEntry
@@ -238,26 +217,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * When the conf is finished this API should be called.
-	 * 
-	 * @return bool
-	 */
-	function finishConf($entryId, $serverNodeId = null)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->addParam($kparams, "serverNodeId", $serverNodeId);
-		$this->client->queueServiceActionCall("livestream", "finishConf", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
-	}
-
-	/**
 	 * Get live stream entry by ID.
 	 * 
 	 * @return \Kaltura\Client\Type\LiveStreamEntry
@@ -358,25 +317,6 @@ class LiveStreamService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveEntry");
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\LiveEntry");
-		return $resultObject;
-	}
-
-	/**
-	 * Mark that the conference has actually started
-	 * 
-	 * @return bool
-	 */
-	function registerConf($entryId)
-	{
-		$kparams = array();
-		$this->client->addParam($kparams, "entryId", $entryId);
-		$this->client->queueServiceActionCall("livestream", "registerConf", null, $kparams);
-		if ($this->client->isMultiRequest())
-			return $this->client->getMultiRequestResult();
-		$resultXml = $this->client->doQueue();
-		$resultXmlObject = new \SimpleXMLElement($resultXml);
-		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
 	}
 

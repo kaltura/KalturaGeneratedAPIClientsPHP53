@@ -38,11 +38,6 @@ namespace Kaltura\Client\Plugin\AvnDistribution;
  */
 class AvnDistributionPlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\AvnService
-	 */
-	protected $avn = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -62,7 +57,6 @@ class AvnDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'avn' => $this->getAvnService(),
 		);
 		return $services;
 	}
@@ -73,15 +67,6 @@ class AvnDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'avnDistribution';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\AvnDistribution\Service\AvnService
-	 */
-	public function getAvnService()
-	{
-		if (is_null($this->avn))
-			$this->avn = new Service\AvnService($this->_client);
-		return $this->avn;
 	}
 }
 

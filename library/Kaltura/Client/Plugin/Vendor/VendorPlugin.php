@@ -38,11 +38,6 @@ namespace Kaltura\Client\Plugin\Vendor;
  */
 class VendorPlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\ZoomVendorService
-	 */
-	protected $zoomVendor = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -62,7 +57,6 @@ class VendorPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'zoomVendor' => $this->getZoomVendorService(),
 		);
 		return $services;
 	}
@@ -73,15 +67,6 @@ class VendorPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'vendor';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Vendor\Service\ZoomVendorService
-	 */
-	public function getZoomVendorService()
-	{
-		if (is_null($this->zoomVendor))
-			$this->zoomVendor = new Service\ZoomVendorService($this->_client);
-		return $this->zoomVendor;
 	}
 }
 

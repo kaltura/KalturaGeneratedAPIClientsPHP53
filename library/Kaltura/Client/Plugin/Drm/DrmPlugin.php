@@ -38,21 +38,6 @@ namespace Kaltura\Client\Plugin\Drm;
  */
 class DrmPlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\DrmPolicyService
-	 */
-	protected $drmPolicy = null;
-
-	/**
-	 * @var Service\DrmProfileService
-	 */
-	protected $drmProfile = null;
-
-	/**
-	 * @var Service\DrmLicenseAccessService
-	 */
-	protected $drmLicenseAccess = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -72,9 +57,6 @@ class DrmPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'drmPolicy' => $this->getDrmPolicyService(),
-			'drmProfile' => $this->getDrmProfileService(),
-			'drmLicenseAccess' => $this->getDrmLicenseAccessService(),
 		);
 		return $services;
 	}
@@ -85,33 +67,6 @@ class DrmPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'drm';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Drm\Service\DrmPolicyService
-	 */
-	public function getDrmPolicyService()
-	{
-		if (is_null($this->drmPolicy))
-			$this->drmPolicy = new Service\DrmPolicyService($this->_client);
-		return $this->drmPolicy;
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Drm\Service\DrmProfileService
-	 */
-	public function getDrmProfileService()
-	{
-		if (is_null($this->drmProfile))
-			$this->drmProfile = new Service\DrmProfileService($this->_client);
-		return $this->drmProfile;
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Drm\Service\DrmLicenseAccessService
-	 */
-	public function getDrmLicenseAccessService()
-	{
-		if (is_null($this->drmLicenseAccess))
-			$this->drmLicenseAccess = new Service\DrmLicenseAccessService($this->_client);
-		return $this->drmLicenseAccess;
 	}
 }
 

@@ -38,11 +38,6 @@ namespace Kaltura\Client\Plugin\Widevine;
  */
 class WidevinePlugin extends \Kaltura\Client\Plugin
 {
-	/**
-	 * @var Service\WidevineDrmService
-	 */
-	protected $widevineDrm = null;
-
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -62,7 +57,6 @@ class WidevinePlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
-			'widevineDrm' => $this->getWidevineDrmService(),
 		);
 		return $services;
 	}
@@ -73,15 +67,6 @@ class WidevinePlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'widevine';
-	}
-	/**
-	 * @return \Kaltura\Client\Plugin\Widevine\Service\WidevineDrmService
-	 */
-	public function getWidevineDrmService()
-	{
-		if (is_null($this->widevineDrm))
-			$this->widevineDrm = new Service\WidevineDrmService($this->_client);
-		return $this->widevineDrm;
 	}
 }
 
