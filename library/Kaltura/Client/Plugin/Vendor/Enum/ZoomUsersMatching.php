@@ -27,3 +27,20 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Plugin\Vendor\Enum;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class ZoomUsersMatching extends \Kaltura\Client\EnumBase
+{
+	const DO_NOT_MODIFY = 0;
+	const ADD_POSTFIX = 1;
+	const REMOVE_POSTFIX = 2;
+	const CMS_MATCHING = 3;
+}
+

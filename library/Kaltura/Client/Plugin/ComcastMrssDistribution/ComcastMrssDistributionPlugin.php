@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\ComcastMrssDistribution;
  */
 class ComcastMrssDistributionPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\ComcastMrssService
+	 */
+	protected $comcastMrss = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class ComcastMrssDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'comcastMrss' => $this->getComcastMrssService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class ComcastMrssDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'comcastMrssDistribution';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\ComcastMrssDistribution\Service\ComcastMrssService
+	 */
+	public function getComcastMrssService()
+	{
+		if (is_null($this->comcastMrss))
+			$this->comcastMrss = new Service\ComcastMrssService($this->_client);
+		return $this->comcastMrss;
 	}
 }
 

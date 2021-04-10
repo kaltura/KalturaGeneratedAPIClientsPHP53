@@ -27,3 +27,19 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Plugin\Vendor\Enum;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class HandleParticipantsMode extends \Kaltura\Client\EnumBase
+{
+	const ADD_AS_CO_PUBLISHERS = 0;
+	const ADD_AS_CO_VIEWERS = 1;
+	const IGNORE = 2;
+}
+

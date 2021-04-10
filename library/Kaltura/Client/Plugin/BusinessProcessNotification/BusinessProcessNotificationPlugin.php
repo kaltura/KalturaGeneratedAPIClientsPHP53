@@ -38,6 +38,16 @@ namespace Kaltura\Client\Plugin\BusinessProcessNotification;
  */
 class BusinessProcessNotificationPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\BusinessProcessServerService
+	 */
+	protected $businessProcessServer = null;
+
+	/**
+	 * @var Service\BusinessProcessCaseService
+	 */
+	protected $businessProcessCase = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +67,8 @@ class BusinessProcessNotificationPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'businessProcessServer' => $this->getBusinessProcessServerService(),
+			'businessProcessCase' => $this->getBusinessProcessCaseService(),
 		);
 		return $services;
 	}
@@ -67,6 +79,24 @@ class BusinessProcessNotificationPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'businessProcessNotification';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\BusinessProcessNotification\Service\BusinessProcessServerService
+	 */
+	public function getBusinessProcessServerService()
+	{
+		if (is_null($this->businessProcessServer))
+			$this->businessProcessServer = new Service\BusinessProcessServerService($this->_client);
+		return $this->businessProcessServer;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\BusinessProcessNotification\Service\BusinessProcessCaseService
+	 */
+	public function getBusinessProcessCaseService()
+	{
+		if (is_null($this->businessProcessCase))
+			$this->businessProcessCase = new Service\BusinessProcessCaseService($this->_client);
+		return $this->businessProcessCase;
 	}
 }
 

@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\SearchHistory;
  */
 class SearchHistoryPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\SearchHistoryService
+	 */
+	protected $searchHistory = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class SearchHistoryPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'searchHistory' => $this->getSearchHistoryService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class SearchHistoryPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'searchHistory';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\SearchHistory\Service\SearchHistoryService
+	 */
+	public function getSearchHistoryService()
+	{
+		if (is_null($this->searchHistory))
+			$this->searchHistory = new Service\SearchHistoryService($this->_client);
+		return $this->searchHistory;
 	}
 }
 

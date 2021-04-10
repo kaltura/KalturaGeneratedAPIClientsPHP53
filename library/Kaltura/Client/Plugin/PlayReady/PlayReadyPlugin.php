@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\PlayReady;
  */
 class PlayReadyPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\PlayReadyDrmService
+	 */
+	protected $playReadyDrm = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class PlayReadyPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'playReadyDrm' => $this->getPlayReadyDrmService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class PlayReadyPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'playReady';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\PlayReady\Service\PlayReadyDrmService
+	 */
+	public function getPlayReadyDrmService()
+	{
+		if (is_null($this->playReadyDrm))
+			$this->playReadyDrm = new Service\PlayReadyDrmService($this->_client);
+		return $this->playReadyDrm;
 	}
 }
 

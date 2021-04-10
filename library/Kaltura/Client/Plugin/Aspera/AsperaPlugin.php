@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\Aspera;
  */
 class AsperaPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\AsperaService
+	 */
+	protected $aspera = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class AsperaPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'aspera' => $this->getAsperaService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class AsperaPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'aspera';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Aspera\Service\AsperaService
+	 */
+	public function getAsperaService()
+	{
+		if (is_null($this->aspera))
+			$this->aspera = new Service\AsperaService($this->_client);
+		return $this->aspera;
 	}
 }
 

@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\Rating;
  */
 class RatingPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\RatingService
+	 */
+	protected $rating = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class RatingPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'rating' => $this->getRatingService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class RatingPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'rating';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Rating\Service\RatingService
+	 */
+	public function getRatingService()
+	{
+		if (is_null($this->rating))
+			$this->rating = new Service\RatingService($this->_client);
+		return $this->rating;
 	}
 }
 

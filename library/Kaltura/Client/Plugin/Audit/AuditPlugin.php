@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\Audit;
  */
 class AuditPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\AuditTrailService
+	 */
+	protected $auditTrail = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class AuditPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'auditTrail' => $this->getAuditTrailService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class AuditPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'audit';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Audit\Service\AuditTrailService
+	 */
+	public function getAuditTrailService()
+	{
+		if (is_null($this->auditTrail))
+			$this->auditTrail = new Service\AuditTrailService($this->_client);
+		return $this->auditTrail;
 	}
 }
 

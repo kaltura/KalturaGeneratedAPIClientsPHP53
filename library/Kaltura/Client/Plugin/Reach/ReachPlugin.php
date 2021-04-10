@@ -38,6 +38,26 @@ namespace Kaltura\Client\Plugin\Reach;
  */
 class ReachPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\VendorCatalogItemService
+	 */
+	protected $vendorCatalogItem = null;
+
+	/**
+	 * @var Service\ReachProfileService
+	 */
+	protected $reachProfile = null;
+
+	/**
+	 * @var Service\EntryVendorTaskService
+	 */
+	protected $entryVendorTask = null;
+
+	/**
+	 * @var Service\PartnerCatalogItemService
+	 */
+	protected $PartnerCatalogItem = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +77,10 @@ class ReachPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'vendorCatalogItem' => $this->getVendorCatalogItemService(),
+			'reachProfile' => $this->getReachProfileService(),
+			'entryVendorTask' => $this->getEntryVendorTaskService(),
+			'PartnerCatalogItem' => $this->getPartnerCatalogItemService(),
 		);
 		return $services;
 	}
@@ -67,6 +91,42 @@ class ReachPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'reach';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Reach\Service\VendorCatalogItemService
+	 */
+	public function getVendorCatalogItemService()
+	{
+		if (is_null($this->vendorCatalogItem))
+			$this->vendorCatalogItem = new Service\VendorCatalogItemService($this->_client);
+		return $this->vendorCatalogItem;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Reach\Service\ReachProfileService
+	 */
+	public function getReachProfileService()
+	{
+		if (is_null($this->reachProfile))
+			$this->reachProfile = new Service\ReachProfileService($this->_client);
+		return $this->reachProfile;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Reach\Service\EntryVendorTaskService
+	 */
+	public function getEntryVendorTaskService()
+	{
+		if (is_null($this->entryVendorTask))
+			$this->entryVendorTask = new Service\EntryVendorTaskService($this->_client);
+		return $this->entryVendorTask;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Reach\Service\PartnerCatalogItemService
+	 */
+	public function getPartnerCatalogItemService()
+	{
+		if (is_null($this->PartnerCatalogItem))
+			$this->PartnerCatalogItem = new Service\PartnerCatalogItemService($this->_client);
+		return $this->PartnerCatalogItem;
 	}
 }
 

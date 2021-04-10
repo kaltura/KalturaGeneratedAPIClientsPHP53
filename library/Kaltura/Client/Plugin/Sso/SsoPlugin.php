@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\Sso;
  */
 class SsoPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\SsoService
+	 */
+	protected $sso = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class SsoPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'sso' => $this->getSsoService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class SsoPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'sso';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Sso\Service\SsoService
+	 */
+	public function getSsoService()
+	{
+		if (is_null($this->sso))
+			$this->sso = new Service\SsoService($this->_client);
+		return $this->sso;
 	}
 }
 

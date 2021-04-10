@@ -38,6 +38,11 @@ namespace Kaltura\Client\Plugin\UnicornDistribution;
  */
 class UnicornDistributionPlugin extends \Kaltura\Client\Plugin
 {
+	/**
+	 * @var Service\UnicornService
+	 */
+	protected $unicorn = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -57,6 +62,7 @@ class UnicornDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getServices()
 	{
 		$services = array(
+			'unicorn' => $this->getUnicornService(),
 		);
 		return $services;
 	}
@@ -67,6 +73,15 @@ class UnicornDistributionPlugin extends \Kaltura\Client\Plugin
 	public function getName()
 	{
 		return 'unicornDistribution';
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\UnicornDistribution\Service\UnicornService
+	 */
+	public function getUnicornService()
+	{
+		if (is_null($this->unicorn))
+			$this->unicorn = new Service\UnicornService($this->_client);
+		return $this->unicorn;
 	}
 }
 
