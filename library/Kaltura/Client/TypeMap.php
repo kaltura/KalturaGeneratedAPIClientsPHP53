@@ -6,7 +6,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -314,7 +314,6 @@ class TypeMap
 		'KalturaPlayReadyLicenseDetails' => 'Kaltura\Client\Plugin\PlayReady\Type\PlayReadyLicenseDetails',
 		'KalturaPlayReadyPlayEnablerHolder' => 'Kaltura\Client\Plugin\PlayReady\Type\PlayReadyPlayEnablerHolder',
 		'KalturaPlaybackSource' => 'Kaltura\Client\Type\PlaybackSource',
-		'KalturaTypedArray' => 'Kaltura\Client\Type\TypedArray',
 		'KalturaPlaybackContext' => 'Kaltura\Client\Type\PlaybackContext',
 		'KalturaPlaylist' => 'Kaltura\Client\Type\Playlist',
 		'KalturaPushEventNotificationParameter' => 'Kaltura\Client\Plugin\PushNotification\Type\PushEventNotificationParameter',
@@ -375,6 +374,7 @@ class TypeMap
 		'KalturaTag' => 'Kaltura\Client\Plugin\TagSearch\Type\Tag',
 		'KalturaTranscriptAsset' => 'Kaltura\Client\Plugin\Transcript\Type\TranscriptAsset',
 		'KalturaTransformMetadataResponse' => 'Kaltura\Client\Plugin\Metadata\Type\TransformMetadataResponse',
+		'KalturaTypedArray' => 'Kaltura\Client\Type\TypedArray',
 		'KalturaUiConf' => 'Kaltura\Client\Type\UiConf',
 		'KalturaUiConfAdmin' => 'Kaltura\Client\Plugin\AdminConsole\Type\UiConfAdmin',
 		'KalturaUiConfTypeInfo' => 'Kaltura\Client\Type\UiConfTypeInfo',
@@ -838,6 +838,7 @@ class TypeMap
 		'KalturaYahooSyndicationFeed' => 'Kaltura\Client\Type\YahooSyndicationFeed',
 		'KalturaYouTubeDistributionProvider' => 'Kaltura\Client\Plugin\YouTubeDistribution\Type\YouTubeDistributionProvider',
 		'KalturaYoutubeApiDistributionProvider' => 'Kaltura\Client\Plugin\YoutubeApiDistribution\Type\YoutubeApiDistributionProvider',
+		'KalturaZoomIntegrationSettingResponse' => 'Kaltura\Client\Plugin\Vendor\Type\ZoomIntegrationSettingResponse',
 		'KalturaAccessControlBaseFilter' => 'Kaltura\Client\Type\AccessControlBaseFilter',
 		'KalturaAccessControlProfileBaseFilter' => 'Kaltura\Client\Type\AccessControlProfileBaseFilter',
 		'KalturaAdminUser' => 'Kaltura\Client\Type\AdminUser',
@@ -850,6 +851,7 @@ class TypeMap
 		'KalturaAssetResource' => 'Kaltura\Client\Type\AssetResource',
 		'KalturaAuditTrailBaseFilter' => 'Kaltura\Client\Plugin\Audit\Type\AuditTrailBaseFilter',
 		'KalturaAvnDistributionProfile' => 'Kaltura\Client\Plugin\AvnDistribution\Type\AvnDistributionProfile',
+		'KalturaBaseLiveScheduleEvent' => 'Kaltura\Client\Plugin\Schedule\Type\BaseLiveScheduleEvent',
 		'KalturaBaseSyndicationFeedFilter' => 'Kaltura\Client\Type\BaseSyndicationFeedFilter',
 		'KalturaBeaconAbstractScheduledResourceItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\BeaconAbstractScheduledResourceItem',
 		'KalturaBeaconFilter' => 'Kaltura\Client\Plugin\Beacon\Type\BeaconFilter',
@@ -951,7 +953,7 @@ class TypeMap
 		'KalturaLiveAsset' => 'Kaltura\Client\Type\LiveAsset',
 		'KalturaLiveChannelSegmentBaseFilter' => 'Kaltura\Client\Type\LiveChannelSegmentBaseFilter',
 		'KalturaLiveParams' => 'Kaltura\Client\Type\LiveParams',
-		'KalturaLiveStreamScheduleEvent' => 'Kaltura\Client\Plugin\Schedule\Type\LiveStreamScheduleEvent',
+		'KalturaMappedObjectsCsvJobData' => 'Kaltura\Client\Type\MappedObjectsCsvJobData',
 		'KalturaMatchMetadataCondition' => 'Kaltura\Client\Plugin\Metadata\Type\MatchMetadataCondition',
 		'KalturaMediaEsearchExportToCsvJobData' => 'Kaltura\Client\Plugin\ElasticSearch\Type\MediaEsearchExportToCsvJobData',
 		'KalturaMediaFlavorParams' => 'Kaltura\Client\Type\MediaFlavorParams',
@@ -1014,7 +1016,6 @@ class TypeMap
 		'KalturaUserEntryBaseFilter' => 'Kaltura\Client\Type\UserEntryBaseFilter',
 		'KalturaUserLoginDataBaseFilter' => 'Kaltura\Client\Type\UserLoginDataBaseFilter',
 		'KalturaUserRoleBaseFilter' => 'Kaltura\Client\Type\UserRoleBaseFilter',
-		'KalturaUsersCsvJobData' => 'Kaltura\Client\Type\UsersCsvJobData',
 		'KalturaVelocixProvisionJobData' => 'Kaltura\Client\Plugin\Velocix\Type\VelocixProvisionJobData',
 		'KalturaVendorCatalogItemBaseFilter' => 'Kaltura\Client\Plugin\Reach\Type\VendorCatalogItemBaseFilter',
 		'KalturaVendorTranslationCatalogItem' => 'Kaltura\Client\Plugin\Reach\Type\VendorTranslationCatalogItem',
@@ -1092,6 +1093,7 @@ class TypeMap
 		'KalturaESearchUserItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserItem',
 		'KalturaESearchUserMetadataItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchUserMetadataItem',
 		'KalturaEmailNotificationTemplateBaseFilter' => 'Kaltura\Client\Plugin\EmailNotification\Type\EmailNotificationTemplateBaseFilter',
+		'KalturaEntriesCsvJobData' => 'Kaltura\Client\Type\EntriesCsvJobData',
 		'KalturaEntryDistributionFilter' => 'Kaltura\Client\Plugin\ContentDistribution\Type\EntryDistributionFilter',
 		'KalturaEvalBooleanField' => 'Kaltura\Client\Type\EvalBooleanField',
 		'KalturaEvalStringField' => 'Kaltura\Client\Type\EvalStringField',
@@ -1127,10 +1129,12 @@ class TypeMap
 		'KalturaLiveEntryCompareAttributeCondition' => 'Kaltura\Client\Type\LiveEntryCompareAttributeCondition',
 		'KalturaLiveEntryMatchAttributeCondition' => 'Kaltura\Client\Type\LiveEntryMatchAttributeCondition',
 		'KalturaLiveEntryServerNodeBaseFilter' => 'Kaltura\Client\Type\LiveEntryServerNodeBaseFilter',
+		'KalturaLiveRedirectScheduleEvent' => 'Kaltura\Client\Plugin\Schedule\Type\LiveRedirectScheduleEvent',
 		'KalturaLiveStreamAdminEntryCompareAttributeCondition' => 'Kaltura\Client\Type\LiveStreamAdminEntryCompareAttributeCondition',
 		'KalturaLiveStreamAdminEntryMatchAttributeCondition' => 'Kaltura\Client\Type\LiveStreamAdminEntryMatchAttributeCondition',
 		'KalturaLiveStreamEntryCompareAttributeCondition' => 'Kaltura\Client\Type\LiveStreamEntryCompareAttributeCondition',
 		'KalturaLiveStreamEntryMatchAttributeCondition' => 'Kaltura\Client\Type\LiveStreamEntryMatchAttributeCondition',
+		'KalturaLiveStreamScheduleEvent' => 'Kaltura\Client\Plugin\Schedule\Type\LiveStreamScheduleEvent',
 		'KalturaMediaEntryCompareAttributeCondition' => 'Kaltura\Client\Type\MediaEntryCompareAttributeCondition',
 		'KalturaMediaEntryMatchAttributeCondition' => 'Kaltura\Client\Type\MediaEntryMatchAttributeCondition',
 		'KalturaMediaFlavorParamsOutput' => 'Kaltura\Client\Type\MediaFlavorParamsOutput',
@@ -1181,6 +1185,7 @@ class TypeMap
 		'KalturaUserEntryFilter' => 'Kaltura\Client\Type\UserEntryFilter',
 		'KalturaUserLoginDataFilter' => 'Kaltura\Client\Type\UserLoginDataFilter',
 		'KalturaUserRoleFilter' => 'Kaltura\Client\Type\UserRoleFilter',
+		'KalturaUsersCsvJobData' => 'Kaltura\Client\Type\UsersCsvJobData',
 		'KalturaVarConsolePartnerFilter' => 'Kaltura\Client\Plugin\VarConsole\Type\VarConsolePartnerFilter',
 		'KalturaVendorCatalogItemFilter' => 'Kaltura\Client\Plugin\Reach\Type\VendorCatalogItemFilter',
 		'KalturaWebcamTokenResource' => 'Kaltura\Client\Type\WebcamTokenResource',
@@ -1375,6 +1380,7 @@ class TypeMap
 		'KalturaImageFlavorParamsBaseFilter' => 'Kaltura\Client\Plugin\Document\Type\ImageFlavorParamsBaseFilter',
 		'KalturaLiveAssetBaseFilter' => 'Kaltura\Client\Type\LiveAssetBaseFilter',
 		'KalturaLiveParamsBaseFilter' => 'Kaltura\Client\Type\LiveParamsBaseFilter',
+		'KalturaLiveRedirectScheduleEventFilter' => 'Kaltura\Client\Plugin\Schedule\Type\LiveRedirectScheduleEventFilter',
 		'KalturaLiveStreamScheduleEventBaseFilter' => 'Kaltura\Client\Plugin\Schedule\Type\LiveStreamScheduleEventBaseFilter',
 		'KalturaMediaFlavorParamsBaseFilter' => 'Kaltura\Client\Type\MediaFlavorParamsBaseFilter',
 		'KalturaMediaServerNodeFilter' => 'Kaltura\Client\Type\MediaServerNodeFilter',

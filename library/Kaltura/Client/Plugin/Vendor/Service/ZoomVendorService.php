@@ -6,7 +6,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -98,6 +98,42 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * List KalturaZoomIntegrationSetting objects
+	 * 
+	 * @return \Kaltura\Client\Plugin\Vendor\Type\ZoomIntegrationSettingResponse
+	 */
+	function listAction(\Kaltura\Client\Type\FilterPager $pager = null)
+	{
+		$kparams = array();
+		if ($pager !== null)
+			$this->client->addParam($kparams, "pager", $pager->toParams());
+		$this->client->queueServiceActionCall("vendor_zoomvendor", "list", "KalturaZoomIntegrationSettingResponse", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaZoomIntegrationSettingResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Vendor\\Type\\ZoomIntegrationSettingResponse");
+		return $resultObject;
+	}
+
+	/**
+	 * 
+	 */
+	function localRegistrationPage($jwt)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "jwt", $jwt);
+		$this->client->queueServiceActionCall("vendor_zoomvendor", "localRegistrationPage", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * 
 	 * @return string
 	 */
@@ -112,6 +148,22 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 		$this->client->checkIfError($resultXmlObject->result);
 		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
 		return $resultObject;
+	}
+
+	/**
+	 * load html page the that will ask the user for its KMC URL, derive the region of the user from it,
+	 * 	 and redirect to the registration page in the correct region, while forwarding the necessary code for registration
+	 * 
+	 */
+	function preOauthValidation()
+	{
+		$kparams = array();
+		$this->client->queueServiceActionCall("vendor_zoomvendor", "preOauthValidation", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
 	}
 
 	/**

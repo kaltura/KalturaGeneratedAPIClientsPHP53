@@ -6,7 +6,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -210,5 +210,7 @@ class ReportType extends \Kaltura\Client\EnumBase
 	const TOP_USERS_WEBCAST = "40009";
 	const ENGAGEMENT_BREAKDOWN_WEBCAST = "40010";
 	const ENGAGMENT_TIMELINE_WEBCAST = "40011";
+	const ENGAGEMENT_TOOLS_WEBCAST = "40012";
+	const REACTIONS_BREAKDOWN_WEBCAST = "40013";
 }
 

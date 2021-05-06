@@ -6,7 +6,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -30,33 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Caption\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-abstract class TypedArray extends \Kaltura\Client\ObjectBase
+class CaptionSource extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaTypedArray';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->count))
-			$this->count = (int)$xml->count;
-	}
-	/**
-	 * 
-	 * @var int
-	 */
-	public $count = null;
-
+	const UNKNOWN = "0";
+	const ZOOM = "1";
 }
+

@@ -6,7 +6,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Schedule\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\EntryScheduleEvent
+class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\BaseLiveScheduleEvent
 {
 	public function getKalturaObjectType()
 	{
@@ -50,26 +50,26 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\Entry
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->projectedAudience))
-			$this->projectedAudience = (int)$xml->projectedAudience;
 		if(count($xml->sourceEntryId))
 			$this->sourceEntryId = (string)$xml->sourceEntryId;
+		if(count($xml->projectedAudience))
+			$this->projectedAudience = (int)$xml->projectedAudience;
 		if(count($xml->preStartTime))
 			$this->preStartTime = (int)$xml->preStartTime;
 		if(count($xml->postEndTime))
 			$this->postEndTime = (int)$xml->postEndTime;
 	}
 	/**
-	 * Defines the expected audience.
-	 * @var int
-	 */
-	public $projectedAudience = null;
-
-	/**
 	 * The entry ID of the source entry (for simulive)
 	 * @var string
 	 */
 	public $sourceEntryId = null;
+
+	/**
+	 * Defines the expected audience.
+	 * @var int
+	 */
+	public $projectedAudience = null;
 
 	/**
 	 * The time relative time before the startTime considered as preStart time

@@ -6,7 +6,7 @@
 //                          |_|\_\__,_|_|\__|\_,_|_| \__,_|
 //
 // This file is part of the Kaltura Collaborative Media Suite which allows users
-// to do with audio, video, and animation what Wiki platfroms allow them to do with
+// to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
 // Copyright (C) 2006-2021  Kaltura Inc.
@@ -72,6 +72,14 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 			$this->enableWebinarUploads = (int)$xml->enableWebinarUploads;
 		if(count($xml->conversionProfileId))
 			$this->conversionProfileId = (int)$xml->conversionProfileId;
+		if(count($xml->jwtToken))
+			$this->jwtToken = (string)$xml->jwtToken;
+		if(count($xml->deletionPolicy))
+			$this->deletionPolicy = (int)$xml->deletionPolicy;
+		if(count($xml->enableZoomTranscription))
+			$this->enableZoomTranscription = (int)$xml->enableZoomTranscription;
+		if(count($xml->zoomAccountDescription))
+			$this->zoomAccountDescription = (string)$xml->zoomAccountDescription;
 	}
 	/**
 	 * 
@@ -139,5 +147,29 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 */
 	public $conversionProfileId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $jwtToken = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $deletionPolicy = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $enableZoomTranscription = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $zoomAccountDescription = null;
 
 }
