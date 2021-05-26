@@ -74,6 +74,8 @@ class ModifyEntryObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\Ob
 			$this->inputEntitledUsersEdit = (string)$xml->inputEntitledUsersEdit;
 		if(count($xml->inputEntitledUsersPublish))
 			$this->inputEntitledUsersPublish = (string)$xml->inputEntitledUsersPublish;
+		if(count($xml->inputEntitledUsersView))
+			$this->inputEntitledUsersView = (string)$xml->inputEntitledUsersView;
 		if(count($xml->resetMediaRepurposingProcess))
 		{
 			if(!empty($xml->resetMediaRepurposingProcess) && $xml->resetMediaRepurposingProcess != 'false')
@@ -123,6 +125,12 @@ class ModifyEntryObjectTask extends \Kaltura\Client\Plugin\ScheduledTask\Type\Ob
 	 * @var string
 	 */
 	public $inputEntitledUsersPublish = null;
+
+	/**
+	 * The input entitled users view to set on the entry
+	 * @var string
+	 */
+	public $inputEntitledUsersView = null;
 
 	/**
 	 * Should clear the media repurposing data and therefore reset the process

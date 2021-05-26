@@ -134,8 +134,9 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * load html page the that will ask the user for its KMC URL, derive the region of the user from it,
+	 * 	 and redirect to the registration page in the correct region, while forwarding the necessary code for registration
 	 * 
-	 * @return string
 	 */
 	function oauthValidation()
 	{
@@ -146,14 +147,11 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
-		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
-		return $resultObject;
 	}
 
 	/**
-	 * load html page the that will ask the user for its KMC URL, derive the region of the user from it,
-	 * 	 and redirect to the registration page in the correct region, while forwarding the necessary code for registration
 	 * 
+	 * @return string
 	 */
 	function preOauthValidation()
 	{
@@ -164,6 +162,8 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
 	}
 
 	/**

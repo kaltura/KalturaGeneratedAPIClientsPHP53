@@ -80,6 +80,12 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 			$this->enableZoomTranscription = (int)$xml->enableZoomTranscription;
 		if(count($xml->zoomAccountDescription))
 			$this->zoomAccountDescription = (string)$xml->zoomAccountDescription;
+		if(count($xml->createdAt))
+			$this->createdAt = (string)$xml->createdAt;
+		if(count($xml->updatedAt))
+			$this->updatedAt = (string)$xml->updatedAt;
+		if(count($xml->enableMeetingUpload))
+			$this->enableMeetingUpload = (int)$xml->enableMeetingUpload;
 	}
 	/**
 	 * 
@@ -171,5 +177,23 @@ class ZoomIntegrationSetting extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $zoomAccountDescription = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $createdAt = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $updatedAt = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $enableMeetingUpload = null;
 
 }
