@@ -50,8 +50,6 @@ class VendorCaptionsCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Vendor
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->sourceLanguage))
-			$this->sourceLanguage = (string)$xml->sourceLanguage;
 		if(count($xml->outputFormat))
 			$this->outputFormat = (int)$xml->outputFormat;
 		if(count($xml->enableSpeakerId))
@@ -59,12 +57,6 @@ class VendorCaptionsCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Vendor
 		if(count($xml->fixedPriceAddons))
 			$this->fixedPriceAddons = (int)$xml->fixedPriceAddons;
 	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemLanguage
-	 */
-	public $sourceLanguage = null;
-
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorCatalogItemOutputFormat

@@ -284,6 +284,28 @@ class PartnerService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Create a new Partner object
+	 * 
+	 * @return bool
+	 */
+	function registrationValidation(\Kaltura\Client\Type\Partner $partner, $cmsPassword = "", $templatePartnerId = null, $silent = false)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "partner", $partner->toParams());
+		$this->client->addParam($kparams, "cmsPassword", $cmsPassword);
+		$this->client->addParam($kparams, "templatePartnerId", $templatePartnerId);
+		$this->client->addParam($kparams, "silent", $silent);
+		$this->client->queueServiceActionCall("partner", "registrationValidation", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (bool)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Update details and settings of an existing partner
 	 * 
 	 * @return \Kaltura\Client\Type\Partner

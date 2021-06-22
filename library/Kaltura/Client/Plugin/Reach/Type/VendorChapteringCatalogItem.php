@@ -50,13 +50,5 @@ class VendorChapteringCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Vend
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->sourceLanguage))
-			$this->sourceLanguage = (string)$xml->sourceLanguage;
 	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemLanguage
-	 */
-	public $sourceLanguage = null;
-
 }

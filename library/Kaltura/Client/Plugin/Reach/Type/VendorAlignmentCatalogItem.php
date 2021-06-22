@@ -50,17 +50,9 @@ class VendorAlignmentCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Vendo
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->sourceLanguage))
-			$this->sourceLanguage = (string)$xml->sourceLanguage;
 		if(count($xml->outputFormat))
 			$this->outputFormat = (int)$xml->outputFormat;
 	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemLanguage
-	 */
-	public $sourceLanguage = null;
-
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorCatalogItemOutputFormat

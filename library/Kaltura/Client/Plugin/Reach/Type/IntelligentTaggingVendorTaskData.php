@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\Reach\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class VendorAudioDescriptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItem
+class IntelligentTaggingVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaVendorAudioDescriptionCatalogItem';
+		return 'KalturaIntelligentTaggingVendorTaskData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,21 +50,14 @@ class VendorAudioDescriptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Typ
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->flavorParamsId))
-			$this->flavorParamsId = (int)$xml->flavorParamsId;
-		if(count($xml->clearAudioFlavorParamsId))
-			$this->clearAudioFlavorParamsId = (int)$xml->clearAudioFlavorParamsId;
+		if(count($xml->assetId))
+			$this->assetId = (string)$xml->assetId;
 	}
 	/**
-	 * 
-	 * @var int
+	 * Optional - The id of the caption asset object
+	 * @var string
+	 * @insertonly
 	 */
-	public $flavorParamsId = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $clearAudioFlavorParamsId = null;
+	public $assetId = null;
 
 }

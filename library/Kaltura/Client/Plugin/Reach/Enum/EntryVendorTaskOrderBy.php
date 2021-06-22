@@ -39,6 +39,7 @@ namespace Kaltura\Client\Plugin\Reach\Enum;
 class EntryVendorTaskOrderBy extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT_ASC = "+createdAt";
+	const EXPECTED_FINISH_TIME_ASC = "+expectedFinishTime";
 	const FINISH_TIME_ASC = "+finishTime";
 	const ID_ASC = "+id";
 	const PRICE_ASC = "+price";
@@ -46,6 +47,7 @@ class EntryVendorTaskOrderBy extends \Kaltura\Client\EnumBase
 	const STATUS_ASC = "+status";
 	const UPDATED_AT_ASC = "+updatedAt";
 	const CREATED_AT_DESC = "-createdAt";
+	const EXPECTED_FINISH_TIME_DESC = "-expectedFinishTime";
 	const FINISH_TIME_DESC = "-finishTime";
 	const ID_DESC = "-id";
 	const PRICE_DESC = "-price";
