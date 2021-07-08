@@ -241,6 +241,18 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->lastFreeTrialNotificationDay = (int)$xml->lastFreeTrialNotificationDay;
 		if(count($xml->monitorUsage))
 			$this->monitorUsage = (int)$xml->monitorUsage;
+		if(count($xml->passwordStructureValidations))
+			$this->passwordStructureValidations = (string)$xml->passwordStructureValidations;
+		if(count($xml->passwordStructureValidationsDescription))
+			$this->passwordStructureValidationsDescription = (string)$xml->passwordStructureValidationsDescription;
+		if(count($xml->passReplaceFreq))
+			$this->passReplaceFreq = (int)$xml->passReplaceFreq;
+		if(count($xml->maxLoginAttempts))
+			$this->maxLoginAttempts = (int)$xml->maxLoginAttempts;
+		if(count($xml->loginBlockPeriod))
+			$this->loginBlockPeriod = (int)$xml->loginBlockPeriod;
+		if(count($xml->numPrevPassToKeep))
+			$this->numPrevPassToKeep = (int)$xml->numPrevPassToKeep;
 	}
 	/**
 	 * 
@@ -684,5 +696,41 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $monitorUsage = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $passwordStructureValidations = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $passwordStructureValidationsDescription = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $passReplaceFreq = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $maxLoginAttempts = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $loginBlockPeriod = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $numPrevPassToKeep = null;
 
 }
