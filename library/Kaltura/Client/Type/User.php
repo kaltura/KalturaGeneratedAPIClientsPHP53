@@ -97,6 +97,8 @@ class User extends \Kaltura\Client\Type\BaseUser
 			$this->company = (string)$xml->company;
 		if(count($xml->ksPrivileges))
 			$this->ksPrivileges = (string)$xml->ksPrivileges;
+		if(count($xml->encryptedSeed))
+			$this->encryptedSeed = (string)$xml->encryptedSeed;
 	}
 	/**
 	 * 
@@ -197,5 +199,12 @@ class User extends \Kaltura\Client\Type\BaseUser
 	 * @var string
 	 */
 	public $ksPrivileges = null;
+
+	/**
+	 * 
+	 * @var string
+	 * @readonly
+	 */
+	public $encryptedSeed = null;
 
 }

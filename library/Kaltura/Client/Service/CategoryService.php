@@ -90,6 +90,28 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Clone Category
+	 * 
+	 * @return \Kaltura\Client\Type\Category
+	 */
+	function cloneAction($categoryId, $fromPartnerId, $parentCategoryId = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "categoryId", $categoryId);
+		$this->client->addParam($kparams, "fromPartnerId", $fromPartnerId);
+		$this->client->addParam($kparams, "parentCategoryId", $parentCategoryId);
+		$this->client->queueServiceActionCall("category", "clone", "KalturaCategory", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaCategory");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\Category");
+		return $resultObject;
+	}
+
+	/**
 	 * Delete a Category
 	 * 
 	 */

@@ -39,11 +39,11 @@ namespace Kaltura\Client\Enum;
 class VideoCodec extends \Kaltura\Client\EnumBase
 {
 	const NONE = "";
-	const AV1 = "AV1";
 	const APCH = "apch";
 	const APCN = "apcn";
 	const APCO = "apco";
 	const APCS = "apcs";
+	const AV1 = "av1";
 	const COPY = "copy";
 	const DNXHD = "dnxhd";
 	const DV = "dv";

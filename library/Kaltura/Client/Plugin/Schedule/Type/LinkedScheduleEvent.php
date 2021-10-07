@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Schedule\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ReportExportParams extends \Kaltura\Client\ObjectBase
+class LinkedScheduleEvent extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaReportExportParams';
+		return 'KalturaLinkedScheduleEvent';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,50 +50,21 @@ class ReportExportParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->recipientEmail))
-			$this->recipientEmail = (string)$xml->recipientEmail;
-		if(count($xml->timeZoneOffset))
-			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		if(count($xml->reportItems))
-		{
-			if(empty($xml->reportItems))
-				$this->reportItems = array();
-			else
-				$this->reportItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->reportItems, "KalturaReportExportItem");
-		}
-		if(count($xml->reportsItemsGroup))
-			$this->reportsItemsGroup = (string)$xml->reportsItemsGroup;
-		if(count($xml->baseUrl))
-			$this->baseUrl = (string)$xml->baseUrl;
+		if(count($xml->offset))
+			$this->offset = (int)$xml->offset;
+		if(count($xml->eventId))
+			$this->eventId = (int)$xml->eventId;
 	}
 	/**
-	 * 
-	 * @var string
-	 */
-	public $recipientEmail = null;
-
-	/**
-	 * Time zone offset in minutes (between client to UTC)
+	 * The time between the end of the event which it's id is in $eventId and the start of the event holding this object
 	 * @var int
 	 */
-	public $timeZoneOffset = null;
+	public $offset = null;
 
 	/**
-	 * 
-	 * @var array<KalturaReportExportItem>
+	 * The id of the event influencing the start of the event holding this object
+	 * @var int
 	 */
-	public $reportItems;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $reportsItemsGroup = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $baseUrl = null;
+	public $eventId = null;
 
 }

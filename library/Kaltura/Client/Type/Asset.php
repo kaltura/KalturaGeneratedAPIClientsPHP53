@@ -79,7 +79,7 @@ class Asset extends \Kaltura\Client\ObjectBase
 		if(count($xml->actualSourceAssetParamsIds))
 			$this->actualSourceAssetParamsIds = (string)$xml->actualSourceAssetParamsIds;
 		if(count($xml->sizeInBytes))
-			$this->sizeInBytes = (int)$xml->sizeInBytes;
+			$this->sizeInBytes = (string)$xml->sizeInBytes;
 	}
 	/**
 	 * The ID of the Flavor Asset

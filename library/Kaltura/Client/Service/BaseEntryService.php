@@ -477,6 +477,23 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * This action serves HLS encrypted key if access control is validated
+	 * 
+	 * @return file
+	 */
+	function servePlaybackKey($entryId)
+	{
+		if ($this->client->isMultiRequest())
+			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
+		
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall('baseentry', 'servePlaybackKey', null, $kparams);
+		$resultObject = $this->client->getServeUrl();
+		return $resultObject;
+	}
+
+	/**
 	 * Update base entry. Only the properties that were set will be updated.
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry

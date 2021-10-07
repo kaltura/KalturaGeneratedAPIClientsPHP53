@@ -38,6 +38,7 @@ namespace Kaltura\Client\Plugin\Drm\Enum;
  */
 class DrmLicenseScenario extends \Kaltura\Client\EnumBase
 {
+	const NONE = "0";
 	const PROTECTION = "playReady.PROTECTION";
 	const PURCHASE = "playReady.PURCHASE";
 	const RENTAL = "playReady.RENTAL";

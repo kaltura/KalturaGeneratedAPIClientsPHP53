@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ReportExportParams extends \Kaltura\Client\ObjectBase
+class DeliveryProfileVod extends \Kaltura\Client\Type\DeliveryProfile
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaReportExportParams';
+		return 'KalturaDeliveryProfileVod';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,50 +50,18 @@ class ReportExportParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->recipientEmail))
-			$this->recipientEmail = (string)$xml->recipientEmail;
-		if(count($xml->timeZoneOffset))
-			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		if(count($xml->reportItems))
+		if(count($xml->simuliveSupport))
 		{
-			if(empty($xml->reportItems))
-				$this->reportItems = array();
+			if(!empty($xml->simuliveSupport) && $xml->simuliveSupport != 'false')
+				$this->simuliveSupport = true;
 			else
-				$this->reportItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->reportItems, "KalturaReportExportItem");
+				$this->simuliveSupport = false;
 		}
-		if(count($xml->reportsItemsGroup))
-			$this->reportsItemsGroup = (string)$xml->reportsItemsGroup;
-		if(count($xml->baseUrl))
-			$this->baseUrl = (string)$xml->baseUrl;
 	}
 	/**
 	 * 
-	 * @var string
+	 * @var bool
 	 */
-	public $recipientEmail = null;
-
-	/**
-	 * Time zone offset in minutes (between client to UTC)
-	 * @var int
-	 */
-	public $timeZoneOffset = null;
-
-	/**
-	 * 
-	 * @var array<KalturaReportExportItem>
-	 */
-	public $reportItems;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $reportsItemsGroup = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $baseUrl = null;
+	public $simuliveSupport = null;
 
 }

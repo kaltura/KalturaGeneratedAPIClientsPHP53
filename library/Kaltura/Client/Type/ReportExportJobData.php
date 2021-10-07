@@ -70,6 +70,8 @@ class ReportExportJobData extends \Kaltura\Client\Type\JobData
 			else
 				$this->files = \Kaltura\Client\ParseUtils::unmarshalArray($xml->files, "KalturaReportExportFile");
 		}
+		if(count($xml->baseUrl))
+			$this->baseUrl = (string)$xml->baseUrl;
 	}
 	/**
 	 * 
@@ -100,5 +102,11 @@ class ReportExportJobData extends \Kaltura\Client\Type\JobData
 	 * @var array<KalturaReportExportFile>
 	 */
 	public $files;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $baseUrl = null;
 
 }

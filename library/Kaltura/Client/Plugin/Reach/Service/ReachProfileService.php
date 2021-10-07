@@ -125,7 +125,7 @@ class ReachProfileService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * sync vednor profile credit
+	 * sync vendor profile credit
 	 * 
 	 * @return \Kaltura\Client\Plugin\Reach\Type\ReachProfile
 	 */

@@ -68,6 +68,10 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 			$this->endDate = (int)$xml->endDate;
 		if(count($xml->referenceId))
 			$this->referenceId = (string)$xml->referenceId;
+		if(count($xml->linkedTo) && !empty($xml->linkedTo))
+			$this->linkedTo = \Kaltura\Client\ParseUtils::unmarshalObject($xml->linkedTo, "KalturaLinkedScheduleEvent");
+		if(count($xml->linkedBy))
+			$this->linkedBy = (string)$xml->linkedBy;
 		if(count($xml->classificationType))
 			$this->classificationType = (int)$xml->classificationType;
 		if(count($xml->geoLatitude))
@@ -158,6 +162,18 @@ abstract class ScheduleEvent extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $referenceId = null;
+
+	/**
+	 * Contains the Id of the event that influences the timing of this event and the offset of time.
+	 * @var \Kaltura\Client\Plugin\Schedule\Type\LinkedScheduleEvent
+	 */
+	public $linkedTo;
+
+	/**
+	 * An array of Schedule Event Ids that their start time depends on the end of the current.
+	 * @var string
+	 */
+	public $linkedBy = null;
 
 	/**
 	 * 

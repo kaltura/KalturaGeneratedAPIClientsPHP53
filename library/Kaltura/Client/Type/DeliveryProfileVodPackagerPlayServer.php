@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class DeliveryProfileVodPackagerPlayServer extends \Kaltura\Client\Type\DeliveryProfile
+class DeliveryProfileVodPackagerPlayServer extends \Kaltura\Client\Type\DeliveryProfileVod
 {
 	public function getKalturaObjectType()
 	{

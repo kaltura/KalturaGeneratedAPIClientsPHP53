@@ -40,6 +40,7 @@ class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 {
 	const AR = "Arabic";
 	const YUE = "Cantonese";
+	const CA = "Catalan";
 	const ZH = "Chinese";
 	const DA = "Danish";
 	const NL = "Dutch";

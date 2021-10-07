@@ -120,6 +120,13 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 			$this->recommendedDcForExecute = (int)$xml->recommendedDcForExecute;
 		if(count($xml->distributeTrigger))
 			$this->distributeTrigger = (int)$xml->distributeTrigger;
+		if(count($xml->supportImageEntry))
+		{
+			if(!empty($xml->supportImageEntry) && $xml->supportImageEntry != 'false')
+				$this->supportImageEntry = true;
+			else
+				$this->supportImageEntry = false;
+		}
 	}
 	/**
 	 * Auto generated unique id
@@ -275,5 +282,12 @@ abstract class DistributionProfile extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\ContentDistribution\Enum\DistributeTrigger
 	 */
 	public $distributeTrigger = null;
+
+	/**
+	 * 
+	 * @var bool
+	 * @readonly
+	 */
+	public $supportImageEntry = null;
 
 }

@@ -43,5 +43,6 @@ class ScheduleEventType extends \Kaltura\Client\EnumBase
 	const BLACKOUT = 3;
 	const MEETING = 4;
 	const LIVE_REDIRECT = 5;
+	const VOD = 6;
 }
 

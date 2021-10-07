@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Schedule\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ReportExportParams extends \Kaltura\Client\ObjectBase
+class VodScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\EntryScheduleEvent
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaReportExportParams';
+		return 'KalturaVodScheduleEvent';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,50 +50,5 @@ class ReportExportParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->recipientEmail))
-			$this->recipientEmail = (string)$xml->recipientEmail;
-		if(count($xml->timeZoneOffset))
-			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
-		if(count($xml->reportItems))
-		{
-			if(empty($xml->reportItems))
-				$this->reportItems = array();
-			else
-				$this->reportItems = \Kaltura\Client\ParseUtils::unmarshalArray($xml->reportItems, "KalturaReportExportItem");
-		}
-		if(count($xml->reportsItemsGroup))
-			$this->reportsItemsGroup = (string)$xml->reportsItemsGroup;
-		if(count($xml->baseUrl))
-			$this->baseUrl = (string)$xml->baseUrl;
 	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $recipientEmail = null;
-
-	/**
-	 * Time zone offset in minutes (between client to UTC)
-	 * @var int
-	 */
-	public $timeZoneOffset = null;
-
-	/**
-	 * 
-	 * @var array<KalturaReportExportItem>
-	 */
-	public $reportItems;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $reportsItemsGroup = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $baseUrl = null;
-
 }
