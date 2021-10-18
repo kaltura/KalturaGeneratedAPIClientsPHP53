@@ -56,6 +56,8 @@ class ViewHistoryUserEntry extends \Kaltura\Client\Type\UserEntry
 			$this->lastTimeReached = (int)$xml->lastTimeReached;
 		if(count($xml->lastUpdateTime))
 			$this->lastUpdateTime = (int)$xml->lastUpdateTime;
+		if(count($xml->playlistLastEntryId))
+			$this->playlistLastEntryId = (string)$xml->playlistLastEntryId;
 	}
 	/**
 	 * Playback context
@@ -74,5 +76,11 @@ class ViewHistoryUserEntry extends \Kaltura\Client\Type\UserEntry
 	 * @var int
 	 */
 	public $lastUpdateTime = null;
+
+	/**
+	 * Property to save last entry ID played in a playlist.
+	 * @var string
+	 */
+	public $playlistLastEntryId = null;
 
 }

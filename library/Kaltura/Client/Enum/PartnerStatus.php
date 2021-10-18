@@ -42,5 +42,6 @@ class PartnerStatus extends \Kaltura\Client\EnumBase
 	const ACTIVE = 1;
 	const BLOCKED = 2;
 	const FULL_BLOCK = 3;
+	const READ_ONLY = 4;
 }
 
