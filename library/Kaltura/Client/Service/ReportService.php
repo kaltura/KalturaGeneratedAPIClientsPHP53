@@ -116,7 +116,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return file
 	 */
-	function getCsv($id, array $params = null)
+	function getCsv($id, array $params = null, $excludedFields = null)
 	{
 		if ($this->client->isMultiRequest())
 			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
@@ -128,6 +128,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 			{
 				$this->client->addParam($kparams, "params:$index", $obj->toParams());
 			}
+		$this->client->addParam($kparams, "excludedFields", $excludedFields);
 		$this->client->queueServiceActionCall('report', 'getCsv', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
 		return $resultObject;
@@ -135,10 +136,11 @@ class ReportService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * Returns report CSV file executed by string params with the following convention: param1=value1;param2=value2
+	 * 	 excludedFields can be supplied comma separated
 	 * 
 	 * @return file
 	 */
-	function getCsvFromStringParams($id, $params = null)
+	function getCsvFromStringParams($id, $params = null, $excludedFields = null)
 	{
 		if ($this->client->isMultiRequest())
 			throw $this->client->getClientException("Action is not supported as part of multi-request.", ClientException::ERROR_ACTION_IN_MULTIREQUEST);
@@ -146,6 +148,7 @@ class ReportService extends \Kaltura\Client\ServiceBase
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
 		$this->client->addParam($kparams, "params", $params);
+		$this->client->addParam($kparams, "excludedFields", $excludedFields);
 		$this->client->queueServiceActionCall('report', 'getCsvFromStringParams', null, $kparams);
 		$resultObject = $this->client->getServeUrl();
 		return $resultObject;

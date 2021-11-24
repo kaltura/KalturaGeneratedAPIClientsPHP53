@@ -63,5 +63,7 @@ class ConditionType extends \Kaltura\Client\EnumBase
 	const BOOLEAN = "17";
 	const HTTP_HEADER = "18";
 	const ENTRY_SCHEDULED = "19";
+	const ACTION_NAME = "20";
+	const URL_AUTH_PARAMS = "21";
 }
 

@@ -242,7 +242,12 @@ class Partner extends \Kaltura\Client\ObjectBase
 		if(count($xml->monitorUsage))
 			$this->monitorUsage = (int)$xml->monitorUsage;
 		if(count($xml->passwordStructureValidations))
-			$this->passwordStructureValidations = (string)$xml->passwordStructureValidations;
+		{
+			if(empty($xml->passwordStructureValidations))
+				$this->passwordStructureValidations = array();
+			else
+				$this->passwordStructureValidations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->passwordStructureValidations, "KalturaRegexItem");
+		}
 		if(count($xml->passwordStructureValidationsDescription))
 			$this->passwordStructureValidationsDescription = (string)$xml->passwordStructureValidationsDescription;
 		if(count($xml->passReplaceFreq))
@@ -255,6 +260,13 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->numPrevPassToKeep = (int)$xml->numPrevPassToKeep;
 		if(count($xml->twoFactorAuthenticationMode))
 			$this->twoFactorAuthenticationMode = (int)$xml->twoFactorAuthenticationMode;
+		if(count($xml->isSelfServe))
+		{
+			if(!empty($xml->isSelfServe) && $xml->isSelfServe != 'false')
+				$this->isSelfServe = true;
+			else
+				$this->isSelfServe = false;
+		}
 	}
 	/**
 	 * 
@@ -701,9 +713,9 @@ class Partner extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * 
-	 * @var string
+	 * @var array<KalturaRegexItem>
 	 */
-	public $passwordStructureValidations = null;
+	public $passwordStructureValidations;
 
 	/**
 	 * 
@@ -741,5 +753,11 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $twoFactorAuthenticationMode = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $isSelfServe = null;
 
 }
