@@ -170,6 +170,7 @@ class TypeMap
 		'KalturaDropFolderFileHandlerConfig' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolderFileHandlerConfig',
 		'KalturaDropFolder' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolder',
 		'KalturaDropFolderFile' => 'Kaltura\Client\Plugin\DropFolder\Type\DropFolderFile',
+		'KalturaDynamicEmailContents' => 'Kaltura\Client\Type\DynamicEmailContents',
 		'KalturaESearchAggregationItem' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAggregationItem',
 		'KalturaESearchAggregation' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAggregation',
 		'KalturaESearchAggregationBucket' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchAggregationBucket',

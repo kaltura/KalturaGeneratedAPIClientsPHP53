@@ -131,11 +131,11 @@ class VendorIntegrationService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\Vendor\Type\IntegrationSetting
 	 */
-	function updateStatus($id, \Kaltura\Client\Plugin\Vendor\Type\IntegrationSetting $status)
+	function updateStatus($id, $status)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
-		$this->client->addParam($kparams, "status", $status->toParams());
+		$this->client->addParam($kparams, "status", $status);
 		$this->client->queueServiceActionCall("vendor_vendorintegration", "updateStatus", "KalturaIntegrationSetting", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

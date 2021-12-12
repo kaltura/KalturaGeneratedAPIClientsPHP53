@@ -139,6 +139,8 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 			$this->publicKey = (string)$xml->publicKey;
 		if(count($xml->passPhrase))
 			$this->passPhrase = (string)$xml->passPhrase;
+		if(count($xml->port))
+			$this->port = (int)$xml->port;
 		if(count($xml->shouldExportThumbs))
 		{
 			if(!empty($xml->shouldExportThumbs) && $xml->shouldExportThumbs != 'false')
@@ -362,6 +364,12 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $passPhrase = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $port = null;
 
 	/**
 	 * 
