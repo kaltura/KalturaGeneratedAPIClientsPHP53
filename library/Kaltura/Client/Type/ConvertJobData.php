@@ -77,6 +77,8 @@ class ConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 			$this->destFileSyncSharedPath = (string)$xml->destFileSyncSharedPath;
 		if(count($xml->userCpu))
 			$this->userCpu = (int)$xml->userCpu;
+		if(count($xml->estimatedEffort))
+			$this->estimatedEffort = (int)$xml->estimatedEffort;
 	}
 	/**
 	 * 
@@ -143,5 +145,11 @@ class ConvertJobData extends \Kaltura\Client\Type\ConvartableJobData
 	 * @var int
 	 */
 	public $userCpu = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $estimatedEffort = null;
 
 }
