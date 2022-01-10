@@ -378,6 +378,23 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Resets user login password
+	 * 
+	 */
+	function loginDataResetPassword($loginDataId, $newPassword)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "loginDataId", $loginDataId);
+		$this->client->addParam($kparams, "newPassword", $newPassword);
+		$this->client->queueServiceActionCall("user", "loginDataResetPassword", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
 	 * Notifies that a user is banned from an account.
 	 * 
 	 */

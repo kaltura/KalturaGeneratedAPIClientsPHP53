@@ -52,11 +52,24 @@ class DeliveryProfileLivePackager extends \Kaltura\Client\Type\DeliveryProfile
 		
 		if(count($xml->livePackagerSigningDomain))
 			$this->livePackagerSigningDomain = (string)$xml->livePackagerSigningDomain;
+		if(count($xml->shouldRedirect))
+		{
+			if(!empty($xml->shouldRedirect) && $xml->shouldRedirect != 'false')
+				$this->shouldRedirect = true;
+			else
+				$this->shouldRedirect = false;
+		}
 	}
 	/**
 	 * Domain used to sign the live url
 	 * @var string
 	 */
 	public $livePackagerSigningDomain = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $shouldRedirect = null;
 
 }
