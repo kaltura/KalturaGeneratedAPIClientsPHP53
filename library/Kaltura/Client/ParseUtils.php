@@ -45,7 +45,7 @@ class ParseUtils
 	
 	public static function unmarshalObject(\SimpleXMLElement $xml, $fallbackType = null) 
 	{
-		$objectType = (string)$xml->objectType;
+		$objectType = reset($xml->objectType);
 		$type = TypeMap::getZendType($objectType);
 		if(!class_exists($type)) {
 			$type = TypeMap::getZendType($fallbackType);
