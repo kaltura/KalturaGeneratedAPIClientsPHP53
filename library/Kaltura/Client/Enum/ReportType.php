@@ -9,7 +9,7 @@
 // to do with audio, video, and animation what Wiki platforms allow them to do with
 // text.
 //
-// Copyright (C) 2006-2021  Kaltura Inc.
+// Copyright (C) 2006-2022  Kaltura Inc.
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU Affero General Public License as
@@ -214,5 +214,10 @@ class ReportType extends \Kaltura\Client\EnumBase
 	const ENGAGMENT_TIMELINE_WEBCAST = "40011";
 	const ENGAGEMENT_TOOLS_WEBCAST = "40012";
 	const REACTIONS_BREAKDOWN_WEBCAST = "40013";
+	const VE_HIGHLIGHTS = "50000";
+	const VE_REGISTERED_PLATFORMS = "50001";
+	const VE_REGISTERED_INDUSTRY = "50002";
+	const VE_REGISTERED_ROLES = "50003";
+	const VE_REGISTERED_COUNTRIES = "50004";
 }
 
