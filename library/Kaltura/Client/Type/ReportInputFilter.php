@@ -140,6 +140,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->canonicalUrlIn = (string)$xml->canonicalUrlIn;
 		if(count($xml->virtualEventIdIn))
 			$this->virtualEventIdIn = (string)$xml->virtualEventIdIn;
+		if(count($xml->originIn))
+			$this->originIn = (string)$xml->originIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -380,5 +382,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $virtualEventIdIn = null;
+
+	/**
+	 * filter by origin
+	 * @var string
+	 */
+	public $originIn = null;
 
 }

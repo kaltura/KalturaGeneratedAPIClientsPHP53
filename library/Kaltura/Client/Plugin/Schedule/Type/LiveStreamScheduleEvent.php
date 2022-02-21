@@ -62,6 +62,13 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\BaseL
 			$this->preStartEntryId = (string)$xml->preStartEntryId;
 		if(count($xml->postEndEntryId))
 			$this->postEndEntryId = (string)$xml->postEndEntryId;
+		if(count($xml->isContentInterruptible))
+		{
+			if(!empty($xml->isContentInterruptible) && $xml->isContentInterruptible != 'false')
+				$this->isContentInterruptible = true;
+			else
+				$this->isContentInterruptible = false;
+		}
 	}
 	/**
 	 * The entry ID of the source entry (for simulive)
@@ -98,5 +105,11 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\BaseL
 	 * @var string
 	 */
 	public $postEndEntryId = null;
+
+	/**
+	 * Detect whether "real" live can interrupt to the "main" content
+	 * @var bool
+	 */
+	public $isContentInterruptible = null;
 
 }
