@@ -99,6 +99,13 @@ class User extends \Kaltura\Client\Type\BaseUser
 			$this->ksPrivileges = (string)$xml->ksPrivileges;
 		if(count($xml->encryptedSeed))
 			$this->encryptedSeed = (string)$xml->encryptedSeed;
+		if(count($xml->isSsoExcluded))
+		{
+			if(!empty($xml->isSsoExcluded) && $xml->isSsoExcluded != 'false')
+				$this->isSsoExcluded = true;
+			else
+				$this->isSsoExcluded = false;
+		}
 	}
 	/**
 	 * 
@@ -206,5 +213,11 @@ class User extends \Kaltura\Client\Type\BaseUser
 	 * @readonly
 	 */
 	public $encryptedSeed = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $isSsoExcluded = null;
 
 }

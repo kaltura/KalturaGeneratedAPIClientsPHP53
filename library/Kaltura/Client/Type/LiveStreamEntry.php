@@ -73,6 +73,14 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 			$this->primaryRtspBroadcastingUrl = (string)$xml->primaryRtspBroadcastingUrl;
 		if(count($xml->secondaryRtspBroadcastingUrl))
 			$this->secondaryRtspBroadcastingUrl = (string)$xml->secondaryRtspBroadcastingUrl;
+		if(count($xml->primarySrtBroadcastingUrl))
+			$this->primarySrtBroadcastingUrl = (string)$xml->primarySrtBroadcastingUrl;
+		if(count($xml->primarySrtStreamId))
+			$this->primarySrtStreamId = (string)$xml->primarySrtStreamId;
+		if(count($xml->secondarySrtBroadcastingUrl))
+			$this->secondarySrtBroadcastingUrl = (string)$xml->secondarySrtBroadcastingUrl;
+		if(count($xml->secondarySrtStreamId))
+			$this->secondarySrtStreamId = (string)$xml->secondarySrtStreamId;
 		if(count($xml->streamName))
 			$this->streamName = (string)$xml->streamName;
 		if(count($xml->streamUrl))
@@ -89,6 +97,8 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 			$this->streamPassword = (string)$xml->streamPassword;
 		if(count($xml->streamUsername))
 			$this->streamUsername = (string)$xml->streamUsername;
+		if(count($xml->srtPass))
+			$this->srtPass = (string)$xml->srtPass;
 		if(count($xml->primaryServerNodeId))
 			$this->primaryServerNodeId = (int)$xml->primaryServerNodeId;
 		if(count($xml->sipToken))
@@ -156,6 +166,30 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 	 * 
 	 * @var string
 	 */
+	public $primarySrtBroadcastingUrl = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $primarySrtStreamId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $secondarySrtBroadcastingUrl = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $secondarySrtStreamId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
 	public $streamName = null;
 
 	/**
@@ -200,6 +234,12 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 	 * @readonly
 	 */
 	public $streamUsername = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $srtPass = null;
 
 	/**
 	 * The Streams primary server node id
