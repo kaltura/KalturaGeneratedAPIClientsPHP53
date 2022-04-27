@@ -329,7 +329,7 @@ class ThumbAssetService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Serves thumbnail by entry id and thumnail params id
+	 * Serves thumbnail by entry id and thumbnail params id
 	 * 
 	 * @return file
 	 */

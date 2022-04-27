@@ -192,7 +192,7 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
-	 * Move categories that belong to the same parent category to a target categroy - enabled only for ks with disable entitlement
+	 * Move categories that belong to the same parent category to a target category - enabled only for ks with disable entitlement
 	 * 
 	 * @return bool
 	 */
