@@ -56,7 +56,7 @@ class StatsEvent extends \Kaltura\Client\ObjectBase
 		if(count($xml->eventType))
 			$this->eventType = (int)$xml->eventType;
 		if(count($xml->eventTimestamp))
-			$this->eventTimestamp = (int)$xml->eventTimestamp;
+			$this->eventTimestamp = (float)$xml->eventTimestamp;
 		if(count($xml->sessionId))
 			$this->sessionId = (string)$xml->sessionId;
 		if(count($xml->partnerId))
@@ -120,7 +120,7 @@ class StatsEvent extends \Kaltura\Client\ObjectBase
 
 	/**
 	 * the client's timestamp of this event
-	 * @var int
+	 * @var float
 	 */
 	public $eventTimestamp = null;
 
