@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ExportToCsvOptions extends \Kaltura\Client\ObjectBase
+class KeyValueExtended extends \Kaltura\Client\Type\KeyValue
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaExportToCsvOptions';
+		return 'KalturaKeyValueExtended';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,31 +50,13 @@ class ExportToCsvOptions extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->format))
-			$this->format = (string)$xml->format;
-		if(count($xml->typeEqual))
-			$this->typeEqual = (string)$xml->typeEqual;
-		if(count($xml->defaultHeader))
-			$this->defaultHeader = (int)$xml->defaultHeader;
+		if(count($xml->predefinedFormat))
+			$this->predefinedFormat = (int)$xml->predefinedFormat;
 	}
-	/**
-	 * The format of the outputted date string. There are also several predefined date constants that may be used instead, so for example DATE_RSS contains the format string 'D, d M Y H:i:s'.
-	 * 	 https://www.php.net/manual/en/function.date.php
-	 * @var string
-	 */
-	public $format = null;
-
-	/**
-	 * Setting this property will cause additional columns to be added to the final report. The columns will be related to the specific object type passed (currently only MEDIA_CLIP is supported).
-	 * 	 Please note that this property will NOT change the result filter in any way (i.e passing MEDIA_CLIP here will not force the report to return only media items).
-	 * @var \Kaltura\Client\Enum\EntryType
-	 */
-	public $typeEqual = null;
-
 	/**
 	 * 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
-	public $defaultHeader = null;
+	public $predefinedFormat = null;
 
 }

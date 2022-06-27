@@ -69,6 +69,13 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\BaseL
 			else
 				$this->isContentInterruptible = false;
 		}
+		if(count($xml->liveFeatures))
+		{
+			if(empty($xml->liveFeatures))
+				$this->liveFeatures = array();
+			else
+				$this->liveFeatures = \Kaltura\Client\ParseUtils::unmarshalArray($xml->liveFeatures, "KalturaLiveFeature");
+		}
 	}
 	/**
 	 * The entry ID of the source entry (for simulive)
@@ -111,5 +118,11 @@ class LiveStreamScheduleEvent extends \Kaltura\Client\Plugin\Schedule\Type\BaseL
 	 * @var bool
 	 */
 	public $isContentInterruptible = null;
+
+	/**
+	 * list of live features that apply to the event
+	 * @var array<KalturaLiveFeature>
+	 */
+	public $liveFeatures;
 
 }

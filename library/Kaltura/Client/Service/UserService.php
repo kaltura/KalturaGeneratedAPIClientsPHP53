@@ -179,7 +179,7 @@ class UserService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return string
 	 */
-	function exportToCsv(\Kaltura\Client\Type\UserFilter $filter = null, $metadataProfileId = null, array $additionalFields = null, array $mappedFields = null)
+	function exportToCsv(\Kaltura\Client\Type\UserFilter $filter = null, $metadataProfileId = null, array $additionalFields = null, array $mappedFields = null, \Kaltura\Client\Type\ExportToCsvOptions $options = null)
 	{
 		$kparams = array();
 		if ($filter !== null)
@@ -195,6 +195,8 @@ class UserService extends \Kaltura\Client\ServiceBase
 			{
 				$this->client->addParam($kparams, "mappedFields:$index", $obj->toParams());
 			}
+		if ($options !== null)
+			$this->client->addParam($kparams, "options", $options->toParams());
 		$this->client->queueServiceActionCall("user", "exportToCsv", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();

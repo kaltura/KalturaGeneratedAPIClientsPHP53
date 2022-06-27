@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Schedule\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ExportToCsvOptions extends \Kaltura\Client\ObjectBase
+class LiveCaptionFeature extends \Kaltura\Client\Plugin\Schedule\Type\LiveFeature
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaExportToCsvOptions';
+		return 'KalturaLiveCaptionFeature';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,31 +50,37 @@ class ExportToCsvOptions extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->format))
-			$this->format = (string)$xml->format;
-		if(count($xml->typeEqual))
-			$this->typeEqual = (string)$xml->typeEqual;
-		if(count($xml->defaultHeader))
-			$this->defaultHeader = (int)$xml->defaultHeader;
+		if(count($xml->mediaUrl))
+			$this->mediaUrl = (string)$xml->mediaUrl;
+		if(count($xml->mediaKey))
+			$this->mediaKey = (string)$xml->mediaKey;
+		if(count($xml->captionUrl))
+			$this->captionUrl = (string)$xml->captionUrl;
+		if(count($xml->captionToken))
+			$this->captionToken = (string)$xml->captionToken;
 	}
 	/**
-	 * The format of the outputted date string. There are also several predefined date constants that may be used instead, so for example DATE_RSS contains the format string 'D, d M Y H:i:s'.
-	 * 	 https://www.php.net/manual/en/function.date.php
+	 * 
 	 * @var string
 	 */
-	public $format = null;
-
-	/**
-	 * Setting this property will cause additional columns to be added to the final report. The columns will be related to the specific object type passed (currently only MEDIA_CLIP is supported).
-	 * 	 Please note that this property will NOT change the result filter in any way (i.e passing MEDIA_CLIP here will not force the report to return only media items).
-	 * @var \Kaltura\Client\Enum\EntryType
-	 */
-	public $typeEqual = null;
+	public $mediaUrl = null;
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 * @var string
 	 */
-	public $defaultHeader = null;
+	public $mediaKey = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $captionUrl = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $captionToken = null;
 
 }

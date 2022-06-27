@@ -66,6 +66,8 @@ abstract class MappedObjectsCsvJobData extends \Kaltura\Client\Type\ExportCsvJob
 			else
 				$this->mappedFields = \Kaltura\Client\ParseUtils::unmarshalArray($xml->mappedFields, "KalturaKeyValue");
 		}
+		if(count($xml->options) && !empty($xml->options))
+			$this->options = \Kaltura\Client\ParseUtils::unmarshalObject($xml->options, "KalturaExportToCsvOptions");
 	}
 	/**
 	 * The metadata profile we should look the xpath in
@@ -84,5 +86,11 @@ abstract class MappedObjectsCsvJobData extends \Kaltura\Client\Type\ExportCsvJob
 	 * @var array<KalturaKeyValue>
 	 */
 	public $mappedFields;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\ExportToCsvOptions
+	 */
+	public $options;
 
 }

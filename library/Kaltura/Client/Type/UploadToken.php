@@ -72,6 +72,10 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 			$this->uploadUrl = (string)$xml->uploadUrl;
 		if(count($xml->autoFinalize))
 			$this->autoFinalize = (int)$xml->autoFinalize;
+		if(count($xml->attachedObjectType))
+			$this->attachedObjectType = (string)$xml->attachedObjectType;
+		if(count($xml->attachedObjectId))
+			$this->attachedObjectId = (string)$xml->attachedObjectId;
 	}
 	/**
 	 * Upload token unique ID
@@ -149,5 +153,19 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 	 * @insertonly
 	 */
 	public $autoFinalize = null;
+
+	/**
+	 * The value for the object_type field.
+	 * @var string
+	 * @readonly
+	 */
+	public $attachedObjectType = null;
+
+	/**
+	 * The value for the object_id field.
+	 * @var string
+	 * @readonly
+	 */
+	public $attachedObjectId = null;
 
 }
