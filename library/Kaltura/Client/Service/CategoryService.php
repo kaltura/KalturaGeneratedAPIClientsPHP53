@@ -129,6 +129,39 @@ class CategoryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Creates a batch job that sends an email with a link to download a CSV containing a list of categories
+	 * 
+	 * @return string
+	 */
+	function exportToCsv(\Kaltura\Client\Type\CategoryFilter $filter = null, $metadataProfileId = null, array $additionalFields = null, array $mappedFields = null, \Kaltura\Client\Type\ExportToCsvOptions $options = null)
+	{
+		$kparams = array();
+		if ($filter !== null)
+			$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->addParam($kparams, "metadataProfileId", $metadataProfileId);
+		if ($additionalFields !== null)
+			foreach($additionalFields as $index => $obj)
+			{
+				$this->client->addParam($kparams, "additionalFields:$index", $obj->toParams());
+			}
+		if ($mappedFields !== null)
+			foreach($mappedFields as $index => $obj)
+			{
+				$this->client->addParam($kparams, "mappedFields:$index", $obj->toParams());
+			}
+		if ($options !== null)
+			$this->client->addParam($kparams, "options", $options->toParams());
+		$this->client->queueServiceActionCall("category", "exportToCsv", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Get Category by id
 	 * 
 	 * @return \Kaltura\Client\Type\Category

@@ -141,28 +141,28 @@ class UploadToken extends \Kaltura\Client\ObjectBase
 	public $updatedAt = null;
 
 	/**
-	 * Upload url - to explicitly determine to which domain to adress the uploadToken->upload call
+	 * Upload url - to explicitly determine to which domain to address the uploadToken->upload call
 	 * @var string
 	 * @readonly
 	 */
 	public $uploadUrl = null;
 
 	/**
-	 * autoFinalize - Should the upload be finalized once the file size on disk matches the file size reproted when adding the upload token.
+	 * autoFinalize - Should the upload be finalized once the file size on disk matches the file size reported when adding the upload token.
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 * @insertonly
 	 */
 	public $autoFinalize = null;
 
 	/**
-	 * The value for the object_type field.
+	 * The type of the object this token is attached to.
 	 * @var string
 	 * @readonly
 	 */
 	public $attachedObjectType = null;
 
 	/**
-	 * The value for the object_id field.
+	 * The id of the object this token is attached to.
 	 * @var string
 	 * @readonly
 	 */
