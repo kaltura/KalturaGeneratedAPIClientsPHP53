@@ -214,4 +214,26 @@ class ScheduleEventService extends \Kaltura\Client\ServiceBase
 		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Schedule\\Type\\ScheduleEvent");
 		return $resultObject;
 	}
+
+	/**
+	 * Add feature to live event
+	 * 
+	 * @return \Kaltura\Client\Plugin\Schedule\Type\LiveStreamScheduleEvent
+	 */
+	function updateLiveFeature($scheduledEventId, $featureName, \Kaltura\Client\Plugin\Schedule\Type\LiveFeature $liveFeature)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "scheduledEventId", $scheduledEventId);
+		$this->client->addParam($kparams, "featureName", $featureName);
+		$this->client->addParam($kparams, "liveFeature", $liveFeature->toParams());
+		$this->client->queueServiceActionCall("schedule_scheduleevent", "updateLiveFeature", "KalturaLiveStreamScheduleEvent", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaLiveStreamScheduleEvent");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Schedule\\Type\\LiveStreamScheduleEvent");
+		return $resultObject;
+	}
 }

@@ -30,22 +30,52 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryVendorTaskStatus extends \Kaltura\Client\EnumBase
+class ScheduledVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
 {
-	const PENDING = 1;
-	const READY = 2;
-	const PROCESSING = 3;
-	const PENDING_MODERATION = 4;
-	const REJECTED = 5;
-	const ERROR = 6;
-	const ABORTED = 7;
-	const PENDING_ENTRY_READY = 8;
-	const SCHEDULED = 9;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaScheduledVendorTaskData';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->startDate))
+			$this->startDate = (int)$xml->startDate;
+		if(count($xml->endDate))
+			$this->endDate = (int)$xml->endDate;
+		if(count($xml->scheduledEventId))
+			$this->scheduledEventId = (int)$xml->scheduledEventId;
+	}
+	/**
+	 * 
+	 * @var int
+	 * @insertonly
+	 */
+	public $startDate = null;
 
+	/**
+	 * 
+	 * @var int
+	 * @insertonly
+	 */
+	public $endDate = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @insertonly
+	 */
+	public $scheduledEventId = null;
+
+}

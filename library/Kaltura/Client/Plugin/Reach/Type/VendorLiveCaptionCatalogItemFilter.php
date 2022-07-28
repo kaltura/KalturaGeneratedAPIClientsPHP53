@@ -30,22 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryVendorTaskStatus extends \Kaltura\Client\EnumBase
+class VendorLiveCaptionCatalogItemFilter extends \Kaltura\Client\Plugin\Reach\Type\VendorCaptionsCatalogItemBaseFilter
 {
-	const PENDING = 1;
-	const READY = 2;
-	const PROCESSING = 3;
-	const PENDING_MODERATION = 4;
-	const REJECTED = 5;
-	const ERROR = 6;
-	const ABORTED = 7;
-	const PENDING_ENTRY_READY = 8;
-	const SCHEDULED = 9;
+	public function getKalturaObjectType()
+	{
+		return 'KalturaVendorLiveCaptionCatalogItemFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

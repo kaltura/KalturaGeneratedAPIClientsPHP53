@@ -45,5 +45,6 @@ class VendorServiceFeature extends \Kaltura\Client\EnumBase
 	const CHAPTERING = 5;
 	const INTELLIGENT_TAGGING = 6;
 	const DUBBING = 7;
+	const LIVE_CAPTION = 8;
 }
 

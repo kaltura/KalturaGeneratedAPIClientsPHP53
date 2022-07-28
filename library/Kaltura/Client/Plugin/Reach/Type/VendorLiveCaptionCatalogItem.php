@@ -30,22 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryVendorTaskStatus extends \Kaltura\Client\EnumBase
+class VendorLiveCaptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\VendorCaptionsCatalogItem
 {
-	const PENDING = 1;
-	const READY = 2;
-	const PROCESSING = 3;
-	const PENDING_MODERATION = 4;
-	const REJECTED = 5;
-	const ERROR = 6;
-	const ABORTED = 7;
-	const PENDING_ENTRY_READY = 8;
-	const SCHEDULED = 9;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaVendorLiveCaptionCatalogItem';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->minimalRefundTime))
+			$this->minimalRefundTime = (int)$xml->minimalRefundTime;
+		if(count($xml->minimalOrderTime))
+			$this->minimalOrderTime = (int)$xml->minimalOrderTime;
+		if(count($xml->durationLimit))
+			$this->durationLimit = (int)$xml->durationLimit;
+	}
+	/**
+	 * 
+	 * @var int
+	 */
+	public $minimalRefundTime = null;
 
+	/**
+	 * 
+	 * @var int
+	 */
+	public $minimalOrderTime = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $durationLimit = null;
+
+}
