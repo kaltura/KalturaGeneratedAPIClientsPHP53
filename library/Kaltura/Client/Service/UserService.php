@@ -382,18 +382,22 @@ class UserService extends \Kaltura\Client\ServiceBase
 	/**
 	 * Resets user login password
 	 * 
+	 * @return \Kaltura\Client\Type\User
 	 */
 	function loginDataResetPassword($loginDataId, $newPassword)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "loginDataId", $loginDataId);
 		$this->client->addParam($kparams, "newPassword", $newPassword);
-		$this->client->queueServiceActionCall("user", "loginDataResetPassword", null, $kparams);
+		$this->client->queueServiceActionCall("user", "loginDataResetPassword", "KalturaUser", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\User");
+		return $resultObject;
 	}
 
 	/**
