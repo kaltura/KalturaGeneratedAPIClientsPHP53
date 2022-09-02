@@ -30,16 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Schedule\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class UiConfCreationMode extends \Kaltura\Client\EnumBase
+class LiveRestreamFeature extends \Kaltura\Client\Plugin\Schedule\Type\LiveFeature
 {
-	const WIZARD = 2;
-	const ADVANCED = 3;
-	const SYSTEM = 4;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaLiveRestreamFeature';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->primaryUrl))
+			$this->primaryUrl = (string)$xml->primaryUrl;
+		if(count($xml->secondaryUrl))
+			$this->secondaryUrl = (string)$xml->secondaryUrl;
+		if(count($xml->streamKey))
+			$this->streamKey = (string)$xml->streamKey;
+	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $primaryUrl = null;
 
+	/**
+	 * 
+	 * @var string
+	 */
+	public $secondaryUrl = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $streamKey = null;
+
+}

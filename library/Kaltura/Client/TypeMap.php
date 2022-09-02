@@ -686,6 +686,7 @@ class TypeMap
 		'KalturaLiveEntryScheduleResource' => 'Kaltura\Client\Plugin\Schedule\Type\LiveEntryScheduleResource',
 		'KalturaLiveEntryServerNode' => 'Kaltura\Client\Type\LiveEntryServerNode',
 		'KalturaLiveReportExportJobData' => 'Kaltura\Client\Type\LiveReportExportJobData',
+		'KalturaLiveRestreamFeature' => 'Kaltura\Client\Plugin\Schedule\Type\LiveRestreamFeature',
 		'KalturaLiveStatsListResponse' => 'Kaltura\Client\Type\LiveStatsListResponse',
 		'KalturaLiveStreamListResponse' => 'Kaltura\Client\Type\LiveStreamListResponse',
 		'KalturaLiveStreamPushPublishRTMPConfiguration' => 'Kaltura\Client\Type\LiveStreamPushPublishRTMPConfiguration',
