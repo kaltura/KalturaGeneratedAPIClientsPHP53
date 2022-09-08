@@ -50,6 +50,10 @@ abstract class UserBaseFilter extends \Kaltura\Client\Type\BaseUserFilter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 		if(count($xml->typeEqual))
 			$this->typeEqual = (int)$xml->typeEqual;
 		if(count($xml->typeIn))
@@ -61,6 +65,18 @@ abstract class UserBaseFilter extends \Kaltura\Client\Type\BaseUserFilter
 		if(count($xml->lastNameStartsWith))
 			$this->lastNameStartsWith = (string)$xml->lastNameStartsWith;
 	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $idEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $idIn = null;
+
 	/**
 	 * 
 	 * @var \Kaltura\Client\Enum\UserType

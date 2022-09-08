@@ -52,10 +52,6 @@ class UserFilter extends \Kaltura\Client\Type\UserBaseFilter
 		
 		if(count($xml->idOrScreenNameStartsWith))
 			$this->idOrScreenNameStartsWith = (string)$xml->idOrScreenNameStartsWith;
-		if(count($xml->idEqual))
-			$this->idEqual = (string)$xml->idEqual;
-		if(count($xml->idIn))
-			$this->idIn = (string)$xml->idIn;
 		if(count($xml->loginEnabledEqual))
 			$this->loginEnabledEqual = (int)$xml->loginEnabledEqual;
 		if(count($xml->roleIdEqual))
@@ -76,18 +72,6 @@ class UserFilter extends \Kaltura\Client\Type\UserBaseFilter
 	 * @var string
 	 */
 	public $idOrScreenNameStartsWith = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $idEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $idIn = null;
 
 	/**
 	 * 
