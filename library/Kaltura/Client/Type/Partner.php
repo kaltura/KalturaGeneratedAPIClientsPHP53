@@ -271,6 +271,8 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->allowedDomains = (string)$xml->allowedDomains;
 		if(count($xml->excludedAdminRoleName))
 			$this->excludedAdminRoleName = (string)$xml->excludedAdminRoleName;
+		if(count($xml->eventPlatformAllowedTemplates))
+			$this->eventPlatformAllowedTemplates = (string)$xml->eventPlatformAllowedTemplates;
 	}
 	/**
 	 * 
@@ -777,5 +779,11 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $excludedAdminRoleName = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $eventPlatformAllowedTemplates = null;
 
 }

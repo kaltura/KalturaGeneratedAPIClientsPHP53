@@ -56,6 +56,8 @@ class AccessControlModifyRequestHostRegexAction extends \Kaltura\Client\Type\Rul
 			$this->replacement = (string)$xml->replacement;
 		if(count($xml->replacmenServerNodeId))
 			$this->replacmenServerNodeId = (int)$xml->replacmenServerNodeId;
+		if(count($xml->checkAliveTimeoutMs))
+			$this->checkAliveTimeoutMs = (int)$xml->checkAliveTimeoutMs;
 	}
 	/**
 	 * Request host regex pattern
@@ -74,5 +76,11 @@ class AccessControlModifyRequestHostRegexAction extends \Kaltura\Client\Type\Rul
 	 * @var int
 	 */
 	public $replacmenServerNodeId = null;
+
+	/**
+	 * Set this value if you want to check if the server is accessible before redirecting traffic to it (this value is in milliseconds)
+	 * @var int
+	 */
+	public $checkAliveTimeoutMs = null;
 
 }
