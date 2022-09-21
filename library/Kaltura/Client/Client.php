@@ -322,8 +322,8 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:22-09-20');
-		$this->setApiVersion('18.14.0');
+		$this->setClientTag('php5:22-09-21');
+		$this->setApiVersion('18.15.0');
 	}
 	
 	/**
@@ -933,6 +933,31 @@ class Client extends Base
 		if(isset($this->requestConfiguration['ks']))
 		{
 			return $this->requestConfiguration['ks'];
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * language
+	 * 
+	 * @param string $language
+	 */
+	public function setLanguage($language)
+	{
+		$this->requestConfiguration['language'] = $language;
+	}
+	
+	/**
+	 * language
+	 * 
+	 * @return string
+	 */
+	public function getLanguage()
+	{
+		if(isset($this->requestConfiguration['language']))
+		{
+			return $this->requestConfiguration['language'];
 		}
 		
 		return null;

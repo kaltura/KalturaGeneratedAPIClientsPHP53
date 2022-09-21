@@ -54,8 +54,22 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			$this->id = (string)$xml->id;
 		if(count($xml->name))
 			$this->name = (string)$xml->name;
+		if(count($xml->multiLingual_name))
+		{
+			if(empty($xml->multiLingual_name))
+				$this->multiLingual_name = array();
+			else
+				$this->multiLingual_name = \Kaltura\Client\ParseUtils::unmarshalArray($xml->multiLingual_name, "KalturaMultiLingualString");
+		}
 		if(count($xml->description))
 			$this->description = (string)$xml->description;
+		if(count($xml->multiLingual_description))
+		{
+			if(empty($xml->multiLingual_description))
+				$this->multiLingual_description = array();
+			else
+				$this->multiLingual_description = \Kaltura\Client\ParseUtils::unmarshalArray($xml->multiLingual_description, "KalturaMultiLingualString");
+		}
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->userId))
@@ -64,6 +78,13 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			$this->creatorId = (string)$xml->creatorId;
 		if(count($xml->tags))
 			$this->tags = (string)$xml->tags;
+		if(count($xml->multiLingual_tags))
+		{
+			if(empty($xml->multiLingual_tags))
+				$this->multiLingual_tags = array();
+			else
+				$this->multiLingual_tags = \Kaltura\Client\ParseUtils::unmarshalArray($xml->multiLingual_tags, "KalturaMultiLingualString");
+		}
 		if(count($xml->adminTags))
 			$this->adminTags = (string)$xml->adminTags;
 		if(count($xml->categories))
@@ -171,10 +192,22 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	public $name = null;
 
 	/**
+	 * Entry name (Min 1 chars)
+	 * @var array<KalturaMultiLingualString>
+	 */
+	public $multiLingual_name;
+
+	/**
 	 * Entry description
 	 * @var string
 	 */
 	public $description = null;
+
+	/**
+	 * Entry description
+	 * @var array<KalturaMultiLingualString>
+	 */
+	public $multiLingual_description;
 
 	/**
 	 * 
@@ -201,6 +234,12 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $tags = null;
+
+	/**
+	 * Entry tags
+	 * @var array<KalturaMultiLingualString>
+	 */
+	public $multiLingual_tags;
 
 	/**
 	 * Entry admin tags can be updated only by administrators
