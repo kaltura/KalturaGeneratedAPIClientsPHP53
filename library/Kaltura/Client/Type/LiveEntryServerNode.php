@@ -73,6 +73,8 @@ class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 		}
 		if(count($xml->viewMode))
 			$this->viewMode = (int)$xml->viewMode;
+		if(count($xml->featuresUpdatedAt))
+			$this->featuresUpdatedAt = (int)$xml->featuresUpdatedAt;
 	}
 	/**
 	 * parameters of the stream we got
@@ -97,5 +99,11 @@ class LiveEntryServerNode extends \Kaltura\Client\Type\EntryServerNode
 	 * @var \Kaltura\Client\Enum\ViewMode
 	 */
 	public $viewMode = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $featuresUpdatedAt = null;
 
 }
