@@ -68,8 +68,6 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 			$this->enableZoomTranscription = (int)$xml->enableZoomTranscription;
 		if(count($xml->zoomAccountDescription))
 			$this->zoomAccountDescription = (string)$xml->zoomAccountDescription;
-		if(count($xml->enableMeetingUpload))
-			$this->enableMeetingUpload = (int)$xml->enableMeetingUpload;
 		if(count($xml->optOutGroupNames))
 			$this->optOutGroupNames = (string)$xml->optOutGroupNames;
 		if(count($xml->optInGroupNames))
@@ -130,12 +128,6 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 	 * @var string
 	 */
 	public $zoomAccountDescription = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $enableMeetingUpload = null;
 
 	/**
 	 * 

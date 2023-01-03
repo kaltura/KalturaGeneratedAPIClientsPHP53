@@ -42,9 +42,13 @@ class ESearchUserFieldName extends \Kaltura\Client\EnumBase
 	const COUNTRY = "country";
 	const CREATED_AT = "created_at";
 	const EMAIL = "email";
+	const EXTERNAL_ID = "external_id";
 	const FIRST_NAME = "first_name";
 	const GROUP_IDS = "group_ids";
+	const IS_ADMIN = "is_admin";
+	const IS_HASHED = "is_hashed";
 	const LAST_NAME = "last_name";
+	const LOGIN_ENABLED = "login_enabled";
 	const PERMISSION_NAMES = "permission_names";
 	const ROLE_IDS = "role_ids";
 	const SCREEN_NAME = "screen_name";

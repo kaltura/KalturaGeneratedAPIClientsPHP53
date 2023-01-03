@@ -72,6 +72,8 @@ abstract class IntegrationSetting extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (string)$xml->updatedAt;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
+		if(count($xml->enableMeetingUpload))
+			$this->enableMeetingUpload = (int)$xml->enableMeetingUpload;
 	}
 	/**
 	 * 
@@ -144,5 +146,11 @@ abstract class IntegrationSetting extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $partnerId = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $enableMeetingUpload = null;
 
 }

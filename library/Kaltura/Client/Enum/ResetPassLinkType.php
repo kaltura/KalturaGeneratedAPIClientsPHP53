@@ -40,5 +40,6 @@ class ResetPassLinkType extends \Kaltura\Client\EnumBase
 {
 	const KMC = "1";
 	const KMS = "2";
+	const KME = "3";
 }
 

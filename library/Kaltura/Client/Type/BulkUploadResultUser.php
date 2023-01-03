@@ -78,6 +78,8 @@ class BulkUploadResultUser extends \Kaltura\Client\Type\BulkUploadResult
 			$this->lastName = (string)$xml->lastName;
 		if(count($xml->group))
 			$this->group = (string)$xml->group;
+		if(count($xml->externalId))
+			$this->externalId = (string)$xml->externalId;
 	}
 	/**
 	 * 
@@ -162,5 +164,11 @@ class BulkUploadResultUser extends \Kaltura\Client\Type\BulkUploadResult
 	 * @var string
 	 */
 	public $group = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $externalId = null;
 
 }

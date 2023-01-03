@@ -58,6 +58,8 @@ class LiveCaptionFeature extends \Kaltura\Client\Plugin\Schedule\Type\LiveFeatur
 			$this->captionUrl = (string)$xml->captionUrl;
 		if(count($xml->captionToken))
 			$this->captionToken = (string)$xml->captionToken;
+		if(count($xml->inputDelay))
+			$this->inputDelay = (int)$xml->inputDelay;
 	}
 	/**
 	 * 
@@ -82,5 +84,11 @@ class LiveCaptionFeature extends \Kaltura\Client\Plugin\Schedule\Type\LiveFeatur
 	 * @var string
 	 */
 	public $captionToken = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $inputDelay = null;
 
 }
