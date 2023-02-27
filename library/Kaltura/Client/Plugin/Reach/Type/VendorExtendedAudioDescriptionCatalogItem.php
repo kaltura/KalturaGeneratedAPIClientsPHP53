@@ -30,16 +30,49 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VendorCatalogItemOutputFormat extends \Kaltura\Client\EnumBase
+class VendorExtendedAudioDescriptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItem
 {
-	const SRT = 1;
-	const DFXP = 2;
-	const VTT = 3;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaVendorExtendedAudioDescriptionCatalogItem';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->flavorParamsId))
+			$this->flavorParamsId = (int)$xml->flavorParamsId;
+		if(count($xml->clearAudioFlavorParamsId))
+			$this->clearAudioFlavorParamsId = (int)$xml->clearAudioFlavorParamsId;
+		if(count($xml->outputFormat))
+			$this->outputFormat = (int)$xml->outputFormat;
+	}
+	/**
+	 * 
+	 * @var int
+	 */
+	public $flavorParamsId = null;
 
+	/**
+	 * 
+	 * @var int
+	 */
+	public $clearAudioFlavorParamsId = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorCatalogItemOutputFormat
+	 */
+	public $outputFormat = null;
+
+}

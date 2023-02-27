@@ -30,16 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VendorCatalogItemOutputFormat extends \Kaltura\Client\EnumBase
+class VendorExtendedAudioDescriptionCatalogItemFilter extends \Kaltura\Client\Plugin\Reach\Type\VendorCaptionsCatalogItemBaseFilter
 {
-	const SRT = 1;
-	const DFXP = 2;
-	const VTT = 3;
+	public function getKalturaObjectType()
+	{
+		return 'KalturaVendorExtendedAudioDescriptionCatalogItemFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-
