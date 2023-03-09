@@ -463,6 +463,26 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Move the entry to the recycle bin
+	 * 
+	 * @return \Kaltura\Client\Type\BaseEntry
+	 */
+	function recycle($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("baseentry", "recycle", "KalturaBaseEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BaseEntry");
+		return $resultObject;
+	}
+
+	/**
 	 * Reject the entry and mark the pending flags (if any) as moderated (this will make the entry non-playable).
 	 * 
 	 */
@@ -476,6 +496,26 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+	}
+
+	/**
+	 * Restore the entry from the recycle bin
+	 * 
+	 * @return \Kaltura\Client\Type\BaseEntry
+	 */
+	function restoreRecycled($entryId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "entryId", $entryId);
+		$this->client->queueServiceActionCall("baseentry", "restoreRecycled", "KalturaBaseEntry", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaBaseEntry");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\BaseEntry");
+		return $resultObject;
 	}
 
 	/**
