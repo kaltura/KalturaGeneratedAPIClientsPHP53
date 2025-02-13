@@ -47,5 +47,6 @@ class BatchJobObjectType extends \Kaltura\Client\EnumBase
 	const CATEGORY = "2";
 	const FILE_SYNC = "3";
 	const ASSET = "4";
+	const USER = "5";
 }
 

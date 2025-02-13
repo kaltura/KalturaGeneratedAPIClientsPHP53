@@ -294,6 +294,11 @@ class Client extends Base
 	protected $uploadToken = null;
 
 	/**
+	 * @var \Kaltura\Client\Service\UserAppRoleService
+	 */
+	protected $userAppRole = null;
+
+	/**
 	 * @var \Kaltura\Client\Service\UserEntryService
 	 */
 	protected $userEntry = null;
@@ -322,8 +327,8 @@ class Client extends Base
 	{
 		parent::__construct($config);
 		
-		$this->setClientTag('php5:23-03-23');
-		$this->setApiVersion('19.4.0');
+		$this->setClientTag('php5:25-02-05');
+		$this->setApiVersion('21.9.0');
 	}
 	
 	/**
@@ -784,6 +789,15 @@ class Client extends Base
 		if (is_null($this->uploadToken))
 			$this->uploadToken = new \Kaltura\Client\Service\UploadTokenService($this);
 		return $this->uploadToken;
+	}
+	/**
+	 * @return \Kaltura\Client\Service\UserAppRoleService
+	 */
+	public function getUserAppRoleService()
+	{
+		if (is_null($this->userAppRole))
+			$this->userAppRole = new \Kaltura\Client\Service\UserAppRoleService($this);
+		return $this->userAppRole;
 	}
 	/**
 	 * @return \Kaltura\Client\Service\UserEntryService

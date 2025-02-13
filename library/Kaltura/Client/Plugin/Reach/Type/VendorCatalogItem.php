@@ -83,6 +83,22 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 			else
 				$this->allowResubmission = false;
 		}
+		if(count($xml->vendorData))
+			$this->vendorData = (string)$xml->vendorData;
+		if(count($xml->stage))
+			$this->stage = (int)$xml->stage;
+		if(count($xml->lastBulkUpdateId))
+			$this->lastBulkUpdateId = (int)$xml->lastBulkUpdateId;
+		if(count($xml->contract))
+			$this->contract = (string)$xml->contract;
+		if(count($xml->createdBy))
+			$this->createdBy = (string)$xml->createdBy;
+		if(count($xml->notes))
+			$this->notes = (string)$xml->notes;
+		if(count($xml->partnerId))
+			$this->partnerId = (int)$xml->partnerId;
+		if(count($xml->adminTagsToExclude))
+			$this->adminTagsToExclude = (string)$xml->adminTagsToExclude;
 	}
 	/**
 	 * 
@@ -172,5 +188,53 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $allowResubmission = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $vendorData = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorCatalogItemStage
+	 */
+	public $stage = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $lastBulkUpdateId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $contract = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $createdBy = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $notes = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $partnerId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $adminTagsToExclude = null;
 
 }

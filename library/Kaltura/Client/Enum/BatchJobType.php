@@ -39,6 +39,7 @@ namespace Kaltura\Client\Enum;
 class BatchJobType extends \Kaltura\Client\EnumBase
 {
 	const CONVERT = "0";
+	const REACH_INTERNAL_QUEUE_HANDLER = "ReachInternal.ReachInternalQueueHandler";
 	const CONVERT_CAPTION_ASSET = "caption.convertcaptionasset";
 	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
 	const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
@@ -56,6 +57,7 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const ENTRY_VENDOR_TASK_CSV = "reach.EntryVendorTasksCsv";
 	const SYNC_REACH_CREDIT_TASK = "reach.SyncReachCreditTask";
 	const SCHEDULED_TASK = "scheduledTask.ScheduledTask";
+	const SEARCH_TERM_CSV = "searchHistory.searchTermsCsv";
 	const INDEX_TAGS = "tagSearch.IndexTagsByPrivacyContext";
 	const TAG_RESOLVE = "tagSearch.TagResolve";
 	const VIRUS_SCAN = "virusScan.VirusScan";
@@ -112,5 +114,6 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const STORAGE_PERIODIC_PURGE = "54";
 	const STORAGE_PERIODIC_DELETE_LOCAL = "55";
 	const REACH_JOB_CLEANER = "56";
+	const MULTI_CLIP_CONCAT = "57";
 }
 

@@ -39,6 +39,7 @@ namespace Kaltura\Client\Plugin\Group\Enum;
 class ESearchGroupOrderByFieldName extends \Kaltura\Client\EnumBase
 {
 	const CREATED_AT = "created_at";
+	const FULL_NAME = "full_name";
 	const MEMBERS_COUNT = "members_count";
 	const USER_ID = "puser_id";
 	const SCREEN_NAME = "screen_name";

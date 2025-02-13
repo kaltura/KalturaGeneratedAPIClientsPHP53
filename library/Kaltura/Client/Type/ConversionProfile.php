@@ -107,6 +107,8 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 			$this->defaultReplacementOptions = \Kaltura\Client\ParseUtils::unmarshalObject($xml->defaultReplacementOptions, "KalturaEntryReplacementOptions");
 		if(count($xml->defaultAudioLang))
 			$this->defaultAudioLang = (string)$xml->defaultAudioLang;
+		if(count($xml->deliveryTag))
+			$this->deliveryTag = (string)$xml->deliveryTag;
 	}
 	/**
 	 * The id of the Conversion Profile
@@ -269,5 +271,11 @@ class ConversionProfile extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\Language
 	 */
 	public $defaultAudioLang = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $deliveryTag = null;
 
 }

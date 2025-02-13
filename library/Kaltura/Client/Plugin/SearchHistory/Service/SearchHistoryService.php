@@ -61,6 +61,24 @@ class SearchHistoryService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return string
+	 */
+	function exportToCsv(\Kaltura\Client\Plugin\SearchHistory\Type\ESearchHistoryFilter $filter)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->queueServiceActionCall("searchhistory_searchhistory", "exportToCsv", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (String)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
+	 * 
 	 * @return \Kaltura\Client\Plugin\SearchHistory\Type\ESearchHistoryListResponse
 	 */
 	function listAction(\Kaltura\Client\Plugin\SearchHistory\Type\ESearchHistoryFilter $filter = null)

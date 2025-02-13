@@ -79,6 +79,8 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 		}
 		if(count($xml->associatedTranscriptIds))
 			$this->associatedTranscriptIds = (string)$xml->associatedTranscriptIds;
+		if(count($xml->usage))
+			$this->usage = (string)$xml->usage;
 	}
 	/**
 	 * The Caption Params used to create this Caption Asset
@@ -157,5 +159,11 @@ class CaptionAsset extends \Kaltura\Client\Type\Asset
 	 * @var string
 	 */
 	public $associatedTranscriptIds = null;
+
+	/**
+	 * The usage of the asset
+	 * @var \Kaltura\Client\Plugin\Caption\Enum\CaptionAssetUsage
+	 */
+	public $usage = null;
 
 }

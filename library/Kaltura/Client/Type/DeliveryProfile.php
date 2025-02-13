@@ -90,6 +90,8 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 			$this->extraParams = (string)$xml->extraParams;
 		if(count($xml->supplementaryAssetsFilter) && !empty($xml->supplementaryAssetsFilter))
 			$this->supplementaryAssetsFilter = \Kaltura\Client\ParseUtils::unmarshalObject($xml->supplementaryAssetsFilter, "KalturaAssetFilter");
+		if(count($xml->enforceDeliveriesSupport))
+			$this->enforceDeliveriesSupport = (string)$xml->enforceDeliveriesSupport;
 	}
 	/**
 	 * The id of the Delivery
@@ -217,5 +219,11 @@ class DeliveryProfile extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Type\AssetFilter
 	 */
 	public $supplementaryAssetsFilter;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $enforceDeliveriesSupport = null;
 
 }

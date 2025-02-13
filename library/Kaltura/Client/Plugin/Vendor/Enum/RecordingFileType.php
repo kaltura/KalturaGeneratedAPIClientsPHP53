@@ -27,3 +27,22 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Plugin\Vendor\Enum;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class RecordingFileType extends \Kaltura\Client\EnumBase
+{
+	const UNDEFINED = 0;
+	const VIDEO = 1;
+	const CHAT = 2;
+	const TRANSCRIPT = 3;
+	const AUDIO = 4;
+	const CC = 5;
+}
+

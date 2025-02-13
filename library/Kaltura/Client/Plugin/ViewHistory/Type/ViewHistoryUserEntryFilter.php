@@ -50,5 +50,29 @@ class ViewHistoryUserEntryFilter extends \Kaltura\Client\Type\UserEntryFilter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->extendedStatusEqual))
+			$this->extendedStatusEqual = (string)$xml->extendedStatusEqual;
+		if(count($xml->extendedStatusIn))
+			$this->extendedStatusIn = (string)$xml->extendedStatusIn;
+		if(count($xml->extendedStatusNotIn))
+			$this->extendedStatusNotIn = (string)$xml->extendedStatusNotIn;
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
+	 */
+	public $extendedStatusEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $extendedStatusIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $extendedStatusNotIn = null;
+
 }

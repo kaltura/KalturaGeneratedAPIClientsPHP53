@@ -143,6 +143,24 @@ class BaseEntryService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return int
+	 */
+	function bulkDelete(\Kaltura\Client\Type\BaseEntryFilter $filter)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "filter", $filter->toParams());
+		$this->client->queueServiceActionCall("baseentry", "bulkDelete", null, $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = (int)\Kaltura\Client\ParseUtils::unmarshalSimpleType($resultXmlObject->result);
+		return $resultObject;
+	}
+
+	/**
 	 * Clone an entry with optional attributes to apply to the clone
 	 * 
 	 * @return \Kaltura\Client\Type\BaseEntry

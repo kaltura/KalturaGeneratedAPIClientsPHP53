@@ -38,5 +38,7 @@ namespace Kaltura\Client\Plugin\Reach\Enum;
  */
 class ReachVendorEngineType extends \Kaltura\Client\EnumBase
 {
+	const OPEN_CALAIS = "OpenCalaisReachVendor.OPEN_CALAIS";
+	const HELLO_WORLD = "ReachInternal.HELLO_WORLD";
 }
 

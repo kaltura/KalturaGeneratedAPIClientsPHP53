@@ -54,6 +54,8 @@ class LiveRestreamFeature extends \Kaltura\Client\Plugin\Schedule\Type\LiveFeatu
 			$this->primaryUrl = (string)$xml->primaryUrl;
 		if(count($xml->secondaryUrl))
 			$this->secondaryUrl = (string)$xml->secondaryUrl;
+		if(count($xml->playbackUrl))
+			$this->playbackUrl = (string)$xml->playbackUrl;
 		if(count($xml->streamKey))
 			$this->streamKey = (string)$xml->streamKey;
 	}
@@ -68,6 +70,12 @@ class LiveRestreamFeature extends \Kaltura\Client\Plugin\Schedule\Type\LiveFeatu
 	 * @var string
 	 */
 	public $secondaryUrl = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $playbackUrl = null;
 
 	/**
 	 * 

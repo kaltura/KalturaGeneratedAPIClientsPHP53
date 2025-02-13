@@ -91,6 +91,8 @@ class HttpNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification\
 			else
 				$this->customHeaders = \Kaltura\Client\ParseUtils::unmarshalArray($xml->customHeaders, "KalturaKeyValue");
 		}
+		if(count($xml->secureHashingAlgo))
+			$this->secureHashingAlgo = (int)$xml->secureHashingAlgo;
 	}
 	/**
 	 * Remote server URL
@@ -201,5 +203,11 @@ class HttpNotificationTemplate extends \Kaltura\Client\Plugin\EventNotification\
 	 * @var array<KalturaKeyValue>
 	 */
 	public $customHeaders;
+
+	/**
+	 * The type of SHA to use.
+	 * @var \Kaltura\Client\Plugin\HttpNotification\Enum\SecureHashingAlgo
+	 */
+	public $secureHashingAlgo = null;
 
 }

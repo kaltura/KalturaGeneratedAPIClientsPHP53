@@ -52,11 +52,24 @@ class VendorTranslationCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Ven
 		
 		if(count($xml->targetLanguage))
 			$this->targetLanguage = (string)$xml->targetLanguage;
+		if(count($xml->requireSource))
+		{
+			if(!empty($xml->requireSource) && $xml->requireSource != 'false')
+				$this->requireSource = true;
+			else
+				$this->requireSource = false;
+		}
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemLanguage
 	 */
 	public $targetLanguage = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $requireSource = null;
 
 }

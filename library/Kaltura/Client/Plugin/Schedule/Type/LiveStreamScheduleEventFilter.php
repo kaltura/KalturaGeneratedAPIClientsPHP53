@@ -50,5 +50,13 @@ class LiveStreamScheduleEventFilter extends \Kaltura\Client\Plugin\Schedule\Type
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->sourceEntryIdEqual))
+			$this->sourceEntryIdEqual = (string)$xml->sourceEntryIdEqual;
 	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $sourceEntryIdEqual = null;
+
 }

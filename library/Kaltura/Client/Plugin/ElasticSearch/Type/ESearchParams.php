@@ -56,6 +56,13 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 			$this->objectId = (string)$xml->objectId;
 		if(count($xml->orderBy) && !empty($xml->orderBy))
 			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaESearchOrderBy");
+		if(count($xml->ignoreSynonym))
+		{
+			if(!empty($xml->ignoreSynonym) && $xml->ignoreSynonym != 'false')
+				$this->ignoreSynonym = true;
+			else
+				$this->ignoreSynonym = false;
+		}
 	}
 	/**
 	 * 
@@ -74,5 +81,11 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy
 	 */
 	public $orderBy;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $ignoreSynonym = null;
 
 }

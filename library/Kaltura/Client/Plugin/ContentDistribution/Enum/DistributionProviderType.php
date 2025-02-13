@@ -38,8 +38,10 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  */
 class DistributionProviderType extends \Kaltura\Client\EnumBase
 {
+	const ATT_UVERSE = "attUverseDistribution.ATT_UVERSE";
 	const AVN = "avnDistribution.AVN";
 	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
+	const CORTEX_API = "cortexApiDistribution.CORTEX_API";
 	const CROSS_KALTURA = "crossKalturaDistribution.CROSS_KALTURA";
 	const DAILYMOTION = "dailymotionDistribution.DAILYMOTION";
 	const DOUBLECLICK = "doubleClickDistribution.DOUBLECLICK";
@@ -52,9 +54,18 @@ class DistributionProviderType extends \Kaltura\Client\EnumBase
 	const IDETIC = "ideticDistribution.IDETIC";
 	const METRO_PCS = "metroPcsDistribution.METRO_PCS";
 	const MSN = "msnDistribution.MSN";
+	const NDN = "ndnDistribution.NDN";
 	const PODCAST = "podcastDistribution.PODCAST";
+	const PUSH_TO_NEWS = "pushToNewsDistribution.PUSH_TO_NEWS";
 	const QUICKPLAY = "quickPlayDistribution.QUICKPLAY";
+	const SYNACOR_HBO = "synacorHboDistribution.SYNACOR_HBO";
+	const TIME_WARNER = "timeWarnerDistribution.TIME_WARNER";
+	const TVCOM = "tvComDistribution.TVCOM";
+	const TVINCI = "tvinciDistribution.TVINCI";
 	const UNICORN = "unicornDistribution.UNICORN";
+	const UVERSE_CLICK_TO_ORDER = "uverseClickToOrderDistribution.UVERSE_CLICK_TO_ORDER";
+	const UVERSE = "uverseDistribution.UVERSE";
+	const VERIZON_VCAST = "verizonVcastDistribution.VERIZON_VCAST";
 	const YAHOO = "yahooDistribution.YAHOO";
 	const YOUTUBE = "youTubeDistribution.YOUTUBE";
 	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";

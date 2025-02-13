@@ -38,8 +38,15 @@ namespace Kaltura\Client\Plugin\DropFolder\Enum;
  */
 class DropFolderType extends \Kaltura\Client\EnumBase
 {
+	const AP_FEED = "ApFeedDropFolder.AP_FEED";
 	const FEED = "FeedDropFolder.FEED";
+	const MS_TEAMS = "MicrosoftTeamsDropFolder.MS_TEAMS";
+	const S3DROPFOLDER = "S3DropFolder.S3DROPFOLDER";
+	const TR_RDS_COMPANY = "TrRdsSyncDropFolder.TR_RDS_COMPANY";
+	const TR_RDS_TMCTERM = "TrRdsSyncDropFolder.TR_RDS_TMCTERM";
+	const WEBEX_API = "WebexAPIDropFolder.WEBEX_API";
 	const WEBEX = "WebexDropFolder.WEBEX";
+	const ZOOM = "ZoomDropFolder.ZOOM";
 	const LOCAL = "1";
 	const FTP = "2";
 	const SCP = "3";

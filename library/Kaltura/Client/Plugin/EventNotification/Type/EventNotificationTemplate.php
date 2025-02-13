@@ -107,6 +107,8 @@ class EventNotificationTemplate extends \Kaltura\Client\ObjectBase
 			else
 				$this->userParameters = \Kaltura\Client\ParseUtils::unmarshalArray($xml->userParameters, "KalturaEventNotificationParameter");
 		}
+		if(count($xml->eventDelayedCondition))
+			$this->eventDelayedCondition = (int)$xml->eventDelayedCondition;
 	}
 	/**
 	 * 
@@ -187,7 +189,7 @@ class EventNotificationTemplate extends \Kaltura\Client\ObjectBase
 	public $eventType = null;
 
 	/**
-	 * Define the object that raied the event that should trigger this notification
+	 * Define the object that raised the event that should trigger this notification
 	 * @var \Kaltura\Client\Plugin\EventNotification\Enum\EventNotificationEventObjectType
 	 */
 	public $eventObjectType = null;
@@ -209,5 +211,11 @@ class EventNotificationTemplate extends \Kaltura\Client\ObjectBase
 	 * @var array<KalturaEventNotificationParameter>
 	 */
 	public $userParameters;
+
+	/**
+	 * Event batch job will be delayed until specific condition criteria is met
+	 * @var \Kaltura\Client\Plugin\EventNotification\Enum\EventNotificationDelayedCondition
+	 */
+	public $eventDelayedCondition = null;
 
 }

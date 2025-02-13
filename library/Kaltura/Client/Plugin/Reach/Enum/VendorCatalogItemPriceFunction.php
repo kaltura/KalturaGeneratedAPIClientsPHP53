@@ -38,6 +38,7 @@ namespace Kaltura\Client\Plugin\Reach\Enum;
  */
 class VendorCatalogItemPriceFunction extends \Kaltura\Client\EnumBase
 {
+	const PRICE_PER_HOUR = "kReachUtils::calcPricePerHour";
 	const PRICE_PER_MINUTE = "kReachUtils::calcPricePerMinute";
 	const PRICE_PER_SECOND = "kReachUtils::calcPricePerSecond";
 }

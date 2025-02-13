@@ -64,6 +64,15 @@ class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
 			else
 				$this->effectArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->effectArray, "KalturaEffect");
 		}
+		if(count($xml->cropAlignment))
+			$this->cropAlignment = (int)$xml->cropAlignment;
+		if(count($xml->captionAttributes))
+		{
+			if(empty($xml->captionAttributes))
+				$this->captionAttributes = array();
+			else
+				$this->captionAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->captionAttributes, "KalturaCaptionAttributes");
+		}
 	}
 	/**
 	 * Offset in milliseconds
@@ -88,5 +97,17 @@ class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
 	 * @var array<KalturaEffect>
 	 */
 	public $effectArray;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $cropAlignment = null;
+
+	/**
+	 * 
+	 * @var array<KalturaCaptionAttributes>
+	 */
+	public $captionAttributes;
 
 }

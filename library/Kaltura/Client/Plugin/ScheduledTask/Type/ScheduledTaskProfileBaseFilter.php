@@ -80,6 +80,8 @@ abstract class ScheduledTaskProfileBaseFilter extends \Kaltura\Client\Type\Filte
 			$this->lastExecutionStartedAtLessThanOrEqual = (int)$xml->lastExecutionStartedAtLessThanOrEqual;
 		if(count($xml->lastExecutionStartedAtLessThanOrEqualOrNull))
 			$this->lastExecutionStartedAtLessThanOrEqualOrNull = (int)$xml->lastExecutionStartedAtLessThanOrEqualOrNull;
+		if(count($xml->objectFilterEngineTypeIn))
+			$this->objectFilterEngineTypeIn = (string)$xml->objectFilterEngineTypeIn;
 	}
 	/**
 	 * 
@@ -170,5 +172,11 @@ abstract class ScheduledTaskProfileBaseFilter extends \Kaltura\Client\Type\Filte
 	 * @var int
 	 */
 	public $lastExecutionStartedAtLessThanOrEqualOrNull = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $objectFilterEngineTypeIn = null;
 
 }

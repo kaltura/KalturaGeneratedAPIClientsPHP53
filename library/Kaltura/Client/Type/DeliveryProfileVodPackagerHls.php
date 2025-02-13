@@ -57,11 +57,24 @@ class DeliveryProfileVodPackagerHls extends \Kaltura\Client\Type\DeliveryProfile
 			else
 				$this->allowFairplayOffline = false;
 		}
+		if(count($xml->supportFmp4))
+		{
+			if(!empty($xml->supportFmp4) && $xml->supportFmp4 != 'false')
+				$this->supportFmp4 = true;
+			else
+				$this->supportFmp4 = false;
+		}
 	}
 	/**
 	 * 
 	 * @var bool
 	 */
 	public $allowFairplayOffline = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $supportFmp4 = null;
 
 }

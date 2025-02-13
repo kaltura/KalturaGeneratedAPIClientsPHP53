@@ -66,8 +66,6 @@ abstract class UserEntry extends \Kaltura\Client\ObjectBase
 			$this->updatedAt = (int)$xml->updatedAt;
 		if(count($xml->type))
 			$this->type = (string)$xml->type;
-		if(count($xml->extendedStatus))
-			$this->extendedStatus = (string)$xml->extendedStatus;
 	}
 	/**
 	 * unique auto-generated identifier
@@ -124,11 +122,5 @@ abstract class UserEntry extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $type = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
-	 */
-	public $extendedStatus = null;
 
 }

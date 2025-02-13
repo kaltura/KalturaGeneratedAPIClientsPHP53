@@ -58,10 +58,6 @@ class CrossKalturaDistributionJobProviderData extends \Kaltura\Client\Plugin\Con
 			$this->distributedMetadata = (string)$xml->distributedMetadata;
 		if(count($xml->distributedCaptionAssets))
 			$this->distributedCaptionAssets = (string)$xml->distributedCaptionAssets;
-		if(count($xml->distributedFileAssets))
-			$this->distributedFileAssets = (string)$xml->distributedFileAssets;
-		if(count($xml->distributedAttachmentAssets))
-			$this->distributedAttachmentAssets = (string)$xml->distributedAttachmentAssets;
 		if(count($xml->distributedCuePoints))
 			$this->distributedCuePoints = (string)$xml->distributedCuePoints;
 		if(count($xml->distributedThumbCuePoints))
@@ -92,18 +88,6 @@ class CrossKalturaDistributionJobProviderData extends \Kaltura\Client\Plugin\Con
 	 * @var string
 	 */
 	public $distributedCaptionAssets = null;
-
-	/**
-	 * Key-value array where the keys are IDs of distributed fileassets in the source account and the values are the matching IDs in the target account
-	 * @var string
-	 */
-	public $distributedFileAssets = null;
-
-	/**
-	 * Key-value array where the keys are IDs of distributed caption assets in the source account and the values are the matching IDs in the target account
-	 * @var string
-	 */
-	public $distributedAttachmentAssets = null;
 
 	/**
 	 * Key-value array where the keys are IDs of distributed cue points in the source account and the values are the matching IDs in the target account

@@ -57,6 +57,13 @@ class ESearchHistoryListResponse extends \Kaltura\Client\Type\ListResponse
 			else
 				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaESearchHistory");
 		}
+		if(count($xml->aggregations))
+		{
+			if(empty($xml->aggregations))
+				$this->aggregations = array();
+			else
+				$this->aggregations = \Kaltura\Client\ParseUtils::unmarshalArray($xml->aggregations, "KalturaESearchAggregationResponseItem");
+		}
 	}
 	/**
 	 * 
@@ -64,5 +71,12 @@ class ESearchHistoryListResponse extends \Kaltura\Client\Type\ListResponse
 	 * @readonly
 	 */
 	public $objects;
+
+	/**
+	 * 
+	 * @var array<KalturaESearchAggregationResponseItem>
+	 * @readonly
+	 */
+	public $aggregations;
 
 }

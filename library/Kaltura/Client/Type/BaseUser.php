@@ -104,6 +104,13 @@ class BaseUser extends \Kaltura\Client\ObjectBase
 			$this->allowedPartnerPackages = (string)$xml->allowedPartnerPackages;
 		if(count($xml->userMode))
 			$this->userMode = (int)$xml->userMode;
+		if(count($xml->capabilities))
+		{
+			if(empty($xml->capabilities))
+				$this->capabilities = array();
+			else
+				$this->capabilities = \Kaltura\Client\ParseUtils::unmarshalArray($xml->capabilities, "KalturaUserCapability");
+		}
 	}
 	/**
 	 * 
@@ -273,5 +280,11 @@ class BaseUser extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\UserMode
 	 */
 	public $userMode = null;
+
+	/**
+	 * 
+	 * @var array<KalturaUserCapability>
+	 */
+	public $capabilities;
 
 }

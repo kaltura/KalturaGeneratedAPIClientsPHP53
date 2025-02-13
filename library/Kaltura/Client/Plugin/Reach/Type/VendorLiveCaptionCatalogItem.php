@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Reach\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class VendorLiveCaptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\VendorCaptionsCatalogItem
+class VendorLiveCaptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\VendorLiveCatalogItem
 {
 	public function getKalturaObjectType()
 	{
@@ -50,29 +50,5 @@ class VendorLiveCaptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Ven
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->minimalRefundTime))
-			$this->minimalRefundTime = (int)$xml->minimalRefundTime;
-		if(count($xml->minimalOrderTime))
-			$this->minimalOrderTime = (int)$xml->minimalOrderTime;
-		if(count($xml->durationLimit))
-			$this->durationLimit = (int)$xml->durationLimit;
 	}
-	/**
-	 * 
-	 * @var int
-	 */
-	public $minimalRefundTime = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $minimalOrderTime = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $durationLimit = null;
-
 }

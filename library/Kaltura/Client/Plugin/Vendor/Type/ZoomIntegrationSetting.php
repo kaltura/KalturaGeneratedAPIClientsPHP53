@@ -62,8 +62,6 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 			$this->zoomWebinarCategory = (string)$xml->zoomWebinarCategory;
 		if(count($xml->enableWebinarUploads))
 			$this->enableWebinarUploads = (int)$xml->enableWebinarUploads;
-		if(count($xml->jwtToken))
-			$this->jwtToken = (string)$xml->jwtToken;
 		if(count($xml->enableZoomTranscription))
 			$this->enableZoomTranscription = (int)$xml->enableZoomTranscription;
 		if(count($xml->zoomAccountDescription))
@@ -74,6 +72,10 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 			$this->optInGroupNames = (string)$xml->optInGroupNames;
 		if(count($xml->groupParticipationType))
 			$this->groupParticipationType = (int)$xml->groupParticipationType;
+		if(count($xml->handleCohostsMode))
+			$this->handleCohostsMode = (int)$xml->handleCohostsMode;
+		if(count($xml->handleAlternativeHostsMode))
+			$this->handleAlternativeHostsMode = (int)$xml->handleAlternativeHostsMode;
 	}
 	/**
 	 * 
@@ -113,12 +115,6 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 
 	/**
 	 * 
-	 * @var string
-	 */
-	public $jwtToken = null;
-
-	/**
-	 * 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $enableZoomTranscription = null;
@@ -146,5 +142,17 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 	 * @var \Kaltura\Client\Enum\ZoomGroupParticipationType
 	 */
 	public $groupParticipationType = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Vendor\Enum\HandleParticipantsMode
+	 */
+	public $handleCohostsMode = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Vendor\Enum\HandleParticipantsMode
+	 */
+	public $handleAlternativeHostsMode = null;
 
 }

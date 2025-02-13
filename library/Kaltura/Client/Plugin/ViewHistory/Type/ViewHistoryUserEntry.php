@@ -58,6 +58,8 @@ class ViewHistoryUserEntry extends \Kaltura\Client\Type\UserEntry
 			$this->lastUpdateTime = (int)$xml->lastUpdateTime;
 		if(count($xml->playlistLastEntryId))
 			$this->playlistLastEntryId = (string)$xml->playlistLastEntryId;
+		if(count($xml->extendedStatus))
+			$this->extendedStatus = (string)$xml->extendedStatus;
 	}
 	/**
 	 * Playback context
@@ -82,5 +84,11 @@ class ViewHistoryUserEntry extends \Kaltura\Client\Type\UserEntry
 	 * @var string
 	 */
 	public $playlistLastEntryId = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
+	 */
+	public $extendedStatus = null;
 
 }

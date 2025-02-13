@@ -125,6 +125,8 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->watermarkData = (string)$xml->watermarkData;
 		if(count($xml->subtitlesData))
 			$this->subtitlesData = (string)$xml->subtitlesData;
+		if(count($xml->cropData))
+			$this->cropData = (string)$xml->cropData;
 		if(count($xml->isEncrypted))
 			$this->isEncrypted = (int)$xml->isEncrypted;
 		if(count($xml->contentAwareness))
@@ -345,6 +347,12 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 	 * @var string
 	 */
 	public $subtitlesData = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $cropData = null;
 
 	/**
 	 * 

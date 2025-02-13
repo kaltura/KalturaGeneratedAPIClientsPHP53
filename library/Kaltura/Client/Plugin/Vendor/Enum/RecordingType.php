@@ -27,3 +27,18 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Plugin\Vendor\Enum;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class RecordingType extends \Kaltura\Client\EnumBase
+{
+	const MEETING = 0;
+	const WEBINAR = 1;
+}
+

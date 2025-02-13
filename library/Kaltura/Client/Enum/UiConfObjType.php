@@ -59,5 +59,7 @@ class UiConfObjType extends \Kaltura\Client\EnumBase
 	const KSR = 19;
 	const KUPLOAD = 20;
 	const WEBCASTING = 21;
+	const SAP = 22;
+	const REELS = 23;
 }
 

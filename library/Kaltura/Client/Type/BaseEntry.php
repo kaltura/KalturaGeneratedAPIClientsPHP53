@@ -177,6 +177,10 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 			else
 				$this->blockAutoTranscript = false;
 		}
+		if(count($xml->defaultLanguage))
+			$this->defaultLanguage = (string)$xml->defaultLanguage;
+		if(count($xml->responseLanguage))
+			$this->responseLanguage = (string)$xml->responseLanguage;
 	}
 	/**
 	 * Auto generated 10 characters alphanumeric string
@@ -506,5 +510,19 @@ class BaseEntry extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $blockAutoTranscript = null;
+
+	/**
+	 * Entry's default language if the entry is multi lingual
+	 * @var string
+	 * @readonly
+	 */
+	public $defaultLanguage = null;
+
+	/**
+	 * The language in which the object is returned
+	 * @var string
+	 * @readonly
+	 */
+	public $responseLanguage = null;
 
 }

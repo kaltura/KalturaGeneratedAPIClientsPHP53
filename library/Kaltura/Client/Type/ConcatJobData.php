@@ -74,6 +74,20 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 			else
 				$this->shouldSort = false;
 		}
+		if(count($xml->conversionCommands))
+		{
+			if(empty($xml->conversionCommands))
+				$this->conversionCommands = array();
+			else
+				$this->conversionCommands = \Kaltura\Client\ParseUtils::unmarshalArray($xml->conversionCommands, "KalturaString");
+		}
+		if(count($xml->multiSource))
+		{
+			if(!empty($xml->multiSource) && $xml->multiSource != 'false')
+				$this->multiSource = true;
+			else
+				$this->multiSource = false;
+		}
 	}
 	/**
 	 * Source files to be concatenated
@@ -116,5 +130,17 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 	 * @var bool
 	 */
 	public $shouldSort = null;
+
+	/**
+	 * conversion commands to be applied to source files
+	 * @var array<KalturaString>
+	 */
+	public $conversionCommands;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $multiSource = null;
 
 }

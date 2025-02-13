@@ -52,11 +52,19 @@ class RegexItem extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->regex))
 			$this->regex = (string)$xml->regex;
+		if(count($xml->description))
+			$this->description = (string)$xml->description;
 	}
 	/**
 	 * 
 	 * @var string
 	 */
 	public $regex = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $description = null;
 
 }

@@ -216,6 +216,8 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->tagsAdminTagsNameMultiLikeAnd = (string)$xml->tagsAdminTagsNameMultiLikeAnd;
 		if(count($xml->displayInSearchEqual))
 			$this->displayInSearchEqual = (int)$xml->displayInSearchEqual;
+		if(count($xml->displayInSearchIn))
+			$this->displayInSearchIn = (string)$xml->displayInSearchIn;
 	}
 	/**
 	 * This filter should be in use for retrieving only a specific entry (identified by its entryId).
@@ -715,5 +717,11 @@ abstract class BaseEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	 * @var \Kaltura\Client\Enum\EntryDisplayInSearchType
 	 */
 	public $displayInSearchEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $displayInSearchIn = null;
 
 }

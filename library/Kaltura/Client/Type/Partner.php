@@ -172,6 +172,20 @@ class Partner extends \Kaltura\Client\ObjectBase
 			else
 				$this->ignoreSeoLinks = false;
 		}
+		if(count($xml->useTwoFactorAuthentication))
+		{
+			if(!empty($xml->useTwoFactorAuthentication) && $xml->useTwoFactorAuthentication != 'false')
+				$this->useTwoFactorAuthentication = true;
+			else
+				$this->useTwoFactorAuthentication = false;
+		}
+		if(count($xml->useSso))
+		{
+			if(!empty($xml->useSso) && $xml->useSso != 'false')
+				$this->useSso = true;
+			else
+				$this->useSso = false;
+		}
 		if(count($xml->blockDirectLogin))
 		{
 			if(!empty($xml->blockDirectLogin) && $xml->blockDirectLogin != 'false')
@@ -282,6 +296,12 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->eventPlatformAllowedTemplates = (string)$xml->eventPlatformAllowedTemplates;
 		if(count($xml->verticalClassificationId))
 			$this->verticalClassificationId = (int)$xml->verticalClassificationId;
+		if(count($xml->recycleBinRetentionPeriod))
+			$this->recycleBinRetentionPeriod = (int)$xml->recycleBinRetentionPeriod;
+		if(count($xml->customAnalyticsDomain))
+			$this->customAnalyticsDomain = (string)$xml->customAnalyticsDomain;
+		if(count($xml->allowedEmailDomainsForAdmins))
+			$this->allowedEmailDomainsForAdmins = (string)$xml->allowedEmailDomainsForAdmins;
 	}
 	/**
 	 * 
@@ -580,6 +600,18 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 * @readonly
 	 */
+	public $useTwoFactorAuthentication = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $useSso = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
 	public $blockDirectLogin = null;
 
 	/**
@@ -808,5 +840,24 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $verticalClassificationId = null;
+
+	/**
+	 * 
+	 * @var int
+	 * @readonly
+	 */
+	public $recycleBinRetentionPeriod = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $customAnalyticsDomain = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $allowedEmailDomainsForAdmins = null;
 
 }

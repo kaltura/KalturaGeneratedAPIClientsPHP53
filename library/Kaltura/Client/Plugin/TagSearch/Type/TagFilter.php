@@ -52,6 +52,8 @@ class TagFilter extends \Kaltura\Client\Type\Filter
 		
 		if(count($xml->objectTypeEqual))
 			$this->objectTypeEqual = (string)$xml->objectTypeEqual;
+		if(count($xml->objectTypeIn))
+			$this->objectTypeIn = (string)$xml->objectTypeIn;
 		if(count($xml->tagEqual))
 			$this->tagEqual = (string)$xml->tagEqual;
 		if(count($xml->tagStartsWith))
@@ -66,6 +68,12 @@ class TagFilter extends \Kaltura\Client\Type\Filter
 	 * @var \Kaltura\Client\Enum\TaggedObjectType
 	 */
 	public $objectTypeEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $objectTypeIn = null;
 
 	/**
 	 * 

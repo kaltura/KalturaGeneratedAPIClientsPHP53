@@ -38,11 +38,13 @@ namespace Kaltura\Client\Plugin\EventNotification\Enum;
  */
 class EventNotificationTemplateType extends \Kaltura\Client\EnumBase
 {
+	const BOOLEAN = "booleanNotification.Boolean";
 	const BPM_ABORT = "businessProcessNotification.BusinessProcessAbort";
 	const BPM_SIGNAL = "businessProcessNotification.BusinessProcessSignal";
 	const BPM_START = "businessProcessNotification.BusinessProcessStart";
 	const EMAIL = "emailNotification.Email";
 	const HTTP = "httpNotification.Http";
+	const KAFKA = "kafkaNotification.Kafka";
 	const PUSH = "pushNotification.Push";
 }
 

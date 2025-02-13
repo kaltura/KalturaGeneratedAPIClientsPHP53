@@ -80,12 +80,6 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 			$this->updatedAtGreaterThanOrEqual = (int)$xml->updatedAtGreaterThanOrEqual;
 		if(count($xml->typeEqual))
 			$this->typeEqual = (string)$xml->typeEqual;
-		if(count($xml->extendedStatusEqual))
-			$this->extendedStatusEqual = (string)$xml->extendedStatusEqual;
-		if(count($xml->extendedStatusIn))
-			$this->extendedStatusIn = (string)$xml->extendedStatusIn;
-		if(count($xml->extendedStatusNotIn))
-			$this->extendedStatusNotIn = (string)$xml->extendedStatusNotIn;
 	}
 	/**
 	 * 
@@ -176,23 +170,5 @@ abstract class UserEntryBaseFilter extends \Kaltura\Client\Type\RelatedFilter
 	 * @var \Kaltura\Client\Enum\UserEntryType
 	 */
 	public $typeEqual = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
-	 */
-	public $extendedStatusEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $extendedStatusIn = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $extendedStatusNotIn = null;
 
 }

@@ -103,6 +103,8 @@ class UiConf extends \Kaltura\Client\ObjectBase
 			$this->version = (string)$xml->version;
 		if(count($xml->partnerTags))
 			$this->partnerTags = (string)$xml->partnerTags;
+		if(count($xml->v2Redirect) && !empty($xml->v2Redirect))
+			$this->v2Redirect = \Kaltura\Client\ParseUtils::unmarshalObject($xml->v2Redirect, "KalturaUiConfV2Redirect");
 	}
 	/**
 	 * 
@@ -254,5 +256,11 @@ class UiConf extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $partnerTags = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\UiConfV2Redirect
+	 */
+	public $v2Redirect;
 
 }

@@ -40,5 +40,6 @@ class ObjectFilterEngineType extends \Kaltura\Client\EnumBase
 {
 	const ENTRY = "1";
 	const ENTRY_VENDOR_TASK = "2";
+	const RECYCLE_BIN_CLEANUP = "3";
 }
 

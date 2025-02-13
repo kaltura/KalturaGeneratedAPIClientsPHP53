@@ -54,6 +54,10 @@ class ESearchHistoryFilter extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESe
 			$this->searchTermStartsWith = (string)$xml->searchTermStartsWith;
 		if(count($xml->searchedObjectIn))
 			$this->searchedObjectIn = (string)$xml->searchedObjectIn;
+		if(count($xml->timestampRange) && !empty($xml->timestampRange))
+			$this->timestampRange = \Kaltura\Client\ParseUtils::unmarshalObject($xml->timestampRange, "KalturaESearchRange");
+		if(count($xml->aggregation) && !empty($xml->aggregation))
+			$this->aggregation = \Kaltura\Client\ParseUtils::unmarshalObject($xml->aggregation, "KalturaESearchHistoryAggregationItem");
 	}
 	/**
 	 * 
@@ -66,5 +70,17 @@ class ESearchHistoryFilter extends \Kaltura\Client\Plugin\ElasticSearch\Type\ESe
 	 * @var string
 	 */
 	public $searchedObjectIn = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchRange
+	 */
+	public $timestampRange;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\SearchHistory\Type\ESearchHistoryAggregationItem
+	 */
+	public $aggregation;
 
 }

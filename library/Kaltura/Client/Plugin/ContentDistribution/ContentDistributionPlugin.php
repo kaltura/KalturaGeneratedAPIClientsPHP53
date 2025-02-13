@@ -68,6 +68,11 @@ class ContentDistributionPlugin extends \Kaltura\Client\Plugin
 	 */
 	protected $contentDistributionBatch = null;
 
+	/**
+	 * @var Service\TvComService
+	 */
+	protected $tvCom = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -93,6 +98,7 @@ class ContentDistributionPlugin extends \Kaltura\Client\Plugin
 			'genericDistributionProvider' => $this->getGenericDistributionProviderService(),
 			'genericDistributionProviderAction' => $this->getGenericDistributionProviderActionService(),
 			'contentDistributionBatch' => $this->getContentDistributionBatchService(),
+			'tvCom' => $this->getTvComService(),
 		);
 		return $services;
 	}
@@ -157,6 +163,15 @@ class ContentDistributionPlugin extends \Kaltura\Client\Plugin
 		if (is_null($this->contentDistributionBatch))
 			$this->contentDistributionBatch = new Service\ContentDistributionBatchService($this->_client);
 		return $this->contentDistributionBatch;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\ContentDistribution\Service\TvComService
+	 */
+	public function getTvComService()
+	{
+		if (is_null($this->tvCom))
+			$this->tvCom = new Service\TvComService($this->_client);
+		return $this->tvCom;
 	}
 }
 

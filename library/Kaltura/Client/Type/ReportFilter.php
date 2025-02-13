@@ -36,7 +36,7 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ReportFilter extends \Kaltura\Client\ObjectBase
+class ReportFilter extends \Kaltura\Client\Type\ReportBaseFilter
 {
 	public function getKalturaObjectType()
 	{
@@ -50,21 +50,5 @@ class ReportFilter extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->dimension))
-			$this->dimension = (string)$xml->dimension;
-		if(count($xml->values))
-			$this->values = (string)$xml->values;
 	}
-	/**
-	 * The dimension whose values should be filtered
-	 * @var string
-	 */
-	public $dimension = null;
-
-	/**
-	 * The (comma separated) values to include in the filter
-	 * @var string
-	 */
-	public $values = null;
-
 }

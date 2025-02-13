@@ -168,6 +168,13 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 		}
 		if(count($xml->excludedEntryTypes))
 			$this->excludedEntryTypes = (string)$xml->excludedEntryTypes;
+		if(count($xml->additionalInfo))
+		{
+			if(empty($xml->additionalInfo))
+				$this->additionalInfo = array();
+			else
+				$this->additionalInfo = \Kaltura\Client\ParseUtils::unmarshalArray($xml->additionalInfo, "KalturaKeyValue");
+		}
 	}
 	/**
 	 * 
@@ -406,5 +413,11 @@ class StorageProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $excludedEntryTypes = null;
+
+	/**
+	 * 
+	 * @var array<KalturaKeyValue>
+	 */
+	public $additionalInfo;
 
 }

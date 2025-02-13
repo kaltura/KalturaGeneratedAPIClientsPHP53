@@ -40,5 +40,6 @@ class TaggedObjectType extends \Kaltura\Client\EnumBase
 {
 	const ENTRY = "1";
 	const CATEGORY = "2";
+	const LIVESTREAMENTRY = "3";
 }
 

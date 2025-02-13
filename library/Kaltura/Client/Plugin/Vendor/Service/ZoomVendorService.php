@@ -121,10 +121,10 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 	/**
 	 * 
 	 */
-	function localRegistrationPage($jwt)
+	function localRegistrationPage($zoomAccountId)
 	{
 		$kparams = array();
-		$this->client->addParam($kparams, "jwt", $jwt);
+		$this->client->addParam($kparams, "zoomAccountId", $zoomAccountId);
 		$this->client->queueServiceActionCall("vendor_zoomvendor", "localRegistrationPage", null, $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
@@ -168,16 +168,20 @@ class ZoomVendorService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return \Kaltura\Client\Plugin\Vendor\Type\EndpointValidationResponse
 	 */
 	function recordingComplete()
 	{
 		$kparams = array();
-		$this->client->queueServiceActionCall("vendor_zoomvendor", "recordingComplete", null, $kparams);
+		$this->client->queueServiceActionCall("vendor_zoomvendor", "recordingComplete", "KalturaEndpointValidationResponse", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
 		$resultXml = $this->client->doQueue();
 		$resultXmlObject = new \SimpleXMLElement($resultXml);
 		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEndpointValidationResponse");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Vendor\\Type\\EndpointValidationResponse");
+		return $resultObject;
 	}
 
 	/**

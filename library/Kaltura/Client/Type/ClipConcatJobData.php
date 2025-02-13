@@ -50,6 +50,14 @@ class ClipConcatJobData extends \Kaltura\Client\Type\JobData
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->destEntryId))
+			$this->destEntryId = (string)$xml->destEntryId;
+		if(count($xml->tempEntryId))
+			$this->tempEntryId = (string)$xml->tempEntryId;
+		if(count($xml->sourceEntryId))
+			$this->sourceEntryId = (string)$xml->sourceEntryId;
+		if(count($xml->importUrl))
+			$this->importUrl = (string)$xml->importUrl;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
 		if(count($xml->priority))
@@ -61,23 +69,63 @@ class ClipConcatJobData extends \Kaltura\Client\Type\JobData
 			else
 				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
 		}
+		if(count($xml->resourceOrder))
+			$this->resourceOrder = (int)$xml->resourceOrder;
+		if(count($xml->conversionParams))
+			$this->conversionParams = (string)$xml->conversionParams;
 	}
 	/**
-	 * $partnerId
+	 * 
+	 * @var string
+	 */
+	public $destEntryId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $tempEntryId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $sourceEntryId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $importUrl = null;
+
+	/**
+	 * 
 	 * @var int
 	 */
 	public $partnerId = null;
 
 	/**
-	 * $priority
+	 * 
 	 * @var int
 	 */
 	public $priority = null;
 
 	/**
-	 * clip operations
+	 * 
 	 * @var array<KalturaOperationAttributes>
 	 */
 	public $operationAttributes;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $resourceOrder = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $conversionParams = null;
 
 }

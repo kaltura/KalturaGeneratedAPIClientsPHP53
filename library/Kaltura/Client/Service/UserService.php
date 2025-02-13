@@ -417,6 +417,29 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * Replace a user's existing login data to a new or an existing login data
+	 * 	 to only be used when admin impersonates a partner
+	 * 
+	 * @return \Kaltura\Client\Type\User
+	 */
+	function replaceUserLoginData($userId, $newLoginId, $existingLoginId = null)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userId", $userId);
+		$this->client->addParam($kparams, "newLoginId", $newLoginId);
+		$this->client->addParam($kparams, "existingLoginId", $existingLoginId);
+		$this->client->queueServiceActionCall("user", "replaceUserLoginData", "KalturaUser", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\User");
+		return $resultObject;
+	}
+
+	/**
 	 * Reset user's password and send the user an email to generate a new one.
 	 * 
 	 */

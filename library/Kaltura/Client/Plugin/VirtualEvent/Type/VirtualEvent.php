@@ -80,6 +80,10 @@ class VirtualEvent extends \Kaltura\Client\ObjectBase
 			$this->deletionDueDate = (int)$xml->deletionDueDate;
 		if(count($xml->registrationFormSchema))
 			$this->registrationFormSchema = (string)$xml->registrationFormSchema;
+		if(count($xml->eventUrl))
+			$this->eventUrl = (string)$xml->eventUrl;
+		if(count($xml->webhookRegistrationToken))
+			$this->webhookRegistrationToken = (string)$xml->webhookRegistrationToken;
 	}
 	/**
 	 * 
@@ -175,5 +179,17 @@ class VirtualEvent extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $registrationFormSchema = null;
+
+	/**
+	 * The Virtual Event Url
+	 * @var string
+	 */
+	public $eventUrl = null;
+
+	/**
+	 * The Virtual Event WebHook registration token
+	 * @var string
+	 */
+	public $webhookRegistrationToken = null;
 
 }

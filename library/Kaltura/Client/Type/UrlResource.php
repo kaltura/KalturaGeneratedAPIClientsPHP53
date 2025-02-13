@@ -67,6 +67,13 @@ class UrlResource extends \Kaltura\Client\Type\ContentResource
 			else
 				$this->urlHeaders = \Kaltura\Client\ParseUtils::unmarshalArray($xml->urlHeaders, "KalturaString");
 		}
+		if(count($xml->shouldRedirect))
+		{
+			if(!empty($xml->shouldRedirect) && $xml->shouldRedirect != 'false')
+				$this->shouldRedirect = true;
+			else
+				$this->shouldRedirect = false;
+		}
 	}
 	/**
 	 * Remote URL, FTP, HTTP or HTTPS
@@ -85,5 +92,11 @@ class UrlResource extends \Kaltura\Client\Type\ContentResource
 	 * @var array<KalturaString>
 	 */
 	public $urlHeaders;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $shouldRedirect = null;
 
 }

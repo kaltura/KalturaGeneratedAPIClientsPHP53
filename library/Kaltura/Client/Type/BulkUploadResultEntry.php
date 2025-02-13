@@ -95,6 +95,8 @@ class BulkUploadResultEntry extends \Kaltura\Client\Type\BulkUploadResult
 			$this->entitledUsersEdit = (string)$xml->entitledUsersEdit;
 		if(count($xml->entitledUsersPublish))
 			$this->entitledUsersPublish = (string)$xml->entitledUsersPublish;
+		if(count($xml->entitledUsersView))
+			$this->entitledUsersView = (string)$xml->entitledUsersView;
 		if(count($xml->ownerId))
 			$this->ownerId = (string)$xml->ownerId;
 		if(count($xml->referenceId))
@@ -221,6 +223,12 @@ class BulkUploadResultEntry extends \Kaltura\Client\Type\BulkUploadResult
 	 * @var string
 	 */
 	public $entitledUsersPublish = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entitledUsersView = null;
 
 	/**
 	 * 

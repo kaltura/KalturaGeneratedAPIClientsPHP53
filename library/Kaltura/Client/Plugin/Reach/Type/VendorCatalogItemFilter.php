@@ -52,11 +52,19 @@ class VendorCatalogItemFilter extends \Kaltura\Client\Plugin\Reach\Type\VendorCa
 		
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
+		if(count($xml->catalogItemIdEqual))
+			$this->catalogItemIdEqual = (int)$xml->catalogItemIdEqual;
 	}
 	/**
 	 * 
 	 * @var int
 	 */
 	public $partnerIdEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $catalogItemIdEqual = null;
 
 }

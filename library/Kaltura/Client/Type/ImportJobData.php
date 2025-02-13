@@ -60,6 +60,20 @@ class ImportJobData extends \Kaltura\Client\Type\JobData
 			$this->fileSize = (int)$xml->fileSize;
 		if(count($xml->destFileSharedPath))
 			$this->destFileSharedPath = (string)$xml->destFileSharedPath;
+		if(count($xml->urlHeaders))
+		{
+			if(empty($xml->urlHeaders))
+				$this->urlHeaders = array();
+			else
+				$this->urlHeaders = \Kaltura\Client\ParseUtils::unmarshalArray($xml->urlHeaders, "KalturaString");
+		}
+		if(count($xml->shouldRedirect))
+		{
+			if(!empty($xml->shouldRedirect) && $xml->shouldRedirect != 'false')
+				$this->shouldRedirect = true;
+			else
+				$this->shouldRedirect = false;
+		}
 	}
 	/**
 	 * 
@@ -90,5 +104,17 @@ class ImportJobData extends \Kaltura\Client\Type\JobData
 	 * @var string
 	 */
 	public $destFileSharedPath = null;
+
+	/**
+	 * 
+	 * @var array<KalturaString>
+	 */
+	public $urlHeaders;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $shouldRedirect = null;
 
 }

@@ -144,6 +144,20 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->originIn = (string)$xml->originIn;
 		if(count($xml->uiConfIdIn))
 			$this->uiConfIdIn = (string)$xml->uiConfIdIn;
+		if(count($xml->cuePointIdIn))
+			$this->cuePointIdIn = (string)$xml->cuePointIdIn;
+		if(count($xml->contextIdIn))
+			$this->contextIdIn = (string)$xml->contextIdIn;
+		if(count($xml->roleIn))
+			$this->roleIn = (string)$xml->roleIn;
+		if(count($xml->industryIn))
+			$this->industryIn = (string)$xml->industryIn;
+		if(count($xml->playbackModeIn))
+			$this->playbackModeIn = (string)$xml->playbackModeIn;
+		if(count($xml->companyIn))
+			$this->companyIn = (string)$xml->companyIn;
+		if(count($xml->eventSessionContextIdIn))
+			$this->eventSessionContextIdIn = (string)$xml->eventSessionContextIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -396,5 +410,47 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $uiConfIdIn = null;
+
+	/**
+	 * filter by cue point id
+	 * @var string
+	 */
+	public $cuePointIdIn = null;
+
+	/**
+	 * filter by context ids
+	 * @var string
+	 */
+	public $contextIdIn = null;
+
+	/**
+	 * filter by user role
+	 * @var string
+	 */
+	public $roleIn = null;
+
+	/**
+	 * filter by industry
+	 * @var string
+	 */
+	public $industryIn = null;
+
+	/**
+	 * filter by playback mode
+	 * @var string
+	 */
+	public $playbackModeIn = null;
+
+	/**
+	 * filter by company
+	 * @var string
+	 */
+	public $companyIn = null;
+
+	/**
+	 * filter by event session context id
+	 * @var string
+	 */
+	public $eventSessionContextIdIn = null;
 
 }

@@ -59,6 +59,8 @@ class FileSyncResource extends \Kaltura\Client\Type\ContentResource
 			$this->objectId = (string)$xml->objectId;
 		if(count($xml->version))
 			$this->version = (string)$xml->version;
+		if(count($xml->originEntryId))
+			$this->originEntryId = (string)$xml->originEntryId;
 	}
 	/**
 	 * The object type of the file sync object
@@ -83,5 +85,11 @@ class FileSyncResource extends \Kaltura\Client\Type\ContentResource
 	 * @var string
 	 */
 	public $version = null;
+
+	/**
+	 * The original entry ID, if exists
+	 * @var string
+	 */
+	public $originEntryId = null;
 
 }
