@@ -30,79 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\S3DropFolder\Type;
+namespace Kaltura\Client\Plugin\Rsvp\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class S3DropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
+class RsvpUserEntryOrderBy extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaS3DropFolder';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->s3Host))
-			$this->s3Host = (string)$xml->s3Host;
-		if(count($xml->s3Region))
-			$this->s3Region = (string)$xml->s3Region;
-		if(count($xml->s3UserId))
-			$this->s3UserId = (string)$xml->s3UserId;
-		if(count($xml->s3Password))
-			$this->s3Password = (string)$xml->s3Password;
-		if(count($xml->useS3Arn))
-		{
-			if(!empty($xml->useS3Arn) && $xml->useS3Arn != 'false')
-				$this->useS3Arn = true;
-			else
-				$this->useS3Arn = false;
-		}
-		if(count($xml->s3Arn))
-			$this->s3Arn = (string)$xml->s3Arn;
-	}
-	/**
-	 * 
-	 * @var string
-	 */
-	public $s3Host = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $s3Region = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $s3UserId = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $s3Password = null;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $useS3Arn = null;
-
-	/**
-	 * 
-	 * @var string
-	 * @readonly
-	 */
-	public $s3Arn = null;
-
+	const CREATED_AT_ASC = "+createdAt";
+	const UPDATED_AT_ASC = "+updatedAt";
+	const CREATED_AT_DESC = "-createdAt";
+	const UPDATED_AT_DESC = "-updatedAt";
 }
+

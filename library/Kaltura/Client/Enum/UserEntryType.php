@@ -41,6 +41,7 @@ class UserEntryType extends \Kaltura\Client\EnumBase
 	const PERMISSION_LEVEL = "entryPermissionLevel.PERMISSION_LEVEL";
 	const QUIZ = "quiz.QUIZ";
 	const REGISTRATION = "registration.REGISTRATION";
+	const RSVP = "rsvp.RSVP";
 	const VIEW_HISTORY = "viewHistory.VIEW_HISTORY";
 	const WATCH_LATER = "watchLater.WATCH_LATER";
 }

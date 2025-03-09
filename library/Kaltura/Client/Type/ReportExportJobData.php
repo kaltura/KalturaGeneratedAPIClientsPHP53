@@ -52,6 +52,8 @@ class ReportExportJobData extends \Kaltura\Client\Type\JobData
 		
 		if(count($xml->recipientEmail))
 			$this->recipientEmail = (string)$xml->recipientEmail;
+		if(count($xml->recipientName))
+			$this->recipientName = (string)$xml->recipientName;
 		if(count($xml->reportItems))
 		{
 			if(empty($xml->reportItems))
@@ -78,6 +80,12 @@ class ReportExportJobData extends \Kaltura\Client\Type\JobData
 	 * @var string
 	 */
 	public $recipientEmail = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $recipientName = null;
 
 	/**
 	 * 

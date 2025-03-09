@@ -54,6 +54,8 @@ abstract class DropFolderFileBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->idEqual = (int)$xml->idEqual;
 		if(count($xml->idIn))
 			$this->idIn = (string)$xml->idIn;
+		if(count($xml->idGreaterThanOrEqual))
+			$this->idGreaterThanOrEqual = (int)$xml->idGreaterThanOrEqual;
 		if(count($xml->partnerIdEqual))
 			$this->partnerIdEqual = (int)$xml->partnerIdEqual;
 		if(count($xml->partnerIdIn))
@@ -116,6 +118,12 @@ abstract class DropFolderFileBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var string
 	 */
 	public $idIn = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $idGreaterThanOrEqual = null;
 
 	/**
 	 * 

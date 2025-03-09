@@ -52,6 +52,8 @@ class ReportExportParams extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->recipientEmail))
 			$this->recipientEmail = (string)$xml->recipientEmail;
+		if(count($xml->recipientName))
+			$this->recipientName = (string)$xml->recipientName;
 		if(count($xml->timeZoneOffset))
 			$this->timeZoneOffset = (int)$xml->timeZoneOffset;
 		if(count($xml->reportItems))
@@ -71,6 +73,12 @@ class ReportExportParams extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $recipientEmail = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $recipientName = null;
 
 	/**
 	 * Time zone offset in minutes (between client to UTC)
