@@ -131,6 +131,25 @@ class UserService extends \Kaltura\Client\ServiceBase
 	}
 
 	/**
+	 * 
+	 * @return \Kaltura\Client\Type\User
+	 */
+	function demoteAdmin($userId)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "userId", $userId);
+		$this->client->queueServiceActionCall("user", "demoteAdmin", "KalturaUser", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaUser");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Type\\User");
+		return $resultObject;
+	}
+
+	/**
 	 * Disables a user's ability to log into a partner account using an email address and a password.
 	 * 	 You may use either a userId or a loginId parameter for this action.
 	 * 

@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Quiz\Type;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuizUserEntryFilter extends \Kaltura\Client\Type\QuizUserEntryBaseFilter
+class MetadataEnrichmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaQuizUserEntryFilter';
+		return 'KalturaMetadataEnrichmentVendorTaskData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,29 +50,32 @@ class QuizUserEntryFilter extends \Kaltura\Client\Type\QuizUserEntryBaseFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->extendedStatusEqual))
-			$this->extendedStatusEqual = (string)$xml->extendedStatusEqual;
-		if(count($xml->extendedStatusIn))
-			$this->extendedStatusIn = (string)$xml->extendedStatusIn;
-		if(count($xml->extendedStatusNotIn))
-			$this->extendedStatusNotIn = (string)$xml->extendedStatusNotIn;
+		if(count($xml->detailLevel))
+			$this->detailLevel = (string)$xml->detailLevel;
+		if(count($xml->instruction))
+			$this->instruction = (string)$xml->instruction;
+		if(count($xml->outputJson))
+			$this->outputJson = (string)$xml->outputJson;
 	}
 	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
+	 * The level of detail for the metadata enrichment process.
+	 * @var string
+	 * @insertonly
 	 */
-	public $extendedStatusEqual = null;
+	public $detailLevel = null;
 
 	/**
-	 * 
+	 * Instructions describing what should be taken into account during the metadata enrichment process.
 	 * @var string
+	 * @insertonly
 	 */
-	public $extendedStatusIn = null;
+	public $instruction = null;
 
 	/**
-	 * 
+	 * Metadata enrichment result as JSON string.
+	 * 	 For example: {"titles": ["The first title", "The second title"], "descriptions": ["The first description"], "tags": ["Tag1", "Tag2"]}
 	 * @var string
 	 */
-	public $extendedStatusNotIn = null;
+	public $outputJson = null;
 
 }

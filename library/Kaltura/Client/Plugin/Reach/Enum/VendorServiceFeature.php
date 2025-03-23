@@ -53,5 +53,6 @@ class VendorServiceFeature extends \Kaltura\Client\EnumBase
 	const SUMMARY = 13;
 	const VIDEO_ANALYSIS = 14;
 	const MODERATION = 15;
+	const METADATA_ENRICHMENT = 16;
 }
 

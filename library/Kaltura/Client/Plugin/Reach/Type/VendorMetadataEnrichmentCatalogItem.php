@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Quiz\Type;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuizUserEntryFilter extends \Kaltura\Client\Type\QuizUserEntryBaseFilter
+class VendorMetadataEnrichmentCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItem
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaQuizUserEntryFilter';
+		return 'KalturaVendorMetadataEnrichmentCatalogItem';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,29 +50,5 @@ class QuizUserEntryFilter extends \Kaltura\Client\Type\QuizUserEntryBaseFilter
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->extendedStatusEqual))
-			$this->extendedStatusEqual = (string)$xml->extendedStatusEqual;
-		if(count($xml->extendedStatusIn))
-			$this->extendedStatusIn = (string)$xml->extendedStatusIn;
-		if(count($xml->extendedStatusNotIn))
-			$this->extendedStatusNotIn = (string)$xml->extendedStatusNotIn;
 	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
-	 */
-	public $extendedStatusEqual = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $extendedStatusIn = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $extendedStatusNotIn = null;
-
 }

@@ -58,6 +58,8 @@ class QuizUserEntry extends \Kaltura\Client\Type\UserEntry
 			$this->feedback = (string)$xml->feedback;
 		if(count($xml->version))
 			$this->version = (int)$xml->version;
+		if(count($xml->extendedStatus))
+			$this->extendedStatus = (string)$xml->extendedStatus;
 	}
 	/**
 	 * 
@@ -85,5 +87,11 @@ class QuizUserEntry extends \Kaltura\Client\Type\UserEntry
 	 * @readonly
 	 */
 	public $version = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\UserEntryExtendedStatus
+	 */
+	public $extendedStatus = null;
 
 }
