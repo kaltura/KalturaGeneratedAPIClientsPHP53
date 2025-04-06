@@ -30,33 +30,15 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Group\Type;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class GroupFilter extends \Kaltura\Client\Type\UserFilter
+class GroupType extends \Kaltura\Client\EnumBase
 {
-	public function getKalturaObjectType()
-	{
-		return 'KalturaGroupFilter';
-	}
-	
-	public function __construct(\SimpleXMLElement $xml = null)
-	{
-		parent::__construct($xml);
-		
-		if(is_null($xml))
-			return;
-		
-		if(count($xml->groupType))
-			$this->groupType = (int)$xml->groupType;
-	}
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\GroupType
-	 */
-	public $groupType = null;
-
+	const GROUP = 1;
+	const APPLICATIVE_GROUP = 2;
 }
+

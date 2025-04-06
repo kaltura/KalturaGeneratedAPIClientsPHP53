@@ -68,6 +68,8 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 			$this->creationMode = (int)$xml->creationMode;
 		if(count($xml->userRole))
 			$this->userRole = (int)$xml->userRole;
+		if(count($xml->groupType))
+			$this->groupType = (int)$xml->groupType;
 	}
 	/**
 	 * 
@@ -130,5 +132,12 @@ class GroupUser extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\GroupUserRole
 	 */
 	public $userRole = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\GroupType
+	 * @readonly
+	 */
+	public $groupType = null;
 
 }

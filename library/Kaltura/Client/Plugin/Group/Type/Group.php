@@ -54,6 +54,8 @@ class Group extends \Kaltura\Client\Type\BaseUser
 			$this->membersCount = (int)$xml->membersCount;
 		if(count($xml->processStatus))
 			$this->processStatus = (int)$xml->processStatus;
+		if(count($xml->groupType))
+			$this->groupType = (int)$xml->groupType;
 	}
 	/**
 	 * 
@@ -67,5 +69,11 @@ class Group extends \Kaltura\Client\Type\BaseUser
 	 * @var \Kaltura\Client\Plugin\Group\Enum\GroupProcessStatus
 	 */
 	public $processStatus = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\GroupType
+	 */
+	public $groupType = null;
 
 }

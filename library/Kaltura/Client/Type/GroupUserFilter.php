@@ -50,5 +50,13 @@ class GroupUserFilter extends \Kaltura\Client\Type\GroupUserBaseFilter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->groupType))
+			$this->groupType = (int)$xml->groupType;
 	}
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\GroupType
+	 */
+	public $groupType = null;
+
 }

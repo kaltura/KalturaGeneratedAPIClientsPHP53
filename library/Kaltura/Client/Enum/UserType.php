@@ -40,5 +40,6 @@ class UserType extends \Kaltura\Client\EnumBase
 {
 	const USER = 0;
 	const GROUP = 1;
+	const APPLICATIVE_GROUP = 2;
 }
 
