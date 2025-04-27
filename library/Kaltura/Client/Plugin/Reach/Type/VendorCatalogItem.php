@@ -97,6 +97,8 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 			$this->notes = (string)$xml->notes;
 		if(count($xml->partnerId))
 			$this->partnerId = (int)$xml->partnerId;
+		if(count($xml->defaultReachProfileId))
+			$this->defaultReachProfileId = (int)$xml->defaultReachProfileId;
 		if(count($xml->adminTagsToExclude))
 			$this->adminTagsToExclude = (string)$xml->adminTagsToExclude;
 	}
@@ -230,6 +232,12 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 	 * @var int
 	 */
 	public $partnerId = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $defaultReachProfileId = null;
 
 	/**
 	 * 

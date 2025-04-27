@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VendorLiveCaptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\VendorLiveCatalogItem
+class SessionTypeCondition extends \Kaltura\Client\Type\Condition
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaVendorLiveCaptionCatalogItem';
+		return 'KalturaSessionTypeCondition';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,23 +50,13 @@ class VendorLiveCaptionCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Ven
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->startTimeBuffer))
-			$this->startTimeBuffer = (int)$xml->startTimeBuffer;
-		if(count($xml->endTimeBuffer))
-			$this->endTimeBuffer = (int)$xml->endTimeBuffer;
+		if(count($xml->sessionType))
+			$this->sessionType = (int)$xml->sessionType;
 	}
 	/**
-	 * How long before the live stream start should service activate? (in secs)
-	 * @var int
-	 * @insertonly
+	 * The privelege needed to remove the restriction
+	 * @var \Kaltura\Client\Enum\SessionType
 	 */
-	public $startTimeBuffer = null;
-
-	/**
-	 * How long after the live stream end should service de-activate? (in secs)
-	 * @var int
-	 * @insertonly
-	 */
-	public $endTimeBuffer = null;
+	public $sessionType = null;
 
 }

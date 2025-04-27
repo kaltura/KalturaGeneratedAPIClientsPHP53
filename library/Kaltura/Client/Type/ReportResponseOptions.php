@@ -59,6 +59,13 @@ class ReportResponseOptions extends \Kaltura\Client\ObjectBase
 			else
 				$this->skipEmptyDates = false;
 		}
+		if(count($xml->useFriendlyHeadersNames))
+		{
+			if(!empty($xml->useFriendlyHeadersNames) && $xml->useFriendlyHeadersNames != 'false')
+				$this->useFriendlyHeadersNames = true;
+			else
+				$this->useFriendlyHeadersNames = false;
+		}
 	}
 	/**
 	 * 
@@ -71,5 +78,11 @@ class ReportResponseOptions extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $skipEmptyDates = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $useFriendlyHeadersNames = null;
 
 }

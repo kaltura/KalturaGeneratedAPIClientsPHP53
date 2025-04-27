@@ -50,10 +50,11 @@ class PartnerCatalogItemService extends \Kaltura\Client\ServiceBase
 	 * 
 	 * @return \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItem
 	 */
-	function add($id)
+	function add($id, $defaultReachProfileId = null)
 	{
 		$kparams = array();
 		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "defaultReachProfileId", $defaultReachProfileId);
 		$this->client->queueServiceActionCall("reach_partnercatalogitem", "add", "KalturaVendorCatalogItem", $kparams);
 		if ($this->client->isMultiRequest())
 			return $this->client->getMultiRequestResult();
