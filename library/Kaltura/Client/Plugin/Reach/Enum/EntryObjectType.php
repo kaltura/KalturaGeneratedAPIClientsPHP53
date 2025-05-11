@@ -30,23 +30,14 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Enum;
+namespace Kaltura\Client\Plugin\Reach\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryApplication extends \Kaltura\Client\EnumBase
+class EntryObjectType extends \Kaltura\Client\EnumBase
 {
-	const KMC = "0";
-	const KMS = "1";
-	const KAF = "2";
-	const PITCH = "3";
-	const KMS_GO = "4";
-	const WEBCAST_APP = "5";
-	const PERSONAL_CAPTURE = "6";
-	const KALTURA_MEETING = "7";
-	const EP = "8";
-	const CONTENT_LAB = "9";
+	const ENTRY = 1;
 }
 

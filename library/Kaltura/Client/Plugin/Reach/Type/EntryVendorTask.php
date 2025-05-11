@@ -76,6 +76,8 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 			$this->price = (float)$xml->price;
 		if(count($xml->userId))
 			$this->userId = (string)$xml->userId;
+		if(count($xml->entryObjectType))
+			$this->entryObjectType = (int)$xml->entryObjectType;
 		if(count($xml->moderatingUser))
 			$this->moderatingUser = (string)$xml->moderatingUser;
 		if(count($xml->errDescription))
@@ -200,6 +202,13 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $userId = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\EntryObjectType
+	 * @insertonly
+	 */
+	public $entryObjectType = null;
 
 	/**
 	 * The user ID that approved this task for execution (in case moderation is requested)

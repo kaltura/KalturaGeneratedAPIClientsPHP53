@@ -98,6 +98,12 @@ abstract class EntryVendorTaskBaseFilter extends \Kaltura\Client\Type\RelatedFil
 			$this->expectedFinishTimeGreaterThanOrEqual = (int)$xml->expectedFinishTimeGreaterThanOrEqual;
 		if(count($xml->expectedFinishTimeLessThanOrEqual))
 			$this->expectedFinishTimeLessThanOrEqual = (int)$xml->expectedFinishTimeLessThanOrEqual;
+		if(count($xml->entryObjectTypeEqual))
+			$this->entryObjectTypeEqual = (int)$xml->entryObjectTypeEqual;
+		if(count($xml->entryObjectTypeIn))
+			$this->entryObjectTypeIn = (string)$xml->entryObjectTypeIn;
+		if(count($xml->entryObjectTypeNotIn))
+			$this->entryObjectTypeNotIn = (string)$xml->entryObjectTypeNotIn;
 	}
 	/**
 	 * 
@@ -242,5 +248,23 @@ abstract class EntryVendorTaskBaseFilter extends \Kaltura\Client\Type\RelatedFil
 	 * @var int
 	 */
 	public $expectedFinishTimeLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\EntryObjectType
+	 */
+	public $entryObjectTypeEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entryObjectTypeIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $entryObjectTypeNotIn = null;
 
 }

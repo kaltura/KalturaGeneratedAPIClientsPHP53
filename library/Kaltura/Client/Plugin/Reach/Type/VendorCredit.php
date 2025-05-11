@@ -58,6 +58,13 @@ class VendorCredit extends \Kaltura\Client\Plugin\Reach\Type\BaseVendorCredit
 			$this->overageCredit = (int)$xml->overageCredit;
 		if(count($xml->addOn))
 			$this->addOn = (int)$xml->addOn;
+		if(count($xml->allowNegativeOverageCredit))
+		{
+			if(!empty($xml->allowNegativeOverageCredit) && $xml->allowNegativeOverageCredit != 'false')
+				$this->allowNegativeOverageCredit = true;
+			else
+				$this->allowNegativeOverageCredit = false;
+		}
 	}
 	/**
 	 * 
@@ -82,5 +89,11 @@ class VendorCredit extends \Kaltura\Client\Plugin\Reach\Type\BaseVendorCredit
 	 * @var int
 	 */
 	public $addOn = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $allowNegativeOverageCredit = null;
 
 }

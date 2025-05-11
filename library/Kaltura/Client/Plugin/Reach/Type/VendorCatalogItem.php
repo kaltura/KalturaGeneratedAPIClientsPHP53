@@ -83,6 +83,13 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 			else
 				$this->allowResubmission = false;
 		}
+		if(count($xml->requiresOverages))
+		{
+			if(!empty($xml->requiresOverages) && $xml->requiresOverages != 'false')
+				$this->requiresOverages = true;
+			else
+				$this->requiresOverages = false;
+		}
 		if(count($xml->vendorData))
 			$this->vendorData = (string)$xml->vendorData;
 		if(count($xml->stage))
@@ -190,6 +197,12 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $allowResubmission = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $requiresOverages = null;
 
 	/**
 	 * 
