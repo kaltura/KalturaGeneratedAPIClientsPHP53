@@ -250,8 +250,8 @@ class Language extends \Kaltura\Client\EnumBase
 	const KPO = "Ikposo";
 	const ILO = "Iloko";
 	const SMN = "Inari Sami";
-	const IN = "Indonesian";
 	const ID = "Indonesian";
+	const IN = "Indonesian";
 	const IZH = "Ingrian";
 	const INH = "Ingush";
 	const IA = "Interlingua";

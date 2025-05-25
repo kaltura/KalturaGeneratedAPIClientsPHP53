@@ -38,9 +38,6 @@ namespace Kaltura\Client\Enum;
  */
 class BulkUploadObjectType extends \Kaltura\Client\EnumBase
 {
-	const JOB = "bulkUploadFilter.JOB";
-	const SCHEDULE_EVENT = "scheduleBulkUpload.SCHEDULE_EVENT";
-	const SCHEDULE_RESOURCE = "scheduleBulkUpload.SCHEDULE_RESOURCE";
 	const ENTRY = "1";
 	const CATEGORY = "2";
 	const USER = "3";
@@ -48,5 +45,8 @@ class BulkUploadObjectType extends \Kaltura\Client\EnumBase
 	const CATEGORY_ENTRY = "5";
 	const USER_ENTRY = "6";
 	const VENDOR_CATALOG_ITEM = "7";
+	const JOB = "bulkUploadFilter.JOB";
+	const SCHEDULE_EVENT = "scheduleBulkUpload.SCHEDULE_EVENT";
+	const SCHEDULE_RESOURCE = "scheduleBulkUpload.SCHEDULE_RESOURCE";
 }
 

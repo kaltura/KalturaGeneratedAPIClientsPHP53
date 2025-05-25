@@ -38,6 +38,8 @@ namespace Kaltura\Client\Plugin\ContentDistribution\Enum;
  */
 class DistributionProviderType extends \Kaltura\Client\EnumBase
 {
+	const GENERIC = "1";
+	const SYNDICATION = "2";
 	const ATT_UVERSE = "attUverseDistribution.ATT_UVERSE";
 	const AVN = "avnDistribution.AVN";
 	const COMCAST_MRSS = "comcastMrssDistribution.COMCAST_MRSS";
@@ -69,7 +71,5 @@ class DistributionProviderType extends \Kaltura\Client\EnumBase
 	const YAHOO = "yahooDistribution.YAHOO";
 	const YOUTUBE = "youTubeDistribution.YOUTUBE";
 	const YOUTUBE_API = "youtubeApiDistribution.YOUTUBE_API";
-	const GENERIC = "1";
-	const SYNDICATION = "2";
 }
 

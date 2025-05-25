@@ -63,6 +63,10 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 			else
 				$this->ignoreSynonym = false;
 		}
+		if(count($xml->objectIds))
+			$this->objectIds = (string)$xml->objectIds;
+		if(count($xml->objectIdsNotIn))
+			$this->objectIdsNotIn = (int)$xml->objectIdsNotIn;
 	}
 	/**
 	 * 
@@ -87,5 +91,17 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $ignoreSynonym = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $objectIds = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $objectIdsNotIn = null;
 
 }

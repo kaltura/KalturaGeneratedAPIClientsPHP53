@@ -83,12 +83,12 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 			else
 				$this->allowResubmission = false;
 		}
-		if(count($xml->requiresOverages))
+		if(count($xml->payPerUse))
 		{
-			if(!empty($xml->requiresOverages) && $xml->requiresOverages != 'false')
-				$this->requiresOverages = true;
+			if(!empty($xml->payPerUse) && $xml->payPerUse != 'false')
+				$this->payPerUse = true;
 			else
-				$this->requiresOverages = false;
+				$this->payPerUse = false;
 		}
 		if(count($xml->vendorData))
 			$this->vendorData = (string)$xml->vendorData;
@@ -202,7 +202,7 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 	 * 
 	 * @var bool
 	 */
-	public $requiresOverages = null;
+	public $payPerUse = null;
 
 	/**
 	 * 

@@ -38,9 +38,9 @@ namespace Kaltura\Client\Enum;
  */
 class UserEntryStatus extends \Kaltura\Client\EnumBase
 {
-	const QUIZ_SUBMITTED = "quiz.3";
 	const ACTIVE = "1";
 	const DELETED = "2";
 	const RECYCLED = "3";
+	const QUIZ_SUBMITTED = "quiz.3";
 }
 

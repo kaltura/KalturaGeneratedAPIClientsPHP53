@@ -38,12 +38,12 @@ namespace Kaltura\Client\Enum;
  */
 class StorageProfileProtocol extends \Kaltura\Client\EnumBase
 {
-	const KONTIKI = "kontiki.KONTIKI";
 	const KALTURA_DC = "0";
 	const FTP = "1";
 	const SCP = "2";
 	const SFTP = "3";
 	const S3 = "6";
 	const LOCAL = "7";
+	const KONTIKI = "kontiki.KONTIKI";
 }
 

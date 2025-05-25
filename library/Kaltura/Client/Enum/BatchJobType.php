@@ -39,29 +39,6 @@ namespace Kaltura\Client\Enum;
 class BatchJobType extends \Kaltura\Client\EnumBase
 {
 	const CONVERT = "0";
-	const REACH_INTERNAL_QUEUE_HANDLER = "ReachInternal.ReachInternalQueueHandler";
-	const CONVERT_CAPTION_ASSET = "caption.convertcaptionasset";
-	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
-	const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
-	const DISTRIBUTION_DELETE = "contentDistribution.DistributionDelete";
-	const DISTRIBUTION_DISABLE = "contentDistribution.DistributionDisable";
-	const DISTRIBUTION_ENABLE = "contentDistribution.DistributionEnable";
-	const DISTRIBUTION_FETCH_REPORT = "contentDistribution.DistributionFetchReport";
-	const DISTRIBUTION_SUBMIT = "contentDistribution.DistributionSubmit";
-	const DISTRIBUTION_SYNC = "contentDistribution.DistributionSync";
-	const DISTRIBUTION_UPDATE = "contentDistribution.DistributionUpdate";
-	const DROP_FOLDER_CONTENT_PROCESSOR = "dropFolder.DropFolderContentProcessor";
-	const DROP_FOLDER_WATCHER = "dropFolder.DropFolderWatcher";
-	const EVENT_NOTIFICATION_HANDLER = "eventNotification.EventNotificationHandler";
-	const INTEGRATION = "integration.Integration";
-	const ENTRY_VENDOR_TASK_CSV = "reach.EntryVendorTasksCsv";
-	const SYNC_REACH_CREDIT_TASK = "reach.SyncReachCreditTask";
-	const SCHEDULED_TASK = "scheduledTask.ScheduledTask";
-	const SEARCH_TERM_CSV = "searchHistory.searchTermsCsv";
-	const INDEX_TAGS = "tagSearch.IndexTagsByPrivacyContext";
-	const TAG_RESOLVE = "tagSearch.TagResolve";
-	const VIRUS_SCAN = "virusScan.VirusScan";
-	const WIDEVINE_REPOSITORY_SYNC = "widevine.WidevineRepositorySync";
 	const IMPORT = "1";
 	const DELETE = "2";
 	const FLATTEN = "3";
@@ -115,5 +92,28 @@ class BatchJobType extends \Kaltura\Client\EnumBase
 	const STORAGE_PERIODIC_DELETE_LOCAL = "55";
 	const REACH_JOB_CLEANER = "56";
 	const MULTI_CLIP_CONCAT = "57";
+	const REACH_INTERNAL_QUEUE_HANDLER = "ReachInternal.ReachInternalQueueHandler";
+	const CONVERT_CAPTION_ASSET = "caption.convertcaptionasset";
+	const PARSE_MULTI_LANGUAGE_CAPTION_ASSET = "caption.parsemultilanguagecaptionasset";
+	const PARSE_CAPTION_ASSET = "captionSearch.parseCaptionAsset";
+	const DISTRIBUTION_DELETE = "contentDistribution.DistributionDelete";
+	const DISTRIBUTION_DISABLE = "contentDistribution.DistributionDisable";
+	const DISTRIBUTION_ENABLE = "contentDistribution.DistributionEnable";
+	const DISTRIBUTION_FETCH_REPORT = "contentDistribution.DistributionFetchReport";
+	const DISTRIBUTION_SUBMIT = "contentDistribution.DistributionSubmit";
+	const DISTRIBUTION_SYNC = "contentDistribution.DistributionSync";
+	const DISTRIBUTION_UPDATE = "contentDistribution.DistributionUpdate";
+	const DROP_FOLDER_CONTENT_PROCESSOR = "dropFolder.DropFolderContentProcessor";
+	const DROP_FOLDER_WATCHER = "dropFolder.DropFolderWatcher";
+	const EVENT_NOTIFICATION_HANDLER = "eventNotification.EventNotificationHandler";
+	const INTEGRATION = "integration.Integration";
+	const ENTRY_VENDOR_TASK_CSV = "reach.EntryVendorTasksCsv";
+	const SYNC_REACH_CREDIT_TASK = "reach.SyncReachCreditTask";
+	const SCHEDULED_TASK = "scheduledTask.ScheduledTask";
+	const SEARCH_TERM_CSV = "searchHistory.searchTermsCsv";
+	const INDEX_TAGS = "tagSearch.IndexTagsByPrivacyContext";
+	const TAG_RESOLVE = "tagSearch.TagResolve";
+	const VIRUS_SCAN = "virusScan.VirusScan";
+	const WIDEVINE_REPOSITORY_SYNC = "widevine.WidevineRepositorySync";
 }
 

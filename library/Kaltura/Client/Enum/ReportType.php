@@ -38,10 +38,6 @@ namespace Kaltura\Client\Enum;
  */
 class ReportType extends \Kaltura\Client\EnumBase
 {
-	const QUIZ = "quiz.QUIZ";
-	const QUIZ_AGGREGATE_BY_QUESTION = "quiz.QUIZ_AGGREGATE_BY_QUESTION";
-	const QUIZ_USER_AGGREGATE_BY_QUESTION = "quiz.QUIZ_USER_AGGREGATE_BY_QUESTION";
-	const QUIZ_USER_PERCENTAGE = "quiz.QUIZ_USER_PERCENTAGE";
 	const TOP_CONTENT = "1";
 	const CONTENT_DROPOFF = "2";
 	const CONTENT_INTERACTIONS = "3";
@@ -105,6 +101,7 @@ class ReportType extends \Kaltura\Client\EnumBase
 	const REACH_CATALOG_USAGE = "65";
 	const REACH_PROFILE_USAGE = "66";
 	const SELF_SERVE_BANDWIDTH = "67";
+	const PARTNER_USAGE_SF = "68";
 	const PARTNER_USAGE = "201";
 	const MAP_OVERLAY_COUNTRY_REALTIME = "10001";
 	const MAP_OVERLAY_REGION_REALTIME = "10002";
@@ -250,5 +247,9 @@ class ReportType extends \Kaltura\Client\EnumBase
 	const EP_TOP_SESSIONS = "60017";
 	const EP_WEBCAST_ENGAGEMENT_OVER_TIME = "60018";
 	const CNC_PARTICIPATION = "70001";
+	const QUIZ = "quiz.QUIZ";
+	const QUIZ_AGGREGATE_BY_QUESTION = "quiz.QUIZ_AGGREGATE_BY_QUESTION";
+	const QUIZ_USER_AGGREGATE_BY_QUESTION = "quiz.QUIZ_USER_AGGREGATE_BY_QUESTION";
+	const QUIZ_USER_PERCENTAGE = "quiz.QUIZ_USER_PERCENTAGE";
 }
 

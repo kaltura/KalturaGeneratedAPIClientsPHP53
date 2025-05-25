@@ -38,8 +38,6 @@ namespace Kaltura\Client\Enum;
  */
 class RuleActionType extends \Kaltura\Client\EnumBase
 {
-	const DRM_POLICY = "drm.DRM_POLICY";
-	const ADD_ENTRY_VENDOR_TASK = "reach.ADD_ENTRY_VENDOR_TASK";
 	const BLOCK = "1";
 	const PREVIEW = "2";
 	const LIMIT_FLAVORS = "3";
@@ -48,5 +46,7 @@ class RuleActionType extends \Kaltura\Client\EnumBase
 	const SERVE_FROM_REMOTE_SERVER = "6";
 	const REQUEST_HOST_REGEX = "7";
 	const LIMIT_THUMBNAIL_CAPTURE = "8";
+	const DRM_POLICY = "drm.DRM_POLICY";
+	const ADD_ENTRY_VENDOR_TASK = "reach.ADD_ENTRY_VENDOR_TASK";
 }
 

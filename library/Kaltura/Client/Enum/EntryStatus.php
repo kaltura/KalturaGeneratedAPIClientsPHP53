@@ -41,8 +41,6 @@ class EntryStatus extends \Kaltura\Client\EnumBase
 	const ERROR_IMPORTING = "-2";
 	const ERROR_CONVERTING = "-1";
 	const IMPORT = "0";
-	const INFECTED = "virusScan.Infected";
-	const SCAN_FAILURE = "virusScan.ScanFailure";
 	const PRECONVERT = "1";
 	const READY = "2";
 	const DELETED = "3";
@@ -50,5 +48,7 @@ class EntryStatus extends \Kaltura\Client\EnumBase
 	const MODERATE = "5";
 	const BLOCKED = "6";
 	const NO_CONTENT = "7";
+	const INFECTED = "virusScan.Infected";
+	const SCAN_FAILURE = "virusScan.ScanFailure";
 }
 

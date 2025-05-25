@@ -38,7 +38,6 @@ namespace Kaltura\Client\Plugin\EventNotification\Enum;
  */
 class EventNotificationEventType extends \Kaltura\Client\EnumBase
 {
-	const INTEGRATION_JOB_CLOSED = "integrationEventNotifications.INTEGRATION_JOB_CLOSED";
 	const BATCH_JOB_STATUS = "1";
 	const OBJECT_ADDED = "2";
 	const OBJECT_CHANGED = "3";
@@ -52,5 +51,6 @@ class EventNotificationEventType extends \Kaltura\Client\EnumBase
 	const OBJECT_UPDATED = "11";
 	const OBJECT_REPLACED = "12";
 	const OBJECT_READY_FOR_INDEX = "13";
+	const INTEGRATION_JOB_CLOSED = "integrationEventNotifications.INTEGRATION_JOB_CLOSED";
 }
 

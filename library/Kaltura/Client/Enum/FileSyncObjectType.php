@@ -38,11 +38,6 @@ namespace Kaltura\Client\Enum;
  */
 class FileSyncObjectType extends \Kaltura\Client\EnumBase
 {
-	const DISTRIBUTION_PROFILE = "contentDistribution.DistributionProfile";
-	const ENTRY_DISTRIBUTION = "contentDistribution.EntryDistribution";
-	const GENERIC_DISTRIBUTION_ACTION = "contentDistribution.GenericDistributionAction";
-	const EMAIL_NOTIFICATION_TEMPLATE = "emailNotification.EmailNotificationTemplate";
-	const HTTP_NOTIFICATION_TEMPLATE = "httpNotification.HttpNotificationTemplate";
 	const ENTRY = "1";
 	const UICONF = "2";
 	const BATCHJOB = "3";
@@ -53,5 +48,10 @@ class FileSyncObjectType extends \Kaltura\Client\EnumBase
 	const SYNDICATION_FEED = "7";
 	const CONVERSION_PROFILE = "8";
 	const FILE_ASSET = "9";
+	const DISTRIBUTION_PROFILE = "contentDistribution.DistributionProfile";
+	const ENTRY_DISTRIBUTION = "contentDistribution.EntryDistribution";
+	const GENERIC_DISTRIBUTION_ACTION = "contentDistribution.GenericDistributionAction";
+	const EMAIL_NOTIFICATION_TEMPLATE = "emailNotification.EmailNotificationTemplate";
+	const HTTP_NOTIFICATION_TEMPLATE = "httpNotification.HttpNotificationTemplate";
 }
 

@@ -38,7 +38,6 @@ namespace Kaltura\Client\Enum;
  */
 class BulkUploadAction extends \Kaltura\Client\EnumBase
 {
-	const CANCEL = "scheduleBulkUpload.CANCEL";
 	const ADD = "1";
 	const UPDATE = "2";
 	const DELETE = "3";
@@ -48,5 +47,6 @@ class BulkUploadAction extends \Kaltura\Client\EnumBase
 	const ACTIVATE = "7";
 	const REJECT = "8";
 	const UPDATE_STATUS = "9";
+	const CANCEL = "scheduleBulkUpload.CANCEL";
 }
 

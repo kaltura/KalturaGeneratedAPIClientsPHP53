@@ -78,6 +78,8 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 			$this->userId = (string)$xml->userId;
 		if(count($xml->entryObjectType))
 			$this->entryObjectType = (int)$xml->entryObjectType;
+		if(count($xml->unitsUsed))
+			$this->unitsUsed = (int)$xml->unitsUsed;
 		if(count($xml->moderatingUser))
 			$this->moderatingUser = (string)$xml->moderatingUser;
 		if(count($xml->errDescription))
@@ -209,6 +211,12 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 	 * @insertonly
 	 */
 	public $entryObjectType = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $unitsUsed = null;
 
 	/**
 	 * The user ID that approved this task for execution (in case moderation is requested)

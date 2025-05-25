@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\Reach\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ModerationVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
+class SentimentAnalysisVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaModerationVendorTaskData';
+		return 'KalturaSentimentAnalysisVendorTaskData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,37 +50,13 @@ class ModerationVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorT
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->ruleIds))
-			$this->ruleIds = (string)$xml->ruleIds;
-		if(count($xml->policyIds))
-			$this->policyIds = (string)$xml->policyIds;
-		if(count($xml->categoryIds))
-			$this->categoryIds = (string)$xml->categoryIds;
-		if(count($xml->moderationOutputJson))
-			$this->moderationOutputJson = (string)$xml->moderationOutputJson;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
 	}
 	/**
-	 * A comma seperated string of rule IDs.
-	 * @var string
+	 * Language code
+	 * @var \Kaltura\Client\Enum\LanguageCode
 	 */
-	public $ruleIds = null;
-
-	/**
-	 * A comma seperated string of policy IDs.
-	 * @var string
-	 */
-	public $policyIds = null;
-
-	/**
-	 * A comma seperated string of category IDs.
-	 * @var string
-	 */
-	public $categoryIds = null;
-
-	/**
-	 * JSON string containing the moderation output.
-	 * @var string
-	 */
-	public $moderationOutputJson = null;
+	public $language = null;
 
 }

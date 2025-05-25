@@ -38,6 +38,9 @@ namespace Kaltura\Client\Enum;
  */
 class AssetType extends \Kaltura\Client\EnumBase
 {
+	const FLAVOR = "1";
+	const THUMBNAIL = "2";
+	const LIVE = "3";
 	const ATTACHMENT = "attachment.Attachment";
 	const CAPTION = "caption.Caption";
 	const DOCUMENT = "document.Document";
@@ -47,8 +50,5 @@ class AssetType extends \Kaltura\Client\EnumBase
 	const TIMED_THUMB_ASSET = "thumbCuePoint.timedThumb";
 	const TRANSCRIPT = "transcript.Transcript";
 	const WIDEVINE_FLAVOR = "widevine.WidevineFlavor";
-	const FLAVOR = "1";
-	const THUMBNAIL = "2";
-	const LIVE = "3";
 }
 
