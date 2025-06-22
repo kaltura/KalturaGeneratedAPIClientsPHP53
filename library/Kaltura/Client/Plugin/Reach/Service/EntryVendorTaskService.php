@@ -255,6 +255,26 @@ class EntryVendorTaskService extends \Kaltura\Client\ServiceBase
 
 	/**
 	 * 
+	 * @return \Kaltura\Client\Plugin\Reach\Type\EntryVendorTask
+	 */
+	function replaceOutput($id, $newOutput)
+	{
+		$kparams = array();
+		$this->client->addParam($kparams, "id", $id);
+		$this->client->addParam($kparams, "newOutput", $newOutput);
+		$this->client->queueServiceActionCall("reach_entryvendortask", "replaceOutput", "KalturaEntryVendorTask", $kparams);
+		if ($this->client->isMultiRequest())
+			return $this->client->getMultiRequestResult();
+		$resultXml = $this->client->doQueue();
+		$resultXmlObject = new \SimpleXMLElement($resultXml);
+		$this->client->checkIfError($resultXmlObject->result);
+		$resultObject = \Kaltura\Client\ParseUtils::unmarshalObject($resultXmlObject->result, "KalturaEntryVendorTask");
+		$this->client->validateObjectType($resultObject, "\\Kaltura\\Client\\Plugin\\Reach\\Type\\EntryVendorTask");
+		return $resultObject;
+	}
+
+	/**
+	 * 
 	 * @return file
 	 */
 	function serve($vendorPartnerId = null, $partnerId = null, $status = null, $dueDate = null)

@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Reach\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class QuizVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
+class QuizVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\LocalizedVendorTaskData
 {
 	public function getKalturaObjectType()
 	{

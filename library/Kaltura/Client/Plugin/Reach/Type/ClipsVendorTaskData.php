@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Reach\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ClipsVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
+class ClipsVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\LocalizedVendorTaskData
 {
 	public function getKalturaObjectType()
 	{

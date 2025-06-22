@@ -30,32 +30,41 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VendorServiceFeature extends \Kaltura\Client\EnumBase
+class LocalizedVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
 {
-	const CAPTIONS = 1;
-	const TRANSLATION = 2;
-	const ALIGNMENT = 3;
-	const AUDIO_DESCRIPTION = 4;
-	const CHAPTERING = 5;
-	const INTELLIGENT_TAGGING = 6;
-	const DUBBING = 7;
-	const LIVE_CAPTION = 8;
-	const EXTENDED_AUDIO_DESCRIPTION = 9;
-	const CLIPS = 10;
-	const LIVE_TRANSLATION = 11;
-	const QUIZ = 12;
-	const SUMMARY = 13;
-	const VIDEO_ANALYSIS = 14;
-	const MODERATION = 15;
-	const METADATA_ENRICHMENT = 16;
-	const SENTIMENT_ANALYSIS = 17;
-	const DOCUMENT_ENRICHMENT = 18;
-	const SIGN_LANGUAGE = 19;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaLocalizedVendorTaskData';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->outputLanguage))
+			$this->outputLanguage = (string)$xml->outputLanguage;
+		if(count($xml->outputJson))
+			$this->outputJson = (string)$xml->outputJson;
+	}
+	/**
+	 * Language code
+	 * @var \Kaltura\Client\Enum\Language
+	 */
+	public $outputLanguage = null;
 
+	/**
+	 * result as JSON string.
+	 * @var string
+	 */
+	public $outputJson = null;
+
+}

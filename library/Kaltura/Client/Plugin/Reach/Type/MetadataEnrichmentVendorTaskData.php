@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Reach\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class MetadataEnrichmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\VendorTaskData
+class MetadataEnrichmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\LocalizedVendorTaskData
 {
 	public function getKalturaObjectType()
 	{
@@ -54,8 +54,6 @@ class MetadataEnrichmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type
 			$this->detailLevel = (string)$xml->detailLevel;
 		if(count($xml->instruction))
 			$this->instruction = (string)$xml->instruction;
-		if(count($xml->outputJson))
-			$this->outputJson = (string)$xml->outputJson;
 	}
 	/**
 	 * The level of detail for the metadata enrichment process.
@@ -70,12 +68,5 @@ class MetadataEnrichmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type
 	 * @insertonly
 	 */
 	public $instruction = null;
-
-	/**
-	 * Metadata enrichment result as JSON string.
-	 * 	 For example: {"titles": ["The first title", "The second title"], "descriptions": ["The first description"], "tags": ["Tag1", "Tag2"]}
-	 * @var string
-	 */
-	public $outputJson = null;
 
 }
