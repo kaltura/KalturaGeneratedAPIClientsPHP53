@@ -76,6 +76,8 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 			$this->handleCohostsMode = (int)$xml->handleCohostsMode;
 		if(count($xml->handleAlternativeHostsMode))
 			$this->handleAlternativeHostsMode = (int)$xml->handleAlternativeHostsMode;
+		if(count($xml->userSearchMethod))
+			$this->userSearchMethod = (int)$xml->userSearchMethod;
 	}
 	/**
 	 * 
@@ -154,5 +156,11 @@ class ZoomIntegrationSetting extends \Kaltura\Client\Plugin\Vendor\Type\Integrat
 	 * @var \Kaltura\Client\Plugin\Vendor\Enum\HandleParticipantsMode
 	 */
 	public $handleAlternativeHostsMode = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Vendor\Enum\ZoomUsersSearchMethod
+	 */
+	public $userSearchMethod = null;
 
 }

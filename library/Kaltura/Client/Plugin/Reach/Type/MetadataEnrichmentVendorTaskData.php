@@ -54,6 +54,22 @@ class MetadataEnrichmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type
 			$this->detailLevel = (string)$xml->detailLevel;
 		if(count($xml->instruction))
 			$this->instruction = (string)$xml->instruction;
+		if(count($xml->shouldApply))
+		{
+			if(!empty($xml->shouldApply) && $xml->shouldApply != 'false')
+				$this->shouldApply = true;
+			else
+				$this->shouldApply = false;
+		}
+		if(count($xml->applyMode))
+			$this->applyMode = (string)$xml->applyMode;
+		if(count($xml->overrideFields))
+		{
+			if(empty($xml->overrideFields))
+				$this->overrideFields = array();
+			else
+				$this->overrideFields = \Kaltura\Client\ParseUtils::unmarshalArray($xml->overrideFields, "KalturaString");
+		}
 	}
 	/**
 	 * The level of detail for the metadata enrichment process.
@@ -68,5 +84,25 @@ class MetadataEnrichmentVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type
 	 * @insertonly
 	 */
 	public $instruction = null;
+
+	/**
+	 * Indicates whether the metadata enrichment results should be automatically applied on the task entry.
+	 * 	 Default is false.
+	 * @var bool
+	 */
+	public $shouldApply = null;
+
+	/**
+	 * Specifies how metadata fields should be applied during enrichment.
+	 * 	 If 'FILL_EMPTY_AND_OVERRIDE_LIST', use overrideFields to specify which fields to override.
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\MetadataEnrichmentApplyMode
+	 */
+	public $applyMode = null;
+
+	/**
+	 * List of entry fields to override when applyMode is set to 'FILL_EMPTY_AND_OVERRIDE_LIST'.
+	 * @var array<KalturaString>
+	 */
+	public $overrideFields;
 
 }
