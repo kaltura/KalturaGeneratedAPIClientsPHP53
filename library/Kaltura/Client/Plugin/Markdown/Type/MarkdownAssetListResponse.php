@@ -30,15 +30,39 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Markdown\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+class MarkdownAssetListResponse extends \Kaltura\Client\Type\ListResponse
 {
-	const ENTRY = 1;
-	const ASSET = 2;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaMarkdownAssetListResponse';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->objects))
+		{
+			if(empty($xml->objects))
+				$this->objects = array();
+			else
+				$this->objects = \Kaltura\Client\ParseUtils::unmarshalArray($xml->objects, "KalturaMarkdownAsset");
+		}
+	}
+	/**
+	 * 
+	 * @var array<KalturaMarkdownAsset>
+	 * @readonly
+	 */
+	public $objects;
 
+}

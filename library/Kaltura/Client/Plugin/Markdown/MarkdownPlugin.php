@@ -30,15 +30,43 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Markdown;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+class MarkdownPlugin extends \Kaltura\Client\Plugin
 {
-	const ENTRY = 1;
-	const ASSET = 2;
+	protected function __construct(\Kaltura\Client\Client $client)
+	{
+		parent::__construct($client);
+	}
+
+	/**
+	 * @return MarkdownPlugin
+	 */
+	public static function get(\Kaltura\Client\Client $client)
+	{
+		return new MarkdownPlugin($client);
+	}
+
+	/**
+	 * @return array<\Kaltura\Client\ServiceBase>
+	 */
+	public function getServices()
+	{
+		$services = array(
+		);
+		return $services;
+	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return 'markdown';
+	}
 }
 

@@ -30,15 +30,14 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Markdown\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class VendorCatalogItemSignLanguageOutputFormat extends \Kaltura\Client\EnumBase
+class MarkdownProviderType extends \Kaltura\Client\EnumBase
 {
-	const ASPECT_RATIO_16_9 = 1;
-	const ASPECT_RATIO_4_3 = 2;
+	const KAI = "0";
 }
 

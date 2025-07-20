@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Transcript\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class TranscriptAssetBaseFilter extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentAssetFilter
+abstract class TranscriptAssetBaseFilter extends \Kaltura\Client\Plugin\Attachment\Type\TextualAttachmentAssetFilter
 {
 	public function getKalturaObjectType()
 	{

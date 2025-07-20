@@ -30,15 +30,21 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Markdown\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+class MarkdownAssetOrderBy extends \Kaltura\Client\EnumBase
 {
-	const ENTRY = 1;
-	const ASSET = 2;
+	const CREATED_AT_ASC = "+createdAt";
+	const DELETED_AT_ASC = "+deletedAt";
+	const SIZE_ASC = "+size";
+	const UPDATED_AT_ASC = "+updatedAt";
+	const CREATED_AT_DESC = "-createdAt";
+	const DELETED_AT_DESC = "-deletedAt";
+	const SIZE_DESC = "-size";
+	const UPDATED_AT_DESC = "-updatedAt";
 }
 

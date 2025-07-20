@@ -52,19 +52,11 @@ class VendorSignLanguageCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Ve
 		
 		if(count($xml->targetLanguage))
 			$this->targetLanguage = (string)$xml->targetLanguage;
-		if(count($xml->outputFormat))
-			$this->outputFormat = (int)$xml->outputFormat;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemSignLanguage
 	 */
 	public $targetLanguage = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorCatalogItemSignLanguageOutputFormat
-	 */
-	public $outputFormat = null;
 
 }

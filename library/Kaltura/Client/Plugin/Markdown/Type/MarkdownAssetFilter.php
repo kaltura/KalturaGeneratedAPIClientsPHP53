@@ -30,15 +30,25 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Markdown\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+class MarkdownAssetFilter extends \Kaltura\Client\Plugin\Markdown\Type\MarkdownAssetBaseFilter
 {
-	const ENTRY = 1;
-	const ASSET = 2;
+	public function getKalturaObjectType()
+	{
+		return 'KalturaMarkdownAssetFilter';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+	}
 }
-

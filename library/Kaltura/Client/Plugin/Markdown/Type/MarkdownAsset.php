@@ -30,15 +30,41 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Markdown\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+class MarkdownAsset extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset
 {
-	const ENTRY = 1;
-	const ASSET = 2;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaMarkdownAsset';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->accuracy))
+			$this->accuracy = (int)$xml->accuracy;
+		if(count($xml->providerType))
+			$this->providerType = (string)$xml->providerType;
+	}
+	/**
+	 * The percentage accuracy of the markdown - values between 0 and 100
+	 * @var int
+	 */
+	public $accuracy = null;
 
+	/**
+	 * The provider of the markdown
+	 * @var \Kaltura\Client\Plugin\Markdown\Enum\MarkdownProviderType
+	 */
+	public $providerType = null;
+
+}

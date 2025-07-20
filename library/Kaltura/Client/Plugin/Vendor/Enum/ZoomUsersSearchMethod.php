@@ -38,8 +38,7 @@ namespace Kaltura\Client\Plugin\Vendor\Enum;
  */
 class ZoomUsersSearchMethod extends \Kaltura\Client\EnumBase
 {
-	const ID = 0;
-	const EMAIL = 1;
-	const ALL = 2;
+	const EMAIL = 0;
+	const EXTERNAL = 1;
 }
 

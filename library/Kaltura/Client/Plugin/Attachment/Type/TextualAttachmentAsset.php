@@ -30,15 +30,41 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Plugin\Attachment\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+abstract class TextualAttachmentAsset extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset
 {
-	const ENTRY = 1;
-	const ASSET = 2;
-}
+	public function getKalturaObjectType()
+	{
+		return 'KalturaTextualAttachmentAsset';
+	}
+	
+	public function __construct(\SimpleXMLElement $xml = null)
+	{
+		parent::__construct($xml);
+		
+		if(is_null($xml))
+			return;
+		
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
+		if(count($xml->humanVerified))
+			$this->humanVerified = (int)$xml->humanVerified;
+	}
+	/**
+	 * The language of the transcript
+	 * @var \Kaltura\Client\Enum\Language
+	 */
+	public $language = null;
 
+	/**
+	 * Was verified by human or machine
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $humanVerified = null;
+
+}

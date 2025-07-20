@@ -36,7 +36,7 @@ namespace Kaltura\Client\Plugin\Transcript\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class TranscriptAsset extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentAsset
+class TranscriptAsset extends \Kaltura\Client\Plugin\Attachment\Type\TextualAttachmentAsset
 {
 	public function getKalturaObjectType()
 	{
@@ -52,10 +52,6 @@ class TranscriptAsset extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentA
 		
 		if(count($xml->accuracy))
 			$this->accuracy = (float)$xml->accuracy;
-		if(count($xml->humanVerified))
-			$this->humanVerified = (int)$xml->humanVerified;
-		if(count($xml->language))
-			$this->language = (string)$xml->language;
 		if(count($xml->providerType))
 			$this->providerType = (string)$xml->providerType;
 	}
@@ -64,18 +60,6 @@ class TranscriptAsset extends \Kaltura\Client\Plugin\Attachment\Type\AttachmentA
 	 * @var float
 	 */
 	public $accuracy = null;
-
-	/**
-	 * Was verified by human or machine
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $humanVerified = null;
-
-	/**
-	 * The language of the transcript
-	 * @var \Kaltura\Client\Enum\Language
-	 */
-	public $language = null;
 
 	/**
 	 * The provider of the transcript
