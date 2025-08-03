@@ -92,6 +92,8 @@ class PlaybackContext extends \Kaltura\Client\ObjectBase
 			else
 				$this->bumperData = \Kaltura\Client\ParseUtils::unmarshalArray($xml->bumperData, "KalturaObject");
 		}
+		if(count($xml->activeLiveStreamTime) && !empty($xml->activeLiveStreamTime))
+			$this->activeLiveStreamTime = \Kaltura\Client\ParseUtils::unmarshalObject($xml->activeLiveStreamTime, "KalturaActiveLiveStreamTime");
 	}
 	/**
 	 * 
@@ -128,5 +130,11 @@ class PlaybackContext extends \Kaltura\Client\ObjectBase
 	 * @var array<KalturaObject>
 	 */
 	public $bumperData;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\ActiveLiveStreamTime
+	 */
+	public $activeLiveStreamTime;
 
 }

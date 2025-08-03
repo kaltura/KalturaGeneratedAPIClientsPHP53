@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Type;
+namespace Kaltura\Client\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class QuizVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\LocalizedVendorTaskData
+class ActiveLiveStreamTime extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaQuizVendorTaskData';
+		return 'KalturaActiveLiveStreamTime';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,67 +50,21 @@ class QuizVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\LocalizedVend
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->numberOfQuestions))
-			$this->numberOfQuestions = (int)$xml->numberOfQuestions;
-		if(count($xml->questionsType))
-			$this->questionsType = (string)$xml->questionsType;
-		if(count($xml->context))
-			$this->context = (string)$xml->context;
-		if(count($xml->formalStyle))
-			$this->formalStyle = (string)$xml->formalStyle;
-		if(count($xml->createQuiz))
-		{
-			if(!empty($xml->createQuiz) && $xml->createQuiz != 'false')
-				$this->createQuiz = true;
-			else
-				$this->createQuiz = false;
-		}
-		if(count($xml->quizOutput))
-			$this->quizOutput = (string)$xml->quizOutput;
-		if(count($xml->instruction))
-			$this->instruction = (string)$xml->instruction;
+		if(count($xml->startTime))
+			$this->startTime = (int)$xml->startTime;
+		if(count($xml->endTime))
+			$this->endTime = (int)$xml->endTime;
 	}
 	/**
-	 * Number Of Questions.
+	 * The start time of the live stream (unix timestamp in seconds)
 	 * @var int
 	 */
-	public $numberOfQuestions = null;
+	public $startTime = null;
 
 	/**
-	 * Questions Type.
-	 * @var string
+	 * The end time of the live stream (unix timestamp in seconds)
+	 * @var int
 	 */
-	public $questionsType = null;
-
-	/**
-	 * Quiz Context.
-	 * @var string
-	 */
-	public $context = null;
-
-	/**
-	 * Formal Style.
-	 * @var string
-	 */
-	public $formalStyle = null;
-
-	/**
-	 * Create quiz flag.
-	 * @var bool
-	 */
-	public $createQuiz = null;
-
-	/**
-	 * Quiz entry Id
-	 * @var string
-	 */
-	public $quizOutput = null;
-
-	/**
-	 * Instructions describing what should be taken into account during the quiz creation process.
-	 * @var string
-	 * @insertonly
-	 */
-	public $instruction = null;
+	public $endTime = null;
 
 }

@@ -53,6 +53,7 @@ class TypeMap
 		'KalturaAccessControlProfile' => 'Kaltura\Client\Type\AccessControlProfile',
 		'KalturaKeyValue' => 'Kaltura\Client\Type\KeyValue',
 		'KalturaAccessControlScope' => 'Kaltura\Client\Type\AccessControlScope',
+		'KalturaActiveLiveStreamTime' => 'Kaltura\Client\Type\ActiveLiveStreamTime',
 		'KalturaReportFilter' => 'Kaltura\Client\Type\ReportFilter',
 		'KalturaAnalyticsFilter' => 'Kaltura\Client\Type\AnalyticsFilter',
 		'KalturaCuePoint' => 'Kaltura\Client\Plugin\CuePoint\Type\CuePoint',
