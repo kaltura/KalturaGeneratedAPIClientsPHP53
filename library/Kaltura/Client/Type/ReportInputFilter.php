@@ -158,6 +158,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->companyIn = (string)$xml->companyIn;
 		if(count($xml->eventSessionContextIdIn))
 			$this->eventSessionContextIdIn = (string)$xml->eventSessionContextIdIn;
+		if(count($xml->videoCodecIn))
+			$this->videoCodecIn = (string)$xml->videoCodecIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -452,5 +454,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $eventSessionContextIdIn = null;
+
+	/**
+	 * filter by event video codec
+	 * @var string
+	 */
+	public $videoCodecIn = null;
 
 }

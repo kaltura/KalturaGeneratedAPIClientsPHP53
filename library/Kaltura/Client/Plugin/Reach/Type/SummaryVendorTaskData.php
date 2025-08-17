@@ -56,6 +56,8 @@ class SummaryVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\LocalizedV
 			$this->writingStyle = (string)$xml->writingStyle;
 		if(count($xml->summaryOutputJson))
 			$this->summaryOutputJson = (string)$xml->summaryOutputJson;
+		if(count($xml->instruction))
+			$this->instruction = (string)$xml->instruction;
 	}
 	/**
 	 * Type of summary.
@@ -74,5 +76,12 @@ class SummaryVendorTaskData extends \Kaltura\Client\Plugin\Reach\Type\LocalizedV
 	 * @var string
 	 */
 	public $summaryOutputJson = null;
+
+	/**
+	 * Additional instruction for the summary.
+	 * @var string
+	 * @insertonly
+	 */
+	public $instruction = null;
 
 }
