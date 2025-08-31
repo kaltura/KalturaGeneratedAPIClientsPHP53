@@ -52,11 +52,19 @@ class AddEntryVendorTaskAction extends \Kaltura\Client\Type\RuleAction
 		
 		if(count($xml->catalogItemIds))
 			$this->catalogItemIds = (string)$xml->catalogItemIds;
+		if(count($xml->entryObjectType))
+			$this->entryObjectType = (int)$xml->entryObjectType;
 	}
 	/**
 	 * Catalog Item Id
 	 * @var string
 	 */
 	public $catalogItemIds = null;
+
+	/**
+	 * Entry Object Type
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\EntryObjectType
+	 */
+	public $entryObjectType = null;
 
 }
