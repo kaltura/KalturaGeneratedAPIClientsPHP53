@@ -51,5 +51,13 @@ class HttpNotificationDataFields extends \Kaltura\Client\Plugin\HttpNotification
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->contentType))
+			$this->contentType = (string)$xml->contentType;
 	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $contentType = null;
+
 }

@@ -52,11 +52,19 @@ class HttpNotificationDataText extends \Kaltura\Client\Plugin\HttpNotification\T
 		
 		if(count($xml->content) && !empty($xml->content))
 			$this->content = \Kaltura\Client\ParseUtils::unmarshalObject($xml->content, "KalturaStringValue");
+		if(count($xml->contentType))
+			$this->contentType = (string)$xml->contentType;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Type\StringValue
 	 */
 	public $content;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $contentType = null;
 
 }

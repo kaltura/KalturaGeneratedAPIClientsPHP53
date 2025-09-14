@@ -55,7 +55,7 @@ class VendorSignLanguageCatalogItem extends \Kaltura\Client\Plugin\Reach\Type\Ve
 	}
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemSignLanguage
+	 * @var \Kaltura\Client\Plugin\Reach\Enum\CatalogItemLanguage
 	 */
 	public $targetLanguage = null;
 
