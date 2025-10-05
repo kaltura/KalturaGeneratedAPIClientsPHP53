@@ -71,6 +71,8 @@ class HttpNotificationObjectData extends \Kaltura\Client\Plugin\HttpNotification
 			else
 				$this->dataStringReplacements = \Kaltura\Client\ParseUtils::unmarshalArray($xml->dataStringReplacements, "KalturaKeyValue");
 		}
+		if(count($xml->responseProfileId))
+			$this->responseProfileId = (int)$xml->responseProfileId;
 	}
 	/**
 	 * Kaltura API object type
@@ -101,5 +103,11 @@ class HttpNotificationObjectData extends \Kaltura\Client\Plugin\HttpNotification
 	 * @var array<KalturaKeyValue>
 	 */
 	public $dataStringReplacements;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $responseProfileId = null;
 
 }
