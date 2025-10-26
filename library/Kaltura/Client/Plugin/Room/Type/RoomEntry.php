@@ -56,6 +56,8 @@ class RoomEntry extends \Kaltura\Client\Type\BaseEntry
 			$this->broadcastEntryId = (string)$xml->broadcastEntryId;
 		if(count($xml->templateRoomEntryId))
 			$this->templateRoomEntryId = (string)$xml->templateRoomEntryId;
+		if(count($xml->recordedEntryId))
+			$this->recordedEntryId = (string)$xml->recordedEntryId;
 	}
 	/**
 	 * 
@@ -74,5 +76,11 @@ class RoomEntry extends \Kaltura\Client\Type\BaseEntry
 	 * @var string
 	 */
 	public $templateRoomEntryId = null;
+
+	/**
+	 * The entryId of the recording
+	 * @var string
+	 */
+	public $recordedEntryId = null;
 
 }
