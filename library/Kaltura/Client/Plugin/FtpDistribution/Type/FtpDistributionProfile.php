@@ -85,6 +85,8 @@ class FtpDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribution\
 			$this->thumbnailAssetFilenameXslt = (string)$xml->thumbnailAssetFilenameXslt;
 		if(count($xml->assetFilenameXslt))
 			$this->assetFilenameXslt = (string)$xml->assetFilenameXslt;
+		if(count($xml->dataContentFilenameXslt))
+			$this->dataContentFilenameXslt = (string)$xml->dataContentFilenameXslt;
 		if(count($xml->asperaPublicKey))
 			$this->asperaPublicKey = (string)$xml->asperaPublicKey;
 		if(count($xml->asperaPrivateKey))
@@ -187,6 +189,12 @@ class FtpDistributionProfile extends \Kaltura\Client\Plugin\ContentDistribution\
 	 * @var string
 	 */
 	public $assetFilenameXslt = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $dataContentFilenameXslt = null;
 
 	/**
 	 * 

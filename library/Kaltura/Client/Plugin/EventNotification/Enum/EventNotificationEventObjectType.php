@@ -77,6 +77,7 @@ class EventNotificationEventObjectType extends \Kaltura\Client\EnumBase
 	const REACH_PROFILE = "41";
 	const ENTRY_VENDOR_TASK = "42";
 	const GROUPUSER = "43";
+	const USER_ENTRY = "44";
 	const AD_CUE_POINT = "adCuePointEventNotifications.AdCuePoint";
 	const ANNOTATION = "annotationEventNotifications.Annotation";
 	const ATTACHMENT_ASSET = "attachmentAssetEventNotifications.AttachmentAsset";

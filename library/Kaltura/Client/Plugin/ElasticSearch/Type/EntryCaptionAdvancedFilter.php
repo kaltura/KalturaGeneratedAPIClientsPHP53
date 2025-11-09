@@ -52,11 +52,19 @@ class EntryCaptionAdvancedFilter extends \Kaltura\Client\Type\SearchItem
 		
 		if(count($xml->hasCaption))
 			$this->hasCaption = (int)$xml->hasCaption;
+		if(count($xml->language))
+			$this->language = (string)$xml->language;
 	}
 	/**
 	 * 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $hasCaption = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\Language
+	 */
+	public $language = null;
 
 }
