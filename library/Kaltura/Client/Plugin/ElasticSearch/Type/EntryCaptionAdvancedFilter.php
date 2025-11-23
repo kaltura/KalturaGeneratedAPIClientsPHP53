@@ -54,6 +54,16 @@ class EntryCaptionAdvancedFilter extends \Kaltura\Client\Type\SearchItem
 			$this->hasCaption = (int)$xml->hasCaption;
 		if(count($xml->language))
 			$this->language = (string)$xml->language;
+		if(count($xml->accuracyGreaterThanOrEqual))
+			$this->accuracyGreaterThanOrEqual = (int)$xml->accuracyGreaterThanOrEqual;
+		if(count($xml->accuracyLessThanOrEqual))
+			$this->accuracyLessThanOrEqual = (int)$xml->accuracyLessThanOrEqual;
+		if(count($xml->accuracyGreaterThan))
+			$this->accuracyGreaterThan = (int)$xml->accuracyGreaterThan;
+		if(count($xml->accuracyLessThan))
+			$this->accuracyLessThan = (int)$xml->accuracyLessThan;
+		if(count($xml->usage))
+			$this->usage = (string)$xml->usage;
 	}
 	/**
 	 * 
@@ -66,5 +76,35 @@ class EntryCaptionAdvancedFilter extends \Kaltura\Client\Type\SearchItem
 	 * @var \Kaltura\Client\Enum\Language
 	 */
 	public $language = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $accuracyGreaterThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $accuracyLessThanOrEqual = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $accuracyGreaterThan = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $accuracyLessThan = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\Caption\Enum\CaptionAssetUsage
+	 */
+	public $usage = null;
 
 }

@@ -82,6 +82,8 @@ class BulkUploadResultUser extends \Kaltura\Client\Type\BulkUploadResult
 			$this->externalId = (string)$xml->externalId;
 		if(count($xml->capabilities))
 			$this->capabilities = (string)$xml->capabilities;
+		if(count($xml->groupUserCreationMode))
+			$this->groupUserCreationMode = (int)$xml->groupUserCreationMode;
 	}
 	/**
 	 * 
@@ -178,5 +180,11 @@ class BulkUploadResultUser extends \Kaltura\Client\Type\BulkUploadResult
 	 * @var string
 	 */
 	public $capabilities = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $groupUserCreationMode = null;
 
 }

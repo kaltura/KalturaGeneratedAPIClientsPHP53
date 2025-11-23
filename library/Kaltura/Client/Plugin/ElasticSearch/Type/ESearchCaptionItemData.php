@@ -62,6 +62,10 @@ class ESearchCaptionItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\E
 			$this->captionAssetId = (string)$xml->captionAssetId;
 		if(count($xml->label))
 			$this->label = (string)$xml->label;
+		if(count($xml->accuracy))
+			$this->accuracy = (int)$xml->accuracy;
+		if(count($xml->usage))
+			$this->usage = (int)$xml->usage;
 	}
 	/**
 	 * 
@@ -98,5 +102,17 @@ class ESearchCaptionItemData extends \Kaltura\Client\Plugin\ElasticSearch\Type\E
 	 * @var string
 	 */
 	public $label = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $accuracy = null;
+
+	/**
+	 * 
+	 * @var int
+	 */
+	public $usage = null;
 
 }
