@@ -137,6 +137,13 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 			$this->clipOffset = (int)$xml->clipOffset;
 		if(count($xml->clipDuration))
 			$this->clipDuration = (int)$xml->clipDuration;
+		if(count($xml->audioLanguages))
+		{
+			if(empty($xml->audioLanguages))
+				$this->audioLanguages = array();
+			else
+				$this->audioLanguages = \Kaltura\Client\ParseUtils::unmarshalArray($xml->audioLanguages, "KalturaString");
+		}
 	}
 	/**
 	 * The video codec of the Flavor Params
@@ -383,5 +390,12 @@ class FlavorParams extends \Kaltura\Client\Type\AssetParams
 	 * @var int
 	 */
 	public $clipDuration = null;
+
+	/**
+	 * Audio languages extracted from multiStream field
+	 * @var array<KalturaString>
+	 * @readonly
+	 */
+	public $audioLanguages;
 
 }

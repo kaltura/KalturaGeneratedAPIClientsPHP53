@@ -68,6 +68,8 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 			$this->isPublic = (int)$xml->isPublic;
 		if(count($xml->searchableOnEntry))
 			$this->searchableOnEntry = (int)$xml->searchableOnEntry;
+		if(count($xml->originalCuePointCreateAt))
+			$this->originalCuePointCreateAt = (int)$xml->originalCuePointCreateAt;
 	}
 	/**
 	 * 
@@ -127,5 +129,11 @@ class Annotation extends \Kaltura\Client\Plugin\CuePoint\Type\CuePoint
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $searchableOnEntry = null;
+
+	/**
+	 * In case of cloned annotation it will hold source cuepoint createdAt.
+	 * @var int
+	 */
+	public $originalCuePointCreateAt = null;
 
 }

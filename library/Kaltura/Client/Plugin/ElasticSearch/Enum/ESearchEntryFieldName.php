@@ -54,6 +54,7 @@ class ESearchEntryFieldName extends \Kaltura\Client\EnumBase
 	const ENTITLED_USER_VIEW = "entitled_kusers_view";
 	const ENTRY_TYPE = "entry_type";
 	const EXTERNAL_SOURCE_TYPE = "external_source_type";
+	const FLAVOR_PARAMS_IDS = "flavor_params_ids";
 	const ID = "id";
 	const IS_LIVE = "is_live";
 	const IS_QUIZ = "is_quiz";
