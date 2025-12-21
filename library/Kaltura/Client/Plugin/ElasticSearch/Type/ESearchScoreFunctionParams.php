@@ -36,11 +36,11 @@ namespace Kaltura\Client\Plugin\ElasticSearch\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class ESearchParams extends \Kaltura\Client\ObjectBase
+class ESearchScoreFunctionParams extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaESearchParams';
+		return 'KalturaESearchScoreFunctionParams';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,66 +50,61 @@ abstract class ESearchParams extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->objectStatuses))
-			$this->objectStatuses = (string)$xml->objectStatuses;
-		if(count($xml->objectId))
-			$this->objectId = (string)$xml->objectId;
-		if(count($xml->orderBy) && !empty($xml->orderBy))
-			$this->orderBy = \Kaltura\Client\ParseUtils::unmarshalObject($xml->orderBy, "KalturaESearchOrderBy");
-		if(count($xml->ignoreSynonym))
-		{
-			if(!empty($xml->ignoreSynonym) && $xml->ignoreSynonym != 'false')
-				$this->ignoreSynonym = true;
-			else
-				$this->ignoreSynonym = false;
-		}
-		if(count($xml->objectIds))
-			$this->objectIds = (string)$xml->objectIds;
-		if(count($xml->objectIdsNotIn))
-			$this->objectIdsNotIn = (int)$xml->objectIdsNotIn;
-		if(count($xml->scoreFunctionParams) && !empty($xml->scoreFunctionParams))
-			$this->scoreFunctionParams = \Kaltura\Client\ParseUtils::unmarshalObject($xml->scoreFunctionParams, "KalturaESearchScoreFunctionParams");
+		if(count($xml->decayAlgorithm))
+			$this->decayAlgorithm = (string)$xml->decayAlgorithm;
+		if(count($xml->functionField))
+			$this->functionField = (string)$xml->functionField;
+		if(count($xml->boostMode))
+			$this->boostMode = (string)$xml->boostMode;
+		if(count($xml->origin))
+			$this->origin = (string)$xml->origin;
+		if(count($xml->weight))
+			$this->weight = (float)$xml->weight;
+		if(count($xml->scale))
+			$this->scale = (string)$xml->scale;
+		if(count($xml->decay))
+			$this->decay = (float)$xml->decay;
 	}
 	/**
 	 * 
-	 * @var string
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchScoreFunctionDecayAlgorithm
 	 */
-	public $objectStatuses = null;
+	public $decayAlgorithm = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchScoreFunctionField
+	 */
+	public $functionField = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchScoreFunctionBoostMode
+	 */
+	public $boostMode = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Plugin\ElasticSearch\Enum\ESearchScoreFunctionOrigin
+	 */
+	public $origin = null;
+
+	/**
+	 * 
+	 * @var float
+	 */
+	public $weight = null;
 
 	/**
 	 * 
 	 * @var string
 	 */
-	public $objectId = null;
+	public $scale = null;
 
 	/**
 	 * 
-	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy
+	 * @var float
 	 */
-	public $orderBy;
-
-	/**
-	 * 
-	 * @var bool
-	 */
-	public $ignoreSynonym = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $objectIds = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\NullableBoolean
-	 */
-	public $objectIdsNotIn = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\ElasticSearch\Type\ESearchScoreFunctionParams
-	 */
-	public $scoreFunctionParams;
+	public $decay = null;
 
 }

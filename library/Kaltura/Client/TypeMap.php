@@ -203,6 +203,7 @@ class TypeMap
 		'KalturaESearchGroupResult' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchGroupResult',
 		'KalturaESearchHistory' => 'Kaltura\Client\Plugin\SearchHistory\Type\ESearchHistory',
 		'KalturaESearchOrderBy' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchOrderBy',
+		'KalturaESearchScoreFunctionParams' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchScoreFunctionParams',
 		'KalturaESearchParams' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchParams',
 		'KalturaESearchRange' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchRange',
 		'KalturaESearchResponse' => 'Kaltura\Client\Plugin\ElasticSearch\Type\ESearchResponse',
