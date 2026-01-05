@@ -61,6 +61,8 @@ class CortexApiDistributionJobProviderData extends \Kaltura\Client\Plugin\Conten
 			else
 				$this->captionsInfo = \Kaltura\Client\ParseUtils::unmarshalArray($xml->captionsInfo, "KalturaCortexApiCaptionDistributionInfo");
 		}
+		if(count($xml->mediaType))
+			$this->mediaType = (int)$xml->mediaType;
 	}
 	/**
 	 * 
@@ -79,5 +81,11 @@ class CortexApiDistributionJobProviderData extends \Kaltura\Client\Plugin\Conten
 	 * @var array<KalturaCortexApiCaptionDistributionInfo>
 	 */
 	public $captionsInfo;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\MediaType
+	 */
+	public $mediaType = null;
 
 }

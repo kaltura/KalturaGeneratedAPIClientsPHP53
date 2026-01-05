@@ -50,5 +50,21 @@ abstract class BaseSyndicationFeedBaseFilter extends \Kaltura\Client\Type\Filter
 		if(is_null($xml))
 			return;
 		
+		if(count($xml->idEqual))
+			$this->idEqual = (string)$xml->idEqual;
+		if(count($xml->idIn))
+			$this->idIn = (string)$xml->idIn;
 	}
+	/**
+	 * 
+	 * @var string
+	 */
+	public $idEqual = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $idIn = null;
+
 }
