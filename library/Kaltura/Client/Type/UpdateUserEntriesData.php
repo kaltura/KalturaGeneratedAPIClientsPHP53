@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-abstract class UserEntry extends \Kaltura\Client\ObjectBase
+class UpdateUserEntriesData extends \Kaltura\Client\Type\JobData
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaUserEntry';
+		return 'KalturaUpdateUserEntriesData';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,76 +50,21 @@ abstract class UserEntry extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->id))
-			$this->id = (string)$xml->id;
-		if(count($xml->entryId))
-			$this->entryId = (string)$xml->entryId;
-		if(count($xml->userId))
-			$this->userId = (string)$xml->userId;
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->status))
-			$this->status = (string)$xml->status;
-		if(count($xml->createdAt))
-			$this->createdAt = (int)$xml->createdAt;
-		if(count($xml->updatedAt))
-			$this->updatedAt = (int)$xml->updatedAt;
-		if(count($xml->type))
-			$this->type = (string)$xml->type;
+		if(count($xml->oldStatus))
+			$this->oldStatus = (string)$xml->oldStatus;
+		if(count($xml->newStatus))
+			$this->newStatus = (string)$xml->newStatus;
 	}
 	/**
-	 * unique auto-generated identifier
-	 * @var int
-	 * @readonly
-	 */
-	public $id = null;
-
-	/**
 	 * 
-	 * @var string
-	 * @insertonly
+	 * @var \Kaltura\Client\Enum\UserEntryStatus
 	 */
-	public $entryId = null;
-
-	/**
-	 * 
-	 * @var string
-	 * @insertonly
-	 */
-	public $userId = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $partnerId = null;
+	public $oldStatus = null;
 
 	/**
 	 * 
 	 * @var \Kaltura\Client\Enum\UserEntryStatus
 	 */
-	public $status = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $createdAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $updatedAt = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Enum\UserEntryType
-	 * @readonly
-	 */
-	public $type = null;
+	public $newStatus = null;
 
 }

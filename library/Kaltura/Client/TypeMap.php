@@ -848,6 +848,7 @@ class TypeMap
 		'KalturaUiConfListResponse' => 'Kaltura\Client\Type\UiConfListResponse',
 		'KalturaUnicornDistributionProvider' => 'Kaltura\Client\Plugin\UnicornDistribution\Type\UnicornDistributionProvider',
 		'KalturaUnlimitedVendorCredit' => 'Kaltura\Client\Plugin\Reach\Type\UnlimitedVendorCredit',
+		'KalturaUpdateUserEntriesData' => 'Kaltura\Client\Type\UpdateUserEntriesData',
 		'KalturaUploadTokenBaseFilter' => 'Kaltura\Client\Type\UploadTokenBaseFilter',
 		'KalturaUploadTokenListResponse' => 'Kaltura\Client\Type\UploadTokenListResponse',
 		'KalturaUrlAuthenticationParamsCondition' => 'Kaltura\Client\Type\UrlAuthenticationParamsCondition',
