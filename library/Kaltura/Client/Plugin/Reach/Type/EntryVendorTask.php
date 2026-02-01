@@ -114,6 +114,13 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 			$this->turnAroundTime = (int)$xml->turnAroundTime;
 		if(count($xml->externalTaskId))
 			$this->externalTaskId = (string)$xml->externalTaskId;
+		if(count($xml->isPayPerUse))
+		{
+			if(!empty($xml->isPayPerUse) && $xml->isPayPerUse != 'false')
+				$this->isPayPerUse = true;
+			else
+				$this->isPayPerUse = false;
+		}
 	}
 	/**
 	 * 
@@ -328,5 +335,12 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $externalTaskId = null;
+
+	/**
+	 * Indicates if the task is pay-per-use based on the catalog item
+	 * @var bool
+	 * @readonly
+	 */
+	public $isPayPerUse = null;
 
 }
