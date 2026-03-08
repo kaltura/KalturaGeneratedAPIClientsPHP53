@@ -82,6 +82,8 @@ abstract class ShortLinkBaseFilter extends \Kaltura\Client\Type\Filter
 			$this->statusEqual = (int)$xml->statusEqual;
 		if(count($xml->statusIn))
 			$this->statusIn = (string)$xml->statusIn;
+		if(count($xml->uniqueIdEqual))
+			$this->uniqueIdEqual = (string)$xml->uniqueIdEqual;
 	}
 	/**
 	 * 
@@ -178,5 +180,11 @@ abstract class ShortLinkBaseFilter extends \Kaltura\Client\Type\Filter
 	 * @var string
 	 */
 	public $statusIn = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $uniqueIdEqual = null;
 
 }

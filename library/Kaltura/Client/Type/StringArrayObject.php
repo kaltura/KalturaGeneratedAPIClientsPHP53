@@ -30,17 +30,18 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\ShortLink\Type;
+namespace Kaltura\Client\Type;
 
 /**
+ * A wrapper object for KalturaStringArray to be used in arrays
  * @package Kaltura
  * @subpackage Client
  */
-class ShortLink extends \Kaltura\Client\ObjectBase
+class StringArrayObject extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaShortLink';
+		return 'KalturaStringArrayObject';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,98 +51,18 @@ class ShortLink extends \Kaltura\Client\ObjectBase
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->id))
-			$this->id = (string)$xml->id;
-		if(count($xml->createdAt))
-			$this->createdAt = (int)$xml->createdAt;
-		if(count($xml->updatedAt))
-			$this->updatedAt = (int)$xml->updatedAt;
-		if(count($xml->expiresAt))
-			$this->expiresAt = (int)$xml->expiresAt;
-		if(count($xml->partnerId))
-			$this->partnerId = (int)$xml->partnerId;
-		if(count($xml->userId))
-			$this->userId = (string)$xml->userId;
-		if(count($xml->name))
-			$this->name = (string)$xml->name;
-		if(count($xml->systemName))
-			$this->systemName = (string)$xml->systemName;
-		if(count($xml->fullUrl))
-			$this->fullUrl = (string)$xml->fullUrl;
-		if(count($xml->uniqueId))
-			$this->uniqueId = (string)$xml->uniqueId;
-		if(count($xml->status))
-			$this->status = (int)$xml->status;
+		if(count($xml->value))
+		{
+			if(empty($xml->value))
+				$this->value = array();
+			else
+				$this->value = \Kaltura\Client\ParseUtils::unmarshalArray($xml->value, "KalturaString");
+		}
 	}
 	/**
 	 * 
-	 * @var string
-	 * @readonly
+	 * @var array<KalturaString>
 	 */
-	public $id = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $createdAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $updatedAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 */
-	public $expiresAt = null;
-
-	/**
-	 * 
-	 * @var int
-	 * @readonly
-	 */
-	public $partnerId = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $userId = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $name = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $systemName = null;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $fullUrl = null;
-
-	/**
-	 * 
-	 * @var string
-	 * @insertonly
-	 */
-	public $uniqueId = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Plugin\ShortLink\Enum\ShortLinkStatus
-	 */
-	public $status = null;
+	public $value;
 
 }

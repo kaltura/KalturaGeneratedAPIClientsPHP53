@@ -73,6 +73,13 @@ class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
 			else
 				$this->captionAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->captionAttributes, "KalturaCaptionAttributes");
 		}
+		if(count($xml->mediaCompositionAttributesArray))
+		{
+			if(empty($xml->mediaCompositionAttributesArray))
+				$this->mediaCompositionAttributesArray = array();
+			else
+				$this->mediaCompositionAttributesArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->mediaCompositionAttributesArray, "KalturaMediaCompositionAttributes");
+		}
 	}
 	/**
 	 * Offset in milliseconds
@@ -109,5 +116,11 @@ class ClipAttributes extends \Kaltura\Client\Type\OperationAttributes
 	 * @var array<KalturaCaptionAttributes>
 	 */
 	public $captionAttributes;
+
+	/**
+	 * 
+	 * @var array<KalturaMediaCompositionAttributes>
+	 */
+	public $mediaCompositionAttributesArray;
 
 }

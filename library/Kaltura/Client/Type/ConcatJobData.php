@@ -57,6 +57,13 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 			else
 				$this->srcFiles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->srcFiles, "KalturaString");
 		}
+		if(count($xml->inputFiles))
+		{
+			if(empty($xml->inputFiles))
+				$this->inputFiles = array();
+			else
+				$this->inputFiles = \Kaltura\Client\ParseUtils::unmarshalArray($xml->inputFiles, "KalturaStringArrayObject");
+		}
 		if(count($xml->destFilePath))
 			$this->destFilePath = (string)$xml->destFilePath;
 		if(count($xml->flavorAssetId))
@@ -94,6 +101,12 @@ class ConcatJobData extends \Kaltura\Client\Type\JobData
 	 * @var array<KalturaString>
 	 */
 	public $srcFiles;
+
+	/**
+	 * Additional input files to be used in conversion pre concatenation
+	 * @var array<KalturaStringArrayObject>
+	 */
+	public $inputFiles;
 
 	/**
 	 * Output file
