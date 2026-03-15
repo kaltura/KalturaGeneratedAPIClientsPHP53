@@ -40,6 +40,9 @@ class CatalogItemLanguage extends \Kaltura\Client\EnumBase
 {
 	const AF = "Afrikaans";
 	const AR = "Arabic";
+	const AR_LB = "Arabic (Lebanon)";
+	const AR_QA = "Arabic (Qatar)";
+	const AR_SA = "Arabic (Saudi Arabia)";
 	const AUTO_DETECT = "Auto Detect";
 	const AZ = "Azerbaijani";
 	const BA = "Bashkir";
