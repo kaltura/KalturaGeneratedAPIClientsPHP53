@@ -56,6 +56,8 @@ class ZoomDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 			$this->zoomVendorIntegration = \Kaltura\Client\ParseUtils::unmarshalObject($xml->zoomVendorIntegration, "KalturaZoomIntegrationSetting");
 		if(count($xml->lastHandledMeetingTime))
 			$this->lastHandledMeetingTime = (int)$xml->lastHandledMeetingTime;
+		if(count($xml->fileProcessingGracePeriod))
+			$this->fileProcessingGracePeriod = (int)$xml->fileProcessingGracePeriod;
 	}
 	/**
 	 * 
@@ -76,5 +78,11 @@ class ZoomDropFolder extends \Kaltura\Client\Plugin\DropFolder\Type\DropFolder
 	 * @var int
 	 */
 	public $lastHandledMeetingTime = null;
+
+	/**
+	 * The amount of time, in seconds, to wait before processing a drop folder file
+	 * @var int
+	 */
+	public $fileProcessingGracePeriod = null;
 
 }

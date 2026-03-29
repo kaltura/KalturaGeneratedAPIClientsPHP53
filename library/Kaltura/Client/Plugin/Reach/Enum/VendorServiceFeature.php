@@ -58,5 +58,7 @@ class VendorServiceFeature extends \Kaltura\Client\EnumBase
 	const DOCUMENT_ENRICHMENT = 18;
 	const SIGN_LANGUAGE = 19;
 	const SPEECH_TO_VIDEO = 20;
+	const IMMERSIVE_AGENT_CALL = 21;
+	const IMMERSIVE_AGENT_CHAT = 22;
 }
 

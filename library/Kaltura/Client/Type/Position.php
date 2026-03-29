@@ -36,11 +36,11 @@ namespace Kaltura\Client\Type;
  * @package Kaltura
  * @subpackage Client
  */
-class ReplaceBackgroundAttributes extends \Kaltura\Client\Type\MediaCompositionAttributes
+class Position extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaReplaceBackgroundAttributes';
+		return 'KalturaPosition';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,37 +50,21 @@ class ReplaceBackgroundAttributes extends \Kaltura\Client\Type\MediaCompositionA
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->resource) && !empty($xml->resource))
-			$this->resource = \Kaltura\Client\ParseUtils::unmarshalObject($xml->resource, "KalturaContentResource");
-		if(count($xml->backgroundColorCode))
-			$this->backgroundColorCode = (string)$xml->backgroundColorCode;
-		if(count($xml->foregroundScalePercentage))
-			$this->foregroundScalePercentage = (float)$xml->foregroundScalePercentage;
-		if(count($xml->foregroundPositionPercentage) && !empty($xml->foregroundPositionPercentage))
-			$this->foregroundPositionPercentage = \Kaltura\Client\ParseUtils::unmarshalObject($xml->foregroundPositionPercentage, "KalturaPosition");
+		if(count($xml->x))
+			$this->x = (float)$xml->x;
+		if(count($xml->y))
+			$this->y = (float)$xml->y;
 	}
 	/**
-	 * Only KalturaEntryResource and KalturaAssetResource are supported
-	 * @var \Kaltura\Client\Type\ContentResource
-	 */
-	public $resource;
-
-	/**
 	 * 
-	 * @var string
+	 * @var float
 	 */
-	public $backgroundColorCode = null;
+	public $x = null;
 
 	/**
 	 * 
 	 * @var float
 	 */
-	public $foregroundScalePercentage = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Type\Position
-	 */
-	public $foregroundPositionPercentage;
+	public $y = null;
 
 }
