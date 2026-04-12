@@ -60,5 +60,6 @@ class VendorServiceFeature extends \Kaltura\Client\EnumBase
 	const SPEECH_TO_VIDEO = 20;
 	const IMMERSIVE_AGENT_CALL = 21;
 	const IMMERSIVE_AGENT_CHAT = 22;
+	const AVATAR_VOD = 23;
 }
 

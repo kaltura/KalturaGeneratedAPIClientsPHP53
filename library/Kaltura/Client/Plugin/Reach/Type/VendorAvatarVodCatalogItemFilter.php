@@ -30,17 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class ReplaceBackgroundAttributes extends \Kaltura\Client\Type\MediaCompositionAttributes
+class VendorAvatarVodCatalogItemFilter extends \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItemFilter
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaReplaceBackgroundAttributes';
+		return 'KalturaVendorAvatarVodCatalogItemFilter';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -50,45 +50,5 @@ class ReplaceBackgroundAttributes extends \Kaltura\Client\Type\MediaCompositionA
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->resource) && !empty($xml->resource))
-			$this->resource = \Kaltura\Client\ParseUtils::unmarshalObject($xml->resource, "KalturaContentResource");
-		if(count($xml->backgroundColorCode))
-			$this->backgroundColorCode = (string)$xml->backgroundColorCode;
-		if(count($xml->foregroundScalePercentage))
-			$this->foregroundScalePercentage = (float)$xml->foregroundScalePercentage;
-		if(count($xml->foregroundPositionPercentage) && !empty($xml->foregroundPositionPercentage))
-			$this->foregroundPositionPercentage = \Kaltura\Client\ParseUtils::unmarshalObject($xml->foregroundPositionPercentage, "KalturaPosition");
-		if(count($xml->audioAttributes) && !empty($xml->audioAttributes))
-			$this->audioAttributes = \Kaltura\Client\ParseUtils::unmarshalObject($xml->audioAttributes, "KalturaAudioAttributes");
 	}
-	/**
-	 * Only KalturaEntryResource and KalturaAssetResource are supported
-	 * @var \Kaltura\Client\Type\ContentResource
-	 */
-	public $resource;
-
-	/**
-	 * 
-	 * @var string
-	 */
-	public $backgroundColorCode = null;
-
-	/**
-	 * 
-	 * @var float
-	 */
-	public $foregroundScalePercentage = null;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Type\Position
-	 */
-	public $foregroundPositionPercentage;
-
-	/**
-	 * 
-	 * @var \Kaltura\Client\Type\AudioAttributes
-	 */
-	public $audioAttributes;
-
 }

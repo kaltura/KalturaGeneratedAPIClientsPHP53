@@ -30,16 +30,22 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+class MediaCompositionAlignment extends \Kaltura\Client\EnumBase
 {
-	const ENTRY = 1;
-	const ASSET = 2;
-	const EXTERNAL_OBJECT = 3;
+	const BOTTOM_LEFT = 1;
+	const BOTTOM_CENTER = 2;
+	const BOTTOM_RIGHT = 3;
+	const TOP_LEFT = 4;
+	const TOP_CENTER = 6;
+	const TOP_RIGHT = 7;
+	const CENTER_LEFT = 8;
+	const CENTER_CENTER = 10;
+	const CENTER_RIGHT = 11;
 }
 

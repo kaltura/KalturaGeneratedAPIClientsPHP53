@@ -160,6 +160,12 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->eventSessionContextIdIn = (string)$xml->eventSessionContextIdIn;
 		if(count($xml->videoCodecIn))
 			$this->videoCodecIn = (string)$xml->videoCodecIn;
+		if(count($xml->agentIdIn))
+			$this->agentIdIn = (string)$xml->agentIdIn;
+		if(count($xml->genieIdIn))
+			$this->genieIdIn = (string)$xml->genieIdIn;
+		if(count($xml->reachProfileIdIn))
+			$this->reachProfileIdIn = (string)$xml->reachProfileIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -460,5 +466,23 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $videoCodecIn = null;
+
+	/**
+	 * filter by agent id
+	 * @var string
+	 */
+	public $agentIdIn = null;
+
+	/**
+	 * filter by Genie id
+	 * @var string
+	 */
+	public $genieIdIn = null;
+
+	/**
+	 * filter by reach profile id
+	 * @var string
+	 */
+	public $reachProfileIdIn = null;
 
 }

@@ -30,16 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Plugin\Reach\Enum;
+namespace Kaltura\Client\Enum;
 
 /**
  * @package Kaltura
  * @subpackage Client
  */
-class EntryObjectType extends \Kaltura\Client\EnumBase
+class OverlayShape extends \Kaltura\Client\EnumBase
 {
-	const ENTRY = 1;
-	const ASSET = 2;
-	const EXTERNAL_OBJECT = 3;
+	const CIRCLE = 1;
+	const RECTANGLE = 2;
+	const RECTANGLE_ROUNDED_CORNERS = 3;
+	const ELLIPSE = 4;
 }
 

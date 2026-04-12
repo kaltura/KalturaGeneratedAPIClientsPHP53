@@ -59,6 +59,16 @@ class OverlayAttributes extends \Kaltura\Client\Type\MediaCompositionAttributes
 			else
 				$this->resourceMediaCompositionAttributesArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->resourceMediaCompositionAttributesArray, "KalturaMediaCompositionAttributes");
 		}
+		if(count($xml->marginsPercentage))
+			$this->marginsPercentage = (float)$xml->marginsPercentage;
+		if(count($xml->overlayScalePercentage))
+			$this->overlayScalePercentage = (float)$xml->overlayScalePercentage;
+		if(count($xml->overlayPlacement))
+			$this->overlayPlacement = (int)$xml->overlayPlacement;
+		if(count($xml->overlayShape))
+			$this->overlayShape = (int)$xml->overlayShape;
+		if(count($xml->audioAttributes) && !empty($xml->audioAttributes))
+			$this->audioAttributes = \Kaltura\Client\ParseUtils::unmarshalObject($xml->audioAttributes, "KalturaAudioAttributes");
 	}
 	/**
 	 * Only KalturaEntryResource and KalturaAssetResource are supported
@@ -71,5 +81,35 @@ class OverlayAttributes extends \Kaltura\Client\Type\MediaCompositionAttributes
 	 * @var array<KalturaMediaCompositionAttributes>
 	 */
 	public $resourceMediaCompositionAttributesArray;
+
+	/**
+	 * 
+	 * @var float
+	 */
+	public $marginsPercentage = null;
+
+	/**
+	 * 
+	 * @var float
+	 */
+	public $overlayScalePercentage = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\MediaCompositionAlignment
+	 */
+	public $overlayPlacement = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\OverlayShape
+	 */
+	public $overlayShape = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Type\AudioAttributes
+	 */
+	public $audioAttributes;
 
 }

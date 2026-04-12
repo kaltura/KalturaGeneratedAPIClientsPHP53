@@ -114,6 +114,8 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 			$this->turnAroundTime = (int)$xml->turnAroundTime;
 		if(count($xml->externalTaskId))
 			$this->externalTaskId = (string)$xml->externalTaskId;
+		if(count($xml->externalObjectId))
+			$this->externalObjectId = (string)$xml->externalObjectId;
 	}
 	/**
 	 * 
@@ -328,5 +330,12 @@ class EntryVendorTask extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $externalTaskId = null;
+
+	/**
+	 * The identifier of the external object for EXTERNAL_OBJECT type tasks
+	 * @var string
+	 * @insertonly
+	 */
+	public $externalObjectId = null;
 
 }
