@@ -253,7 +253,6 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 	/**
 	 * 
 	 * @var float
-	 * @readonly
 	 */
 	public $usedCredit = null;
 

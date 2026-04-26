@@ -302,6 +302,8 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->customAnalyticsDomain = (string)$xml->customAnalyticsDomain;
 		if(count($xml->allowedEmailDomainsForAdmins))
 			$this->allowedEmailDomainsForAdmins = (string)$xml->allowedEmailDomainsForAdmins;
+		if(count($xml->externalIdentifier))
+			$this->externalIdentifier = (string)$xml->externalIdentifier;
 	}
 	/**
 	 * 
@@ -859,5 +861,11 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $allowedEmailDomainsForAdmins = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $externalIdentifier = null;
 
 }

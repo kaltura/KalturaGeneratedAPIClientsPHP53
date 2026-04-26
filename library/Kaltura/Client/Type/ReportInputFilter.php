@@ -166,6 +166,13 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			$this->genieIdIn = (string)$xml->genieIdIn;
 		if(count($xml->reachProfileIdIn))
 			$this->reachProfileIdIn = (string)$xml->reachProfileIdIn;
+		if(count($xml->isPreview))
+		{
+			if(!empty($xml->isPreview) && $xml->isPreview != 'false')
+				$this->isPreview = true;
+			else
+				$this->isPreview = false;
+		}
 	}
 	/**
 	 * Search keywords to filter objects
@@ -484,5 +491,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $reachProfileIdIn = null;
+
+	/**
+	 * filter by preview mode
+	 * @var bool
+	 */
+	public $isPreview = null;
 
 }
