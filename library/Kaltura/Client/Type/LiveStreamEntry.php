@@ -87,6 +87,13 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 			$this->streamUrl = (string)$xml->streamUrl;
 		if(count($xml->hlsStreamUrl))
 			$this->hlsStreamUrl = (string)$xml->hlsStreamUrl;
+		if(count($xml->readyForDeletion))
+		{
+			if(!empty($xml->readyForDeletion) && $xml->readyForDeletion != 'false')
+				$this->readyForDeletion = true;
+			else
+				$this->readyForDeletion = false;
+		}
 		if(count($xml->urlManager))
 			$this->urlManager = (string)$xml->urlManager;
 		if(count($xml->encodingIP1))
@@ -203,6 +210,13 @@ class LiveStreamEntry extends \Kaltura\Client\Type\LiveEntry
 	 * @var string
 	 */
 	public $hlsStreamUrl = null;
+
+	/**
+	 * Indicates whether the live entry is ready to be deleted
+	 * @var bool
+	 * @readonly
+	 */
+	public $readyForDeletion = null;
 
 	/**
 	 * URL Manager to handle the live stream URL (for instance, add token)
