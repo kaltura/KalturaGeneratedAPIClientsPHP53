@@ -59,10 +59,10 @@ class OverlayAttributes extends \Kaltura\Client\Type\MediaCompositionAttributes
 			else
 				$this->resourceMediaCompositionAttributesArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->resourceMediaCompositionAttributesArray, "KalturaMediaCompositionAttributes");
 		}
-		if(count($xml->marginsPercentage))
-			$this->marginsPercentage = (float)$xml->marginsPercentage;
-		if(count($xml->overlayScalePercentage))
-			$this->overlayScalePercentage = (float)$xml->overlayScalePercentage;
+		if(count($xml->marginsPercentage) && !empty($xml->marginsPercentage))
+			$this->marginsPercentage = \Kaltura\Client\ParseUtils::unmarshalObject($xml->marginsPercentage, "KalturaDimensionsPercentage");
+		if(count($xml->overlayScaleAttribute) && !empty($xml->overlayScaleAttribute))
+			$this->overlayScaleAttribute = \Kaltura\Client\ParseUtils::unmarshalObject($xml->overlayScaleAttribute, "KalturaOverlayScaleAttribute");
 		if(count($xml->overlayPlacement))
 			$this->overlayPlacement = (int)$xml->overlayPlacement;
 		if(count($xml->overlayShape))
@@ -84,15 +84,15 @@ class OverlayAttributes extends \Kaltura\Client\Type\MediaCompositionAttributes
 
 	/**
 	 * 
-	 * @var float
+	 * @var \Kaltura\Client\Type\DimensionsPercentage
 	 */
-	public $marginsPercentage = null;
+	public $marginsPercentage;
 
 	/**
 	 * 
-	 * @var float
+	 * @var \Kaltura\Client\Type\OverlayScaleAttribute
 	 */
-	public $overlayScalePercentage = null;
+	public $overlayScaleAttribute;
 
 	/**
 	 * 
