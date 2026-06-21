@@ -30,18 +30,20 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Document\Type;
 
 /**
- * A resource that perform operation (transcoding, clipping, cropping) before the flavor is ready.
+ * Used to ingest a single image extracted from a document entry's
+ *  generated image list. The image is selected by its zero-based index
+ *  within the document's imagesList.xml.
  * @package Kaltura
  * @subpackage Client
  */
-class OperationResource extends \Kaltura\Client\Type\ContentResource
+class DocumentImagesResource extends \Kaltura\Client\Type\ContentResource
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaOperationResource';
+		return 'KalturaDocumentImagesResource';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -51,34 +53,21 @@ class OperationResource extends \Kaltura\Client\Type\ContentResource
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->resource) && !empty($xml->resource))
-			$this->resource = \Kaltura\Client\ParseUtils::unmarshalObject($xml->resource, "KalturaContentResource");
-		if(count($xml->operationAttributes))
-		{
-			if(empty($xml->operationAttributes))
-				$this->operationAttributes = array();
-			else
-				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
-		}
-		if(count($xml->assetParamsId))
-			$this->assetParamsId = (int)$xml->assetParamsId;
+		if(count($xml->flavorAssetId))
+			$this->flavorAssetId = (string)$xml->flavorAssetId;
+		if(count($xml->index))
+			$this->index = (int)$xml->index;
 	}
 	/**
-	 * Only KalturaEntryResource, KalturaAssetResource and KalturaDocumentImagesResource are supported
-	 * @var \Kaltura\Client\Type\ContentResource
+	 * ID of the flavor asset containing the image list
+	 * @var string
 	 */
-	public $resource;
+	public $flavorAssetId = null;
 
 	/**
-	 * 
-	 * @var array<KalturaOperationAttributes>
-	 */
-	public $operationAttributes;
-
-	/**
-	 * ID of alternative asset params to be used instead of the system default flavor params
+	 * Zero-based index of the image to retrieve from the list
 	 * @var int
 	 */
-	public $assetParamsId = null;
+	public $index = null;
 
 }

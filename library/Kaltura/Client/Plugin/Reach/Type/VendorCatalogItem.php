@@ -72,6 +72,13 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 			$this->turnAroundTime = (int)$xml->turnAroundTime;
 		if(count($xml->pricing) && !empty($xml->pricing))
 			$this->pricing = \Kaltura\Client\ParseUtils::unmarshalObject($xml->pricing, "KalturaVendorCatalogItemPricing");
+		if(count($xml->pricingArray))
+		{
+			if(empty($xml->pricingArray))
+				$this->pricingArray = array();
+			else
+				$this->pricingArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pricingArray, "KalturaVendorCatalogItemUnitPricing");
+		}
 		if(count($xml->engineType))
 			$this->engineType = (string)$xml->engineType;
 		if(count($xml->sourceLanguage))
@@ -179,6 +186,12 @@ abstract class VendorCatalogItem extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItemPricing
 	 */
 	public $pricing;
+
+	/**
+	 * 
+	 * @var array<KalturaVendorCatalogItemUnitPricing>
+	 */
+	public $pricingArray;
 
 	/**
 	 * Property showing the catalog item's engine type, in case a vendor can offer the same service via different engines.

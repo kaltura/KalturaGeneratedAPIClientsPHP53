@@ -71,7 +71,7 @@ class OverlayAttributes extends \Kaltura\Client\Type\MediaCompositionAttributes
 			$this->audioAttributes = \Kaltura\Client\ParseUtils::unmarshalObject($xml->audioAttributes, "KalturaAudioAttributes");
 	}
 	/**
-	 * Only KalturaEntryResource and KalturaAssetResource are supported
+	 * Only KalturaEntryResource, KalturaAssetResource and KalturaDocumentImagesResource are supported
 	 * @var \Kaltura\Client\Type\ContentResource
 	 */
 	public $resource;

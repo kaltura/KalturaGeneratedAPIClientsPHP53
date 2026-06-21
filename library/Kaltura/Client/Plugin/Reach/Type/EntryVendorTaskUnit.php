@@ -30,18 +30,17 @@
 /**
  * @namespace
  */
-namespace Kaltura\Client\Type;
+namespace Kaltura\Client\Plugin\Reach\Type;
 
 /**
- * A resource that perform operation (transcoding, clipping, cropping) before the flavor is ready.
  * @package Kaltura
  * @subpackage Client
  */
-class OperationResource extends \Kaltura\Client\Type\ContentResource
+class EntryVendorTaskUnit extends \Kaltura\Client\ObjectBase
 {
 	public function getKalturaObjectType()
 	{
-		return 'KalturaOperationResource';
+		return 'KalturaEntryVendorTaskUnit';
 	}
 	
 	public function __construct(\SimpleXMLElement $xml = null)
@@ -51,34 +50,21 @@ class OperationResource extends \Kaltura\Client\Type\ContentResource
 		if(is_null($xml))
 			return;
 		
-		if(count($xml->resource) && !empty($xml->resource))
-			$this->resource = \Kaltura\Client\ParseUtils::unmarshalObject($xml->resource, "KalturaContentResource");
-		if(count($xml->operationAttributes))
-		{
-			if(empty($xml->operationAttributes))
-				$this->operationAttributes = array();
-			else
-				$this->operationAttributes = \Kaltura\Client\ParseUtils::unmarshalArray($xml->operationAttributes, "KalturaOperationAttributes");
-		}
-		if(count($xml->assetParamsId))
-			$this->assetParamsId = (int)$xml->assetParamsId;
+		if(count($xml->unitsUsed))
+			$this->unitsUsed = (float)$xml->unitsUsed;
+		if(count($xml->serviceName))
+			$this->serviceName = (string)$xml->serviceName;
 	}
 	/**
-	 * Only KalturaEntryResource, KalturaAssetResource and KalturaDocumentImagesResource are supported
-	 * @var \Kaltura\Client\Type\ContentResource
+	 * 
+	 * @var float
 	 */
-	public $resource;
+	public $unitsUsed = null;
 
 	/**
 	 * 
-	 * @var array<KalturaOperationAttributes>
+	 * @var string
 	 */
-	public $operationAttributes;
-
-	/**
-	 * ID of alternative asset params to be used instead of the system default flavor params
-	 * @var int
-	 */
-	public $assetParamsId = null;
+	public $serviceName = null;
 
 }
