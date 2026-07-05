@@ -112,6 +112,8 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 			$this->flavorParamsIds = (string)$xml->flavorParamsIds;
 		if(count($xml->vendorTaskProcessingRegion))
 			$this->vendorTaskProcessingRegion = (int)$xml->vendorTaskProcessingRegion;
+		if(count($xml->allowedCatalogItemIds))
+			$this->allowedCatalogItemIds = (string)$xml->allowedCatalogItemIds;
 	}
 	/**
 	 * 
@@ -273,5 +275,11 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Plugin\Reach\Enum\VendorTaskProcessingRegion
 	 */
 	public $vendorTaskProcessingRegion = null;
+
+	/**
+	 * Comma separated catalogItemIds that are allowed for ordering using this reach profile
+	 * @var string
+	 */
+	public $allowedCatalogItemIds = null;
 
 }
