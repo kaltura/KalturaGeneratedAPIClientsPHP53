@@ -76,6 +76,13 @@ class BulkUploadResultVendorCatalogItem extends \Kaltura\Client\Type\BulkUploadR
 			$this->fixedPriceAddons = (int)$xml->fixedPriceAddons;
 		if(count($xml->pricing) && !empty($xml->pricing))
 			$this->pricing = \Kaltura\Client\ParseUtils::unmarshalObject($xml->pricing, "KalturaVendorCatalogItemPricing");
+		if(count($xml->pricingArray))
+		{
+			if(empty($xml->pricingArray))
+				$this->pricingArray = array();
+			else
+				$this->pricingArray = \Kaltura\Client\ParseUtils::unmarshalArray($xml->pricingArray, "KalturaVendorCatalogItemUnitPricing");
+		}
 		if(count($xml->flavorParamsId))
 			$this->flavorParamsId = (int)$xml->flavorParamsId;
 		if(count($xml->clearAudioFlavorParamsId))
@@ -158,6 +165,12 @@ class BulkUploadResultVendorCatalogItem extends \Kaltura\Client\Type\BulkUploadR
 	 * @var \Kaltura\Client\Plugin\Reach\Type\VendorCatalogItemPricing
 	 */
 	public $pricing;
+
+	/**
+	 * 
+	 * @var array<KalturaVendorCatalogItemUnitPricing>
+	 */
+	public $pricingArray;
 
 	/**
 	 * 

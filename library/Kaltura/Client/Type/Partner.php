@@ -304,6 +304,29 @@ class Partner extends \Kaltura\Client\ObjectBase
 			$this->allowedEmailDomainsForAdmins = (string)$xml->allowedEmailDomainsForAdmins;
 		if(count($xml->externalIdentifier))
 			$this->externalIdentifier = (string)$xml->externalIdentifier;
+		if(count($xml->htmlPurifierBehaviour))
+			$this->htmlPurifierBehaviour = (string)$xml->htmlPurifierBehaviour;
+		if(count($xml->htmlPurifierBaseListUsage))
+		{
+			if(!empty($xml->htmlPurifierBaseListUsage) && $xml->htmlPurifierBaseListUsage != 'false')
+				$this->htmlPurifierBaseListUsage = true;
+			else
+				$this->htmlPurifierBaseListUsage = false;
+		}
+		if(count($xml->purifyImageContent))
+		{
+			if(!empty($xml->purifyImageContent) && $xml->purifyImageContent != 'false')
+				$this->purifyImageContent = true;
+			else
+				$this->purifyImageContent = false;
+		}
+		if(count($xml->fileTypeRestrictionEnabled))
+		{
+			if(!empty($xml->fileTypeRestrictionEnabled) && $xml->fileTypeRestrictionEnabled != 'false')
+				$this->fileTypeRestrictionEnabled = true;
+			else
+				$this->fileTypeRestrictionEnabled = false;
+		}
 	}
 	/**
 	 * 
@@ -867,5 +890,29 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $externalIdentifier = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\HTMLPurifierBehaviourType
+	 */
+	public $htmlPurifierBehaviour = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $htmlPurifierBaseListUsage = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $purifyImageContent = null;
+
+	/**
+	 * 
+	 * @var bool
+	 */
+	public $fileTypeRestrictionEnabled = null;
 
 }

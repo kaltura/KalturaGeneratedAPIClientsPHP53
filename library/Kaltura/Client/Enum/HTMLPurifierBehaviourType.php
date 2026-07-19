@@ -27,3 +27,20 @@
 // @ignore
 // ===================================================================================================
 
+/**
+ * @namespace
+ */
+namespace Kaltura\Client\Enum;
+
+/**
+ * @package Kaltura
+ * @subpackage Client
+ */
+class HTMLPurifierBehaviourType extends \Kaltura\Client\EnumBase
+{
+	const IGNORE = "0";
+	const NOTIFY = "1";
+	const SANITIZE = "2";
+	const BLOCK = "3";
+}
+

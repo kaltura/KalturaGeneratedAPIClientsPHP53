@@ -52,6 +52,8 @@ abstract class VendorTaskData extends \Kaltura\Client\ObjectBase
 		
 		if(count($xml->entryDuration))
 			$this->entryDuration = (int)$xml->entryDuration;
+		if(count($xml->vendorComment))
+			$this->vendorComment = (string)$xml->vendorComment;
 	}
 	/**
 	 * The duration of the entry for which the task was created for in milliseconds
@@ -59,5 +61,11 @@ abstract class VendorTaskData extends \Kaltura\Client\ObjectBase
 	 * @readonly
 	 */
 	public $entryDuration = null;
+
+	/**
+	 * string containing the comment provided by vendor
+	 * @var string
+	 */
+	public $vendorComment = null;
 
 }
