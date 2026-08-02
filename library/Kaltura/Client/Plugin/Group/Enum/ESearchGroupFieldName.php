@@ -38,6 +38,7 @@ namespace Kaltura\Client\Plugin\Group\Enum;
  */
 class ESearchGroupFieldName extends \Kaltura\Client\EnumBase
 {
+	const ADMIN_TAGS = "admin_tags";
 	const CAPABILITIES = "capabilities";
 	const COMPANY = "company";
 	const COUNTRY = "country";
