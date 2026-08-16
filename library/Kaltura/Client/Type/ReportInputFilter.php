@@ -173,6 +173,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 			else
 				$this->isPreview = false;
 		}
+		if(count($xml->streamTypeIn))
+			$this->streamTypeIn = (string)$xml->streamTypeIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -497,5 +499,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var bool
 	 */
 	public $isPreview = null;
+
+	/**
+	 * filter by stream type
+	 * @var string
+	 */
+	public $streamTypeIn = null;
 
 }

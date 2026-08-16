@@ -40,5 +40,6 @@ class VendorServiceType extends \Kaltura\Client\EnumBase
 {
 	const HUMAN = 1;
 	const MACHINE = 2;
+	const HYBRID = 3;
 }
 

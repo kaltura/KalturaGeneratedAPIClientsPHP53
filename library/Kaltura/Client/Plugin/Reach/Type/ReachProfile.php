@@ -70,10 +70,14 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 			$this->enableMachineModeration = (int)$xml->enableMachineModeration;
 		if(count($xml->enableHumanModeration))
 			$this->enableHumanModeration = (int)$xml->enableHumanModeration;
+		if(count($xml->enableHybridModeration))
+			$this->enableHybridModeration = (int)$xml->enableHybridModeration;
 		if(count($xml->autoDisplayMachineCaptionsOnPlayer))
 			$this->autoDisplayMachineCaptionsOnPlayer = (int)$xml->autoDisplayMachineCaptionsOnPlayer;
 		if(count($xml->autoDisplayHumanCaptionsOnPlayer))
 			$this->autoDisplayHumanCaptionsOnPlayer = (int)$xml->autoDisplayHumanCaptionsOnPlayer;
+		if(count($xml->autoDisplayHybridCaptionsOnPlayer))
+			$this->autoDisplayHybridCaptionsOnPlayer = (int)$xml->autoDisplayHybridCaptionsOnPlayer;
 		if(count($xml->enableMetadataExtraction))
 			$this->enableMetadataExtraction = (int)$xml->enableMetadataExtraction;
 		if(count($xml->enableSpeakerChangeIndication))
@@ -88,6 +92,8 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 			$this->labelAdditionForMachineServiceType = (string)$xml->labelAdditionForMachineServiceType;
 		if(count($xml->labelAdditionForHumanServiceType))
 			$this->labelAdditionForHumanServiceType = (string)$xml->labelAdditionForHumanServiceType;
+		if(count($xml->labelAdditionForHybridServiceType))
+			$this->labelAdditionForHybridServiceType = (string)$xml->labelAdditionForHybridServiceType;
 		if(count($xml->contentDeletionPolicy))
 			$this->contentDeletionPolicy = (int)$xml->contentDeletionPolicy;
 		if(count($xml->rules))
@@ -184,6 +190,12 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 	 * 
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
+	public $enableHybridModeration = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
 	public $autoDisplayMachineCaptionsOnPlayer = null;
 
 	/**
@@ -191,6 +203,12 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 	 * @var \Kaltura\Client\Enum\NullableBoolean
 	 */
 	public $autoDisplayHumanCaptionsOnPlayer = null;
+
+	/**
+	 * 
+	 * @var \Kaltura\Client\Enum\NullableBoolean
+	 */
+	public $autoDisplayHybridCaptionsOnPlayer = null;
 
 	/**
 	 * 
@@ -233,6 +251,12 @@ class ReachProfile extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $labelAdditionForHumanServiceType = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $labelAdditionForHybridServiceType = null;
 
 	/**
 	 * 

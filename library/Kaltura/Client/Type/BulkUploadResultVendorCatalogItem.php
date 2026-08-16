@@ -87,6 +87,8 @@ class BulkUploadResultVendorCatalogItem extends \Kaltura\Client\Type\BulkUploadR
 			$this->flavorParamsId = (int)$xml->flavorParamsId;
 		if(count($xml->clearAudioFlavorParamsId))
 			$this->clearAudioFlavorParamsId = (int)$xml->clearAudioFlavorParamsId;
+		if(count($xml->vendorData))
+			$this->vendorData = (string)$xml->vendorData;
 	}
 	/**
 	 * 
@@ -183,5 +185,11 @@ class BulkUploadResultVendorCatalogItem extends \Kaltura\Client\Type\BulkUploadR
 	 * @var int
 	 */
 	public $clearAudioFlavorParamsId = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $vendorData = null;
 
 }
