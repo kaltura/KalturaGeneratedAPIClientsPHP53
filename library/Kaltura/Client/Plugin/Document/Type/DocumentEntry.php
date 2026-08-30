@@ -54,6 +54,8 @@ class DocumentEntry extends \Kaltura\Client\Type\BaseEntry
 			$this->documentType = (int)$xml->documentType;
 		if(count($xml->assetParamsIds))
 			$this->assetParamsIds = (string)$xml->assetParamsIds;
+		if(count($xml->views))
+			$this->views = (int)$xml->views;
 	}
 	/**
 	 * The type of the document
@@ -68,5 +70,12 @@ class DocumentEntry extends \Kaltura\Client\Type\BaseEntry
 	 * @readonly
 	 */
 	public $assetParamsIds = null;
+
+	/**
+	 * Number of views
+	 * @var int
+	 * @readonly
+	 */
+	public $views = null;
 
 }

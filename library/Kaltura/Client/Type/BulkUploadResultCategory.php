@@ -83,6 +83,8 @@ class BulkUploadResultCategory extends \Kaltura\Client\Type\BulkUploadResult
 			else
 				$this->moderation = false;
 		}
+		if(count($xml->adminTags))
+			$this->adminTags = (string)$xml->adminTags;
 	}
 	/**
 	 * 
@@ -167,5 +169,11 @@ class BulkUploadResultCategory extends \Kaltura\Client\Type\BulkUploadResult
 	 * @var bool
 	 */
 	public $moderation = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $adminTags = null;
 
 }
