@@ -53,6 +53,11 @@ class DrmPlugin extends \Kaltura\Client\Plugin
 	 */
 	protected $drmLicenseAccess = null;
 
+	/**
+	 * @var Service\KeyManagementPolicyService
+	 */
+	protected $keyManagementPolicy = null;
+
 	protected function __construct(\Kaltura\Client\Client $client)
 	{
 		parent::__construct($client);
@@ -75,6 +80,7 @@ class DrmPlugin extends \Kaltura\Client\Plugin
 			'drmPolicy' => $this->getDrmPolicyService(),
 			'drmProfile' => $this->getDrmProfileService(),
 			'drmLicenseAccess' => $this->getDrmLicenseAccessService(),
+			'keyManagementPolicy' => $this->getKeyManagementPolicyService(),
 		);
 		return $services;
 	}
@@ -112,6 +118,15 @@ class DrmPlugin extends \Kaltura\Client\Plugin
 		if (is_null($this->drmLicenseAccess))
 			$this->drmLicenseAccess = new Service\DrmLicenseAccessService($this->_client);
 		return $this->drmLicenseAccess;
+	}
+	/**
+	 * @return \Kaltura\Client\Plugin\Drm\Service\KeyManagementPolicyService
+	 */
+	public function getKeyManagementPolicyService()
+	{
+		if (is_null($this->keyManagementPolicy))
+			$this->keyManagementPolicy = new Service\KeyManagementPolicyService($this->_client);
+		return $this->keyManagementPolicy;
 	}
 }
 
