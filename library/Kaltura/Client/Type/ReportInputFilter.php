@@ -175,6 +175,8 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 		}
 		if(count($xml->streamTypeIn))
 			$this->streamTypeIn = (string)$xml->streamTypeIn;
+		if(count($xml->reachCatalogItemIdIn))
+			$this->reachCatalogItemIdIn = (string)$xml->reachCatalogItemIdIn;
 	}
 	/**
 	 * Search keywords to filter objects
@@ -505,5 +507,11 @@ class ReportInputFilter extends \Kaltura\Client\Type\ReportInputBaseFilter
 	 * @var string
 	 */
 	public $streamTypeIn = null;
+
+	/**
+	 * filter by reach catalog item id
+	 * @var string
+	 */
+	public $reachCatalogItemIdIn = null;
 
 }

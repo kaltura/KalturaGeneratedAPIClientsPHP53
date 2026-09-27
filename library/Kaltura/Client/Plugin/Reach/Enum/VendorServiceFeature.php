@@ -64,5 +64,6 @@ class VendorServiceFeature extends \Kaltura\Client\EnumBase
 	const LLM_MODELS = 24;
 	const IMMERSIVE_AGENT_EVAL = 25;
 	const IMMERSIVE_AGENT_PREVIEW = 26;
+	const VIDEO_GENERATION = 27;
 }
 

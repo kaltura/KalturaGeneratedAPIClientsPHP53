@@ -320,6 +320,8 @@ class Partner extends \Kaltura\Client\ObjectBase
 			else
 				$this->purifyImageContent = false;
 		}
+		if(count($xml->htmlPurifierAllowedTags))
+			$this->htmlPurifierAllowedTags = (string)$xml->htmlPurifierAllowedTags;
 		if(count($xml->fileTypeRestrictionEnabled))
 		{
 			if(!empty($xml->fileTypeRestrictionEnabled) && $xml->fileTypeRestrictionEnabled != 'false')
@@ -908,6 +910,12 @@ class Partner extends \Kaltura\Client\ObjectBase
 	 * @var bool
 	 */
 	public $purifyImageContent = null;
+
+	/**
+	 * 
+	 * @var string
+	 */
+	public $htmlPurifierAllowedTags = null;
 
 	/**
 	 * 
