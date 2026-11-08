@@ -76,6 +76,8 @@ class AppToken extends \Kaltura\Client\ObjectBase
 			$this->hashType = (string)$xml->hashType;
 		if(count($xml->description))
 			$this->description = (string)$xml->description;
+		if(count($xml->application))
+			$this->application = (string)$xml->application;
 	}
 	/**
 	 * The id of the application token
@@ -160,5 +162,11 @@ class AppToken extends \Kaltura\Client\ObjectBase
 	 * @var string
 	 */
 	public $description = null;
+
+	/**
+	 * The name of the application that the token was created for
+	 * @var string
+	 */
+	public $application = null;
 
 }

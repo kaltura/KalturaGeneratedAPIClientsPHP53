@@ -1172,6 +1172,7 @@ class TypeMap
 		'KalturaVerizonVcastDistributionProfile' => 'Kaltura\Client\Plugin\VerizonVcastDistribution\Type\VerizonVcastDistributionProfile',
 		'KalturaVirtualEventFilter' => 'Kaltura\Client\Plugin\VirtualEvent\Type\VirtualEventFilter',
 		'KalturaVirusScanProfileFilter' => 'Kaltura\Client\Plugin\VirusScan\Type\VirusScanProfileFilter',
+		'KalturaVisualDescriptionVendorTaskData' => 'Kaltura\Client\Plugin\Reach\Type\VisualDescriptionVendorTaskData',
 		'KalturaVodScheduleEvent' => 'Kaltura\Client\Plugin\Schedule\Type\VodScheduleEvent',
 		'KalturaWebexDropFolderContentProcessorJobData' => 'Kaltura\Client\Plugin\WebexDropFolder\Type\WebexDropFolderContentProcessorJobData',
 		'KalturaWidevineFlavorAsset' => 'Kaltura\Client\Plugin\Widevine\Type\WidevineFlavorAsset',
